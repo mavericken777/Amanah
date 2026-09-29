@@ -1,0 +1,61 @@
+{
+  "artifact": "hitm-decision-class-registry.json",
+  "version": "0.1.0",
+  "control_date": "2026-09-20",
+  "classification": "post-freeze proposal",
+  "authority_effect": "none",
+  "principle": "Low AI confidence may escalate. High AI confidence must never remove a mandatory D5 or D6 gate.",
+  "default": "deny",
+  "classes": [
+    {
+      "id": "D0",
+      "name": "Encoded operational ingest",
+      "human_required": false,
+      "ai_may_execute": true
+    },
+    {
+      "id": "D1",
+      "name": "Encoded control execution",
+      "human_required": false,
+      "ai_may_execute": true
+    },
+    {
+      "id": "D2",
+      "name": "Machine assessment",
+      "human_required": false,
+      "ai_may_execute": true,
+      "creates_authority_decision": false
+    },
+    {
+      "id": "D3",
+      "name": "Finding / CAPA classification",
+      "human_required": true,
+      "ai_may_recommend_only": true
+    },
+    {
+      "id": "D4",
+      "name": "Trust fracture hold",
+      "auto_hold_allowed": true,
+      "auto_release_allowed": false,
+      "human_required_for_release": true
+    },
+    {
+      "id": "D5",
+      "name": "Authority-gate reserved",
+      "human_required": true,
+      "ai_may_execute": false
+    },
+    {
+      "id": "D6",
+      "name": "Sovereign / legal reserved",
+      "human_required": true,
+      "ai_may_execute": false
+    }
+  ],
+  "hard_rules": [
+    "NOT DETECTED != HALAL",
+    "Assessment objects are never E5",
+    "Operational release is never certification",
+    "Undefined policy result is deny"
+  ]
+}
