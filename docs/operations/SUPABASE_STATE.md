@@ -10,7 +10,7 @@ Verified: 2026-09-29
 - Status: ACTIVE_HEALTHY
 - PostgreSQL: 17.6
 
-## Database
+## Live schema
 
 The live project contains the Amanah core and platform-extension schema.
 
@@ -42,28 +42,25 @@ Platform extensions include:
 - approvals
 - saved views
 
-## Security controls
+## Security
 
-- Public tables have Row Level Security enabled.
+- Public operational tables use Row Level Security.
 - Authorization is organization-scoped.
-- Cross-organization project references are constrained at database level.
-- Privileged database helper and trigger functions live in the private schema.
-- Anonymous EXECUTE is not granted on those functions.
-- Authenticated execution is only granted to the two RLS lookup helpers.
-- The document bucket is private.
-- Document storage policies are organization/role scoped.
-- Audit triggers capture material record changes.
+- Project references have same-organization composite constraints.
+- Privileged trigger/helper functions live in the private schema.
+- Anonymous execution is disabled for privileged helper functions.
+- The document bucket amanah-documents is private and role/workspace scoped.
+- Material operational changes are captured in audit events.
+- Approval requester and approver are constrained to workspace members.
 
 ## Verification
 
-Supabase security advisors: no findings.
+Supabase security advisors: no findings after hardening.
 
-Performance advisor output: informational unused-index notices remain because the project is new and has no representative production workload. Duplicate-index warnings were removed.
+Performance advisor output: informational unused-index notices remain on the new project because it has no representative production workload. RLS initialization and duplicate-index warnings were remediated.
 
 ## Application binding
 
-The Next.js application uses the generated database types stored at:
+Generated database types are stored in lib/database.types.ts.
 
-lib/database.types.ts
-
-The environment template points to the live project URL. A publishable key must be supplied through the deployment environment; secrets are not committed to GitHub.
+The application environment template points to the live project URL. No service-role key is committed.
