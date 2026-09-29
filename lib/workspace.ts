@@ -1,5 +1,11 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 
+type WorkspaceMembership = {
+  organization_id: string;
+  role: string;
+  organizations: { id: string; name: string } | null;
+};
+
 export async function getPrimaryWorkspace(
   supabase: SupabaseClient,
   userId: string,
@@ -11,15 +17,12 @@ export async function getPrimaryWorkspace(
     .order("created_at", { ascending: true })
     .limit(1);
 
-  const membership = data?.[0];
-  if (!membership) return null;
+  const membership = data?.[0] as WorkspaceMembership | undefined;
+  if (!membership?.organizations) return null;
 
-  const organizations = membership.organizations as
-    | Array<{ id: string; name: string }>
-    | null;
-  const organization = organizations?.[0];
-
-  return organization
-    ? { id: organization.id, name: organization.name, role: membership.role }
-    : null;
+  return {
+    id: membership.organizations.id,
+    name: membership.organizations.name,
+    role: membership.role,
+  };
 }
