@@ -1,38 +1,72 @@
-# Amanah — China Trip Project
+# Amanah
 
-Amanah is the central project workspace for the China trip. It gives Mr and the team one current source of truth for planning, coordination, decisions, documents, and status updates.
+Amanah is a modular operational platform designed to give teams one controlled source of truth for projects, actions, meetings, documents, decisions, risks, finance, updates and domain-specific workflows.
+
+The original China Trip Markdown workspace is preserved in this repository and is now treated as the first business-requirements source for the Travel / China Trip module.
+
+## Current build
+
+This repository contains the Amanah v1 technical foundation:
+
+- Next.js 16 App Router
+- React 19.2
+- TypeScript strict mode
+- Supabase Auth and Postgres
+- Row Level Security
+- Organization/member/role model
+- Projects
+- Tasks and action register
+- Audit trail
+- China Trip domain schema
+- CI workflow
+- Architecture and delivery documentation
 
 ## Start here
 
-1. Read PROJECT_OVERVIEW.md.
-2. Use ACTION_ITEMS.md for outstanding work.
-3. Use UPDATES.md for dated progress.
-4. Use DECISIONS.md for material decisions.
-5. Use RISK_REGISTER.md for active risks.
-6. Put permanent information in the relevant document rather than leaving it only in chat.
+1. Read SETUP.md.
+2. Read docs/architecture/PLATFORM_ARCHITECTURE.md.
+3. Read docs/requirements/REQUIREMENTS_TRACEABILITY.md.
+4. Read docs/DELIVERY_PLAN.md.
+5. Keep the original planning Markdown files as the business requirements baseline.
 
-## Project areas
+## Platform structure
 
-| Area | Document |
-|---|---|
-| Scope and objectives | PROJECT_OVERVIEW.md |
-| Schedule | ITINERARY.md |
-| People and responsibilities | TEAM_AND_RESPONSIBILITIES.md |
-| Travel and movement | LOGISTICS.md |
-| Accommodation | ACCOMMODATION.md |
-| Meetings | MEETINGS.md |
-| Documents | DOCUMENTS_AND_COMPLIANCE.md |
-| Budget | BUDGET_AND_EXPENSES.md |
-| Risks | RISK_REGISTER.md |
-| Tasks | ACTION_ITEMS.md |
-| Decisions | DECISIONS.md |
-| Updates | UPDATES.md |
-| Change history | CHANGELOG.md |
-| Team usage | TEAM_GUIDE.md |
-| Security | SECURITY.md |
+Amanah
+  Core Platform
+    Identity
+    Organizations
+    Projects
+    Tasks
+    Meetings
+    Documents
+    Decisions
+    Risks
+    Finance
+    Updates
+    Notifications
+    Audit
 
-## Status
+  Domain Modules
+    Travel / China Trip
+      Travellers
+      Itinerary
+      Logistics
+      Accommodation
+      Travel Documents
+      Trip Finance
 
-Project status: Setup in progress
-Destination: China
-Current phase: Setup
+## Important security rule
+
+This repository is not a secret store.
+
+Never commit passwords, API keys, tokens, recovery codes, identity documents, payment-card data, private authentication links or confidential material that has not been approved for source control.
+
+## Development branch
+
+The implementation is being developed on:
+
+build/amanah-platform-v1
+
+The original requirements workspace remains on:
+
+setup/china-trip-project
