@@ -14,9 +14,10 @@ export async function getPrimaryWorkspace(
   const membership = data?.[0];
   if (!membership) return null;
 
-  const organization = membership.organizations as
-    | { id: string; name: string }
-    | undefined;
+  const organizations = membership.organizations as
+    | Array<{ id: string; name: string }>
+    | null;
+  const organization = organizations?.[0];
 
   return organization
     ? { id: organization.id, name: organization.name, role: membership.role }
