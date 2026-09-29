@@ -1,6 +1,7 @@
 "use client";
 
 import { createClient } from "@/lib/supabase/client";
+import type { Database } from "@/lib/database.types";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -9,30 +10,39 @@ type FormProps = {
   projectId?: string;
 };
 
-function useInsert(table: string, base: Record<string, unknown>, onDone?: () => void) {
+type Tables = Database["public"]["Tables"];
+type TableName = keyof Tables;
+
+function useInsert<T extends TableName>(
+  table: T,
+  base: Tables[T]["Insert"],
+  onDone?: () => void,
+) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
-  async function insert(extra: Record<string, unknown>) {
+  async function insert(extra: Partial<Tables[T]["Insert"]>) {
     setBusy(true);
     setError("");
     const supabase = createClient();
-    const { error: insertError } = await supabase.from(table).insert({ ...base, ...extra });
+    const payload = { ...base, ...extra } as Tables[T]["Insert"];
+    const { error: insertError } = await supabase.from(table).insert(payload);
+
     if (insertError) {
       setError(insertError.message);
       setBusy(false);
       return false;
     }
+
     onDone?.();
     router.refresh();
     setBusy(false);
     return true;
   }
 
-  return { insert, busy, error };
+  return { insert, busy, error, setError };
 }
-
 export function CreateMeetingForm({ organizationId, projectId }: Required<FormProps>) {
   const [organisationOrPerson, setOrganisationOrPerson] = useState("");
   const [city, setCity] = useState("");
