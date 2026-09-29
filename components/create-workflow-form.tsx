@@ -1,6 +1,7 @@
 "use client";
 
 import { createClient } from "@/lib/supabase/client";
+import type { Json } from "@/lib/database.types";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -16,9 +17,9 @@ export function CreateWorkflowForm({ organizationId }: { organizationId: string 
     event.preventDefault();
     setError("");
 
-    let parsed: unknown;
+    let parsed: Json;
     try {
-      parsed = JSON.parse(definition);
+      parsed = JSON.parse(definition) as Json;
     } catch {
       setError("Workflow definition must be valid JSON.");
       return;
