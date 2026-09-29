@@ -2,7 +2,7 @@
   "name": "amanah-platform",
   "version": "0.1.0",
   "private": true,
-  "description": "Amanah - modular operational project management platform.",
+  "description": "Amanah operational application layer for the Amanah Halal Trust Ecosystem (AHTE).",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,7 +13,7 @@
   "engines": { "node": ">=22.18.0" },
   "dependencies": {
     "@supabase/ssr": "0.12.7",
-    "@supabase/supabase-js": "^2.114.0",
+    "@supabase/supabase-js": "2.114.0",
     "next": "16.3.6",
     "react": "19.2.0",
     "react-dom": "19.2.0"
