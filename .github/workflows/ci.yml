@@ -46,9 +46,52 @@ jobs:
       - run: deno check --node-modules-dir=auto supabase/functions/public-verify/index.ts
       - run: deno check --node-modules-dir=auto supabase/functions/ghscl-site/index.ts
 
+  canonical-reference:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: open-policy-agent/setup-opa@v2
+        with:
+          version: 0.68.0
+      - name: Verify mirrored OPA policies
+        run: |
+          opa test -v reference-runtime/policies/
+          opa test -v reference-runtime/platform/policies/
+      - name: Install reference runtime dependencies
+        run: pip install -r reference-runtime/gateway/requirements.txt
+      - name: Run reference engine and unit guards
+        run: |
+          cd reference-runtime
+          python engine/verify_system.py
+          pytest -q tests/test_edge_and_fsm.py tests/test_gateway_guards.py
+      - name: Start mirrored OPA service
+        run: |
+          opa run --server --addr=127.0.0.1:8181 reference-runtime/policies >/tmp/opa.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -sf http://127.0.0.1:8181/health >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/opa.log
+          exit 1
+      - name: Run reference end-to-end pipeline
+        env:
+          REQUIRE_OPA: "1"
+          OPA_URL: http://127.0.0.1:8181/v1/data/halal/compliance
+        run: |
+          cd reference-runtime
+          pytest -q tests/e2e/test_shipment_pipeline.py
+      - name: Run corrected FastAPI reference platform tests
+        run: |
+          pip install -r reference-runtime/platform/requirements.txt
+          cd reference-runtime/platform
+          pytest -q
+
   build:
     runs-on: ubuntu-latest
-    needs: [typecheck, test, edge-functions]
+    needs: [typecheck, test, edge-functions, canonical-reference]
     env:
       NEXT_PUBLIC_SUPABASE_URL: https://lqvyyylrydcpjochknag.supabase.co
       NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: sb_publishable_ci_placeholder
