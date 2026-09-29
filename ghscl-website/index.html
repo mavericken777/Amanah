@@ -3,304 +3,172 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="description" content="Global Halal Supply Chain Ltd HK — trusted trade infrastructure for evidence-led Halal and Tayyib supply chains.">
-  <meta name="theme-color" content="#06110e">
-  <title>Global Halal Supply Chain Ltd HK | Trusted Trade Infrastructure</title>
+  <meta name="description" content="Global Halal Supply Chain Limited — evidence-led digital trust infrastructure for cross-border Halal trade.">
+  <meta name="theme-color" content="#050505">
+  <title>Global Halal Supply Chain Limited | Trust Infrastructure</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter+Tight:wght@300;400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="scroll-progress" id="scrollProgress"></div>
-  <header class="site-header" id="siteHeader">
-    <div class="shell nav-shell">
-      <a class="brand" href="#top" aria-label="Global Halal Supply Chain home">
-        <span class="brand-seal" aria-hidden="true"><span>GH</span></span>
-        <span class="brand-copy">
-          <strong>Global Halal Supply Chain Ltd HK</strong>
-          <small>Trust infrastructure for global trade</small>
-        </span>
-      </a>
-      <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#architecture">Architecture</a>
-        <a href="#fabric">Trust Fabric</a>
-        <a href="#platinum">Platinum</a>
-        <a href="#corridor">China → GCC</a>
-        <a href="#stakeholders">Stakeholders</a>
-      </nav>
-      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle navigation"><span></span><span></span></button>
-    </div>
-    <div class="mobile-nav" id="mobileNav">
-      <a href="#architecture">Architecture</a><a href="#fabric">Trust Fabric</a><a href="#platinum">Platinum</a><a href="#corridor">China → GCC</a><a href="#stakeholders">Stakeholders</a>
-    </div>
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot-mark"><span>G</span><i></i><span>H</span></div>
+    <p>GLOBAL HALAL SUPPLY CHAIN LIMITED</p>
+  </div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-aura" id="cursorAura" aria-hidden="true"></div>
+  <div class="page-progress" id="pageProgress"></div>
+
+  <header class="nav" id="nav">
+    <a class="identity" href="#top" aria-label="Global Halal Supply Chain Limited home">
+      <svg class="identity-mark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 25h24M24 12v24M16 16l16 16M32 16L16 32"/></svg>
+      <span><b>GHSCL</b><small>GLOBAL HALAL SUPPLY CHAIN LIMITED · HONG KONG</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#system">System</a><a href="#intelligence">Intelligence</a><a href="#monitoring">Monitoring</a><a href="#corridor">Corridor</a><a href="#stakeholders">Stakeholders</a>
+    </nav>
+    <button class="menu" id="menu" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
   </header>
+  <div class="mobile-nav" id="mobileNav"><a href="#system">System</a><a href="#intelligence">Intelligence</a><a href="#monitoring">Monitoring</a><a href="#corridor">Corridor</a><a href="#stakeholders">Stakeholders</a></div>
 
   <main id="top">
-    <section class="hero section-black">
-      <canvas id="trustCanvas" aria-hidden="true"></canvas>
-      <div class="hero-grid-overlay" aria-hidden="true"></div>
-      <div class="shell hero-shell">
-        <div class="hero-copy reveal">
-          <div class="eyebrow"><span class="pulse-dot"></span> GLOBAL HALAL DIGITAL TRUST</div>
-          <h1>Trust infrastructure<br><em>for global Halal trade.</em></h1>
-          <p class="hero-lede">Evidence, controls, human authority and physical supply-chain events connected into one auditable trust fabric — from source to operational release.</p>
-          <blockquote>“Data stays where it belongs. Trust travels.”</blockquote>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#architecture">Explore the architecture <span>↘</span></a>
-            <a class="btn btn-text" href="https://github.com/mavericken777/GlobalHalalDigitalTrust" target="_blank" rel="noreferrer">Technical source ↗</a>
-          </div>
+    <section class="hero">
+      <canvas id="worldCanvas" aria-hidden="true"></canvas>
+      <div class="hero-noise"></div>
+      <div class="hero-frame">
+        <div class="hero-meta"><span>HK / GLOBAL</span><span>TRUST INFRASTRUCTURE</span><span>EST. 2026</span></div>
+        <div class="hero-copy">
+          <p class="eyebrow">GLOBAL HALAL SUPPLY CHAIN LIMITED</p>
+          <h1><span>Data stays</span><span>where it belongs.</span><em>Trust travels.</em></h1>
+          <p class="hero-sub">Building an evidence-led operating layer for cross-border Halal supply chains — connecting source integrity, controls, laboratory evidence, custody, human determination and operational release.</p>
+          <div class="hero-actions"><a class="primary-link magnetic" href="#system">Enter the system <b>↘</b></a><a class="quiet-link" href="https://github.com/mavericken777/GlobalHalalDigitalTrust" target="_blank" rel="noreferrer">Technical source ↗</a></div>
         </div>
-
-        <div class="hero-console reveal delay-1" aria-label="Trust architecture overview">
-          <div class="console-top"><span>AMANAH / TRUST CONTROL PLANE</span><span class="online"><i></i> ARCHITECTURE ONLINE</span></div>
-          <div class="console-orbit">
-            <div class="orbit orbit-1"></div><div class="orbit orbit-2"></div><div class="orbit orbit-3"></div>
-            <div class="core-mark"><span>TRUST</span><strong>STATE</strong></div>
-            <button class="orbit-node on n-auth" data-tooltip="Authority Gate">AUTH</button>
-            <button class="orbit-node n-evidence" data-tooltip="Evidence Fabric">EVIDENCE</button>
-            <button class="orbit-node n-hitm" data-tooltip="Human-in-the-Middle">HITM</button>
-            <button class="orbit-node n-custody" data-tooltip="Custody Chain">CUSTODY</button>
-            <button class="orbit-node n-lab" data-tooltip="Laboratory Evidence">LAB</button>
-            <button class="orbit-node n-release" data-tooltip="Operational Release">RELEASE</button>
-          </div>
-          <div class="console-foot">
-            <div><small>OPERATING CATALOGUE</small><strong>17</strong><span>standards</span></div>
-            <div><small>CONTROL CHAIN</small><strong>14</strong><span>canonical stages</span></div>
-            <div><small>DECISION MODEL</small><strong>HITM</strong><span>human authority</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-rail shell" aria-hidden="true"><span>01</span><div></div><span>TRUST · EVIDENCE · TRADE</span></div>
-    </section>
-
-    <section class="statement-band">
-      <div class="shell statement-grid">
-        <p class="statement-big reveal">A digital trust layer should not ask the world to accept a score. It should make the <em>evidence, controls, custody and authority path</em> inspectable.</p>
-        <div class="statement-rule reveal delay-1">
-          <span>CORE PRINCIPLE</span>
-          <strong>NOT DETECTED ≠ HALAL</strong>
-          <p>Absence of a detected problem is not a certification decision. Evidence remains subordinate to competent authority and human determination.</p>
-        </div>
+        <div class="hero-orbit" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="orb o4"></span><span class="orbit-label l1">AUTHORITY</span><span class="orbit-label l2">EVIDENCE</span><span class="orbit-label l3">CUSTODY</span><span class="orbit-label l4">TRUST STATE</span></div>
+        <div class="hero-index"><span>01</span><div></div><strong>TRUST / EVIDENCE / TRADE</strong></div>
       </div>
     </section>
 
-    <section id="architecture" class="section architecture-section">
+    <section class="manifesto">
+      <div class="shell manifesto-grid reveal">
+        <p class="mega-copy">The future of Halal trade is not another badge, another database or another score.</p>
+        <div class="manifesto-side"><span class="label">THE PRINCIPLE</span><h2>Make the evidence chain inspectable.</h2><p>Authority remains with competent institutions. Technology makes the path from requirement to evidence, review, trust state and release visible, auditable and difficult to falsify.</p><div class="principle-line"><b>NOT DETECTED</b><i>≠</i><b>HALAL</b></div></div>
+      </div>
+    </section>
+
+    <section id="system" class="system section-light">
       <div class="shell">
-        <div class="section-heading reveal">
-          <div><span class="section-index">01 / ARCHITECTURE</span><h2>The control chain<br>behind every trust state.</h2></div>
-          <p>Click through the canonical path. Every stage leaves a trace; no downstream score can silently erase a failed upstream gate.</p>
-        </div>
-
-        <div class="architecture-explorer reveal delay-1">
-          <div class="architecture-steps" id="architectureSteps" role="tablist" aria-label="Canonical control chain">
-            <button class="arch-step active" data-step="0"><span>01</span><b>Authority</b></button>
-            <button class="arch-step" data-step="1"><span>02</span><b>Standard</b></button>
-            <button class="arch-step" data-step="2"><span>03</span><b>Requirement</b></button>
-            <button class="arch-step" data-step="3"><span>04</span><b>Applicability</b></button>
-            <button class="arch-step" data-step="4"><span>05</span><b>Control</b></button>
-            <button class="arch-step" data-step="5"><span>06</span><b>HCP / SCCP</b></button>
-            <button class="arch-step" data-step="6"><span>07</span><b>Evidence</b></button>
-            <button class="arch-step" data-step="7"><span>08</span><b>Audit Test</b></button>
-            <button class="arch-step" data-step="8"><span>09</span><b>Finding</b></button>
-            <button class="arch-step" data-step="9"><span>10</span><b>Corrective Action</b></button>
-            <button class="arch-step" data-step="10"><span>11</span><b>Re-verification</b></button>
-            <button class="arch-step" data-step="11"><span>12</span><b>Authority Gate</b></button>
-            <button class="arch-step" data-step="12"><span>13</span><b>Trust State</b></button>
-            <button class="arch-step" data-step="13"><span>14</span><b>Operational Release</b></button>
+        <div class="section-intro reveal"><span class="kicker">01 / OPERATING SYSTEM</span><div><h2>One canonical path.<br>Fourteen accountable stages.</h2><p>Every stage is explicit. Every handoff is traceable. A failed hard gate cannot be hidden by a stronger score elsewhere.</p></div></div>
+        <div class="system-stage reveal" id="systemStage">
+          <div class="path-rail" id="pathRail" role="tablist" aria-label="Canonical path">
+            <button class="path-node active" data-step="0"><span>01</span>Authority</button>
+            <button class="path-node" data-step="1"><span>02</span>Standard</button>
+            <button class="path-node" data-step="2"><span>03</span>Requirement</button>
+            <button class="path-node" data-step="3"><span>04</span>Applicability</button>
+            <button class="path-node" data-step="4"><span>05</span>Control</button>
+            <button class="path-node" data-step="5"><span>06</span>HCP / SCCP</button>
+            <button class="path-node" data-step="6"><span>07</span>Evidence</button>
+            <button class="path-node" data-step="7"><span>08</span>Audit Test</button>
+            <button class="path-node" data-step="8"><span>09</span>Finding</button>
+            <button class="path-node" data-step="9"><span>10</span>Corrective Action</button>
+            <button class="path-node" data-step="10"><span>11</span>Re-verification</button>
+            <button class="path-node" data-step="11"><span>12</span>Authority Gate</button>
+            <button class="path-node" data-step="12"><span>13</span>Trust State</button>
+            <button class="path-node" data-step="13"><span>14</span>Operational Release</button>
           </div>
-          <div class="architecture-detail">
-            <div class="detail-number" id="detailNumber">01</div>
-            <div>
-              <span class="mono-label" id="detailLabel">SOURCE OF LEGITIMACY</span>
-              <h3 id="detailTitle">Authority</h3>
-              <p id="detailText">The control path begins with the competent authority or destination requirement. The platform records the authority boundary; it does not replace it.</p>
-            </div>
-            <div class="detail-signal"><span></span><span></span><span></span><span></span></div>
+          <div class="path-visual">
+            <div class="path-scan"></div><div class="path-grid"></div>
+            <div class="path-number" id="pathNumber">01</div>
+            <span class="path-label" id="pathLabel">SOURCE OF LEGITIMACY</span>
+            <h3 id="pathTitle">Authority</h3>
+            <p id="pathText">The chain begins with the competent authority or destination requirement. The platform records the authority boundary; it never substitutes for it.</p>
+            <div class="path-status"><span></span><b id="pathStatus">BOUNDARY ANCHORED</b></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="fabric" class="section fabric-section section-dark">
+    <section id="intelligence" class="intelligence section-black">
       <div class="shell">
-        <div class="section-heading light reveal">
-          <div><span class="section-index">02 / TRUST FABRIC</span><h2>One operating graph.<br>Many independent actors.</h2></div>
-          <p>Manufacturers, labs, logistics operators, ports, importers and authorities remain independent. The trust fabric connects their evidence without pretending they are one system.</p>
-        </div>
-
-        <div class="fabric-layout">
-          <div class="fabric-map reveal" id="fabricMap">
-            <svg viewBox="0 0 700 540" role="img" aria-label="Digital trust fabric linking supply-chain actors">
-              <defs>
-                <linearGradient id="lineGrad" x1="0" x2="1"><stop offset="0" stop-color="#4de3b0"/><stop offset="1" stop-color="#d9b96f"/></linearGradient>
-                <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-              </defs>
-              <g class="fabric-lines">
-                <path d="M110 120 C260 80 330 150 350 270"/><path d="M585 105 C455 100 390 175 350 270"/><path d="M100 420 C245 440 310 355 350 270"/><path d="M600 415 C470 430 400 350 350 270"/><path d="M350 70 C350 145 350 200 350 270"/><path d="M350 470 C350 395 350 330 350 270"/>
-              </g>
-              <g class="fabric-nodes">
-                <g transform="translate(60,80)"><circle r="42"/><text y="-3">FACTORY</text><text y="14" class="sub">IDENTITY</text></g>
-                <g transform="translate(620,75)"><circle r="42"/><text y="-3">LAB</text><text y="14" class="sub">EVIDENCE</text></g>
-                <g transform="translate(55,440)"><circle r="42"/><text y="-3">LOGISTICS</text><text y="14" class="sub">CUSTODY</text></g>
-                <g transform="translate(630,440)"><circle r="42"/><text y="-3">GCC</text><text y="14" class="sub">DESTINATION</text></g>
-                <g transform="translate(350,45)"><circle r="42"/><text y="-3">STANDARD</text><text y="14" class="sub">CONTROL</text></g>
-                <g transform="translate(350,495)"><circle r="42"/><text y="-3">HUMAN</text><text y="14" class="sub">AUTHORITY</text></g>
-              </g>
-              <g class="fabric-core" transform="translate(350,270)"><circle r="88"/><circle r="68"/><text y="-10">AMANAH</text><text y="14">TRUST FABRIC</text><text y="38" class="sub">EVIDENCE → STATE</text></g>
-            </svg>
-            <div class="fabric-caption"><span class="live-dot"></span> Evidence moves as verifiable references, not as authority substitution.</div>
-          </div>
-
-          <div class="fabric-stack reveal delay-1">
-            <article class="stack-card active" data-stack="source"><span>01</span><div><h3>Source integrity</h3><p>Authority, standards, clauses and requirement locators remain versioned and source-bound.</p></div></article>
-            <article class="stack-card" data-stack="evidence"><span>02</span><div><h3>Evidence fabric</h3><p>Hashes, provenance, audit tests, findings, CAPA and re-verification are linked to the object they support.</p></div></article>
-            <article class="stack-card" data-stack="human"><span>03</span><div><h3>Human authority</h3><p>AI can assess and prioritize. Reserved determinations stay with accountable humans and competent authorities.</p></div></article>
-            <article class="stack-card" data-stack="trade"><span>04</span><div><h3>Trade execution</h3><p>Batch, shipment, custody, border and receiving events are bound into an auditable physical-digital chain.</p></div></article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section twin-section">
-      <div class="shell twin-grid">
-        <div class="twin-copy reveal">
-          <span class="section-index">03 / DIGITAL AUDIT TWIN</span>
-          <h2>The physical operation becomes an inspectable digital evidence model.</h2>
-          <p>Facility, zone, process, material, formula, product, batch, shipment and custody events can be bound into a single traceable graph.</p>
-          <div class="twin-tabs" id="twinTabs">
-            <button class="active" data-twin="facility">Facility</button><button data-twin="materials">Materials</button><button data-twin="laboratory">Laboratory</button><button data-twin="custody">Custody</button><button data-twin="release">Release</button>
-          </div>
-          <div class="twin-detail" id="twinDetail">
-            <small>FACILITY LAYER</small>
-            <strong>Identity → zones → process controls</strong>
-            <p>Digital structure mirrors the real operating environment so evidence can be attached to the correct control point rather than stored as isolated files.</p>
-          </div>
-        </div>
-        <div class="twin-visual reveal delay-1" aria-label="Digital Audit Twin illustrative interface">
-          <div class="twin-toolbar"><span>DAT / LIVE MODEL</span><span>ILLUSTRATIVE INTERFACE</span></div>
-          <div class="twin-scene">
-            <div class="floor-grid"></div>
-            <div class="warehouse-shape"><i></i><i></i><i></i><i></i></div>
-            <div class="twin-beacon b1"><span></span><label>ZONE A</label></div>
-            <div class="twin-beacon b2"><span></span><label>PROCESS 04</label></div>
-            <div class="twin-beacon b3"><span></span><label>LOT 27</label></div>
-            <div class="twin-beacon b4"><span></span><label>HCP-03</label></div>
-          </div>
-          <div class="twin-metrics"><div><span>CONTROL BINDINGS</span><b>ACTIVE</b></div><div><span>EVIDENCE GRAPH</span><b>TRACEABLE</b></div><div><span>AUTHORITY MODE</span><b>HITM</b></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="platinum" class="section platinum-section section-black">
-      <div class="shell">
-        <div class="section-heading light reveal">
-          <div><span class="section-index gold">04 / PLATINUM REAL-TIME MONITORING</span><h2>Continuous assurance.<br>Immediate exception visibility.</h2></div>
-          <p>Telemetry can strengthen evidence, but it never creates certification. Platinum monitoring exists to detect trust fractures early and route them into hold, review and re-verification.</p>
-        </div>
-
-        <div class="monitor-grid reveal delay-1">
-          <div class="monitor-main">
-            <div class="monitor-head"><div><span class="status-pill">ILLUSTRATIVE</span><strong>Shipment telemetry / trust console</strong></div><span class="mono-label">UTC+08:00</span></div>
-            <div class="signal-chart" id="signalChart">
-              <div class="chart-grid"></div>
-              <svg viewBox="0 0 900 260" preserveAspectRatio="none" aria-hidden="true"><path class="chart-fill" d="M0,190 C80,160 120,180 180,145 S280,110 340,135 S450,185 520,120 S650,60 720,85 S820,135 900,55 L900,260 L0,260 Z"/><path class="chart-line" d="M0,190 C80,160 120,180 180,145 S280,110 340,135 S450,185 520,120 S650,60 720,85 S820,135 900,55"/></svg>
-              <span class="chart-label l1">CUSTODY</span><span class="chart-label l2">SEAL</span><span class="chart-label l3">GEOFENCE</span><span class="chart-label l4">TEMP</span>
-            </div>
-            <div class="monitor-events">
-              <div><span>00:04:18</span><i class="ok"></i><b>Custody event</b><em>signed</em></div>
-              <div><span>00:07:32</span><i class="ok"></i><b>Seal state</b><em>intact</em></div>
-              <div><span>00:11:05</span><i class="warn"></i><b>Threshold exception</b><em>route to review</em></div>
-              <div><span>00:11:06</span><i class="hold"></i><b>Trust fracture</b><em>AUTO-HOLD</em></div>
-            </div>
-          </div>
-          <aside class="monitor-side">
-            <div class="side-card"><span>FRACTURE LOGIC</span><h3>Detect → hold → scope → re-verify</h3><p>A failed critical gate is not compensated by a high score somewhere else.</p></div>
-            <div class="side-card ring-card"><div class="status-ring"><span>HOLD</span></div><div><small>RELEASE MODE</small><strong>Human-gated</strong><p>No silent auto-release after a critical fracture.</p></div></div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section id="corridor" class="section corridor-section">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <div><span class="section-index">05 / CHINA → GCC</span><h2>A corridor model built around evidence continuity.</h2></div>
-          <p>[PILOT] Shipment 001 is designated as the first live lot to evidence. The public architecture does not represent transaction evidence as completed until it exists.</p>
-        </div>
-
-        <div class="corridor-map reveal delay-1">
-          <svg viewBox="0 0 1200 420" aria-label="China to GCC direct trade corridor architecture">
-            <defs><linearGradient id="routeGrad" x1="0" x2="1"><stop offset="0" stop-color="#4de3b0"/><stop offset=".6" stop-color="#7fe8c4"/><stop offset="1" stop-color="#d7b56a"/></linearGradient></defs>
-            <path class="route-base" d="M120 250 C280 130 420 300 590 195 S900 85 1080 190"/>
-            <path class="route-live" d="M120 250 C280 130 420 300 590 195 S900 85 1080 190"/>
-            <g class="route-point" transform="translate(120,250)"><circle r="16"/><circle r="5"/><text y="-34">ORIGIN</text><text y="44" class="place">CHINA</text></g>
-            <g class="route-point" transform="translate(355,205)"><circle r="16"/><circle r="5"/><text y="-34">EVIDENCE</text><text y="44" class="place">LAB / FACTORY</text></g>
-            <g class="route-point" transform="translate(590,195)"><circle r="16"/><circle r="5"/><text y="-34">CUSTODY</text><text y="44" class="place">LOGISTICS</text></g>
-            <g class="route-point" transform="translate(835,125)"><circle r="16"/><circle r="5"/><text y="-34">GATEWAY</text><text y="44" class="place">PORT / BORDER</text></g>
-            <g class="route-point gold" transform="translate(1080,190)"><circle r="16"/><circle r="5"/><text y="-34">DESTINATION</text><text y="44" class="place">GCC</text></g>
+        <div class="section-intro inverse reveal"><span class="kicker gold">02 / TRUST INTELLIGENCE</span><div><h2>Not a dashboard.<br>An evidence graph.</h2><p>Each actor remains independent. The system binds source, evidence, physical events and human decisions into one inspectable operating graph.</p></div></div>
+        <div class="graph-stage reveal">
+          <svg class="graph-svg" viewBox="0 0 1000 650" role="img" aria-label="Trust intelligence graph">
+            <defs><linearGradient id="gLine" x1="0" x2="1"><stop offset="0" stop-color="#7df0c5"/><stop offset="1" stop-color="#bba16c"/></linearGradient><filter id="softGlow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+            <g class="graph-links"><path d="M180 110C360 90 420 230 500 320"/><path d="M820 110C650 100 590 220 500 320"/><path d="M120 500C310 520 400 390 500 320"/><path d="M870 500C690 510 590 390 500 320"/><path d="M500 70V320"/><path d="M500 575V320"/></g>
+            <g class="graph-node n-factory" transform="translate(180 110)"><circle r="52"/><text y="-5">FACTORY</text><text y="16" class="sub">IDENTITY</text></g>
+            <g class="graph-node n-lab" transform="translate(820 110)"><circle r="52"/><text y="-5">LAB</text><text y="16" class="sub">EVIDENCE</text></g>
+            <g class="graph-node n-logistics" transform="translate(120 500)"><circle r="52"/><text y="-5">LOGISTICS</text><text y="16" class="sub">CUSTODY</text></g>
+            <g class="graph-node n-destination" transform="translate(870 500)"><circle r="52"/><text y="-5">GCC</text><text y="16" class="sub">DESTINATION</text></g>
+            <g class="graph-node n-standard" transform="translate(500 70)"><circle r="52"/><text y="-5">STANDARD</text><text y="16" class="sub">CONTROL</text></g>
+            <g class="graph-node n-human" transform="translate(500 575)"><circle r="52"/><text y="-5">HUMAN</text><text y="16" class="sub">AUTHORITY</text></g>
+            <g class="graph-core" transform="translate(500 320)"><circle r="116"/><circle r="88"/><text y="-12">AMANAH</text><text y="16">TRUST FABRIC</text><text y="44" class="sub">EVIDENCE → STATE</text></g>
           </svg>
-          <div class="corridor-legend">
-            <div><span>01</span><strong>Origin identity</strong><p>Facility, product, batch and source evidence.</p></div>
-            <div><span>02</span><strong>Laboratory evidence</strong><p>Sample, method, result, scope and provenance.</p></div>
-            <div><span>03</span><strong>Chain of custody</strong><p>Signed movement events, seals and handovers.</p></div>
-            <div><span>04</span><strong>Destination gate</strong><p>Import requirements remain destination-authority controlled.</p></div>
-          </div>
+          <div class="graph-readout"><div><small>SOURCE INTEGRITY</small><strong>VERSIONED</strong></div><div><small>EVIDENCE PROVENANCE</small><strong>TRACEABLE</strong></div><div><small>DECISION MODEL</small><strong>HITM</strong></div><div><small>RELEASE MODE</small><strong>GATED</strong></div></div>
         </div>
       </div>
     </section>
 
-    <section id="stakeholders" class="section stakeholder-section section-dark">
+    <section class="twin section-ivory">
+      <div class="shell twin-layout">
+        <div class="twin-copy reveal"><span class="kicker">03 / DIGITAL AUDIT TWIN</span><h2>Turn the physical operation into an inspectable evidence model.</h2><p>Facility, zone, process, material, formula, batch, shipment and custody events can be bound into one digital lineage.</p><div class="twin-tabs" id="twinTabs"><button class="active" data-layer="facility">Facility</button><button data-layer="material">Materials</button><button data-layer="lab">Laboratory</button><button data-layer="custody">Custody</button><button data-layer="release">Release</button></div><div class="twin-copy-detail" id="twinCopyDetail"><span>FACILITY LAYER</span><strong>Identity → zones → process controls</strong><p>Evidence attaches to the real control point rather than disappearing into disconnected files.</p></div></div>
+        <div class="twin-machine reveal" aria-label="Illustrative Digital Audit Twin interface">
+          <div class="machine-top"><span>DAT / MODEL 001</span><span>ILLUSTRATIVE INTERFACE</span></div>
+          <div class="machine-space"><div class="floor"></div><div class="building"><i></i><i></i><i></i><i></i></div><span class="beacon b1"><i></i><b>ZONE A</b></span><span class="beacon b2"><i></i><b>HCP-03</b></span><span class="beacon b3"><i></i><b>LOT 27</b></span><span class="beacon b4"><i></i><b>PROCESS 04</b></span></div>
+          <div class="machine-bottom"><div><small>CONTROL BINDINGS</small><b>ACTIVE</b></div><div><small>EVIDENCE GRAPH</small><b>TRACEABLE</b></div><div><small>AUTHORITY MODE</small><b>HITM</b></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="monitoring" class="monitoring section-black">
       <div class="shell">
-        <div class="section-heading light reveal">
-          <div><span class="section-index">06 / STAKEHOLDERS</span><h2>Different actors.<br>One shared evidence language.</h2></div>
-          <p>Switch stakeholder views to see how the same trust fabric supports different responsibilities without collapsing authority boundaries.</p>
-        </div>
-        <div class="stakeholder-console reveal delay-1">
-          <div class="stakeholder-tabs" id="stakeholderTabs" role="tablist">
-            <button class="active" data-role="government">Government & Authority</button>
-            <button data-role="manufacturer">Manufacturers</button>
-            <button data-role="laboratory">Laboratories</button>
-            <button data-role="logistics">Logistics & Ports</button>
-            <button data-role="importer">Importers & Retail</button>
-          </div>
-          <div class="stakeholder-view" id="stakeholderView">
-            <div><span class="mono-label">GOVERNMENT & AUTHORITY</span><h3>Inspect the evidence path without surrendering decision authority.</h3><p>Source references, findings, CAPA, re-verification and authority gates are separated from AI assessment. Reserved determinations remain accountable human decisions.</p></div>
-            <ul><li>Authority-gated decision points</li><li>Traceable evidence provenance</li><li>Exception and fracture visibility</li><li>Auditable release history</li></ul>
-          </div>
+        <div class="section-intro inverse reveal"><span class="kicker gold">04 / PLATINUM MONITORING</span><div><h2>Continuous assurance.<br>Zero silent exceptions.</h2><p>Telemetry strengthens evidence. It does not create certification. Critical exceptions become trust fractures, then HOLD, then accountable review.</p></div></div>
+        <div class="monitor-console reveal">
+          <div class="monitor-head"><span>PLATINUM / EVENT STREAM</span><span class="status-live"><i></i> SIMULATED VIEW</span></div>
+          <div class="monitor-main"><div class="signal-panel"><canvas id="signalCanvas"></canvas><div class="signal-legend"><span><i></i>SEAL</span><span><i></i>TEMP</span><span><i></i>GEO</span><span><i></i>CUSTODY</span></div></div><div class="fracture-panel"><span class="mono">TRUST FRACTURE PROTOCOL</span><ol><li class="on"><b>01</b> Exception detected</li><li><b>02</b> Auto-HOLD</li><li><b>03</b> Blast-radius analysis</li><li><b>04</b> HITM review</li><li><b>05</b> Re-verification</li><li><b>06</b> Authority gate</li></ol></div></div>
+          <div class="monitor-foot"><div><small>SEAL STATE</small><b>INTACT</b></div><div><small>CUSTODY</small><b>CONTINUOUS</b></div><div><small>DESTINATION</small><b>PENDING</b></div><div><small>RELEASE</small><b>GATED</b></div></div>
         </div>
       </div>
     </section>
 
-    <section class="section standards-section">
-      <div class="shell standards-grid">
-        <div class="reveal"><span class="section-index">07 / STANDARDS INTELLIGENCE</span><h2>17-standard operating catalogue.<br>Source-bound by design.</h2><p>The operating catalogue spans food, logistics, retail, pharmaceuticals, cosmetics, medical devices, hospitality, terminology, testing and Shariah-based management systems. Normative Malaysian Standards wording is not redistributed.</p></div>
-        <div class="standards-list reveal delay-1">
-          <div><span>01</span><b>MS 1500:2019</b><small>Halal food</small></div>
-          <div><span>02–04</span><b>MS 2400 series</b><small>Transport · Warehousing · Retailing</small></div>
-          <div><span>05–08</span><b>Sector standards</b><small>Pharma · Cosmetics · Medical device · Consumables</small></div>
-          <div><span>09–12</span><b>Identity & testing</b><small>Materials · Terminology · Porcine DNA</small></div>
-          <div><span>13–17</span><b>Management & advanced methods</b><small>QMS · Profession · Hospitality · Chemometrics · Pig skin/hair ID</small></div>
+    <section id="corridor" class="corridor section-white">
+      <div class="shell">
+        <div class="section-intro reveal"><span class="kicker">05 / CHINA → GCC</span><div><h2>Trust that survives the border.</h2><p>[PILOT: Shipment 001] The corridor model binds origin evidence, laboratory workflows, batch identity, custody, port events and destination verification without fabricating a shipment that does not yet exist.</p></div></div>
+        <div class="corridor-stage reveal">
+          <div class="corridor-line"><span></span></div>
+          <button class="corridor-node active" data-corridor="origin"><i>01</i><b>CHINA</b><small>Origin evidence</small></button>
+          <button class="corridor-node" data-corridor="lab"><i>02</i><b>LAB</b><small>Test evidence</small></button>
+          <button class="corridor-node" data-corridor="port"><i>03</i><b>PORT</b><small>Custody transfer</small></button>
+          <button class="corridor-node" data-corridor="transit"><i>04</i><b>TRANSIT</b><small>Continuous events</small></button>
+          <button class="corridor-node" data-corridor="gcc"><i>05</i><b>GCC</b><small>Destination gate</small></button>
+          <div class="corridor-detail" id="corridorDetail"><span>ORIGIN EVIDENCE</span><strong>Manufacturer, product, facility and batch identity establish the starting evidence context.</strong><p>Real manufacturer and Shipment 001 transaction evidence remain external gates until supplied.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="section closing-section section-black">
-      <div class="shell closing-grid reveal">
-        <div><span class="section-index gold">INSTITUTIONAL BRIEFING</span><h2>From certification evidence<br>to trusted trade infrastructure.</h2></div>
-        <div><p>GHSCL is building the digital operating layer that connects standards, evidence, human authority and supply-chain execution without claiming that technology itself creates Halal certification.</p><a class="btn btn-primary" href="https://github.com/mavericken777/GlobalHalalDigitalTrust" target="_blank" rel="noreferrer">Review technical source <span>↗</span></a></div>
+    <section id="stakeholders" class="stakeholders section-black">
+      <div class="shell">
+        <div class="section-intro inverse reveal"><span class="kicker gold">06 / STAKEHOLDER LENS</span><div><h2>One infrastructure.<br>Different decisions.</h2><p>Switch perspectives. The same evidence fabric must answer very different operational and governance questions.</p></div></div>
+        <div class="stakeholder-stage reveal">
+          <div class="stakeholder-nav" id="stakeholderNav"><button class="active" data-role="government">Government / Authority</button><button data-role="manufacturer">Manufacturer</button><button data-role="laboratory">Laboratory</button><button data-role="logistics">Logistics / Port</button><button data-role="importer">Importer / Retail</button></div>
+          <div class="stakeholder-copy"><span id="stakeholderEyebrow">GOVERNANCE / OVERSIGHT</span><h3 id="stakeholderTitle">See the evidence trail without surrendering authority.</h3><p id="stakeholderText">Inspect source binding, controls, findings, re-verification and authority gates. The platform supports oversight; it does not issue sovereign or religious determinations.</p><div class="stakeholder-points" id="stakeholderPoints"><span>Source provenance</span><span>Audit lineage</span><span>Authority gate</span><span>Selective disclosure</span></div></div>
+          <div class="stakeholder-visual"><div class="big-letter" id="bigLetter">G</div><div class="scope-ring"></div><div class="scope-ring r2"></div><div class="scope-ring r3"></div></div>
+        </div>
       </div>
+    </section>
+
+    <section class="standards section-ivory">
+      <div class="shell standards-grid reveal"><div><span class="kicker">07 / OPERATING CATALOGUE</span><h2>Seventeen standards.<br>One source-aware control model.</h2><p>Normative Malaysian Standards wording is not redistributed. The platform binds edition, locator and applicability metadata to operating controls.</p></div><div class="standards-list" id="standardsList">
+        <button><span>01</span><b>MS 1500:2019</b><small>Halal food</small></button><button><span>02</span><b>MS 2400-1:2019</b><small>Transport</small></button><button><span>03</span><b>MS 2400-2:2019</b><small>Warehousing</small></button><button><span>04</span><b>MS 2400-3:2019</b><small>Retailing</small></button><button><span>05</span><b>MS 2424:2019</b><small>Pharmaceuticals</small></button><button><span>06</span><b>MS 2634:2019</b><small>Cosmetics</small></button><button><span>07</span><b>MS 2636:2019</b><small>Medical device</small></button><button><span>08</span><b>MS 2738:2023</b><small>Consumable goods</small></button><button><span>09</span><b>MS 2803:2025</b><small>Animal bone, skin & hair</small></button><button><span>10</span><b>MS 2393:2023</b><small>Islamic terminology</small></button><button><span>11</span><b>MS 2627:2017</b><small>Porcine DNA — food</small></button><button><span>12</span><b>MS 2627-2:2025</b><small>Porcine DNA — cosmetics</small></button><button><span>13</span><b>MS 1900:2025</b><small>Shariah-based QMS</small></button><button><span>14</span><b>MS 2691:2021</b><small>Halal profession</small></button><button><span>15</span><b>MS 2610:2015</b><small>Muslim-friendly hospitality</small></button><button><span>16</span><b>MS 2809:2025</b><small>Chemometric authentication</small></button><button><span>17</span><b>MS 2810:2025</b><small>Pig skin & hair identification</small></button>
+      </div></div>
+    </section>
+
+    <section class="finale section-black">
+      <canvas id="finalCanvas" aria-hidden="true"></canvas>
+      <div class="shell finale-copy reveal"><span class="kicker gold">GLOBAL HALAL SUPPLY CHAIN LIMITED</span><h2>Infrastructure should make trust harder to fake, easier to inspect and safer to move.</h2><p>Technology assists. Humans decide. Competent authorities remain competent authorities.</p><a class="primary-link light magnetic" href="https://github.com/mavericken777/GlobalHalalDigitalTrust" target="_blank" rel="noreferrer">Explore the technical source <b>↗</b></a></div>
     </section>
   </main>
 
-  <footer>
-    <div class="shell footer-grid">
-      <div><strong>Global Halal Supply Chain Ltd HK</strong><p>Trusted trade infrastructure for evidence-led Halal and Tayyib supply chains.</p></div>
-      <div class="footer-links"><a href="#architecture">Architecture</a><a href="#fabric">Trust Fabric</a><a href="#corridor">China → GCC</a><a href="https://github.com/mavericken777/GlobalHalalDigitalTrust" target="_blank" rel="noreferrer">Technical repository ↗</a></div>
-      <div class="footer-meta"><span>Amanah Halal Trust Ecosystem</span><span>Technology does not create Halal certification.</span></div>
-    </div>
-  </footer>
-
+  <footer><div class="shell footer-grid"><div><svg class="footer-mark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M12 25h24M24 12v24M16 16l16 16M32 16L16 32"/></svg><strong>GLOBAL HALAL SUPPLY CHAIN LIMITED</strong></div><p>Hong Kong · Global Halal Digital Trust initiative</p><p>Platform trust states and operational release are not Halal certification.</p></div></footer>
   <script src="script.js"></script>
 </body>
 </html>
