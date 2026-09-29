@@ -40,7 +40,7 @@ jobs:
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
-      - run: deno check supabase/functions/assurance/index.ts
+      - run: deno check --node-modules-dir=auto supabase/functions/assurance/index.ts
 
   build:
     runs-on: ubuntu-latest
