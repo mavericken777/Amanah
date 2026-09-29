@@ -1,165 +1,128 @@
 (() => {
-  const qs = (s, root = document) => root.querySelector(s);
-  const qsa = (s, root = document) => [...root.querySelectorAll(s)];
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
-  const progress = qs('#scrollProgress');
-  const header = qs('#siteHeader');
-  const menuToggle = qs('#menuToggle');
-  const mobileNav = qs('#mobileNav');
+  const boot = $('#boot');
+  window.addEventListener('load', () => setTimeout(() => boot?.classList.add('done'), 300));
 
+  const cursor = $('#cursor');
+  const aura = $('#cursorAura');
+  if (matchMedia('(pointer:fine)').matches && cursor && aura) {
+    window.addEventListener('pointermove', e => {
+      cursor.style.left = `${e.clientX}px`; cursor.style.top = `${e.clientY}px`;
+      aura.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 140, fill: 'forwards' });
+    });
+    $$('a,button').forEach(el => {
+      el.addEventListener('mouseenter', () => aura.classList.add('big'));
+      el.addEventListener('mouseleave', () => aura.classList.remove('big'));
+    });
+  }
+
+  const progress = $('#pageProgress');
+  const nav = $('#nav');
   const onScroll = () => {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    if (progress) progress.style.width = `${max > 0 ? (scrollTop / max) * 100 : 0}%`;
-    if (header) header.classList.toggle('scrolled', scrollTop > 20);
+    const max = document.documentElement.scrollHeight - innerHeight;
+    if (progress) progress.style.width = `${max > 0 ? scrollY / max * 100 : 0}%`;
+    nav?.classList.toggle('scrolled', scrollY > 24);
   };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener('click', () => {
-      const open = mobileNav.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(open));
-    });
-    qsa('a', mobileNav).forEach(a => a.addEventListener('click', () => {
-      mobileNav.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }));
-  }
+  const menu = $('#menu'); const mobileNav = $('#mobileNav');
+  menu?.addEventListener('click', () => {
+    const open = mobileNav?.classList.toggle('open');
+    menu.setAttribute('aria-expanded', String(!!open));
+  });
+  $$('#mobileNav a').forEach(a => a.addEventListener('click', () => { mobileNav?.classList.remove('open'); menu?.setAttribute('aria-expanded','false'); }));
 
-  const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  qsa('.reveal').forEach(el => revealObserver.observe(el));
+  const revealObs = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+  }), { threshold: .12 });
+  $$('.reveal').forEach(el => revealObs.observe(el));
 
-  const architecture = [
-    ['01','SOURCE OF LEGITIMACY','Authority','The control path begins with the competent authority or destination requirement. The platform records the authority boundary; it does not replace it.'],
-    ['02','TECHNICAL INSTRUMENT','Standard / Instrument','The applicable technical instrument is versioned and source-bound. Licensed normative wording remains with its authoritative source.'],
-    ['03','MACHINE-READABLE LOCATOR','Clause / Requirement','Requirement objects identify the exact clause or obligation that must be evaluated without inventing missing normative language.'],
-    ['04','SCOPE DECISION','Applicability','The system records why a requirement applies to a product, facility, process, shipment, jurisdiction or destination context.'],
-    ['05','OPERATING CONTROL','Control','Requirements become executable controls with owners, monitoring logic, evidence expectations and verification criteria.'],
-    ['06','CRITICAL CONTROL POINT','HCP / SCCP','Halal Control Points and Shariah Critical Control Points isolate the points where loss of control has material trust consequences.'],
-    ['07','PROVABLE RECORD','Evidence','Documents, laboratory records, telemetry, identity data and custody events are bound with provenance, timestamps and integrity references.'],
-    ['08','TEST OF CONTROL','Audit Test','Evidence is not accepted merely because it exists. Audit tests evaluate whether the defined control is operating as intended.'],
-    ['09','EXCEPTION OBJECT','Finding','A failed, partial or conflicting result becomes a finding with traceable linkage to the requirement, control and evidence that produced it.'],
-    ['10','REMEDIATION','Corrective Action','Corrective action records the owner, action, due state and supporting evidence needed to close the finding.'],
-    ['11','PROOF OF CLOSURE','Re-verification','Closure requires re-verification. A declared fix does not silently restore trust without supporting evidence.'],
-    ['12','RESERVED DECISION','Authority Gate','Reserved decisions are routed to accountable humans and competent authorities. AI assessment remains advisory at this boundary.'],
-    ['13','INTERNAL MODEL STATE','Trust State','The platform expresses the current assurance state — including hold, contested or eligible — without presenting that state as a certificate.'],
-    ['14','CONTROLLED EXECUTION','Operational Release','Release is an operational control decision reached only after required gates are satisfied. Operational release is not Halal certification.']
+  const pathData = [
+    ['01','SOURCE OF LEGITIMACY','Authority','The chain begins with the competent authority or destination requirement. The platform records the authority boundary; it never substitutes for it.','BOUNDARY ANCHORED'],
+    ['02','SOURCE CONTROL','Standard / Instrument','The applicable technical instrument is identified by edition, source status and scope before requirements are interpreted.','SOURCE VERSIONED'],
+    ['03','NORMATIVE LOCATOR','Clause / Requirement','A requirement object points to the exact source locator without redistributing licensed normative wording.','LOCATOR BOUND'],
+    ['04','CONTEXT','Applicability','The system establishes which requirement applies to which product, process, facility, actor or destination context.','SCOPE RESOLVED'],
+    ['05','OPERATING RESPONSE','Control','The requirement becomes a defined control with an accountable owner, expected evidence and verification logic.','CONTROL DEFINED'],
+    ['06','CRITICAL CONTROL','HCP / SCCP','Halal and Shariah-critical control points are made explicit so monitoring and escalation are not left to inference.','CRITICALITY DECLARED'],
+    ['07','PROOF','Evidence','Evidence is attached with identity, provenance, timestamps, hashes and source relationships to the control it supports.','PROVENANCE LINKED'],
+    ['08','VERIFICATION','Audit Test','The platform records how evidence is tested rather than assuming that possession of a document proves compliance.','TEST DEFINED'],
+    ['09','EXCEPTION','Finding','A failed or uncertain audit test creates a finding that remains visible until disposition.','EXCEPTION OPEN'],
+    ['10','REMEDIATION','Corrective Action','Corrective action has ownership, evidence and status. Closure requires proof rather than a text note.','ACTION CONTROLLED'],
+    ['11','CLOSURE TEST','Re-verification','The relevant control is tested again after corrective action before downstream trust can be restored.','RE-TEST REQUIRED'],
+    ['12','HUMAN / AUTHORITY','Authority Gate','Reserved determinations remain with accountable humans and competent authorities. AI assessment is advisory.','HITM REQUIRED'],
+    ['13','MODEL STATE','Trust State','The internal model state expresses what the evidence currently supports. It is not a Halal certificate.','STATE COMPUTED'],
+    ['14','OPERATIONS','Operational Release','Release is allowed only when required hard gates are satisfied. Operational release remains distinct from certification.','RELEASE GATED']
   ];
-
-  const archButtons = qsa('.arch-step');
-  const detailNumber = qs('#detailNumber');
-  const detailLabel = qs('#detailLabel');
-  const detailTitle = qs('#detailTitle');
-  const detailText = qs('#detailText');
-
-  archButtons.forEach(btn => btn.addEventListener('click', () => {
-    const idx = Number(btn.dataset.step || 0);
-    archButtons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const data = architecture[idx];
-    if (!data) return;
-    if (detailNumber) detailNumber.textContent = data[0];
-    if (detailLabel) detailLabel.textContent = data[1];
-    if (detailTitle) detailTitle.textContent = data[2];
-    if (detailText) detailText.textContent = data[3];
-  }));
-
-  const twinContent = {
-    facility:['FACILITY LAYER','Identity → zones → process controls','Digital structure mirrors the real operating environment so evidence can be attached to the correct control point rather than stored as isolated files.'],
-    materials:['MATERIAL GENEALOGY','Supplier → material lot → formula → batch','Material lineage connects incoming identity and evidence to the product version and batch that ultimately enters trade.'],
-    laboratory:['LABORATORY EVIDENCE','Sample → method → result → scope','Laboratory records remain evidence objects with method, scope, provenance and chain-of-custody context. A laboratory result is not itself Halal certification.'],
-    custody:['PHYSICAL-DIGITAL CUSTODY','Handover → seal → geofence → receiving','Signed custody events and physical condition signals create continuity between the evidence record and the real movement of goods.'],
-    release:['CONTROLLED RELEASE','Hard gates → HITM → authority gate → release','Operational release occurs only after the required gates are satisfied. Critical fractures route to hold and re-verification rather than automatic release.']
+  const renderPath = i => {
+    const d = pathData[i]; if (!d) return;
+    $('#pathNumber').textContent = d[0]; $('#pathLabel').textContent = d[1]; $('#pathTitle').textContent = d[2]; $('#pathText').textContent = d[3]; $('#pathStatus').textContent = d[4];
+    $$('.path-node').forEach((b,n) => b.classList.toggle('active', n===i));
   };
-  const twinDetail = qs('#twinDetail');
-  qsa('#twinTabs button').forEach(btn => btn.addEventListener('click', () => {
-    qsa('#twinTabs button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const d = twinContent[btn.dataset.twin];
-    if (d && twinDetail) {
-      twinDetail.innerHTML = `<small>${d[0]}</small><strong>${d[1]}</strong><p>${d[2]}</p>`;
-    }
-  }));
+  $$('.path-node').forEach(btn => btn.addEventListener('click', () => renderPath(+btn.dataset.step)));
 
-  const roles = {
-    government:{label:'GOVERNMENT & AUTHORITY',title:'Inspect the evidence path without surrendering decision authority.',text:'Source references, findings, CAPA, re-verification and authority gates are separated from AI assessment. Reserved determinations remain accountable human decisions.',items:['Authority-gated decision points','Traceable evidence provenance','Exception and fracture visibility','Auditable release history']},
-    manufacturer:{label:'MANUFACTURERS',title:'Turn operating controls into evidence that can travel with the product.',text:'Facility identity, product versions, material genealogy, process controls and batch evidence can be linked before a shipment ever reaches the border.',items:['Facility and product identity','Material and batch genealogy','Control ownership and CAPA','Evidence-ready shipment records']},
-    laboratory:{label:'LABORATORIES',title:'Preserve laboratory evidence as evidence — with scope, method and provenance intact.',text:'Samples and results can be connected to the exact product, batch and control question they support while keeping the certification boundary explicit.',items:['Sample chain of custody','Method and scope metadata','Result provenance','Direct linkage to audit questions']},
-    logistics:{label:'LOGISTICS & PORTS',title:'Make custody continuity visible from handover to destination.',text:'Shipment identity, seals, geofences, transport events and port custody can become signed evidence rather than disconnected operational messages.',items:['Shipment and container identity','Custody handovers','Seal and telemetry events','Port and border gateway records']},
-    importer:{label:'IMPORTERS & RETAIL',title:'Receive a trust packet that shows what happened — not merely a badge.',text:'Destination stakeholders can inspect the relevant evidence chain, authority gates and exception history needed for receiving and market-entry decisions.',items:['Receiving verification','Destination requirement mapping','Controlled disclosure','Recall and traceability support']}
+  const twinData = {
+    facility:['FACILITY LAYER','Identity → zones → process controls','Evidence attaches to the real control point rather than disappearing into disconnected files.'],
+    material:['MATERIAL LAYER','Supplier → material → lot → formula','Material genealogy can be bound forward into product and batch context, preserving provenance.'],
+    lab:['LABORATORY LAYER','Sample → method → result → evidence','Laboratory evidence strengthens the assurance graph but does not itself become Halal certification.'],
+    custody:['CUSTODY LAYER','Shipment → transfer → port → destination','Physical handoffs can be represented as signed custody events with exceptions routed into review.'],
+    release:['RELEASE LAYER','Hard gates → authority gate → release','Operational release is the final software state only after mandatory gates are satisfied.']
   };
-  const stakeholderView = qs('#stakeholderView');
-  qsa('#stakeholderTabs button').forEach(btn => btn.addEventListener('click', () => {
-    qsa('#stakeholderTabs button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const d = roles[btn.dataset.role];
-    if (!d || !stakeholderView) return;
-    stakeholderView.innerHTML = `<div><span class="mono-label">${d.label}</span><h3>${d.title}</h3><p>${d.text}</p></div><ul>${d.items.map(i => `<li>${i}</li>`).join('')}</ul>`;
+  $$('#twinTabs button').forEach(btn => btn.addEventListener('click', () => {
+    $$('#twinTabs button').forEach(b => b.classList.remove('active')); btn.classList.add('active');
+    const d=twinData[btn.dataset.layer]; const box=$('#twinCopyDetail'); if(!d||!box)return;
+    box.innerHTML=`<span>${d[0]}</span><strong>${d[1]}</strong><p>${d[2]}</p>`;
   }));
 
-  const stackCards = qsa('.stack-card');
-  stackCards.forEach(card => card.addEventListener('mouseenter', () => {
-    stackCards.forEach(c => c.classList.remove('active'));
-    card.classList.add('active');
+  const corridorData = {
+    origin:['ORIGIN EVIDENCE','Manufacturer, product, facility and batch identity establish the starting evidence context.','Real manufacturer and Shipment 001 transaction evidence remain external gates until supplied.'],
+    lab:['LABORATORY EVIDENCE','Samples and results can be bound to the correct product, batch and method context.','Laboratory results are evidence objects, not certification decisions.'],
+    port:['CUSTODY TRANSFER','Port and logistics events preserve who had custody, when, where and under what condition.','Missing or conflicting custody can trigger a trust fracture and HOLD.'],
+    transit:['IN-TRANSIT ASSURANCE','Telemetry and event streams can strengthen continuity across the route.','Monitoring may detect exceptions; it does not create religious or regulatory authority.'],
+    gcc:['DESTINATION GATE','Destination requirements and receiving verification determine whether the shipment can progress operationally.','GCC authority or importer acceptance remains an external decision gate.']
+  };
+  $$('.corridor-node').forEach(btn => btn.addEventListener('click', () => {
+    $$('.corridor-node').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+    const d=corridorData[btn.dataset.corridor], box=$('#corridorDetail'); if(!d||!box)return;
+    box.innerHTML=`<span>${d[0]}</span><strong>${d[1]}</strong><p>${d[2]}</p>`;
   }));
 
-  const canvas = qs('#trustCanvas');
-  if (canvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const ctx = canvas.getContext('2d');
-    let w = 0, h = 0, dpr = 1, raf = 0;
-    let points = [];
+  const stakeholderData = {
+    government:['GOVERNANCE / OVERSIGHT','See the evidence trail without surrendering authority.','Inspect source binding, controls, findings, re-verification and authority gates. The platform supports oversight; it does not issue sovereign or religious determinations.',['Source provenance','Audit lineage','Authority gate','Selective disclosure'],'G'],
+    manufacturer:['ORIGIN / OPERATIONS','Turn compliance work into an operational evidence system.','Bind facility, product, material, batch and control evidence so readiness is visible before a shipment moves.',['Facility twin','Batch genealogy','Control evidence','CAPA'],'M'],
+    laboratory:['LAB / EVIDENCE','Make every result traceable to the sample, method and shipment context.','Laboratory outputs become provenance-bound evidence objects that can be audited and re-used without inflating their authority.',['Sample identity','Method context','Result provenance','Scope control'],'L'],
+    logistics:['MOVEMENT / CUSTODY','Preserve trust while custody changes hands.','Represent transfers, port events and monitored conditions as an evidence chain that exposes gaps instead of smoothing them over.',['Custody events','Port handoff','Geofence','Exception routing'],'P'],
+    importer:['DESTINATION / MARKET','Receive a shipment with its trust context intact.','Destination actors can inspect the evidence state, outstanding gates and receiving verification without relying on a single opaque score.',['Receiving check','Destination gate','Trust packet','Controlled release'],'I']
+  };
+  $$('#stakeholderNav button').forEach(btn=>btn.addEventListener('click',()=>{
+    $$('#stakeholderNav button').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+    const d=stakeholderData[btn.dataset.role]; if(!d)return;
+    $('#stakeholderEyebrow').textContent=d[0]; $('#stakeholderTitle').textContent=d[1]; $('#stakeholderText').textContent=d[2]; $('#bigLetter').textContent=d[4];
+    $('#stakeholderPoints').innerHTML=d[3].map(x=>`<span>${x}</span>`).join('');
+  }));
 
-    const makePoints = () => {
-      const count = Math.max(28, Math.min(70, Math.round((w * h) / 24000)));
-      points = Array.from({ length: count }, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - .5) * .18,
-        vy: (Math.random() - .5) * .18,
-        r: Math.random() * 1.2 + .35
-      }));
-    };
+  const magnetic = $$('.magnetic');
+  if(matchMedia('(pointer:fine)').matches){magnetic.forEach(el=>{el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;el.style.transform=`translate(${x*.08}px,${y*.12}px)`});el.addEventListener('mouseleave',()=>el.style.transform='')})}
 
-    const resize = () => {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const rect = canvas.getBoundingClientRect();
-      w = rect.width; h = rect.height;
-      canvas.width = Math.floor(w * dpr); canvas.height = Math.floor(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      makePoints();
-    };
+  function fitCanvas(canvas){const r=canvas.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);canvas.width=r.width*d;canvas.height=r.height*d;const c=canvas.getContext('2d');c.setTransform(d,0,0,d,0,0);return {ctx:c,w:r.width,h:r.height}}
 
-    const draw = () => {
-      ctx.clearRect(0, 0, w, h);
-      points.forEach((p, i) => {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < -20) p.x = w + 20; if (p.x > w + 20) p.x = -20;
-        if (p.y < -20) p.y = h + 20; if (p.y > h + 20) p.y = -20;
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = i % 7 === 0 ? 'rgba(216,184,107,.48)' : 'rgba(77,227,176,.38)'; ctx.fill();
-      });
-      for (let i = 0; i < points.length; i++) {
-        for (let j = i + 1; j < points.length; j++) {
-          const a = points[i], b = points[j];
-          const dx = a.x - b.x, dy = a.y - b.y, dist = Math.hypot(dx, dy);
-          if (dist < 145) {
-            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(77,227,176,${(1 - dist / 145) * .11})`; ctx.lineWidth = .65; ctx.stroke();
-          }
-        }
-      }
-      raf = requestAnimationFrame(draw);
-    };
-
-    resize(); draw();
-    window.addEventListener('resize', () => { cancelAnimationFrame(raf); resize(); draw(); }, { passive: true });
+  const world=$('#worldCanvas');
+  if(world){
+    let pointer={x:.62,y:.42}; let state;
+    const resize=()=>state=fitCanvas(world); resize(); addEventListener('resize',resize);
+    world.addEventListener('pointermove',e=>{const r=world.getBoundingClientRect();pointer={x:(e.clientX-r.left)/r.width,y:(e.clientY-r.top)/r.height}});
+    const pts=Array.from({length:150},(_,i)=>({lat:Math.asin(2*(i+.5)/150-1),lon:Math.PI*(1+Math.sqrt(5))*i,phase:Math.random()*6.28}));
+    const hubs=[[.12,.38],[.27,.28],[.46,.45],[.64,.34],[.79,.53],[.88,.39]];
+    function draw(t){if(!state)return;const {ctx,w,h}=state;ctx.clearRect(0,0,w,h);const cx=w*.73,cy=h*.46,R=Math.min(w,h)*.31;const rot=t*.00006+(pointer.x-.5)*.35;ctx.strokeStyle='rgba(255,255,255,.08)';ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.stroke();
+      pts.forEach(p=>{const x=Math.cos(p.lat)*Math.cos(p.lon+rot),z=Math.cos(p.lat)*Math.sin(p.lon+rot),y=Math.sin(p.lat);if(z<-.2)return;const s=.8+z*.4;ctx.fillStyle=`rgba(190,220,206,${.12+z*.16})`;ctx.beginPath();ctx.arc(cx+x*R,cy+y*R,Math.max(.5,s),0,Math.PI*2);ctx.fill()});
+      ctx.strokeStyle='rgba(125,240,197,.16)';hubs.forEach((a,i)=>hubs.slice(i+1,i+2).forEach(b=>{ctx.beginPath();ctx.moveTo(w*a[0],h*a[1]);ctx.quadraticCurveTo(w*(a[0]+b[0])/2,h*((a[1]+b[1])/2-.08),w*b[0],h*b[1]);ctx.stroke()}));
+      requestAnimationFrame(draw)} requestAnimationFrame(draw)
   }
+
+  const sig=$('#signalCanvas');
+  if(sig){let state;const resize=()=>state=fitCanvas(sig);resize();addEventListener('resize',resize);function draw(t){if(!state)return;const{ctx,w,h}=state;ctx.clearRect(0,0,w,h);ctx.strokeStyle='rgba(255,255,255,.04)';for(let x=0;x<w;x+=42){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke()}for(let y=0;y<h;y+=42){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}const series=[['#7df0c5',.18,.12,0],['#bba16c',.28,.07,1.6],['#7a92c8',.36,.1,3.1],['#b7b7af',.45,.055,4.3]];series.forEach(([color,base,amp,ph])=>{ctx.strokeStyle=color;ctx.lineWidth=1.2;ctx.beginPath();for(let x=0;x<=w;x+=3){const y=h*base+Math.sin(x*.018+t*.001+ph)*h*amp*.35+Math.sin(x*.05+t*.0005)*6;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.stroke()});requestAnimationFrame(draw)}requestAnimationFrame(draw)}
+
+  const final=$('#finalCanvas');
+  if(final){let state;const resize=()=>state=fitCanvas(final);resize();addEventListener('resize',resize);const nodes=Array.from({length:55},()=>({x:Math.random(),y:Math.random(),vx:(Math.random()-.5)*.00008,vy:(Math.random()-.5)*.00008}));function draw(){if(!state)return;const{ctx,w,h}=state;ctx.clearRect(0,0,w,h);nodes.forEach(n=>{n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>1)n.vx*=-1;if(n.y<0||n.y>1)n.vy*=-1;ctx.fillStyle='rgba(125,240,197,.35)';ctx.fillRect(n.x*w,n.y*h,1,1)});for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){const a=nodes[i],b=nodes[j],dx=(a.x-b.x)*w,dy=(a.y-b.y)*h,d=Math.hypot(dx,dy);if(d<135){ctx.strokeStyle=`rgba(125,240,197,${(1-d/135)*.07})`;ctx.beginPath();ctx.moveTo(a.x*w,a.y*h);ctx.lineTo(b.x*w,b.y*h);ctx.stroke()}}requestAnimationFrame(draw)}draw()}
 })();
