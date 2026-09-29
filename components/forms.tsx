@@ -15,7 +15,7 @@ type TableName = keyof Tables;
 
 function useInsert<T extends TableName>(
   table: T,
-  base: Tables[T]["Insert"],
+  base: Partial<Tables[T]["Insert"]>,
   onDone?: () => void,
 ) {
   const router = useRouter();
