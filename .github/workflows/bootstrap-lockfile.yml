@@ -1,0 +1,37 @@
+name: Bootstrap deterministic lockfile
+
+on:
+  push:
+    branches: ["build/release-lockfile-2026-09-30"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: amanah-lockfile-bootstrap
+  cancel-in-progress: true
+
+jobs:
+  bootstrap:
+    if: ${{ !contains(github.event.head_commit.message, '[lockfile-generated]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 22
+      - name: Reconstruct lockfile
+        run: cat .lockfile-parts/part-* > package-lock.json
+      - name: Verify recovered artifact
+        run: echo '4c0520cc900110d764b5ae6ead79b5531bd1be841c7e520e6bafd7b4369c74b5  package-lock.json' | sha256sum -c -
+      - name: Validate JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('package-lock.json','utf8')); console.log('valid lockfile JSON')"
+      - name: Deterministic install
+        run: npm ci --no-audit --no-fund
+      - name: Commit lockfile
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add package-lock.json
+          git commit -m 'build: commit deterministic package lock [lockfile-generated]'
+          git push origin HEAD:${GITHUB_REF_NAME}
