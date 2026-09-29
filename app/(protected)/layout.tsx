@@ -5,7 +5,8 @@ import Link from "next/link";
 const coreNavigation = [
   ["/dashboard","Dashboard"],["/projects","Projects"],["/tasks","Tasks"],["/meetings","Meetings"],
   ["/documents","Documents"],["/decisions","Decisions"],["/risks","Risks"],["/finance","Finance"],
-  ["/updates","Updates"],["/approvals","Approvals"],["/workflows","Workflows"],["/notifications","Notifications"],["/search","Search"],["/audit","Audit"],
+  ["/updates","Updates"],["/approvals","Approvals"],["/workflows","Workflows"],["/notifications","Notifications"],
+  ["/search","Search"],["/audit","Audit"],["/settings","Settings"],
 ] as const;
 
 export default async function ProtectedLayout({ children }: { children: React.ReactNode }) {
