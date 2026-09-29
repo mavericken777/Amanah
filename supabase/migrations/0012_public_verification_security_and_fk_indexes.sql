@@ -1,4 +1,4 @@
--- Migration 0012: public verification security and covering indexes.
+-- Remove public SECURITY DEFINER verification RPC and add advisor-required FK indexes.
 revoke all on function public.ahte_public_verify(text) from public;
 drop function if exists public.ahte_public_verify(text);
 
@@ -16,3 +16,4 @@ create index if not exists ahte_market_registrations_evidence_idx on public.ahte
 create index if not exists ahte_market_registrations_product_fk_idx on public.ahte_market_registrations(product_id);
 create index if not exists ahte_public_verifications_created_by_idx on public.ahte_public_verifications(created_by);
 create index if not exists ahte_public_verifications_org_idx on public.ahte_public_verifications(organization_id);
+create index if not exists ahte_evidence_project_fk_idx on public.ahte_evidence(project_id);
