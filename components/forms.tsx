@@ -10,24 +10,25 @@ type FormProps = {
   projectId?: string;
 };
 
-type Tables = Database["public"]["Tables"];
-type TableName = keyof Tables;
+type TableName = keyof Database["public"]["Tables"];
 
-function useInsert<T extends TableName>(
-  table: T,
-  base: Partial<Tables[T]["Insert"]>,
+function useInsert(
+  table: TableName,
+  base: Record<string, unknown>,
   onDone?: () => void,
 ) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
-  async function insert(extra: Partial<Tables[T]["Insert"]>) {
+  async function insert(extra: Record<string, unknown>) {
     setBusy(true);
     setError("");
     const supabase = createClient();
-    const payload = { ...base, ...extra } as Tables[T]["Insert"];
-    const { error: insertError } = await supabase.from(table).insert(payload);
+    const payload = { ...base, ...extra };
+    const { error: insertError } = await supabase
+      .from(table as never)
+      .insert(payload as never);
 
     if (insertError) {
       setError(insertError.message);
