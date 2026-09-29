@@ -20,7 +20,7 @@ export default async function DocumentsPage() {
 
   const { data: documents } = await supabase
     .from("documents")
-    .select("id,title,classification,status,required_by,storage_provider,storage_reference,projects(name)")
+    .select("id,title,classification,status,required_by,storage_provider,storage_reference,projects!documents_project_id_fkey(name)")
     .eq("organization_id", workspace.id)
     .order("required_by", { ascending: true, nullsFirst: false })
     .limit(100);
@@ -45,13 +45,13 @@ export default async function DocumentsPage() {
               </thead>
               <tbody>
                 {(documents ?? []).map((d) => {
-                  const p = d.projects as Array<{ name: string }> | null;
+                  const p = d.projects as { name: string } | null;
                   return (
                     <tr key={d.id}>
                       <td>{d.title}</td>
                       <td>{d.classification}</td>
                       <td>{d.required_by ?? "—"}</td>
-                      <td>{p?.[0]?.name ?? "—"}</td>
+                      <td>{p?.name ?? "—"}</td>
                       <td><span className="status">{d.status}</span></td>
                       <td>{d.storage_provider ?? "Secure reference only"}</td>
                       <td><DownloadDocumentButton path={d.storage_reference} /></td>
