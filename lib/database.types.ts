@@ -179,6 +179,41 @@ export type Database = {
           },
         ]
       }
+      ahte_api_rate_limits: {
+        Row: {
+          actor_user_id: string
+          organization_id: string
+          request_count: number
+          route: string
+          updated_at: string
+          window_start: string
+        }
+        Insert: {
+          actor_user_id: string
+          organization_id: string
+          request_count?: number
+          route: string
+          updated_at?: string
+          window_start: string
+        }
+        Update: {
+          actor_user_id?: string
+          organization_id?: string
+          request_count?: number
+          route?: string
+          updated_at?: string
+          window_start?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ahte_api_rate_limits_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       ahte_applicability: {
         Row: {
           created_at: string
@@ -1098,6 +1133,77 @@ export type Database = {
           },
         ]
       }
+      ahte_consumer_scans: {
+        Row: {
+          batch_id: string | null
+          coarse_location: Json | null
+          consented: boolean
+          disclosure_version: string | null
+          id: string
+          metadata: Json
+          organization_id: string
+          packet_id: string | null
+          product_id: string | null
+          scanned_at: string
+          verification_result: string
+        }
+        Insert: {
+          batch_id?: string | null
+          coarse_location?: Json | null
+          consented?: boolean
+          disclosure_version?: string | null
+          id?: string
+          metadata?: Json
+          organization_id: string
+          packet_id?: string | null
+          product_id?: string | null
+          scanned_at?: string
+          verification_result?: string
+        }
+        Update: {
+          batch_id?: string | null
+          coarse_location?: Json | null
+          consented?: boolean
+          disclosure_version?: string | null
+          id?: string
+          metadata?: Json
+          organization_id?: string
+          packet_id?: string | null
+          product_id?: string | null
+          scanned_at?: string
+          verification_result?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ahte_consumer_scans_batch_id_fkey"
+            columns: ["batch_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_batches"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_consumer_scans_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_consumer_scans_packet_id_fkey"
+            columns: ["packet_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_trust_packets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_consumer_scans_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       ahte_controls: {
         Row: {
           code: string
@@ -1215,6 +1321,79 @@ export type Database = {
           },
           {
             foreignKeyName: "ahte_corrective_actions_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ahte_credential_checks: {
+        Row: {
+          certificate_id: string
+          checked_at: string
+          checked_until: string | null
+          content_hash: string | null
+          created_at: string
+          evidence_id: string | null
+          id: string
+          issuer_verified: boolean
+          notes: string | null
+          organization_id: string
+          scope_match: boolean
+          source_reference: string | null
+          source_type: string
+          validity_status: string
+        }
+        Insert: {
+          certificate_id: string
+          checked_at?: string
+          checked_until?: string | null
+          content_hash?: string | null
+          created_at?: string
+          evidence_id?: string | null
+          id?: string
+          issuer_verified?: boolean
+          notes?: string | null
+          organization_id: string
+          scope_match?: boolean
+          source_reference?: string | null
+          source_type: string
+          validity_status?: string
+        }
+        Update: {
+          certificate_id?: string
+          checked_at?: string
+          checked_until?: string | null
+          content_hash?: string | null
+          created_at?: string
+          evidence_id?: string | null
+          id?: string
+          issuer_verified?: boolean
+          notes?: string | null
+          organization_id?: string
+          scope_match?: boolean
+          source_reference?: string | null
+          source_type?: string
+          validity_status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ahte_credential_checks_certificate_id_fkey"
+            columns: ["certificate_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_certificates"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_credential_checks_evidence_id_fkey"
+            columns: ["evidence_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_evidence"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_credential_checks_organization_id_fkey"
             columns: ["organization_id"]
             isOneToOne: false
             referencedRelation: "organizations"
@@ -1403,6 +1582,70 @@ export type Database = {
           },
         ]
       }
+      ahte_device_maintenance: {
+        Row: {
+          activity_type: string
+          calibration_reference: string | null
+          created_at: string
+          device_id: string
+          evidence_id: string | null
+          id: string
+          notes: string | null
+          organization_id: string
+          performed_at: string
+          performed_by: string | null
+          status: string
+        }
+        Insert: {
+          activity_type: string
+          calibration_reference?: string | null
+          created_at?: string
+          device_id: string
+          evidence_id?: string | null
+          id?: string
+          notes?: string | null
+          organization_id: string
+          performed_at?: string
+          performed_by?: string | null
+          status?: string
+        }
+        Update: {
+          activity_type?: string
+          calibration_reference?: string | null
+          created_at?: string
+          device_id?: string
+          evidence_id?: string | null
+          id?: string
+          notes?: string | null
+          organization_id?: string
+          performed_at?: string
+          performed_by?: string | null
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ahte_device_maintenance_device_id_fkey"
+            columns: ["device_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_devices"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_device_maintenance_evidence_id_fkey"
+            columns: ["evidence_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_evidence"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_device_maintenance_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       ahte_devices: {
         Row: {
           calibration_due: string | null
@@ -1452,6 +1695,63 @@ export type Database = {
             columns: ["organization_id"]
             isOneToOne: false
             referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ahte_digital_twins: {
+        Row: {
+          content_hash: string | null
+          created_at: string
+          entity_id: string
+          entity_type: string
+          id: string
+          organization_id: string
+          snapshot: Json
+          source_event_id: number | null
+          status: string
+          twin_version: number
+          updated_at: string
+        }
+        Insert: {
+          content_hash?: string | null
+          created_at?: string
+          entity_id: string
+          entity_type: string
+          id?: string
+          organization_id: string
+          snapshot?: Json
+          source_event_id?: number | null
+          status?: string
+          twin_version?: number
+          updated_at?: string
+        }
+        Update: {
+          content_hash?: string | null
+          created_at?: string
+          entity_id?: string
+          entity_type?: string
+          id?: string
+          organization_id?: string
+          snapshot?: Json
+          source_event_id?: number | null
+          status?: string
+          twin_version?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ahte_digital_twins_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_digital_twins_source_event_id_fkey"
+            columns: ["source_event_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_event_ledger"
             referencedColumns: ["id"]
           },
         ]
@@ -2067,6 +2367,63 @@ export type Database = {
           },
         ]
       }
+      ahte_inbound_events: {
+        Row: {
+          created_at: string
+          error_message: string | null
+          event_type: string
+          external_event_id: string
+          id: string
+          integration_id: string
+          organization_id: string
+          payload: Json
+          payload_hash: string
+          received_at: string
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          error_message?: string | null
+          event_type: string
+          external_event_id: string
+          id?: string
+          integration_id: string
+          organization_id: string
+          payload: Json
+          payload_hash: string
+          received_at?: string
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          error_message?: string | null
+          event_type?: string
+          external_event_id?: string
+          id?: string
+          integration_id?: string
+          organization_id?: string
+          payload?: Json
+          payload_hash?: string
+          received_at?: string
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ahte_inbound_events_integration_id_fkey"
+            columns: ["integration_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_integrations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_inbound_events_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       ahte_instruments: {
         Row: {
           authority_id: string | null
@@ -2139,6 +2496,62 @@ export type Database = {
             columns: ["supersedes_id"]
             isOneToOne: false
             referencedRelation: "ahte_instruments"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ahte_integrations: {
+        Row: {
+          auth_mode: string
+          configuration: Json
+          created_at: string
+          endpoint: string | null
+          id: string
+          last_error: string | null
+          last_error_at: string | null
+          last_success_at: string | null
+          name: string
+          organization_id: string
+          status: string
+          system_type: string
+          updated_at: string
+        }
+        Insert: {
+          auth_mode?: string
+          configuration?: Json
+          created_at?: string
+          endpoint?: string | null
+          id?: string
+          last_error?: string | null
+          last_error_at?: string | null
+          last_success_at?: string | null
+          name: string
+          organization_id: string
+          status?: string
+          system_type: string
+          updated_at?: string
+        }
+        Update: {
+          auth_mode?: string
+          configuration?: Json
+          created_at?: string
+          endpoint?: string | null
+          id?: string
+          last_error?: string | null
+          last_error_at?: string | null
+          last_success_at?: string | null
+          name?: string
+          organization_id?: string
+          status?: string
+          system_type?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ahte_integrations_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
             referencedColumns: ["id"]
           },
         ]
@@ -2330,6 +2743,79 @@ export type Database = {
             columns: ["partner_id"]
             isOneToOne: false
             referencedRelation: "ahte_partners"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ahte_market_registrations: {
+        Row: {
+          authority_reference: string | null
+          created_at: string
+          effective_from: string | null
+          evidence_id: string | null
+          expires_on: string | null
+          halal_acceptance_reference: string | null
+          id: string
+          importer_name: string | null
+          market_code: string
+          organization_id: string
+          product_id: string
+          registration_reference: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          authority_reference?: string | null
+          created_at?: string
+          effective_from?: string | null
+          evidence_id?: string | null
+          expires_on?: string | null
+          halal_acceptance_reference?: string | null
+          id?: string
+          importer_name?: string | null
+          market_code: string
+          organization_id: string
+          product_id: string
+          registration_reference?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          authority_reference?: string | null
+          created_at?: string
+          effective_from?: string | null
+          evidence_id?: string | null
+          expires_on?: string | null
+          halal_acceptance_reference?: string | null
+          id?: string
+          importer_name?: string | null
+          market_code?: string
+          organization_id?: string
+          product_id?: string
+          registration_reference?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ahte_market_registrations_evidence_id_fkey"
+            columns: ["evidence_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_evidence"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_market_registrations_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_market_registrations_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_products"
             referencedColumns: ["id"]
           },
         ]
@@ -2815,6 +3301,57 @@ export type Database = {
             columns: ["organization_id"]
             isOneToOne: false
             referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ahte_public_verifications: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          disclosure: Json
+          expires_at: string | null
+          id: string
+          organization_id: string
+          packet_id: string
+          revoked_at: string | null
+          token_hash: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          disclosure?: Json
+          expires_at?: string | null
+          id?: string
+          organization_id: string
+          packet_id: string
+          revoked_at?: string | null
+          token_hash: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          disclosure?: Json
+          expires_at?: string | null
+          id?: string
+          organization_id?: string
+          packet_id?: string
+          revoked_at?: string | null
+          token_hash?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ahte_public_verifications_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_public_verifications_packet_id_fkey"
+            columns: ["packet_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_trust_packets"
             referencedColumns: ["id"]
           },
         ]
@@ -5218,6 +5755,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      ahte_create_public_verification_proxy: {
+        Args: {
+          p_disclosure: Json
+          p_expires_at?: string
+          p_org: string
+          p_packet_id: string
+        }
+        Returns: string
+      }
       ahte_evaluate_release_proxy: {
         Args: {
           p_entity_id: string
@@ -5226,6 +5772,10 @@ export type Database = {
           p_requires_authority?: boolean
         }
         Returns: Json
+      }
+      ahte_rate_limit_proxy: {
+        Args: { p_limit?: number; p_org: string; p_route: string }
+        Returns: boolean
       }
       ahte_record_event_proxy: {
         Args: {
