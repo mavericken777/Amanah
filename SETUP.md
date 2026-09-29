@@ -1,51 +1,50 @@
-# Amanah Setup Guide
+# Amanah Setup
 
-This guide is intentionally written for a non-technical owner.
+## What Amanah is
 
-## What you need
+Amanah is the AHTE operational platform for Global Halal Supply Chain Ltd HK. It uses the GlobalHalalDigitalTrust repository as the canonical project architecture/reference source and Supabase as the live application data plane.
 
-- GitHub access to this repository
-- a Supabase account
-- Node.js 22.18+ on the machine used for development
+## Local development
 
-## Create the database
+Requirements:
 
-1. Create a Supabase project.
-2. Open the SQL Editor.
-3. Run supabase/migrations/0001_amanah_core.sql.
-4. Copy the Supabase Project URL.
-5. Copy the Supabase Publishable Key.
-
-Do not put a secret/service-role key in browser code.
-
-## Configure Amanah
+- Node.js 22+
+- npm
+- A Supabase project
+- The publishable Supabase key for the target environment
 
 Copy .env.example to .env.local and set:
 
-NEXT_PUBLIC_SUPABASE_URL=your-project-url
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-publishable-key
+`NEXT_PUBLIC_SUPABASE_URL=https://lqvyyylrydcpjochknag.supabase.co`
 
-## Start
+`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=<your publishable key>`
 
-Run:
+Never use the Supabase service-role key in browser/client code.
 
-npm install
-npm run dev
+Install and run:
 
-Then open:
+`npm install`
 
-http://localhost:3000
+`npm run dev`
 
-## First test
+Quality checks:
 
-1. Create an account.
-2. Create a workspace.
-3. Create a project.
-4. Create a task.
-5. Refresh the dashboard.
-6. Confirm counts are visible.
-7. Test that organization boundaries work.
+`npm test`
 
-## Production gate
+`npm run typecheck`
 
-Do not treat the foundation as production-ready until authentication settings, RLS tests, backups, monitoring, secure document storage and deployment secrets have been reviewed.
+`npm run build`
+
+## Live backend
+
+Supabase project reference: `lqvyyylrydcpjochknag`
+
+The live backend contains the current AHTE schema, RLS, storage, lifecycle triggers, event ledger, rate limiting, realtime publication and assurance/public-verification Edge Functions.
+
+## Important authority boundary
+
+Amanah does not issue sovereign halal certification. AI is advisory. D5/D6 decisions are reserved. Operational release is not certification.
+
+## Source-lock boundary
+
+Exact normative standards text is not invented or reconstructed. Use the licensed/approved controlling source when exact clause wording is required.
