@@ -1,0 +1,25 @@
+{
+  "source_repository": "mavericken777/GlobalHalalDigitalTrust",
+  "source_artifact": "00_EXECUTIVE_COMMAND/IQ300_DOCTRINE.md",
+  "status": "source-derived implementation catalog",
+  "standards": [
+    {"code":"MS 1500:2019","title":"Halal food — General requirements","source_status":"public_structure_verified"},
+    {"code":"MS 2400-1:2019","title":"Halal supply chain management system — Transportation","source_status":"source_verified_numbered_objects"},
+    {"code":"MS 2400-2:2019","title":"Halal supply chain management system — Warehousing","source_status":"source_verified_numbered_objects"},
+    {"code":"MS 2400-3:2019","title":"Halal supply chain management system — Retailing","source_status":"source_verified_numbered_objects"},
+    {"code":"MS 2424:2019","title":"Halal pharmaceuticals — General requirements","source_status":"public_structure_verified"},
+    {"code":"MS 2634:2019","title":"Halal cosmetics — General requirements","source_status":"public_structure_verified"},
+    {"code":"MS 2636:2019","title":"Halal medical device — General requirements","source_status":"public_structure_verified"},
+    {"code":"MS 2738:2023","title":"Halal consumable goods — General requirements","source_status":"public_structure_verified"},
+    {"code":"MS 2803:2025","title":"Usage of animal bone, skin and hair","source_status":"detailed_normative_source_locked"},
+    {"code":"MS 2393:2023","title":"Islamic terminology","source_status":"public_structure_verified"},
+    {"code":"MS 2627:2017","title":"Detection of porcine DNA — Food","source_status":"public_structure_verified"},
+    {"code":"MS 2627-2:2025","title":"Detection of porcine DNA — Cosmetics","source_status":"detailed_normative_source_locked"},
+    {"code":"MS 1900:2025","title":"Shariah-based quality management system","source_status":"detailed_normative_source_locked"},
+    {"code":"MS 2691:2021","title":"Halal profession competency standard","source_status":"public_structure_verified"},
+    {"code":"MS 2610:2015","title":"Muslim-friendly hospitality services","source_status":"public_structure_verified"},
+    {"code":"MS 2809:2025","title":"Authentication using chemometric techniques","source_status":"detailed_normative_source_locked"},
+    {"code":"MS 2810:2025","title":"Identification of pig skin and hair","source_status":"detailed_normative_source_locked"}
+  ],
+  "rule": "This catalog does not reproduce licensed normative text and does not create certification authority."
+}

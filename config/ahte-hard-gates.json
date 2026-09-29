@@ -1,0 +1,49 @@
+{
+  "artifact": "09-hard-gate-rules.json",
+  "version": "0.1.0",
+  "control_date": "2026-09-20",
+  "classification": "post-freeze proposal",
+  "principle": "A failed hard-gate cannot be offset by a high score on other dimensions.",
+  "score_is_sovereign": false,
+  "gates": [
+    {
+      "id": "HG-AUTH",
+      "dimension": "authority_certificate",
+      "compensable": false,
+      "decision_class": "D5"
+    },
+    {
+      "id": "HG-ID",
+      "dimension": "identity",
+      "compensable": false
+    },
+    {
+      "id": "HG-LAB",
+      "dimension": "laboratory",
+      "compensable": false,
+      "rule": "NOT DETECTED != HALAL"
+    },
+    {
+      "id": "HG-SEAL",
+      "dimension": "seal",
+      "compensable": false,
+      "decision_class": "D4"
+    },
+    {
+      "id": "HG-CUSTODY",
+      "dimension": "custody",
+      "compensable": false
+    },
+    {
+      "id": "HG-DEST",
+      "dimension": "destination",
+      "compensable": false,
+      "decision_class": "D5"
+    },
+    {
+      "id": "HG-HITM",
+      "dimension": "human_decision",
+      "compensable": false
+    }
+  ]
+}

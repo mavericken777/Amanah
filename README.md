@@ -1,97 +1,33 @@
 # Amanah
 
-Amanah is a modular operational platform designed to give teams one controlled source of truth for projects, actions, meetings, documents, decisions, risks, finance, updates and domain-specific workflows.
+Amanah is the operational application layer for the Amanah Halal Trust Ecosystem (AHTE), with a general-purpose operational core and domain modules. Its trust architecture is reconciled to the GlobalHalalDigitalTrust IQ300 doctrine and schema/path registries.
 
-The original China Trip Markdown workspace is preserved in this repository and is now treated as the first business-requirements source for the Travel / China Trip module.
+## Current platform
 
-## Current release
+- Core operational platform: identity, organizations, projects, tasks, meetings, documents, decisions, risks, finance, updates, notifications, audit, workflows, approvals and collaboration.
+- AHTE / IQ300 control plane: source and authority registry, standards/instruments, requirements, applicability, controls, HCP/SCCP, evidence, audit tests, findings, corrective actions, re-verification, authority gates, trust states, HITM cases, authority decisions, AI provenance, trust vectors, fracture/hold events, operational release, trust packets, identities, certificates, custody, port custody, partners, laboratories and shipments.
+- Trade pilot: China → GCC direct / Shipment 001 model.
+- Travel module: China Trip operational workspace.
 
-**Amanah v1 platform foundation is released on main.**
+## Source binding
 
-Verified on 2026-09-29:
+Primary doctrine/reference repository: `mavericken777/GlobalHalalDigitalTrust` (`main`). See `docs/ahte/SOURCE_BINDING.md` and `docs/ahte/AHTE_PLATFORM_ARCHITECTURE.md`.
 
-- Next.js 16 App Router
-- React 19.2
-- TypeScript strict mode
-- Supabase Auth and Postgres
-- 25 public Postgres tables with Row Level Security enabled
-- Organization/member/role model
-- Projects and tasks
-- Meetings
-- Documents with private storage and signed access
-- Decisions
-- Risks
-- Finance
-- Updates
-- Notifications
-- Audit trail
-- Workflow definitions
-- Approvals
-- Comments
-- Task dependencies
-- China Trip travel module
-- CI: tests, typecheck and production build all passing on main
-- Architecture, security, requirements and Supabase operations documentation
+The GlobalHalalDigitalTrust doctrine states that Amanah/AHTE is an orchestration and evidence layer and does not replace competent authorities. AI is advisory; authority decisions are accountable human/competent-authority decisions. Normative text that is not held is source-locked rather than invented.
 
-## Live backend
+## Canonical path
 
-Supabase project: Amanah
-Project ref: lqvyyylrydcpjochknag
-Region: ap-northeast-1
+`Authority → Standard / Instrument → Clause / Requirement → Applicability → Control → HCP / SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → Authority Gate → Trust State → Operational Release`
 
-Database migrations through 0007 are tracked in supabase/migrations/.
+## Supabase
 
-## Start here
+Project ref: `lqvyyylrydcpjochknag`  
+Region: `ap-northeast-1`
 
-1. Read SETUP.md.
-2. Read docs/architecture/PLATFORM_ARCHITECTURE.md.
-3. Read docs/requirements/REQUIREMENTS_TRACEABILITY.md.
-4. Read docs/DELIVERY_PLAN.md.
-5. Read docs/operations/SUPABASE_STATE.md.
-6. Keep the original planning Markdown files as the business requirements baseline.
+The live database now includes AHTE migration `0008_ahte_trust_platform` with 30 AHTE tables, all protected by organization-scoped RLS policies. The existing operational tables remain in place.
 
-## Platform structure
+## Development
 
-Amanah
-  Core Platform
-    Identity
-    Organizations
-    Projects
-    Tasks
-    Meetings
-    Documents
-    Decisions
-    Risks
-    Finance
-    Updates
-    Notifications
-    Audit
-    Workflows
-    Approvals
-    Collaboration
+`main` is the released default branch. AHTE reconciliation is developed on `feat/ahte-platform-reconciliation` until CI and review gates are satisfied.
 
-  Domain Modules
-    Travel / China Trip
-      Travellers
-      Itinerary
-      Logistics
-      Accommodation
-      Travel Documents
-      Trip Finance
-      Meetings
-      Actions
-      Decisions
-      Risks
-      Updates
-
-## Important security rule
-
-This repository is not a secret store.
-
-Never commit passwords, API keys, tokens, recovery codes, identity documents, payment-card data, private authentication links or confidential material that has not been approved for source control.
-
-## Branch model
-
-main is the released default branch.
-build/amanah-platform-v1 contains the implementation history used for the v1 release and may be retained for traceability.
-setup/china-trip-project contains the original trip requirements workspace and is preserved as a requirements source.
+Never commit secrets, private keys, access tokens, personal identity documents or other sensitive material to the repository.
