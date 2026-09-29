@@ -1,11 +1,11 @@
 import { CreateProjectForm } from "@/components/create-project-form";
+import { getPrimaryWorkspace } from "@/lib/workspace";
 import { requireUser } from "@/lib/auth";
 import Link from "next/link";
 
 export default async function ProjectsPage() {
   const {supabase,user}=await requireUser();
-  const {data:memberships}=await supabase.from("organization_members").select("organization_id,organizations(id,name)").eq("user_id",user.id).order("created_at",{ascending:true});
-  const organization=memberships?.[0]?.organizations as {id:string;name:string}|undefined;
+  const organization=await getPrimaryWorkspace(supabase,user.id);
   if(!organization)return <Empty/>;
   const {data:projects}=await supabase.from("projects").select("id,name,slug,module_key,status,start_date,end_date,created_at").eq("organization_id",organization.id).order("created_at",{ascending:false});
   return <div className="page stack-xl"><header><div className="eyebrow">CORE PLATFORM</div><h1>Projects</h1><p className="lead">Every operational module lives inside a controlled Amanah project/workspace.</p></header>
