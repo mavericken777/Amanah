@@ -2,6 +2,19 @@ import { LogoutButton } from "@/components/logout-button";
 import { requireUser } from "@/lib/auth";
 import Link from "next/link";
 
+const coreNavigation = [
+  ["/dashboard", "Dashboard"],
+  ["/projects", "Projects"],
+  ["/tasks", "Tasks"],
+  ["/meetings", "Meetings"],
+  ["/documents", "Documents"],
+  ["/decisions", "Decisions"],
+  ["/risks", "Risks"],
+  ["/finance", "Finance"],
+  ["/updates", "Updates"],
+  ["/audit", "Audit"],
+] as const;
+
 export default async function ProtectedLayout({ children }: { children: React.ReactNode }) {
   const { user } = await requireUser();
   const name = (user.user_metadata?.full_name as string | undefined) || user.email || "Amanah user";
@@ -16,17 +29,24 @@ export default async function ProtectedLayout({ children }: { children: React.Re
             <span>Operational platform</span>
           </div>
         </div>
-        <nav className="nav">
-          <Link href="/dashboard">Dashboard</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/tasks">Tasks</Link>
+
+        <nav className="nav" aria-label="Core navigation">
+          <div className="nav-group-label">Core</div>
+          {coreNavigation.map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}
+
+          <div className="nav-group-label">Travel module</div>
           <Link href="/china-trip">China Trip</Link>
+
+          <div className="nav-group-label">Administration</div>
+          <Link href="/admin">Workspace members</Link>
         </nav>
+
         <div className="sidebar-footer">
           <div className="small muted">{name}</div>
           <LogoutButton />
         </div>
       </aside>
+
       <main className="main-content">{children}</main>
     </div>
   );
