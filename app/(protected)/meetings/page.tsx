@@ -20,8 +20,8 @@ export default async function MeetingsPage() {
       <section className="card table-wrap">
         <table><thead><tr><th>Date / time</th><th>Organisation / person</th><th>City</th><th>Purpose</th><th>Project</th><th>Status</th></tr></thead>
         <tbody>{(meetings ?? []).map((m) => {
-          const project = m.projects as { name: string } | null;
-          return <tr key={m.id}><td>{m.starts_at ? new Date(m.starts_at).toLocaleString() : "TBD"}</td><td>{m.organisation_or_person}</td><td>{m.city ?? "—"}</td><td>{m.purpose ?? "—"}</td><td>{project?.name ?? "—"}</td><td><span className="status">{m.status}</span></td></tr>;
+          const project = m.projects as Array<{ name: string }> | null;
+          return <tr key={m.id}><td>{m.starts_at ? new Date(m.starts_at).toLocaleString() : "TBD"}</td><td>{m.organisation_or_person}</td><td>{m.city ?? "—"}</td><td>{m.purpose ?? "—"}</td><td>{project?.[0]?.name ?? "—"}</td><td><span className="status">{m.status}</span></td></tr>;
         })}</tbody></table>
         {!meetings?.length ? <p className="muted">No meetings recorded yet.</p> : null}
       </section>

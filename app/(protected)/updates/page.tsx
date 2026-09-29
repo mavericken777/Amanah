@@ -11,7 +11,7 @@ export default async function UpdatesPage() {
   return (
     <div className="page stack-xl">
       <header><div className="eyebrow">CORE PLATFORM</div><h1>Updates</h1><p className="lead">Dated operational communications for executives and teams.</p></header>
-      <section className="stack">{(updates ?? []).map(u => { const p=u.projects as {name:string}|null; return <article className="card" key={u.id}><div className="row-between"><div><div className="eyebrow">{p?.name ?? "Workspace"}</div><h2>{u.title}</h2></div><span className="status">{u.overall_status ?? "Update"}</span></div><p className="muted">{new Date(u.published_at).toLocaleString()}</p><p><strong>Completed:</strong> {u.completed ?? "—"}</p><p><strong>In progress:</strong> {u.in_progress ?? "—"}</p><p><strong>Blocked:</strong> {u.blocked ?? "—"}</p><p><strong>Next:</strong> {u.next_actions ?? "—"}</p></article>; })}</section>
+      <section className="stack">{(updates ?? []).map(u => { const p=u.projects as Array<{name:string}>|null; return <article className="card" key={u.id}><div className="row-between"><div><div className="eyebrow">{p?.[0]?.name ?? "Workspace"}</div><h2>{u.title}</h2></div><span className="status">{u.overall_status ?? "Update"}</span></div><p className="muted">{new Date(u.published_at).toLocaleString()}</p><p><strong>Completed:</strong> {u.completed ?? "—"}</p><p><strong>In progress:</strong> {u.in_progress ?? "—"}</p><p><strong>Blocked:</strong> {u.blocked ?? "—"}</p><p><strong>Next:</strong> {u.next_actions ?? "—"}</p></article>; })}</section>
       {!updates?.length ? <div className="card empty">No updates recorded yet.</div> : null}
     </div>
   );

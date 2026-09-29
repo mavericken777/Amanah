@@ -51,11 +51,11 @@ export default async function TasksPage() {
               <thead><tr><th>Task</th><th>Project</th><th>Priority</th><th>Due</th><th>Status</th></tr></thead>
               <tbody>
                 {(tasks ?? []).map((task) => {
-                  const project = task.projects as { name: string } | null;
+                  const project = task.projects as Array<{ name: string }> | null;
                   return (
                     <tr key={task.id}>
                       <td>{task.title}</td>
-                      <td>{project?.name ?? "—"}</td>
+                      <td>{project?.[0]?.name ?? "—"}</td>
                       <td>{task.priority}</td>
                       <td>{task.due_date ?? "—"}</td>
                       <td><span className="status">{task.status}</span></td>

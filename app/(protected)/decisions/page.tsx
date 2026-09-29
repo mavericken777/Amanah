@@ -18,8 +18,8 @@ export default async function DecisionsPage() {
       <section className="card table-wrap">
         <table><thead><tr><th>ID</th><th>Date</th><th>Decision</th><th>Reason</th><th>Impact</th><th>Project</th></tr></thead>
         <tbody>{(decisions ?? []).map((d) => {
-          const project = d.projects as { name: string } | null;
-          return <tr key={d.id}><td>{d.decision_code}</td><td>{d.decided_on ?? "—"}</td><td>{d.decision}</td><td>{d.reason_context ?? "—"}</td><td>{d.impact ?? "—"}</td><td>{project?.name ?? "—"}</td></tr>;
+          const project = d.projects as Array<{ name: string }> | null;
+          return <tr key={d.id}><td>{d.decision_code}</td><td>{d.decided_on ?? "—"}</td><td>{d.decision}</td><td>{d.reason_context ?? "—"}</td><td>{d.impact ?? "—"}</td><td>{project?.[0]?.name ?? "—"}</td></tr>;
         })}</tbody></table>
         {!decisions?.length ? <p className="muted">No decisions recorded yet.</p> : null}
       </section>

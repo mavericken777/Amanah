@@ -19,8 +19,8 @@ export default async function DocumentsPage() {
       <section className="card table-wrap">
         <table><thead><tr><th>Document</th><th>Classification</th><th>Required by</th><th>Project</th><th>Status</th><th>Storage</th></tr></thead>
         <tbody>{(documents ?? []).map((d) => {
-          const project = d.projects as { name: string } | null;
-          return <tr key={d.id}><td>{d.title}</td><td>{d.classification}</td><td>{d.required_by ?? "—"}</td><td>{project?.name ?? "—"}</td><td><span className="status">{d.status}</span></td><td>{d.storage_provider ? d.storage_provider : "Secure reference only"}</td></tr>;
+          const project = d.projects as Array<{ name: string }> | null;
+          return <tr key={d.id}><td>{d.title}</td><td>{d.classification}</td><td>{d.required_by ?? "—"}</td><td>{project?.[0]?.name ?? "—"}</td><td><span className="status">{d.status}</span></td><td>{d.storage_provider ? d.storage_provider : "Secure reference only"}</td></tr>;
         })}</tbody></table>
         {!documents?.length ? <p className="muted">No document records yet.</p> : null}
       </section>

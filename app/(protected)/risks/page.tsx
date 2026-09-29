@@ -18,8 +18,8 @@ export default async function RisksPage() {
       <section className="card table-wrap">
         <table><thead><tr><th>ID</th><th>Risk</th><th>Impact</th><th>Likelihood</th><th>Mitigation</th><th>Status</th><th>Project</th></tr></thead>
         <tbody>{(risks ?? []).map((r) => {
-          const project = r.projects as { name: string } | null;
-          return <tr key={r.id}><td>{r.risk_code}</td><td>{r.description}</td><td>{r.impact}</td><td>{r.likelihood}</td><td>{r.mitigation ?? "—"}</td><td><span className="status">{r.status}</span></td><td>{project?.name ?? "—"}</td></tr>;
+          const project = r.projects as Array<{ name: string }> | null;
+          return <tr key={r.id}><td>{r.risk_code}</td><td>{r.description}</td><td>{r.impact}</td><td>{r.likelihood}</td><td>{r.mitigation ?? "—"}</td><td><span className="status">{r.status}</span></td><td>{project?.[0]?.name ?? "—"}</td></tr>;
         })}</tbody></table>
         {!risks?.length ? <p className="muted">No risks recorded yet.</p> : null}
       </section>
