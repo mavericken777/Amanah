@@ -1,15 +1,23 @@
 # AHTE source binding
 
 ## Primary project source
+
 `mavericken777/GlobalHalalDigitalTrust` — branch `main`.
 
+[PROJECT-REPO: `mavericken777/GlobalHalalDigitalTrust` — `b1c0fc63be72` — 2026-09-30 — canonical implementation review]
+
+The controlling freeze remains `master-standards-stack/verified-2026-09-17/`. The reviewed repository commit is post-freeze and is used as project doctrine / implementation guidance, not as substituted authority text.
+
 ## Reviewed artifacts
-- `00_EXECUTIVE_COMMAND/IQ300_DOCTRINE.md` — IQ300 doctrine v3.1, freeze boundary and authority model.
+
+- `00_EXECUTIVE_COMMAND/IQ300_DOCTRINE.md` — IQ300 doctrine v3.1, freeze boundary, authority model and completion semantics.
 - `00_EXECUTIVE_COMMAND/canonical-path-machine-map.json` — machine-to-canonical-path mapping.
 - `00_EXECUTIVE_COMMAND/schema-registry.json` — structured trust/evidence schema index.
-- `00_EXECUTIVE_COMMAND/RECONCILIATION_2026-09-27.md` — current repository corrections, open external gates and evidence-status overlay.
+- `00_EXECUTIVE_COMMAND/trust-packet-schemas.json` — evidence, authority, trust-state, HITM and release object schemas.
+- `00_EXECUTIVE_COMMAND/RECONCILIATION_2026-09-27.md` — repository corrections, external gates and evidence-status overlay.
 
-## Source rules imported into Amanah
+## Source rules implemented in Amanah
+
 - Source provenance first.
 - Authority boundaries explicit.
 - Evidence versioned.
@@ -24,10 +32,37 @@
 - Operational release is not certification.
 - Source-locked normative text is never invented.
 
-## Freeze
-The GlobalHalalDigitalTrust doctrine identifies `master-standards-stack/verified-2026-09-17/` as the freeze boundary. Post-freeze corrections/proposals are carried into Amanah as source-qualified implementation metadata rather than silently promoted normative text.
+## Canonical path
 
-## Current reconciliation status
-The AHTE database/control-plane foundation is implemented in Amanah migration `0008_ahte_trust_platform`. The repository contains application routes for source/authority, controls/audit, HITM, trust, trade/custody and trust packets.
+`Authority → Standard / Instrument → Clause / Requirement → Applicability → Control → HCP / SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → Authority Gate → Trust State → Operational Release`
 
-This document is an implementation provenance record. It is not itself an authority instrument and does not create certification status.
+Amanah machine nodes refine this path but do not replace it. AI Assessment maps to Evidence / Audit Test; HITM operates before or at reserved decision gates; signed competent-authority decisions remain external E5 evidence; trust vectors and scores remain descriptive Trust State artifacts; release remains operational rather than certification.
+
+## Freeze discipline
+
+The GlobalHalalDigitalTrust doctrine identifies `master-standards-stack/verified-2026-09-17/` as the freeze boundary. Post-freeze corrections, schemas and engineering implementation are source-qualified rather than silently promoted into the frozen standards package.
+
+Normative wording not held at the required source depth remains `[SOURCE-LOCKED]`. Amanah must not synthesize missing clauses or authority decisions to close those gates.
+
+## Current implementation status — 2026-09-30
+
+The AHTE database/control plane is no longer limited to migration `0008`. The live Amanah project and repository lineage are reconciled through:
+
+- `0013_seed_17_standard_reference_catalog`
+- `0014_enable_ahte_realtime`
+- `0015_role_and_authority_integrity`
+- `0016_authority_decision_api_compatibility`
+
+The live Supabase database has 97 public tables with RLS enabled on all 97. The initial broad AHTE member-level mutation policy has been replaced with explicit read/write/delete policies on the original AHTE control-plane tables. Authority/source mutation is elevated; operational trust/release mutation is elevated; ordinary members/viewers do not receive generic mutation rights.
+
+The assurance API reserves D5/D6 decisions from machine execution and records authority decisions as externally owned evidence. `issued_by_ahte=true` is rejected. Authority decisions in `signed` or deployed-API `final` lifecycle state require decision reference plus signature hash.
+
+## Transaction boundary
+
+No real user, organization, project or Shipment 001 transaction data existed in the live project during this review. Therefore transaction-native evidence, authority decisions, importer/buyer commitments, shipment events and destination releases remain external/transaction gates and are not fabricated.
+
+[PILOT: Shipment 001 — China → GCC direct]
+
+Shipment 001 becomes instantiated only when real transaction-native evidence exists.
+
+This document is an implementation provenance record. It is not an authority instrument and does not create certification status.
