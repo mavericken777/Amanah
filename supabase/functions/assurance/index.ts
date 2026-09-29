@@ -125,7 +125,7 @@ Deno.serve(async (req) => {
       external_authority_reference: body.external_authority_reference ?? null, authority_signature_hash: body.signature_hash ?? null };
     const { data, error } = await supabase.from("ahte_evidence").insert({
       organization_id: organizationId, project_id: typeof body.project_id === "string" ? body.project_id : null,
-      control_id: typeof body.control_id === "string" ? body.control_id : null, evidence_class, title: body.title, evidence_type: body.evidence_type,
+      control_id: typeof body.control_id === "string" ? body.control_id : null, evidence_class: evidenceClass, title: body.title, evidence_type: body.evidence_type,
       source_uri: typeof body.source_uri === "string" ? body.source_uri : null, content_hash: typeof body.content_hash === "string" ? body.content_hash : null,
       collected_at: typeof body.collected_at === "string" ? body.collected_at : null, valid_from: typeof body.valid_from === "string" ? body.valid_from : null,
       valid_to: typeof body.valid_to === "string" ? body.valid_to : null, status: typeof body.status === "string" ? body.status : "unverified",
