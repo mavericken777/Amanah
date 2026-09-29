@@ -1,11 +1,11 @@
 import { CreateTaskForm } from "@/components/create-task-form";
 import { TaskStatusSelect } from "@/components/task-status-select";
+import { getPrimaryWorkspace } from "@/lib/workspace";
 import { requireUser } from "@/lib/auth";
 
 export default async function TasksPage() {
   const {supabase,user}=await requireUser();
-  const {data:memberships}=await supabase.from("organization_members").select("organization_id,organizations(id,name)").eq("user_id",user.id).order("created_at",{ascending:true});
-  const organization=memberships?.[0]?.organizations as {id:string;name:string}|undefined;
+  const organization=await getPrimaryWorkspace(supabase,user.id);
   if(!organization)return <Empty/>;
   const {data:projects}=await supabase.from("projects").select("id,name,module_key").eq("organization_id",organization.id).order("created_at",{ascending:false});
   const activeProject=projects?.[0];
