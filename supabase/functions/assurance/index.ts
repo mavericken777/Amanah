@@ -367,5 +367,216 @@ Deno.serve(async (req) => {
     return finish({data:recall},201);
   }
 
+
+  if (req.method === "POST" && head === "controls") {
+    if (typeof body.code !== "string" || typeof body.name !== "string") return finish({ error: "control_code_and_name_required" }, 400);
+    const { data, error } = await supabase.from("ahte_controls").insert({
+      organization_id: organizationId,
+      requirement_id: typeof body.requirement_id === "string" ? body.requirement_id : null,
+      project_id: typeof body.project_id === "string" ? body.project_id : null,
+      code: body.code,
+      name: body.name,
+      description: typeof body.description === "string" ? body.description : null,
+      owner_user_id: typeof body.owner_user_id === "string" ? body.owner_user_id : null,
+      status: typeof body.status === "string" ? body.status : "planned",
+    }).select("*").single();
+    if (error) return finish({ error: error.message }, 400);
+    return finish({ data }, 201);
+  }
+
+  if (req.method === "POST" && head === "critical-points") {
+    if (typeof body.control_id !== "string" || typeof body.point_type !== "string" || typeof body.process_step !== "string") return finish({ error: "control_point_type_process_required" }, 400);
+    const { data, error } = await supabase.from("ahte_critical_points").insert({
+      organization_id: organizationId,
+      control_id: body.control_id,
+      point_type: body.point_type,
+      process_step: body.process_step,
+      hazard: typeof body.hazard === "string" ? body.hazard : null,
+      control_measure: typeof body.control_measure === "string" ? body.control_measure : null,
+      monitoring_method: typeof body.monitoring_method === "string" ? body.monitoring_method : null,
+      escalation_rule: typeof body.escalation_rule === "string" ? body.escalation_rule : null,
+    }).select("*").single();
+    if (error) return finish({ error: error.message }, 400);
+    return finish({ data }, 201);
+  }
+
+  if (req.method === "POST" && head === "applicability") {
+    if (typeof body.requirement_id !== "string" || typeof body.decision !== "string") return finish({ error: "requirement_and_decision_required" }, 400);
+    const decision = body.decision;
+    if (!["applicable", "not_applicable", "conditional", "undetermined"].includes(String(decision))) return finish({ error: "invalid_applicability_decision" }, 400);
+    const { data, error } = await supabase.from("ahte_applicability").insert({
+      organization_id: organizationId,
+      requirement_id: body.requirement_id,
+      project_id: typeof body.project_id === "string" ? body.project_id : null,
+      shipment_id: typeof body.shipment_id === "string" ? body.shipment_id : null,
+      decision: String(decision),
+      rationale: typeof body.rationale === "string" ? body.rationale : null,
+      decided_by: userId,
+      decided_at: new Date().toISOString(),
+    }).select("*").single();
+    if (error) return finish({ error: error.message }, 400);
+    return finish({ data }, 201);
+  }
+
+  if (req.method === "POST" && head === "audit-tests") {
+    if (typeof body.test_code !== "string" || typeof body.method !== "string") return finish({ error: "test_code_and_method_required" }, 400);
+    const { data, error } = await supabase.from("ahte_audit_tests").insert({
+      organization_id: organizationId,
+      control_id: typeof body.control_id === "string" ? body.control_id : null,
+      evidence_id: typeof body.evidence_id === "string" ? body.evidence_id : null,
+      test_code: body.test_code,
+      method: body.method,
+      tester_user_id: userId,
+      result: typeof body.result === "string" ? body.result : "pending",
+      tested_at: new Date().toISOString(),
+      notes: typeof body.notes === "string" ? body.notes : null,
+    }).select("*").single();
+    if (error) return finish({ error: error.message }, 400);
+    return finish({ data }, 201);
+  }
+
+  if (req.method === "POST" && head === "findings") {
+    if (typeof body.finding_code !== "string" || typeof body.description !== "string") return finish({ error: "finding_code_and_description_required" }, 400);
+    const { data, error } = await supabase.from("ahte_findings").insert({
+      organization_id: organizationId,
+      audit_test_id: typeof body.audit_test_id === "string" ? body.audit_test_id : null,
+      control_id: typeof body.control_id === "string" ? body.control_id : null,
+      finding_code: body.finding_code,
+      severity: typeof body.severity === "string" ? body.severity : "medium",
+      description: body.description,
+      status: typeof body.status === "string" ? body.status : "open",
+    }).select("*").single();
+    if (error) return finish({ error: error.message }, 400);
+    return finish({ data }, 201);
+  }
+
+  if (req.method === "POST" && head === "reverifications") {
+    if (typeof body.corrective_action_id !== "string" || typeof body.result !== "string") return finish({ error: "corrective_action_and_result_required" }, 400);
+    const { data, error } = await supabase.from("ahte_reverifications").insert({
+      organization_id: organizationId,
+      corrective_action_id: body.corrective_action_id,
+      result: body.result,
+      tester_user_id: userId,
+      tested_at: new Date().toISOString(),
+      evidence_id: typeof body.evidence_id === "string" ? body.evidence_id : null,
+      notes: typeof body.notes === "string" ? body.notes : null,
+    }).select("*").single();
+    if (error) return finish({ error: error.message }, 400);
+    return finish({ data }, 201);
+  }
+
+  if (req.method === "POST" && head === "authority-gates") {
+    if (typeof body.gate_code !== "string" || typeof body.gate_type !== "string") return finish({ error: "gate_code_and_type_required" }, 400);
+    const { data, error } = await supabase.from("ahte_authority_gates").insert({
+      organization_id: organizationId,
+      project_id: typeof body.project_id === "string" ? body.project_id : null,
+      authority_id: typeof body.authority_id === "string" ? body.authority_id : null,
+      gate_code: body.gate_code,
+      gate_type: body.gate_type,
+      status: "open",
+      decision_reference: null,
+      decision_date: null,
+      decided_by: null,
+      rationale: typeof body.rationale === "string" ? body.rationale : null,
+    }).select("*").single();
+    if (error) return finish({ error: error.message }, 400);
+    return finish({ data }, 201);
+  }
+
+  if (req.method === "POST" && head === "source-conflicts") {
+    if (typeof body.source_a !== "string" || typeof body.source_b !== "string" || typeof body.conflict_point !== "string") return finish({ error: "source_a_source_b_conflict_point_required" }, 400);
+    const { data, error } = await supabase.from("ahte_source_conflicts").insert({
+      organization_id: organizationId,
+      source_a: body.source_a,
+      source_b: body.source_b,
+      conflict_point: body.conflict_point,
+      status: "open",
+      escalated_to: typeof body.escalated_to === "string" ? body.escalated_to : "appropriate competent authority",
+      resolution_ref: null,
+    }).select("*").single();
+    if (error) return finish({ error: error.message }, 400);
+    return finish({ data, open_gate: "source_conflict" }, 201);
+  }
+
+  if (req.method === "POST" && head === "trust-vectors") {
+    if (typeof body.entity_type !== "string" || typeof body.entity_id !== "string" || !body.dimensions) return finish({ error: "entity_and_dimensions_required" }, 400);
+    const { data, error } = await supabase.from("ahte_trust_vectors").insert({
+      organization_id: organizationId,
+      project_id: typeof body.project_id === "string" ? body.project_id : null,
+      entity_type: body.entity_type,
+      entity_id: body.entity_id,
+      dimensions: body.dimensions,
+      score: typeof body.score === "number" ? body.score : null,
+      methodology_version: typeof body.methodology_version === "string" ? body.methodology_version : null,
+      calculated_at: new Date().toISOString(),
+    }).select("*").single();
+    if (error) return finish({ error: error.message }, 400);
+    return finish({ data, score_is_sovereign: false }, 201);
+  }
+
+  if (req.method === "POST" && head === "transition") {
+    if (typeof body.entity_type !== "string" || typeof body.entity_id !== "string" || typeof body.event !== "string") return finish({ error: "entity_and_event_required" }, 400);
+    const projectId = typeof body.project_id === "string" ? body.project_id : null;
+    const { data: current } = await supabase.from("ahte_trust_states")
+      .select("id,project_id,state,hard_gate_status,vector,entity_type,entity_id")
+      .eq("organization_id", organizationId)
+      .eq("entity_type", body.entity_type)
+      .eq("entity_id", body.entity_id)
+      .order("effective_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+
+    const fromState = current?.state ?? "draft";
+    const { data: transition, error: transitionError } = await supabase.from("ahte_state_transitions")
+      .select("from_state,to_state,event,required_decision_class")
+      .eq("organization_id", organizationId)
+      .eq("machine","trust")
+      .eq("from_state",fromState)
+      .eq("event",body.event)
+      .eq("active",true)
+      .maybeSingle();
+
+    if (transitionError) return finish({ error: transitionError.message }, 400);
+    if (!transition) return finish({ error: "undefined_transition", from_state: fromState, event: body.event, default: "remain_or_hold" }, 409);
+    if (["D5","D6"].includes(String(transition.required_decision_class ?? ""))) return finish({ error: "authority_gate_reserved", decision_class: transition.required_decision_class }, 403);
+
+    if (transition.to_state === "released") {
+      const { data: eligibility, error: evalError } = await supabase.rpc("ahte_evaluate_release_proxy", {
+        p_org: organizationId,
+        p_entity_type: body.entity_type,
+        p_entity_id: body.entity_id,
+        p_requires_authority: body.requires_authority_gate === true,
+      });
+      if (evalError) return finish({ error: evalError.message }, 400);
+      if (!eligibility || eligibility.eligible !== true) return finish({ error: "release_blocked", eligibility }, 409);
+    }
+
+    const gateStatus = typeof body.hard_gate_status === "string" ? body.hard_gate_status : (transition.to_state === "eligible" || transition.to_state === "released" ? "passed" : "open");
+    const { data: nextState, error: stateError } = await supabase.from("ahte_trust_states").insert({
+      organization_id: organizationId,
+      project_id: projectId ?? current?.project_id ?? null,
+      entity_type: body.entity_type,
+      entity_id: body.entity_id,
+      state: transition.to_state,
+      hard_gate_status: gateStatus,
+      vector: body.vector ?? current?.vector ?? {},
+      rationale: typeof body.rationale === "string" ? body.rationale : "State transition: " + body.event,
+      effective_at: new Date().toISOString(),
+    }).select("*").single();
+
+    if (stateError) return finish({ error: stateError.message }, 400);
+    await supabase.rpc("ahte_record_event_proxy", {
+      p_org: organizationId,
+      p_event_type: body.event,
+      p_entity_type: body.entity_type,
+      p_entity_id: body.entity_id,
+      p_actor_type: "user",
+      p_actor_id: userId,
+      p_payload: { from_state: fromState, to_state: transition.to_state, event: body.event },
+      p_source_system: "assurance-api",
+    });
+    return finish({ data: nextState, from_state: fromState, to_state: transition.to_state, not_certification: transition.to_state === "released" }, 201);
+  }
+
   return reply({error:"route_not_found",supported:["/health","/packets","/evidence","/assess","/hitm/evaluate","/products","/products/{id}/verification","/lab-results","/shipments","/logistics-events","/retail-events","/telemetry","/inbound-events","/credential-checks","/market-registrations","/twins","/public-verifications","/hold","/release","/authority-decisions","/evidence/{id}","/state/{packet_id}","/cases/{finding_id}/corrective-actions","/recalls"]},404);
 });
