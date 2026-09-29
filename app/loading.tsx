@@ -1,0 +1,1 @@
+export default function Loading(){return <main className="page"><div className="card skeleton-stack" aria-busy="true"><div className="skeleton wide"/><div className="skeleton"/><div className="skeleton"/><div className="skeleton"/></div></main>;}
