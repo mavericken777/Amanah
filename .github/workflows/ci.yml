@@ -20,8 +20,7 @@ jobs:
       - uses: actions/setup-node@v7.0.0
         with:
           node-version: 22
-          cache: npm
-      - run: npm ci
+      - run: npm install --no-audit --no-fund
       - run: npm run typecheck
 
   test:
@@ -31,8 +30,7 @@ jobs:
       - uses: actions/setup-node@v7.0.0
         with:
           node-version: 22
-          cache: npm
-      - run: npm ci
+      - run: npm install --no-audit --no-fund
       - run: npm test
 
   build:
@@ -46,6 +44,5 @@ jobs:
       - uses: actions/setup-node@v7.0.0
         with:
           node-version: 22
-          cache: npm
-      - run: npm ci
+      - run: npm install --no-audit --no-fund
       - run: npm run build
