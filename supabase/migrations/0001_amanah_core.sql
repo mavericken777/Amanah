@@ -287,6 +287,46 @@ create index if not exists itinerary_org_project_date_idx on public.itinerary_ev
 create index if not exists audit_org_time_idx on public.audit_events(organization_id, occurred_at desc);
 create index if not exists notifications_user_unread_idx on public.notifications(user_id, read_at, created_at desc);
 
+
+create or replace function public.set_updated_at()
+returns trigger
+language plpgsql
+as $
+begin
+  new.updated_at = now();
+  return new;
+end;
+$;
+
+drop trigger if exists profiles_set_updated_at on public.profiles;
+create trigger profiles_set_updated_at before update on public.profiles for each row execute procedure public.set_updated_at();
+drop trigger if exists organizations_set_updated_at on public.organizations;
+create trigger organizations_set_updated_at before update on public.organizations for each row execute procedure public.set_updated_at();
+drop trigger if exists projects_set_updated_at on public.projects;
+create trigger projects_set_updated_at before update on public.projects for each row execute procedure public.set_updated_at();
+drop trigger if exists tasks_set_updated_at on public.tasks;
+create trigger tasks_set_updated_at before update on public.tasks for each row execute procedure public.set_updated_at();
+drop trigger if exists meetings_set_updated_at on public.meetings;
+create trigger meetings_set_updated_at before update on public.meetings for each row execute procedure public.set_updated_at();
+drop trigger if exists documents_set_updated_at on public.documents;
+create trigger documents_set_updated_at before update on public.documents for each row execute procedure public.set_updated_at();
+drop trigger if exists decisions_set_updated_at on public.decisions;
+create trigger decisions_set_updated_at before update on public.decisions for each row execute procedure public.set_updated_at();
+drop trigger if exists risks_set_updated_at on public.risks;
+create trigger risks_set_updated_at before update on public.risks for each row execute procedure public.set_updated_at();
+drop trigger if exists budgets_set_updated_at on public.budgets;
+create trigger budgets_set_updated_at before update on public.budgets for each row execute procedure public.set_updated_at();
+drop trigger if exists expenses_set_updated_at on public.expenses;
+create trigger expenses_set_updated_at before update on public.expenses for each row execute procedure public.set_updated_at();
+drop trigger if exists itinerary_set_updated_at on public.itinerary_events;
+create trigger itinerary_set_updated_at before update on public.itinerary_events for each row execute procedure public.set_updated_at();
+drop trigger if exists travellers_set_updated_at on public.travellers;
+create trigger travellers_set_updated_at before update on public.travellers for each row execute procedure public.set_updated_at();
+drop trigger if exists transport_set_updated_at on public.transport_segments;
+create trigger transport_set_updated_at before update on public.transport_segments for each row execute procedure public.set_updated_at();
+drop trigger if exists accommodations_set_updated_at on public.accommodations;
+create trigger accommodations_set_updated_at before update on public.accommodations for each row execute procedure public.set_updated_at();
+
 create or replace function public.handle_new_user()
 returns trigger
 language plpgsql
@@ -384,17 +424,21 @@ create policy members_self_or_admin_select on public.organization_members for se
 );
 create policy members_admin_insert on public.organization_members for insert to authenticated with check (
   public.has_org_role(organization_id, array['owner','admin'])
+  and role <> 'owner'
 );
-create policy members_admin_update on public.organization_members for update to authenticated using (
-  public.has_org_role(organization_id, array['owner','admin'])
-);
-create policy members_admin_delete on public.organization_members for delete to authenticated using (
-  public.has_org_role(organization_id, array['owner','admin'])
-);
+create policy members_owner_update on public.organization_members for update to authenticated
+using (public.has_org_role(organization_id, array['owner']))
+with check (public.has_org_role(organization_id, array['owner']));
+create policy members_owner_delete on public.organization_members for delete to authenticated
+using (public.has_org_role(organization_id, array['owner']) and user_id <> auth.uid());
 
 create policy projects_member_select on public.projects for select to authenticated using (public.is_org_member(organization_id));
-create policy projects_member_insert on public.projects for insert to authenticated with check (public.is_org_member(organization_id));
-create policy projects_member_update on public.projects for update to authenticated using (public.is_org_member(organization_id));
+create policy projects_manager_insert on public.projects for insert to authenticated with check (
+  public.has_org_role(organization_id, array['owner','admin','executive','project_manager'])
+);
+create policy projects_manager_update on public.projects for update to authenticated using (
+  public.has_org_role(organization_id, array['owner','admin','executive','project_manager'])
+);
 create policy projects_admin_delete on public.projects for delete to authenticated using (public.has_org_role(organization_id, array['owner','admin']));
 
 create policy tasks_member_select on public.tasks for select to authenticated using (public.is_org_member(organization_id));
@@ -421,13 +465,21 @@ create policy meeting_attendee_admin_delete on public.meeting_attendees for dele
 );
 
 create policy documents_member_select on public.documents for select to authenticated using (public.is_org_member(organization_id));
-create policy documents_member_insert on public.documents for insert to authenticated with check (public.is_org_member(organization_id));
-create policy documents_member_update on public.documents for update to authenticated using (public.is_org_member(organization_id));
+create policy documents_contributor_insert on public.documents for insert to authenticated with check (
+  public.has_org_role(organization_id, array['owner','admin','executive','project_manager','member','contributor'])
+);
+create policy documents_contributor_update on public.documents for update to authenticated using (
+  public.has_org_role(organization_id, array['owner','admin','executive','project_manager','member','contributor'])
+);
 create policy documents_admin_delete on public.documents for delete to authenticated using (public.has_org_role(organization_id, array['owner','admin']));
 
 create policy decisions_member_select on public.decisions for select to authenticated using (public.is_org_member(organization_id));
-create policy decisions_member_insert on public.decisions for insert to authenticated with check (public.is_org_member(organization_id));
-create policy decisions_member_update on public.decisions for update to authenticated using (public.is_org_member(organization_id));
+create policy decisions_manager_insert on public.decisions for insert to authenticated with check (
+  public.has_org_role(organization_id, array['owner','admin','executive','project_manager'])
+);
+create policy decisions_manager_update on public.decisions for update to authenticated using (
+  public.has_org_role(organization_id, array['owner','admin','executive','project_manager'])
+);
 create policy decisions_admin_delete on public.decisions for delete to authenticated using (public.has_org_role(organization_id, array['owner','admin']));
 
 create policy risks_member_select on public.risks for select to authenticated using (public.is_org_member(organization_id));
@@ -436,8 +488,12 @@ create policy risks_member_update on public.risks for update to authenticated us
 create policy risks_admin_delete on public.risks for delete to authenticated using (public.has_org_role(organization_id, array['owner','admin']));
 
 create policy budgets_member_select on public.budgets for select to authenticated using (public.is_org_member(organization_id));
-create policy budgets_member_insert on public.budgets for insert to authenticated with check (public.is_org_member(organization_id));
-create policy budgets_member_update on public.budgets for update to authenticated using (public.is_org_member(organization_id));
+create policy budgets_manager_insert on public.budgets for insert to authenticated with check (
+  public.has_org_role(organization_id, array['owner','admin','executive','project_manager'])
+);
+create policy budgets_manager_update on public.budgets for update to authenticated using (
+  public.has_org_role(organization_id, array['owner','admin','executive','project_manager'])
+);
 create policy budgets_admin_delete on public.budgets for delete to authenticated using (public.has_org_role(organization_id, array['owner','admin']));
 
 create policy expenses_member_select on public.expenses for select to authenticated using (public.is_org_member(organization_id));
