@@ -8,9 +8,10 @@ Public copy is intentionally limited to facts represented in the canonical Globa
 
 ## Temporary hosting
 
-Recommended free options:
+GitHub Pages is enabled for this public Amanah repository. The deployment workflow at `.github/workflows/ghscl-pages.yml` publishes the contents of this folder as the temporary GHSCL stakeholder website.
 
-- GitHub Pages, using this folder as the published artifact.
-- Cloudflare Pages, using this folder as the static output.
+Expected public URL:
 
-GitHub Pages is available for public repositories on GitHub Free and for private repositories on GitHub Pro/Team/Enterprise. A private Amanah repository therefore requires an appropriate GitHub plan for Pages. See the deployment workflow in .github/workflows/ghscl-pages.yml.
+`https://mavericken777.github.io/Amanah/`
+
+The repository remains the deployment source; updates under `ghscl-website/**` trigger the Pages workflow on `main`.
