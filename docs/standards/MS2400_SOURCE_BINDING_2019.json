@@ -1,0 +1,84 @@
+{
+  "artifact_id": "ms2400-source-binding-2019",
+  "verified_date": "2026-09-30",
+  "freeze_reference": "verified-2026-09-17/",
+  "authority_boundary": "MS 2400 is a technical instrument. This artifact does not create or represent Halal certification or an authority decision.",
+  "copyright_handling": "Source PDFs are user-supplied licensed copies. Amanah stores source identity, cryptographic hashes and clause locators; exact normative requirement text remains source-locked.",
+  "documents": [
+    {
+      "code": "MS 2400-1:2019",
+      "title": "Halal supply chain management system - Part 1: Transportation - General requirements",
+      "source_filename": "MS2400-1_2019.pdf",
+      "sha256": "1e5c635cbb434465f4deb43ffb0ae7a52040210eab46a517593390443bc4d7a2",
+      "page_count": 42,
+      "source_status": "SOURCE-LOCKED",
+      "binding_scope": "locator metadata only; normative requirement text is not reproduced",
+      "section_index": [
+        {"clause":"0","heading":"Introduction","standard_page":1},
+        {"clause":"1","heading":"Scope","standard_page":3},
+        {"clause":"2","heading":"Normative references","standard_page":3},
+        {"clause":"3","heading":"Terms and definitions","standard_page":3},
+        {"clause":"4","heading":"Requirements","standard_page":8},
+        {"clause":"4.1","heading":"Requirements related to Shariah","standard_page":8},
+        {"clause":"4.2","heading":"Management responsibility","standard_page":8},
+        {"clause":"4.3","heading":"Halal Management System requirements","standard_page":10},
+        {"clause":"4.4","heading":"Halal Risk Management Plan Summary","standard_page":14},
+        {"clause":"4.5","heading":"Information and communication system","standard_page":14},
+        {"clause":"5","heading":"Preliminary steps to enable risk management process","standard_page":14},
+        {"clause":"6","heading":"Operations of the Halal Risk Management Plan","standard_page":17},
+        {"clause":"7","heading":"General requirements for premises, infrastructure, facilities and personnel","standard_page":21},
+        {"clause":"8","heading":"Maintenance of the halal supply chain","standard_page":25}
+      ]
+    },
+    {
+      "code": "MS 2400-2:2019",
+      "title": "Halal supply chain management system - Part 2: Warehousing - General requirements",
+      "source_filename": "MS2400-2_2019.pdf",
+      "sha256": "d6369596a188446a5916e0d7d946d56e2a0bdcf6675d01d1a9e1cff204ff6720",
+      "page_count": 43,
+      "source_status": "SOURCE-LOCKED",
+      "binding_scope": "locator metadata only; normative requirement text is not reproduced",
+      "section_index": [
+        {"clause":"0","heading":"Introduction","standard_page":1},
+        {"clause":"1","heading":"Scope","standard_page":3},
+        {"clause":"2","heading":"Normative references","standard_page":3},
+        {"clause":"3","heading":"Terms and definitions","standard_page":3},
+        {"clause":"4","heading":"Requirements","standard_page":7},
+        {"clause":"4.1","heading":"Requirements related to Shariah","standard_page":7},
+        {"clause":"4.2","heading":"Management responsibility","standard_page":7},
+        {"clause":"4.3","heading":"Halal Management System requirements","standard_page":9},
+        {"clause":"4.4","heading":"Halal Risk Management Plan summary","standard_page":13},
+        {"clause":"4.5","heading":"Information and communication system","standard_page":13},
+        {"clause":"5","heading":"Preliminary steps to enable risk management process","standard_page":13},
+        {"clause":"6","heading":"Operations of the Halal Risk Management Plan","standard_page":16},
+        {"clause":"7","heading":"General requirements for premises, infrastructure, facilities and personnel","standard_page":21},
+        {"clause":"8","heading":"Maintenance of the halal supply chain","standard_page":26}
+      ]
+    },
+    {
+      "code": "MS 2400-3:2019",
+      "title": "Halal supply chain management system - Part 3: Retailing - General requirements",
+      "source_filename": "MS2400-3_2019.pdf",
+      "sha256": "8e757fa1821edb7a246dbf3146d8e44533c4d32badf5c214b9ab7d32b1c61058",
+      "page_count": 48,
+      "source_status": "SOURCE-LOCKED",
+      "binding_scope": "locator metadata only; normative requirement text is not reproduced",
+      "section_index": [
+        {"clause":"0","heading":"Introduction","standard_page":1},
+        {"clause":"1","heading":"Scope","standard_page":3},
+        {"clause":"2","heading":"Normative references","standard_page":3},
+        {"clause":"3","heading":"Terms and definitions","standard_page":3},
+        {"clause":"4","heading":"Requirements","standard_page":7},
+        {"clause":"4.1","heading":"Requirements related to Shariah","standard_page":7},
+        {"clause":"4.2","heading":"Management responsibility","standard_page":7},
+        {"clause":"4.3","heading":"Halal Management System requirements","standard_page":8},
+        {"clause":"4.4","heading":"Halal Risk Management Plan Summary","standard_page":12},
+        {"clause":"4.5","heading":"Information and communication system","standard_page":12},
+        {"clause":"5","heading":"Preliminary steps to enable risk management process","standard_page":12},
+        {"clause":"6","heading":"Operations of the Halal Risk Management Plan","standard_page":16},
+        {"clause":"7","heading":"General requirements for premises, infrastructure, facilities and personnel","standard_page":19},
+        {"clause":"8","heading":"Maintenance of the halal supply chain","standard_page":27}
+      ]
+    }
+  ]
+}
