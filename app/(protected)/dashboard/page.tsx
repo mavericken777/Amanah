@@ -1,3 +1,4 @@
+import { requireQueryResults } from "@/lib/query-results";
 import { CreateWorkspace } from "@/components/create-workspace";
 import { requireUser } from "@/lib/auth";
 import { getPrimaryWorkspace } from "@/lib/workspace";
@@ -23,13 +24,13 @@ export default async function DashboardPage() {
   const orgId = organization.id;
 
   const [{ count: projectCount }, { count: taskCount }, { count: riskCount }, { count: documentCount }, { data: projects }] =
-    await Promise.all([
+    requireQueryResults(await Promise.all([
       supabase.from("projects").select("id", { count: "exact", head: true }).eq("organization_id", orgId),
       supabase.from("tasks").select("id", { count: "exact", head: true }).eq("organization_id", orgId).neq("status", "done"),
       supabase.from("risks").select("id", { count: "exact", head: true }).eq("organization_id", orgId).eq("status", "open"),
       supabase.from("documents").select("id", { count: "exact", head: true }).eq("organization_id", orgId).neq("status", "approved"),
       supabase.from("projects").select("id, name, module_key, status, start_date, end_date").eq("organization_id", orgId).order("created_at", { ascending: false }).limit(6),
-    ]);
+    ] as const));
 
   return (
     <div className="page stack-xl">

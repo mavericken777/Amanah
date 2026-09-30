@@ -1,3 +1,4 @@
+import { requireQueryResults } from "@/lib/query-results";
 import { requireUser } from "@/lib/auth";
 import { getPrimaryWorkspace } from "@/lib/workspace";
 
@@ -6,11 +7,11 @@ export default async function LaboratoryPage() {
   const org = await getPrimaryWorkspace(supabase, user.id);
   if (!org) return <Empty />;
 
-  const [labs, samples, results] = await Promise.all([
+  const [labs, samples, results] = requireQueryResults(await Promise.all([
     supabase.from("ahte_laboratories").select("name,accreditation_status,accreditation_scope,method_scope,acceptance_status").eq("organization_id", org.id).order("name"),
     supabase.from("ahte_lab_samples").select("specimen_id,matrix,method_code,method_version,status,collected_at,chain_of_custody_ref").eq("organization_id", org.id).order("created_at", { ascending: false }).limit(100),
     supabase.from("ahte_lab_results").select("analyte,result_value,unit,interpretation,result_class,status,created_at").eq("organization_id", org.id).order("created_at", { ascending: false }).limit(100),
-  ]);
+  ] as const));
 
   return <div className="page stack-xl">
     <header><div className="eyebrow">AHTE / LABORATORY</div><h1>Laboratory evidence</h1><p className="lead">Sample, method, result, report and chain-of-custody records. Analytical findings do not by themselves create halal certification.</p></header>

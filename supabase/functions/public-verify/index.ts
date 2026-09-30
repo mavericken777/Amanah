@@ -17,6 +17,7 @@ async function sha256(input: string) {
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return reply({ ok: true });
+  if (req.method !== "GET") return reply({ error: "method_not_allowed" }, 405);
   const token = new URL(req.url).searchParams.get("token");
   if (!token || token.length < 32) return reply({ valid: false, reason: "token_required" }, 400);
 
@@ -37,7 +38,7 @@ Deno.serve(async (req) => {
     .or("expires_at.is.null,expires_at.gt." + new Date().toISOString())
     .maybeSingle();
 
-  if (verificationError) return reply({ valid: false, reason: verificationError.message }, 400);
+  if (verificationError) return reply({ valid: false, reason: "verification_unavailable" }, 503);
   if (!verification) return reply({ valid: false, reason: "not_found_or_expired" }, 404);
 
   const { data: packet, error: packetError } = await supabase
@@ -47,10 +48,12 @@ Deno.serve(async (req) => {
     .eq("organization_id", verification.organization_id)
     .maybeSingle();
 
-  if (packetError || !packet) return reply({ valid: false, reason: packetError?.message ?? "packet_not_found" }, 404);
+  if (packetError) return reply({ valid: false, reason: "verification_unavailable" }, 503);
+  if (!packet) return reply({ valid: false, reason: "packet_not_found" }, 404);
 
   return reply({
     valid: true,
+    verification_scope: "disclosure_token_only",
     packet_id: packet.id,
     packet_type: packet.packet_type,
     schema_version: packet.schema_version,

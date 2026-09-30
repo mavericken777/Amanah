@@ -1,3 +1,4 @@
+import { requireQueryResults } from "@/lib/query-results";
 import { requireUser } from "@/lib/auth";
 import { getPrimaryWorkspace } from "@/lib/workspace";
 
@@ -6,12 +7,12 @@ export default async function GovernancePage() {
   const org = await getPrimaryWorkspace(supabase, user.id);
   if (!org) return <Empty />;
 
-  const [roles, competencies, changes, policies] = await Promise.all([
+  const [roles, competencies, changes, policies] = requireQueryResults(await Promise.all([
     supabase.from("ahte_person_roles").select("role_type,authority_level,status,effective_from,expires_at").eq("organization_id", org.id).order("created_at", { ascending: false }).limit(100),
     supabase.from("ahte_competencies").select("competency,status,assessed_at,expires_at").eq("organization_id", org.id).order("created_at", { ascending: false }).limit(100),
     supabase.from("ahte_change_requests").select("subject_type,change_type,approval_status,implementation_status,re_verification_required,created_at").eq("organization_id", org.id).order("created_at", { ascending: false }).limit(100),
     supabase.from("ahte_data_access_policies").select("record_type,jurisdiction,purpose,classification,retention_days,active").eq("organization_id", org.id).order("record_type").limit(100),
-  ]);
+  ] as const));
 
   return <div className="page stack-xl">
     <header><div className="eyebrow">AHTE / GOVERNANCE</div><h1>Governance, competence & sovereignty</h1><p className="lead">Role mandate, competency state, change control and purpose-limited data access.</p></header>

@@ -22,7 +22,11 @@ Forward migration `reconciliation_followup` applied at `20260930060741` after su
 
 Malformed recall scopes roll back their parent and ledger events in the local PostgreSQL test. Authenticated successful recall scope insertion is also exercised. No live synthetic user, tenant, authority, evidence or shipment fixtures were created. Generated TypeScript types were obtained from the resulting live schema.
 
-The follow-up assurance code uses product_id rather than identity_id for product certificate lookup, uses atomic recall creation, handles finding-query errors and relies on database audit transactions rather than duplicate post-write ledger RPCs. Its PR CI, merge and deployment are tracked separately until completed.
+The follow-up assurance code uses product_id rather than identity_id for product certificate lookup, uses atomic recall creation, handles finding-query errors and relies on database audit transactions rather than duplicate post-write ledger RPCs.
+
+[PR #14](https://github.com/mavericken777/Amanah/pull/14) merged as `3700806f5a196ff6b6a92a85641bf69aa4148f22`. Exact head `f8d4dd2443bf25c2ad838bd6e8154356aa63ca09` passed all seven jobs in [CI run 36677410118](https://github.com/mavericken777/Amanah/actions/runs/36677410118). Assurance version 8 is ACTIVE with JWT verification and exact five-file source readback. Deployment explicitly supplied deno.json as its import map after the service initially reused the old version's absolute map path; that failed attempt did not replace the active v7 function.
+
+All three canonical workflows also passed at the bound commit: [gateway/OPA](https://github.com/mavericken777/GlobalHalalDigitalTrust/actions/runs/36633518092), [repository integrity](https://github.com/mavericken777/GlobalHalalDigitalTrust/actions/runs/36633518093) and [reference runtime](https://github.com/mavericken777/GlobalHalalDigitalTrust/actions/runs/36633518057). Reference circuit/escrow assets remain specifications or experiments, with no production certification claim.
 
 ## Observed technical state
 
@@ -45,6 +49,10 @@ The four public wrappers intentionally expose guarded calls to private functions
 Unused indexes in this empty environment are not evidence of redundant indexes. No index is removed merely for having no production queries yet. [Advisor explanation](https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index).
 
 ## Boundaries and remaining work
+
+Server-rendered workspace pages now guard 63 reads across 41 pages, including composite assurance queries. Database failures reach the error boundary rather than being rendered as zero counts, empty registries or missing records. Workspace lookup errors are explicit. Project/task API lookup failures return 500 rather than false empty/404/403 responses. The query-guard tests distinguish valid empty results from unavailable data; tuple types and parallel querying are preserved. UI verification is limited to build/type checks until genuine operator UAT.
+
+The query-contract test checks 893 literal column references against generated live schema types; dynamic expressions and nested relation selectors are explicitly outside this test. Realtime status now follows the subscription state rather than always claiming CONNECTED, and clears previous organization events on workspace changes. Public verification accepts GET only, reports database availability failures as 503, and identifies its success scope as disclosure_token_only; it never certifies the subject.
 
 The tracked-file/hash inventory covers all baseline paths. A complete semantic disposition of every documentary file remains pending. Idempotent HTTP response finalization remains separate from business writes; unfinished reservations deny retries rather than repeating an uncertain write. Production UAT requires real authorized operators and genuine transaction inputs.
 

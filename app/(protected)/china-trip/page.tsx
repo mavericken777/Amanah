@@ -1,14 +1,15 @@
+import { requireQueryResult, requireQueryResults } from "@/lib/query-results";
 import { requireUser } from "@/lib/auth";
 import Link from "next/link";
 
 export default async function ChinaTripPage() {
   const { supabase, user } = await requireUser();
 
-  const { data: memberships } = await supabase
+  const { data: memberships } = requireQueryResult(await supabase
     .from("organization_members")
     .select("organization_id, organizations(id, name)")
     .eq("user_id", user.id)
-    .order("created_at", { ascending: true });
+    .order("created_at", { ascending: true }));
 
   const organization = memberships?.[0]?.organizations as { id: string; name: string } | undefined;
 
@@ -16,14 +17,14 @@ export default async function ChinaTripPage() {
     return <div className="page"><div className="card"><h1>No workspace</h1><p className="muted">Create a workspace from the dashboard first.</p></div></div>;
   }
 
-  const { data: project } = await supabase
+  const { data: project } = requireQueryResult(await supabase
     .from("projects")
     .select("id, name, status, start_date, end_date")
     .eq("organization_id", organization.id)
     .eq("module_key", "travel.china-trip")
     .order("created_at", { ascending: false })
     .limit(1)
-    .maybeSingle();
+    .maybeSingle());
 
   if (!project) {
     return (
@@ -43,12 +44,12 @@ export default async function ChinaTripPage() {
   }
 
   const [{ count: itineraryCount }, { count: meetingCount }, { count: travellerCount }, { count: openTaskCount }] =
-    await Promise.all([
+    requireQueryResults(await Promise.all([
       supabase.from("itinerary_events").select("id", { count: "exact", head: true }).eq("organization_id", organization.id).eq("project_id", project.id),
       supabase.from("meetings").select("id", { count: "exact", head: true }).eq("organization_id", organization.id).eq("project_id", project.id),
       supabase.from("travellers").select("id", { count: "exact", head: true }).eq("organization_id", organization.id).eq("project_id", project.id),
       supabase.from("tasks").select("id", { count: "exact", head: true }).eq("organization_id", organization.id).eq("project_id", project.id).neq("status", "done"),
-    ]);
+    ] as const));
 
   return (
     <div className="page stack-xl">

@@ -1,3 +1,4 @@
+import { requireQueryResult } from "@/lib/query-results";
 import { requireUser } from "@/lib/auth";
 import { getPrimaryWorkspace } from "@/lib/workspace";
 
@@ -6,7 +7,7 @@ export default async function AuditPage() {
   const workspace = await getPrimaryWorkspace(supabase, user.id);
   if (!workspace) return <EmptyState />;
 
-  const { data: events } = await supabase.from("audit_events").select("id, actor_user_id, action, entity_type, entity_id, occurred_at").eq("organization_id", workspace.id).order("occurred_at", { ascending: false }).limit(100);
+  const { data: events } = requireQueryResult(await supabase.from("audit_events").select("id, actor_user_id, action, entity_type, entity_id, occurred_at").eq("organization_id", workspace.id).order("occurred_at", { ascending: false }).limit(100));
 
   return (
     <div className="page stack-xl">
