@@ -4,7 +4,7 @@
   "control_date":"2026-09-30",
   "classification":"post-freeze proposal architecture registry",
   "source_repository":"mavericken777/GlobalHalalDigitalTrust",
-  "source_commit":"1cc9b338a28e4d7ddf4e7b6509bc38dae9396596",
+  "source_commit":"14456e99937d6f11d63bd041dcffdb903d12594f",
   "freeze_boundary":"master-standards-stack/verified-2026-09-17/",
   "authority_effect":"none",
   "requirements_traceability":"00_EXECUTIVE_COMMAND/PLATFORM_REQUIREMENTS_TRACEABILITY_2026-09-30.md",

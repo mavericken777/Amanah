@@ -63,7 +63,7 @@ try {
   }
  }
  walk('app/(protected)');
- for(const route of protectedPages) {
+ for(const route of [...protectedPages,'/search?q=invoice&status=open','/ahte/shipments?status=HOLD']) {
   await page.goto('http://127.0.0.1:3000'+route);
   const url=new URL(page.url());
   assert.equal(url.pathname,'/login',route);

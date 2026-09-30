@@ -1,5 +1,5 @@
 /**
- * [PROPOSAL] Replaceable integration ports aligned to GlobalHalalDigitalTrust@1cc9b338a28e4d7ddf4e7b6509bc38dae9396596.
+ * [PROPOSAL] Replaceable integration ports aligned to GlobalHalalDigitalTrust@14456e99937d6f11d63bd041dcffdb903d12594f.
  * External transports remain unconfigured until authorised production contracts exist.
  * These are internal adapter envelopes, not invented external authority API schemas.
  */

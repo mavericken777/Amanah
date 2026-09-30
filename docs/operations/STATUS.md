@@ -1,6 +1,6 @@
 # Current Amanah implementation status
 
-Canonical main: [`1cc9b338a28e4d7ddf4e7b6509bc38dae9396596`](https://github.com/mavericken777/GlobalHalalDigitalTrust/tree/1cc9b338a28e4d7ddf4e7b6509bc38dae9396596). Machine binding: [source-binding.json](../../config/source-binding.json). The 17 September verified freeze remains unchanged.
+Canonical main: [`14456e99937d6f11d63bd041dcffdb903d12594f`](https://github.com/mavericken777/GlobalHalalDigitalTrust/tree/14456e99937d6f11d63bd041dcffdb903d12594f). Machine binding: [source-binding.json](../../config/source-binding.json). The 17 September verified freeze remains unchanged.
 
 AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct; Malaysia is the governance/assurance/authority-connectivity plane. Shipment 001 is **NOT-INSTANTIATED**. No fixture, architectural illustration or development receipt closes a transaction or authority gate.
 

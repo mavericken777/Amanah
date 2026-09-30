@@ -34,7 +34,7 @@ All monitoring signals shown in public cinematic media are simulated unless expl
 
 ## Canonical binding and boundary
 
-GlobalHalalDigitalTrust@`1cc9b338a28e4d7ddf4e7b6509bc38dae9396596`. Freeze: `master-standards-stack/verified-2026-09-17/` remains unchanged.
+GlobalHalalDigitalTrust@`14456e99937d6f11d63bd041dcffdb903d12594f`. Freeze: `master-standards-stack/verified-2026-09-17/` remains unchanged.
 
 Current China execution source family: `master-standards-stack/CHINA_EXECUTION_PACK/`. The lower-case duplicate path is retired lineage.
 

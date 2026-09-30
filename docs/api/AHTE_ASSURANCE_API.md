@@ -2,7 +2,7 @@
 
 [PROPOSAL: engineering implementation of canonical authority-aware API; not certification API]
 
-Current project target binding: `GlobalHalalDigitalTrust@1cc9b338a28e4d7ddf4e7b6509bc38dae9396596aba78e64060c031db0f098dbdd49`.
+Current project target binding: `GlobalHalalDigitalTrust@14456e99937d6f11d63bd041dcffdb903d12594faba78e64060c031db0f098dbdd49`.
 
 Base URL:
 `/functions/v1/assurance`
