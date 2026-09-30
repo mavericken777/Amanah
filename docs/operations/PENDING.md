@@ -15,6 +15,14 @@ Repository-controlled architecture synchronization is handled in `docs/operation
 - validate production hosting/UAT with real authorized operators before any production-complete claim;
 - preserve explicit frozen-vocabulary/state-machine conflicts until source governance resolves them.
 
+## Source conflict requiring project-architecture decision
+
+Conversation-level project direction states that direct JAKIM connectivity is mediated by **NurAI, the Malaysian Shariah-based AI layer** (`AHTE ⇄ NurAI ⇄ Direct JAKIM API ⇄ JAKIM`). The current controlled project-repo target at `GlobalHalalDigitalTrust@0fab4c64240b` states `AHTE ⇄ DIRECT JAKIM API ⇄ JAKIM`, with `public_intermediary: null` and `nur_ai_platform_hop: false`.
+
+Amanah follows the controlled project-repo topology until this conflict is resolved through project source governance. No implementation or public copy may silently collapse the two positions.
+
+[OPEN GATE: SOURCE CONFLICT — NURAI-JAKIM-INTEGRATION — owner: Maverick / project architecture authority — blocking: Authority → Authority Gate integration topology]
+
 ## External / account / transaction gates
 
 - [SOURCE-LOCKED: licensed normative requirement text — required: licensed authority/standards source artifacts]
