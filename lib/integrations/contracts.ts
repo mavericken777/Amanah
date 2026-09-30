@@ -75,12 +75,12 @@ export interface PredictionObject {
 }
 export interface PreemptiveStrategyObject {
   strategyId: string; predictionId: string; subjectObjects: readonly string[];
-  recommendedAction: string; alternativeActions: readonly string[]; expectedImpact?: string;
+  recommendedAction: string; alternativeActions: readonly string[]; expectedImpact: string;
   urgency: "low" | "medium" | "high" | "critical"; evidenceReferences: readonly string[];
   modelId: string; modelVersion: string; confidence: "low" | "medium" | "high" | "unscored";
   explanation: string; decisionClass: "D2" | "D3" | "D4" | "D5" | "D6";
-  requiredHumanRole?: string | null; generatedAt: string; status: "proposed" | "queued" | "approved" | "rejected" | "executed" | "expired" | "superseded";
-  createsAuthorityDecision: false;
+  requiredHumanRole: string | null; generatedAt: string; status: "proposed" | "queued" | "approved" | "rejected" | "executed" | "expired" | "superseded";
+  outcomeReferences: readonly string[]; createsAuthorityDecision: false;
 }
 export interface CommandCenterAlertExchange {
   event: EvidenceEvent; alertId: string; trigger: string; severity: "S0" | "S1" | "S2" | "S3" | "S4" | "S5";
@@ -179,7 +179,8 @@ export class PortCustomsGateway {
   constructor(private readonly connector: PortCustomsConnector) {}
   async exchange(payload: PortCustomsExchange, context: ConnectorContext): Promise<ConnectorReceipt> {
     const errors = validateContext(payload.event, context, this.connector.environment);
-    if (!payload.jurisdiction || !payload.portId || !payload.shipmentId) errors.push("port_scope_binding_required");
+    if (!payload.jurisdiction.trim() || !payload.portId.trim() || !payload.shipmentId.trim()) errors.push("port_scope_binding_required");
+    if (payload.custodyReferences.some(v=>!v.trim()) || payload.evidenceReferences.some(v=>!v.trim())) errors.push("port_reference_invalid");
     if (errors.length) return { eventId: payload.event.eventId, status: "rejected", errors, notCertification: true };
     return this.connector.exchange(payload, context);
   }
@@ -189,7 +190,9 @@ export class ShariahFinanceGateway {
   constructor(private readonly connector: ShariahFinanceConnector) {}
   async exchange(payload: FinanceEvidenceExchange, context: ConnectorContext): Promise<ConnectorReceipt> {
     const errors = validateContext(payload.event, context, this.connector.environment);
-    if (!payload.packetId || !payload.requestingParty || !payload.subjectObjects.length) errors.push("finance_packet_binding_required");
+    if (!payload.packetId.trim() || !payload.requestingParty.trim() || !payload.subjectObjects.length || payload.subjectObjects.some(v=>!v.trim())) errors.push("finance_packet_binding_required");
+    if (!payload.disclosurePolicy.trim()) errors.push("finance_disclosure_policy_required");
+    if (payload.evidenceReferences.some(v=>!v.trim()) || payload.custodyReferences.some(v=>!v.trim()) || payload.exceptionReferences.some(v=>!v.trim())) errors.push("finance_reference_invalid");
     if (payload.createsFinancingDecision !== false || payload.createsTakafulDecision !== false || payload.isHalalCertification !== false) errors.push("decision_boundary_violation");
     if (errors.length) return { eventId: payload.event.eventId, status: "rejected", errors, notCertification: true };
     return this.connector.exchange(payload, context);
