@@ -30,17 +30,29 @@ test('every public route has resolvable assets, navigation and fragment targets'
   }
 });
 
-test('public source links bind to current reconciled GHDT target and avoid stale topology',()=>{
-  assert.equal(data.canonicalCommit,'ae3f662f7467aba78e64060c031db0f098dbdd49');
+test('public source links bind to current GHDT target and avoid retired topology/sources',()=>{
+  assert.equal(data.canonicalCommit,'0fab4c64240b569caef947fb2568ccda9d3fa0d3');
   const all=data.pages.map(p=>JSON.stringify(p)).join('\n');
   for(const term of ['PHC','GHSCL','AHTE','Direct JAKIM API','HCP','SCCP','Sinotrans','custody','re-verification','Command Center','Preemptive Strategy','Takaful','tokenomics','port/customs'])assert.ok(all.toLowerCase().includes(term.toLowerCase()),term);
   assert.ok(!all.includes('Secure Authority Gateway ⇅'),'stale public authority gateway topology');
+  const allSources=data.pages.flatMap(p=>p.sources);
+  assert.ok(!allSources.some(s=>s.includes('master-standards-stack/china-execution-pack/')),'retired lower-case China execution pack must not be a current source');
+  assert.ok(!allSources.some(s=>s.includes('DIRECT_JAKIM_API_ALIGNMENT_ADDENDUM')),'retired lab alignment addendum must not be a current source');
   const corridor=data.pages.find(p=>p.slug==='china-gcc');
   const route=corridor?.sections.find(s=>s.id==='route');
   assert.ok(route?.flow?.includes('China origin'),'China origin missing from corridor route');
   assert.ok(route?.flow?.some(v=>String(v).includes('GCC port')),'GCC destination missing from corridor route');
   assert.ok(!route?.flow?.some(v=>String(v).includes('Malaysia')),'Malaysia must not be a default physical hop');
   for(const p of data.pages)for(const source of p.sources) assert.ok(source && !source.includes('..'),`invalid source ${source}`);
+});
+
+test('public architecture retains the required current target planes',()=>{
+  const bySlug=new Map(data.pages.map(p=>[p.slug,p]));
+  for(const slug of ['ecosystem','digital-trust','command-center','traceability','smart-audit','china-gcc','manufacturers','finance-takaful','verify'])assert.ok(bySlug.has(slug),slug);
+  const finance=JSON.stringify(bySlug.get('finance-takaful'));
+  for(const term of ['Shariah Financing API','Takaful','Tokenomics'])assert.ok(finance.toLowerCase().includes(term.toLowerCase()),term);
+  const command=JSON.stringify(bySlug.get('command-center'));
+  for(const term of ['predictive','preemptive','Sinotrans','laboratory','GCC'])assert.ok(command.toLowerCase().includes(term.toLowerCase()),term);
 });
 
 test('demo architecture never fabricates real records or authority receipts',()=>{
