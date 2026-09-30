@@ -47,7 +47,7 @@ for(const page of data.pages) {
 let home=fs.readFileSync(path.join(site,'index.html'),'utf8');
 home=home.replace(/<title>[\s\S]*?<\/title>/, '<title>Global Halal Digital Trust Ecosystem | Origin to Market</title>');
 home=home.replace(/<meta name="description"[^>]*>/,'<meta name="description" content="Direct-JAKIM-API target architecture for origin-to-market Halal digital trust, 24/7 command-center monitoring, predictive assurance and China to GCC traceability.">');
-home=home.replace(/<header class="nav"[\s\S]*?<\/header>/,nav('index.html')+'<button class="home-sound sound-toggle" id="soundToggle" aria-pressed="false"><i class="sound-dot"></i><span>Sound off</span></button>');
+home=home.replace(/<header class="(?:nav|site-header)"[\s\S]*?<\/header>(?:<button class="home-sound sound-toggle"[\s\S]*?<\/button>)?/,nav('index.html')+'<button class="home-sound sound-toggle" id="soundToggle" aria-pressed="false"><i class="sound-dot"></i><span>Sound off</span></button>');
 home=home.replace(/<nav class="mobile-nav"[\s\S]*?<\/nav>/,'');
 home=home.replace(/<p class="eyebrow">[\s\S]*?<\/p>/,'<p class="eyebrow">GLOBAL HALAL DIGITAL TRUST ECOSYSTEM</p>');
 home=home.replace(/<h1>[\s\S]*?<\/h1>/,'<h1><span>End-to-end trust.</span><span>Origin to market.</span><em>Human authority.</em></h1>');
@@ -60,7 +60,7 @@ if(!home.includes('id="ecosystemOverview"')) {
 if(!home.includes('id="ecosystemDirectory"')) {
   home=home.replace('<section class="closing">',`<section class="home-ecosystem" id="ecosystemDirectory"><div class="shell"><span class="site-kicker">ORIGIN TO MARKET</span><h2>Explore the complete operating architecture.</h2><div class="home-directory">${data.pages.map(p=>`<a href="${p.slug}.html"><span>${esc(p.label)}</span><p>${esc(p.description)}</p><b aria-hidden="true">↗</b></a>`).join('')}</div></div></section><section class="closing">`);
 }
-home=home.replace(/<footer class="footer">[\s\S]*?<\/footer>/,footer());
+home=home.replace(/<footer class="(?:footer|site-footer)"[\s\S]*?<\/footer>/,footer());
 if(!home.includes('href="ecosystem.css"'))home=home.replace('</head>','<link rel="stylesheet" href="ecosystem.css"></head>');
 if(!home.includes('property="og:title"'))home=home.replace('</head>',meta('Global Halal Digital Trust Ecosystem','End-to-end evidence, human authority, 24/7 monitoring and China → GCC traceability.','index.html').replace(/<title>[\s\S]*?<\/title>|<meta name="description"[^>]*>/g,'')+'</head>');
 if(!home.includes('src="ecosystem.js"'))home=home.replace('</body>','<script src="ecosystem.js" defer></script></body>');
