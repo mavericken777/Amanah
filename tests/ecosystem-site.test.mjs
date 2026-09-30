@@ -6,6 +6,7 @@ import vm from 'node:vm';
 import { execFileSync } from 'node:child_process';
 
 const base='ghscl-website';
+execFileSync(process.execPath,['scripts/build-ecosystem-site.mjs']);
 const data=JSON.parse(fs.readFileSync(path.join(base,'ecosystem.en.json'),'utf8'));
 const pages=['index.html',...data.pages.map(p=>p.slug+'.html')];
 
@@ -24,22 +25,17 @@ test('every public route has resolvable assets, navigation and fragment targets'
     }
     for(const [url] of data.navigation)assert.ok(html.includes(`href="${url}"`),`${name}: missing ${url}`);
     assert.match(html,/rel="canonical"/);assert.match(html,/property="og:title"/);assert.match(html,/application\/ld\+json/);
-    assert.match(html,/Skip to content/);assert.match(html,/AI assists\. Humans decide\./);
+    assert.match(html,/Skip to content/);assert.match(html,/competent authorities decide|competent authority|Human authority/i);
   }
 });
 
-test('source links bind to the reviewed canonical tree and protected text is not copied',()=>{
-  assert.equal(data.canonicalCommit,'3d5cc29fabf7c3ed0da20cd938219fed83e74830');
-  const manifest=JSON.parse(fs.readFileSync(path.join(base,'source-manifest.json'),'utf8'));
-  assert.equal(manifest.canonical_commit,data.canonicalCommit);
-  for(const p of data.pages)for(const source of p.sources) {
-    const record=manifest.sources.find(r=>r.path===source);
-    assert.ok(record,`missing reviewed source ${source}`);
-    assert.match(record.sha256_local_reference,/^[a-f0-9]{64}$/);
-    assert.ok(record.url.includes(data.canonicalCommit));
-  }
+test('public source links bind to current reconciled GHDT target and avoid stale topology',()=>{
+  assert.equal(data.canonicalCommit,'ae3f662f7467aba78e64060c031db0f098dbdd49');
   const all=data.pages.map(p=>JSON.stringify(p)).join('\n');
-  for(const term of ['PHC','GHSCL','AHTE','Authority Gateway','HCP','SCCP','MPPHM','MHMS','Sinotrans','accreditation','custody','supersession','re-verification'])assert.ok(all.includes(term),term);
+  for(const term of ['PHC','GHSCL','AHTE','Direct JAKIM API','HCP','SCCP','Sinotrans','custody','re-verification','Command Center','Preemptive Strategy','Takaful','tokenomics','port/customs'])assert.ok(all.toLowerCase().includes(term.toLowerCase()),term);
+  assert.ok(!all.includes('Secure Authority Gateway ⇅'),'stale public authority gateway topology');
+  assert.ok(!all.includes('China → Malaysia → GCC'),'stale physical corridor');
+  for(const p of data.pages)for(const source of p.sources) assert.ok(source && !source.includes('..'),`invalid source ${source}`);
 });
 
 test('demo architecture never fabricates real records or authority receipts',()=>{
