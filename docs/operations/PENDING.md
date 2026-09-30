@@ -6,14 +6,27 @@ The verified freeze remains `master-standards-stack/verified-2026-09-17/`.
 
 Repository-controlled architecture synchronization is handled in `docs/operations/GHDT_SYNC_2026-10-01.md`. Historical reconciliation reports remain historical evidence and are not rewritten to imply later review.
 
-## Repository-controlled engineering still requiring closure before merge
+## Repository-controlled synchronization — CLOSED
 
-- run exact-head CI for the synchronization branch and fix TypeScript, Node, Deno, Python/OPA or Next.js failures;
-- merge the synchronization PR only after exact-head CI success;
-- verify GitHub Pages rebuilds V7 and no stale public generic Authority Gateway, lower-case retired China pack source, or China→Malaysia default corridor survives;
-- verify current migration set, RLS, realtime, audit and advisor state against live Supabase;
-- validate production hosting/UAT with real authorized operators before any production-complete claim;
-- preserve explicit frozen-vocabulary/state-machine conflicts until source governance resolves them.
+The GHDT `0fab4c64240b` synchronization was merged to Amanah `main` as commit `78ac0f22fb1f94c1a0e8c5be7ba10d6481add9b3` after exact-head pull-request CI passed and every recorded review thread was resolved.
+
+Post-merge verification on `main` confirmed:
+
+- `typecheck`: success;
+- Node tests: success, including `web:build` and `web:lint`;
+- Deno Edge Function checks: success;
+- OPA policies: success;
+- Python reference runtime: success;
+- Python reference platform: success;
+- Next.js production build: success;
+- GitHub Pages V7 build, validation, upload and deployment: success;
+- live Supabase PostgreSQL: `17.11`;
+- live Supabase public tables: `102`;
+- RLS enabled on all `102` public tables;
+- target extension migrations and foreign-key indexes applied;
+- Shipment 001 remains uninstantiated; no transaction-native authority/lab/customs/finance evidence was fabricated.
+
+Repository synchronization closure does **not** close the source, authority, partner, account-administration or transaction gates below.
 
 ## Source conflict requiring project-architecture decision
 
