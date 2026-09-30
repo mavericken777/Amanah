@@ -1,0 +1,49 @@
+{
+  "environment": "demo",
+  "simulated": true,
+  "nodes": [
+    {"name":"Source","relations":"Originates material; attributed to producer and supplier.","evidence":"Legal/source identity, origin documents and provenance references.","state":"Source verification required"},
+    {"name":"Supplier","relations":"Supplies material; change events affect relevant batches.","evidence":"Supplier identity, qualification and material source records.","state":"Qualification required"},
+    {"name":"Raw material","relations":"Originates from source; supplied by supplier; sampled and consumed by batch.","evidence":"Lot identity, provenance, requirement applicability and sampling links.","state":"Evidence assessment required"},
+    {"name":"Sample","relations":"Collected from material; sealed; transferred under custody; accessioned by lab.","evidence":"SampleID, collection actor/time, seal and custody chain.","state":"Custody reconciliation required"},
+    {"name":"Lab","relations":"Tests sample within validated method/matrix scope.","evidence":"Exact lab identity, accreditation scope, accession, method/QC and authenticated report.","state":"Scope and recognition gates open"},
+    {"name":"Factory","relations":"Contains processes and controls; manufactures batch.","evidence":"Facility qualification, layout, competence and HCP/SCCP control records.","state":"Audit readiness required"},
+    {"name":"Batch","relations":"Consumes material; produced at facility; packaged into lots.","evidence":"Formula/process version, material genealogy and monitoring records.","state":"Control evidence required"},
+    {"name":"Audit","relations":"Examines facility, controls and batch evidence; creates findings/CAR.","evidence":"Assigned scope, auditor/device identity, signed observations and re-verification.","state":"Human assessment required"},
+    {"name":"Authority reference","relations":"External decision scoped to application/product and validity.","evidence":"Competent issuer, mandate, signed decision, conditions and effective dates.","state":"External human decision required"},
+    {"name":"Warehouse","relations":"Receives and stores lots/pallets under defined segregation controls.","evidence":"Facility qualification, inventory links, receipt and condition events.","state":"Storage/custody evidence required"},
+    {"name":"Shipment","relations":"Aggregates lots/pallets; binds container, seal, custody and destination.","evidence":"Booking, object reconciliation, trade references and required release gates.","state":"Internal release gates required"},
+    {"name":"Container","relations":"Contains shipment objects and is protected by seal.","evidence":"Container identity, loading, custody and relevant condition evidence.","state":"Physical identity reconciliation required"},
+    {"name":"Seal","relations":"Bound to container and loading/handover events.","evidence":"SealID, application actor/time, condition and exception disposition.","state":"Seal match required"},
+    {"name":"Port","relations":"Receives container; records custody and export/import references.","evidence":"Receipt, inspection, border/authority references and dispatch events.","state":"Port/border gates required"},
+    {"name":"Importer","relations":"Receives shipment and satisfies destination requirements.","evidence":"Importer identity, market scope, destination acceptance and receiving reconciliation.","state":"Destination acceptance required"},
+    {"name":"Retail","relations":"Receives inventory and exposes authorized verification.","evidence":"Lot lineage, receiving, current scoped status and disclosure authorization.","state":"Authorized verification view required"}
+  ],
+  "chains": [
+    {"name":"Physical","steps":["Raw material","Factory","Warehouse","Logistics","Port","GCC","Retail"],"meaning":"Where the material or product moves. Each movement remains linked to its governed digital objects."},
+    {"name":"Identity / custody","steps":["Actor","Facility","Material","Batch","Sample","Lot","Pallet","Container","Seal","Custody transfer"],"meaning":"Who handled which object and when. A broken custody link requires explicit review."},
+    {"name":"Evidence","steps":["Origin documents","Lab","Controls","Audit","Findings","Corrective action","Re-verification","Logistics evidence"],"meaning":"What supports the observed control state, with source, actor and integrity references."},
+    {"name":"Authority / trust","steps":["Authority connectivity","Authority gate","Trust state","Operational release","Continuous surveillance"],"meaning":"Authority decisions remain external; internal release is separately gated. This conceptual chain does not add a machine transition to authority_decided."}
+  ],
+  "audit": [
+    {"title":"Assigned session","hud":"Authenticate auditor + device","text":"Verify MFA, role, assigned scope and facility. A device alone cannot authorize an audit.","proof":"No captured evidence; assignment and credential checks required."},
+    {"title":"Scan the object","hud":"DEMO · Mixing line","text":"Identify the object and load the signed applicable requirement/HCP context. The demonstration uses no real facility identifier.","proof":"Object binding expected; production ID not issued."},
+    {"title":"Capture observation","hud":"Record context + identifier + condition","text":"Capture original media, time and actor/device context; derive the local content hash. An annotation links to the original.","proof":"Hash generation described; no media, digest or signature fabricated."},
+    {"title":"AI assist","hud":"Potential segregation issue · illustrative","text":"An illustrative assistant flags a possible issue with evidence references and model provenance. No AI inference is performed in this demonstration.","proof":"Advisory suggestion only; not an audit conclusion."},
+    {"title":"Human auditor assessment","hud":"Review the evidence","text":"The auditor evaluates the observation against the applicable control. Accept, classify a finding or request more evidence.","proof":"Human decision required; no finding signed."},
+    {"title":"Corrective action and re-verification","hud":"Resolve → inspect again","text":"Record responsible person, corrective action and re-verification evidence. A changed score alone cannot close the issue.","proof":"Linked CAR and re-verification records required."},
+    {"title":"Sign, sync and route","hud":"Sequence + signature + replay checks","text":"Sign the session, synchronize encrypted offline events and reconcile without overwriting conflicts. Route the evidence dossier to the authorized human authority workflow.","proof":"No live upload or authority receipt claimed."}
+  ],
+  "readiness": [
+    ["Company", "Legal identity, licenses and responsible persons"],
+    ["Facilities", "Site ownership, zones, equipment and process flows"],
+    ["Products", "SKU, formulation/BOM and process versions"],
+    ["Materials", "Ingredients, material lots and origin documents"],
+    ["Suppliers", "Supplier identity, source and qualification"],
+    ["Existing certification", "Issuer, scope, validity and source references"],
+    ["Systems", "ERP/MES/QMS/WMS/LIMS/IoT inventory and interface owners"],
+    ["Evidence", "SOPs, controls, people, lab and monitoring records"],
+    ["Gap analysis", "Missing records, remediation and training plan"],
+    ["Audit preparation", "Sample plan, assigned scope and readiness for site audit"]
+  ]
+}

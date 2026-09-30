@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mavericken777.github.io/Amanah/sitemap.xml

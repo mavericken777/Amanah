@@ -1,0 +1,228 @@
+{
+  "version": "6.0.0-proposal",
+  "recorded_at": "2026-09-30T12:33:54.333875+00:00",
+  "canonical_commit": "3d5cc29fabf7c3ed0da20cd938219fed83e74830",
+  "freeze": "master-standards-stack/verified-2026-09-17/",
+  "stack": {
+    "public": "Static HTML/CSS/JS, GitHub Pages, native WebGL",
+    "portal": "Next.js 16.3.6, React 19.2, TypeScript, Supabase",
+    "routing": "Public *.html pages; portal app directory",
+    "environment": "Names reviewed from .env.example; values not copied",
+    "deployment": "ghscl-pages.yml publishes only ghscl-website/"
+  },
+  "preexisting_local_changes": [
+    "ghscl-website/index.html",
+    "ghscl-website/hybrid.css"
+  ],
+  "inventory": [
+    {
+      "path": "ghscl-website/404.html",
+      "sha256": "892ca7b7ed140fc787a1658ae7c4299e0a383b47fd81e2b3388f3a2dc6bcdf8a",
+      "bytes": 1412,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/BRAND_AND_MEDIA.md",
+      "sha256": "0c9f8289d0acd59dc2a3903e1f518eb18ef0fbbaf16cbffef093fe15ae32e446",
+      "bytes": 4722,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/hybrid.css",
+      "sha256": "76edfbff3ec306f6afbf49d1d13e8369797ee6854f7d8524bbb9a00f109d8cbf",
+      "bytes": 11939,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/hybrid.js",
+      "sha256": "d09d0078c7c561b9cdd05ad53e204ba38f53bebff8e1e9c10b5d7d314017c849",
+      "bytes": 9852,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/index.html",
+      "sha256": "a27d6cbf2fc2596dcb708a1cd3a9788a0ea33657c9b273dc959b2d42687bef96",
+      "bytes": 24037,
+      "disposition": "UPDATE",
+      "reason": "Extend full ecosystem architecture and page navigation."
+    },
+    {
+      "path": "ghscl-website/media/architecture.webp",
+      "sha256": "362003a1a7723539b117fd8c5ddbb4f6c66385df1914eb149a9524e378f23555",
+      "bytes": 261938,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/control-room.webp",
+      "sha256": "e8dffd64b91a8cddfd30ea997bdadd74bb8167257d1a6107fe26dd0a9e6121f5",
+      "bytes": 268856,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/corridor.webp",
+      "sha256": "0cb1975f2c038935eb071588254ec2d678a0500d2ffaa176ae609ed3e1d042c8",
+      "bytes": 242666,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/facility-render.svg",
+      "sha256": "f290a08501a3b8648d6a7f6a5af4e2614cedd995232bb5bec26408ea6a3c66a2",
+      "bytes": 3297,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/ghscl-hybrid-film.mp4",
+      "sha256": "dd471261470cf6197f0c7d5b7d0b68c8534db353dccf4861edb348fc4c0f578e",
+      "bytes": 628872,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/ghscl-hybrid-film.webm",
+      "sha256": "bbc1202de0790aa1b6768748b712e97d46e960bb0080bbd36a3f9e163af922e0",
+      "bytes": 640580,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/ghscl-mark.svg",
+      "sha256": "64abc4ff561b0ce6bb8c390cb4a0c8839849169671bf4dd467afd3dd59783d5f",
+      "bytes": 1372,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/ghscl-monogram.svg",
+      "sha256": "39ae8e8f65f4e50e7eb0e684a1ddc6a961a04a86774b47da4c3a81e3894bc391",
+      "bytes": 797,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/ghscl-trust-film.mp4",
+      "sha256": "2f29eb878404cfb3c05539e320400ba9db0d3435145e016d539c5d019d31adeb",
+      "bytes": 16712,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/ghscl-wordmark.svg",
+      "sha256": "7e3d9650e4676896c39770ff45035d36c21edc76d8b88607b97975b5932ec12e",
+      "bytes": 383,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/lab-render.svg",
+      "sha256": "31c55d68579f1d8b0de8b4adc984d6491d9257acc1aff4098b1f6a308704bb03",
+      "bytes": 3066,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/port-render.svg",
+      "sha256": "7048bbcd904e35aaa2ba647a453a7d663881d33c1378b56ce8fb5d344084c142",
+      "bytes": 2839,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/production-prompts.json",
+      "sha256": "b111e2a619931b5516d6ece535f9f4c9f16424e665362cd3f3fe1bbcfcf0180b",
+      "bytes": 3904,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/trust-core.webp",
+      "sha256": "86668117bb86b4ad73dcbdf8f6d9c2eb0a1de36bdf60a99b47864073ca08bc64",
+      "bytes": 117844,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/media/trust-object.svg",
+      "sha256": "b4c058c5ec56fc4e9a404e23bc5cf14372f8317ee6372821d292b470e8792573",
+      "bytes": 2537,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/README.md",
+      "sha256": "33fd8fb496ed2238dbc8e257901b3449b4157ce2b293f9d60b0c89b782727c8e",
+      "bytes": 1442,
+      "disposition": "UPDATE",
+      "reason": "Extend full ecosystem architecture and page navigation."
+    },
+    {
+      "path": "ghscl-website/script.js",
+      "sha256": "a1d4f497e0050d27d26a15789a36a66a98d8e836a7ae11debb0309c971d9974b",
+      "bytes": 13321,
+      "disposition": "KEEP",
+      "reason": "Historical assets; not loaded by current entrypoint."
+    },
+    {
+      "path": "ghscl-website/styles.css",
+      "sha256": "7135dfe1fb5f256242facd611e8dc24cd48ec5bfc3338626481c298aca8d1f2c",
+      "bytes": 22346,
+      "disposition": "KEEP",
+      "reason": "Historical assets; not loaded by current entrypoint."
+    },
+    {
+      "path": "ghscl-website/v4.css",
+      "sha256": "1c6c8585ef8e2e753b2f5d46d5d1b4afc24fa822ebeca720340fdd98177ad532",
+      "bytes": 18379,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/v4.js",
+      "sha256": "dae69c887977ff9ffff15cfe839a6ca332273c3c3585a1ac21592f789d7426b8",
+      "bytes": 10318,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    },
+    {
+      "path": "ghscl-website/VERIFICATION_2026-09-30.md",
+      "sha256": "5fb0e97a89f2bad3965bd2e936c805f4696428754f3bf8b2f16e134856be432a",
+      "bytes": 2219,
+      "disposition": "KEEP",
+      "reason": "Preserve concept media, brand identity and motion layer."
+    }
+  ],
+  "plan": {
+    "preserve": [
+      "Cinematic hero",
+      "Eight scenes",
+      "WebGL",
+      "Concept renders",
+      "Sound opt-in",
+      "14-stage explorer",
+      "Stakeholder role views",
+      "Standards catalogue",
+      "All operational portal routes"
+    ],
+    "add": [
+      "ecosystem",
+      "how-it-works",
+      "digital-trust",
+      "traceability",
+      "smart-audit",
+      "china-gcc",
+      "partners",
+      "manufacturers",
+      "verify",
+      "contact"
+    ],
+    "content": "Versioned English JSON dictionary and deterministic static page generator; future zh/ms/ar dictionaries remain unimplemented",
+    "migration": "Add public pages beside existing flagship; keep portal and Pages deployment"
+  }
+}
