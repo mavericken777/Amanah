@@ -1,0 +1,222 @@
+{
+  "canonical_commit": "3d5cc29fabf7c3ed0da20cd938219fed83e74830",
+  "authority_effect": "none",
+  "classification": "post-freeze proposal",
+  "mirrors": [
+    {
+      "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/09-hard-gate-rules.json",
+      "amanah_path": "config/ahte-hard-gates.json",
+      "sha256": "b7d80222ee229f2e6b6217c8d07494373ebe860b91fc0afb0424c6d51ea469cd"
+    },
+    {
+      "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/12-autonomous-state-machine.json",
+      "amanah_path": "config/ahte-state-machine.json",
+      "sha256": "5e2c6d3f2d52472276991fd58742ba171a946b32513fc7ff5c5ae44b0e633d74"
+    },
+    {
+      "canonical_path": "00_EXECUTIVE_COMMAND/hitm-decision-class-registry.json",
+      "amanah_path": "config/ahte-decision-classes.json",
+      "sha256": "89ce9193c10f027db98712031064a8c706f6a471d1c851d9c5064963ce628cba"
+    },
+    {
+      "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/11-trust-fracture-taxonomy.json",
+      "amanah_path": "config/ahte-fracture-taxonomy.json",
+      "sha256": "65fa21d5d5079aad557a794bc6d777246a123f668b67966a31b35043255d6dd4"
+    },
+    {
+      "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/12-autonomous-state-machine.json",
+      "amanah_path": "supabase/functions/assurance/trust-machine.json",
+      "sha256": "5e2c6d3f2d52472276991fd58742ba171a946b32513fc7ff5c5ae44b0e633d74"
+    },
+    {
+      "canonical_path": "00_EXECUTIVE_COMMAND/trust-packet-schemas.json",
+      "amanah_path": "supabase/functions/assurance/packet-schemas.json",
+      "sha256": "8dc134680a9c043eafc93cba0862d94059c1ce3f20d1c4651bce82b33721a8a6"
+    },
+    {
+      "canonical_path": "platform/Dockerfile",
+      "amanah_path": "reference-runtime/platform/Dockerfile",
+      "sha256": "1e5ad044043f58d5a4541eee2bc83a84160c63d2864417d909b17c383e0abb25"
+    },
+    {
+      "canonical_path": "platform/README.md",
+      "amanah_path": "reference-runtime/platform/README.md",
+      "sha256": "c1aff4b8bff884e776f78ec0257886e62f1a31ff70b156747cfe2d308c38fa48"
+    },
+    {
+      "canonical_path": "platform/docker-compose.yml",
+      "amanah_path": "reference-runtime/platform/docker-compose.yml",
+      "sha256": "c21cedf78bd36b0cbcb7ba387466d3b59201458b004a7398bd45d88b8008594d"
+    },
+    {
+      "canonical_path": "platform/policies/hitm-default-deny.rego",
+      "amanah_path": "reference-runtime/platform/policies/hitm-default-deny.rego",
+      "sha256": "51c456cb88a2844e3ea00de38dd9ec01c31dceff31dacfd9abbe00cb8dfdcbf3"
+    },
+    {
+      "canonical_path": "platform/policies/hitm-default-deny_test.rego",
+      "amanah_path": "reference-runtime/platform/policies/hitm-default-deny_test.rego",
+      "sha256": "8c5a390dd3bdd80ee9e7718accd3ee2b1940954adef7441adc8e1fd685ee8ba4"
+    },
+    {
+      "canonical_path": "platform/pytest.ini",
+      "amanah_path": "reference-runtime/platform/pytest.ini",
+      "sha256": "363381771127e3479fe49773659cc2a8dc2b2f727459ebd057ac39e79e98a94e"
+    },
+    {
+      "canonical_path": "platform/requirements.txt",
+      "amanah_path": "reference-runtime/platform/requirements.txt",
+      "sha256": "053d77afdd076a9006f57cac98e7ddef359b77435a67719dbb1ef11cd60be471"
+    },
+    {
+      "canonical_path": "platform/src/ahte/__init__.py",
+      "amanah_path": "reference-runtime/platform/src/ahte/__init__.py",
+      "sha256": "3cf5750a9756fbdc07c967574472fce4cb587bef87b5b899fbf08edb18344ae1"
+    },
+    {
+      "canonical_path": "platform/src/ahte/api.py",
+      "amanah_path": "reference-runtime/platform/src/ahte/api.py",
+      "sha256": "f13b4127d352c16e334f7051348733968f12ce24231ed0c601768a61e84d4a63"
+    },
+    {
+      "canonical_path": "platform/src/ahte/engine.py",
+      "amanah_path": "reference-runtime/platform/src/ahte/engine.py",
+      "sha256": "7f56b4c70604092aac08fb02fa94026fb0cee6ab22d08b1edef15d3fdc7eab4c"
+    },
+    {
+      "canonical_path": "platform/src/ahte/hitm.py",
+      "amanah_path": "reference-runtime/platform/src/ahte/hitm.py",
+      "sha256": "726e6d9cbe7a9af6dd90c8b52795393c6c176d5876d7a261d4b3fdf6c081226a"
+    },
+    {
+      "canonical_path": "platform/src/ahte/models.py",
+      "amanah_path": "reference-runtime/platform/src/ahte/models.py",
+      "sha256": "717e85ac95e44239cf63a3083c0ca917d1185b4e8b4ecf08a15dc037295a5a03"
+    },
+    {
+      "canonical_path": "platform/src/ahte/store.py",
+      "amanah_path": "reference-runtime/platform/src/ahte/store.py",
+      "sha256": "cf0e9089ce6363a5967454df4835887ca5715a6c762a2e4af13ec3625b8eec01"
+    },
+    {
+      "canonical_path": "platform/tests/test_decision_classes.py",
+      "amanah_path": "reference-runtime/platform/tests/test_decision_classes.py",
+      "sha256": "38153608297cd0b7c205f1e881818346b9854ba36983ac527d80361b90eccb57"
+    },
+    {
+      "canonical_path": "platform/tests/test_runtime.py",
+      "amanah_path": "reference-runtime/platform/tests/test_runtime.py",
+      "sha256": "e95db04a1491981cea5b3a51d6e16aaca891b28f55eb90dae3ab52756f51b36f"
+    },
+    {
+      "canonical_path": "runtime/README.md",
+      "amanah_path": "reference-runtime/README.md",
+      "sha256": "b7317314b734740523451339500e65c217383eec997cfada8c408ad4a8a411c5"
+    },
+    {
+      "canonical_path": "runtime/engine/README.md",
+      "amanah_path": "reference-runtime/engine/README.md",
+      "sha256": "ea68b3e1e83a98d1dde9e33b49fd730e7d81a20ff76f21606c51279755f03076"
+    },
+    {
+      "canonical_path": "runtime/engine/engine.py",
+      "amanah_path": "reference-runtime/engine/engine.py",
+      "sha256": "3f8ad2086cb13ade410221bc1ef3325893f99bbc78a9c1ab461ea5914387da85"
+    },
+    {
+      "canonical_path": "runtime/engine/verify_system.py",
+      "amanah_path": "reference-runtime/engine/verify_system.py",
+      "sha256": "75706fa3d1468af29e1895aac7e6bb72bcc07459c5ae5151cb666a4bb5ccb701"
+    },
+    {
+      "canonical_path": "runtime/gateway/Dockerfile",
+      "amanah_path": "reference-runtime/gateway/Dockerfile",
+      "sha256": "78c8be4ab47a40dd4167618729e8b9487ce0f4cf255a3214e1a0214fe34b3833"
+    },
+    {
+      "canonical_path": "runtime/gateway/app.py",
+      "amanah_path": "reference-runtime/gateway/app.py",
+      "sha256": "00ce520c5c23a8d7dd8937e9afdef1b73482ee9cf3ec9c141cd60f5d06ffdbb7"
+    },
+    {
+      "canonical_path": "runtime/gateway/crypto.py",
+      "amanah_path": "reference-runtime/gateway/crypto.py",
+      "sha256": "92c77ea08a6804542357f9e9a95f7880665a2eef31468d33d34b3a746457626f"
+    },
+    {
+      "canonical_path": "runtime/gateway/edge_ingest.py",
+      "amanah_path": "reference-runtime/gateway/edge_ingest.py",
+      "sha256": "54844cd54fcccaee5e8d3caba6d948f8e46854d249fb8ba1465917f3281fcc8b"
+    },
+    {
+      "canonical_path": "runtime/gateway/fsm.py",
+      "amanah_path": "reference-runtime/gateway/fsm.py",
+      "sha256": "b05760cccf81f60c2b3426369da92aebc3318ed7d1773fcef402727b5ba377bb"
+    },
+    {
+      "canonical_path": "runtime/gateway/models.py",
+      "amanah_path": "reference-runtime/gateway/models.py",
+      "sha256": "cd89b8e3ab7f79ca8908a468f81f9bee20d972696216a3331ea22714f279452e"
+    },
+    {
+      "canonical_path": "runtime/gateway/requirements.txt",
+      "amanah_path": "reference-runtime/gateway/requirements.txt",
+      "sha256": "5c2214b8a0ddd7e579fac6455d748e85596b55459d253ae2af13b3f7c1dc256d"
+    },
+    {
+      "canonical_path": "runtime/policies/data.json",
+      "amanah_path": "reference-runtime/policies/data.json",
+      "sha256": "7f422560eebe844d8319c4f0dedbbcfe4a5f3864bcb7daeb34f18a317daf1a2e"
+    },
+    {
+      "canonical_path": "runtime/policies/halal_gate.rego",
+      "amanah_path": "reference-runtime/policies/halal_gate.rego",
+      "sha256": "03f8f5c4a7f1bc274f8c126c27797f2194ffe05190f15bcbb7c1f4beb4bb116d"
+    },
+    {
+      "canonical_path": "runtime/policies/halal_gate_test.rego",
+      "amanah_path": "reference-runtime/policies/halal_gate_test.rego",
+      "sha256": "26bffd981a86586241fa747bb93397589fdcf875d96ac27e76ab56dda498eb48"
+    },
+    {
+      "canonical_path": "runtime/policies/halal_master.rego",
+      "amanah_path": "reference-runtime/policies/halal_master.rego",
+      "sha256": "741b85d9045225ac32ffd0c7ec688e5a3f85cc7359a30516c0881e44b57cfc2d"
+    },
+    {
+      "canonical_path": "runtime/policies/halal_master_test.rego",
+      "amanah_path": "reference-runtime/policies/halal_master_test.rego",
+      "sha256": "a6894007690d170c13d8e37cc3133b200eeed716e337ddcbc7d6867f14625759"
+    },
+    {
+      "canonical_path": "tests/__init__.py",
+      "amanah_path": "reference-runtime/tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "canonical_path": "tests/runtime_path.py",
+      "amanah_path": "reference-runtime/tests/runtime_path.py",
+      "sha256": "95f51afc3ae9124ec82593dabdaa880406416323d22c2811899dff152263506d"
+    },
+    {
+      "canonical_path": "tests/test_edge_and_fsm.py",
+      "amanah_path": "reference-runtime/tests/test_edge_and_fsm.py",
+      "sha256": "35743b51f54c067fe77b14fd137416ad3941444fd57262e1bfa2aa302fa5dc40"
+    },
+    {
+      "canonical_path": "tests/test_gateway_guards.py",
+      "amanah_path": "reference-runtime/tests/test_gateway_guards.py",
+      "sha256": "6845ff0eeaf777c3fcbf246db3b66aa14d26f6ca4172498f43064f67917b9bc2"
+    },
+    {
+      "canonical_path": "tests/e2e/__init__.py",
+      "amanah_path": "reference-runtime/tests/e2e/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "canonical_path": "tests/e2e/test_shipment_pipeline.py",
+      "amanah_path": "reference-runtime/tests/e2e/test_shipment_pipeline.py",
+      "sha256": "d26a97d4173f958bc2340514ffc5a82863465902b72094225fdd6121599e87f2"
+    }
+  ]
+}

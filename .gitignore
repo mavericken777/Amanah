@@ -15,3 +15,11 @@ Thumbs.db
 *.log
 *.swp
 *.swo
+
+# Generated build and dependency files
+node_modules/
+.next/
+*.tsbuildinfo
+__pycache__/
+.pytest_cache/
+supabase/.temp/

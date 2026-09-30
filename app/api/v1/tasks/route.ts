@@ -13,6 +13,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   const supabase=await createClient();const {data:{user}}=await supabase.auth.getUser();if(!user)return NextResponse.json({error:"Unauthorized"},{status:401});
   let body:any;try{body=await request.json()}catch{return NextResponse.json({error:"Invalid JSON"},{status:400})}
+  if(!body||typeof body!=="object"||Array.isArray(body))return NextResponse.json({error:"JSON object required"},{status:400});
   const projectId=typeof body.project_id==="string"?body.project_id:"";const title=typeof body.title==="string"?body.title.trim():"";
   if(!projectId||title.length<2||title.length>500)return NextResponse.json({error:"project_id and a 2-500 character title are required"},{status:422});
   const {data:project}=await supabase.from("projects").select("id,organization_id").eq("id",projectId).maybeSingle();if(!project)return NextResponse.json({error:"Project not found"},{status:404});

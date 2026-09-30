@@ -1,4 +1,6 @@
 import { createClient } from "npm:@supabase/supabase-js@2.114.0";
+import { objectBody, packetError, requestIdentity } from "./validation.ts";
+import trustMachine from "./trust-machine.json" with { type: "json" };
 
 const cors = {
   "Access-Control-Allow-Origin": "*",
@@ -25,6 +27,7 @@ function requestParts(req: Request) {
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return reply({ ok: true });
+  if (!["GET", "POST"].includes(req.method)) return reply({ error: "method_not_allowed" }, 405);
 
   const authorization = req.headers.get("authorization");
   if (!authorization?.toLowerCase().startsWith("bearer ")) return reply({ error: "authentication_required" }, 401);
@@ -45,9 +48,13 @@ Deno.serve(async (req) => {
   const head = parts[0] ?? "";
 
   let body: Record<string, unknown> = {};
-  if (req.method === "POST" && (req.headers.get("content-type") ?? "").includes("application/json")) {
-    const parsed = await req.json();
-    if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) body = parsed as Record<string, unknown>;
+  if (req.method === "POST") {
+    if (!(req.headers.get("content-type") ?? "").includes("application/json")) return reply({ error: "json_content_type_required" }, 415);
+    try {
+      const parsed: unknown = await req.json();
+      if (!objectBody(parsed)) return reply({ error: "json_object_required" }, 400);
+      body = parsed;
+    } catch { return reply({ error: "invalid_json" }, 400); }
   }
 
   const organizationId = typeof body.organization_id === "string"
@@ -69,13 +76,16 @@ Deno.serve(async (req) => {
 
   const idempotencyKey = req.headers.get("idempotency-key");
   if (req.method === "POST" && idempotencyKey) {
-    const requestHash = await hash(JSON.stringify(body));
-    const { data: prior } = await supabase.from("ahte_api_idempotency")
-      .select("request_hash,response_status,response_body").eq("organization_id", organizationId)
+    const requestHash = await hash(requestIdentity(req.method, url.pathname, userId, body));
+    const { data: prior, error: priorError } = await supabase.from("ahte_api_idempotency")
+      .select("actor_user_id,request_hash,response_status,response_body").eq("organization_id", organizationId)
       .eq("idempotency_key", idempotencyKey).maybeSingle();
+    if (priorError) return reply({ error: "idempotency_lookup_failed" }, 500);
     if (prior) {
+      if (prior.actor_user_id !== userId) return reply({ error: "idempotency_actor_mismatch" }, 409);
       if (prior.request_hash !== requestHash) return reply({ error: "idempotency_key_reused_with_different_request" }, 409);
-      return reply(prior.response_body ?? { ok: true }, prior.response_status ?? 200);
+      if (prior.response_status == null || prior.response_body == null) return reply({ error: "idempotency_request_in_progress" }, 409);
+      return reply(prior.response_body, prior.response_status);
     }
     const { error: reserveError } = await supabase.from("ahte_api_idempotency").insert({
       organization_id: organizationId, idempotency_key: idempotencyKey, actor_user_id: userId, request_hash: requestHash,
@@ -85,8 +95,9 @@ Deno.serve(async (req) => {
 
   async function finish(payload: unknown, status = 200) {
     if (req.method === "POST" && idempotencyKey) {
-      await supabase.from("ahte_api_idempotency").update({ response_status: status, response_body: payload })
+      const { error } = await supabase.from("ahte_api_idempotency").update({ response_status: status, response_body: payload })
         .eq("organization_id", organizationId).eq("idempotency_key", idempotencyKey).eq("actor_user_id", userId);
+      if (error) return reply({ error: "idempotency_completion_failed" }, 500);
     }
     return reply(payload, status);
   }
@@ -96,6 +107,8 @@ Deno.serve(async (req) => {
   }
 
   if (req.method === "POST" && head === "packets") {
+    const shapeError = packetError(body);
+    if (shapeError) return finish({ error: shapeError }, 400);
     if (typeof body.packet_type !== "string" || typeof body.schema_version !== "string" || !body.identity_object || !body.evidence_object)
       return finish({ error: "packet_type_schema_version_identity_and_evidence_required" }, 400);
     const contentHash = typeof body.content_hash === "string" ? body.content_hash : await hash(JSON.stringify(body));
@@ -279,7 +292,6 @@ Deno.serve(async (req) => {
     const { data, error } = await supabase.from("ahte_fracture_events").insert({
       organization_id: organizationId, project_id: typeof body.project_id === "string" ? body.project_id : null, entity_type: body.entity_type, entity_id: body.entity_id,
       fracture_type: body.trigger, severity: typeof body.severity === "string" ? body.severity : "high", auto_hold: true,
-      metadata: { source: "assurance-api", actor_user_id: userId },
     }).select("*").single();
     if (error) return finish({ error: error.message }, 400);
     return finish({ data, released: false }, 201);
@@ -293,9 +305,10 @@ Deno.serve(async (req) => {
     });
     if (evalError) return finish({ error: evalError.message }, 400);
     if (!eligibility || eligibility.eligible !== true) return finish({ error: "release_blocked", eligibility }, 409);
+    if (body.project_id != null && body.project_id !== eligibility.project_id) return finish({ error: "release_project_mismatch" }, 409);
     const { data, error } = await supabase.from("ahte_release_decisions").insert({
-      organization_id: organizationId, project_id: typeof body.project_id === "string" ? body.project_id : null, trust_state_id: eligibility.trust_state_id ?? null,
-      decision: "released", reason: typeof body.reason === "string" ? body.reason : "Operational release after eligibility evaluation", decided_by: userId,
+      organization_id: organizationId, project_id: eligibility.project_id ?? null, trust_state_id: eligibility.trust_state_id ?? null,
+      decision: "release", reason: typeof body.reason === "string" ? body.reason : "Operational release after eligibility evaluation", decided_by: userId,
       conditions: { is_certification: false },
     }).select("*").single();
     if (error) return finish({ error: error.message }, 400);
@@ -320,11 +333,13 @@ Deno.serve(async (req) => {
     const packetId = parts[1];
     const { data: packet, error: packetError } = await supabase.from("ahte_trust_packets").select("id,organization_id,packet_type,status,content_hash").eq("id",packetId).eq("organization_id",organizationId).maybeSingle();
     if(packetError)return reply({error:packetError.message},400); if(!packet)return reply({error:"packet_not_found"},404);
-    const [{data:state},{data:vector},{data:fractures}]=await Promise.all([
+    const results=await Promise.all([
       supabase.from("ahte_trust_states").select("*").eq("organization_id",organizationId).eq("entity_type","trust_packet").eq("entity_id",packetId).order("effective_at",{ascending:false}).limit(1).maybeSingle(),
       supabase.from("ahte_trust_vectors").select("*").eq("organization_id",organizationId).eq("entity_type","trust_packet").eq("entity_id",packetId).order("calculated_at",{ascending:false}).limit(1).maybeSingle(),
       supabase.from("ahte_fracture_events").select("fracture_type,severity,auto_hold,resolution,detected_at").eq("organization_id",organizationId).eq("entity_type","trust_packet").eq("entity_id",packetId).order("detected_at",{ascending:false}).limit(20)
     ]);
+    if (results.some(result => result.error)) return reply({error:"state_lookup_failed"},500);
+    const [{data:state},{data:vector},{data:fractures}]=results;
     return reply({packet,trust_state:state,trust_vector:vector,fractures:fractures??[],score_is_sovereign:false,not_certification:true});
   }
 
@@ -336,13 +351,15 @@ Deno.serve(async (req) => {
 
   if (req.method === "GET" && head === "products" && parts[1] && parts[2] === "verification") {
     const productId=parts[1];
-    const [{data:product},{data:state},{data:certs},{data:markets},{data:fractures}]=await Promise.all([
+    const results=await Promise.all([
       supabase.from("ahte_products").select("id,name,category,market_status,status").eq("id",productId).eq("organization_id",organizationId).maybeSingle(),
       supabase.from("ahte_trust_states").select("*").eq("organization_id",organizationId).eq("entity_type","product").eq("entity_id",productId).order("effective_at",{ascending:false}).limit(1).maybeSingle(),
       supabase.from("ahte_certificates").select("certificate_no,authority_id,status,issued_on,expires_on,scope").eq("organization_id",organizationId).eq("identity_id",productId).limit(20),
       supabase.from("ahte_market_registrations").select("market_code,status,registration_reference,halal_acceptance_reference,expires_on").eq("organization_id",organizationId).eq("product_id",productId),
       supabase.from("ahte_fracture_events").select("fracture_type,severity,auto_hold,resolution,detected_at").eq("organization_id",organizationId).eq("entity_type","product").eq("entity_id",productId).order("detected_at",{ascending:false}).limit(20)
     ]);
+    if (results.some(result => result.error)) return reply({error:"product_verification_lookup_failed"},500);
+    const [{data:product},{data:state},{data:certs},{data:markets},{data:fractures}]=results;
     if(!product)return reply({error:"product_not_found"},404);
     return reply({product,trust_state:state,certificates:certs??[],market_registrations:markets??[],fractures:fractures??[],not_certification:true,score_is_sovereign:false});
   }
@@ -362,7 +379,7 @@ Deno.serve(async (req) => {
     if(error)return finish({error:error.message},400);
     if(Array.isArray(body.scope_entities)){
       const rows=body.scope_entities.filter((x):x is Record<string,unknown>=>Boolean(x&&typeof x==="object")).map(x=>({organization_id:organizationId,recall_id:recall.id,entity_type:String(x.entity_type??"unknown"),entity_id:String(x.entity_id??"00000000-0000-0000-0000-000000000000"),action:String(x.action??"monitor"),status:"open"}));
-      if(rows.length)await supabase.from("ahte_recall_scopes").insert(rows);
+      if(rows.length){ const {error:scopeError}=await supabase.from("ahte_recall_scopes").insert(rows); if(scopeError)return finish({error:"recall_scope_write_failed",recall_id:recall.id},400); }
     }
     return finish({data:recall},201);
   }
@@ -517,7 +534,7 @@ Deno.serve(async (req) => {
   if (req.method === "POST" && head === "transition") {
     if (typeof body.entity_type !== "string" || typeof body.entity_id !== "string" || typeof body.event !== "string") return finish({ error: "entity_and_event_required" }, 400);
     const projectId = typeof body.project_id === "string" ? body.project_id : null;
-    const { data: current } = await supabase.from("ahte_trust_states")
+    const { data: current, error: currentError } = await supabase.from("ahte_trust_states")
       .select("id,project_id,state,hard_gate_status,vector,entity_type,entity_id")
       .eq("organization_id", organizationId)
       .eq("entity_type", body.entity_type)
@@ -526,17 +543,12 @@ Deno.serve(async (req) => {
       .limit(1)
       .maybeSingle();
 
-    const fromState = current?.state ?? "draft";
-    const { data: transition, error: transitionError } = await supabase.from("ahte_state_transitions")
-      .select("from_state,to_state,event,required_decision_class")
-      .eq("organization_id", organizationId)
-      .eq("machine","trust")
-      .eq("from_state",fromState)
-      .eq("event",body.event)
-      .eq("active",true)
-      .maybeSingle();
+    if (currentError) return finish({error:"current_state_lookup_failed"},500);
 
-    if (transitionError) return finish({ error: transitionError.message }, 400);
+    const fromState = current?.state ?? "draft";
+    const rule = trustMachine.transitions.find((entry) =>
+      (Array.isArray(entry.from) ? entry.from.includes(fromState) : entry.from === fromState) && entry.on === body.event);
+    const transition = rule ? { to_state: rule.to, required_decision_class: rule.on === "E5_authority_decision" ? "D5" : null } : null;
     if (!transition) return finish({ error: "undefined_transition", from_state: fromState, event: body.event, default: "remain_or_hold" }, 409);
     if (["D5","D6"].includes(String(transition.required_decision_class ?? ""))) return finish({ error: "authority_gate_reserved", decision_class: transition.required_decision_class }, 403);
 
@@ -551,31 +563,37 @@ Deno.serve(async (req) => {
       if (!eligibility || eligibility.eligible !== true) return finish({ error: "release_blocked", eligibility }, 409);
     }
 
-    const gateStatus = typeof body.hard_gate_status === "string" ? body.hard_gate_status : (transition.to_state === "eligible" || transition.to_state === "released" ? "passed" : "open");
     const { data: nextState, error: stateError } = await supabase.from("ahte_trust_states").insert({
       organization_id: organizationId,
       project_id: projectId ?? current?.project_id ?? null,
       entity_type: body.entity_type,
       entity_id: body.entity_id,
       state: transition.to_state,
-      hard_gate_status: gateStatus,
+      hard_gate_status: "open", // Database derives gates; caller claims never grant eligibility.
+      transition_event: body.event,
+      previous_state_id: current?.id ?? null,
       vector: body.vector ?? current?.vector ?? {},
       rationale: typeof body.rationale === "string" ? body.rationale : "State transition: " + body.event,
       effective_at: new Date().toISOString(),
     }).select("*").single();
 
     if (stateError) return finish({ error: stateError.message }, 400);
-    await supabase.rpc("ahte_record_event_proxy", {
-      p_org: organizationId,
-      p_event_type: body.event,
-      p_entity_type: body.entity_type,
-      p_entity_id: body.entity_id,
-      p_actor_type: "user",
-      p_actor_id: userId,
-      p_payload: { from_state: fromState, to_state: transition.to_state, event: body.event },
-      p_source_system: "assurance-api",
-    });
+    // State and ledger write are atomic in the database trigger.
     return finish({ data: nextState, from_state: fromState, to_state: transition.to_state, not_certification: transition.to_state === "released" }, 201);
+  }
+
+  if (req.method === "POST" && head === "gate-results") {
+    if (!["owner","admin","executive","project_manager"].includes(membership.role)) return finish({ error: "gate_review_restricted" }, 403);
+    if (typeof body.entity_type !== "string" || typeof body.entity_id !== "string" || typeof body.gate_id !== "string" || typeof body.evidence_id !== "string" || typeof body.rationale !== "string") return finish({ error: "gate_subject_evidence_and_rationale_required" }, 400);
+    const { data, error } = await supabase.from("ahte_gate_results").insert({
+      organization_id: organizationId, project_id: typeof body.project_id === "string" ? body.project_id : null,
+      entity_type: body.entity_type, entity_id: body.entity_id, gate_id: body.gate_id,
+      result: typeof body.result === "string" ? body.result : "failed", evidence_id: body.evidence_id,
+      authority_decision_id: typeof body.authority_decision_id === "string" ? body.authority_decision_id : null,
+      reviewed_by: userId, rationale: body.rationale, expires_at: typeof body.expires_at === "string" ? body.expires_at : null,
+    }).select("*").single();
+    if (error) return finish({ error: error.message }, 400);
+    return finish({ data, not_certification: true }, 201);
   }
 
   return reply({error:"route_not_found",supported:["/health","/packets","/evidence","/assess","/hitm/evaluate","/products","/products/{id}/verification","/lab-results","/shipments","/logistics-events","/retail-events","/telemetry","/inbound-events","/credential-checks","/market-registrations","/twins","/public-verifications","/hold","/release","/authority-decisions","/evidence/{id}","/state/{packet_id}","/cases/{finding_id}/corrective-actions","/recalls"]},404);

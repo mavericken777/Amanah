@@ -19,6 +19,7 @@ export async function POST(request: Request) {
   if (!user) return NextResponse.json({error:"Unauthorized"}, {status:401});
   let body: any;
   try { body=await request.json(); } catch { return NextResponse.json({error:"Invalid JSON"},{status:400}); }
+  if(!body||typeof body!=="object"||Array.isArray(body))return NextResponse.json({error:"JSON object required"},{status:400});
   const name=typeof body.name==="string"?body.name.trim():"";
   if(name.length<2||name.length>200)return NextResponse.json({error:"name must be 2-200 characters"},{status:422});
   const {data:membership}=await supabase.from("organization_members").select("organization_id,role").eq("user_id",user.id).in("role",["owner","admin","executive","project_manager"]).order("created_at",{ascending:true}).limit(1).maybeSingle();

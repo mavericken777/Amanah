@@ -1,22 +1,20 @@
-# AHTE Reference Runtime
+# Trust gateway + OPA (reference)
 
-[PROJECT-REPO: https://github.com/mavericken777/GlobalHalalDigitalTrust — SHA12 b1c0fc63be72 — 2026-09-30]
-[TOOL-SPEC UNVERIFIED: reference runtime dependencies — simulation/compatibility only]
+```bash
+docker compose up -d --build
+# Gateway http://localhost:8000/api/v1/health
+# OPA     http://localhost:8181/v1/data/halal/compliance
 
-This directory preserves the executable reference runtime supplied by the canonical AHTE project repository.
+opa test -v runtime/policies/
+OPA_URL=http://127.0.0.1:8181/v1/data/halal/compliance pytest -v tests/e2e/test_shipment_pipeline.py
+```
 
-## Important
+Signed documents from `/api/v1/credentials/issue` are **HalalBatchAssertion** objects. They are not JAKIM certificates. Statutory-looking issuer DIDs are rejected.
 
-The canonical runtime is a reference/simulation implementation. It uses fixture identifiers, example authorities/DIDs and in-memory state. It does not constitute a deployed sovereign certification service.
-
-Production Amanah uses the Supabase-backed AHTE control plane and the deployed `assurance` / `public-verify` Edge Functions instead.
-
-## Contents
-
-- gateway: FastAPI gateway, Ed25519 signing, smart-seal codec, FSM and Pydantic models.
-- engine: reference 12-state consignment FSM and signed receipt engine.
-- policies: OPA/Rego rules and fixture data.
-
-## Boundary
-
-Do not deploy this folder as the production certification service. Do not treat demo fixture results, example DIDs, fixture facility identifiers, HTI values or generated example credentials as authority evidence.
+`/api/v1/corridor/clearance` is a fixture-only simulation. A new consignment starts at
+`COLD_CHAIN_IN_TRANSIT`; later requests must name the recorded demo state. Even when
+the simulated FSM reaches `CUSTOMS_RELEASED`, its receipt states `pilot_only=true`,
+`authority_authenticated=false`, `operational_release=false`, and
+`not_a_customs_clearance=true`. `allowed` and `simulation_passed` refer only to the
+fixture policy evaluation. The in-memory ledger and ephemeral signing key are not
+an authority record or proof of customs clearance.

@@ -1,0 +1,3712 @@
+{
+  "classification": "post-freeze proposal",
+  "canonical_commit": "3d5cc29fabf7c3ed0da20cd938219fed83e74830",
+  "captured_at": "2026-09-30T04:55:39.078Z",
+  "canonical_inventory": [
+    {
+      "path": ".github/agents/halal-trust-editor.agent.md",
+      "bytes": 5269,
+      "sha256": "f5f8d61830c4b6a598f71d7d22c9f96c6ee526649d347c74f3a4fe00ecbb1168",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".github/copilot-instructions.md",
+      "bytes": 2555,
+      "sha256": "3c92aa11aa8457c5c06c36bf96cd0bae777346ca0538ea67f539abbd5af589df",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".github/hooks/validate-freeze-integrity.json",
+      "bytes": 374,
+      "sha256": "fca061f46fef75dbae2ef8789095df6c76a449fa4833a29b9836de013e8ff3ff",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".github/instructions/verified-freeze.instructions.md",
+      "bytes": 772,
+      "sha256": "cea1f6e2eb11fb6b12293826c5e37676ca014c56fa380827ac7410381d81adb4",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".github/prompts/ahte-platinum-asset-generation.prompt.md",
+      "bytes": 5605,
+      "sha256": "27106c268d44b853fddb90cc847f472a80c60dcdd216ad861ae43bbd83263c9a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".github/skills/ahte-source-governance/SKILL.md",
+      "bytes": 2389,
+      "sha256": "27c3dd1fb2a9abd5f4a4965211277e5be8e830f78bfe29e3011f99f0275b251d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 1769,
+      "sha256": "8715579fddbf599801a3a3a8204ca17ed1f7ce731dbfe0e76c311ae0894d8360",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".github/workflows/generate-ahtem-infographics.yml",
+      "bytes": 1217,
+      "sha256": "10a62b1677b91eea1ede2cae83dc36e1825b6b0ac450502343cd6dc46559ae1d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".github/workflows/platform-reference.yml",
+      "bytes": 489,
+      "sha256": "e441f826a8affa9f5f0b76f7fbfafbaa95b861ca8d8f210ccea6fb57f39a48e4",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".github/workflows/repository-integrity.yml",
+      "bytes": 457,
+      "sha256": "fce6be7cbbd19f8d7d66fe3acb3495fd5670e7396a3b30e6666d19aed59755fc",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 49,
+      "sha256": "37fcc86501671a3bf470fdd1a49aad42f0714612eb791a292251e06406bfbf65",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/ABSOLUTE_MODE_SYSTEM_INSTRUCTION_v14.1.md",
+      "bytes": 7433,
+      "sha256": "f47e470715df23cdd89e1e381557ea3d5f5b3f2f229502f19a7efd31f48808ef",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/AGENT_CONTROL_LAYER_AUDIT_2026-09-19.md",
+      "bytes": 4529,
+      "sha256": "d770a09759e6895df533aa2886e66a1a8577a611f8f517ae6b5f1399707677da",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/HONESTY_LAYER_2026-09-20.md",
+      "bytes": 829,
+      "sha256": "64b09eed19d958fa078fc562e2b0399db14c45759439d4c1b93ed9fc5f3baeb2",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/IQ300_2026_INTEROP_STACK.md",
+      "bytes": 2832,
+      "sha256": "ddcf7860527907d13cb03420212458ed9012fb731d35324f9e300c281f85aebb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/IQ300_ASSURANCE_CONTROL_PLANE_AUDIT_2026-09-20.md",
+      "bytes": 1639,
+      "sha256": "b2d3918e749e2dbf8a7ec69c3d43c95d58f8c110cafcdb6ecbee04a4e0f2ef93",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/IQ300_ASSURANCE_CONTROL_PLANE_SPEC_v0.1.md",
+      "bytes": 5000,
+      "sha256": "6fb99b1824c4a7361583c60da319036eb8e2c2cc682680d27a59f61c4b8d68ec",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/IQ300_DOCTRINE.md",
+      "bytes": 33061,
+      "sha256": "e844cec7b6701c32277a0ec429b5fed64a5b73039f40e53b05ea772c298ec75e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/MASTER_DISCUSSION_DECISION_LOG_2026.md",
+      "bytes": 5347,
+      "sha256": "cd7e7cee1e9a4d3ed2dbc51f873b1fdffe747d65c284fa35424ac7342c18d439",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/OCTOBER_2026_STRATEGIC_IMPLEMENTATION_MISSION.md",
+      "bytes": 11490,
+      "sha256": "18b889fa07ecd13d75e10d574ba43a6f4b9cbb626e8ececc6e94dfb8b3da1e5b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/README.md",
+      "bytes": 928,
+      "sha256": "f90112ee9ba0e3ceb8a9382f2dc050e53be8d5ef0bb3c445f83d3ec10cdbfae3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/RECONCILIATION_2026-09-27.md",
+      "bytes": 6004,
+      "sha256": "8643e30bce8a1f1e34dea26d2ba03b8223d4d7f6628138b3b6b2fe155fc9932f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/REPOSITORY_COMPLETION_AUDIT_2026-09-18.md",
+      "bytes": 11756,
+      "sha256": "458d1620f7be099445f0d4c61ecb8c362adab7f793c68bfb95cc80b13a2e3b58",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/REPOSITORY_READINESS_AUDIT_2026-09-26.md",
+      "bytes": 10759,
+      "sha256": "246dbd5773b80cbbe9c48d48f4593ba64c70ba0e1fd9d7efd89a742eadac17af",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/SHIPMENT_001_ACCEPTANCE_TESTS.md",
+      "bytes": 2075,
+      "sha256": "0fc02b42840da178c5200874ff10c83f2d2273634e30c985634e54fca892530d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/SPECIFICATION_ADOPTION_2026-09-20.md",
+      "bytes": 652,
+      "sha256": "a3cf782f228d7cd65bc8a336c2438247bde34899d73932f25c8b302f1a770f2d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/artifact-quarantine-2026-09-26.json",
+      "bytes": 2140,
+      "sha256": "5329040a0ba96016c50354e365ed438a2a2ed00abb4c0f999dbeb121ba7743d2",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/canonical-path-machine-map.json",
+      "bytes": 2013,
+      "sha256": "aefd79d360696d41521df0d6e1e969e36a3febafc703a6647efe5d5b06164b29",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/commit-tag-taxonomy.json",
+      "bytes": 1765,
+      "sha256": "99150332e678542ddfed5e68cae9af15f543f508f458cd853e48cddb4ff7d0b6",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/corridor-registry.json",
+      "bytes": 3573,
+      "sha256": "c196a751699cd19aa967039748812aebb0cf2a0408373350381412a1876c4737",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/epcis-corridor-event-map.json",
+      "bytes": 1735,
+      "sha256": "d3160cbb659167120f33a4afaff9b17ccf4292bdbb62ac739a4325e00146a0e9",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/hitm-decision-class-registry.json",
+      "bytes": 3076,
+      "sha256": "d17c20bee9ebfff7769dca325da3527dab9f06cc46302874816f8d08a07ed5a6",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/live-source-registry-addendum-2026-09-26.json",
+      "bytes": 1986,
+      "sha256": "f30aa362c0e859fd8192f0326f202c7ba01192fabd8d849048ae16fef252c91c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/live-source-registry.json",
+      "bytes": 10104,
+      "sha256": "3a4f5b8490f79929a6b09e397fb7901a2010c728336077890ddc08bad386bf14",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/machine-spec/01-agent-authority-model.md",
+      "bytes": 909,
+      "sha256": "2796aa772848b32c337cfa213b3937177320a603d53d3b6958d36e88d6a4c985",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/machine-spec/02-ai-action-authority-matrix.json",
+      "bytes": 1324,
+      "sha256": "10128e154dfacee6b4e42eae2662fceae5d2f771b6327818f8ceb4214325181c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/machine-spec/04-human-authority-mandate-registry.json",
+      "bytes": 1371,
+      "sha256": "512d277a031c30bae415137aedd652b08f1f67915f8e25491d17447faa25428b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/machine-spec/09-hard-gate-rules.json",
+      "bytes": 1502,
+      "sha256": "41bccbde08ace1c6f0224afd75e360cde0038d09599103ed7b48571b154481e0",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/machine-spec/11-trust-fracture-taxonomy.json",
+      "bytes": 1262,
+      "sha256": "793077c0568243da9f920b86a9c2ae86af82e09dc5ac02bf430a67d4522460e5",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/machine-spec/12-autonomous-state-machine.json",
+      "bytes": 1462,
+      "sha256": "cd71888fc7903ed220e9789e06b0892d3007b938b02accc2e96b0fe864a720fb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/machine-spec/13-cryptographic-binding-profile.md",
+      "bytes": 749,
+      "sha256": "7b9c0c71f17d8023e7b421b79fa37fe5c63f5f0cfbe4bba7a6afd8aa3fffe5f7",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/machine-spec/14-authority-aware-api.md",
+      "bytes": 925,
+      "sha256": "3ad396253c7a97d16e95fc936268f698b0c29aced467bb7d1c0e38309050647a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/machine-spec/15-agent-runtime-permissions.json",
+      "bytes": 973,
+      "sha256": "e44dec1339dade9d531eb54b8343f8a403e0f87710a884138628ecf0112550e3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/machine-spec/16-auditability-layer.md",
+      "bytes": 709,
+      "sha256": "f72a4ad7fda55f82d153518e38f67d894025ae15e23df3bd80dd7a4fc4370e6c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/machine-spec/README.md",
+      "bytes": 1249,
+      "sha256": "25b48bde7e45475cb4c21506e727889b51f618b0d5eba4fcb4570f8ebfb8cf6f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/october-2026-readiness.json",
+      "bytes": 13158,
+      "sha256": "9057bc89a49169ab846ff7c59f245f91761946a35b679d6de33524762a2b8fdc",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/partner-registry.json",
+      "bytes": 13246,
+      "sha256": "662e9824af5253bd89d278b76a7b022bee7bcf9cf6012a4eb17b0da79d235a0b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/policies/hitm-default-deny.rego",
+      "bytes": 1318,
+      "sha256": "f5696bd7e936cbec173ba0c5be29f11994e4c02d9b1c63cff60a5cba50cf5652",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/policies/hitm-fixtures.json",
+      "bytes": 1744,
+      "sha256": "ae6db20d49271928573ad6c573bceec3ee381c7f0de63684ca575695550aa7c3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/port-authority-registry.json",
+      "bytes": 4568,
+      "sha256": "336266fce173240ffa3cba0a974d912258c36a84bd2b438c0cec9456fa9740ed",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/project-file-curation.json",
+      "bytes": 5012,
+      "sha256": "282928a0e10976ce8469427a71648e6c199ae5719536792f0601b3b9f68cb76c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/schema-registry.json",
+      "bytes": 3065,
+      "sha256": "d87e2ea795078a85a8c9857a897a8cfa0bf05ebce99e15718b9cdfd2ab4047f9",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "00_EXECUTIVE_COMMAND/trust-packet-schemas.json",
+      "bytes": 13812,
+      "sha256": "c6c3e77234ef050fae0321ffb7bf08d918c451066acd18ffe592bf57aed011ad",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "03_ECOSYSTEM_PARTNERS/PARTNER_RACI_INTEGRATION_MATRIX.md",
+      "bytes": 4717,
+      "sha256": "023ed637a3e798a4bf1ba5f77bf5b9f38562e14ddcca79afc088dd4c647c5a92",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "05_PLATINUM_REAL_TIME_MONITORING/PLATINUM_FULL_STACK_ARCHITECTURE.md",
+      "bytes": 6507,
+      "sha256": "716b1fffcf56d6316cd6afeb5093da7eff235d0abcc7736c462c29b2e9ca947b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ADOPTION.md",
+      "bytes": 1830,
+      "sha256": "e683d7b8a2975ca2b1afe367cfc3f0b806bbf5dab6569def80c762b24ef38a5c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 4970,
+      "sha256": "f32506ffb253395c386348422dbb822a7b2c490591bd32b24411965bf41f2196",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/00_READ_THIS_FIRST.md",
+      "bytes": 2685,
+      "sha256": "17aa5ce65960705a0c502e40bb424ff69b6436465c60d5e80ca911309a13aff0",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/01_INSTRUMENT_REGISTER.md",
+      "bytes": 3612,
+      "sha256": "3a358d9d1ca513df169d211ee9652202ae261689e4478ab78e1cd5a67c649aef",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/02_ASK_LIST_AND_SIGNING_PACK.md",
+      "bytes": 2968,
+      "sha256": "4b4b94b2ff8130295f73efbd330c9cca511462e3f2d29d1a32331e3f01635994",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/03_MEETING_RUN_OF_SHOW.md",
+      "bytes": 1595,
+      "sha256": "5c940de26aeaa2fe311862d0a4c6883857102637f1341bf64e792c92c75c58cf",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/04_REPO_CROSSWALK.md",
+      "bytes": 1089,
+      "sha256": "e129479397d7667cd6dfa8babe0e7829ddc8150fb36ffa0d0aec692f8461cc0d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/EXECUTION_BOARD.md",
+      "bytes": 5471,
+      "sha256": "cb30710f1bfc835122015b5fd02bdc7cac6e5c83c780551d8e635529e96d7873",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/FIELD_LOG.md",
+      "bytes": 418,
+      "sha256": "1b23d81561945647b4d3acb9fa910c55298dd1ee535ece42f47b4f5f7004a129",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/KICKOFF_MINUTES_RECONCILIATION.md",
+      "bytes": 2441,
+      "sha256": "c73c9f57a97ee4d28ae6e79bcf8a270519280c1cc28da62d220ff935f675b90a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MALAYSIA_HALAL_AUTHORITY_MAP.md",
+      "bytes": 2633,
+      "sha256": "f3cad8b422fe58b83b72c6371c3c5158900dff3db03cdeb985d7ff4f08a312ea",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MOA_TEMPLATES/00_REGISTER.md",
+      "bytes": 753,
+      "sha256": "455ca480d3065b9e77dd0de55b2cfe7118a47fb94c8a41bf51a69e49647fd29e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MOA_TEMPLATES/COMMON_TERMS.md",
+      "bytes": 5649,
+      "sha256": "8f8be62ec1e820391328d5081d0a96e3b9a0a54912b619b2dda50c6a41ec167b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MOA_TEMPLATES/MOA_AGRICULTURAL_DEVELOPMENT.md",
+      "bytes": 7652,
+      "sha256": "a6302560cc653f6c73341dd3f741adda9f82ca504e3f16771d1a55a1d9a4617d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MOA_TEMPLATES/MOA_CARREFOUR.md",
+      "bytes": 645,
+      "sha256": "8642cda9bf69a96ad07fe5be022ac985f0f39922d0929a3da2a0abffe9312bbf",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MOA_TEMPLATES/MOA_CODA.md",
+      "bytes": 10034,
+      "sha256": "fb3296026333f521aa870bcff4ab90536f313a0addecef4c1d4ec0368f0b7d47",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MOA_TEMPLATES/MOA_LULU.md",
+      "bytes": 621,
+      "sha256": "a5171a06df6d870cc3371418f7bb208112048e1a3383ae1742ca0a5cf47e2991",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MOA_TEMPLATES/MOA_NICFS_LAB.md",
+      "bytes": 8123,
+      "sha256": "eb499ce06e2781527b3f55584ee20a3d7220cbb708f356ae44aa2a2c2bb2efb6",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MOA_TEMPLATES/MOA_NICFS_TRACEABILITY.md",
+      "bytes": 7967,
+      "sha256": "4b7f12232bd505f70771cf845e85d32898d69e2219e20a266aba86f6ba693ba2",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MOA_TEMPLATES/MOA_NOON.md",
+      "bytes": 621,
+      "sha256": "c7853484ccc875d7f36673c2358f578e67bd823060352915b660c8d1b9d042c1",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MOA_TEMPLATES/MOA_SINOTRANS_LOGISTICS.md",
+      "bytes": 9544,
+      "sha256": "1790c8862bb3fc1018fdfa61c3bd100cba64c79bf3dfb2b637a8cd90cb4dd9d6",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MOA_TEMPLATES/MOA_SINOTRANS_WAREHOUSE.md",
+      "bytes": 9249,
+      "sha256": "ddf529b26a6191045f24c03a69bc89d3fa186c3a15c4001a4d8f00c8396ef4fd",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MOA_TEMPLATES/MOA_TAMIMI.md",
+      "bytes": 629,
+      "sha256": "cc460e8a196dec3c2debbd48677454f2566267171c048e3e00461b8376989da9",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/MOA_TEMPLATES/README.md",
+      "bytes": 779,
+      "sha256": "21aebcfe7b5d7b570f8878c7b09e7542215525f188c55290b83f1b3fe89d4248",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/00_MASTER.md",
+      "bytes": 2356,
+      "sha256": "42ab44b13e66938ca83a2e43353a5ca0640e1184d44fdef3bee38a229909ef51",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/CARREFOUR_MAF/DOSSIER.md",
+      "bytes": 1973,
+      "sha256": "c1666ea3cb18e3a7975b94ea31406317fd01df7859656edcacd77ab3cfd06e05",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/CARREFOUR_MAF/MEETING_BRIEF.md",
+      "bytes": 388,
+      "sha256": "25131f8c4e6821f5c6bcea9e47a0f256829ea3ed487f71d7be52096b62be1b2b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/CARREFOUR_MAF/MOA.md",
+      "bytes": 7634,
+      "sha256": "0d091ccdd7e66b72d0cfbadce7ef077500c98fd786d1b4c1b10739a59e66b8eb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/COMMON_RECEIVING_PACK.md",
+      "bytes": 2727,
+      "sha256": "213e0e20337588e835f0649b02f5948cff9a2c68544ef997fb96558f1c7de043",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/LULU/DOSSIER.md",
+      "bytes": 2253,
+      "sha256": "ec1ce2fd6bad7e1ea258d7c7e3193097e2fccd473481caa1bf2310dab0586ebf",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/LULU/MEETING_BRIEF.md",
+      "bytes": 638,
+      "sha256": "9dde366882c5be2d6b3140279c28e7fb33266b94ca2b5277c1dfdd64f3187f4e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/LULU/MOA.md",
+      "bytes": 9886,
+      "sha256": "5e3e2f675f10bb588748498e7bdc9739b5cf9009871ed01eff0e3585d20f936a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/NOON/DOSSIER.md",
+      "bytes": 1922,
+      "sha256": "bac64bb13bf3ae34fe089396493c10a0a7acde5efb931fa72227a365ee7b3f1d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/NOON/MEETING_BRIEF.md",
+      "bytes": 319,
+      "sha256": "156d887569fe18aaf779df25a2865ead86a70b466b762f5c9d28b195d7c93431",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/NOON/MOA.md",
+      "bytes": 8080,
+      "sha256": "b94c8fa6207530ef968b14113a1489ddd0f5d178a90040429b78d4b63b8242fb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/TAMIMI/DOSSIER.md",
+      "bytes": 1745,
+      "sha256": "1201abc5b4a36010d29ee8b325cd6eb6668d5aa19abfa01ab6dd2fac42ef23ce",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/TAMIMI/MEETING_BRIEF.md",
+      "bytes": 276,
+      "sha256": "e10e71d61cb78eee9cd85bfd052d50e6acc82954cc3803422bf1c40c1335049d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/RETAILERS/TAMIMI/MOA.md",
+      "bytes": 7822,
+      "sha256": "4ba75549d484c6335bd02e2fb97bb3fc221b98192a233642561a963555fe8c8e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/SIGNING_MATRIX.md",
+      "bytes": 2318,
+      "sha256": "bdc5137566b4d4c2c6e700ad790e100c67e0ae81d6f061818f4355cec9eba69d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/SINOTRANS_OCT15_ACCEPTANCE_WORKSHEET.md",
+      "bytes": 2850,
+      "sha256": "83d461144b8904556b84b027e8079e62996dfbce701e1174e7ceffab0c5d27b9",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/TRAVEL_DECISIONS.md",
+      "bytes": 3205,
+      "sha256": "141a8a8ac8248aa77ea2b7624719bfced761aa4259f9f73abf5f2692dabf7a6a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/evidence-index.json",
+      "bytes": 3863,
+      "sha256": "a9667f8df2cddf50eba1c595cbe59b160ad18f73392deea25a6cbc35d552e83d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHINA_TRIP_2026/signing-register.json",
+      "bytes": 3423,
+      "sha256": "dd6e3934128acc9762deba0f21a5254e32d5250bceb4bfc5322fc1b8f66a5ca2",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "COMPLIANCE_ALIGNMENT.md",
+      "bytes": 991,
+      "sha256": "d8c63918aca3cfd607066cd114584946ff50c5dc91923b570d30ef12ad53c46d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 563,
+      "sha256": "23cc5d2ff4be280e0b74c45fcd22cdf273c9aaba27ac7eb4bf2f32b6ccc71d80",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "GOVERNANCE.md",
+      "bytes": 1858,
+      "sha256": "8a4ad56c1e02b8294170750c1b6b1ad2f9d0b5536567e24791e57a46be7a7b2a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1383,
+      "sha256": "227a301aca8d32c85d52e06333fe22e2a422b339def9ba24c5e2976c0cefefda",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "NOTICE.md",
+      "bytes": 1717,
+      "sha256": "dc0f817aad5fa26e62d31c38f09f410918b2aef6cd75724f62645b6337a5d3a0",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5052,
+      "sha256": "875c93825104e47a9f94d34a3e443cb29813135f24eb11264cb782b6517f2b08",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "REPO_INDEX.md",
+      "bytes": 4836,
+      "sha256": "6fd685e31e1e5a9693dc59ee33678b46dbe44823f6811725f062c0e1fbab82df",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 1988,
+      "sha256": "ac2208fb841e3f2f3edbc39faff339cf38ffb701c265239d17f14962bd176702",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "circuits/HalalWhitelistVerifier.circom",
+      "bytes": 1428,
+      "sha256": "aa9e31204c69313d8679ba84d3b7bf6c40c370c2150b58c56e2be0500f9e3c97",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "circuits/README.md",
+      "bytes": 260,
+      "sha256": "cbbb4c2f536e01822b63ec1dfda1d8858d02444b4df0253505666f419bac62dc",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "circuits/server.js",
+      "bytes": 415,
+      "sha256": "37cb4b3552a526e01641b8d82bd39f4e73359f53281dc56417658ea08bb1eafb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "contracts/AmanahHalalEscrow.sol",
+      "bytes": 3693,
+      "sha256": "1c3cf4781e001d2608e3de83bdb2b90fc43912fad334b6e58178b713c1da3be4",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "contracts/README.md",
+      "bytes": 251,
+      "sha256": "2d7002769b8d3e2f20bbfae3b06af259c66f703ed16f5d2deb9cc67ee7e12680",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/00_EXECUTIVE_MASTER_BLUEPRINT.md",
+      "bytes": 4730,
+      "sha256": "fbaf61dad27ee77a4402331de9504446c6bcde5d954a3874a5313f2b908a1a71",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/01_MASTER_REQUIREMENTS.md",
+      "bytes": 4137,
+      "sha256": "08738d36eedf44ae04089f68c4842dd014b3a527d7446b66e6c127056da40ba0",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/02_REFERENCE_ARCHITECTURE.md",
+      "bytes": 3591,
+      "sha256": "406e159f8e8d380b92d0457e7fa30f49f37275a6a1d607d462070e31bdfa9432",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/03_AI_KNOWLEDGE_ONBOARDING.md",
+      "bytes": 3168,
+      "sha256": "c3ecfe2742053c7fd7a5c1c60c5026f38cd16dac79a28a5cff2b8d30f1f0d822",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/04_DATA_SOVEREIGNTY_AND_EVIDENCE.md",
+      "bytes": 2522,
+      "sha256": "6c24a8bc262d82b1895919f495c5bd8bbc0cdcc9414b0a866fb0a4347e719f15",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/05_CYBERSECURITY_AND_RESILIENCE.md",
+      "bytes": 2989,
+      "sha256": "2c4d8e17afb6540b625ea069d3bf8a22094b3c70d66e616a8d7356c8a0814d4a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/06_REGULATORY_LAB_EVIDENCE_MODEL.md",
+      "bytes": 3979,
+      "sha256": "472e3c006a25882172e854395d704005d4c6ec2c16e2494baa92354a71c8ede7",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/07_SINOTRANS_PLAYBOOK.md",
+      "bytes": 5574,
+      "sha256": "f847716c98295be252a8b9cb1e37fba3b8051ddf313eb64c6639ec06d8d419ef",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/08_MANUFACTURER_PRODUCER_PLAYBOOK.md",
+      "bytes": 2156,
+      "sha256": "63fba1caa1ff6462c47c7daba1e585d475f83c15950c62eecd2af8486467fc0f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/09_RETAIL_IMPORTER_PLAYBOOK.md",
+      "bytes": 1907,
+      "sha256": "597dbc1c91fe0972255e1a07e869885e7708d0220c62c09bd6ea1c3d6008d034",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/10_ESG_GLOBAL_CITIZEN_FRAMEWORK.md",
+      "bytes": 1939,
+      "sha256": "4877a8a60fb79f6d3b4773410c1b71c1403dd929932ccf37715fe54b426e3c86",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/11_TRUST_INDEX_AND_INTELLIGENCE.md",
+      "bytes": 1974,
+      "sha256": "06fd75a95c533cec420e2cf0b2a0756ab01390bbab03a1ba911baca18b320111",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/12_GOVERNANCE_RISK_AND_ACCOUNTABILITY.md",
+      "bytes": 2256,
+      "sha256": "b6ea5147c132b13d679a2705911d5b8bbbaa256b69f74a4af0db262d30786db7",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/13_BUSINESS_MODEL_AND_ECONOMICS.md",
+      "bytes": 2596,
+      "sha256": "7f85af45ab590f46f89dce12ed322258ea10b74d913d88ce54936f8a25a6d9ef",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/14_API_AND_CANONICAL_DATA_MODEL.md",
+      "bytes": 2269,
+      "sha256": "db8ec8df04a218431a1a44f7e82c8015dae4d50191bb4e3388d21e8914042f94",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/15_IMPLEMENTATION_ROADMAP.md",
+      "bytes": 2135,
+      "sha256": "f6c3731b84725aa8deeda7560658066cd2b17eac256ae5f80ca86abb3023d642",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/16_SOURCE_REGISTER_AND_CLAIMS.md",
+      "bytes": 3706,
+      "sha256": "78c26183f77fbd4391ef9daa5494f654c9d79a087f6e4a3253a5721217eb8bab",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/17_SINOTRANS_DATA_MAPPING.md",
+      "bytes": 2134,
+      "sha256": "715990dbaae32d2452638d091deb1c082526aee49b20c19d79b70e2779dacb0f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/18_SINOTRANS_PILOT_SOP.md",
+      "bytes": 2393,
+      "sha256": "fe9cc98749dc53a59e62f12d8b9171511351b4c5384144ea9a134f0b239f4962",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/19_SECURITY_ASSURANCE_TEST_PLAN.md",
+      "bytes": 1545,
+      "sha256": "01827c2a5904ea8981eb303eb8c449279924c6fd36bff74e773152767bd79b9d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/20_GLOBAL_GOVERNANCE_CHARTER.md",
+      "bytes": 1740,
+      "sha256": "4a7d4b998ed4f8a78a91c9edad15c0a3d2cf0813ec108c6ebe2a1e596ea9eb40",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/21_PARTNER_ENGAGEMENT_PLAYBOOK.md",
+      "bytes": 1798,
+      "sha256": "4ae0ea91e0e6f4cc4888bbfc17179fe1887c02f8652c2c3464f0a21f0e54212a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/22_IQ300_JAKIM_MALAYSIAN_STANDARDS_INTELLIGENCE_LAYER.md",
+      "bytes": 22218,
+      "sha256": "218a55aee18e203b297207dfe3c924c3b5fab6a3332aa76f2a6006d6c3ec9472",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/23_MANUFACTURER_MARKET_VALIDATION_GCC_2026.md",
+      "bytes": 12154,
+      "sha256": "6d6208f6d0bd9de19cd970f9bceaa5ce8a8064ebc8f6fa2928bb95de47fcb290",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/24_AZ_COMPLETION_AUDIT_GAP_REGISTER_2026.md",
+      "bytes": 5756,
+      "sha256": "fa81248ea5f030f032230346abc45efc3f53239eba2ab5e86aef970de3ba872d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/25_VERIFICATION_AND_SOURCE_REGISTER_2026.md",
+      "bytes": 2616,
+      "sha256": "3d30685d9bc7f78a9a7994f4b1ddf99ef2f59256a76de79a658a40317bcdd93d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/26_GCC_IMPORTER_BUYER_ENGAGEMENT_PROTOCOL_2026.md",
+      "bytes": 5795,
+      "sha256": "393f0e1c5b6138bc78491cc7a04ee4654cd87432728bf1ccadc82712b28dab5e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/27_MANUFACTURER_PUBLIC_CLAIM_VERIFICATION_REGISTER_2026.md",
+      "bytes": 5152,
+      "sha256": "7d67abe68c73418cba2fd03080a55b165750c90e2685118756451f6d660862a8",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/28_IQ300_VERIFIED_JAKIM_MS_CHINA_GCC_MASTER_PACKAGE_2026.md",
+      "bytes": 2228,
+      "sha256": "b2f75b0eafdf0aced25f515ca2b3a7db279649a285a23bd15baa4bf82395bc43",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/29_GLOBAL_PORT_AUTHORITIES_PROTOCOL_2026.md",
+      "bytes": 10202,
+      "sha256": "fcad388cb605a80887c4a523fdf4680112a7f067c553408175ba567a8803e66d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "deliverables/30_OCTOBER_2026_SIGNING_AND_MEETING_PACK.md",
+      "bytes": 13554,
+      "sha256": "c8a4fa713bc42c6ce8a6c77642fa410de250895b453dad0b47f2a3638e043b77",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docker-compose.yml",
+      "bytes": 1091,
+      "sha256": "82e753e53faed3553e1a29b3b85805dc24855303c8c64713ecb4d96d10f31e76",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/01-master-strategy.md",
+      "bytes": 4054,
+      "sha256": "a48eef369da909f12aefcd4d3928ad67056ce7b30a0389e37f94c282af179a8e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/02-reference-architecture.md",
+      "bytes": 4156,
+      "sha256": "81acc9ff49d23988e5cbea4b05f5abfed45becf4a844943b79b033ef8a91d07d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/03-ai-architecture.md",
+      "bytes": 2570,
+      "sha256": "5222e67cd72a1b75fdf1495b2468c60e89ab7d125a85cfbc1c4a336829a23a09",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/04-cybersecurity-risk.md",
+      "bytes": 2910,
+      "sha256": "63028ec33f1f0475692247eeb36fb5abd72ee9913a65e1af64d864ce47f9b0b1",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/05-regulatory-laboratory.md",
+      "bytes": 2717,
+      "sha256": "75d94d2d545979904291df9ed0fb6a49d4dbc2e5e21beaaee1ccd9f4dab09d39",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/06-business-model.md",
+      "bytes": 3211,
+      "sha256": "e753aed89af4613465e22cb61435415e02ada71a58b1e1a85a590d5ea49b9b69",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/07-esg-global-citizen.md",
+      "bytes": 1733,
+      "sha256": "7753d8289ea4de242634121a2afd2ea0f990f626a5eb55c23c1096d231a36b54",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/08-trust-index-intelligence.md",
+      "bytes": 1714,
+      "sha256": "d9b59794278060fabb8ee61b50526f63f95de8ce94414f6330b7f6b00f65ff55",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/09-governance.md",
+      "bytes": 2389,
+      "sha256": "4385c09e3a575b3b86aff58c123b5b3ba180a4d790d0ad3c60b4991ef6a8e52b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/10-implementation-roadmap.md",
+      "bytes": 2395,
+      "sha256": "2ea8bc2e5358216e820003b3b2ef855673da9e7b2ac125af4724e99b90d52458",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/OCTOBER_2026_DEMO_RUNBOOK.md",
+      "bytes": 3220,
+      "sha256": "f713d105aab9d9d3794abf4294ed1e6320dbf0bf68b2a22adca4ecd9d734f241",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/PLATFORM_PARITY_AUDIT_2026-09-30.md",
+      "bytes": 7014,
+      "sha256": "79aa6ed46af2a699faf7dddc69e1158f8571e7c9e539537466bb75f9811c918b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/REPOSITORY_DEEP_AUDIT_2026-09-28.md",
+      "bytes": 5065,
+      "sha256": "e75b39abe92ba9e6eba1e441e0e5caeeb7a490644b0e35326798b40095dd22be",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/TOOLING.md",
+      "bytes": 4195,
+      "sha256": "ffeb7c97077254295d84b7433cd0a992c5ab96ac62866f45102cd8f31e57c6d5",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/repository-inventory-2026-09-28.json",
+      "bytes": 79397,
+      "sha256": "bd39ed8e9b9abdc25187a7111ff526e72ad498589348c72d7465aafb57c40f1a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/01_MASTER_STANDARDS_STACK.md",
+      "bytes": 9699,
+      "sha256": "e9bc88195565fafd53e7ac1ae41e94885d571e31d589ea6e47c1e078d133e158",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/02_MS2400_FULL_CLAUSE_CONTROL_MAP.md",
+      "bytes": 9547,
+      "sha256": "8d5e82d43885fb768fefbd85710cf0cb06335d9c99e34d423496f09c92caadfb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/03_SECTOR_STANDARDS_CONTROL_MAP.md",
+      "bytes": 10835,
+      "sha256": "a6f1eb6638eef6a11bb6abc821796055363aaea87f442f25b780c9925cf26d38",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/04_CERTIFICATION_AUDIT_SERTU_STUNNING.md",
+      "bytes": 7816,
+      "sha256": "b94771e4e058d1649df661fdef226a94c5ab9bd03cabda6df360d468bceec9f1",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/05_IQ300_EVIDENCE_TRUST_PROCESS_FLOWS.md",
+      "bytes": 6356,
+      "sha256": "5634bea0d61c6ba429a3404244c84a67f06c6a46d8d2ed7591a9009decc56b1b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/06_SOURCE_PROVENANCE_AND_VERIFICATION.md",
+      "bytes": 6910,
+      "sha256": "7a883e2ab79cfb6130477f95e995048df71abfc720ad0cefc68fcf2e450346e6",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/07_REQUIREMENT_OBJECT_SCHEMA.json",
+      "bytes": 1773,
+      "sha256": "97ac35cae88956ddedf1793148b5a2a87b67c89b8f0b680401cffea9f79d9130",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/08_HALAL_AWARENESS_AND_AUDIT_TRAINING_MAP.md",
+      "bytes": 3254,
+      "sha256": "20620ff4169285172444643cb5b853708dd56d20c7fcd44b6a56fe0466332c47",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/09_MS2400_ANNEX_RISK_HCP_DETAILS.md",
+      "bytes": 5003,
+      "sha256": "ea1ed4dbe1f22064eed0196313374cc8ff75dfd398182d596afc6699d65783ad",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/10_JAKIM_MPPHM2020_MHMS2020_COMPLIANCE_MANUAL.md",
+      "bytes": 16603,
+      "sha256": "32f3a0b735c8b5ac5da97c08ba4e124e448ba7fefdcfb68b737100db805de036",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/11_ALL_APPLICABLE_MS_Halal_STANDARDS_2026_CONTROL_MANUAL.md",
+      "bytes": 7806,
+      "sha256": "ea00b2313b49ba9bffb4a3a481685d73efaaa325674c568bce8e0c86ed0768b3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/12_MS2400_CLAUSE_BY_CLAUSE_CONTROL_EVIDENCE_MATRIX_2026.md",
+      "bytes": 12356,
+      "sha256": "26ebfe09e1a43cd5051a746b536666cf1910188c7200a82649d517b72a08f042",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/16_ATTACHED_PDF_SOURCE_INGESTION_2026-09-18.md",
+      "bytes": 7716,
+      "sha256": "7db39ce83167bfcdd5e580b131b5d8637d966deac35e2489e81ab3927525a128",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/17_ULTRA_DEEP_STANDARDS_PDF_RECONCILIATION_2026-09-19.md",
+      "bytes": 6810,
+      "sha256": "eebbcbf77bf4e96585e16f406782a9096974d97bb7cd7fb70ea1010f4e04abbb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/18_SUPPLIED_PDF_SOURCE_REVIEW_2026-09-27.md",
+      "bytes": 3684,
+      "sha256": "8910631c801464643c3096f7c0f4f60e3fc08e45eefce692297ac7c77298c1f1",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/18_ULTRA_DEEP_CLAUSE_CONTROL_CANDIDATE_MATRIX_2026-09-19.md",
+      "bytes": 9777,
+      "sha256": "20a445a1b42119e5b4917c9b89a7cc0c2c9697beeb255a41f323b97190d4019e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/19_SUPPLIED_PDF_RECONCILIATION_2026-09-28.md",
+      "bytes": 4689,
+      "sha256": "21b121b9d5af8efb764912c5d0bf6984d69a88c72960c920980a1e98fb01e48f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/20_PLATINUM_COMPILATION_REVIEW_2026-09-28.md",
+      "bytes": 3793,
+      "sha256": "b5e83e78ae15b7c9db8d871b8bb714c6bcbbb1564254467ddae7c686fe194fb5",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/21_PLATINUM_BUNDLE_TRIAGE_2026-09-28.md",
+      "bytes": 5118,
+      "sha256": "53cf55ea8f9d87a13a65090dbff69be54ebe2f13f7533fb2907d2a0866452873",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/22_SINOTRANS_PLAYBOOK_BUNDLE_REVIEW_2026-09-28.md",
+      "bytes": 5254,
+      "sha256": "251ecf68f78cbae3f2ac1c4ff4e11fefe07285f3f6838fbbc05886038dc988df",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/26_OFFICIAL_CURRENT_VERIFICATION_ADDENDUM_2026.md",
+      "bytes": 1329,
+      "sha256": "9e5b6d2ba91933339afce8bd1206dd1191cebeb8eb86e8d25350bee803753cba",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/AHTE_PLATINUM_REAL_TIME_MONITORING_STACK.md",
+      "bytes": 5425,
+      "sha256": "d936788666584cb76d56c1f073e69085584b140664b98a20287d99d2a1d5ad67",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/AMANAH_PLATFORM_AZ_MAPPING.md",
+      "bytes": 11484,
+      "sha256": "a7eb24a2378aebdd7b3a7d5fec1ca9e208480d0423748bb8902ad2bacc750c9f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/CHINA_EXECUTION_PACK/00_README.md",
+      "bytes": 4702,
+      "sha256": "58cf97adc40258141d8375231f15280d1f6e6954ea395e73b7aae4ea6de482d7",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/CHINA_EXECUTION_PACK/01_DEPARTMENT_RACI.md",
+      "bytes": 4655,
+      "sha256": "6df65896368f84977f4866aa4f30c1112d0e34f7ebfe4cb42df8a9bb02047030",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/CHINA_EXECUTION_PACK/02_RULE_PRECEDENCE_ENGINE.md",
+      "bytes": 5210,
+      "sha256": "cb6d7c6d1a36e41deef4ece61bc9402b86113ee40a48165bd21c675f4922b5d2",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/CHINA_EXECUTION_PACK/03_SHIPMENT_001_EVENT_CATALOGUE.md",
+      "bytes": 4617,
+      "sha256": "2f8bcbc1c8741da3d10574379b423d04cac51bb77c35e7859034f65cf1219f80",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/CHINA_EXECUTION_PACK/04_FACTORY_SYSTEM_API_CONTRACTS.md",
+      "bytes": 3730,
+      "sha256": "3263ac88a4a182a703940d085505994e4bb9c009a4a16fc2928590f1dd022f4c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/CHINA_EXECUTION_PACK/05_SMART_GLASS_AUDIT_SPECIFICATION.md",
+      "bytes": 3650,
+      "sha256": "aac143a5a2c3e1abaf63e480bcc31ebbf9146d2164c17ea2ef0b1ab68033f94f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/CHINA_EXECUTION_PACK/06_PORT_OFFICER_UI_WORKFLOW.md",
+      "bytes": 3670,
+      "sha256": "126d21f541cf4ff10997c4e5f6f8e3c4914df7a99f9cc39cf424405e943d8ddc",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/CHINA_EXECUTION_PACK/07_CRYPTOGRAPHIC_TRUST_ANCHOR_ARCHITECTURE.md",
+      "bytes": 4395,
+      "sha256": "8b014d2ad2bc98d68d628982b142a252a425de769853e2d80e01a8a94041b1d5",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/CHINA_EXECUTION_PACK/08_CHINA_PILOT_SHIPMENT001_GCC_RELEASE_PLAYBOOK.md",
+      "bytes": 5868,
+      "sha256": "c449f483300b25bfbfa99ba6944259af3adec9ca7516ff0304cdacf733f00935",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/CHINA_EXECUTION_PACK/09_MASTER_STANDARDS_FULL_MATRIX.md",
+      "bytes": 7747,
+      "sha256": "781a5e588147768b63c36c1dd3912244d8058a7b66cefec675f0d7699570af37",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/CHINA_EXECUTION_PACK/10_MACHINE_READABLE_EXECUTION_PACK.json",
+      "bytes": 5078,
+      "sha256": "10ee9b565033db878c383808fd26112c1a0fbc8df7906382961a464e41a82aa1",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/IQ300_AHTE_PLATFORM_README.md",
+      "bytes": 5658,
+      "sha256": "e6fb297430bf4a6480978f15e6f57a56c7995e35c2d983be41c061951a7a9200",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/POST_FREEZE_LIFT_2026-09-26.md",
+      "bytes": 3486,
+      "sha256": "de2e8f2fb366bcde4cced04b37d9de910474218631bf4569e5e4ea70db0532e1",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/POST_FREEZE_VERIFICATION.md",
+      "bytes": 1966,
+      "sha256": "44a29b1a0b6f990ac99631d3ae4af823e6afc75b48cb06314407941b945a409e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/README.md",
+      "bytes": 11126,
+      "sha256": "e9e5a2c5de4b73df2de4ed640d6b60ace6cb2b66214ef632afed4124fca035a4",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/attached-source-ingestion-registry-2026-09-18.json",
+      "bytes": 2634,
+      "sha256": "d106308a4900e678eb0691585f3b886e5a0d8291ded56c38d7b515f24c85dafd",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-deployment/CHINA_COUNTERPART_INTERFACE_MATRIX.md",
+      "bytes": 4022,
+      "sha256": "ab1b50a4cc96de1a9ac577a8e23a7d4241ff7bffdbf285d57bbaef541168bc32",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-deployment/CHINA_SOVEREIGN_HOD_DEBRIEF.md",
+      "bytes": 18354,
+      "sha256": "1b555c21ea8163c5437833e74f31596071f4267d131add86b06c02c2164e27f9",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-deployment/DATA_SOVEREIGNTY_ARCHITECTURE.md",
+      "bytes": 4358,
+      "sha256": "c786b190f580f694f9da2cf81a5d3aeac24c0babc85f7e6718653d3b4252d858",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-deployment/MANUFACTURER_ONBOARDING_DOSSIER.md",
+      "bytes": 3423,
+      "sha256": "ee255ca130b589f2615db2051b85654e75f2a2a385f9fa3462ef50f246acff74",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-deployment/MS_2636_2019_AHTE_CONTROL_MAP.md",
+      "bytes": 4757,
+      "sha256": "8e26160343826973e1c0835471a10232f023274621c14f4f2ce698754b41abee",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-deployment/PORT_CUSTOMS_GATEWAY_SPEC.md",
+      "bytes": 2913,
+      "sha256": "d385cb979fe530409f2f062677acd2432fdb589b224427a4115540e7f570fbd3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-deployment/SHIPMENT_001_TRUST_PACKET_SCHEMA.json",
+      "bytes": 2417,
+      "sha256": "3508edea5a5bd940a741980ca5a666b63708c9f7eececc00540e4dd517dc2f57",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/00_MASTER_CHINA_EXECUTION_MODEL.md",
+      "bytes": 8302,
+      "sha256": "fc84904ddcae24b3c35ad507bb2f75049a451885d9ddd74ada49fa6b9a9027b1",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/01_CHINA_HOD_RACI.md",
+      "bytes": 9385,
+      "sha256": "571f566fed856eb869e223cd6eae6b48361c2261ac83253abdb9596c5f064275",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/02_RULE_PRECEDENCE_ENGINE.md",
+      "bytes": 8293,
+      "sha256": "24736f9f3c9a63ffdc3153062c5b697c6c1236b27e7d488b6978d1b3e0cc6548",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/03_SHIPMENT_001_EVENT_CATALOGUE.md",
+      "bytes": 9956,
+      "sha256": "35ead05179e91cebe0fac851fd94634953a7e36acd27bce7479fc0d54704d961",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/04_FACTORY_SYSTEM_API_CONTRACTS.md",
+      "bytes": 6479,
+      "sha256": "80320b47c47d24673fd4346c7a2adba437a3dbb3f975b6ca650cc16cd3d00b7a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/05_SMART_GLASS_AUDIT_SPEC.md",
+      "bytes": 5896,
+      "sha256": "fddffcd7018f5261338c83b25af7e462d185d2bf0931381c86881984e412b754",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/06_PORT_OFFICER_UI_WORKFLOW.md",
+      "bytes": 6142,
+      "sha256": "a664c260701c56cfdc2774d44f71ccfa75d080b6992e666865e96650b9b9f520",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/07_CRYPTOGRAPHIC_TRUST_ANCHOR_ARCHITECTURE.md",
+      "bytes": 6219,
+      "sha256": "064096c4d24c13a644cfefe67e5fc5a5a1ec7376f7abf7dee5de857c59f228cc",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/08_CHINA_PILOT_SHIPMENT_001_GCC_RELEASE_PLAYBOOK.md",
+      "bytes": 9266,
+      "sha256": "a7112bbdfafa14b912e8e3de75812fee59ae1c3f0870c464bd13c28b87ec94a2",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/CANONICAL_POINTER.md",
+      "bytes": 329,
+      "sha256": "04657fec138e11224adb7d55ff0c8f0b569555277ed8e222b606f695566a86a6",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/README.md",
+      "bytes": 10311,
+      "sha256": "20878d09161ab575b00288cb93f97418b0f98113ea05b7ef4a1dba2b76c4f644",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/api/ahtE-factory-openapi.yaml",
+      "bytes": 13717,
+      "sha256": "b24de1c7de32ddbc27825f445ec8544c742e5c83e78f3bbfa2972e6333c51400",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/api/china-food-security-lab-openapi-extension.yaml",
+      "bytes": 15829,
+      "sha256": "b28ce6cc228f5e75afe7917d0a02b03147ada5eafb1e7618921034d5383b5985",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/data/CHINA_HOD_INTERFACE_REGISTER.csv",
+      "bytes": 2478,
+      "sha256": "45666e53bb6e23d7eef18e26613d9a82395d15c52e5869a636fdd5dbd1759366",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/data/SHIPMENT_001_EVENT_REGISTER.csv",
+      "bytes": 5218,
+      "sha256": "df432c3b062dce5069c67cfc7dd5d5bbb638cd25815f103dd5dd18b0835099ea",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/schemas/authority-decision.schema.json",
+      "bytes": 1456,
+      "sha256": "509cd1199d3f3e30bb75c9d251106af291f91cd6aee3cca54840c590753431ef",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/schemas/custody-transfer.schema.json",
+      "bytes": 1230,
+      "sha256": "0d4a10a1aaca56a3cbbb1b59caa935952c3bb19ad8bfc4ad10fe8024df06d2bc",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/schemas/shipment-001-event.schema.json",
+      "bytes": 1868,
+      "sha256": "9b2f0b8022a38f2d7477d9714cced8d9ad29b7807b1b3744da925d63036bb536",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/china-execution-pack/schemas/trust-assertion.schema.json",
+      "bytes": 1477,
+      "sha256": "48f343a347e0f878f234a99ee6ac5f63dfec58766a0312d08d60fec43ce7988f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-all-jakim-ms/01_MASTER_STANDARDS_REGISTER.md",
+      "bytes": 15080,
+      "sha256": "c8ccf6fee9a906f0c50a063e3ae0e6af3aa159b821665914be79c54c82dfc035",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-all-jakim-ms/02_UNIFIED_CLAUSE_CONTROL_HCP_MATRIX.md",
+      "bytes": 9847,
+      "sha256": "5a0df21e5a7e3ba6d2ecbd105197b0914ae9571cae6ecaf19e4ddfd3eb0258cb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-all-jakim-ms/03_COMPLETE_MERMAID_PROCESS_FLOWS.md",
+      "bytes": 5586,
+      "sha256": "87f676753d5e94e9f437ddb967726252de2a345f506029f73b6c4528b8f7bfba",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-all-jakim-ms/04_IQ300_STANDARD_CATALOGUE_AND_MAPPING.csv",
+      "bytes": 5674,
+      "sha256": "4f0cb01055b31f4fb92c3a3849cc8029ebc6f3c256eae0f966fd98135e4ba4da",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-all-jakim-ms/05_SOURCE_COVERAGE_GAP_AND_FREEZE_REGISTER.md",
+      "bytes": 4108,
+      "sha256": "cbaee34a2d431c5c4830c15ddd04b855578d9c59695cfc6d6b14a390512c3bf6",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-all-jakim-ms/06_AUTHORITY_GATE_AND_AUDIT_TEST_CATALOG.md",
+      "bytes": 3669,
+      "sha256": "568de4c7ad294a6a2d8826d3a30e27579c4f501175ffdac153af07cb559e809d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-all-jakim-ms/07_MACHINE_READABLE_STANDARD_OBJECT_MODEL.json",
+      "bytes": 1514,
+      "sha256": "53024bfef0b2341c4eb2300aba586e19a83f9c95b8ad3b3da1a07dae32fbb33b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-all-jakim-ms/08_VISUAL_MASTER_ARCHITECTURE.svg",
+      "bytes": 3353,
+      "sha256": "161bd6a93af36fc2d26fb50b62936b5f51a8392e31401bef0122aee89ff8d992",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-all-jakim-ms/09_STANDARDS_COVERAGE_MATRIX.svg",
+      "bytes": 4435,
+      "sha256": "c9fa5b69bcfb5054c40f13d757ee174c19356e15bd1aa9bc521d45ced3bab096",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-all-jakim-ms/README.md",
+      "bytes": 4148,
+      "sha256": "9901a275f77fa0fdf465267e3393868e2e4ae384d6bea2a330db95f164c13e9f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/ANNEX_MAP.md",
+      "bytes": 1427,
+      "sha256": "51ac86a8dba00c71448cfb162064518df35ef33145ccb2a7b7cd7de044ef0422",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/AUTHORITY_GATE_CATALOG.md",
+      "bytes": 811,
+      "sha256": "bfd59828abef0e3f894118afe9c868a65e5faa126f789f80d5d2bb11998b2ebb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/CONTROL_CATALOG.md",
+      "bytes": 1208,
+      "sha256": "a79553d3661be2afa299764cc93accb1b7175bf88ad9940f390b93f841ed6259",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/IQ300_MASTER_UPGRADE.md",
+      "bytes": 2386,
+      "sha256": "2e98fa0b22fb40672c4d681e444b744a02b8e692c5fa4dd7d11344a1ba6d8ded",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/IQ300_MATRIX_QA_REPORT.json",
+      "bytes": 1597,
+      "sha256": "7e174a115df65c48f2edfa87bf3fdfbb13093dbe6be3f3f5dbd19da5b0d1ac94",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/MACHINE_READABLE_MANIFEST.json",
+      "bytes": 2240,
+      "sha256": "e46c03d7c528ed8f6094e44176466be159b5f10670eb9c51860ca49a63f237c3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/MS2400-22019_IQ300_REQUIREMENTS.json.gz",
+      "bytes": 11803,
+      "sha256": "6314b87022bda1acddaf402347ba0450018451c110cf41043a5db0ff491af728",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/PROCESS_FLOWS.md",
+      "bytes": 2072,
+      "sha256": "beb7344b853ffbd75cc18f80e0d63afd2a0643424b1a5da067882cce2e7e9f63",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/README.md",
+      "bytes": 1281,
+      "sha256": "8e866b110ebd951c3088cdc844c788f6a7271c625a088ecffe049f25ad69c0a5",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/SECTOR_FAMILY_CONTROL_MATRIX.md",
+      "bytes": 3398,
+      "sha256": "9fbf0ed6c35432e5ae1406a65bb27c78cee324312ad368571553872da7217009",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/SOURCE_AND_GAP_REGISTER.md",
+      "bytes": 1399,
+      "sha256": "aca1e208b773fa81a88b4e198f4967886055f8652570e922e13cae8d6c314e94",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/TEST_LIBRARY.md",
+      "bytes": 1284,
+      "sha256": "c5835798e84c06b77aa422071764792fa7f84542448697dfce7c48db6972fcac",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/requirement_schema.json",
+      "bytes": 1630,
+      "sha256": "a2a9f75fcf2d7e3c325db9775cb1f1e5f83f06fd029a35ae76fb3caf98c44f3b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/source-index-2026-09-27/IQ300_MS2400_SOURCE_INDEX_2026-09-27.tar.gz",
+      "bytes": 3301,
+      "sha256": "7a3b8922c3f14e554863379b8287a4133a7d655b61a377378394a3e5d4109a04",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/source-index-2026-09-27/MS2400-1_2019_CLAUSE_LOCATORS.json",
+      "bytes": 21192,
+      "sha256": "d8616bd78ead09cb69674c51464e555ba2872db248744a48c0f5207b3fc79780",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/source-index-2026-09-27/MS2400-2_2019_CLAUSE_LOCATORS.json",
+      "bytes": 22737,
+      "sha256": "c08d0127404f36116bffd001cc96b459c6adf1cabb35078e273f26f54daa1fcd",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/source-index-2026-09-27/MS2400-3_2019_CLAUSE_LOCATORS.json",
+      "bytes": 25326,
+      "sha256": "55a90809caa42a6c2e32938d2d8af49dbb843071f20b392df5851f62e885429e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/iq300-full-matrix/source-index-2026-09-27/SOURCE_INDEX_MANIFEST.json",
+      "bytes": 2336,
+      "sha256": "174b4aa4eb86001ad5935bd5f3e416f8d21d42f6f90f98f249189bacee48df90",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/00_AHTE_MASTER_JAKIM_MS_PROCESS_FLOW.svg",
+      "bytes": 73592,
+      "sha256": "f9ec09e98c00ba0084fce617273da7a130e5d0c1f506c6730600ff5ae515e69f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/01_MS_1500_2019_PROCESS_FLOW.svg",
+      "bytes": 7015,
+      "sha256": "bb1d92d1845a6319f91a1d150aed0f31e0125a52bbcf4bb62a8ffa763092debc",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/02_MS_2400_1_2019_PROCESS_FLOW.svg",
+      "bytes": 7019,
+      "sha256": "b882f242cc6ef1a4337c30e4e95d6c2ff40867eb3cfad2e008f67947db20a31e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/03_MS_2400_2_2019_PROCESS_FLOW.svg",
+      "bytes": 7037,
+      "sha256": "839e7d57aa4729105db333b29b066fb59308dc72df24527fe087109a391ba2de",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/04_MS_2400_3_2019_PROCESS_FLOW.svg",
+      "bytes": 7014,
+      "sha256": "9d08723b3a707f6beace86e2f968d7785a3590f2598a72c685da5d109d74039f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/05_MS_2424_2019_PROCESS_FLOW.svg",
+      "bytes": 7013,
+      "sha256": "c422cb05ae4b7e1e5e6cd8727d8bae428d60043ea452b582a7febc473c8c0a9c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/06_MS_2634_2019_PROCESS_FLOW.svg",
+      "bytes": 7038,
+      "sha256": "e92674a98abc14eeab4739dbc108cca31524e085cf1539bc20d8e47ccfefd9ba",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/07_MS_2738_2023_PROCESS_FLOW.svg",
+      "bytes": 6992,
+      "sha256": "e252980b84bf49978905cdb8199fad4f08f47bcfa07d81320cbc5b5c2d696747",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/08_MS_2803_2025_PROCESS_FLOW.svg",
+      "bytes": 6995,
+      "sha256": "5650855633c40f9ecaf52e52915bc2f483447af1d5823b672349f29ae1f198ce",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/09_MS_2809_2025_PROCESS_FLOW.svg",
+      "bytes": 7031,
+      "sha256": "99b13a0036a3d89e539b9e29aa41ac128a53b00a9db866e6befdeefbab1deb22",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/10_MS_2810_2025_PROCESS_FLOW.svg",
+      "bytes": 7000,
+      "sha256": "bd7c4f85872e2247c73fade6ce9e473918f4f13ee28d822e975a4e4ad6a6a102",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/11_MS_2393_2023_PROCESS_FLOW.svg",
+      "bytes": 6923,
+      "sha256": "e6d79c891665130c20fba8212587bc77e64c9346f7c928dff1bd9ed4e83917bc",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/12_MS_2627_2017_PROCESS_FLOW.svg",
+      "bytes": 7001,
+      "sha256": "1350457803b834a06942ca6a87676802a66777bb2686531ebc285dd4256ce62f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/13_MS_2627_2_2025_PROCESS_FLOW.svg",
+      "bytes": 7004,
+      "sha256": "8a482a279ec3c72ef5a8be3448a744e3afb45dec90ce33c7479460cd96eb841e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/14_MS_1900_2025_PROCESS_FLOW.svg",
+      "bytes": 7025,
+      "sha256": "dede262e17c0e1a6f7beed1919677a36f4167a861952ef076fcca475932b08e2",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/15_MS_2691_2021_PROCESS_FLOW.svg",
+      "bytes": 6995,
+      "sha256": "b82dbdacf5724091c317f8dc1ceda383673eaeabe25faa51052e25c6dfbced96",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/16_MS_2610_2015_PROCESS_FLOW.svg",
+      "bytes": 7021,
+      "sha256": "54d2cb33fbdcc3284c36fc2de59223c54e175e438c904c4a09bd8e373e17c63b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/17_MS_2636_2019_PROCESS_FLOW.svg",
+      "bytes": 7085,
+      "sha256": "2a43655f2c4af4904abbc889f554c1b7ea139afd9b29948e070d7f308c4891ad",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/AHTE_HD_VISUAL_ATLAS.md",
+      "bytes": 9355,
+      "sha256": "bf32e2079b1918aa0482c36ba2c986d833c4309fdd3a900b7c0ee23e307d7301",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/README.md",
+      "bytes": 3675,
+      "sha256": "48e6aef5dbef0ef3cd7fefae119df4cffa0faf4d61caf7a57cffdd82e82f8666",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/process-flow-infographics/STANDARDS_FLOW_SPEC.json",
+      "bytes": 8823,
+      "sha256": "9b2e71bc8ca278b936018195f5d5ea326793415dd53086d7b6a0b2693d252903",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/source-bundle-holdings-2026-09-28.json",
+      "bytes": 17140,
+      "sha256": "ea4ff8c48d39a646951303ac5f89f510ab744b60e44e0f21fb0a589fdba79666",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/source-holdings-2026-09-27.json",
+      "bytes": 3160,
+      "sha256": "9db14b241c4f25669681358b37e23cde0d1b931451e9e0b31a6b5e4e4f1af9ed",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/source-holdings-2026-09-28.json",
+      "bytes": 5120,
+      "sha256": "d60fcf250a4a1ee00212c435f56a9f73758a0e6bfe61cc16b847f6a34c3851e0",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/source-sinotrans-bundle-2026-09-28.json",
+      "bytes": 3775,
+      "sha256": "148fade79a8fe4e4351174749ff1dd9ae536d10e66651d2eb7d303c913974b4b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/ultra-deep-candidate-control-registry-2026-09-19.json",
+      "bytes": 6237,
+      "sha256": "9d3d58180ed711721ab3c5d75033417e15a50e823b3337ccc1a4694b7033a0ae",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/ultra-deep-standards-ingestion-registry-2026-09-19.json",
+      "bytes": 1351,
+      "sha256": "4591be01c804a236ff73661c0083c5a16aa7b3f4f6afce2b6d0161017381ec52",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/00_README.md",
+      "bytes": 9365,
+      "sha256": "2e036b402b1f72b0f3238b3c6db8a41f81c1152052ba3c00105ab6a4f7b3788d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/01_MASTER_CATALOGUE_REVISION_REGISTER.md",
+      "bytes": 8998,
+      "sha256": "132e94c8d5237e0e754a7f4153b2b92b7d905f01d3d891fb6ea3a74e3c893f38",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/02_JAKIM_MPPHM2020_MHMS2020_CONTROL_MANUAL.md",
+      "bytes": 19376,
+      "sha256": "487a68e690fc104ba340e9a71777dd363b49b4f4e46ed665ee013728df1e0c82",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/03_ALL_MS_CLAUSE_CONTROL_EVIDENCE_MANUAL.md",
+      "bytes": 30951,
+      "sha256": "dc8041e049cac0ab54bb7e7e6e3ec33467ea543b3ffb797bafad6b918696fee9",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/04_SERTU_STUNNING_PROTOCOL_LINKAGE.md",
+      "bytes": 8725,
+      "sha256": "d2c85714e5bf337208f487e12c460931f8bec2fb7d98033a4ac0c6ee851db1a3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/05_AUDIT_EVIDENCE_AUTHORITY_TEST_LIBRARY.md",
+      "bytes": 14387,
+      "sha256": "aa71df2cda626c79f05c7fe8485ce5b1b79ffe5dbc7b87ea911cd4496a6fc403",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/06_CHINA_GCC_MANUFACTURER_MARKET_VALIDATION.md",
+      "bytes": 17794,
+      "sha256": "5794ae0cc0bf85594aff083195610933898fcd76b96594b0d55d3a716c2cbbf7",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/07_AZ_COMPLETION_EXTERNAL_GATE_REGISTER.md",
+      "bytes": 12659,
+      "sha256": "18a1aa23b632b54fb1e7f2a1f2df7b27034cb12bf429c49de29e4d4f26342c24",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/08_SOURCE_VERIFICATION_REGISTER.md",
+      "bytes": 11556,
+      "sha256": "4e47aeff34948817f56eac5293ce9bf90d0bd065faa531f55e3238d77fe5ac74",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/09_REPOSITORY_INTEGRITY_AUDIT.md",
+      "bytes": 4087,
+      "sha256": "c4ef6290324ac807bec7b057e4c4de7ce1a47c209749fcfe02c3e29403102ef8",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/10_ATTACHED_PDF_DEEP_DIVE_RECONCILIATION.md",
+      "bytes": 15928,
+      "sha256": "d76ea6c2bca3aef87fa327800d146449809cb0b24a9ef892f02b9c0c74ba6cdf",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/11_AUDIT_CLOSURE_TRACEABILITY_GOVERNANCE_MODEL.md",
+      "bytes": 12853,
+      "sha256": "8487e7fad4c8de32fcec95e4fe2490d650fa1696e742f1c86bac6728f8131828",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/12_MANUFACTURER_ECONOMIC_AND_MARKET_DECISION_MODEL.md",
+      "bytes": 12993,
+      "sha256": "e4c59378e5f4f248be6b751e9f5d5bdf33bad8a829e0fbac36d31ccf9b050181",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/13_NAJS_CONTAMINATION_AND_RELEASE_DECISION_MODEL.md",
+      "bytes": 7186,
+      "sha256": "514078142ca300802ca4e6ddf725d0ef0d988714fef2631042b6329dd08c0949",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/14_HALAL_BUILT_IN_RETROFIT_FACTORY_TRANSFORMATION_MODEL.md",
+      "bytes": 7302,
+      "sha256": "792afa546c3d3be6ff3fffa383b3619f5ec6146b6c6337eb298b3031493fa82d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/15_POST_PDF_INGESTION_INTEGRITY_AUDIT.md",
+      "bytes": 10620,
+      "sha256": "c91332d0d195342f4d02102ebded18be312a165ab8b2bed7fc7143c1bdbd2a87",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-17/MANIFEST.json",
+      "bytes": 6321,
+      "sha256": "51a64dbd5865a569de446650ca09bc5e8c1d97b65d04c2ad5e1118872c49ad84",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-26-v2/00_README.md",
+      "bytes": 2935,
+      "sha256": "eaff483ae2d75913288a5ef78fd6a3daf0d8f40ae82856b6dec5de1191dc7dce",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-26-v2/01_ILLUSTRATED_V2_DELTA_AUDIT.md",
+      "bytes": 15757,
+      "sha256": "5fc718d9e6abca0772cc3cb31d591ff1beab7c4c5449e8c26375ecc45f040f84",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-26-v2/02_ILLUSTRATED_V2_DIAGRAM_CLAIM_REGISTER.json",
+      "bytes": 6599,
+      "sha256": "93af59dba85e0cc4dc0962b9113d77fcc6f14b3d14c313caadec08a836ba8d81",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-26-v2/MANIFEST.json",
+      "bytes": 1116,
+      "sha256": "8b99dbb7d5767ad4e790582c1f7206287e0e9c20cf54720302dfde434add2d7d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-26/00_README.md",
+      "bytes": 6129,
+      "sha256": "9595f0f5ffd138e000679b962d59c40efd95f96e600069fbdc1f3ffac6438ed3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-26/01_PLATINUM_TIER_MASTER_PDF_INGESTION_AUDIT.md",
+      "bytes": 14773,
+      "sha256": "54f13a78ce5f084198ec9fd899ceddc42012d30faa1ce0dc84c29d7485f78b45",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-26/02_PLATINUM_CLAIM_VERIFICATION_REGISTER.json",
+      "bytes": 9686,
+      "sha256": "9c8cb00711cdcd5995750fa9af8cd73d6be66c36605c2bf4782537f87b49dfaa",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "master-standards-stack/verified-2026-09-26/MANIFEST.json",
+      "bytes": 2430,
+      "sha256": "ad572e6aa09ac0f2370aa610d8144df9d53526c16e9060f853bb52a20ec114f9",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/README.md",
+      "bytes": 1374,
+      "sha256": "dee6ad2093bc63ce12943f70cbd622b9260e0559d3193459d97d122f1c14123c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/carrefour-maf/README.md",
+      "bytes": 316,
+      "sha256": "315553dbb278df9256a720ddedf7838c94252092b03bcf78bdc664508351657b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/china-food-security-lab/AHTE_JAKIM_INTEGRATION_PROFILE_2026-09-26.md",
+      "bytes": 16839,
+      "sha256": "ccdfb9a3721ef5b41d79f82372a15a24c40c5114f879383e0038d9ba5fb1afd3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/china-food-security-lab/README.md",
+      "bytes": 874,
+      "sha256": "a64f75410930ffeae935bedb6580289366da6a2e089dd27572fb6986fc2027d6",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/china-merchant/README.md",
+      "bytes": 502,
+      "sha256": "0ff6bcc5736748465fb76cf3d6cb8960423ea02847983edd7d9d90d99fab8007",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/coda/INTEGRATION_AND_ENTERPRISE_ENABLEMENT_MODEL.md",
+      "bytes": 6214,
+      "sha256": "4cbc22a9cb4a6e412a7835776d6878bb30f7d1465aac4feb13c391aa82ada9bb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/coda/README.md",
+      "bytes": 759,
+      "sha256": "17a1c40e6b46d54e56d3cede10f575622658f1d5f44f42dbcfd45651fca0332c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/coda/proposed-mou-framework.md",
+      "bytes": 6365,
+      "sha256": "00108989f91a8d734eb7cfcacc78564158d62789a5f454e9c3e0aa39a541bd00",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/coda/strategic-partnership-plan.md",
+      "bytes": 4728,
+      "sha256": "a4d33f651ef4d28fcb951e60affc08c42a0dedc5155205a5fb08f00269e851d3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/ghsc-hk/README.md",
+      "bytes": 543,
+      "sha256": "49c13c15fe3dad820cd7cf67a894f98a067222bea416f524718a2cc15f310713",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/jgc/README.md",
+      "bytes": 333,
+      "sha256": "a6536570e979feb47a9a33cd6beaa62a6f16a68e284e4299c523a3c93de7434d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/lulu/README.md",
+      "bytes": 365,
+      "sha256": "6bdf494d5ae1ba2a167d58309261fd67cd7b7e3ee329d072e2d9420108a73451",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/nicfs/README.md",
+      "bytes": 685,
+      "sha256": "0e1a710220669dc8b0e9a3ffd346956d603beebe213e9f29f628e4ae97ee635e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/noon/README.md",
+      "bytes": 279,
+      "sha256": "77043d069a169734cbde18bcb93ce1af494ac1a51cff13872e53cae7ec2e47a5",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/phc/README.md",
+      "bytes": 387,
+      "sha256": "1c35b2e8d27a7fc2dec5cf533fe3c8faa389418048d43c087298a999bfcec762",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/sinotrans/MOU_GHSC_2026-03-03.md",
+      "bytes": 1771,
+      "sha256": "a70c16d63b84bacd1d5e0e65c2105b7ef1875fbdddd9b762618a73bbd0c3cadb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/sinotrans/README.md",
+      "bytes": 650,
+      "sha256": "5b5aa4f1f698bb9a07e90cdd96ae5a25f915bd44995d1a62effd561cf991b7ac",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "partners/tamimi/README.md",
+      "bytes": 309,
+      "sha256": "9f0789a1c791cab7ee56dc17684f6100b34921ec232e8ce37c3377315c5a5836",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/Dockerfile",
+      "bytes": 266,
+      "sha256": "cd115a3530cec2b3d73290468afaadf09eb2a24da8cb763f4efaa646e3ae0b32",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/README.md",
+      "bytes": 2424,
+      "sha256": "c37e792e4029d07116d76e11daadc187a6ade469f31404049a75d934b5e2f290",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/docker-compose.yml",
+      "bytes": 190,
+      "sha256": "d4296c631dc89260f5652b89685308c70a3250f7936785d9c440927254f3b19f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/policies/hitm-default-deny.rego",
+      "bytes": 1243,
+      "sha256": "f7d5ee7be5633e62540b051f8a8b2e79902a02ea6c755307fa7d289cbfff66ef",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/policies/hitm-default-deny_test.rego",
+      "bytes": 1037,
+      "sha256": "50e984da9bb16cb2f9bb776b3e3e35c78f10ab2ec14585947d4ed7018b0831ed",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/pytest.ini",
+      "bytes": 28,
+      "sha256": "c4a076ef0aea4a32eeda4e20fe67102387c3e9458be19ef33026eabf1678e09b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/requirements.txt",
+      "bytes": 83,
+      "sha256": "bbff98b6bd46b91d9cb6690e47fe3045960f8e71fb2496e3517b7da1cdb8f20b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/src/ahte/__init__.py",
+      "bytes": 52,
+      "sha256": "48fc604cfa5e491a06905ad5ddb769869c1d0a42ef3940c74f4044a04b271720",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/src/ahte/api.py",
+      "bytes": 2409,
+      "sha256": "f6aa8b3fe836a049a2e965f8573e85c3d409524ff708b2c3e62c7390cff9ce94",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/src/ahte/engine.py",
+      "bytes": 5060,
+      "sha256": "efbc13c75a77d4402813c1ef9176c4eefd0de5ab4b157311f6b73ca4e2b1a31c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/src/ahte/hitm.py",
+      "bytes": 1976,
+      "sha256": "bc4c5eecb5de920d3d89e6840ad642ef111ebd062e3cfd25f3c364f01f1124de",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/src/ahte/models.py",
+      "bytes": 2198,
+      "sha256": "0d015168e6d525afc91c204722a865d05a780f1c27b063b6e8409e9b7d5ef7e9",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/src/ahte/store.py",
+      "bytes": 2066,
+      "sha256": "3d57ca99053d85b020ac0a3ddd9804de8c6d3fe8fec735c9f4d4f13ef1df950d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/tests/test_decision_classes.py",
+      "bytes": 1033,
+      "sha256": "74faf865d6507966f15ccd1fffa79b58cbedf6cc951507cf74dc2254b8c40d1d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "platform/tests/test_runtime.py",
+      "bytes": 6057,
+      "sha256": "b6009372353332f87d05000d9b6232a108b09bd26f2cad62495406ae659f783a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/README.md",
+      "bytes": 1036,
+      "sha256": "3fbb62bca310ce35216573c281f91de6339023a6ef4c9ba739fb84a7c5c841b3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/engine/README.md",
+      "bytes": 408,
+      "sha256": "2071d678a15fad8196e851a2ea01ccd2540ed381575fc2b76ebcdc9f1690499a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/engine/engine.py",
+      "bytes": 9317,
+      "sha256": "3176f5040e83c9ae931f447882c769ffa6efd65df1117fac61a4fa6951a215f0",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/engine/verify_system.py",
+      "bytes": 2385,
+      "sha256": "2e93b2f58ea4585372870deb901f46416e3dc58bc1bff20981b5dc0fd20773a1",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/gateway/Dockerfile",
+      "bytes": 332,
+      "sha256": "77152a50af587781e3b317be02df874f19f3e271d5a20624abf04fa7e2fe971f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/gateway/app.py",
+      "bytes": 9198,
+      "sha256": "bbbf9d0a702571eb1c4ecbd7ad18e9122f00b9b92d0ca97d2afe88227eadb95b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/gateway/crypto.py",
+      "bytes": 2533,
+      "sha256": "2ddd59076b392cb6de501e76e138fbe61bae4726c7dba1e17d509a5101df390b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/gateway/edge_ingest.py",
+      "bytes": 2090,
+      "sha256": "d02c83785ee9b57b8fa066b2ef619bc4bdc89b069321c237ecf6e3c09ac0ecd3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/gateway/fsm.py",
+      "bytes": 1409,
+      "sha256": "d7ebd5aa5e799f84122daba1a144c28c126dadc116a9e1fdefc0a9c487ed19d6",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/gateway/models.py",
+      "bytes": 1643,
+      "sha256": "d09aacb9dbc46c9a95e7997241c3c168d2eea33b31fbbfa3248ecf28dc960936",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/gateway/requirements.txt",
+      "bytes": 138,
+      "sha256": "c0e9fde076406cbbb15a8d1c2bf22f718d76add2f8fc5c941c27830c09947393",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/policies/data.json",
+      "bytes": 1161,
+      "sha256": "3304a3a48ce34c887ff7ec48bbc546d204faa8437591fdb2f78c262a9eb85e7f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/policies/halal_gate.rego",
+      "bytes": 1070,
+      "sha256": "4da7fbcda5f49dff1e5cc5f0f9987b8b613b9ff90de43bd687ecf1e07c5b7aaa",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/policies/halal_gate_test.rego",
+      "bytes": 1747,
+      "sha256": "031d4525b0d2d1be2a50cc968f7779aabaf738aa9c2fcc0819358f4b6d8773aa",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/policies/halal_master.rego",
+      "bytes": 2584,
+      "sha256": "56e446405f61f10db944fa157063250aec5fe4d845f1aa2bd6acf7d64451d00d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "runtime/policies/halal_master_test.rego",
+      "bytes": 2464,
+      "sha256": "89ab856a67b8037c6aae2af863ee6bf6a85939b084618afecacef581722a42cb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "schemas/halal_credential_schema.json",
+      "bytes": 1561,
+      "sha256": "499f1933b444c1a305713bbeba7725bd8c693ca250397d5f7b5b35bef9ddb435",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tests/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tests/e2e/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tests/e2e/test_shipment_pipeline.py",
+      "bytes": 4319,
+      "sha256": "649aaa0f92ad52368795d56d651c9083f076d920514552b725b7864b564e1849",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tests/runtime_path.py",
+      "bytes": 379,
+      "sha256": "c306bf30e9986ca2c42531957350e6cf51fc636a728b32f7d478b67775ddee6b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tests/test_edge_and_fsm.py",
+      "bytes": 962,
+      "sha256": "f3ebade59be8acb3ac16c90eade44c2ed849f5caa00e6efaa28175769dea3bb3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tests/test_gateway_guards.py",
+      "bytes": 3528,
+      "sha256": "5f571bb068c13ff55b8ec8013df6444af4b6bebc56ea45239deccfe359017c9d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tests/test_trip_controls.py",
+      "bytes": 1655,
+      "sha256": "3a66f08910822ed6d036a5df6c9f62e735b1022bab005fa436f723d25ddfad97",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tools/audit_repository_files.py",
+      "bytes": 2024,
+      "sha256": "227f00e7d04360297215bd9e2dec7a31412e854f4fcc2c947a2902d4b7b1d1e2",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tools/build_ms2400_source_index.py",
+      "bytes": 5474,
+      "sha256": "d24ad8e4002bb95182e6e54a59ad79179d642ce99af91ed6da33fb083029ba8f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tools/check_local_links.py",
+      "bytes": 1374,
+      "sha256": "661d5762f57e6de46aac6a512e0ce3fa21dbca3433af2fabf4c3f3104453bb57",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tools/generate_ahtem_infographics.py",
+      "bytes": 7552,
+      "sha256": "83370cdc91bfb905ba34f198b8f009526e973c29d5bfe26685db2ffa94f4c3ee",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tools/inventory_platinum_bundle.py",
+      "bytes": 1903,
+      "sha256": "6d72f74da2f91516f2fa56acd44ecca14120493c7f8bfd4691ef95c3d9f19339",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tools/inventory_sinotrans_bundle.py",
+      "bytes": 1731,
+      "sha256": "b89d1e657f1422375505bd81b7807355e65aa12e85431f904238e88bee4e7f19",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tools/trip_controls.py",
+      "bytes": 6984,
+      "sha256": "de7ec369265c3e5d04eb6c0b8bd7b755e030b41e51a926ae85bfe68835f3252e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tools/validate_repository.py",
+      "bytes": 7284,
+      "sha256": "44d36419428c92fcb2930d38663f5ce2f686f290f310173bce3c2d4f9f5d8331",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    }
+  ],
+  "amanah_baseline_inventory": [
+    {
+      "path": ".env.example",
+      "bytes": 131,
+      "sha256": "8f9251ee0103b426300f63e68321f10ffb30a3ac6d90a9dcbb3b58c097a898e6",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "bytes": 1231,
+      "sha256": "734e60dae1ab35c9e06c51593d24d00f48124ca3537c7d767b5a1f351f87df82",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 3579,
+      "sha256": "5aa6ac1c2a83f5dbf267854de93285691cec7f2926a681cfe7804aba47b9ce16",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".github/workflows/ghscl-pages.yml",
+      "bytes": 810,
+      "sha256": "3445d45b117f5ea484d191117a95e5976e49b9e8f483ba676c59cf634d36accf",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 299,
+      "sha256": "0a0587c717214a1d2c854291b74a8c903cdb77726506aa48e73b213c209cbd44",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ACCOMMODATION.md",
+      "bytes": 400,
+      "sha256": "b61a9246bbda16e1ddc9795af8a9f28da70e97e5e2bde1801f64cd18fc4ed06d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ACTION_ITEMS.md",
+      "bytes": 701,
+      "sha256": "380a536c161f0cc9637ce677d771ed7d581754c5de9d45ce3cc3735057d9d726",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 940,
+      "sha256": "b000b46960c78ef37406e9d8dd2ff8782a72dce71f2f6395780e2a5d8ec205bb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "BUDGET_AND_EXPENSES.md",
+      "bytes": 774,
+      "sha256": "6c36a6eec19f7b89107dc35e42a2582ee9a33c3a5d7111374c503822684990cf",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 1452,
+      "sha256": "c5b919f5900a90a0d9853ce4ba6761159ac5d51c4eb31ce013deabecdd0ce22c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 777,
+      "sha256": "940f3a1c1c91a87691bf0f6134411f22e26372b06c357e82f104ffb26ebaa653",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "DECISIONS.md",
+      "bytes": 396,
+      "sha256": "09cbee7584e6a1d02bf21dc04ec755672af6698a68d40bcede3bfc716cd85c34",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "DOCUMENTS_AND_COMPLIANCE.md",
+      "bytes": 760,
+      "sha256": "8f47e0cbc1981542a79e9c5fa0ebd490caf7486fc51622df0e8a8fdd98b0c918",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ITINERARY.md",
+      "bytes": 606,
+      "sha256": "b8f16b44878e37f611964ed98395aef30cdfe1f115415d691a2b0983deb43379",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1091,
+      "sha256": "7d448140d4f1328536610a7043fc770ca8fa50d1ce84c3a9d1805d4120091482",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "LOGISTICS.md",
+      "bytes": 645,
+      "sha256": "fd9fc06444a2ceab581c503880381a700fdf4b09d6ff5410115586122a0eb0fc",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "MEETINGS.md",
+      "bytes": 513,
+      "sha256": "08811648e07610479e7da6c5b1edbe5e273a602743aebe774b882c928d5e2de2",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "PROJECT_OVERVIEW.md",
+      "bytes": 1441,
+      "sha256": "025347d6c4dcad80ecfd84e7d86c6b59f8078de5f365b08be8b85011c50f3a00",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4917,
+      "sha256": "f9d1418d2a56267fe0cc96fdaa504eee778b8370b897f7f90b513cc83f7f705b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "RISK_REGISTER.md",
+      "bytes": 777,
+      "sha256": "9fa5d746adb9462564150a0e663b9627bc8684520a5184f99f4fefdbc77d970f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "SECURITY.md",
+      "bytes": 960,
+      "sha256": "2f369acd21b70326f8fefbace7ff2e62f9eb1c52111acc4e73497e4fc04453e1",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "SETUP.md",
+      "bytes": 1410,
+      "sha256": "11a8380e4bb4d29950382100e9d6fb8bb04280922d01c87dbcc658ad74cbab02",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "TEAM_AND_RESPONSIBILITIES.md",
+      "bytes": 638,
+      "sha256": "df2cbf99da82c8d99743444c3bb12a40bd4492f491f72da41e5f14c8fe4996d8",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "TEAM_GUIDE.md",
+      "bytes": 1030,
+      "sha256": "b619e3fecc82086c301186ee10271c85ba5cab3ff670d22b7fd9acdd8469e58b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "UPDATES.md",
+      "bytes": 548,
+      "sha256": "3be3227db58ed99127c84e5cd7275dadab25142903e29056113c69d41087b904",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/admin/page.tsx",
+      "bytes": 1668,
+      "sha256": "06840c01a9db75e719cf15a2cf4a69823de79c0d80452370fdde7b22ccf9aba6",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/ahte/controls/page.tsx",
+      "bytes": 2245,
+      "sha256": "279d9ba2d5e25e1328a7285db735ae901dfd0a3c1d37c8f3b20be1929fe4332c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/ahte/governance/page.tsx",
+      "bytes": 2755,
+      "sha256": "385ba7e061ddcda3afcc2e3e9e139d4a9051a1e8459215b9a4afcdbc92be9982",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/ahte/hitm/page.tsx",
+      "bytes": 1995,
+      "sha256": "5a5841f29ec174b13006583afe546f15393b68a4dfcc19dff9947b97fc497159",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/ahte/laboratory/page.tsx",
+      "bytes": 2381,
+      "sha256": "7de5f4c1dc70a6cfebdea3a68dbecfcf9462919ee20bf36d16ca5ba256e7e455",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/ahte/monitoring/page.tsx",
+      "bytes": 2871,
+      "sha256": "4cb6298022770abd5c4176f82e5eb570285ca6348bc17b9dc6fb948e99a12e04",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/ahte/operations/page.tsx",
+      "bytes": 2763,
+      "sha256": "e37e07ff5a17d2461fc2f5a5f3c3b42f472f2d28e5317f42875674db78ea200c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/ahte/packets/page.tsx",
+      "bytes": 1276,
+      "sha256": "6633e98906d6d80f226b9a41231dec578393ba9df6dd6a24f8a58c3776236aeb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/ahte/page.tsx",
+      "bytes": 2910,
+      "sha256": "2969c367a170c3cfc32ab8e5294db4326adfdfb6a14b8da14fa1d6ff66854485",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/ahte/process/page.tsx",
+      "bytes": 2233,
+      "sha256": "e4cd9e1f36c4f2fa6fb20e9f2c2d28dbea51b66ecf0d28ee668db18514da9fac",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/ahte/recall/page.tsx",
+      "bytes": 2072,
+      "sha256": "b50354c11d31031241b611b37dde218f94a8fe85a1a113289f3a4c96ab893fb5",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/ahte/shipments/page.tsx",
+      "bytes": 2543,
+      "sha256": "e6abf1f75dca82285c6dcf83352ac6cdffd088f8f03f5421d599f1d6449ad12a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/ahte/source/page.tsx",
+      "bytes": 2015,
+      "sha256": "e12b4bffa45f04b8842c889356e80a882430a7c81e6cc1b66478081d30ccedda",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/ahte/trust/page.tsx",
+      "bytes": 2462,
+      "sha256": "2c6af32d7c997bf70e4ac37d377a85e3fd597b3bdf39eba99d487256cf91b07e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/approvals/page.tsx",
+      "bytes": 2046,
+      "sha256": "194cb4ef1e9e8c5c8c4a94dd33230a297be7ad38fc60d77c4f183234acbcbb55",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/audit/page.tsx",
+      "bytes": 1372,
+      "sha256": "7eca5160b803f93c92e684fcbfe40643cce224b461407542b57024d40d9c721d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/china-trip/accommodation/page.tsx",
+      "bytes": 1746,
+      "sha256": "bb3b3ceade6de5f51026576559d6d392bc245349ab611e7a76f21a8d6f226ce8",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/china-trip/actions/page.tsx",
+      "bytes": 1686,
+      "sha256": "6e643eca0e1fe87da465322f619e7c6b2a882353001d2e9b2de36a489f2d76af",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/china-trip/budget/page.tsx",
+      "bytes": 2515,
+      "sha256": "f094988e7480a51251d192a695d19902b20ed7ecf12c78a711b3dea69dd14a39",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/china-trip/decisions/page.tsx",
+      "bytes": 1719,
+      "sha256": "d7bed15894f9543933f289ac72e46808b4b5fa36d46c969df97d0d675a2d3992",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/china-trip/documents/page.tsx",
+      "bytes": 1816,
+      "sha256": "0a1947d538d40cd504c895817684dd734b1aa3ee5de45ca14466cbf6f89015f5",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/china-trip/itinerary/page.tsx",
+      "bytes": 1863,
+      "sha256": "d71aecc556a11cda6d67ff8eb99e721f5b76ca755dd05c1044e45244f81d5e5e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/china-trip/layout.tsx",
+      "bytes": 881,
+      "sha256": "01370320435e0d0844b1c619f021caf498834d0abb61183b2de29de2f2d45a5b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/china-trip/logistics/page.tsx",
+      "bytes": 1961,
+      "sha256": "d76e26f8b40ac5d5fa5124587a9a1602b8b40bd25789f99bc9d2186a06ab39c8",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/china-trip/meetings/page.tsx",
+      "bytes": 1839,
+      "sha256": "6eb12f433fb34487a070f68aaf8b5742623d574ab397d16f741758b1c78a76f8",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/china-trip/page.tsx",
+      "bytes": 4247,
+      "sha256": "ee757a9e988203b9fc860a9c2cc3054b9cd6b0421b3b280f67a520186be16653",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/china-trip/risks/page.tsx",
+      "bytes": 1723,
+      "sha256": "7ce4fc1f64204ba388898f2e4aa5e33205e2ed6158b2d84387c2ad87b4c8fb1b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/china-trip/travellers/page.tsx",
+      "bytes": 1692,
+      "sha256": "8c379d604cf07324eebbeb9b285f950eed0edebc7e73c67f60f5cac81de646dd",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/china-trip/updates/page.tsx",
+      "bytes": 1875,
+      "sha256": "d9173cda21495e143c56fff949bb8b6888d4ed4829d8e01f0e32f8799d9b855b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/dashboard/page.tsx",
+      "bytes": 3513,
+      "sha256": "be710254ee7e7485bc8ba68aa0883e74a58378664fdb7695f0c5c2592fd69c32",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/decisions/page.tsx",
+      "bytes": 1792,
+      "sha256": "ccb52cc9a106bb1e603c70a9e2d3e6a7f243a4f81304fa05d34d2285179ae538",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/documents/page.tsx",
+      "bytes": 3117,
+      "sha256": "b8c9c38437241de24181d6eec30ebbf77bc4398ab6823299a0294239863278a3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/finance/page.tsx",
+      "bytes": 2606,
+      "sha256": "2b33ef324204e37bc6446c834b5473d53e46e5ad2ed4be56e86fb8ddffe8be91",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/layout.tsx",
+      "bytes": 2110,
+      "sha256": "591b988b39ef753cd7e1eca21c7299e7eaf28ee6e2e8aa839fb961f941e348de",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/loading.tsx",
+      "bytes": 246,
+      "sha256": "18a1d8a5034b53bb1232b31d4dbf23076512e72c2218d851c5f13df4fd9e9a4b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/meetings/page.tsx",
+      "bytes": 2060,
+      "sha256": "955432aa1a41bf336c738368abf334c723659da409c4f1f0f357fa822b0d47f4",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/notifications/page.tsx",
+      "bytes": 1119,
+      "sha256": "b9177f2e42473262a5985078b04c61545ea754c7d6404a1e45f022ada1a361f9",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/projects/[projectId]/page.tsx",
+      "bytes": 2657,
+      "sha256": "a856404aa6de8173da8199259e61218747703e2ceea21ece8b977466a2add5e6",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/projects/page.tsx",
+      "bytes": 1566,
+      "sha256": "2a3f0961601b865d2b9216eeb478876e14e8518416e06413865425564ad8c50e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/risks/page.tsx",
+      "bytes": 1775,
+      "sha256": "2e8cf317f3611524a70c7a5869615f6d506a72f5bd42a4cc41f4f606a19bbc1e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/search/page.tsx",
+      "bytes": 3739,
+      "sha256": "9a6d8a00ff1a653f8278597e615fd38ba3c0fea09c9110bcb668b20c4fab18cf",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/settings/page.tsx",
+      "bytes": 1320,
+      "sha256": "a11334c28b96a87dbda3e322f7a8aafeec08ce2957dfdebf7c111e7ea97bc761",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/tasks/page.tsx",
+      "bytes": 1927,
+      "sha256": "9fb4c8d343707aede0efeeac40712ed25ed1c88309dbbb690141374593dd199f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/updates/page.tsx",
+      "bytes": 1928,
+      "sha256": "81312c7e037f696cd991be81764d882a087bfb624244872f07ea50af0164cacd",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/(protected)/workflows/page.tsx",
+      "bytes": 1512,
+      "sha256": "0439166669a5e2c33ad011e518e4891f794c47f8518945b2fc84b76f026af647",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/api/health/route.ts",
+      "bytes": 203,
+      "sha256": "14a4097eb2d1dee220c8b174214c47421b65d6b3b1c139c9db8f03d99cf5dceb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/api/v1/health/route.ts",
+      "bytes": 185,
+      "sha256": "ff82e7b92651a0b2e07411d4e7d7823113711ef0276cf901a22d46a21e229106",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/api/v1/projects/route.ts",
+      "bytes": 2398,
+      "sha256": "4a03ffb543adfb01871c7ebfa5ad8e662ba1bc2f893d618b655e01eff41202d8",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/api/v1/tasks/route.ts",
+      "bytes": 2801,
+      "sha256": "e0786a08ccffcc7d8eab09da6b343ef960c6be26e71a81c3e34ce6fe2e0467dd",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/auth/callback/route.ts",
+      "bytes": 1231,
+      "sha256": "abd7526498418f4e406da4e205ad2c0abc87a855c42dd7fde11cd1bd8127ea82",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/auth/sign-up/page.tsx",
+      "bytes": 2328,
+      "sha256": "c5993cf560f78fe9de842af642586ca8f6181dda4817d1627f94107100811062",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/error.tsx",
+      "bytes": 650,
+      "sha256": "9dfff1580b4b078b9f70c99f8176093f4f71d58b653264d74947f9ed788946c7",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/globals.css",
+      "bytes": 5770,
+      "sha256": "43d67ba7226162560f74c5d367001bd937500e8be0370b0b9556d8f422d6eb32",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/layout.tsx",
+      "bytes": 388,
+      "sha256": "58656151939f4b3370ba83a7413d5680a9cbdf33c9bfa095d757cc72bb41b3b1",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/loading.tsx",
+      "bytes": 248,
+      "sha256": "8331ee7cb7c88c1f47ebf49088d4b7c025dd06609930c960f3e31f77c63b93f0",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/login/page.tsx",
+      "bytes": 2198,
+      "sha256": "a089a63e88bc34f15939fafca38e95ff5f159629ad36eaf249b4a5e5b54776fa",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/not-found.tsx",
+      "bytes": 350,
+      "sha256": "d6765cb5f0303ae72041f0c940cd8f57bd2b28205998596e0c6a8fb95a1e1068",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/page.tsx",
+      "bytes": 220,
+      "sha256": "81b88846b180d7f81075039a93c700d43b5ce4b9a1dc18cb908fba3cfebb736b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "app/verify/page.tsx",
+      "bytes": 1852,
+      "sha256": "ab8ef980f915b1117bd814deb222cfb3eee02fde09fb33903cda3c2b116ef4e2",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/approval-decision-actions.tsx",
+      "bytes": 1577,
+      "sha256": "6a5dc8e705b318aa5591d496c5ed89b5566d42ab0276829989d9e63ad6527b98",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/create-approval-form.tsx",
+      "bytes": 2552,
+      "sha256": "f733ec9092e0bb7616fa2cfa9ad77d65b57ed0ca40d6e2e4f696489bd072f4b0",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/create-project-form.tsx",
+      "bytes": 1976,
+      "sha256": "451ac1edc4d61ef905c2135d5a1c28ba1b897dc2ed5176f2d618b81882beb240",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/create-task-form.tsx",
+      "bytes": 2260,
+      "sha256": "e5ba16b21943dca60950bcf31488c98b6647e10f45892ac0dbf03880d48583d8",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/create-workflow-form.tsx",
+      "bytes": 2540,
+      "sha256": "1cfdb8c36e4798c3e1aa0c01e8559b91ce1f9003809cd0583b383b264b55ad55",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/create-workspace.tsx",
+      "bytes": 1565,
+      "sha256": "ecefd8e5c16389f59329b7b9bf7be3b713f380ce064289d8904fb7ffe12ba482",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/download-document-button.tsx",
+      "bytes": 1119,
+      "sha256": "0f642124ea651d96d5e3f2f131a225e991d1c28ba859af5ae5df44bce084a75f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/forms.tsx",
+      "bytes": 19646,
+      "sha256": "49d12e5ac37ef0aabb6bdaecd7cbddaf85284305c0ee623ba7965e33c3c56c62",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/logout-button.tsx",
+      "bytes": 460,
+      "sha256": "1fbd740d4dc9f034f6c5a6ecba5f47bd84937bd82c5efbd463930c99e0057a0d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/mark-notification-read.tsx",
+      "bytes": 516,
+      "sha256": "6a8a32cf378b356d3ca0e85b52c7348fddcfc11f1bbc9c8d4cfd13a90d794ffb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/profile-form.tsx",
+      "bytes": 1284,
+      "sha256": "0e1f36fa4907b7822e5cac43ec5cf7aa2701745a567ec16f2436c627ecae7dea",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/realtime-monitoring.tsx",
+      "bytes": 2493,
+      "sha256": "aefc2858886ea4416fe97ff9f33e1eb0600654aa09e17568e02052eb56687d88",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/task-status-select.tsx",
+      "bytes": 1150,
+      "sha256": "b994e69395188f93221a66eb3142648a6e0507de33f972b88419c6cc1dd16f29",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "components/upload-document-form.tsx",
+      "bytes": 3491,
+      "sha256": "2ab869feba60fcc8188795e2f38a0da002d9c5e7e0abbc5787efd52ab9f60529",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "config/ahte-decision-classes.json",
+      "bytes": 2992,
+      "sha256": "89ce9193c10f027db98712031064a8c706f6a471d1c851d9c5064963ce628cba",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "config/ahte-fracture-taxonomy.json",
+      "bytes": 1243,
+      "sha256": "65fa21d5d5079aad557a794bc6d777246a123f668b67966a31b35043255d6dd4",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "config/ahte-hard-gates.json",
+      "bytes": 1483,
+      "sha256": "b7d80222ee229f2e6b6217c8d07494373ebe860b91fc0afb0424c6d51ea469cd",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "config/ahte-standards-catalog.json",
+      "bytes": 2906,
+      "sha256": "79962c7a6da42cc2cc4676786c6fef5c23f0b3664ff80b302660562974a5d77b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "config/ahte-state-machine.json",
+      "bytes": 1440,
+      "sha256": "5e2c6d3f2d52472276991fd58742ba171a946b32513fc7ff5c5ae44b0e633d74",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/DELIVERY_PLAN.md",
+      "bytes": 1840,
+      "sha256": "5bfd532e902ce4f76c50a57573981d2d199cb063c03e1cc855a68b12736000fc",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/RELEASE_CHECKLIST.md",
+      "bytes": 795,
+      "sha256": "14a0c03f8fa119c2a8da9502d4bd9ee67efe2d4f9f5a5c6b229ac0cef9f1dd3f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/ahte/AHTE_AZ_ENGINEERING_CLOSURE.md",
+      "bytes": 5664,
+      "sha256": "ae580620b438e6d5969fd3bd387a307e9ddf929f7b32d724e9bbedbb335b3854",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/ahte/AHTE_PLATFORM_ARCHITECTURE.md",
+      "bytes": 3822,
+      "sha256": "277ed51a8b62fc1b8a69dfe81e6bd2bac56322a359a3ba851be7bc7d112bb38f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/ahte/BRANCH_SYNC_2026-09-30.md",
+      "bytes": 330,
+      "sha256": "01d0edf0e9b16d5981b61a4a3c9b4fb6fb62c436c14630df3e2f63bf644368f9",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/ahte/CONTROLLED_SOURCE_ARTIFACT_MANIFEST.md",
+      "bytes": 1833,
+      "sha256": "2d25fc38ba52b5b66a2d739bc821d04621fa7a407cb455d4457d05401db1a11b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/ahte/IQ300_CANONICAL_PATH.md",
+      "bytes": 1128,
+      "sha256": "c8d614ee458e1f84daf1ef6ecc8251f5a8f3797be5d67805a64b8a6878216030",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/ahte/IQ300_SCHEMA_REGISTRY.md",
+      "bytes": 1161,
+      "sha256": "b4f52475ec8513fccf2dde957ec70b3de30026d05412785926a3af0e529fe443",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/ahte/MS_OPERATING_SET.json",
+      "bytes": 2519,
+      "sha256": "5c0ed92b51f6a5eab0c4dafaa77c0aaa95228752fac39bfccd53d52f81f3fcc0",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/ahte/SOURCE_BINDING.md",
+      "bytes": 4414,
+      "sha256": "89162c4756a525fbfc48830a941aacf2de16012046d12ba6cb5b7388c941012c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/api/AHTE_ASSURANCE_API.md",
+      "bytes": 4173,
+      "sha256": "11323ad2a3f724e7e6e3eb57d55ab33bde7fb680f06b83e3c29971732d18adec",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/api/API_CONTRACT.md",
+      "bytes": 744,
+      "sha256": "6ebc37806a1616521869ae62b784870e72ee2f8acef19b800238dd0d2317c647",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/architecture/DATA_MODEL.md",
+      "bytes": 1194,
+      "sha256": "3e73a6a85e413485d270cb658b76b370d79e4aa472399da21410c977fbbb69ed",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/architecture/PLATFORM_ARCHITECTURE.md",
+      "bytes": 8834,
+      "sha256": "164870ef5e5c3fe0660d56de42d05b6a7e39f120483507ff83ba871adbb13f5a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/architecture/SECURITY_MODEL.md",
+      "bytes": 908,
+      "sha256": "0d7740ed404c65bda199d20cc7888e2f88e66033ccedd1f2252f897183ea55eb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/.keep",
+      "bytes": 58,
+      "sha256": "4e6f90f0a6bada32a675124ea38f47cb425ec10c61c0efd730378cbe9068923e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/AUTHORITY_BOUNDARY.md",
+      "bytes": 839,
+      "sha256": "5b97cc260c97869b8c832e0d236718164e83066c43d28772505132b6d29dfedf",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/BRANCH.md",
+      "bytes": 56,
+      "sha256": "302b3779d46540a06b09babb018dc58c452d9bdee7e9b9958e5c7fcee3f851ae",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/CANONICAL_PATH.md",
+      "bytes": 797,
+      "sha256": "adec4ba5569bf1937f91c0f371619e6de9c2e65c975ee196a4db41ba4c0cebb1",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/CHANGELOG_2026-09-30.md",
+      "bytes": 1303,
+      "sha256": "cd4954a94361c89f8dbcc84360c205610232b84d599478b70946c5a583a84a43",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/CI_REQUIRED.md",
+      "bytes": 52,
+      "sha256": "bba1efdf6842237574a8974cc273aee585ff2a374df57f16522110ff7dc4ece0",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/DEPLOYMENT_RUNBOOK.md",
+      "bytes": 1631,
+      "sha256": "4383a4e2151d1b340f962d35b6b6a5e131054627efd93d604418eef3172be37d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/DO_NOT_FAKE.md",
+      "bytes": 253,
+      "sha256": "7408500e0a9c938d683668ed12cc746fc5fb2f3f9e054562cbe48663a3b7a066",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/END_TO_END_COMPLETION_2026-09-30.md",
+      "bytes": 6803,
+      "sha256": "6b0ca5cd57ea0ffa7c9f3abb8f10402db5c1610d314c3437f1041d8f82788090",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/FINAL_NOTE.md",
+      "bytes": 150,
+      "sha256": "f99e783bd46e1c4df236cb8718aac8782f2f9be67b47bcc8b6b1c7a92755685c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/GATE_TAXONOMY.md",
+      "bytes": 654,
+      "sha256": "a338c3a27ecdb8942c89c0a01f049df618b609279de73d833e4f79452f5de245",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/INDEX.md",
+      "bytes": 277,
+      "sha256": "f1891de55983bf8fe58abfa86c2c1d090e3dcd90de60d1da45f34a8edc3f1430",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/MERGE_TARGET.md",
+      "bytes": 79,
+      "sha256": "ec5532bffb706ec042672b0979fe05b0e488e6d1116b13fd3a850928fa2d27ad",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/PENDING.md",
+      "bytes": 1603,
+      "sha256": "066c03aa66d1cd35139acf46ebfbb2813f979f2d1670e5f4b4244d542995d750",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/PRODUCTION_RUNBOOK.md",
+      "bytes": 784,
+      "sha256": "72bdd0024e11c63778a1fceb363df1de82f740de0320ddb255f1d952d842ddc1",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/README-HARDENING.md",
+      "bytes": 255,
+      "sha256": "669571bfcc896520acdc309d858aa97d850472ee12a1c9e5ef7eaf379c611355",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/README.md",
+      "bytes": 229,
+      "sha256": "4701cb4dbf8f35d541cd116f3fced2066bea98c6aeaee4e8ab02784e512d0bbe",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/RELEASE_CHECKLIST.md",
+      "bytes": 2300,
+      "sha256": "c4f91b263da361d19b4984e56f7ffb53e4cb53d57a7873ed8214e1f40bdeec5f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/REVIEW_SCOPE.md",
+      "bytes": 384,
+      "sha256": "6065163f3baede2db051da06fedb2c0372933c8e2207bddd7fea3d6ccf19c977",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/SECURITY_MODEL.md",
+      "bytes": 2395,
+      "sha256": "64d3fa5ace0cce100e8438b03045bcf453f5195970b6ec2decb116ed73611b36",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/SNAPSHOT.md",
+      "bytes": 98,
+      "sha256": "b30a1588e4bff2be5843e0c3e3c78b17f65b35782fe04825583ee915113406ad",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/STATUS.md",
+      "bytes": 327,
+      "sha256": "86516e69a6dba6d2c965b01f06701d69ea85ef5db60cc6183d49b0dba7948d1d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/SUPABASE_STATE.md",
+      "bytes": 1742,
+      "sha256": "0b94bedc99ccbbb5d95e0d9f20d867f260e6aae210f5c8c7f04905edb33efab8",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/operations/VERIFY.md",
+      "bytes": 116,
+      "sha256": "3c6f9f2ea7cdb8e9f1b716f791cb030a0b638d3c07f6411631bd7ec1eca26f0d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/requirements/REQUIREMENTS_TRACEABILITY.md",
+      "bytes": 2158,
+      "sha256": "6e25ea357f5b4e4575e6a435554f859e12cd611c234b2f0be0f8ae9eceef7f6f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/stakeholder-video/AHTE_STAKEHOLDER_FILM_SCRIPT.md",
+      "bytes": 4831,
+      "sha256": "3e858fbdbccdbf0b1fc12c187ac912db93fd7c2e3041d30497f8ce4e17a2af34",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/stakeholder-video/AHTE_STAKEHOLDER_FILM_STORYBOARD.md",
+      "bytes": 1619,
+      "sha256": "9638123bae03493a91c6f53d29abf309005187544f1b70a8ee8c286c7c8af006",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/stakeholder-video/AHTE_VIDEO_GENERATION_PROMPTS.md",
+      "bytes": 4311,
+      "sha256": "11ce9de2874ae362dd5439ce561cc204c6c3a0a528f3226f001acbb4be2f51f1",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/standards/MS2400_SOURCE_BINDING_2019.json",
+      "bytes": 5660,
+      "sha256": "9fde7bd94e381d0802ef645f22288988d57385f1f6774480feade33477a41d38",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "docs/website/GHSCL_FREE_HOSTING.md",
+      "bytes": 1010,
+      "sha256": "8eae24d8d0b6d3abf4732d035ffedb8bdef93ab3694035f031e3d6d4b0777738",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ghscl-website/404.html",
+      "bytes": 1412,
+      "sha256": "892ca7b7ed140fc787a1658ae7c4299e0a383b47fd81e2b3388f3a2dc6bcdf8a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ghscl-website/README.md",
+      "bytes": 779,
+      "sha256": "e98f241b66e74c67c9952ab6a903bf95eaeac8866ae4586388c35f7771b54689",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ghscl-website/index.html",
+      "bytes": 15208,
+      "sha256": "eefe5c009973930a6cabf3db84a3e9d59aff6099e0bbbe97a776d31752654edd",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ghscl-website/media/facility-render.svg",
+      "bytes": 3297,
+      "sha256": "f290a08501a3b8648d6a7f6a5af4e2614cedd995232bb5bec26408ea6a3c66a2",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ghscl-website/media/ghscl-mark.svg",
+      "bytes": 1372,
+      "sha256": "64abc4ff561b0ce6bb8c390cb4a0c8839849169671bf4dd467afd3dd59783d5f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ghscl-website/media/ghscl-trust-film.mp4",
+      "bytes": 16712,
+      "sha256": "2f29eb878404cfb3c05539e320400ba9db0d3435145e016d539c5d019d31adeb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ghscl-website/media/lab-render.svg",
+      "bytes": 3066,
+      "sha256": "31c55d68579f1d8b0de8b4adc984d6491d9257acc1aff4098b1f6a308704bb03",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ghscl-website/media/port-render.svg",
+      "bytes": 2839,
+      "sha256": "7048bbcd904e35aaa2ba647a453a7d663881d33c1378b56ce8fb5d344084c142",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ghscl-website/media/trust-object.svg",
+      "bytes": 2537,
+      "sha256": "b4c058c5ec56fc4e9a404e23bc5cf14372f8317ee6372821d292b470e8792573",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ghscl-website/script.js",
+      "bytes": 13321,
+      "sha256": "a1d4f497e0050d27d26a15789a36a66a98d8e836a7ae11debb0309c971d9974b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ghscl-website/styles.css",
+      "bytes": 22346,
+      "sha256": "7135dfe1fb5f256242facd611e8dc24cd48ec5bfc3338626481c298aca8d1f2c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ghscl-website/v4.css",
+      "bytes": 18379,
+      "sha256": "1c6c8585ef8e2e753b2f5d46d5d1b4afc24fa822ebeca720340fdd98177ad532",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "ghscl-website/v4.js",
+      "bytes": 13825,
+      "sha256": "60b7c1bdff04a726b1540f45364ca1cc8377d02e514a0a8b4068e38db6a8e8fa",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "lib/auth.ts",
+      "bytes": 506,
+      "sha256": "c489a4ff0bb1d891a0777fbfc06b05b4f0705c0b39294adf53390ded56f6bb0d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "lib/database.types.ts",
+      "bytes": 184153,
+      "sha256": "baa7cc73bd03950a486493776fc6e73be78cbb880c481ed578ee0cf649734ec7",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "lib/supabase/client.ts",
+      "bytes": 295,
+      "sha256": "03225aa27ea9882da74971289354300e0fd66eddabcc4c53ee2a4cb8169053f3",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "lib/supabase/server.ts",
+      "bytes": 860,
+      "sha256": "77f8fe74275af3f5b0f7f8e84296dd3dfea14a307e97d537837853352fbf1a79",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "lib/workspace.ts",
+      "bytes": 770,
+      "sha256": "b7dd1115dbd06eae44cc5b8398e20b5abbbe3fdf12ac0db7f467d27d74ec8e03",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "next-env.d.ts",
+      "bytes": 295,
+      "sha256": "1b59d4c6b83807db275d43f3cf2cc8e9323f465fab764eea091cc5becd5bad37",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "next.config.ts",
+      "bytes": 522,
+      "sha256": "ff09ca6af87b586f3a279e523ba6706dbc541a193aac68f81af58786ee9b5d60",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 42262,
+      "sha256": "c09161abf084bcff19a0044e5ceebc8073169c562566695b31d48d07d4a3e84e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "package.json",
+      "bytes": 828,
+      "sha256": "d7765327a58a2fd8ab66c050cba2b11370dd6f35a2436f6499e4c7d5f348d141",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "proxy.ts",
+      "bytes": 1854,
+      "sha256": "ea773a8b0ef186fbdcbcfa0dc833c6c8431a033ad5bec750b53e08eba21958ba",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/README.md",
+      "bytes": 1016,
+      "sha256": "b7317314b734740523451339500e65c217383eec997cfada8c408ad4a8a411c5",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/engine/README.md",
+      "bytes": 395,
+      "sha256": "ea68b3e1e83a98d1dde9e33b49fd730e7d81a20ff76f21606c51279755f03076",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/engine/engine.py",
+      "bytes": 9051,
+      "sha256": "3f8ad2086cb13ade410221bc1ef3325893f99bbc78a9c1ab461ea5914387da85",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/gateway/Dockerfile",
+      "bytes": 316,
+      "sha256": "78c8be4ab47a40dd4167618729e8b9487ce0f4cf255a3214e1a0214fe34b3833",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/gateway/app.py",
+      "bytes": 8990,
+      "sha256": "00ce520c5c23a8d7dd8937e9afdef1b73482ee9cf3ec9c141cd60f5d06ffdbb7",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/gateway/crypto.py",
+      "bytes": 2476,
+      "sha256": "92c77ea08a6804542357f9e9a95f7880665a2eef31468d33d34b3a746457626f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/gateway/edge_ingest.py",
+      "bytes": 2031,
+      "sha256": "54844cd54fcccaee5e8d3caba6d948f8e46854d249fb8ba1465917f3281fcc8b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/gateway/fsm.py",
+      "bytes": 1377,
+      "sha256": "b05760cccf81f60c2b3426369da92aebc3318ed7d1773fcef402727b5ba377bb",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/gateway/models.py",
+      "bytes": 1578,
+      "sha256": "cd89b8e3ab7f79ca8908a468f81f9bee20d972696216a3331ea22714f279452e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/gateway/requirements.txt",
+      "bytes": 131,
+      "sha256": "5c2214b8a0ddd7e579fac6455d748e85596b55459d253ae2af13b3f7c1dc256d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/platform/tests/test_runtime.py",
+      "bytes": 5883,
+      "sha256": "e95db04a1491981cea5b3a51d6e16aaca891b28f55eb90dae3ab52756f51b36f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/policies/data.json",
+      "bytes": 1128,
+      "sha256": "7f422560eebe844d8319c4f0dedbbcfe4a5f3864bcb7daeb34f18a317daf1a2e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/policies/halal_gate.rego",
+      "bytes": 1017,
+      "sha256": "03f8f5c4a7f1bc274f8c126c27797f2194ffe05190f15bcbb7c1f4beb4bb116d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/policies/halal_master.rego",
+      "bytes": 2496,
+      "sha256": "741b85d9045225ac32ffd0c7ec688e5a3f85cc7359a30516c0881e44b57cfc2d",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/tests/e2e/test_shipment_pipeline.py",
+      "bytes": 4217,
+      "sha256": "d26a97d4173f958bc2340514ffc5a82863465902b72094225fdd6121599e87f2",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/tests/test_edge_and_fsm.py",
+      "bytes": 932,
+      "sha256": "35743b51f54c067fe77b14fd137416ad3941444fd57262e1bfa2aa302fa5dc40",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "reference-runtime/tests/test_gateway_guards.py",
+      "bytes": 3438,
+      "sha256": "6845ff0eeaf777c3fcbf246db3b66aa14d26f6ca4172498f43064f67917b9bc2",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/functions/assurance/index.ts",
+      "bytes": 44755,
+      "sha256": "5297886034059e7d66d5fd5eafa888fb3cc7952f75c9093da6e96d0e1a63c05f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/functions/ghscl-site/index.ts",
+      "bytes": 11271,
+      "sha256": "5bd30565274bcc3e6d0ff648476b65abd39d5847ae408248e91e8ada29a68983",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/functions/public-verify/index.ts",
+      "bytes": 2596,
+      "sha256": "446a7d4d51de5b4b3edfb8fe7a83b920043308039023b2bf96ecf157cd45f82b",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0001_amanah_core.sql",
+      "bytes": 32866,
+      "sha256": "d897b54d27fcc831810e960d903f4103bded13851bb4b299eee25602ef4b124a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0002_platform_extensions.sql",
+      "bytes": 19719,
+      "sha256": "c7b3c95919da0bdb480a4b23ce847ca9618ed8c9035a8f8ebfaecc09101cbb8f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0003_security_storage_performance.sql",
+      "bytes": 11905,
+      "sha256": "0cf0d04dbeb2992ec5fac388749c1a975bb8029f0a16f5029ccb59baa19e9b13",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0004_advisor_cleanup.sql",
+      "bytes": 1533,
+      "sha256": "ff443e30d002b850d8a9124b2eef1d8b9847c012b7db550d5d2c958d9d70f185",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0005_approval_integrity.sql",
+      "bytes": 1568,
+      "sha256": "f92f874b5b3723145755747aa642e08eadb67c5065f782646f3e13981cbb6552",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0006_operational_integrity.sql",
+      "bytes": 5993,
+      "sha256": "6e377fbb989a4a49eaabdd9d123021f1f1a4d5c544056fbdc61e6c8a7828272a",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0007_approval_fk_indexes.sql",
+      "bytes": 272,
+      "sha256": "c542f9fd2006178014e742ea686e7372648d2e9012129ae0fe64b2dcb3b1b690",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0008_ahte_trust_platform.sql",
+      "bytes": 21812,
+      "sha256": "bfe730487baa364f564e4e30b01dad26fe01298c65a4f86c0617171344495a8e",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0009_ahte_operational_primitives.sql",
+      "bytes": 87202,
+      "sha256": "fe7bf897cb4df69d4cce2d4679f94e55f4ca9f4f05d545ab3ba87fadc3660361",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0010_ahte_execution_layer.sql",
+      "bytes": 11266,
+      "sha256": "3cc3a88d6fe035d8a66d38d8410c583fbea8e4196340816d85490028c9a5a767",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0011_ahte_integrity_reconciliation.sql",
+      "bytes": 3554,
+      "sha256": "95d5e2ee0b7c5912f8e080a49883a8c878c31aae114f3bccb3fe73355cf985da",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0012_public_verification_security_and_fk_indexes.sql",
+      "bytes": 1798,
+      "sha256": "55146f8bb5bba3411094ec464dcf76f4f6b8790e7ea57919beb2f16037f13663",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0013_seed_17_standard_reference_catalog.sql",
+      "bytes": 4224,
+      "sha256": "da56cfe7bc326ec5cb12d66acca8cf3e8705d91df6c652cff9f04f3caac6fd92",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0014_enable_ahte_realtime.sql",
+      "bytes": 579,
+      "sha256": "e6b0523767b83704afebea6842bf73f3a484d6d0e0b90b4a3fe5779c6d119e8c",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0015_role_and_authority_integrity.sql",
+      "bytes": 3612,
+      "sha256": "8c8209a39f96018eda563d76c3fcdd78816da550a623050efa83b4a000b06136",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0016_authority_decision_api_compatibility.sql",
+      "bytes": 891,
+      "sha256": "9f429f7e67e93737bca7517425201064d234b3f2ae2cac25735f51be781130d0",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0017_revoke_public_verification_rpc.sql",
+      "bytes": 700,
+      "sha256": "981f8b72188532b19120acce1b0383017d561d7aea68713a7337ec4b5623aec4",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "supabase/migrations/0018_seed_ms2400_source_bindings.sql",
+      "bytes": 2830,
+      "sha256": "a4f5728a5bac515546e8bcfca89ba4a24018e8b7b4fcf4aaf352720ea5d80275",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tests/ghscl-site.test.mjs",
+      "bytes": 2585,
+      "sha256": "245fbfaccc799a04d90d8ef80f09b19017b0219b5df4dfbf102d86ff20a33148",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tests/platform.test.mjs",
+      "bytes": 3309,
+      "sha256": "233c5c52b60d587e4798735df9e004e4b629c592ca06ee630aec0b4010d444b9",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tests/security-boundary.test.mjs",
+      "bytes": 1655,
+      "sha256": "b82658a2a189a1a1963cfb82fbe538fa06a7793df472a03e14f449db5c3c140f",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 726,
+      "sha256": "a8c963d84ee2e13cc2433c14bef2546c03ca8f8d9c3635849045273d1eb74630",
+      "review": "inventoried; semantic review pending unless separately recorded"
+    }
+  ],
+  "mirrors": [
+    {
+      "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/09-hard-gate-rules.json",
+      "amanah_path": "config/ahte-hard-gates.json",
+      "sha256": "b7d80222ee229f2e6b6217c8d07494373ebe860b91fc0afb0424c6d51ea469cd"
+    },
+    {
+      "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/12-autonomous-state-machine.json",
+      "amanah_path": "config/ahte-state-machine.json",
+      "sha256": "5e2c6d3f2d52472276991fd58742ba171a946b32513fc7ff5c5ae44b0e633d74"
+    },
+    {
+      "canonical_path": "00_EXECUTIVE_COMMAND/hitm-decision-class-registry.json",
+      "amanah_path": "config/ahte-decision-classes.json",
+      "sha256": "89ce9193c10f027db98712031064a8c706f6a471d1c851d9c5064963ce628cba"
+    },
+    {
+      "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/11-trust-fracture-taxonomy.json",
+      "amanah_path": "config/ahte-fracture-taxonomy.json",
+      "sha256": "65fa21d5d5079aad557a794bc6d777246a123f668b67966a31b35043255d6dd4"
+    },
+    {
+      "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/12-autonomous-state-machine.json",
+      "amanah_path": "supabase/functions/assurance/trust-machine.json",
+      "sha256": "5e2c6d3f2d52472276991fd58742ba171a946b32513fc7ff5c5ae44b0e633d74"
+    },
+    {
+      "canonical_path": "00_EXECUTIVE_COMMAND/trust-packet-schemas.json",
+      "amanah_path": "supabase/functions/assurance/packet-schemas.json",
+      "sha256": "8dc134680a9c043eafc93cba0862d94059c1ce3f20d1c4651bce82b33721a8a6"
+    },
+    {
+      "canonical_path": "platform/Dockerfile",
+      "amanah_path": "reference-runtime/platform/Dockerfile",
+      "sha256": "1e5ad044043f58d5a4541eee2bc83a84160c63d2864417d909b17c383e0abb25"
+    },
+    {
+      "canonical_path": "platform/README.md",
+      "amanah_path": "reference-runtime/platform/README.md",
+      "sha256": "c1aff4b8bff884e776f78ec0257886e62f1a31ff70b156747cfe2d308c38fa48"
+    },
+    {
+      "canonical_path": "platform/docker-compose.yml",
+      "amanah_path": "reference-runtime/platform/docker-compose.yml",
+      "sha256": "c21cedf78bd36b0cbcb7ba387466d3b59201458b004a7398bd45d88b8008594d"
+    },
+    {
+      "canonical_path": "platform/policies/hitm-default-deny.rego",
+      "amanah_path": "reference-runtime/platform/policies/hitm-default-deny.rego",
+      "sha256": "51c456cb88a2844e3ea00de38dd9ec01c31dceff31dacfd9abbe00cb8dfdcbf3"
+    },
+    {
+      "canonical_path": "platform/policies/hitm-default-deny_test.rego",
+      "amanah_path": "reference-runtime/platform/policies/hitm-default-deny_test.rego",
+      "sha256": "8c5a390dd3bdd80ee9e7718accd3ee2b1940954adef7441adc8e1fd685ee8ba4"
+    },
+    {
+      "canonical_path": "platform/pytest.ini",
+      "amanah_path": "reference-runtime/platform/pytest.ini",
+      "sha256": "363381771127e3479fe49773659cc2a8dc2b2f727459ebd057ac39e79e98a94e"
+    },
+    {
+      "canonical_path": "platform/requirements.txt",
+      "amanah_path": "reference-runtime/platform/requirements.txt",
+      "sha256": "053d77afdd076a9006f57cac98e7ddef359b77435a67719dbb1ef11cd60be471"
+    },
+    {
+      "canonical_path": "platform/src/ahte/__init__.py",
+      "amanah_path": "reference-runtime/platform/src/ahte/__init__.py",
+      "sha256": "3cf5750a9756fbdc07c967574472fce4cb587bef87b5b899fbf08edb18344ae1"
+    },
+    {
+      "canonical_path": "platform/src/ahte/api.py",
+      "amanah_path": "reference-runtime/platform/src/ahte/api.py",
+      "sha256": "f13b4127d352c16e334f7051348733968f12ce24231ed0c601768a61e84d4a63"
+    },
+    {
+      "canonical_path": "platform/src/ahte/engine.py",
+      "amanah_path": "reference-runtime/platform/src/ahte/engine.py",
+      "sha256": "7f56b4c70604092aac08fb02fa94026fb0cee6ab22d08b1edef15d3fdc7eab4c"
+    },
+    {
+      "canonical_path": "platform/src/ahte/hitm.py",
+      "amanah_path": "reference-runtime/platform/src/ahte/hitm.py",
+      "sha256": "726e6d9cbe7a9af6dd90c8b52795393c6c176d5876d7a261d4b3fdf6c081226a"
+    },
+    {
+      "canonical_path": "platform/src/ahte/models.py",
+      "amanah_path": "reference-runtime/platform/src/ahte/models.py",
+      "sha256": "717e85ac95e44239cf63a3083c0ca917d1185b4e8b4ecf08a15dc037295a5a03"
+    },
+    {
+      "canonical_path": "platform/src/ahte/store.py",
+      "amanah_path": "reference-runtime/platform/src/ahte/store.py",
+      "sha256": "cf0e9089ce6363a5967454df4835887ca5715a6c762a2e4af13ec3625b8eec01"
+    },
+    {
+      "canonical_path": "platform/tests/test_decision_classes.py",
+      "amanah_path": "reference-runtime/platform/tests/test_decision_classes.py",
+      "sha256": "38153608297cd0b7c205f1e881818346b9854ba36983ac527d80361b90eccb57"
+    },
+    {
+      "canonical_path": "platform/tests/test_runtime.py",
+      "amanah_path": "reference-runtime/platform/tests/test_runtime.py",
+      "sha256": "e95db04a1491981cea5b3a51d6e16aaca891b28f55eb90dae3ab52756f51b36f"
+    },
+    {
+      "canonical_path": "runtime/README.md",
+      "amanah_path": "reference-runtime/README.md",
+      "sha256": "b7317314b734740523451339500e65c217383eec997cfada8c408ad4a8a411c5"
+    },
+    {
+      "canonical_path": "runtime/engine/README.md",
+      "amanah_path": "reference-runtime/engine/README.md",
+      "sha256": "ea68b3e1e83a98d1dde9e33b49fd730e7d81a20ff76f21606c51279755f03076"
+    },
+    {
+      "canonical_path": "runtime/engine/engine.py",
+      "amanah_path": "reference-runtime/engine/engine.py",
+      "sha256": "3f8ad2086cb13ade410221bc1ef3325893f99bbc78a9c1ab461ea5914387da85"
+    },
+    {
+      "canonical_path": "runtime/engine/verify_system.py",
+      "amanah_path": "reference-runtime/engine/verify_system.py",
+      "sha256": "75706fa3d1468af29e1895aac7e6bb72bcc07459c5ae5151cb666a4bb5ccb701"
+    },
+    {
+      "canonical_path": "runtime/gateway/Dockerfile",
+      "amanah_path": "reference-runtime/gateway/Dockerfile",
+      "sha256": "78c8be4ab47a40dd4167618729e8b9487ce0f4cf255a3214e1a0214fe34b3833"
+    },
+    {
+      "canonical_path": "runtime/gateway/app.py",
+      "amanah_path": "reference-runtime/gateway/app.py",
+      "sha256": "00ce520c5c23a8d7dd8937e9afdef1b73482ee9cf3ec9c141cd60f5d06ffdbb7"
+    },
+    {
+      "canonical_path": "runtime/gateway/crypto.py",
+      "amanah_path": "reference-runtime/gateway/crypto.py",
+      "sha256": "92c77ea08a6804542357f9e9a95f7880665a2eef31468d33d34b3a746457626f"
+    },
+    {
+      "canonical_path": "runtime/gateway/edge_ingest.py",
+      "amanah_path": "reference-runtime/gateway/edge_ingest.py",
+      "sha256": "54844cd54fcccaee5e8d3caba6d948f8e46854d249fb8ba1465917f3281fcc8b"
+    },
+    {
+      "canonical_path": "runtime/gateway/fsm.py",
+      "amanah_path": "reference-runtime/gateway/fsm.py",
+      "sha256": "b05760cccf81f60c2b3426369da92aebc3318ed7d1773fcef402727b5ba377bb"
+    },
+    {
+      "canonical_path": "runtime/gateway/models.py",
+      "amanah_path": "reference-runtime/gateway/models.py",
+      "sha256": "cd89b8e3ab7f79ca8908a468f81f9bee20d972696216a3331ea22714f279452e"
+    },
+    {
+      "canonical_path": "runtime/gateway/requirements.txt",
+      "amanah_path": "reference-runtime/gateway/requirements.txt",
+      "sha256": "5c2214b8a0ddd7e579fac6455d748e85596b55459d253ae2af13b3f7c1dc256d"
+    },
+    {
+      "canonical_path": "runtime/policies/data.json",
+      "amanah_path": "reference-runtime/policies/data.json",
+      "sha256": "7f422560eebe844d8319c4f0dedbbcfe4a5f3864bcb7daeb34f18a317daf1a2e"
+    },
+    {
+      "canonical_path": "runtime/policies/halal_gate.rego",
+      "amanah_path": "reference-runtime/policies/halal_gate.rego",
+      "sha256": "03f8f5c4a7f1bc274f8c126c27797f2194ffe05190f15bcbb7c1f4beb4bb116d"
+    },
+    {
+      "canonical_path": "runtime/policies/halal_gate_test.rego",
+      "amanah_path": "reference-runtime/policies/halal_gate_test.rego",
+      "sha256": "26bffd981a86586241fa747bb93397589fdcf875d96ac27e76ab56dda498eb48"
+    },
+    {
+      "canonical_path": "runtime/policies/halal_master.rego",
+      "amanah_path": "reference-runtime/policies/halal_master.rego",
+      "sha256": "741b85d9045225ac32ffd0c7ec688e5a3f85cc7359a30516c0881e44b57cfc2d"
+    },
+    {
+      "canonical_path": "runtime/policies/halal_master_test.rego",
+      "amanah_path": "reference-runtime/policies/halal_master_test.rego",
+      "sha256": "a6894007690d170c13d8e37cc3133b200eeed716e337ddcbc7d6867f14625759"
+    },
+    {
+      "canonical_path": "tests/__init__.py",
+      "amanah_path": "reference-runtime/tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "canonical_path": "tests/runtime_path.py",
+      "amanah_path": "reference-runtime/tests/runtime_path.py",
+      "sha256": "95f51afc3ae9124ec82593dabdaa880406416323d22c2811899dff152263506d"
+    },
+    {
+      "canonical_path": "tests/test_edge_and_fsm.py",
+      "amanah_path": "reference-runtime/tests/test_edge_and_fsm.py",
+      "sha256": "35743b51f54c067fe77b14fd137416ad3941444fd57262e1bfa2aa302fa5dc40"
+    },
+    {
+      "canonical_path": "tests/test_gateway_guards.py",
+      "amanah_path": "reference-runtime/tests/test_gateway_guards.py",
+      "sha256": "6845ff0eeaf777c3fcbf246db3b66aa14d26f6ca4172498f43064f67917b9bc2"
+    },
+    {
+      "canonical_path": "tests/e2e/__init__.py",
+      "amanah_path": "reference-runtime/tests/e2e/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "canonical_path": "tests/e2e/test_shipment_pipeline.py",
+      "amanah_path": "reference-runtime/tests/e2e/test_shipment_pipeline.py",
+      "sha256": "d26a97d4173f958bc2340514ffc5a82863465902b72094225fdd6121599e87f2"
+    }
+  ]
+}

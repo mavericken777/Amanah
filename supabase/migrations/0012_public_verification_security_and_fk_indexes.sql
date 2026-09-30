@@ -1,5 +1,4 @@
 -- Remove public SECURITY DEFINER verification RPC and add advisor-required FK indexes.
-revoke all on function public.ahte_public_verify(text) from public;
 drop function if exists public.ahte_public_verify(text);
 
 create index if not exists ahte_api_rate_limits_actor_idx on public.ahte_api_rate_limits(actor_user_id);

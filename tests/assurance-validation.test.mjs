@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {objectBody,requestIdentity,packetError} from '../supabase/functions/assurance/validation.ts';
+test('JSON body rejects null and arrays',()=>{for(const x of [null,[],3,'x']) assert.equal(objectBody(x),false);assert.equal(objectBody({}),true);});
+test('idempotency identity binds route and actor',()=>{const a=requestIdentity('POST','/hold','alice',{});assert.notEqual(a,requestIdentity('POST','/release','alice',{}));assert.notEqual(a,requestIdentity('POST','/hold','bob',{}));});
+const p={packet_type:'SYNTHETIC',schema_version:'1.2.0',identity_object:{legal_entity:'SYNTHETIC',factory:'SYNTHETIC',sku:'SYNTHETIC',batch:'SYNTHETIC'},evidence_object:{source:'SYNTHETIC',hash_sha256_first_12:'000000000000',retrieval_timestamp:'2026-09-30T00:00:00Z',class:'E2'}};
+test('packet schema validates required identities, source hashes and dates',()=>{assert.equal(packetError(p),null);assert.ok(packetError({...p,identity_object:{}}));assert.ok(packetError({...p,evidence_object:{...p.evidence_object,hash_sha256_first_12:'fake'}}));assert.ok(packetError({...p,evidence_object:{...p.evidence_object,retrieval_timestamp:'yesterday'}}));});
+test('packet rejects authority claims outside canonical enums',()=>{assert.ok(packetError({...p,authority_gate_object:{owner:'SYNTHETIC',decision_point:'SYNTHETIC',status:'auto-certified'}}));assert.ok(packetError({...p,certificate_object:{issuer:'SYNTHETIC',scope:'SYNTHETIC',validity_from:'2026-01-01',validity_to:'2027-01-01',ahte_does_not_issue:false}}));});

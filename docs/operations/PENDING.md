@@ -1,6 +1,13 @@
 # Pending closure
 
-No identified Amanah software-engineering defect remains open in this release candidate. The dependency lockfile is committed, CI uses deterministic `npm ci`, Supabase security-advisor findings are zero, MS 2400 Parts 1–3 source provenance is bound, and the temporary GHSCL stakeholder site is deployed and live-verified.
+The previous assertion that every engineering defect was closed is superseded by `RECONCILIATION_CHECKPOINT_2026-09-30.md`. Repository inventory, source mirrors, schema validation, release controls and migration replay are being reconciled on `build/canonical-reconciliation-20260930`.
+
+Repository-controlled work still requiring closure:
+
+- Exact-head CI, reviewed PR merge and live release-gate migration/function verification.
+- Complete per-file semantic disposition beyond the recorded file/hash inventory.
+- Audit all remaining endpoint error handling and live schema contracts; confirm production hosting/UAT with real authorized operators.
+- Preserve the explicit state-vocabulary conflict and missing onward authority transition; source governance owns promotion.
 
 Remaining items are external/account/transaction gates only:
 

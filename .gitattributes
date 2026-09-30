@@ -1,0 +1,4 @@
+config/ahte-*.json text eol=lf
+reference-runtime/** text eol=lf
+supabase/functions/assurance/trust-machine.json text eol=lf
+supabase/functions/assurance/packet-schemas.json text eol=lf
