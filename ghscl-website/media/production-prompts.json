@@ -1,0 +1,19 @@
+{
+  "mode": "built-in imagegen",
+  "generated_date": "2026-09-30",
+  "kind": "AI-generated conceptual CGI",
+  "assets": {
+    "architecture.webp": {
+      "prompt": "Create a single exceptional ultra-premium architectural CGI still for a sovereign-grade global supply-chain trust infrastructure website. Wide cinematic 16:9 composition. An immense immaculate industrial audit facility atrium, precision brushed platinum structural ribs, obsidian floor, warm ivory light blades, subtle antique gold details, glass-enclosed manufacturing lines visible at the sides, long axial perspective, elegant restrained atmospheric haze, realistic physically based materials, film-grade lighting, no people, no text, no logos, no government seals, no certification symbols, no dashboards, no science-fiction fantasy. Lower viewpoint 28mm architectural photography. Strong sculptural focal point on right, calm dark negative space left. Designed concept architecture, not a depiction of any real facility. Palette black charcoal platinum warm white and very restrained gold. Premium executive editorial render, painstaking detail."
+    },
+    "corridor.webp": {
+      "prompt": "Use case: stylized-concept. Asset: flagship supply-chain infrastructure website cinematic industrial still, 16:9. An immense modern deep-water container port at blue hour, viewed from low aerial cinematic perspective, monumental gantry cranes, orderly stacks of charcoal containers, one large cargo vessel at berth, warm ivory working lights reflected in calm dark water, refined subtle platinum and antique gold accents. Realistic industrial materials, controlled architectural photography style, long exposure atmosphere, powerful sober institutional feeling, no people, no text, no logos, no flags, no certifications, no invented real-port identity. Imagined China to Gulf trade corridor, clearly a conceptual render. Compose port structures on right two thirds, left open dark ocean/haze for headline. Photoreal CGI, executive editorial quality, restrained colors, no neon cyberpunk, no fake dashboard."
+    },
+    "trust-core.webp": {
+      "prompt": "Use case: product-mockup. Create a cinematic 16:9 high fidelity luxury industrial product CGI render for GHSCL digital trust platform, a conceptual physical metaphor of a trust packet: six precision-machined platinum square frames nested around a suspended smoky crystal core, subtle engraved abstract channels without text, arranged as an exploded assembly in perspective, sculptural engineered object with realistic brushed metal, bevelled glass, subtle gold connector pins, an obsidian pedestal and dark charcoal studio. Extremely polished high-end luxury technology campaign image. Dramatic large softbox reflections and restrained warm ivory edge light, no neon, no floating UI, no letters, no certification marks, no government symbols, no real product claims. Product occupies right half with elegant dark negative space left. Film-grade material depth and microdetail, minimal composition."
+    },
+    "control-room.webp": {
+      "prompt": "Use case: stylized-concept. A wide 16:9 architectural interior CGI of an ultra-premium supply-chain systems-control centre, dramatic long console bench in brushed platinum and obsidian, finely integrated warm ivory lighting, massive dark glass wall with delicate abstract line diagrams only, no readable text or numerical data, no neon, no holograms, no logos, no flags, no official insignia. Restrained gold material accents, architectural scale, actual realistic screens integrated flush, operator chairs empty, high-end sovereign institutional aesthetic. 24mm cinematic editorial composition, dark left space, main luminous room to right. Concept architecture, does not represent live monitoring of any shipment. Photoreal materials, rich controlled contrast, museum-grade architectural lighting."
+    }
+  }
+}
