@@ -1,0 +1,103 @@
+{
+  "classification": "HISTORICAL / SUPERSEDED / NON-CONTROLLING",
+  "current_controls": "docs/operations/STATUS.md",
+  "original_artifact": "docs/operations/CLAIMS_AND_GATES_2026-09-30.json",
+  "historical_record": {
+    "version": "6.0.0-proposal",
+    "canonical_commit": "3d5cc29fabf7c3ed0da20cd938219fed83e74830",
+    "freeze": "master-standards-stack/verified-2026-09-17/",
+    "authority_effect": "none",
+    "conflicts": [
+      {
+        "id": "PHC-MANDATE",
+        "handoff_statement": "PHC/JAKIM Mufti/scholars human authority workflow undertakes formal certification approval/disapproval.",
+        "canonical_path": "00_EXECUTIVE_COMMAND/partner-registry.json",
+        "canonical_statement": "Distinct JAKIM/MAIN/JAIN mandates; PHC commercial industry role. No partner creates official Halal certification.",
+        "additional_source": "partners/phc/README.md describes State and Federal working as one, with PHC the State industry arm.",
+        "status": "[OPEN GATE: SOURCE CONFLICT — PHC-MANDATE]",
+        "owner": "JAKIM / applicable MAIN / JAIN + PHC for mandate evidence",
+        "blocking_path_point": "Authority Gate",
+        "website_treatment": "Show requested PHC institutional participation as proposed coordination. Publish both statements in this record; no independent PHC certification power is asserted and the conflict is not resolved."
+      },
+      {
+        "id": "LAB-RECOGNITION",
+        "handoff_statement": "JAKIM-endorsed / approved China government laboratory workflow.",
+        "canonical_path": "partners/china-food-security-lab/AHTE_JAKIM_INTEGRATION_PROFILE_2026-09-26.md",
+        "canonical_statement": "Does not assert JAKIM has already accredited, recognized, authorized, certified, endorsed, or directly connected the named Chinese organization/laboratory.",
+        "status": "[OPEN GATE: SOURCE CONFLICT — LAB-RECOGNITION]",
+        "owner": "JAKIM / exact laboratory",
+        "blocking_path_point": "Evidence → Authority Gate",
+        "required_artifact": "Exact legal identity, accreditation/method scope and JAKIM written recognition/acceptance instrument.",
+        "website_treatment": "Full laboratory workflow remains described; operational recognition is source-locked."
+      },
+      {
+        "id": "STATE-VOCABULARY",
+        "canonical_paths": [
+          "master-standards-stack/china-execution-pack/00_MASTER_CHINA_EXECUTION_MODEL.md",
+          "00_EXECUTIVE_COMMAND/canonical-path-machine-map.json"
+        ],
+        "statements": [
+          "Conceptual INITIAL → EVIDENCE-COMPLETE → ASSESSED → VERIFIED → RELEASED",
+          "Reserved authority_decided machine state has no onward transition"
+        ],
+        "status": "[OPEN GATE: SOURCE CONFLICT — STATE-VOCABULARY]",
+        "owner": "Canonical source governance",
+        "blocking_path_point": "Authority Gate → Trust State → Operational Release",
+        "website_treatment": "Explain conceptual state examples separately; no new executable state or authority transition introduced."
+      }
+    ],
+    "external_gates": [
+      {
+        "item": "JAKIM official API",
+        "status": "SOURCE-LOCKED",
+        "required": "Official interface contract, mandate, endpoint/authentication and production connectivity acceptance"
+      },
+      {
+        "item": "GHSCL JV ownership",
+        "status": "SOURCE-LOCKED",
+        "required": "Executed corporate instruments; no ownership graph inferred"
+      },
+      {
+        "item": "Manufacturer application submission",
+        "status": "OPEN GATE",
+        "required": "Authorized production onboarding workflow; current public readiness tool is local preparation"
+      },
+      {
+        "item": "Company contact channel",
+        "status": "OPEN GATE",
+        "required": "Verified company contact and authorized delivery configuration; no invented email/address"
+      },
+      {
+        "item": "Shipment 001",
+        "status": "PILOT",
+        "required": "Transaction-native evidence, authority and destination acceptance; no fabricated completed shipment"
+      },
+      {
+        "item": "Cinematic 3D film",
+        "status": "OPEN GATE",
+        "required": "Authorized production media generation/commission; current film is editorial motion over concept stills"
+      },
+      {
+        "item": "Real-world photography",
+        "status": "OPEN GATE",
+        "required": "Commissioned or approved licensed photography"
+      }
+    ],
+    "canonical_path": [
+      "Authority",
+      "Standard / Instrument",
+      "Clause / Requirement",
+      "Applicability",
+      "Control",
+      "HCP / SCCP",
+      "Evidence",
+      "Audit Test",
+      "Finding",
+      "Corrective Action",
+      "Re-verification",
+      "Authority Gate",
+      "Trust State",
+      "Operational Release"
+    ]
+  }
+}

@@ -2,13 +2,17 @@
 
 ## Objective
 
-Move from Markdown requirements to an operational application quickly without losing requirements or compromising tenant security.
+Preserve the original delivery requirements while implementing the operational application without compromising tenant security. This is the controlling delivery sequence and acceptance scope, not a claim that production UAT is complete.
+
+Consolidated from `docs/DELIVERY_PLAN.md` at Amanah main `a421baba7cf04eaadab4941c9448a92c9e1efd6f`. Current validation and external gates are tracked in [STATUS](STATUS.md), [RELEASE_CHECKLIST](RELEASE_CHECKLIST.md) and [PENDING](PENDING.md).
 
 ## Branch strategy
 
 - main: release-ready baseline
 - setup/china-trip-project: preserved requirements branch
-- build/amanah-platform-v1: current implementation branch
+- dedicated reviewed feature/housekeeping branches: current implementation work
+
+The original implementation branch was `build/amanah-platform-v1`; it is historical lineage, not the current deployment source.
 
 Do not delete the requirements branch.
 

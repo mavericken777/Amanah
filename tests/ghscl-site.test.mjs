@@ -73,7 +73,7 @@ test('site does not use insecure http assets', () => {
  test('hybrid exposes all eight scenes and remains bound to corrected canonical source', () => {
   assert.equal((html.match(/class="cinema-chapter /g) || []).length,8);
   assert.equal((html.match(/class="chapter-jump /g) || []).length,8);
-  assert.match(html,/3d5cc29fabf7c3ed0da20cd938219fed83e74830/);
+  assert.ok(html.includes(JSON.parse(fs.readFileSync('config/source-binding.json','utf8')).commit));
   assert.match(html,/authority_decided state has no onward machine transition/);
   assert.match(html,/JAKIM \/ MAIN \/ JAIN/);
 });

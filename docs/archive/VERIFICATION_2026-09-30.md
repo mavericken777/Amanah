@@ -1,3 +1,5 @@
+> HISTORICAL / SUPERSEDED / NON-CONTROLLING. Original audit evidence is retained below. Current source binding, topology, readiness and gates are controlled by [STATUS](../operations/STATUS.md), [SOURCE_BINDING](../ahte/SOURCE_BINDING.md) and [PENDING](../operations/PENDING.md). Historical closure claims apply only to their recorded review.
+
 # Hybrid flagship verification — 2026-09-30
 
 Story: stakeholder enters GHSCL → explores eight chapters → inspects the canonical path and role views → plays concept film or opts into sound. Static public presentation; no authenticated Amanah API or Supabase data involved.

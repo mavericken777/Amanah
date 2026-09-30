@@ -6,7 +6,7 @@ const target=JSON.parse(fs.readFileSync('config/current-target-architecture-2026
 const schemas=JSON.parse(fs.readFileSync('config/target-extension-schemas-2026-09-30.json','utf8'));
 
 test('current target binds Amanah to current GHDT snapshot without moving the freeze',()=>{
-  assert.equal(target.source_commit,'0fab4c64240b569caef947fb2568ccda9d3fa0d3');
+  assert.equal(target.source_commit,JSON.parse(fs.readFileSync('config/source-binding.json','utf8')).commit);
   assert.equal(target.freeze_boundary,'master-standards-stack/verified-2026-09-17/');
   assert.equal(target.authority_effect,'none');
   assert.equal(target.default_corridor.physical_route,'China -> GCC direct');

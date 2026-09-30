@@ -73,6 +73,42 @@ jobs:
       - run: opa test -v reference-runtime/policies/
       - run: opa test -v reference-runtime/platform/policies/
 
+  browser-smoke:
+    runs-on: ubuntu-latest
+    needs: [build]
+    timeout-minutes: 15
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: https://lqvyyylrydcpjochknag.supabase.co
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: sb_publishable_ci_placeholder
+      PLAYWRIGHT_MODULE: /tmp/amanah-browser/node_modules/playwright/index.mjs
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run web:build && npm run build
+      - name: Install pinned browser validation tool outside application dependencies
+        run: |
+          npm install --prefix /tmp/amanah-browser --no-audit --no-fund playwright@1.63.0
+          /tmp/amanah-browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Start isolated fixture servers and exercise website/protected routes
+        run: |
+          mkdir -p browser-results
+          python3 -m http.server 8080 --bind 127.0.0.1 --directory ghscl-website > /tmp/amanah-site.log 2>&1 &
+          npm start > /tmp/amanah-next.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -sf http://127.0.0.1:3000/login >/dev/null && curl -sf http://127.0.0.1:8080/index.html >/dev/null; then break; fi
+            sleep 1
+          done
+          node tests/browser-smoke.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-smoke-${{ github.sha }}
+          path: browser-results/
+
   reference-platform:
     runs-on: ubuntu-latest
     steps:

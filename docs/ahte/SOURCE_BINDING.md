@@ -4,9 +4,9 @@
 
 `mavericken777/GlobalHalalDigitalTrust` — branch `main`.
 
-[PROJECT-REPO: https://github.com/mavericken777/GlobalHalalDigitalTrust/tree/0fab4c64240b569caef947fb2568ccda9d3fa0d3 — 0fab4c64240b — 2026-09-30T18:36:26Z — current project target snapshot]
+[PROJECT-REPO: https://github.com/mavericken777/GlobalHalalDigitalTrust/tree/14456e99937d6f11d63bd041dcffdb903d12594f — 14456e99937d — 2026-09-30 — current project target snapshot]
 
-Current project-level target binding: `0fab4c64240b569caef947fb2568ccda9d3fa0d3`.
+Current project-level target binding: `14456e99937d6f11d63bd041dcffdb903d12594f`.
 
 The verified standards freeze remains `master-standards-stack/verified-2026-09-17/`. Post-freeze project architecture does not substitute for authority text or silently alter the frozen package.
 
@@ -36,15 +36,9 @@ Historical reconciliation artifacts that cite `3d5cc29...` or `ae3f662...` remai
 
 No artificial blocks or arbitrary feature caps may be introduced because a live connector, credential or counterparty is unavailable. Development providers replace connectivity, not capability. They must never fabricate live external state.
 
-## Supersession rules
+## Current controls
 
-- `China → Malaysia` pilot wording → `China → GCC direct`.
-- `China → Malaysia → GCC` mandatory physical corridor wording → China origin → GCC destination; Malaysia remains governance/assurance/authority-connectivity unless separately scoped as a physical hop.
-- generic public Authority Gateway or NurAI hop between AHTE and JAKIM → `AHTE ⇄ DIRECT JAKIM API ⇄ JAKIM`.
-- passive Command Center analytics → joint 24/7 GHSCL operational + authorised JAKIM authority-side monitoring with predictive/preemptive escalation.
-- transport-only Sinotrans scope → end-to-end warehouse + logistics real-time integration.
-- lower-case duplicate China execution pack → canonical `master-standards-stack/CHINA_EXECUTION_PACK/`.
-- old China-lab alignment addendum/profile → current integrated China laboratory + traceability profile.
+China → GCC direct. Malaysia governs assurance and authority connectivity unless a physical hop is separately scoped. AHTE ⇄ Direct JAKIM API ⇄ JAKIM. Joint 24/7 GHSCL + JAKIM Command Center; end-to-end Sinotrans warehouse/logistics; integrated China laboratory and traceability; sovereign port/customs decisions; predictive analytics and Preemptive Strategy Engine; purpose-scoped Shariah Financing API, Takaful and tokenomics.
 
 ## Authority workflow
 
@@ -91,3 +85,33 @@ No architecture document, local test, synthetic fixture, connector mock or websi
 [PILOT: Shipment 001 — China → GCC direct; NOT-INSTANTIATED]
 
 This document is an implementation provenance record. It is not an authority instrument and does not create certification status.
+Machine-readable controlling binding: `config/source-binding.json`. The mirror manifest records canonical blob identifiers and local SHA-256 checksums at this same commit.
+
+## Authority boundary
+
+Amanah/AHTE is an orchestration, evidence, assurance and operational-release platform. It is not a Halal certification authority.
+
+- Malaysian Standards are technical instruments.
+- Competent authorities own certification decisions.
+- GCC destination authorities/importer processes own destination acceptance decisions.
+- Laboratory results produce evidence only.
+- AI assessments are advisory and cannot create E5 authority decisions.
+- Blockchain, QR, telemetry, digital twins and cryptographic records preserve or communicate evidence; they do not create certification.
+- Trust vectors/scores are descriptive and cannot compensate for failed hard gates.
+- Operational release is not certification.
+
+Any code path that changes these boundaries requires doctrine/source review before production merge.
+
+## Canonical AHTE control path
+
+`Authority → Standard / Instrument → Clause / Requirement → Applicability → Control → HCP / SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → Authority Gate → Trust State → Operational Release`
+
+Machine concepts refine this path; they do not replace it.
+
+- AI Assessment → Evidence / Audit Test (advisory).
+- HITM Detector → pre-gate policy enforcement / escalation.
+- Human/competent-authority determination → Authority Gate.
+- Cryptographic propagation / trust vector → Trust State.
+- Trust fracture / hold → Trust State and corrective workflow.
+- Blast-radius analysis → Corrective Action / Re-verification.
+- Operational Release → final operational path point, not certification.

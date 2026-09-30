@@ -1,3 +1,15 @@
+## 2026-10-01 — review closure
+
+- Bind current implementation and public provenance to canonical main `14456e99937d6f11d63bd041dcffdb903d12594f` after GHDT PR #20; preserve historical audit commits and the verified freeze.
+- Restrict privileged Pages deployment to trusted main pushes/manual dispatch, verify deployed 404 bytes, preserve protected query strings through login, and consolidate all original delivery requirements.
+- Add deployment and redirect regressions; browser checks include saved-search return paths.
+
+# Current reconciliation
+
+Canonical binding: `1cc9b338a28e4d7ddf4e7b6509bc38dae9396596`. Consolidated current controls, archived original audit reports as HISTORICAL / SUPERSEDED / NON-CONTROLLING, verified exact mirror bytes, extended protected-route redirects, fixed unsafe auth return paths, added isolated development connectors and full browser / deployed Pages verification.
+
+The entries below record historical releases and their original reviewed commits; they do not control current readiness.
+
 # Changelog
 
 ## 2026-10-01 — GHDT target-architecture synchronization

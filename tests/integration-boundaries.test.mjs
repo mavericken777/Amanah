@@ -9,6 +9,28 @@ const mod={exports:{}};new Function('exports','module',code)(mod.exports,mod);
 const {AuthorityGateway,LabGateway,LogisticsGateway,IntegrityService,UnconfiguredConnector,validateContext}=mod.exports;
 const context={organizationId:'org',actorId:'actor',environment:'development',idempotencyKey:'request',authorizedScopes:['integration:exchange']};
 const event={organizationId:'org',objectId:'object',eventId:'event',evidenceId:'evidence',actorId:'actor',timestamp:'2026-09-30T00:00:00Z',eventType:'TEST',environment:'development',simulated:true,source:{sourceSystem:'fixture',sourceRecordId:'fixture-only',sourceVersion:'1'},integrity:{contentHash:'reference-only',signatureReference:'fixture-reference',keyId:'fixture',policyVersion:'demo'}};
+
+test('development ports accept fixtures without producing external evidence or decisions',async()=>{
+ for(const kind of ['jakim-api','laboratory','sinotrans-logistics','port-customs','shariah-finance','command-center','erp','mes','wms','tms','qms','lims','iot','identity','integrity-anchor']) {
+   const connector=new mod.exports.DevelopmentConnector(kind);
+   assert.equal(await connector.health(),'ready');
+   const receipt=await connector.exchange({event},context);
+   assert.equal(receipt.status,'received');assert.equal(receipt.sourceReceiptReference,undefined);
+   assert.equal(receipt.developmentAcknowledgement.createsAuthorityDecision,false);
+   assert.equal(receipt.developmentAcknowledgement.createsTransactionEvidence,false);
+   assert.equal(receipt.developmentAcknowledgement.simulated,true);
+   assert.equal(receipt.notCertification,true);
+   assert.deepEqual(await connector.exchange({event},context),receipt);
+   const conflict=await connector.exchange({event:{...event,objectId:'tampered'}},context);
+   assert.ok(conflict.errors.includes('idempotency_payload_conflict'));
+   const real=await connector.exchange({event:{...event,simulated:false}},context);
+   assert.ok(real.errors.includes('development_requires_simulated_event'));
+   const prod=await connector.exchange({event:{...event,environment:'production'}},{...context,environment:'production'});
+   assert.ok(prod.errors.includes('environment_mismatch'));
+   const other=await connector.exchange({event},{...context,organizationId:'other'});
+   assert.ok(other.errors.includes('organization_scope_mismatch'));
+ }
+});
 test('unconfigured authority never creates an official receipt or certification',async()=>{
  const gateway=new AuthorityGateway(new UnconfiguredConnector('authority','development'));
  const result=await gateway.exchange({event,authorityId:'authority',caseReference:'case',evidenceReferences:[],requestedAction:'read-status'},context);

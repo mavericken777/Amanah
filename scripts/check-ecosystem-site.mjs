@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
+import './check-repository-links.mjs';
 const base='ghscl-website/';
 for(const name of ['ecosystem.js','hybrid.js','v4.js'])new vm.Script(fs.readFileSync(base+name,'utf8'),{filename:name});
 const content=JSON.parse(fs.readFileSync(base+'ecosystem.en.json','utf8'));

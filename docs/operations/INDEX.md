@@ -1,6 +1,7 @@
-# 2026-09-30 hardening index
+# Amanah operations
 
-- `END_TO_END_COMPLETION_2026-09-30.md` — completion and gate register.
-- `SECURITY_MODEL.md` — application authorization/RLS model.
-- `RELEASE_CHECKLIST.md` — recurring release controls.
-- `CHANGELOG_2026-09-30.md` — change record.
+Current controls: [STATUS](STATUS.md), [PENDING](PENDING.md), [release checklist](RELEASE_CHECKLIST.md), [deployment runbook](DEPLOYMENT_RUNBOOK.md), [security model](SECURITY_MODEL.md). See [repository index](../../REPO_INDEX.md) for the application and source map.
+
+- [Delivery requirements and implementation sequence](DELIVERY_PLAN.md)
+
+- [Full housekeeping change inventory](FULL_HOUSEKEEPING_2026-10-01.md)

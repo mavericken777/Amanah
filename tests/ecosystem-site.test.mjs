@@ -31,7 +31,7 @@ test('every public route has resolvable assets, navigation and fragment targets'
 });
 
 test('public source links bind to current GHDT target and avoid retired topology/sources',()=>{
-  assert.equal(data.canonicalCommit,'0fab4c64240b569caef947fb2568ccda9d3fa0d3');
+  assert.equal(data.canonicalCommit,JSON.parse(fs.readFileSync('config/source-binding.json','utf8')).commit);
   const all=data.pages.map(p=>JSON.stringify(p)).join('\n');
   for(const term of ['PHC','GHSCL','AHTE','Direct JAKIM API','HCP','SCCP','Sinotrans','custody','re-verification','Command Center','Preemptive Strategy','Takaful','tokenomics','port/customs'])assert.ok(all.toLowerCase().includes(term.toLowerCase()),term);
   assert.ok(!all.includes('Secure Authority Gateway ⇅'),'stale public authority gateway topology');

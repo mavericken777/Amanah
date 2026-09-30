@@ -23,3 +23,6 @@ node_modules/
 __pycache__/
 .pytest_cache/
 supabase/.temp/
+
+# Browser verification evidence is uploaded by CI
+browser-results/
