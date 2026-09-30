@@ -1,0 +1,33 @@
+{
+  "artifact": "current-target-architecture-2026-09-30.json",
+  "version": "1.0.0",
+  "control_date": "2026-09-30",
+  "classification": "post-freeze proposal architecture registry",
+  "source_repository": "mavericken777/GlobalHalalDigitalTrust",
+  "source_commit": "ae3f662f7467aba78e64060c031db0f098dbdd49",
+  "freeze_boundary": "master-standards-stack/verified-2026-09-17/",
+  "authority_effect": "none",
+  "canonical_path": ["Authority","Standard / Instrument","Clause / Requirement","Applicability","Control","HCP / SCCP","Evidence","Audit Test","Finding","Corrective Action","Re-verification","Authority Gate","Trust State","Operational Release"],
+  "default_corridor": {"origin":"China","destination":"GCC","physical_route":"China -> GCC direct","malaysia_role":"governance / assurance plane unless separately scoped as a physical hop","pilot":"Shipment 001","pilot_status":"NOT-INSTANTIATED"},
+  "actors": {
+    "phc": {"role":"Perak State Government halal-industry GLC operating locally and internationally"},
+    "ghscl": {"role":"international operating and digital-infrastructure vehicle","command_center":"24/7 operating function"},
+    "ahte": {"role":"continuous standards, evidence, compliance, traceability and trust intelligence"},
+    "jakim": {"role":"competent-authority system / human authority workflow","integration":"direct authorised JAKIM API"},
+    "laboratory": {"role":"scientific evidence producer within qualified scope","creates_certification":false},
+    "sinotrans": {"role":"end-to-end logistics and warehouse operating partner","integration":"existing systems / Y2T / MIS / EDI / WMS / TMS / IoT -> secure adapter/API -> AHTE"},
+    "port_customs": {"role":"sovereign border/inspection/release authority","integration":"authorised API/trust interface","ahte_overrides_decision":false},
+    "finance": {"role":"Shariah financing / Takaful / tokenomics target plane","decision_authority":"bank/financier/Takaful operator/competent regulator as applicable"}
+  },
+  "ai_ml": {
+    "modules":["Evidence Gap Predictor","Anomaly Engine","Contradiction Engine","Trust Fracture Engine","Predictive Compliance Engine","Recall Blast-Radius Engine","Preemptive Strategy Engine"],
+    "cannot":["bypass D5 authority gate","bypass D6 sovereign/legal decision","automatically release a D4 hold reserved for human decision","silently issue, alter or revoke official Halal certification"]
+  },
+  "command_center": {"operators":["GHSCL","JAKIM authorised authority-side roles"],"mode":"24/7","domains":["manufacturer/facility","supplier/raw material","laboratory/sample","HCP/SCCP","smart-glass audit","authority status","Sinotrans warehouse","Sinotrans logistics","container/seal","telemetry","route/geofence","custody","ports","GCC receiving","CAPA","evidence expiry","trust fracture","predictive risk","preemptive strategy","recall"]},
+  "supersession_rules":[
+    {"stale":"China -> Malaysia pilot wording","use":"China -> GCC direct"},
+    {"stale":"China -> Malaysia -> GCC physical corridor wording","use":"China origin -> GCC destination; Malaysia governance/assurance unless separately scoped"},
+    {"stale":"generic public authority gateway between AHTE and JAKIM","use":"direct JAKIM API topology"},
+    {"stale":"passive command-center analytics","use":"24/7 monitoring, prediction, preemptive strategy, escalation and intervention operating layer"}
+  ]
+}
