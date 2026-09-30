@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  checks: read
   pages: write
   id-token: write
 
@@ -35,6 +36,11 @@ jobs:
           cache: npm
       - name: Install
         run: npm ci
+      - name: Verify current main and all exact-head CI checks
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          RELEASE_HEAD: ${{ github.event.workflow_run.head_sha || github.sha }}
+        run: node scripts/verify-release-head.mjs
       - name: Build ecosystem site
         run: npm run web:build
       - name: Validate ecosystem site
