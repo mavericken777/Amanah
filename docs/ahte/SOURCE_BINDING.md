@@ -4,7 +4,13 @@
 
 `mavericken777/GlobalHalalDigitalTrust` — branch `main`.
 
-[PROJECT-REPO: `mavericken777/GlobalHalalDigitalTrust` — `b1c0fc63be72` — 2026-09-30 — canonical implementation review]
+[PROJECT-REPO: https://github.com/mavericken777/GlobalHalalDigitalTrust/tree/3d5cc29fabf7c3ed0da20cd938219fed83e74830 — 3d5cc29fabf7 — 2026-09-30T03:35:27Z — canonical implementation review]
+
+The full binding is `3d5cc29fabf7c3ed0da20cd938219fed83e74830`. The 43 mirrored files are tracked in `config/canonical-mirror-manifest.json` using canonical Git-blob SHA-256 values. Historical `b1c0fc63be72` records are superseded for current runtime parity, not rewritten as if they reviewed this newer commit.
+
+[OPEN GATE: SOURCE CONFLICT — trust-state-reference-layer — owner: AHTE/IQ300 source governance — blocking: frozen-vocabulary promotion]
+
+The conceptual vocabulary and the post-freeze machine proposal remain distinct. New mutations bind to the machine proposal; legacy states remain readable. Reserved authority transitions remain blocked and `authority_decided` has no onward transition in the controlling proposal. No new transition is inferred.
 
 The controlling freeze remains `master-standards-stack/verified-2026-09-17/`. The reviewed repository commit is post-freeze and is used as project doctrine / implementation guidance, not as substituted authority text.
 

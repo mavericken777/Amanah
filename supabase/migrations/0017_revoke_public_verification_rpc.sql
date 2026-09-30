@@ -7,6 +7,8 @@
 -- primitives migration recreating `public.ahte_public_verify(text)` after an
 -- earlier migration had removed/revoked it.
 
-revoke all on function public.ahte_public_verify(text) from public;
-revoke all on function public.ahte_public_verify(text) from anon;
-revoke all on function public.ahte_public_verify(text) from authenticated;
+do $$ begin
+ if to_regprocedure('public.ahte_public_verify(text)') is not null then
+  revoke all on function public.ahte_public_verify(text) from public,anon,authenticated;
+ end if;
+end $$;

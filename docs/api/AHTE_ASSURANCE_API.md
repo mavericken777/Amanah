@@ -45,7 +45,13 @@ The service rejects machine execution of D5/D6 in the HITM evaluation route and 
 
 ## Release protection
 
-Release calls are evaluated against the latest trust state, failed hard gates, unresolved fractures, reserved D5/D6 cases and optional authority-gate approval. Releases are stored with is_certification=false.
+Release calls are enforced by database triggers against the latest eligible state and all seven non-compensable gates. Caller `requires_authority_gate=false` and `hard_gate_status=passed` cannot bypass checks. Gate evidence must be verified, current, hashed and bound through metadata.entity_type/entity_id to the exact subject. HG-AUTH/HG-DEST and waivers require linked, approved external authority decisions and matching E5 references/signature hashes. Resolved fractures additionally require human re-verification and fresh gate reviews. `NOT DETECTED ≠ HALAL`.
+
+`POST /gate-results` records a human review with entity_type, entity_id, project_id, gate_id, result, evidence_id, rationale and authority_decision_id where required. Gate rows are append-only; the database supplies reviewer timestamps. This records a review, not an authority mandate or certification.
+
+`POST /transition` uses the canonical machine proposal bundled with the function. State rows are append-only and linked by previous_state_id. Undefined/reserved transitions fail closed. The database serializes changes and writes ledger events atomically. `POST /release` stores decision=`release`, fixes the project to the evaluated subject, and advances eligible to released within the same transaction. Releases retain is_certification=false.
+
+Draft packet creation checks each supplied component against canonical schema version 1.2.0. Optional missing components keep the packet a draft; a draft is not a claim of complete trust-packet schema conformance.
 
 ## Public verification
 
@@ -57,7 +63,7 @@ ERP/WMS/TMS/LIMS/customs/retail/Sinotrans/device integrations should send canoni
 
 ## Idempotency
 
-The idempotency record stores the request hash and response. Reusing a key with a different request is rejected with 409.
+The idempotency record binds actor, method, route and request body. Reusing a key with a different request or actor is rejected. An unfinished reservation returns 409 rather than fabricated success. Records are restricted to the requesting actor. Mutations are audited in their database transaction; external API response finalization remains a separate operation and failed completion is reported explicitly.
 
 ## Error model
 
