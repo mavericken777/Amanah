@@ -4,35 +4,52 @@
 
 `mavericken777/GlobalHalalDigitalTrust` — branch `main`.
 
-[PROJECT-REPO: https://github.com/mavericken777/GlobalHalalDigitalTrust/tree/3d5cc29fabf7c3ed0da20cd938219fed83e74830 — 3d5cc29fabf7 — 2026-09-30T03:35:27Z — canonical implementation review]
+[PROJECT-REPO: https://github.com/mavericken777/GlobalHalalDigitalTrust/tree/ae3f662f7467aba78e64060c031db0f098dbdd49 — ae3f662f7467 — 2026-09-30 — reconciled current target architecture]
 
-The full binding is `3d5cc29fabf7c3ed0da20cd938219fed83e74830`. The 43 mirrored files are tracked in `config/canonical-mirror-manifest.json` using canonical Git-blob SHA-256 values. Historical `b1c0fc63be72` records are superseded for current runtime parity, not rewritten as if they reviewed this newer commit.
+Current project-level target binding: `ae3f662f7467aba78e64060c031db0f098dbdd49`.
 
-[OPEN GATE: SOURCE CONFLICT — trust-state-reference-layer — owner: AHTE/IQ300 source governance — blocking: frozen-vocabulary promotion]
+The verified standards freeze remains `master-standards-stack/verified-2026-09-17/`. The 30 September architecture synchronization is post-freeze project architecture; it does not substitute for authority text or silently alter the frozen package.
 
-The conceptual vocabulary and the post-freeze machine proposal remain distinct. New mutations bind to the machine proposal; legacy states remain readable. Reserved authority transitions remain blocked and `authority_decided` has no onward transition in the controlling proposal. No new transition is inferred.
+Historical reconciliation artifacts that cite `3d5cc29fabf7c3ed0da20cd938219fed83e74830` remain historical evidence of that review. They are not rewritten to pretend they reviewed the later target commit. Current implementation must use this file and `docs/operations/GHDT_SYNC_2026-10-01.md` for controlling project architecture.
 
-The controlling freeze remains `master-standards-stack/verified-2026-09-17/`. The reviewed repository commit is post-freeze and is used as project doctrine / implementation guidance, not as substituted authority text.
+## Current target artifacts
 
-## Reviewed artifacts
+- `00_EXECUTIVE_COMMAND/IQ300_DOCTRINE.md`
+- `00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md`
+- `00_EXECUTIVE_COMMAND/current-target-architecture-2026-09-30.json`
+- `00_EXECUTIVE_COMMAND/schema-registry.json`
+- `00_EXECUTIVE_COMMAND/target-extension-schemas-2026-09-30.json`
+- `05_PLATINUM_REAL_TIME_MONITORING/AHTE_24_7_COMMAND_CENTER_SPEC_2026-09-30.md`
+- `deliverables/07_SINOTRANS_PLAYBOOK.md`
+- `deliverables/31_SHARIAH_FINANCING_API_TAKAFUL_TOKENOMICS_ARCHITECTURE_2026.md`
+- `partners/china-food-security-lab/DIRECT_JAKIM_API_ALIGNMENT_ADDENDUM_2026-09-30.md`
+- `docs/WEBSITE_REBUILD_MASTER_SPEC_v2_2026-09-30.md`
+- `docs/CODEX_PLATFORM_REBUILD_MASTER_PROMPT_2026-09-30.md`
 
-- `00_EXECUTIVE_COMMAND/IQ300_DOCTRINE.md` — IQ300 doctrine v3.1, freeze boundary, authority model and completion semantics.
-- `00_EXECUTIVE_COMMAND/canonical-path-machine-map.json` — machine-to-canonical-path mapping.
-- `00_EXECUTIVE_COMMAND/schema-registry.json` — structured trust/evidence schema index.
-- `00_EXECUTIVE_COMMAND/trust-packet-schemas.json` — evidence, authority, trust-state, HITM and release object schemas.
-- `00_EXECUTIVE_COMMAND/RECONCILIATION_2026-09-27.md` — repository corrections, external gates and evidence-status overlay.
+## Supersession rules
+
+Current project topology supersedes older project-level statements as follows:
+
+- `China → Malaysia` pilot wording → `China → GCC direct`.
+- `China → Malaysia → GCC` physical corridor wording → China origin → GCC destination; Malaysia remains governance/assurance unless separately scoped as a physical hop.
+- generic public `Authority Gateway` topology between AHTE and JAKIM → `AHTE ⇄ direct JAKIM API ⇄ JAKIM`.
+- passive monitoring → 24/7 GHSCL + JAKIM-connected Command Center with predictive analytics, preemptive strategy, escalation, CAPA/re-verification and recall.
+- generic logistics adapter only → Sinotrans end-to-end warehouse + logistics real-time integration.
+- port workflow only → authorised port/customs API/trust interface.
+- generic finance module only → Shariah Financing API / Takaful / tokenomics target plane with separate decision authorities.
 
 ## Source rules implemented in Amanah
 
 - Source provenance first.
 - Authority boundaries explicit.
-- Evidence versioned.
-- AI advisory.
-- Decisions accountable.
-- Physical and digital trust continuously linked.
+- Evidence versioned and attributable.
+- AI/ML may detect, predict, prioritize and recommend; it does not create authority decisions.
+- Decisions remain accountable.
+- Physical and digital trust remain continuously linked.
 - Malaysian Standards are technical instruments, not certification authorities.
 - Certification decisions remain with competent authorities.
 - Destination decisions remain with relevant GCC authority/importer processes.
+- Port/customs release remains sovereign.
 - `NOT DETECTED != HALAL`.
 - Trust score is descriptive and secondary to hard gates.
 - Operational release is not certification.
@@ -42,30 +59,17 @@ The controlling freeze remains `master-standards-stack/verified-2026-09-17/`. Th
 
 `Authority → Standard / Instrument → Clause / Requirement → Applicability → Control → HCP / SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → Authority Gate → Trust State → Operational Release`
 
-Amanah machine nodes refine this path but do not replace it. AI Assessment maps to Evidence / Audit Test; HITM operates before or at reserved decision gates; signed competent-authority decisions remain external E5 evidence; trust vectors and scores remain descriptive Trust State artifacts; release remains operational rather than certification.
+Amanah machine nodes refine this path but do not replace it. Prediction and preemptive-strategy objects map to Evidence/Audit Test/Corrective Action support. HITM operates before or at reserved decision gates. Signed competent-authority decisions remain external E5 evidence. Trust vectors and scores remain descriptive Trust State artifacts. Release remains operational rather than certification.
 
-## Freeze discipline
+## Current integration target
 
-The GlobalHalalDigitalTrust doctrine identifies `master-standards-stack/verified-2026-09-17/` as the freeze boundary. Post-freeze corrections, schemas and engineering implementation are source-qualified rather than silently promoted into the frozen standards package.
+`China raw-material origin → China laboratory → manufacturer/factory systems → smart-glass audit → direct JAKIM API / human authority workflow → AHTE trust state → Sinotrans warehouse/logistics → port/customs APIs → GCC receiving/distribution/retail`.
 
-Normative wording not held at the required source depth remains `[SOURCE-LOCKED]`. Amanah must not synthesize missing clauses or authority decisions to close those gates.
-
-## Current implementation status — 2026-09-30
-
-The AHTE database/control plane is no longer limited to migration `0008`. The live Amanah project and repository lineage are reconciled through:
-
-- `0013_seed_17_standard_reference_catalog`
-- `0014_enable_ahte_realtime`
-- `0015_role_and_authority_integrity`
-- `0016_authority_decision_api_compatibility`
-
-The live Supabase database now has 98 public tables with RLS enabled on all 98. Forward migrations `release_gate_enforcement` and `reconciliation_followup` add database-enforced gates, append-only transitions, human operational release, domain holds, atomic recalls and explicit product/certificate bindings. The initial broad AHTE member-level mutation policy has been replaced with explicit read/write/delete policies on the original AHTE control-plane tables. Authority/source mutation is elevated; operational trust/release mutation is elevated; ordinary members/viewers do not receive generic mutation rights.
-
-The assurance API reserves D5/D6 decisions from machine execution and records authority decisions as externally owned evidence. `issued_by_ahte=true` is rejected. Authority decisions in `signed` or deployed-API `final` lifecycle state require decision reference plus signature hash.
+The cross-cutting operating layer is the 24/7 GHSCL + JAKIM-connected Command Center with AI/ML predictive analytics and explicit Preemptive Strategy Engine.
 
 ## Transaction boundary
 
-No real user, organization, project or Shipment 001 transaction data existed in the live project during this review. Therefore transaction-native evidence, authority decisions, importer/buyer commitments, shipment events and destination releases remain external/transaction gates and are not fabricated.
+No architecture document, local test, synthetic fixture, connector mock or website demonstration creates real Shipment 001 evidence, authority approval, sovereign port release, financing approval, Takaful decision or tokenized legal title.
 
 [PILOT: Shipment 001 — China → GCC direct]
 
