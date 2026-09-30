@@ -1,6 +1,6 @@
 # Global Halal Digital Trust website rebuild — V7 reconciliation
 
-BOUNDARY CHECK: derived from `GlobalHalalDigitalTrust@ae3f662f7467aba78e64060c031db0f098dbdd49`; freeze remains `master-standards-stack/verified-2026-09-17/`.
+BOUNDARY CHECK: derived from `GlobalHalalDigitalTrust@0fab4c64240b569caef947fb2568ccda9d3fa0d3`; freeze remains `master-standards-stack/verified-2026-09-17/`.
 
 ## Purpose
 
@@ -11,23 +11,25 @@ This review supersedes V6 **for current public architecture only**. Historical V
 | Required architecture | V7 implementation |
 |---|---|
 | China → GCC direct | explicit on corridor and lifecycle pages |
-| Malaysia governance/assurance | explicit; no default Malaysia physical hop |
+| Malaysia governance/assurance/authority-connectivity | explicit; no default Malaysia physical hop |
 | Direct JAKIM API | public topology is `AHTE ⇄ Direct JAKIM API ⇄ JAKIM` |
-| 24/7 GHSCL + JAKIM-connected Command Center | dedicated public page and homepage positioning |
+| PHC + JAKIM authorised human review | authority decision remains human/competent-authority workflow |
+| 24/7 GHSCL + authorised JAKIM-side Command Center | dedicated public page and homepage positioning |
 | AI/ML predictive analytics | explicit analytics layer |
 | Preemptive Strategy Engine | explicit first-class control loop |
+| China traceability + laboratory | serialization/aggregation/anti-diversion plus sample/custody/method/result evidence |
 | Sinotrans warehouse + logistics | WMS/TMS/Y2T/MIS/EDI/IoT and custody/telemetry scope |
 | Port/customs API | explicit sovereign trust interface |
-| Laboratory integration | sample/custody/method/result evidence workflow |
-| Manufacturer onboarding | nine-gate scalable onboarding architecture |
-| Shariah finance / Takaful / tokenomics | dedicated public target page with decision boundaries |
+| Manufacturer onboarding | full scalable onboarding architecture |
+| Shariah finance / Takaful / approved tokenomics | dedicated public target page with decision boundaries |
+| Federated data sovereignty | minimum-necessary signed assertions/references/hashes/scoped metadata |
 | Public verification | issuer-authorized disclosure only |
 
 ## Source and generation model
 
-`ghscl-website/ecosystem.en.json` is the V7 structured source and is pinned to the reconciled GHDT target commit.
+`ghscl-website/ecosystem.en.json` is the V7 structured presentation source. Build-time source binding must resolve to the current project target `0fab4c64240b...`; current project source links use the canonical uppercase `master-standards-stack/CHINA_EXECUTION_PACK/` and current China lab traceability profile.
 
-`scripts/build-ecosystem-site.mjs` generates the public pages. GitHub Pages now runs `npm ci`, `npm run web:build`, and `npm run web:lint` before deployment, so static pages are regenerated from the current structured source rather than relying on manually committed stale HTML.
+`scripts/build-ecosystem-site.mjs` generates the public pages. GitHub Pages runs `npm ci`, `npm run web:build`, and `npm run web:lint` before deployment, preventing static pages from being published from an unvalidated source state.
 
 ## Prohibited public claims
 
@@ -41,10 +43,12 @@ The website must not say or imply that:
 - financing approval follows automatically from Halal/trust state;
 - Takaful decisions are made by AHTE;
 - tokenization itself changes ownership/title/Shariah/regulatory/certification status;
-- Shipment 001 is live merely because the architecture/demo exists.
+- Shipment 001 is live merely because architecture/demo state exists.
 
 ## Production boundary
 
-Direct JAKIM API, laboratory, Sinotrans, port/customs, GCC and finance/Takaful/tokenomics production connectors remain external/engineering gates until their authorised contracts, credentials, security controls and transaction evidence exist.
+Direct JAKIM API, laboratory, Sinotrans, port/customs, GCC and finance/Takaful/tokenomics production connectors remain explicit external/engineering gates until authorised contracts, credentials, security controls and transaction evidence exist.
+
+**FULL ARCHITECTURE NOW → REAL CONNECTORS WHEN AVAILABLE → NO REDESIGN REQUIRED.**
 
 [PILOT: Shipment 001 — China → GCC direct; NOT-INSTANTIATED]
