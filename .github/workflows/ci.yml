@@ -48,11 +48,28 @@ jobs:
       - run: deno check --node-modules-dir=auto supabase/functions/public-verify/index.ts
       - run: deno check --node-modules-dir=auto supabase/functions/ghscl-site/index.ts
 
+  build:
+    runs-on: ubuntu-latest
+    needs: [typecheck, test, edge-functions, reference-platform, reference-runtime, policies]
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: https://lqvyyylrydcpjochknag.supabase.co
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: sb_publishable_ci_placeholder
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build
+
   policies:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: open-policy-agent/setup-opa@v2
+        with:
+          version: 0.68.0
       - run: opa test -v reference-runtime/policies/
       - run: opa test -v reference-runtime/platform/policies/
 
@@ -62,7 +79,7 @@ jobs:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.11'
       - run: pip install -r reference-runtime/platform/requirements.txt
       - run: python -m pytest -q reference-runtime/platform/tests
 
@@ -72,28 +89,27 @@ jobs:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.11'
       - uses: open-policy-agent/setup-opa@v2
+        with:
+          version: 0.68.0
       - run: pip install -r reference-runtime/gateway/requirements.txt
       - name: Preserve canonical test paths in the relocated mirror
-        run: cp -R reference-runtime/runtime . && cp -R reference-runtime/tests ./tests-canonical
+        run: ln -s . reference-runtime/runtime
       - name: Start fixture OPA
         run: |
-          nohup opa run --server --addr 127.0.0.1:8181 reference-runtime/policies >/tmp/opa.log 2>&1 &
-          for i in $(seq 1 20); do curl -fsS http://127.0.0.1:8181/health && break; sleep 0.5; done
+          opa run --server --addr 127.0.0.1:8181 reference-runtime/policies/ > /tmp/amanah-opa.log 2>&1 &
+          for i in $(seq 1 20); do
+            if curl -sf http://127.0.0.1:8181/health >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/amanah-opa.log
+          exit 1
       - name: Gateway guards and fixture pipeline
+        working-directory: reference-runtime
+        env:
+          REQUIRE_OPA: '1'
+          OPA_URL: http://127.0.0.1:8181/v1/data/halal/compliance
         run: |
-          PYTHONPATH=reference-runtime pytest -q reference-runtime/tests/test_gateway_guards.py
-          PYTHONPATH=reference-runtime OPA_URL=http://127.0.0.1:8181/v1/data/halal/compliance pytest -q reference-runtime/tests/e2e/test_shipment_pipeline.py
-
-  build:
-    runs-on: ubuntu-latest
-    needs: [typecheck, test, edge-functions, policies, reference-platform, reference-runtime]
-    steps:
-      - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-node@v7.0.0
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci --no-audit --no-fund
-      - run: npm run build
+          python -m pytest -q tests/test_edge_and_fsm.py tests/test_gateway_guards.py tests/e2e/test_shipment_pipeline.py
+          python engine/verify_system.py
