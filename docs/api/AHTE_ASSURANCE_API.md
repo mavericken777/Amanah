@@ -2,6 +2,8 @@
 
 [PROPOSAL: engineering implementation of canonical authority-aware API; not certification API]
 
+Current project target binding: `GlobalHalalDigitalTrust@ae3f662f7467aba78e64060c031db0f098dbdd49`.
+
 Base URL:
 `/functions/v1/assurance`
 
@@ -39,6 +41,18 @@ Mutating requests should use Idempotency-Key. Rate limiting is enforced at 120 r
 | POST | /cases/{finding_id}/corrective-actions | create CAPA | human operational workflow |
 | POST | /recalls | initiate recall and scope actions | external authority/customer closure where applicable |
 
+The current assurance Edge Function is not itself the direct JAKIM transport, Sinotrans transport, port/customs transport or finance transport. Those remain replaceable connectors around the canonical AHTE event/evidence model.
+
+## Direct JAKIM API target boundary
+
+Project topology:
+
+`AHTE ⇄ DIRECT JAKIM API ⇄ JAKIM`
+
+Amanah may use internal connector/gateway classes to enforce authentication, idempotency, schema validation, evidence binding and audit logging. Those internal classes must not be presented publicly as an additional authority layer between AHTE and JAKIM.
+
+Exact JAKIM production endpoints, credentials, scopes, permissions, payload contracts and official receipts remain source-locked until an authorised technical integration specification exists.
+
 ## D5/D6 protection
 
 The service rejects machine execution of D5/D6 in the HITM evaluation route and rejects any attempt to mark an AHTE authority decision as issued_by_ahte.
@@ -51,15 +65,46 @@ Release calls are enforced by database triggers against the latest eligible stat
 
 `POST /transition` uses the canonical machine proposal bundled with the function. State rows are append-only and linked by previous_state_id. Undefined/reserved transitions fail closed. The database serializes changes and writes ledger events atomically. `POST /release` stores decision=`release`, fixes the project to the evaluated subject, and advances eligible to released within the same transaction. Releases retain is_certification=false.
 
-Draft packet creation checks each supplied component against canonical schema version 1.2.0. Optional missing components keep the packet a draft; a draft is not a claim of complete trust-packet schema conformance.
+Draft packet creation checks each supplied component against the bundled canonical schema version. Optional missing components keep the packet a draft; a draft is not a claim of complete trust-packet schema conformance.
 
-## Public verification
+## Predictive / preemptive target objects
 
-Public verification is served by the separate `public-verify` Edge Function using a capability token. The service does not expose the internal organization membership or private project data.
+The reconciled target architecture adds explicit machine objects outside the existing `/assess` record:
+
+- command-center alert;
+- prediction;
+- preemptive strategy;
+- finance evidence packet.
+
+Their proposal schemas are stored in `config/target-extension-schemas-2026-09-30.json`.
+
+A prediction remains D2 decision support. A preemptive strategy can request or recommend D2/D3/D4 actions but cannot manufacture D5/D6 outcomes. A D4 hold may be policy-triggered where configured; release remains human/authority controlled according to the applicable gate.
+
+## 24/7 Command Center target
+
+The Command Center consumes the canonical event/evidence model rather than bypassing it.
+
+Monitored domains include manufacturer/facility, supplier/material, laboratory/sample, HCP/SCCP, smart audit, authority status, Sinotrans warehouse/logistics, container/seal, telemetry, route/geofence, custody, ports, GCC receiving, CAPA, evidence expiry, trust fracture, predictive risk, preemptive strategy and recall.
 
 ## External integrations
 
-ERP/WMS/TMS/LIMS/customs/retail/Sinotrans/device integrations should send canonical events through the inbound-events, logistics-events and telemetry routes. Authentication credentials and signed-event arrangements are deployment-specific external gates.
+Target connector families:
+
+- factory ERP/MES/QMS/WMS/LIMS/IoT/DMS/identity;
+- China laboratory + traceability/serialization;
+- Sinotrans warehouse/logistics via WMS/TMS/Y2T/MIS/EDI/IoT;
+- direct JAKIM API;
+- origin and GCC port/customs API/trust interfaces;
+- destination/importer/receiving systems;
+- Shariah-finance/Takaful evidence interfaces.
+
+External systems should exchange canonical events through the inbound-events/logistics-events/telemetry/evidence routes or dedicated adapter contracts. Authentication credentials and signed-event arrangements are deployment-specific external gates.
+
+AHTE records externally owned authority, sovereign-release and finance-related references; it does not create them by ingesting a payload.
+
+## Public verification
+
+Public verification is served by the separate `public-verify` Edge Function using a capability token. The service does not expose internal organization membership or private project data.
 
 ## Idempotency
 
@@ -73,4 +118,4 @@ Typical errors: authentication_required, invalid_token, organization_id_required
 
 ## Source boundary
 
-AHTE is an orchestration and evidence layer. It does not replace competent authorities, certification bodies or laboratories and never creates sovereign halal certification.
+AHTE is an orchestration, evidence and decision-support layer. It does not replace competent authorities, certification bodies, laboratories, port/customs authorities, financiers or other externally accountable actors and never creates sovereign Halal certification.
