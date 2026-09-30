@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths:
       - 'ghscl-website/**'
+      - 'scripts/build-ecosystem-site.mjs'
+      - 'scripts/check-ecosystem-site.mjs'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/ghscl-pages.yml'
   workflow_dispatch:
 
@@ -18,7 +22,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -26,6 +30,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22.18.0'
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Build ecosystem site
+        run: npm run web:build
+      - name: Validate ecosystem site
+        run: npm run web:lint
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload website
