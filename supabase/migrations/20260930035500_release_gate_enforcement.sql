@@ -268,3 +268,36 @@ do $$ declare p record; begin for p in select policyname from pg_policies where 
 create policy idempotency_actor_read on public.ahte_api_idempotency for select to authenticated using(private.is_org_member(organization_id) and actor_user_id=(select auth.uid()));
 create policy idempotency_actor_insert on public.ahte_api_idempotency for insert to authenticated with check(private.is_org_member(organization_id) and actor_user_id=(select auth.uid()));
 create policy idempotency_actor_update on public.ahte_api_idempotency for update to authenticated using(private.is_org_member(organization_id) and actor_user_id=(select auth.uid())) with check(private.is_org_member(organization_id) and actor_user_id=(select auth.uid()));
+
+-- Domain status fields cannot create a second, unenforced release path.
+create or replace function private.ahte_domain_release_guard() returns trigger
+language plpgsql security definer set search_path='' as $$
+declare j jsonb:=to_jsonb(new); ts record; evaluation jsonb;
+begin
+ if (j->>tg_argv[1]) in ('released','eligible') then
+  evaluation:=private.ahte_evaluate_release(new.organization_id,tg_argv[0],new.id,true);
+  select * into ts from public.ahte_trust_states where id=(evaluation->>'trust_state_id')::uuid;
+  if evaluation->>'eligible' is distinct from 'true' or ts.state<>'released' then raise exception 'domain_release_requires_operational_release' using errcode='23514'; end if;
+ end if;
+ return new;
+end $$;
+create trigger z_domain_release before insert or update on public.ahte_shipments for each row execute function private.ahte_domain_release_guard('shipment','status');
+create trigger z_domain_release before insert or update on public.ahte_batches for each row execute function private.ahte_domain_release_guard('batch','status');
+create trigger z_domain_release before insert or update on public.ahte_material_lots for each row execute function private.ahte_domain_release_guard('material_lot','status');
+create trigger z_domain_release before insert or update on public.ahte_shipment_items for each row execute function private.ahte_domain_release_guard('shipment_item','eligibility_status');
+revoke all on function private.ahte_domain_release_guard() from public,anon,authenticated;
+
+create or replace function public.ahte_rate_limit_proxy(p_org uuid,p_route text,p_limit integer default 120)
+returns boolean language plpgsql security definer set search_path='' as $$
+begin
+ if auth.uid() is null or not private.is_org_member(p_org) then raise exception 'workspace_forbidden' using errcode='42501'; end if;
+ return private.ahte_check_rate_limit(p_org,auth.uid(),p_route,least(greatest(p_limit,1),120));
+end $$;
+create or replace function public.ahte_create_public_verification_proxy(p_org uuid,p_packet_id uuid,p_disclosure jsonb,p_expires_at timestamptz default null)
+returns text language plpgsql security definer set search_path='' as $$
+begin
+ if auth.uid() is null or not private.has_org_role(p_org,array['owner','admin','executive','project_manager']) then raise exception 'public_verification_creation_restricted' using errcode='42501'; end if;
+ return private.ahte_create_public_verification(p_org,p_packet_id,p_disclosure,p_expires_at);
+end $$;
+revoke all on function public.ahte_rate_limit_proxy(uuid,text,integer),public.ahte_create_public_verification_proxy(uuid,uuid,jsonb,timestamptz) from public,anon;
+grant execute on function public.ahte_rate_limit_proxy(uuid,text,integer),public.ahte_create_public_verification_proxy(uuid,uuid,jsonb,timestamptz) to authenticated;

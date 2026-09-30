@@ -50,5 +50,6 @@ test('migration replay and database release enforcement',async()=>{
  await assert.rejects(db.exec(`insert into ahte_event_ledger(organization_id,event_type,entity_type,entity_id,event_hash) values('${org}','FORGED','test','${subject}','FORGED')`),/permission denied/);
  await assert.rejects(db.exec(`select public.ahte_evaluate_release_proxy('00000000-0000-4000-8000-000000000099','test','${subject}',false)`),/workspace_forbidden/);
  await db.exec('reset role');
+ await assert.rejects(db.exec(`insert into ahte_shipments(organization_id,shipment_code,status) values('${org}','SYNTHETIC-UNAUTHORIZED-RELEASE','released')`),/domain_release_requires_operational_release/);
  } finally { await db.close(); }
 });

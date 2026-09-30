@@ -13,6 +13,7 @@ Canonical source: `GlobalHalalDigitalTrust@3d5cc29fabf7c3ed0da20cd938219fed83e74
 - Fractures force HOLD on assessed/eligible/released subjects and block release until human re-verification and fresh gate reviews. No auto-release is introduced.
 - Release records are tenant/subject/project bound, re-evaluated at database write time, retain `is_certification=false`, and advance the state atomically with ledger writes.
 - AHTE organization-owned foreign keys and evidence arrays reject cross-tenant references. Database controls serialize mutations and audit business writes. Ordinary members cannot redefine transition/policy controls or forge ledger rows.
+- Shipment, batch, material-lot and shipment-item release fields require an already released, gate-valid Trust State; they cannot create a parallel release path. Authenticated rate-limit/release/public-disclosure RPC wrappers enforce membership/roles before calling private helpers.
 - API JSON parsing, packet component validation, idempotency actor/route/body binding, unfinished response handling, state lookup errors, release enum/project scoping and hold schema compatibility are repaired.
 
 ## Baseline lineage repair
