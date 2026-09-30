@@ -38,7 +38,7 @@ Four advisor warnings describe intentionally callable authenticated SECURITY DEF
 
 ## Validation and release evidence
 
-Local checks after review fixes: deterministic npm install, website generation/lint/link checks, 94 Node tests (including SQL migration replay/RLS and deployed-artifact regressions), typecheck and Next production build passed. Canonical strict integrity, local links and five trip-control regressions passed. Website generation is idempotent.
+Local checks after review fixes: deterministic npm install, website generation/lint/link checks, 94 Node tests (including SQL migration replay/RLS and deployed-artifact regressions), typecheck and Next production build passed. Canonical strict integrity, local links and five trip-control regressions passed. Website generation is idempotent. Dependency audit reports zero known vulnerabilities. The four authenticated security-definer wrappers were read back live: anonymous EXECUTE is denied; empty search_path and authentication/tenant/role/actor/rate-limit guards match source.
 
 The release remains subject to **all eight exact-head CI jobs**, unresolved-thread read-back and main verification. Pages publishes only after main CI passes and records exact artifact read-back in its workflow. These dynamic results must be read from [Amanah PR #20](https://github.com/mavericken777/Amanah/pull/20) and its linked Actions runs; this source file cannot contain its own eventual merge SHA without creating a different commit.
 
@@ -144,7 +144,6 @@ Compared with start main `a421baba7cf04eaadab4941c9448a92c9e1efd6f`; this includ
 | M | `ghscl-website/verify.html` | Current generated website/source provenance and validation; canonical source links bound to 14456e99937d6f11d63bd041dcffdb903d12594f. |
 | M | `lib/integrations/contracts.ts` | Isolated simulated development connector with scope/environment/actor validation and idempotent conflict detection; no external transaction decisions. |
 | A | `lib/safe-redirect.ts` | Protected route/login return handling; off-origin/backslash/control-character escapes blocked; queries retained. |
-| M | `next-env.d.ts` | Consolidated current discovery, governance or operations controls; historical audit claims remain non-controlling. |
 | M | `proxy.ts` | Protected route/login return handling; off-origin/backslash/control-character escapes blocked; queries retained. |
 | M | `scripts/check-ecosystem-site.mjs` | Current generated website/source provenance and validation; canonical source links bound to 14456e99937d6f11d63bd041dcffdb903d12594f. |
 | A | `scripts/check-repository-links.mjs` | Consolidated current discovery, governance or operations controls; historical audit claims remain non-controlling. |
