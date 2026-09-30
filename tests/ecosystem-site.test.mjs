@@ -6,7 +6,8 @@ import vm from 'node:vm';
 import { execFileSync } from 'node:child_process';
 
 const base='ghscl-website';
-execFileSync(process.execPath,['scripts/build-ecosystem-site.mjs']);
+const runBuild=()=>execFileSync('npm',['run','web:build'],{stdio:'pipe'});
+runBuild();
 const data=JSON.parse(fs.readFileSync(path.join(base,'ecosystem.en.json'),'utf8'));
 const pages=['index.html',...data.pages.map(p=>p.slug+'.html')];
 
@@ -34,7 +35,11 @@ test('public source links bind to current reconciled GHDT target and avoid stale
   const all=data.pages.map(p=>JSON.stringify(p)).join('\n');
   for(const term of ['PHC','GHSCL','AHTE','Direct JAKIM API','HCP','SCCP','Sinotrans','custody','re-verification','Command Center','Preemptive Strategy','Takaful','tokenomics','port/customs'])assert.ok(all.toLowerCase().includes(term.toLowerCase()),term);
   assert.ok(!all.includes('Secure Authority Gateway ⇅'),'stale public authority gateway topology');
-  assert.ok(!all.includes('China → Malaysia → GCC'),'stale physical corridor');
+  const corridor=data.pages.find(p=>p.slug==='china-gcc');
+  const route=corridor?.sections.find(s=>s.id==='route');
+  assert.ok(route?.flow?.includes('China origin'),'China origin missing from corridor route');
+  assert.ok(route?.flow?.some(v=>String(v).includes('GCC port')),'GCC destination missing from corridor route');
+  assert.ok(!route?.flow?.some(v=>String(v).includes('Malaysia')),'Malaysia must not be a default physical hop');
   for(const p of data.pages)for(const source of p.sources) assert.ok(source && !source.includes('..'),`invalid source ${source}`);
 });
 
@@ -54,7 +59,7 @@ test('demo architecture never fabricates real records or authority receipts',()=
 
 test('static generator is repeatable and all routes appear in the sitemap',()=>{
   const before=pages.map(p=>fs.readFileSync(path.join(base,p),'utf8'));
-  execFileSync(process.execPath,['scripts/build-ecosystem-site.mjs']);
+  runBuild();
   assert.deepEqual(pages.map(p=>fs.readFileSync(path.join(base,p),'utf8')),before);
   const sitemap=fs.readFileSync(path.join(base,'sitemap.xml'),'utf8');
   for(const p of pages)assert.ok(sitemap.includes(data.baseUrl+p));
