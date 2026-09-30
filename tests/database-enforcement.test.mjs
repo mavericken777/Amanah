@@ -51,5 +51,16 @@ test('migration replay and database release enforcement',async()=>{
  await assert.rejects(db.exec(`select public.ahte_evaluate_release_proxy('00000000-0000-4000-8000-000000000099','test','${subject}',false)`),/workspace_forbidden/);
  await db.exec('reset role');
  await assert.rejects(db.exec(`insert into ahte_shipments(organization_id,shipment_code,status) values('${org}','SYNTHETIC-UNAUTHORIZED-RELEASE','released')`),/domain_release_requires_operational_release/);
+ const shipment='00000000-0000-4000-8000-000000000020';
+ await db.exec(`insert into ahte_shipments(id,organization_id,shipment_code) values('${shipment}','${org}','SYNTHETIC-DOMAIN-HOLD'); insert into ahte_fracture_events(organization_id,entity_type,entity_id,fracture_type) values('${org}','shipment','${shipment}','SYNTHETIC FRACTURE');`);
+ assert.equal((await db.query(`select status from ahte_shipments where id='${shipment}'`)).rows[0].status,'border_hold');
+ const ledgerBefore=(await db.query('select count(*)::integer as n from ahte_event_ledger')).rows[0].n;
+ await db.exec('set role authenticated');
+ await assert.rejects(db.exec(`select public.ahte_create_recall_proxy('${org}','{"recall_code":"SYNTHETIC-ROLLBACK","reason":"TEST ONLY","scope_entities":[{"entity_type":"shipment","entity_id":"invalid-uuid"}]}')`),/invalid input syntax/);
+ assert.equal((await db.query("select count(*)::integer as n from ahte_recalls where recall_code='SYNTHETIC-ROLLBACK'")).rows[0].n,0);
+ assert.equal((await db.query('select count(*)::integer as n from ahte_event_ledger')).rows[0].n,ledgerBefore);
+ const recall=(await db.query(`select public.ahte_create_recall_proxy('${org}','{"recall_code":"SYNTHETIC-ATOMIC","reason":"TEST ONLY","scope_entities":[{"entity_type":"shipment","entity_id":"${shipment}","action":"monitor"}]}') as value`)).rows[0].value;
+ assert.equal((await db.query(`select count(*)::integer as n from ahte_recall_scopes where recall_id='${recall.id}'`)).rows[0].n,1);
+ await db.exec('reset role');
  } finally { await db.close(); }
 });

@@ -1,5 +1,7 @@
 # AHTE A–Z Engineering Closure Matrix
 
+> Historical snapshot superseded for current source binding and closure status by docs/operations/RECONCILIATION_LIVE_VERIFICATION_2026-09-30.md and docs/operations/PENDING.md.
+
 [PROJECT-REPO: https://github.com/mavericken777/GlobalHalalDigitalTrust — SHA12 b1c0fc63be72 — 2026-09-30]
 [PROPOSAL: post-freeze engineering implementation derived from canonical project-repo machine specifications]
 [PILOT: Shipment 001 — China → GCC direct]

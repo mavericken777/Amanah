@@ -59,7 +59,7 @@ The AHTE database/control plane is no longer limited to migration `0008`. The li
 - `0015_role_and_authority_integrity`
 - `0016_authority_decision_api_compatibility`
 
-The live Supabase database has 97 public tables with RLS enabled on all 97. The initial broad AHTE member-level mutation policy has been replaced with explicit read/write/delete policies on the original AHTE control-plane tables. Authority/source mutation is elevated; operational trust/release mutation is elevated; ordinary members/viewers do not receive generic mutation rights.
+The live Supabase database now has 98 public tables with RLS enabled on all 98. Forward migrations `release_gate_enforcement` and `reconciliation_followup` add database-enforced gates, append-only transitions, human operational release, domain holds, atomic recalls and explicit product/certificate bindings. The initial broad AHTE member-level mutation policy has been replaced with explicit read/write/delete policies on the original AHTE control-plane tables. Authority/source mutation is elevated; operational trust/release mutation is elevated; ordinary members/viewers do not receive generic mutation rights.
 
 The assurance API reserves D5/D6 decisions from machine execution and records authority decisions as externally owned evidence. `issued_by_ahte=true` is rejected. Authority decisions in `signed` or deployed-API `final` lifecycle state require decision reference plus signature hash.
 

@@ -67,6 +67,8 @@ The idempotency record binds actor, method, route and request body. Reusing a ke
 
 ## Error model
 
+Recall creation and all supplied scope rows are one database transaction. A malformed scope rolls back the parent recall and its audit events. No synthetic default subject UUID is substituted. Product verification selects certificates through the explicit certificate.product_id binding; operators must supply genuine scope evidence before creating that binding. Fractures synchronize domain holds (`border_hold` for shipments, `held` for batches/items, `quarantine` for material lots, suspended/not-cleared for products); they never auto-release.
+
 Typical errors: authentication_required, invalid_token, organization_id_required, workspace_forbidden, rate_limit_exceeded, idempotency_key_reused_with_different_request, authority_gate_reserved, release_blocked, packet_not_found, evidence_not_found.
 
 ## Source boundary

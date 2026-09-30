@@ -1,5 +1,7 @@
 # Controlled Source Artifact Manifest
 
+> Historical source-review snapshot. Current canonical binding is GlobalHalalDigitalTrust@3d5cc29fabf7c3ed0da20cd938219fed83e74830; see SOURCE_BINDING.md and config/canonical-mirror-manifest.json.
+
 [SOURCE-LOCKED: exact normative wording — required: licensed/approved authority source text]
 
 These local source artifacts were supplied for project analysis. Amanah stores only metadata and hashes; it does not publish their normative text.
