@@ -894,6 +894,7 @@ export type Database = {
           identity_id: string | null
           issued_on: string | null
           organization_id: string
+          product_id: string | null
           scope: string | null
           source_evidence_id: string | null
           status: string
@@ -907,6 +908,7 @@ export type Database = {
           identity_id?: string | null
           issued_on?: string | null
           organization_id: string
+          product_id?: string | null
           scope?: string | null
           source_evidence_id?: string | null
           status?: string
@@ -920,6 +922,7 @@ export type Database = {
           identity_id?: string | null
           issued_on?: string | null
           organization_id?: string
+          product_id?: string | null
           scope?: string | null
           source_evidence_id?: string | null
           status?: string
@@ -944,6 +947,13 @@ export type Database = {
             columns: ["organization_id"]
             isOneToOne: false
             referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_certificates_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_products"
             referencedColumns: ["id"]
           },
           {
@@ -2127,6 +2137,7 @@ export type Database = {
           resolution: string | null
           resolved_at: string | null
           resolved_by: string | null
+          reverification_id: string | null
           severity: string
         }
         Insert: {
@@ -2141,6 +2152,7 @@ export type Database = {
           resolution?: string | null
           resolved_at?: string | null
           resolved_by?: string | null
+          reverification_id?: string | null
           severity?: string
         }
         Update: {
@@ -2155,6 +2167,7 @@ export type Database = {
           resolution?: string | null
           resolved_at?: string | null
           resolved_by?: string | null
+          reverification_id?: string | null
           severity?: string
         }
         Relationships: [
@@ -2167,6 +2180,90 @@ export type Database = {
           },
           {
             foreignKeyName: "ahte_fracture_events_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_fracture_events_reverification_id_fkey"
+            columns: ["reverification_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_reverifications"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ahte_gate_results: {
+        Row: {
+          authority_decision_id: string | null
+          entity_id: string
+          entity_type: string
+          evidence_id: string
+          expires_at: string | null
+          gate_id: string
+          id: string
+          organization_id: string
+          project_id: string | null
+          rationale: string
+          result: string
+          reviewed_at: string
+          reviewed_by: string
+        }
+        Insert: {
+          authority_decision_id?: string | null
+          entity_id: string
+          entity_type: string
+          evidence_id: string
+          expires_at?: string | null
+          gate_id: string
+          id?: string
+          organization_id: string
+          project_id?: string | null
+          rationale: string
+          result: string
+          reviewed_at?: string
+          reviewed_by: string
+        }
+        Update: {
+          authority_decision_id?: string | null
+          entity_id?: string
+          entity_type?: string
+          evidence_id?: string
+          expires_at?: string | null
+          gate_id?: string
+          id?: string
+          organization_id?: string
+          project_id?: string | null
+          rationale?: string
+          result?: string
+          reviewed_at?: string
+          reviewed_by?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ahte_gate_results_authority_decision_id_fkey"
+            columns: ["authority_decision_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_authority_decisions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_gate_results_evidence_id_fkey"
+            columns: ["evidence_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_evidence"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_gate_results_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_gate_results_project_id_fkey"
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "projects"
@@ -4268,10 +4365,12 @@ export type Database = {
           hard_gate_status: string
           id: string
           organization_id: string
+          previous_state_id: string | null
           project_id: string | null
           rationale: string | null
           score: number | null
           state: string
+          transition_event: string | null
           vector: Json
         }
         Insert: {
@@ -4283,10 +4382,12 @@ export type Database = {
           hard_gate_status?: string
           id?: string
           organization_id: string
+          previous_state_id?: string | null
           project_id?: string | null
           rationale?: string | null
           score?: number | null
           state: string
+          transition_event?: string | null
           vector?: Json
         }
         Update: {
@@ -4298,10 +4399,12 @@ export type Database = {
           hard_gate_status?: string
           id?: string
           organization_id?: string
+          previous_state_id?: string | null
           project_id?: string | null
           rationale?: string | null
           score?: number | null
           state?: string
+          transition_event?: string | null
           vector?: Json
         }
         Relationships: [
@@ -4310,6 +4413,13 @@ export type Database = {
             columns: ["organization_id"]
             isOneToOne: false
             referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ahte_trust_states_previous_state_id_fkey"
+            columns: ["previous_state_id"]
+            isOneToOne: false
+            referencedRelation: "ahte_trust_states"
             referencedColumns: ["id"]
           },
           {
@@ -5764,6 +5874,10 @@ export type Database = {
         }
         Returns: string
       }
+      ahte_create_recall_proxy: {
+        Args: { p_body: Json; p_org: string }
+        Returns: Json
+      }
       ahte_evaluate_release_proxy: {
         Args: {
           p_entity_id: string
@@ -5773,6 +5887,7 @@ export type Database = {
         }
         Returns: Json
       }
+      ahte_public_verify: { Args: { p_token: string }; Returns: Json }
       ahte_rate_limit_proxy: {
         Args: { p_limit?: number; p_org: string; p_route: string }
         Returns: boolean

@@ -4,12 +4,12 @@ The previous assertion that every engineering defect was closed is superseded by
 
 Repository-controlled work still requiring closure:
 
-- Exact-head CI, reviewed PR merge and live release-gate migration/function verification.
+- Follow-up exact-head CI/merge and matching assurance API deployment. PR #13 is merged; its release-gate migration and assurance version 7 are verified live.
 - Complete per-file semantic disposition beyond the recorded file/hash inventory.
 - Audit all remaining endpoint error handling and live schema contracts; confirm production hosting/UAT with real authorized operators.
 - Preserve the explicit state-vocabulary conflict and missing onward authority transition; source governance owns promotion.
 
-Remaining items are external/account/transaction gates only:
+Additional external/account/transaction gates:
 
 - [SOURCE-LOCKED: licensed normative requirement text — required: licensed authority/standards source artifacts]
 - [OPEN GATE: competent-authority decisions — owner: JAKIM/MAIN/JAIN or applicable competent authority — blocking: Authority Gate]

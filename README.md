@@ -31,8 +31,8 @@ Primary doctrine/reference repository: `mavericken777/GlobalHalalDigitalTrust` (
 
 Current reviewed canonical snapshot for this hardening pass:
 
-- Repository commit: `b1c0fc63be72fd6fbd2352a997b210a61c2ca28d`
-- SHA12: `b1c0fc63be72`
+- Repository commit: `3d5cc29fabf7c3ed0da20cd938219fed83e74830`
+- SHA12: `3d5cc29fabf7`
 - Freeze boundary: `master-standards-stack/verified-2026-09-17/`
 - Doctrine: `00_EXECUTIVE_COMMAND/IQ300_DOCTRINE.md`
 - Machine path map: `00_EXECUTIVE_COMMAND/canonical-path-machine-map.json`
@@ -50,11 +50,11 @@ Observed during the 2026-09-30 end-to-end hardening pass:
 
 - project status: `ACTIVE_HEALTHY`
 - PostgreSQL: 17.6.1
-- 97 public tables; RLS enabled on all 97
+- 98 public tables; RLS enabled on all 98
 - no public SQL views
-- security advisor: zero findings
+- security advisor: four intentional authenticated privileged-wrapper warnings; membership/role guards, anonymous denial and private-helper ACLs verified
 - AHTE realtime publication enabled for critical operational streams
-- schema/migration lineage reconciled through `0016_authority_decision_api_compatibility`
+- forward migrations `release_gate_enforcement` and `reconciliation_followup` applied without rewriting historical migration entries
 - `assurance` Edge Function requires JWT authentication
 - `public-verify` uses scoped verification tokens and returns `not_certification: true`
 
@@ -80,9 +80,10 @@ CI performs:
 
 1. TypeScript type checking.
 2. Node test suite.
-3. Deno type checking for both Supabase Edge Functions.
-4. Next.js production build.
+3. Deno type checking for all three Supabase Edge Functions.
+4. Canonical Python runtime, platform and OPA policy checks.
+5. Next.js production build.
 
-A committed npm lockfile is still required for fully deterministic dependency installation. Until it is generated in an environment with npm-registry access and committed, CI uses `npm install`; the core Supabase runtime dependency is explicitly pinned.
+A committed npm lockfile and `npm ci` provide deterministic dependency installation. Canonical mirrors are checked against 43 Git-blob SHA-256 bindings.
 
-See `docs/operations/END_TO_END_COMPLETION_2026-09-30.md` for the completion/gate register.
+See `docs/operations/RECONCILIATION_LIVE_VERIFICATION_2026-09-30.md` and `docs/operations/PENDING.md` for current verification and remaining gates. Historical completion claims are superseded; a registered gap is not a completed implementation.

@@ -121,11 +121,7 @@ Deno.serve(async (req) => {
       content_hash: contentHash, status: "draft",
     }).select("id,packet_type,schema_version,status,content_hash").single();
     if (error) return finish({ error: error.message }, 400);
-    const { error: eventError } = await supabase.rpc("ahte_record_event_proxy", {
-      p_org: organizationId, p_event_type: "E-TRUST-PACKET-DRAFT", p_entity_type: "trust_packet", p_entity_id: data.id,
-      p_actor_type: "user", p_actor_id: userId, p_payload: { packet_id: data.id, packet_type: data.packet_type }, p_source_system: "assurance-api",
-    });
-    if (eventError) return finish({ error: eventError.message }, 500);
+    // The database records the packet and its audit event atomically.
     return finish({ data, is_certification: false }, 201);
   }
 
@@ -206,8 +202,7 @@ Deno.serve(async (req) => {
       exporter: typeof body.exporter === "string" ? body.exporter : null, status: typeof body.status === "string" ? body.status : "not_instantiated",
     }).select("*").single();
     if (error) return finish({ error: error.message }, 400);
-    const eventError = await supabase.rpc("ahte_record_event_proxy",{p_org:organizationId,p_event_type:"SHIPMENT_CREATED",p_entity_type:"shipment",p_entity_id:data.id,p_actor_type:"user",p_actor_id:userId,p_payload:{shipment_code:data.shipment_code},p_source_system:"assurance-api"});
-    if (eventError.error) return finish({ error: eventError.error.message },500); return finish({ data },201);
+    return finish({ data },201);
   }
 
   if (req.method === "POST" && head === "logistics-events") {
@@ -220,7 +215,6 @@ Deno.serve(async (req) => {
       metadata: body.metadata ?? {},
     }).select("*").single();
     if (error) return finish({ error: error.message },400);
-    await supabase.rpc("ahte_record_event_proxy",{p_org:organizationId,p_event_type:body.event_type,p_entity_type:body.entity_type,p_entity_id:body.entity_id,p_actor_type:"user",p_actor_id:userId,p_payload:{custody_event_id:data.id,location:data.location,occurred_at:data.occurred_at},p_source_system:"assurance-api"});
     return finish({ data },201);
   }
 
@@ -354,7 +348,7 @@ Deno.serve(async (req) => {
     const results=await Promise.all([
       supabase.from("ahte_products").select("id,name,category,market_status,status").eq("id",productId).eq("organization_id",organizationId).maybeSingle(),
       supabase.from("ahte_trust_states").select("*").eq("organization_id",organizationId).eq("entity_type","product").eq("entity_id",productId).order("effective_at",{ascending:false}).limit(1).maybeSingle(),
-      supabase.from("ahte_certificates").select("certificate_no,authority_id,status,issued_on,expires_on,scope").eq("organization_id",organizationId).eq("identity_id",productId).limit(20),
+      supabase.from("ahte_certificates").select("certificate_no,authority_id,status,issued_on,expires_on,scope").eq("organization_id",organizationId).eq("product_id",productId).limit(20),
       supabase.from("ahte_market_registrations").select("market_code,status,registration_reference,halal_acceptance_reference,expires_on").eq("organization_id",organizationId).eq("product_id",productId),
       supabase.from("ahte_fracture_events").select("fracture_type,severity,auto_hold,resolution,detected_at").eq("organization_id",organizationId).eq("entity_type","product").eq("entity_id",productId).order("detected_at",{ascending:false}).limit(20)
     ]);
@@ -367,7 +361,8 @@ Deno.serve(async (req) => {
   if (req.method === "POST" && head === "cases" && parts[1] && parts[2] === "corrective-actions") {
     if (typeof body.action_plan !== "string") return finish({error:"action_plan_required"},400);
     const findingId=parts[1];
-    const {data:finding}=await supabase.from("ahte_findings").select("id").eq("id",findingId).eq("organization_id",organizationId).maybeSingle();
+    const {data:finding,error:findingError}=await supabase.from("ahte_findings").select("id").eq("id",findingId).eq("organization_id",organizationId).maybeSingle();
+    if(findingError)return finish({error:"finding_lookup_failed"},500);
     if(!finding)return finish({error:"finding_not_found"},404);
     const {data,error}=await supabase.from("ahte_corrective_actions").insert({organization_id:organizationId,finding_id:findingId,owner_user_id:typeof body.owner_user_id==="string"?body.owner_user_id:userId,root_cause:typeof body.root_cause==="string"?body.root_cause:null,action_plan:body.action_plan,due_date:typeof body.due_date==="string"?body.due_date:null,status:"open"}).select("*").single();
     if(error)return finish({error:error.message},400);return finish({data},201);
@@ -375,12 +370,8 @@ Deno.serve(async (req) => {
 
   if (req.method === "POST" && head === "recalls") {
     if(typeof body.recall_code!=="string"||typeof body.reason!=="string")return finish({error:"recall_code_and_reason_required"},400);
-    const {data:recall,error}=await supabase.from("ahte_recalls").insert({organization_id:organizationId,recall_code:body.recall_code,reason:body.reason,scope:body.scope??{},authority_reference:typeof body.authority_reference==="string"?body.authority_reference:null,status:"open"}).select("*").single();
+    const {data:recall,error}=await supabase.rpc("ahte_create_recall_proxy",{p_org:organizationId,p_body:body});
     if(error)return finish({error:error.message},400);
-    if(Array.isArray(body.scope_entities)){
-      const rows=body.scope_entities.filter((x):x is Record<string,unknown>=>Boolean(x&&typeof x==="object")).map(x=>({organization_id:organizationId,recall_id:recall.id,entity_type:String(x.entity_type??"unknown"),entity_id:String(x.entity_id??"00000000-0000-0000-0000-000000000000"),action:String(x.action??"monitor"),status:"open"}));
-      if(rows.length){ const {error:scopeError}=await supabase.from("ahte_recall_scopes").insert(rows); if(scopeError)return finish({error:"recall_scope_write_failed",recall_id:recall.id},400); }
-    }
     return finish({data:recall},201);
   }
 

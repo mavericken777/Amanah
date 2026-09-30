@@ -1,1 +1,1 @@
-Snapshot date: 2026-09-30. Canonical reviewed SHA12: b1c0fc63be72. Freeze: verified-2026-09-17/.
+Current binding: GlobalHalalDigitalTrust@3d5cc29fabf7c3ed0da20cd938219fed83e74830 (SHA12 3d5cc29fabf7). Freeze: verified-2026-09-17/. See RECONCILIATION_LIVE_VERIFICATION_2026-09-30.md for the timestamped live snapshot. Earlier b1c0fc63be72 snapshots are historical and superseded for current runtime parity.

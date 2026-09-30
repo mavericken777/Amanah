@@ -1,5 +1,7 @@
 # Amanah end-to-end completion register — 2026-09-30
 
+> Historical snapshot, superseded by `RECONCILIATION_LIVE_VERIFICATION_2026-09-30.md` and `PENDING.md`. The earlier source binding, 97-table count, zero-advisor result and completion assertions do not describe the current release. Registering a pending engineering task does not complete it.
+
 ## Completion semantics
 
 This register uses IQ300 doctrine completion semantics. `100% COMPLETE` does not mean external approvals, certificates, commercial agreements or transaction events have been invented. A workstream is complete when it is either completed and evidenced, explicitly source-locked, or assigned to a named external / transaction / engineering gate with a closure condition.
