@@ -1,6 +1,7 @@
 :root{--ink:#08090b;--ink2:#111216;--ivory:#f0ede5;--platinum:#c3c5c8;--jade:#c8b58f;--jade2:#766747;--gold:#b39a69;--muted:#a3a3a7;--line:rgba(235,231,219,.16)}
 .brand .wordmark{width:96px;height:26px;object-fit:contain;object-position:left}.film-unavailable .scene-stills img[data-still=object]{opacity:.65}.hero:has(#webglHero.fallback) .hero-backdrop{opacity:.4}
 .nav-links{margin-left:auto;margin-right:30px}.nav>.sound-toggle{margin-left:auto}.nav-links+.sound-toggle{margin-left:0}.nav>.menu{margin-left:16px}
+.mobile-nav[hidden]{display:none!important}
 html{scroll-padding-top:100px}body{background:var(--ink)}button,a{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible,video:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
 .skip-link{position:fixed;top:8px;left:12px;z-index:10000;transform:translateY(-180%);padding:12px 20px;background:var(--ivory);color:#08090b}.skip-link:focus{transform:none}
 .boot{animation:bootExit 1s .8s forwards;pointer-events:none;background:#08090b}@keyframes bootExit{to{opacity:0;visibility:hidden}}.boot-mark{animation:none}.boot-line{background:linear-gradient(90deg,transparent,var(--gold),transparent)}

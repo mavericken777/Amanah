@@ -5,7 +5,7 @@ Story: stakeholder enters GHSCL → explores eight chapters → inspects the can
 ## Observed checks
 
 - Desktop hero renders native WebGL (`data-renderer=webgl`); monogram, wordmark and all four WebP renders load.
-- At 390×844, no horizontal overflow; chapter 4 selects the architectural Digital Audit Twin scene; chapter 6 selects the pilot port scene. Navigation expands and sound control remains available.
+- At 390×844, no horizontal overflow; chapter 4 selects the architectural Digital Audit Twin scene; chapter 6 selects the pilot port scene. Navigation expands and sound control remains available. Escape closes the menu, restores focus and removes hidden navigation links from the accessible tree.
 - Sound begins off; user click changes `aria-pressed` to true. Page reload returns to off.
 - Eight chapter controls select narrative states. A server with HTTP byte-range support is required for reliable video seeking; the initial simple preview server lacked it and was replaced for verification.
 - VP9 WebM decodes with duration 24 seconds. Final range-enabled preview: chapter 7 target 18.65s, decoded seek 18.59s (within 0.08s coalescing threshold).
