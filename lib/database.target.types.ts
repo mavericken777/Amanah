@@ -1,0 +1,32 @@
+import type { Database as CurrentDatabase, Json } from "@/lib/database.current.types";
+
+type LatestExtensionTables = {
+  ahte_connector_states: {
+    Row: { id:string; organization_id:string; project_id:string|null; connector_code:string; domain:string; provider:string|null; state:string; environment:string; production_evidence:boolean; last_success_at:string|null; last_error_at:string|null; last_error_code:string|null; notes:string|null; created_by:string|null; created_at:string; updated_at:string };
+    Insert: { id?:string; organization_id:string; project_id?:string|null; connector_code:string; domain:string; provider?:string|null; state:string; environment:string; production_evidence?:boolean; last_success_at?:string|null; last_error_at?:string|null; last_error_code?:string|null; notes?:string|null; created_by?:string|null; created_at?:string; updated_at?:string };
+    Update: { id?:string; organization_id?:string; project_id?:string|null; connector_code?:string; domain?:string; provider?:string|null; state?:string; environment?:string; production_evidence?:boolean; last_success_at?:string|null; last_error_at?:string|null; last_error_code?:string|null; notes?:string|null; created_by?:string|null; created_at?:string; updated_at?:string };
+    Relationships: [];
+  };
+  ahte_financing_cases: {
+    Row: { id:string; organization_id:string; project_id:string|null; case_code:string; purpose:string; subject_objects:string[]; evidence_packet_id:string; connector_state_id:string|null; provider_ref:string|null; external_case_ref:string|null; status:string; external_decision_owner:string; decision_ref:string|null; decision_at:string|null; event_refs:string[]; ahte_approves_financing:boolean; created_by:string|null; created_at:string; updated_at:string };
+    Insert: { id?:string; organization_id:string; project_id?:string|null; case_code:string; purpose:string; subject_objects:string[]; evidence_packet_id:string; connector_state_id?:string|null; provider_ref?:string|null; external_case_ref?:string|null; status?:string; external_decision_owner:string; decision_ref?:string|null; decision_at?:string|null; event_refs?:string[]; ahte_approves_financing?:false; created_by?:string|null; created_at?:string; updated_at?:string };
+    Update: { id?:string; organization_id?:string; project_id?:string|null; case_code?:string; purpose?:string; subject_objects?:string[]; evidence_packet_id?:string; connector_state_id?:string|null; provider_ref?:string|null; external_case_ref?:string|null; status?:string; external_decision_owner?:string; decision_ref?:string|null; decision_at?:string|null; event_refs?:string[]; ahte_approves_financing?:false; created_by?:string|null; created_at?:string; updated_at?:string };
+    Relationships: [];
+  };
+  ahte_takaful_cases: {
+    Row: { id:string; organization_id:string; project_id:string|null; case_code:string; case_type:string; subject_objects:string[]; evidence_packet_id:string; connector_state_id:string|null; provider_ref:string|null; external_case_ref:string|null; status:string; external_decision_owner:string; policy_or_claim_ref:string|null; decision_ref:string|null; event_refs:string[]; ahte_underwrites_or_decides_claim:boolean; created_by:string|null; created_at:string; updated_at:string };
+    Insert: { id?:string; organization_id:string; project_id?:string|null; case_code:string; case_type:string; subject_objects:string[]; evidence_packet_id:string; connector_state_id?:string|null; provider_ref?:string|null; external_case_ref?:string|null; status?:string; external_decision_owner:string; policy_or_claim_ref?:string|null; decision_ref?:string|null; event_refs?:string[]; ahte_underwrites_or_decides_claim?:false; created_by?:string|null; created_at?:string; updated_at?:string };
+    Update: { id?:string; organization_id?:string; project_id?:string|null; case_code?:string; case_type?:string; subject_objects?:string[]; evidence_packet_id?:string; connector_state_id?:string|null; provider_ref?:string|null; external_case_ref?:string|null; status?:string; external_decision_owner?:string; policy_or_claim_ref?:string|null; decision_ref?:string|null; event_refs?:string[]; ahte_underwrites_or_decides_claim?:false; created_by?:string|null; created_at?:string; updated_at?:string };
+    Relationships: [];
+  };
+  ahte_tokenized_asset_references: {
+    Row: { id:string; organization_id:string; project_id:string|null; reference_code:string; subject_objects:string[]; connector_state_id:string|null; provider_ref:string|null; network_ref:string|null; external_token_ref:string|null; underlying_asset_type:string; ownership_title_source_ref:string|null; financing_case_id:string|null; custody_state_ref:string|null; authority_status_ref:string|null; legal_classification_status:string; shariah_review_status:string; regulatory_status:string; ahte_is_title_registry:boolean; tokenization_creates_halal_status:boolean; created_by:string|null; created_at:string; updated_at:string };
+    Insert: { id?:string; organization_id:string; project_id?:string|null; reference_code:string; subject_objects:string[]; connector_state_id?:string|null; provider_ref?:string|null; network_ref?:string|null; external_token_ref?:string|null; underlying_asset_type:string; ownership_title_source_ref?:string|null; financing_case_id?:string|null; custody_state_ref?:string|null; authority_status_ref?:string|null; legal_classification_status?:string; shariah_review_status?:string; regulatory_status?:string; ahte_is_title_registry?:false; tokenization_creates_halal_status?:false; created_by?:string|null; created_at?:string; updated_at?:string };
+    Update: { id?:string; organization_id?:string; project_id?:string|null; reference_code?:string; subject_objects?:string[]; connector_state_id?:string|null; provider_ref?:string|null; network_ref?:string|null; external_token_ref?:string|null; underlying_asset_type?:string; ownership_title_source_ref?:string|null; financing_case_id?:string|null; custody_state_ref?:string|null; authority_status_ref?:string|null; legal_classification_status?:string; shariah_review_status?:string; regulatory_status?:string; ahte_is_title_registry?:false; tokenization_creates_halal_status?:false; created_by?:string|null; created_at?:string; updated_at?:string };
+    Relationships: [];
+  };
+};
+
+type PublicSchema = CurrentDatabase["public"];
+export type Database = Omit<CurrentDatabase,"public"> & { public: Omit<PublicSchema,"Tables"> & { Tables: PublicSchema["Tables"] & LatestExtensionTables } };
+export type { Json };

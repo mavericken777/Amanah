@@ -3,7 +3,7 @@ name: Amanah CI
 on:
   pull_request:
   push:
-    branches: [main, "build/**"]
+    branches: [main, "build/**", "sync/**"]
 
 permissions:
   contents: read
@@ -33,6 +33,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci --no-audit --no-fund
+      - run: npm run web:build
       - run: npm run web:lint
       - run: npm test
 

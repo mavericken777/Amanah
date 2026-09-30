@@ -1,25 +1,54 @@
 # Pending closure
 
-The previous assertion that every engineering defect was closed is superseded by `RECONCILIATION_CHECKPOINT_2026-09-30.md`. Repository inventory, source mirrors, schema validation, release controls and migration replay are being reconciled on `build/canonical-reconciliation-20260930`.
+Current implementation binding: `GlobalHalalDigitalTrust@0fab4c64240b569caef947fb2568ccda9d3fa0d3`.
 
-Repository-controlled work still requiring closure:
+The verified freeze remains `master-standards-stack/verified-2026-09-17/`.
 
-- No release-gate/recall implementation PR remains pending: PRs #13 and #14 passed all seven CI jobs and merged. Both forward migrations and the matching assurance version 8 are verified live. See the live verification report for scope and evidence.
-- Complete per-file semantic disposition beyond the recorded file/hash inventory.
-- Audit all remaining endpoint error handling and live schema contracts; confirm production hosting/UAT with real authorized operators.
-- Preserve the explicit state-vocabulary conflict and missing onward authority transition; source governance owns promotion.
+Repository-controlled architecture synchronization is handled in `docs/operations/GHDT_SYNC_2026-10-01.md`. Historical reconciliation reports remain historical evidence and are not rewritten to imply later review.
 
-Additional external/account/transaction gates:
+## Repository-controlled engineering still requiring closure before merge
+
+- run exact-head CI for the synchronization branch and fix TypeScript, Node, Deno, Python/OPA or Next.js failures;
+- merge the synchronization PR only after exact-head CI success;
+- verify GitHub Pages rebuilds V7 and no stale public generic Authority Gateway, lower-case retired China pack source, or China→Malaysia default corridor survives;
+- verify current migration set, RLS, realtime, audit and advisor state against live Supabase;
+- validate production hosting/UAT with real authorized operators before any production-complete claim;
+- preserve explicit frozen-vocabulary/state-machine conflicts until source governance resolves them.
+
+## Source conflict requiring project-architecture decision
+
+Conversation-level project direction states that direct JAKIM connectivity is mediated by **NurAI, the Malaysian Shariah-based AI layer** (`AHTE ⇄ NurAI ⇄ Direct JAKIM API ⇄ JAKIM`). The current controlled project-repo target at `GlobalHalalDigitalTrust@0fab4c64240b` states `AHTE ⇄ DIRECT JAKIM API ⇄ JAKIM`, with `public_intermediary: null` and `nur_ai_platform_hop: false`.
+
+Amanah follows the controlled project-repo topology until this conflict is resolved through project source governance. No implementation or public copy may silently collapse the two positions.
+
+[OPEN GATE: SOURCE CONFLICT — NURAI-JAKIM-INTEGRATION — owner: Maverick / project architecture authority — blocking: Authority → Authority Gate integration topology]
+
+## External / account / transaction gates
 
 - [SOURCE-LOCKED: licensed normative requirement text — required: licensed authority/standards source artifacts]
+- [SOURCE-LOCKED: exact production direct JAKIM API endpoints, authentication, scopes, permissions and payload contracts — required: authorised JAKIM technical integration specification]
 - [OPEN GATE: competent-authority decisions — owner: JAKIM/MAIN/JAIN or applicable competent authority — blocking: Authority Gate]
+- [OPEN GATE: China laboratory production API/credentials/method scope — owner: laboratory/system operator — blocking: Sample → Evidence]
+- [OPEN GATE: Sinotrans production WMS/TMS/Y2T/MIS/EDI/IoT interfaces and site/lane security agreement — owner: Sinotrans + GHSCL — blocking: Custody / Platinum Monitoring]
+- [OPEN GATE: origin and GCC port/customs production interfaces/permissions — owner: sovereign port/customs authorities — blocking: Port Custody → Operational Release]
 - [OPEN GATE: GCC destination acceptance/import release — owner: applicable GCC authority/importer — blocking: Operational Release]
+- [OPEN GATE: Shariah Finance/Takaful/tokenomics counterparties and product approvals — owner: applicable bank/financier/Takaful/Shariah/legal/regulatory parties — blocking: finance transaction activation]
 - [OPEN GATE: real Shipment 001 evidence — owner: transaction participants — blocking: Evidence → Audit Test → Authority Gate]
-- [OPEN GATE: production Amanah hosting authorization — owner: Maverick — blocking: production UAT]
-- [OPEN GATE: GitHub branch-protection administration — owner: Maverick — blocking: repository governance hardening]
-- [OPEN GATE: Supabase managed Postgres minor-version upgrade — owner: Maverick — blocking: infrastructure maintenance hardening]
-- [OPEN GATE: stakeholder-video paid generation entitlement — owner: Maverick — blocking: rendered media artifact]
+- [OPEN GATE: production Amanah hosting authorization — owner: Maverick / hosting administrator — blocking: production UAT]
+- [OPEN GATE: Amanah GitHub branch-protection administration — owner: repository administrator — blocking: repository governance hardening]
+- [OPEN GATE: GlobalHalalDigitalTrust GitHub branch-protection administration — owner: repository administrator — blocking: canonical source governance hardening]
+- [OPEN GATE: stakeholder-video paid generation entitlement — owner: media production / workspace administrator — blocking: rendered media artifact]
 
-[PILOT: Shipment 001 — China → GCC direct]
+## Closed infrastructure item
 
-None of these gates may be closed with synthetic certification, authority, shipment, buyer, laboratory or import-release evidence.
+Supabase managed PostgreSQL maintenance is no longer an open architecture gate: live project verification on 2026-10-01 reports PostgreSQL `17.11` and `ACTIVE_HEALTHY`. Future managed maintenance remains normal operations rather than this synchronization's closure blocker.
+
+## Completion rule
+
+**FULL ARCHITECTURE NOW → REAL CONNECTORS WHEN AVAILABLE → NO REDESIGN REQUIRED.**
+
+An external gate does not authorize removal, hiding or architectural downgrade of direct JAKIM API, Command Center, predictive/preemptive analytics, Sinotrans warehouse/logistics integration, port/customs APIs, GCC workflows or Shariah finance/Takaful/tokenomics.
+
+Development/sandbox providers may exercise complete workflows only when clearly labelled non-production and must never generate fake authority, shipment, lab, customs, finance, Takaful or token legal-state evidence.
+
+[PILOT: Shipment 001 — China → GCC direct; NOT-INSTANTIATED]

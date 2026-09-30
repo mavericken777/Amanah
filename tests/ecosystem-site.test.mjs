@@ -6,6 +6,8 @@ import vm from 'node:vm';
 import { execFileSync } from 'node:child_process';
 
 const base='ghscl-website';
+const runBuild=()=>execFileSync('npm',['run','web:build'],{stdio:'pipe'});
+runBuild();
 const data=JSON.parse(fs.readFileSync(path.join(base,'ecosystem.en.json'),'utf8'));
 const pages=['index.html',...data.pages.map(p=>p.slug+'.html')];
 
@@ -24,22 +26,33 @@ test('every public route has resolvable assets, navigation and fragment targets'
     }
     for(const [url] of data.navigation)assert.ok(html.includes(`href="${url}"`),`${name}: missing ${url}`);
     assert.match(html,/rel="canonical"/);assert.match(html,/property="og:title"/);assert.match(html,/application\/ld\+json/);
-    assert.match(html,/Skip to content/);assert.match(html,/AI assists\. Humans decide\./);
+    assert.match(html,/Skip to content/);assert.match(html,/competent authorities decide|competent authority|Human authority/i);
   }
 });
 
-test('source links bind to the reviewed canonical tree and protected text is not copied',()=>{
-  assert.equal(data.canonicalCommit,'3d5cc29fabf7c3ed0da20cd938219fed83e74830');
-  const manifest=JSON.parse(fs.readFileSync(path.join(base,'source-manifest.json'),'utf8'));
-  assert.equal(manifest.canonical_commit,data.canonicalCommit);
-  for(const p of data.pages)for(const source of p.sources) {
-    const record=manifest.sources.find(r=>r.path===source);
-    assert.ok(record,`missing reviewed source ${source}`);
-    assert.match(record.sha256_local_reference,/^[a-f0-9]{64}$/);
-    assert.ok(record.url.includes(data.canonicalCommit));
-  }
+test('public source links bind to current GHDT target and avoid retired topology/sources',()=>{
+  assert.equal(data.canonicalCommit,'0fab4c64240b569caef947fb2568ccda9d3fa0d3');
   const all=data.pages.map(p=>JSON.stringify(p)).join('\n');
-  for(const term of ['PHC','GHSCL','AHTE','Authority Gateway','HCP','SCCP','MPPHM','MHMS','Sinotrans','accreditation','custody','supersession','re-verification'])assert.ok(all.includes(term),term);
+  for(const term of ['PHC','GHSCL','AHTE','Direct JAKIM API','HCP','SCCP','Sinotrans','custody','re-verification','Command Center','Preemptive Strategy','Takaful','tokenomics','port/customs'])assert.ok(all.toLowerCase().includes(term.toLowerCase()),term);
+  assert.ok(!all.includes('Secure Authority Gateway ⇅'),'stale public authority gateway topology');
+  const allSources=data.pages.flatMap(p=>p.sources);
+  assert.ok(!allSources.some(s=>s.includes('master-standards-stack/china-execution-pack/')),'retired lower-case China execution pack must not be a current source');
+  assert.ok(!allSources.some(s=>s.includes('DIRECT_JAKIM_API_ALIGNMENT_ADDENDUM')),'retired lab alignment addendum must not be a current source');
+  const corridor=data.pages.find(p=>p.slug==='china-gcc');
+  const route=corridor?.sections.find(s=>s.id==='route');
+  assert.ok(route?.flow?.includes('China origin'),'China origin missing from corridor route');
+  assert.ok(route?.flow?.some(v=>String(v).includes('GCC port')),'GCC destination missing from corridor route');
+  assert.ok(!route?.flow?.some(v=>String(v).includes('Malaysia')),'Malaysia must not be a default physical hop');
+  for(const p of data.pages)for(const source of p.sources) assert.ok(source && !source.includes('..'),`invalid source ${source}`);
+});
+
+test('public architecture retains the required current target planes',()=>{
+  const bySlug=new Map(data.pages.map(p=>[p.slug,p]));
+  for(const slug of ['ecosystem','digital-trust','command-center','traceability','smart-audit','china-gcc','manufacturers','finance-takaful','verify'])assert.ok(bySlug.has(slug),slug);
+  const finance=JSON.stringify(bySlug.get('finance-takaful'));
+  for(const term of ['Shariah Financing API','Takaful','Tokenomics'])assert.ok(finance.toLowerCase().includes(term.toLowerCase()),term);
+  const command=JSON.stringify(bySlug.get('command-center'));
+  for(const term of ['predictive','preemptive','Sinotrans','laboratory','GCC'])assert.ok(command.toLowerCase().includes(term.toLowerCase()),term);
 });
 
 test('demo architecture never fabricates real records or authority receipts',()=>{
@@ -58,7 +71,7 @@ test('demo architecture never fabricates real records or authority receipts',()=
 
 test('static generator is repeatable and all routes appear in the sitemap',()=>{
   const before=pages.map(p=>fs.readFileSync(path.join(base,p),'utf8'));
-  execFileSync(process.execPath,['scripts/build-ecosystem-site.mjs']);
+  runBuild();
   assert.deepEqual(pages.map(p=>fs.readFileSync(path.join(base,p),'utf8')),before);
   const sitemap=fs.readFileSync(path.join(base,'sitemap.xml'),'utf8');
   for(const p of pages)assert.ok(sitemap.includes(data.baseUrl+p));

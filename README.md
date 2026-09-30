@@ -1,24 +1,28 @@
 # Amanah
 
-Amanah is the operational application layer for the Amanah Halal Trust Ecosystem (AHTE). It combines a general operational platform with the IQ300 source-aware assurance, evidence, HITM, trust-state and trade-control layers.
+Amanah is the operational application layer for the Amanah Halal Trust Ecosystem (AHTE). It combines the operational platform with IQ300 source-aware standards/applicability, evidence, HITM, trust-state, Command Center and trade-control layers.
 
 ## Platform scope
 
 - Operational core: identity, organizations, projects, tasks, meetings, documents, decisions, risks, finance, updates, notifications, audit, workflows, approvals, collaboration and administration.
-- AHTE / IQ300 control plane: authorities, standards/instruments, requirements, applicability, controls, HCP/SCCP, evidence, audit tests, findings, corrective actions, re-verification, authority gates, trust states, HITM cases, external authority decisions, AI provenance, trust vectors, fracture/hold events and operational release.
+- AHTE / IQ300 control plane: authorities, instruments, requirements, applicability, controls, HCP/SCCP, evidence, audit tests, findings, CAPA, re-verification, authority gates, trust states, HITM cases, external authority decisions, AI provenance, trust vectors, fracture/hold events and operational release.
 - Assurance objects: trust packets, identities, certificates, custody, port custody, partners, laboratories, products, batches, logistics events, telemetry, digital twins, credential checks, market registrations, public verification and recalls.
+- 24/7 operations: GHSCL operational + authorised JAKIM authority-side Command Center monitoring, predictive analytics, preemptive strategies, alerting, escalation, CAPA/re-verification and recall/blast-radius monitoring.
+- Integration planes: direct JAKIM API; China traceability/laboratory; factory systems; Sinotrans warehouse/logistics; origin and GCC port/customs APIs; GCC destination; Shariah Financing API / Takaful / approved tokenomics target plane.
 - Trade pilot model: China → GCC direct / Shipment 001.
 - Operational support: China Trip workspace and project-management modules.
 
 ## Authority boundary
 
-Amanah/AHTE is an orchestration, evidence and decision-support layer. It does **not** replace competent authorities and does **not** independently create Halal certification.
+Amanah/AHTE is an orchestration, evidence, monitoring and decision-support layer. It does **not** replace competent authorities and does **not** independently create Halal certification.
 
-- AI assessments are advisory.
-- Laboratory results are evidence, not certification.
-- Blockchain/cryptographic records preserve integrity; they do not create certification authority.
+- AI/ML assessments, predictions and preemptive strategies are decision support.
+- Laboratory results are evidence, not certification. `NOT DETECTED ≠ HALAL`.
+- Blockchain/cryptographic records preserve integrity; they do not create certification authority or prove an underlying claim merely by hashing it.
 - Operational release is not certification.
 - Authority decision records represent externally owned competent-authority decisions and require external decision evidence.
+- Port/customs release remains a sovereign authority action.
+- Financing, Takaful and token/digital-asset decisions remain with the applicable financiers, operators, Shariah/legal/regulatory structures and counterparties.
 - Source-locked normative text is never invented.
 
 ## Canonical path
@@ -29,73 +33,73 @@ Amanah/AHTE is an orchestration, evidence and decision-support layer. It does **
 
 Primary doctrine/reference repository: `mavericken777/GlobalHalalDigitalTrust` (`main`).
 
-Current reviewed canonical snapshot:
+Current reviewed project target snapshot:
 
 - Repository commit: `0fab4c64240b569caef947fb2568ccda9d3fa0d3`
 - SHA12: `0fab4c64240b`
-- Verified: `2026-09-30T18:36:26Z`
+- Verified project-repo snapshot: `2026-09-30T18:36:26Z`
 - Freeze boundary: `master-standards-stack/verified-2026-09-17/`
 - Doctrine: `00_EXECUTIVE_COMMAND/IQ300_DOCTRINE.md`
-- Machine path map: `00_EXECUTIVE_COMMAND/canonical-path-machine-map.json`
-- Schema registry: `00_EXECUTIVE_COMMAND/schema-registry.json`
-- Trust-packet schemas: `00_EXECUTIVE_COMMAND/trust-packet-schemas.json`
+- Current target architecture: `00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md`
+- Machine target registry: `00_EXECUTIVE_COMMAND/current-target-architecture-2026-09-30.json` v1.2.0
+- Requirements traceability: `00_EXECUTIVE_COMMAND/PLATFORM_REQUIREMENTS_TRACEABILITY_2026-09-30.md`
+- Implementation rule: `00_EXECUTIVE_COMMAND/IMPLEMENTATION_COMPLETENESS_RULE_2026-09-30.md`
+- Target extension schemas: `00_EXECUTIVE_COMMAND/target-extension-schemas-2026-09-30.json` v0.2.0
+- Canonical China execution pack: `master-standards-stack/CHINA_EXECUTION_PACK/`
 
-See `docs/ahte/SOURCE_BINDING.md` and `docs/ahte/AHTE_PLATFORM_ARCHITECTURE.md`.
+The verified freeze remains unchanged. Post-freeze project architecture is implementation guidance and does not become authority text merely by being implemented in Amanah.
 
-## Current integration topology
+See `docs/ahte/SOURCE_BINDING.md`, `docs/ahte/AHTE_PLATFORM_ARCHITECTURE.md`, `docs/operations/GHDT_SYNC_2026-10-01.md`, and `docs/operations/EXTERNAL_GATES_RUNBOOK_2026-10-01.md`.
 
-- Direct JAKIM API is the intended Malaysian authority-system connectivity path; no generic public “authority gateway” is presented as a substitute for the authority system.
-- GHSCL operates the international digital/operational infrastructure and the 24/7 Command Center with JAKIM visibility.
-- AHTE provides continuous standards, evidence, trust, predictive and preemptive intelligence.
-- Manufacturers, laboratories, logistics providers, warehouses and port/customs participants contribute source evidence through controlled integrations.
-- Sinotrans is the logistics/warehouse integration plane for the China → GCC direct pilot.
-- Port/customs authority interfaces are explicit integration surfaces.
-- Shariah financing, Takaful and tokenomics are separate financial/trade-support capabilities and do not create Halal certification.
+## Current target topology
+
+`Verified China raw-material origin → supplier/producer → physical + digital identity → sample/seal/custody → China traceability + laboratory system → signed scientific evidence → manufacturer/factory systems → applicability + HCP/SCCP → smart-glass audit → finding/CAPA/re-verification → direct JAKIM API → PHC + JAKIM authorised human review/approve-disapprove workflow → formal authority status → AHTE trust-state propagation → unit/box/carton/pallet → Sinotrans warehouse → Sinotrans end-to-end logistics → container/seal/telemetry/custody → origin port/customs API → transit → GCC port/customs API → destination inspection/release → importer/warehouse/distribution/retail → authorised buyer/consumer verification`.
+
+Across the chain, Amanah/AHTE provides continuous evidence binding, digital twins, cryptographic integrity, federated minimum-necessary disclosure, real-time monitoring, AI/ML prediction, preemptive strategy generation and governed human/authority escalation.
+
+## Implementation completeness rule
+
+**FULL ARCHITECTURE NOW → REAL CONNECTORS WHEN AVAILABLE → NO REDESIGN REQUIRED.**
+
+Missing production credentials or counterparties do not justify deleting or hiding target capabilities. Development/sandbox providers may exercise complete workflows only when clearly non-production and must never fabricate authority, shipment, laboratory, customs, financing, Takaful or token legal-state evidence.
 
 ## Supabase
 
 Project ref: `lqvyyylrydcpjochknag`  
 Region: `ap-northeast-1`
 
-Observed/verified 2026-10-01:
+Live verification on 2026-10-01:
 
 - project status: `ACTIVE_HEALTHY`
-- PostgreSQL: 17.6.1
-- 98 public tables; RLS enabled on all 98
-- no public SQL views
-- four intentional authenticated privileged-wrapper security-advisor warnings remain; the wrappers require an authenticated user and organization/membership/role checks, anonymous execution is denied, and private helpers have restricted ACLs
-- AHTE realtime publication enabled for critical operational streams
+- PostgreSQL: `17.11`
+- 102 public base tables; RLS enabled on all 102
+- current target extension tables live: `ahte_command_center_alerts`, `ahte_predictions`, `ahte_preemptive_strategies`, `ahte_finance_evidence_packets`
+- target extension RLS, audit triggers and realtime publication applied where specified
+- foreign-key indexes for the new extension tables applied
+- security advisor: no new target-extension warning; four pre-existing authenticated privileged-wrapper warnings remain documented and source-controlled
+- performance advisor: no remaining new unindexed-FK finding after the target-extension index migration
 - `assurance` Edge Function requires JWT authentication
 - `public-verify` uses scoped verification tokens and returns `not_certification: true`
 
-A managed PostgreSQL minor upgrade is an external Supabase administration operation and is **not** represented as completed merely because the database is healthy. The pre-check is complete; the upgrade remains an explicit maintenance-window gate.
-
-The database is structurally provisioned but contains no real users, organizations, projects or Shipment 001 transaction evidence yet. Transaction-native records must be created by real platform activity; they are not seeded or fabricated.
+The database is structurally provisioned but contains no real Shipment 001 transaction evidence. Transaction-native records must be created by real platform activity; they are not seeded or fabricated.
 
 ## Security and authorization
 
-AHTE tables use organization-scoped RLS. The initial broad member-level mutation policy has been replaced for the original AHTE control-plane tables:
-
-- organization members may read records in their workspace;
-- source/authority registries and authority decisions require elevated roles;
-- trust/release mutation requires elevated operational roles;
-- other AHTE operational writes require explicit writer roles;
-- destructive operations are restricted to owner/admin roles.
+AHTE tables use organization-scoped RLS. Source/authority mutation and authority decisions require elevated roles; trust/release mutation requires elevated operational roles; other operational writes require explicit writer roles; destructive operations are owner/admin restricted.
 
 Secrets, private keys, access tokens, identity documents and other sensitive material must never be committed to this repository.
 
 ## Development and verification
 
-`main` is the released default branch. Amanah CI is the required validation suite for review/merge governance. GitHub ruleset administration is external to the connected repository tool and remains an account-level gate until configured by a GitHub administrator.
-
-CI performs:
+`main` is the released default branch. Amanah CI is the merge gate for repository-controlled changes. The suite covers:
 
 1. TypeScript type checking.
-2. Node test suite.
-3. Deno type checking for all three Supabase Edge Functions.
-4. Canonical Python runtime, platform and OPA policy checks.
+2. Node test suite including current target architecture and public-site regression checks.
+3. Deno type checking for Supabase Edge Functions.
+4. Canonical Python runtime/platform and OPA policy checks.
 5. Next.js production build.
+6. Public website build/lint in the test job.
 
-A committed npm lockfile and `npm ci` provide deterministic dependency installation. Canonical mirrors are source-qualified and historical snapshots are not silently treated as current.
+A committed npm lockfile and `npm ci` provide deterministic dependency installation. Historical reconciliation/mirror records retain their original reviewed commit rather than being falsified as current.
 
-See `docs/operations/RECONCILIATION_LIVE_VERIFICATION_2026-09-30.md` and `docs/operations/PENDING.md` for current verification and remaining external gates. Historical completion claims are superseded; a registered gap is not a completed implementation.
+See `docs/operations/PENDING.md` for external/transaction gates. Architecture completeness does not imply live production activation of JAKIM, laboratory, Sinotrans, port/GCC or finance/Takaful/tokenomics connectors.
