@@ -26,3 +26,5 @@ Every release must pass TypeScript, Node/schema/migration/RLS tests, Deno Edge F
 Live Supabase read-back during this reconciliation: ACTIVE_HEALTHY, PostgreSQL 17.11, 106/106 public tables with RLS, repository migration lineage applied. Four security-definer RPC advisor warnings were reviewed: authentication, tenant membership, elevated role/actor guards and bounded rate limits remain enforced. Low-usage index advisories reflect absent production traffic and do not justify dropping integrity indexes.
 
 Prior dated reports are [HISTORICAL / SUPERSEDED / NON-CONTROLLING](../archive/README.md). They preserve their original evidence and cannot control current readiness, topology or provenance.
+
+The retired `ghscl-site` Edge Function redirects to the current public Pages website. `assurance` and `public-verify` remain separate protected/scoped backend services. Live read-back found zero authentication users, shipments and authority decisions; authenticated production UAT therefore remains an external deployment/identity gate.

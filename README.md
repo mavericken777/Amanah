@@ -99,6 +99,8 @@ Secrets, private keys, access tokens, identity documents and other sensitive mat
 4. Canonical Python runtime/platform and OPA policy checks.
 5. Next.js production build.
 6. Public website build/lint in the test job.
+7. Chromium browser validation of every public route at desktop/mobile widths, all anonymous protected routes and API guards.
+8. Post-deployment comparison of every live Pages HTML file with the exact built artifact.
 
 A committed npm lockfile and `npm ci` provide deterministic dependency installation. Historical reconciliation/mirror records retain their original reviewed commit rather than being falsified as current.
 
