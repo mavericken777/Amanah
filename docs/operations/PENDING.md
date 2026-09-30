@@ -4,7 +4,7 @@ The previous assertion that every engineering defect was closed is superseded by
 
 Repository-controlled work still requiring closure:
 
-- Follow-up exact-head CI/merge and matching assurance API deployment. PR #13 is merged; its release-gate migration and assurance version 7 are verified live.
+- No release-gate/recall implementation PR remains pending: PRs #13 and #14 passed all seven CI jobs and merged. Both forward migrations and the matching assurance version 8 are verified live. See the live verification report for scope and evidence.
 - Complete per-file semantic disposition beyond the recorded file/hash inventory.
 - Audit all remaining endpoint error handling and live schema contracts; confirm production hosting/UAT with real authorized operators.
 - Preserve the explicit state-vocabulary conflict and missing onward authority transition; source governance owns promotion.

@@ -22,7 +22,11 @@ Forward migration `reconciliation_followup` applied at `20260930060741` after su
 
 Malformed recall scopes roll back their parent and ledger events in the local PostgreSQL test. Authenticated successful recall scope insertion is also exercised. No live synthetic user, tenant, authority, evidence or shipment fixtures were created. Generated TypeScript types were obtained from the resulting live schema.
 
-The follow-up assurance code uses product_id rather than identity_id for product certificate lookup, uses atomic recall creation, handles finding-query errors and relies on database audit transactions rather than duplicate post-write ledger RPCs. Its PR CI, merge and deployment are tracked separately until completed.
+The follow-up assurance code uses product_id rather than identity_id for product certificate lookup, uses atomic recall creation, handles finding-query errors and relies on database audit transactions rather than duplicate post-write ledger RPCs.
+
+[PR #14](https://github.com/mavericken777/Amanah/pull/14) merged as `3700806f5a196ff6b6a92a85641bf69aa4148f22`. Exact head `f8d4dd2443bf25c2ad838bd6e8154356aa63ca09` passed all seven jobs in [CI run 36677410118](https://github.com/mavericken777/Amanah/actions/runs/36677410118). Assurance version 8 is ACTIVE with JWT verification and exact five-file source readback. Deployment explicitly supplied deno.json as its import map after the service initially reused the old version's absolute map path; that failed attempt did not replace the active v7 function.
+
+All three canonical workflows also passed at the bound commit: [gateway/OPA](https://github.com/mavericken777/GlobalHalalDigitalTrust/actions/runs/36633518092), [repository integrity](https://github.com/mavericken777/GlobalHalalDigitalTrust/actions/runs/36633518093) and [reference runtime](https://github.com/mavericken777/GlobalHalalDigitalTrust/actions/runs/36633518057). Reference circuit/escrow assets remain specifications or experiments, with no production certification claim.
 
 ## Observed technical state
 
