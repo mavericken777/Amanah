@@ -1,3 +1,4 @@
+import { requireQueryResult } from "@/lib/query-results";
 import { CreateDocumentForm } from "@/components/forms";
 import { DownloadDocumentButton } from "@/components/download-document-button";
 import { UploadDocumentForm } from "@/components/upload-document-form";
@@ -9,21 +10,21 @@ export default async function DocumentsPage() {
   const workspace = await getPrimaryWorkspace(supabase, user.id);
   if (!workspace) return <EmptyState />;
 
-  const { data: projects } = await supabase
+  const { data: projects } = requireQueryResult(await supabase
     .from("projects")
     .select("id,name")
     .eq("organization_id", workspace.id)
     .eq("status", "active")
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false }));
 
   const project = projects?.[0];
 
-  const { data: documents } = await supabase
+  const { data: documents } = requireQueryResult(await supabase
     .from("documents")
     .select("id,title,classification,status,required_by,storage_provider,storage_reference,projects!documents_project_id_fkey(name)")
     .eq("organization_id", workspace.id)
     .order("required_by", { ascending: true, nullsFirst: false })
-    .limit(100);
+    .limit(100));
 
   return (
     <div className="page stack-xl">

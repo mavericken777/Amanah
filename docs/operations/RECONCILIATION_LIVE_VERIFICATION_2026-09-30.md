@@ -50,6 +50,8 @@ Unused indexes in this empty environment are not evidence of redundant indexes. 
 
 ## Boundaries and remaining work
 
+Server-rendered workspace pages now guard 63 reads across 41 pages, including composite assurance queries. Database failures reach the error boundary rather than being rendered as zero counts, empty registries or missing records. Workspace lookup errors are explicit. Project/task API lookup failures return 500 rather than false empty/404/403 responses. The query-guard tests distinguish valid empty results from unavailable data; tuple types and parallel querying are preserved. UI verification is limited to build/type checks until genuine operator UAT.
+
 The tracked-file/hash inventory covers all baseline paths. A complete semantic disposition of every documentary file remains pending. Idempotent HTTP response finalization remains separate from business writes; unfinished reservations deny retries rather than repeating an uncertain write. Production UAT requires real authorized operators and genuine transaction inputs.
 
 [OPEN GATE: SOURCE CONFLICT — trust-state-reference-layer — owner: AHTE/IQ300 source governance — blocking: frozen-vocabulary promotion]

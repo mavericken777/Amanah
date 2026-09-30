@@ -1,3 +1,4 @@
+import { requireQueryResult } from "@/lib/query-results";
 import { ProfileForm } from "@/components/profile-form";
 import { requireUser } from "@/lib/auth";
 import { getPrimaryWorkspace } from "@/lib/workspace";
@@ -5,7 +6,7 @@ import { getPrimaryWorkspace } from "@/lib/workspace";
 export default async function SettingsPage() {
   const { supabase, user } = await requireUser();
   const workspace = await getPrimaryWorkspace(supabase, user.id);
-  const { data: profile } = await supabase.from("profiles").select("full_name,avatar_url").eq("id", user.id).maybeSingle();
+  const { data: profile } = requireQueryResult(await supabase.from("profiles").select("full_name,avatar_url").eq("id", user.id).maybeSingle());
 
   return (
     <div className="page stack-xl">

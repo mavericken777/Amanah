@@ -1,3 +1,4 @@
+import { requireQueryResult } from "@/lib/query-results";
 import { requireUser } from "@/lib/auth";
 import { getPrimaryWorkspace } from "@/lib/workspace";
 
@@ -9,11 +10,11 @@ export default async function AdminPage() {
   if (!workspace) return <EmptyState />;
   if (!adminRoles.has(workspace.role)) return <Forbidden />;
 
-  const { data: members } = await supabase
+  const { data: members } = requireQueryResult(await supabase
     .from("organization_members")
     .select("id, user_id, role, created_at")
     .eq("organization_id", workspace.id)
-    .order("created_at");
+    .order("created_at"));
 
   return (
     <div className="page stack-xl">

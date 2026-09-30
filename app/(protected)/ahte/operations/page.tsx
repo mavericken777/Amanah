@@ -1,3 +1,4 @@
+import { requireQueryResults } from "@/lib/query-results";
 import { requireUser } from "@/lib/auth";
 import { getPrimaryWorkspace } from "@/lib/workspace";
 
@@ -6,13 +7,13 @@ export default async function OperationsPage() {
   const org = await getPrimaryWorkspace(supabase, user.id);
   if (!org) return <Empty />;
 
-  const [facilities, suppliers, materials, products, batches] = await Promise.all([
+  const [facilities, suppliers, materials, products, batches] = requireQueryResults(await Promise.all([
     supabase.from("ahte_facilities").select("site_code,legal_name,jurisdiction,status").eq("organization_id", org.id).order("site_code"),
     supabase.from("ahte_suppliers").select("legal_name,risk_class,verification_status,status").eq("organization_id", org.id).order("legal_name"),
     supabase.from("ahte_materials").select("name,category,source_type,origin_country,halal_status,status").eq("organization_id", org.id).order("name"),
     supabase.from("ahte_products").select("name,category,market_status,status").eq("organization_id", org.id).order("name"),
     supabase.from("ahte_batches").select("batch_no,status,produced_at").eq("organization_id", org.id).order("created_at", { ascending: false }).limit(100),
-  ]);
+  ] as const));
 
   return <div className="page stack-xl">
     <header><div className="eyebrow">AHTE / OPERATIONS</div><h1>Facility, material & product assurance</h1><p className="lead">Facility zoning, supplier risk, material provenance, product versions and batch genealogy.</p></header>
