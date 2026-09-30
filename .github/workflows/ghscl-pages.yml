@@ -1,15 +1,10 @@
 name: Deploy GHSCL website
 
 on:
-  push:
+  workflow_run:
+    workflows: ['Amanah CI']
+    types: [completed]
     branches: [main]
-    paths:
-      - 'ghscl-website/**'
-      - 'scripts/build-ecosystem-site.mjs'
-      - 'scripts/check-ecosystem-site.mjs'
-      - 'package.json'
-      - 'package-lock.json'
-      - '.github/workflows/ghscl-pages.yml'
   workflow_dispatch:
 
 permissions:
@@ -23,6 +18,7 @@ concurrency:
 
 jobs:
   build-and-deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -30,6 +26,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
@@ -50,3 +48,7 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify every current website page against deployed build
+        env:
+          PAGES_URL: ${{ steps.deployment.outputs.page_url }}
+        run: node scripts/verify-pages-deployment.mjs

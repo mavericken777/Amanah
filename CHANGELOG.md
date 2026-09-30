@@ -1,3 +1,9 @@
+# Current reconciliation
+
+Canonical binding: `1cc9b338a28e4d7ddf4e7b6509bc38dae9396596`. Consolidated current controls, archived original audit reports as HISTORICAL / SUPERSEDED / NON-CONTROLLING, verified exact mirror bytes, extended protected-route redirects, fixed unsafe auth return paths, added isolated development connectors and full browser / deployed Pages verification.
+
+The entries below record historical releases and their original reviewed commits; they do not control current readiness.
+
 # Changelog
 
 ## 2026-10-01 — GHDT target-architecture synchronization

@@ -1,1 +1,0 @@
-Real authority, commercial and shipment gates may only be closed with real evidence. Synthetic records must never be used to represent external approval, certification, buyer commitment, laboratory acceptance, border release or Shipment 001 execution.

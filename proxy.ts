@@ -26,7 +26,7 @@ export async function proxy(request: NextRequest) {
   const { data } = await supabase.auth.getClaims();
   const claims = data?.claims;
   const path = request.nextUrl.pathname;
-  const isProtected = ["/dashboard", "/projects", "/tasks", "/china-trip"].some(
+  const isProtected = ["/admin", "/ahte", "/approvals", "/audit", "/china-trip", "/dashboard", "/decisions", "/documents", "/finance", "/meetings", "/notifications", "/projects", "/risks", "/search", "/settings", "/tasks", "/updates", "/workflows"].some(
     (prefix) => path === prefix || path.startsWith(prefix + "/"),
   );
   const isAuthPage = path === "/login" || path.startsWith("/auth/");

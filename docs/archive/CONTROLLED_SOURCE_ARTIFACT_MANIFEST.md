@@ -1,3 +1,5 @@
+> HISTORICAL / SUPERSEDED / NON-CONTROLLING. Original audit evidence is retained below. Current source binding, topology, readiness and gates are controlled by [STATUS](../operations/STATUS.md), [SOURCE_BINDING](../ahte/SOURCE_BINDING.md) and [PENDING](../operations/PENDING.md). Historical closure claims apply only to their recorded review.
+
 # Controlled Source Artifact Manifest
 
 > Historical source-review snapshot. Current canonical binding is GlobalHalalDigitalTrust@3d5cc29fabf7c3ed0da20cd938219fed83e74830; see SOURCE_BINDING.md and config/canonical-mirror-manifest.json.

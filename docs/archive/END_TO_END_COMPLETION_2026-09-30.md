@@ -1,3 +1,5 @@
+> HISTORICAL / SUPERSEDED / NON-CONTROLLING. Original audit evidence is retained below. Current source binding, topology, readiness and gates are controlled by [STATUS](../operations/STATUS.md), [SOURCE_BINDING](../ahte/SOURCE_BINDING.md) and [PENDING](../operations/PENDING.md). Historical closure claims apply only to their recorded review.
+
 # Amanah end-to-end completion register — 2026-09-30
 
 > Historical snapshot, superseded by `RECONCILIATION_LIVE_VERIFICATION_2026-09-30.md` and `PENDING.md`. The earlier source binding, 97-table count, zero-advisor result and completion assertions do not describe the current release. Registering a pending engineering task does not complete it.

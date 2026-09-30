@@ -2,7 +2,7 @@
 
 ## Source binding
 
-Current project target: `mavericken777/GlobalHalalDigitalTrust@0fab4c64240b569caef947fb2568ccda9d3fa0d3`.
+Current project target: `mavericken777/GlobalHalalDigitalTrust@1cc9b338a28e4d7ddf4e7b6509bc38dae9396596`.
 
 Freeze: `master-standards-stack/verified-2026-09-17/` remains unchanged.
 

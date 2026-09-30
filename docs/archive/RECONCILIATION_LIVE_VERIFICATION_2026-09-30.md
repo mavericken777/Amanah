@@ -1,3 +1,5 @@
+> HISTORICAL / SUPERSEDED / NON-CONTROLLING. Original audit evidence is retained below. Current source binding, topology, readiness and gates are controlled by [STATUS](../operations/STATUS.md), [SOURCE_BINDING](../ahte/SOURCE_BINDING.md) and [PENDING](../operations/PENDING.md). Historical closure claims apply only to their recorded review.
+
 # Reconciliation live verification — 2026-09-30
 
 [PROPOSAL: closes operational enforcement, schema/API and verification gaps — path point: Control → Evidence → Audit Test → Corrective Action → Re-verification → Authority Gate → Trust State → Operational Release]

@@ -1,5 +1,5 @@
 /**
- * [PROPOSAL] Replaceable integration ports aligned to GlobalHalalDigitalTrust@ae3f662f7467.
+ * [PROPOSAL] Replaceable integration ports aligned to GlobalHalalDigitalTrust@1cc9b338a28e4d7ddf4e7b6509bc38dae9396596.
  * External transports remain unconfigured until authorised production contracts exist.
  * These are internal adapter envelopes, not invented external authority API schemas.
  */
@@ -29,6 +29,7 @@ export interface ConnectorContext {
 export interface ConnectorReceipt {
   eventId: string; status: "received" | "rejected" | "pending";
   sourceReceiptReference?: string; errors: readonly string[]; notCertification: true;
+  developmentAcknowledgement?: { simulated: true; environment: "development"; payloadDigest: string; createsAuthorityDecision: false; createsTransactionEvidence: false };
 }
 export interface Connector<T> {
   readonly kind: IntegrationKind; readonly environment: ConnectorEnvironment;
@@ -121,6 +122,37 @@ export class UnconfiguredConnector<T extends { event: EvidenceEvent }> implement
     return { eventId: payload.event.eventId, status: "rejected", errors: [
       ...validateContext(payload.event, context, this.environment), "connector_not_configured"
     ], notCertification: true };
+  }
+}
+
+/** Isolated internal fixture transport. No external result, decision or receipt is invented. */
+export class DevelopmentConnector<T extends { event: EvidenceEvent }> implements Connector<T> {
+  readonly environment = "development" as const;
+  private readonly acknowledgements = new Map<string, { digest: string; receipt: ConnectorReceipt }>();
+  constructor(readonly kind: IntegrationKind) {}
+  async health(): Promise<ConnectorHealth> { return "ready"; }
+  async exchange(payload: T, context: ConnectorContext): Promise<ConnectorReceipt> {
+    const errors = validateContext(payload.event, context, this.environment);
+    if (payload.event.simulated !== true) errors.push("development_requires_simulated_event");
+    if (errors.length) return { eventId: payload.event.eventId, status: "rejected", errors, notCertification: true };
+    const canonicalize = (value: unknown): unknown => {
+      if (Array.isArray(value)) return value.map(canonicalize);
+      if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, item]) => [key, canonicalize(item)]));
+      return value;
+    };
+    const digest = await new IntegrityService().digest(new TextEncoder().encode(JSON.stringify(canonicalize(payload))));
+    const key = JSON.stringify([context.organizationId, context.actorId, this.kind, context.idempotencyKey]);
+    const prior = this.acknowledgements.get(key);
+    if (prior) {
+      if (prior.digest !== digest) return { eventId: payload.event.eventId, status: "rejected", errors: ["idempotency_payload_conflict"], notCertification: true };
+      return structuredClone(prior.receipt);
+    }
+    const receipt: ConnectorReceipt = {
+      eventId: payload.event.eventId, status: "received", errors: [], notCertification: true,
+      developmentAcknowledgement: { simulated: true, environment: "development", payloadDigest: digest, createsAuthorityDecision: false, createsTransactionEvidence: false },
+    };
+    this.acknowledgements.set(key, { digest, receipt: structuredClone(receipt) });
+    return receipt;
   }
 }
 

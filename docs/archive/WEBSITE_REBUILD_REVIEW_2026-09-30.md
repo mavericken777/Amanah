@@ -1,3 +1,5 @@
+> HISTORICAL / SUPERSEDED / NON-CONTROLLING. Original audit evidence is retained below. Current source binding, topology, readiness and gates are controlled by [STATUS](../operations/STATUS.md), [SOURCE_BINDING](../ahte/SOURCE_BINDING.md) and [PENDING](../operations/PENDING.md). Historical closure claims apply only to their recorded review.
+
 # Global Halal Digital Trust website rebuild — V6 proposal
 
 Boundary check: derived from GlobalHalalDigitalTrust@3d5cc29fabf7c3ed0da20cd938219fed83e74830 and the user’s 2026-09-30 website directive. Presentation and internal connector ports are post-freeze proposals; no frozen artifact or normative text is changed.

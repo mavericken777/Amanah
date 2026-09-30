@@ -3,7 +3,7 @@
   "locale": "en",
   "availableLocales": ["en"],
   "plannedLocales": ["zh-Hans", "ms", "ar"],
-  "canonicalCommit": "0fab4c64240b569caef947fb2568ccda9d3fa0d3",
+  "canonicalCommit": "1cc9b338a28e4d7ddf4e7b6509bc38dae9396596",
   "baseUrl": "https://mavericken777.github.io/Amanah/",
   "navigation": [["index.html","Home"],["ecosystem.html","Ecosystem"],["how-it-works.html","How It Works"],["digital-trust.html","AHTE Digital Trust"],["command-center.html","Command Center"],["traceability.html","Traceability"],["smart-audit.html","Smart Audit"],["china-gcc.html","China → GCC"],["partners.html","Partners"],["manufacturers.html","Manufacturers"],["finance-takaful.html","Finance & Takaful"],["verify.html","Verify"],["contact.html","Contact"]],
   "messages": {

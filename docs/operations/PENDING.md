@@ -1,22 +1,14 @@
 # Pending closure
 
-Current implementation binding: `GlobalHalalDigitalTrust@0fab4c64240b569caef947fb2568ccda9d3fa0d3`.
+Current implementation binding: `GlobalHalalDigitalTrust@1cc9b338a28e4d7ddf4e7b6509bc38dae9396596`.
 
 The verified freeze remains `master-standards-stack/verified-2026-09-17/`.
 
-Repository-controlled architecture synchronization is handled in `docs/operations/GHDT_SYNC_2026-10-01.md`. Historical reconciliation reports remain historical evidence and are not rewritten to imply later review.
-
-## Repository-controlled engineering state
-
-The GHDT → Amanah architecture synchronization is closed for repository-controlled work. Current architecture, machine contracts, public website, database extensions, CI, and deployment pipeline have been reconciled to the current project-repo target.
+Repository-controlled architecture synchronization is handled in `docs/operations/STATUS.md`. Historical reconciliation reports remain historical evidence and are not rewritten to imply later review.
 
 ## Authority integration topology
 
-The controlling project architecture is:
-
-`AHTE ⇄ Direct JAKIM API ⇄ JAKIM`
-
-NurAI is not a required platform hop and must not be represented as an external middleware layer between AHTE and JAKIM. Public copy, platform diagrams, connector contracts, and implementation guidance must use the direct JAKIM API topology unless a future controlled source explicitly changes it.
+AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Malaysia provides governance, assurance and authority connectivity.
 
 ## External / account / transaction gates
 
@@ -32,11 +24,6 @@ NurAI is not a required platform hop and must not be represented as an external 
 - [OPEN GATE: production Amanah hosting authorization — owner: Maverick / hosting administrator — blocking: production UAT]
 - [OPEN GATE: Amanah GitHub branch-protection administration — owner: repository administrator — blocking: repository governance hardening]
 - [OPEN GATE: GlobalHalalDigitalTrust GitHub branch-protection administration — owner: repository administrator — blocking: canonical source governance hardening]
-- [OPEN GATE: stakeholder-video paid generation entitlement — owner: media production / workspace administrator — blocking: rendered media artifact]
-
-## Closed infrastructure item
-
-Supabase managed PostgreSQL maintenance is no longer an open architecture gate: live project verification on 2026-10-01 reports PostgreSQL `17.11` and `ACTIVE_HEALTHY`. Future managed maintenance remains normal operations rather than this synchronization's closure blocker.
 
 ## Completion rule
 

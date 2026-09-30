@@ -35,9 +35,9 @@ Primary doctrine/reference repository: `mavericken777/GlobalHalalDigitalTrust` (
 
 Current reviewed project target snapshot:
 
-- Repository commit: `0fab4c64240b569caef947fb2568ccda9d3fa0d3`
-- SHA12: `0fab4c64240b`
-- Verified project-repo snapshot: `2026-09-30T18:36:26Z`
+- Repository commit: `1cc9b338a28e4d7ddf4e7b6509bc38dae9396596`
+- SHA12: `1cc9b338a28e`
+- Verified project-repo snapshot: `2026-09-30`
 - Freeze boundary: `master-standards-stack/verified-2026-09-17/`
 - Doctrine: `00_EXECUTIVE_COMMAND/IQ300_DOCTRINE.md`
 - Current target architecture: `00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md`
@@ -49,7 +49,7 @@ Current reviewed project target snapshot:
 
 The verified freeze remains unchanged. Post-freeze project architecture is implementation guidance and does not become authority text merely by being implemented in Amanah.
 
-See `docs/ahte/SOURCE_BINDING.md`, `docs/ahte/AHTE_PLATFORM_ARCHITECTURE.md`, `docs/operations/GHDT_SYNC_2026-10-01.md`, and `docs/operations/EXTERNAL_GATES_RUNBOOK_2026-10-01.md`.
+See `docs/ahte/SOURCE_BINDING.md`, `docs/ahte/AHTE_PLATFORM_ARCHITECTURE.md`, `docs/operations/STATUS.md`, and `docs/operations/EXTERNAL_GATES_RUNBOOK_2026-10-01.md`.
 
 ## Current target topology
 
@@ -72,7 +72,7 @@ Live verification on 2026-10-01:
 
 - project status: `ACTIVE_HEALTHY`
 - PostgreSQL: `17.11`
-- 102 public base tables; RLS enabled on all 102
+- 106 public base tables; RLS enabled on all 106
 - current target extension tables live: `ahte_command_center_alerts`, `ahte_predictions`, `ahte_preemptive_strategies`, `ahte_finance_evidence_packets`
 - target extension RLS, audit triggers and realtime publication applied where specified
 - foreign-key indexes for the new extension tables applied
