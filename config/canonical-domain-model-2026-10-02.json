@@ -1,6 +1,6 @@
 {
-  "artifact":"AMANAH Canonical Domain Model","version":"1.0.0","control_date":"2026-10-02","status":"CONTROLLING_POST_FREEZE_TARGET",
-  "source_binding":"GlobalHalalDigitalTrust@14456e99937d","freeze":"master-standards-stack/verified-2026-09-17/",
+  "artifact":"AMANAH Canonical Domain Model","version":"1.0.1","control_date":"2026-10-02","status":"CONTROLLING_POST_FREEZE_TARGET",
+  "source_binding":"GlobalHalalDigitalTrust@ccc10ca476b","freeze":"master-standards-stack/verified-2026-09-17/",
   "authority_topology":"AHTE <-> Direct JAKIM API <-> JAKIM","default_corridor":"China -> GCC direct",
   "trust_binding":["ObjectID","EventID","EvidenceID","ActorID","Timestamp","IntegrityProof"],
   "entity_stores":{
