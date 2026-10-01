@@ -1,343 +1,68 @@
-# Amanah Platform Architecture v1
+# AMANAH / Global Halal Digital Trust - Canonical Platform Architecture
 
-**Status:** Implementation baseline  
-**Date:** 2026-09-29  
-**Repository:** mavericken777/Amanah
+**Version:** 2.0.0 | **Control date:** 2026-10-02 | **Status:** CONTROLLING POST-FREEZE ARCHITECTURE
 
-## 1. Purpose
+## 1. Canonical system story
+AMANAH connects origin, manufacturer, assurance, laboratory, audit, production, logistics, border, destination and verification as one evidence-linked lifecycle.
 
-Amanah is a general-purpose operational platform. The China Trip is the first domain module, not the definition of the platform.
+`Origin / Manufacturer -> Organisation -> Identity/KYC -> Facility -> Product -> SKU -> Supplier -> Ingredient/Raw Material -> Documentation -> AI Review -> Human Governance -> Laboratory -> Audit -> CAPA -> Authority/Credential -> Production -> IoT -> Batch -> Warehouse -> Logistics -> Digital Custody -> Port -> Authority Connectivity -> Cross-Border -> GCC Destination -> Distribution/Retail -> Verification -> Command Centre -> Continuous Assurance`
 
-The platform provides one controlled source of truth for projects and the work around them: people, responsibilities, tasks, meetings, documents, decisions, risks, finance, communications, notifications, audit history and domain-specific workflows.
+## 2. Authority boundary
+`AHTE <-> Direct JAKIM API <-> JAKIM`
 
-## 2. Requirements baseline
+AHTE provides orchestration, applicability mapping, controls, evidence, AI assistance, trust state and operational decision support. It does not issue Halal certification, sovereign release, financing approval, Takaful decisions or legal title.
 
-The original Markdown specification remains preserved and is treated as the business-requirements baseline. Key files include:
+## 3. Platform planes
+| Plane | Purpose | Accountable function | System of record | Evidence | Failure behaviour |
+|---|---|---|---|---|---|
+| Identity | organisations/users/roles/KYC refs | IAM | Auth + org tables | identity evidence | deny/escalate |
+| Registration | facility/product/SKU/supplier/material/asset | domain owner | AHTE domain tables | registration refs | draft/information required |
+| Compliance | standards/requirements/applicability/controls/HCP/SCCP | compliance | AHTE control plane | source/evidence | source-lock |
+| Evidence | documents/lab/media/events | evidence steward | evidence + vault | hash/signature/provenance | append/supersede |
+| Human governance | HITM/audit/authority | authorized human roles | HITM/authority stores | signed decision | hold |
+| Trust | states/vectors/fractures/packets | AHTE | trust/event ledger | integrity proofs | hold/quarantine |
+| Production | devices/sensors/telemetry/batches | manufacturer operations | AHTE + factory SOR | telemetry evidence | buffer/alert |
+| Logistics | shipment/vehicle/driver/custody/seal | logistics operator | AHTE + operator SOR | handover/telemetry | hold/store-forward |
+| Border | pre-arrival/inspection/release | port/customs authority | authority SOR | inspection/decision | hold/refer |
+| Destination | importer/warehouse/retail/verification | destination operator/authority | destination SOR | receiving/market evidence | hold/refer |
+| Intelligence | extraction/anomaly/prediction | AHTE intelligence | provenance/prediction | model/source refs | escalate/D4 hold |
+| Integration | APIs/events/adapters/webhooks | integration engineering | connector state + external SOR | receipt/mapping | retry/circuit-break |
+| Experience | role-specific interfaces | product teams | web/mobile/partner channels | user audit | safe empty/offline |
 
-PROJECT_OVERVIEW.md, ACTION_ITEMS.md, TEAM_AND_RESPONSIBILITIES.md, ITINERARY.md, LOGISTICS.md, ACCOMMODATION.md, MEETINGS.md, DOCUMENTS_AND_COMPLIANCE.md, BUDGET_AND_EXPENSES.md, RISK_REGISTER.md, DECISIONS.md, UPDATES.md, TEAM_GUIDE.md, SECURITY.md and CHANGELOG.md.
+## 4. Component contract
+Every component defines purpose, owner, inputs, outputs, SOR, authority boundary, security boundary, evidence, dependencies and failure behaviour. External systems never become AHTE SOR merely because an adapter exists.
 
-Implementation must not silently erase those requirements.
+## 5. Decision model
+| Class | Meaning | AI | Human/authority |
+|---|---|---|---|
+| D0 | ingest | yes | no |
+| D1 | encoded control | yes | rule-owner approval for rule changes |
+| D2 | machine assessment | yes | review as configured |
+| D3 | recommendation | yes | yes for material action |
+| D4 | trust-fracture hold | configured | yes to resolve/release |
+| D5 | authority gate | no | authorized authority |
+| D6 | sovereign/legal decision | no | competent authority/legal actor |
 
-## 3. Platform model
+## 6. Canonical evidence binding
+`ObjectID + EventID + EvidenceID + ActorID + Timestamp + IntegrityProof`
+A hash demonstrates integrity of recorded bytes; it does not prove the truth of the underlying claim.
 
-    Organization
-       |
-       +-- Users / memberships / roles
-       |
-       +-- Projects
-              |
-              +-- Core capabilities
-              |     +-- Tasks
-              |     +-- Meetings
-              |     +-- Documents
-              |     +-- Decisions
-              |     +-- Risks
-              |     +-- Finance
-              |     +-- Updates
-              |     +-- Notifications
-              |     +-- Audit
-              |
-              +-- Domain modules
-                    +-- Travel / China Trip
-                    +-- future modules
+## 7. Core graphs
+Manufacturer: `Organisation -> KYC -> Facility -> ProductionLine -> Product -> SKU -> Formula -> Material -> Supplier -> Certificate/Evidence -> Audit -> CAPA -> Authority/Credential -> Batch`.
 
-The reusable core must not become dependent on trip-specific concepts.
+Laboratory: `Requirement -> Sample -> ChainOfCustody -> Method/QC -> TestResult -> Review/Signature -> Evidence -> Audit/Case`. **NOT DETECTED != HALAL**.
 
-## 4. Technology baseline
+Logistics: `Batch/Lot -> Package -> Pallet -> Container -> Seal -> Shipment -> Vehicle/Driver -> Route/Custody -> Port -> Destination -> Verification`.
 
-- Next.js 16.3.6 App Router
-- React 19.2
-- TypeScript strict mode
-- Supabase Auth
-- Supabase Postgres
-- Postgres Row Level Security
-- Supabase Storage or another approved secure document vault
-- GitHub Actions
-- Node.js 22.18+
+Trust: `Source -> Requirement -> Control -> Evidence -> AuditTest -> Finding -> CAPA -> Reverification -> AuthorityGate -> TrustState -> OperationalRelease`.
 
-The project uses Next.js 16's proxy convention and Supabase's current SSR model with cookie-based sessions.
+## 8. Resilience and sovereignty
+Field workflows support store-and-forward. No outage is converted into synthetic success. Granular source records remain in their legally appropriate sovereign/enterprise systems; federation exposes minimum-necessary assertions, proofs, statuses and references.
 
-## 5. Why the stack
+## 9. Release principle
+Operational release is a technical transition subject to configured hard gates and human/authority evidence. It is not Halal certification.
 
-The deadline favors managed infrastructure for authentication, sessions, PostgreSQL and document storage rather than building those primitives from scratch.
+## 10. Current implementation binding
+AHTE implementation includes control/evidence/trust, laboratory, audit, logistics/custody, digital twins, telemetry, Command Centre target objects, finance-evidence objects, connector contracts and public verification. The 2026-10-02 normalized domain migration adds first-class ProductionLine, SKU, CertificationScope, Vehicle, Driver, Warehouse, Pallet, Package, Container, Seal, RouteEvent and VerificationEvent objects and typed Sensor/Gateway profiles.
 
-Business logic remains application-owned so Amanah is not conceptually tied to one UI or one module.
-
-## 6. Core entities
-
-- Organization
-- Profile
-- Organization membership
-- Project
-- Task
-- Meeting
-- Meeting attendee
-- Document metadata
-- Decision
-- Risk
-- Budget
-- Expense
-- Update
-- Notification
-- Audit event
-
-## 7. China Trip entities
-
-- Itinerary event
-- Traveller
-- Transport segment
-- Accommodation
-
-The current migration places these domain records under an Amanah project and keeps organization_id on every row for direct tenant isolation.
-
-## 8. Tenant isolation
-
-Every organization-owned table carries organization_id.
-
-RLS is enabled.
-
-A user is allowed to read or mutate records only when they have a membership in the owning organization. Administrative writes use organization roles.
-
-Baseline roles:
-
-owner, admin, executive, project_manager, member, contributor, viewer.
-
-Important rule:
-
-> Interface visibility is not authorization.
-
-Database policies and server-side checks are the security enforcement layers.
-
-## 9. Authentication
-
-Flow:
-
-1. Create or sign in to an account.
-2. Supabase maintains the session.
-3. Next.js proxy refreshes the cookie-based session.
-4. Protected server code verifies identity.
-5. Postgres RLS restricts data access.
-
-Use getClaims for server-side verification and getUser when a current user record is needed. Do not use getSession as an authorization decision.
-
-## 10. Onboarding workflow
-
-Account -> profile -> organization -> owner membership -> project -> task.
-
-Creating an organization automatically creates the owner membership through a database trigger.
-
-## 11. Business workflows
-
-### Tasks
-
-Open -> In Progress -> Done
-
-Open -> Blocked -> In Progress
-
-Open -> Cancelled
-
-Material tasks should have owner, due date where relevant, completion condition and status.
-
-### Meetings
-
-Pending -> Tentative -> Confirmed
-
-Confirmed -> Cancelled
-
-Meetings can relate to attendees, documents, outcomes, decisions and follow-up tasks.
-
-### Risks
-
-Open -> Monitoring -> Mitigated -> Closed
-
-Open -> Escalated
-
-### Documents
-
-Pending -> In Review -> Approved
-
-Pending/In Review -> Rejected
-
-Approved -> Expired
-
-### Itinerary
-
-Pending -> Tentative -> Confirmed
-
-Tentative/Confirmed -> Blocked or Cancelled
-
-## 12. Audit model
-
-High-value operational records have database audit triggers.
-
-Recorded fields:
-
-- organization
-- actor
-- action
-- entity type
-- entity id
-- previous row snapshot
-- resulting row snapshot
-- timestamp
-
-The audit table is readable by organization members but not directly writable through normal client permissions.
-
-Future production hardening should add retention policy, tamper-evidence and privileged audit export.
-
-## 13. Document model
-
-Amanah separates document metadata from document content.
-
-Metadata includes title, classification, owner, required-by date, status and secure storage reference.
-
-Sensitive source files do not belong in Git. Passport scans, access tokens, banking information, authentication links and similar secrets remain outside the repository in approved secure storage.
-
-## 14. API direction
-
-The first slice can use Supabase's data API from Server Components and controlled Client Components.
-
-As features mature, introduce a versioned application boundary:
-
-    /api/v1/projects
-    /api/v1/tasks
-    /api/v1/meetings
-    /api/v1/documents
-    /api/v1/decisions
-    /api/v1/risks
-    /api/v1/finance
-    /api/v1/travel
-
-The application API should own validation, business rules, authorization checks, idempotency and integration boundaries.
-
-## 15. UI information architecture
-
-Core:
-
-Dashboard
-Projects
-Tasks
-Meetings
-Documents
-Decisions
-Risks
-Finance
-Updates
-Audit
-Administration
-
-Travel module:
-
-China Trip
-- Overview
-- Travellers
-- Itinerary
-- Logistics
-- Accommodation
-- Meetings
-- Documents
-- Budget
-- Risks
-- Decisions
-- Actions
-- Updates
-
-## 16. Executive dashboard contract
-
-The dashboard must answer the questions from PROJECT_OVERVIEW.md:
-
-- Where are we going?
-- When?
-- Who is travelling?
-- Who owns each task?
-- What meetings are scheduled?
-- What is confirmed and what is pending?
-- What documents are outstanding?
-- What changed?
-- What decisions have been made?
-- What risks are active?
-- What needs action now?
-
-## 17. Notification engine
-
-Future event sources:
-
-- task due soon
-- task overdue
-- task blocked
-- meeting changed/cancelled
-- risk escalated
-- document overdue/expired
-- decision recorded
-- project status changed
-
-Initial channel: in-app.
-
-Future channels: email and controlled external integrations.
-
-Notifications must be tenant-scoped, preference-aware and deduplicated.
-
-## 18. Search
-
-Search must cover projects, tasks, meetings, documents, decisions, risks, updates and travel records while preserving RLS boundaries.
-
-Start with Postgres full-text search. Introduce an external search engine only when scale or relevance requirements justify it.
-
-## 19. Reliability
-
-Production requirements:
-
-- automated database backups
-- restore procedure
-- monitoring
-- structured application logs
-- error tracking
-- health endpoint
-- CI
-- dependency review
-- migration review
-- environment separation
-
-Environment model:
-
-local -> preview/test -> staging -> production.
-
-## 20. Delivery phases
-
-### P0
-
-Authentication, organizations, memberships, projects, tasks, RLS, audit, dashboard.
-
-### P1
-
-Meetings, documents, decisions, risks, updates, notifications, search, administration.
-
-### P2
-
-China Trip itinerary, travellers, logistics, accommodation, compliance, budget and trip dashboard.
-
-### P3
-
-Workflow builder, custom fields, approvals, integrations, reporting, mobile/PWA, external API and automation.
-
-## 21. Definition of done
-
-A feature is complete only when:
-
-- data model is defined
-- migration exists
-- authorization is reviewed
-- validation exists
-- UI exists
-- error/loading/empty states exist
-- audit behavior is defined
-- tests exist
-- documentation is updated
-- CI passes
-- security implications have been reviewed
-
-## 22. Important scope statement
-
-The initial implementation is a foundation plus a working vertical slice. It is not being represented as a finished enterprise production system.
-
-The architecture is intentionally designed so the remaining A–Z modules can be added without replacing the core.
+External production systems remain separately gated by contracts, credentials, permissions and UAT.
