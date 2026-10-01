@@ -26,7 +26,7 @@ AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Shipment 001 remains 
 - [69-section execution register](docs/operations/AMANAH_69_EXECUTION_REGISTER_2026-10-02.md)
 - [Refreshed truth baseline](docs/operations/REFRESHED_TRUTH_BASELINE_2026-10-02.md)
 - [Master deliverable index](docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-02.json)
-- [Manufacturer onboarding](app/(protected)/onboarding/page.tsx)
+- Manufacturer onboarding: `app/(protected)/onboarding/page.tsx`
 - [API UAT pack](docs/api/AMANAH_API_UAT_PACK_2026-10-02.md)
 - [Platinum hardware RFQ BOM](docs/hardware/PLATINUM_HARDWARE_MASTER_BOM_2026-10-02.json)
 - [Corporate profile](docs/marketing/AMANAH_CORPORATE_PROFILE_2026-10-02.md)
