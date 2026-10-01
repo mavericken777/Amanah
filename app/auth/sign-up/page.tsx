@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/client";
 import Link from "next/link";
+import { AuthStory } from "@/components/auth-story";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -45,7 +46,8 @@ export default function SignUpPage() {
 
   return (
     <main className="auth-page">
-      <div className="auth-card">
+      <AuthStory />
+      <div className="auth-panel"><div className="auth-card">
         <div className="brand-mark">A</div>
         <div className="eyebrow">AMANAH PLATFORM</div>
         <h1>Create your account.</h1>
@@ -53,12 +55,12 @@ export default function SignUpPage() {
           <label>Full name<input required value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" /></label>
           <label>Email<input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" /></label>
           <label>Password<input minLength={8} type="password" required value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="new-password" /></label>
-          {error ? <p className="error">{error}</p> : null}
-          {message ? <p className="success">{message}</p> : null}
-          <button className="button" disabled={busy} type="submit">{busy ? "Creating…" : "Create account"}</button>
+          {error ? <p role="alert" className="error">{error}</p> : null}
+          {message ? <p role="status" className="success">{message}</p> : null}
+          <button className="button" disabled={busy} type="submit">{busy ? "Creating\u2026" :  <>Create account <span className="button-icon" aria-hidden="true">↗</span></>}</button>
         </form>
         <p className="muted small"><Link href="/login">Back to sign in</Link></p>
-      </div>
+      </div></div>
     </main>
   );
 }

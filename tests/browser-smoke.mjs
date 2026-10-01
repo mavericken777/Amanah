@@ -21,6 +21,17 @@ try {
    assert.equal(await page.locator('h1').count(),1,name);
    assert.ok(await page.locator('h1').isVisible(),name);
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),name+' horizontal overflow');
+   if(await page.locator('.source-panel').count()) {
+    const contrast=await page.locator('.source-panel').evaluate(panel=>{
+     function luminance(color) {
+      const rgb=color.match(/[\d.]+/g).slice(0,3).map(Number).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;});
+      return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722;
+     }
+     const background=luminance(getComputedStyle(panel).backgroundColor);
+     return Math.min(...[...panel.querySelectorAll('a,p,h2')].map(el=>{const text=luminance(getComputedStyle(el).color);return (Math.max(text,background)+.05)/(Math.min(text,background)+.05);}));
+    });
+    assert.ok(contrast>=4.5,name+' source-panel contrast: '+contrast);
+   }
    await page.locator('.site-menu summary').click();
    assert.ok(await page.locator('.site-menu').getAttribute('open')!==null,name+' menu');
    await page.keyboard.press('Escape');
@@ -54,6 +65,17 @@ try {
   await context.close();
  }
  const page=await browser.newPage();
+ for(const viewport of [{width:1440,height:1000},{width:390,height:844}]) {
+  await page.setViewportSize(viewport);
+  for(const route of ['/login','/auth/sign-up']) {
+   await page.goto('http://127.0.0.1:3000'+route);
+   await page.locator('h1').waitFor();
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),route+' auth overflow');
+   assert.ok(await page.locator('input[type="email"]').isVisible());
+   assert.ok(await page.locator('input[type="password"]').isVisible());
+   await page.screenshot({path:`browser-results/auth-${route.split('/').at(-1)}-${viewport.width}.png`,fullPage:true});
+  }
+ }
  const protectedPages=[];
  function walk(dir) {
   for(const item of fs.readdirSync(dir,{withFileTypes:true})) {

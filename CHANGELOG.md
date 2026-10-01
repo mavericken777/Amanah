@@ -1,4 +1,11 @@
-## 2026-10-01 — review closure
+## 2026-10-01 - shared visual design
+
+- Apply the emerald, ivory and sage design system across the operational UI and all partner-facing public pages.
+- Add responsive platform navigation with active route states and a native mobile modal, refreshed authentication layouts, nested card surfaces and reduced-motion support.
+- Preserve generated-page styling through the public-site build pipeline; remove decorative continuous scroll handlers and observe cinematic chapter boundaries.
+- Make the ecosystem build regression portable across Windows and Linux by invoking Node directly.
+
+## 2026-10-01 - review closure
 
 - Bind current implementation and public provenance to canonical main `14456e99937d6f11d63bd041dcffdb903d12594f` after GHDT PR #20; preserve historical audit commits and the verified freeze.
 - Restrict privileged Pages deployment to trusted main pushes/manual dispatch, verify deployed 404 bytes, preserve protected query strings through login, and consolidate all original delivery requirements.

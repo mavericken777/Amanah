@@ -25,11 +25,24 @@
     if(chapter!==previousChapter){previousChapter=chapter;document.dispatchEvent(new Event('ghscl:chapter'));}
     sticky.dataset.scene = scene;
     document.querySelectorAll('[data-still]').forEach(el => el.classList.toggle('active', el.dataset.still === scene));
-    document.querySelector('#cinemaProgress').style.height = `${p * 100}%`;
+    const progress = document.querySelector('#cinemaProgress');
+    progress.style.height = '100%'; progress.style.transformOrigin = 'top'; progress.style.transform = `scaleY(${p})`;
     if (Number.isFinite(film.duration)) { targetTime = p * Math.max(0, film.duration - .12); film.dataset.timelineSeconds=targetTime.toFixed(2); seekFilm(); }
   }
   function queueStory() { if (!scrollPending) { scrollPending = true; requestAnimationFrame(story); } }
-  addEventListener('scroll', queueStory, { passive: true });
+  // Track continuous film/progress values only while this section is visible.
+  // No scroll event handler: unchanged positions perform no layout reads.
+  let cinemaVisible = false, trackingFrame = 0, lastScroll = NaN;
+  function trackStory() {
+    trackingFrame = requestAnimationFrame(trackStory);
+    if (!document.hidden && scrollY !== lastScroll) { lastScroll = scrollY; queueStory(); }
+  }
+  function syncTracking() {
+    if (cinemaVisible && !reduced.matches && !trackingFrame) { lastScroll = NaN; trackingFrame = requestAnimationFrame(trackStory); }
+    else if ((!cinemaVisible || reduced.matches) && trackingFrame) { cancelAnimationFrame(trackingFrame); trackingFrame = 0; }
+  }
+  new IntersectionObserver(entries => { cinemaVisible = entries[0].isIntersecting; syncTracking(); }).observe(cinema);
+  reduced.addEventListener('change', syncTracking);
   addEventListener('resize', queueStory);
   film.addEventListener('loadedmetadata', story);
   film.addEventListener('canplay', () => { lastSeek=-1; story(); });

@@ -6,7 +6,10 @@ import vm from 'node:vm';
 import { execFileSync } from 'node:child_process';
 
 const base='ghscl-website';
-const runBuild=()=>execFileSync('npm',['run','web:build'],{stdio:'pipe'});
+const runBuild=()=>{
+  execFileSync(process.execPath,['scripts/build-ecosystem-site.mjs'],{stdio:'pipe'});
+  execFileSync(process.execPath,['scripts/refresh-ecosystem-shell.mjs'],{stdio:'pipe'});
+};
 runBuild();
 const data=JSON.parse(fs.readFileSync(path.join(base,'ecosystem.en.json'),'utf8'));
 const pages=['index.html',...data.pages.map(p=>p.slug+'.html')];
