@@ -13,6 +13,20 @@ Required checks:
 - AHTE Edge Function Deno typecheck
 - production build
 
+## Vercel application deployment
+
+The repository root is the Next.js Amanah application. `vercel.json` explicitly
+selects the `nextjs` framework, installs with `npm ci` and builds with
+`npm run build`. The Python AHTE reference runtime under `src/ahte` is not the
+web application entrypoint; automatic FastAPI detection causes
+`FASTAPI_ENTRYPOINT_NOT_FOUND` and must not control this deployment.
+
+Configure the client-side Supabase variables below in the deployment environment
+before accepting authentication flows. Preserve deployment protection and tenant
+authorization. The static partner website continues to use its separate Pages
+workflow. Verify the deployment reaches READY, the health endpoint responds and
+anonymous protected routes redirect to login before operational acceptance.
+
 ## Environment
 
 Client-side:
