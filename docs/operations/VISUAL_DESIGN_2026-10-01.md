@@ -8,7 +8,7 @@ This presentation update applies to the operational platform and the partner-fac
 - Manrope is requested explicitly from Google Fonts. Bahnschrift and Segoe UI provide local fallbacks when external fonts are unavailable.
 - Shared app styling covers existing forms, tables, metric cards, status chips, loading, error and empty states without replacing domain data.
 - Sign-in and sign-up pair an editorial introduction with the existing authentication forms.
-- Platform navigation marks the current route. Mobile navigation uses a native modal dialog for focus containment and Escape behavior.
+- Platform navigation is injected from configuration and marks the closest configured parent for nested routes. Mobile navigation uses a native modal dialog for focus containment and Escape behavior.
 - Public pages retain native details navigation, keyboard focus indicators, demo labels, issuer-authorized verification and local-only preparation forms.
 - Custom motion uses transform and opacity, viewport observation and reduced-motion support. Cards avoid backdrop blur; fixed navigation retains it.
 
@@ -27,3 +27,5 @@ This update changes presentation and navigation only. It introduces no database 
 ## Verification
 
 Run `npm run web:build`, `npm run web:lint`, `npm run typecheck`, `npm test` and `npm run build`. Run the existing `tests/browser-smoke.mjs` against local public and application servers to verify desktop/mobile pages, public interactions, protected-route redirects and anonymous API guards. Authenticated operational screens require an authorized workspace session for live-data acceptance testing.
+
+Review closure adds navigation regressions for nested routes, segment boundaries and alternative module configurations. Browser checks also enforce readable canonical source-panel contrast and validate authentication layout at desktop and mobile sizes. Cinematic film/progress values update continuously through animation frames while the section is visible; unchanged scroll positions perform no layout reads. Entry animation starts only when the viewport observer marks an element as entered.

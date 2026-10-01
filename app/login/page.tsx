@@ -46,7 +46,7 @@ export default function LoginPage() {
           <label>Email<input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" /></label>
           <label>Password<input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" /></label>
           {error ? <p role="alert" className="error">{error}</p> : null}
-          <button className="button" disabled={busy} type="submit">{busy ? "Signing inâ€¦" :  <>Sign in <span className="button-icon" aria-hidden="true">↗</span></>}</button>
+          <button className="button" disabled={busy} type="submit">{busy ? "Signing in\u2026" :  <>Sign in <span className="button-icon" aria-hidden="true">↗</span></>}</button>
         </form>
         <p className="muted small">New to Amanah? <Link href="/auth/sign-up">Create an account</Link></p>
       </div></div>

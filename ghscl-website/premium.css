@@ -58,8 +58,9 @@ input,select,textarea { background:#0c2119; color:var(--text); border:4px solid 
 input[type=checkbox] { accent-color:var(--accent); }
 .readiness-grid { gap:14px; }
 .readiness-grid label { padding:22px; border-radius:22px; }
-.source-panel { margin:0 auto; max-width:1320px; border:0; border-top:1px solid var(--border); padding:48px 5vw; }
+.source-panel { background:var(--bg); color:var(--text); margin:0 auto; max-width:1320px; border:0; border-top:1px solid var(--border); padding:48px 5vw; }
 .source-panel h2 { font-size:16px; font-weight:500; }
+.source-panel p { color:var(--quiet); }
 .source-panel a { overflow-wrap:anywhere; color:#bbc9b9; }
 .related { padding:60px 5vw 100px; gap:14px; }
 .related a { border-radius:100px; padding:12px 20px; background:#ffffff04; font-size:12px; }

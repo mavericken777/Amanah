@@ -30,14 +30,19 @@
     if (Number.isFinite(film.duration)) { targetTime = p * Math.max(0, film.duration - .12); film.dataset.timelineSeconds=targetTime.toFixed(2); seekFilm(); }
   }
   function queueStory() { if (!scrollPending) { scrollPending = true; requestAnimationFrame(story); } }
-  // Chapter boundaries trigger observation without a continuous scroll handler.
-  const chapterObserver = new IntersectionObserver(queueStory, { rootMargin: '-15% 0px -15% 0px' });
-  for (let i = 0; i <= 32; i++) {
-    const anchor = document.createElement('span');
-    anchor.setAttribute('aria-hidden', 'true');
-    anchor.style.cssText = `position:absolute;top:${i / 32 * 100}%;height:1px;width:1px;pointer-events:none;`;
-    cinema.append(anchor); chapterObserver.observe(anchor);
+  // Track continuous film/progress values only while this section is visible.
+  // No scroll event handler: unchanged positions perform no layout reads.
+  let cinemaVisible = false, trackingFrame = 0, lastScroll = NaN;
+  function trackStory() {
+    trackingFrame = requestAnimationFrame(trackStory);
+    if (!document.hidden && scrollY !== lastScroll) { lastScroll = scrollY; queueStory(); }
   }
+  function syncTracking() {
+    if (cinemaVisible && !reduced.matches && !trackingFrame) { lastScroll = NaN; trackingFrame = requestAnimationFrame(trackStory); }
+    else if ((!cinemaVisible || reduced.matches) && trackingFrame) { cancelAnimationFrame(trackingFrame); trackingFrame = 0; }
+  }
+  new IntersectionObserver(entries => { cinemaVisible = entries[0].isIntersecting; syncTracking(); }).observe(cinema);
+  reduced.addEventListener('change', syncTracking);
   addEventListener('resize', queueStory);
   film.addEventListener('loadedmetadata', story);
   film.addEventListener('canplay', () => { lastSeek=-1; story(); });

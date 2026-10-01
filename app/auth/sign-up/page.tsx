@@ -57,7 +57,7 @@ export default function SignUpPage() {
           <label>Password<input minLength={8} type="password" required value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="new-password" /></label>
           {error ? <p role="alert" className="error">{error}</p> : null}
           {message ? <p role="status" className="success">{message}</p> : null}
-          <button className="button" disabled={busy} type="submit">{busy ? "Creatingâ€¦" :  <>Create account <span className="button-icon" aria-hidden="true">↗</span></>}</button>
+          <button className="button" disabled={busy} type="submit">{busy ? "Creating\u2026" :  <>Create account <span className="button-icon" aria-hidden="true">↗</span></>}</button>
         </form>
         <p className="muted small"><Link href="/login">Back to sign in</Link></p>
       </div></div>

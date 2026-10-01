@@ -103,10 +103,11 @@ body > main.page { margin: 56px auto; padding: 0 24px; max-width: 980px; }
 .workspace-menu[open] .nav-group:nth-child(3) { animation-delay: 120ms; }
 .skip-link { position: fixed; top: 16px; left: 16px; padding: 14px 22px; background: #fff; color: var(--accent); transform: translateY(-150%); z-index: 3; border-radius: 100px; }
 .skip-link:focus { transform: none; }
-.motion-entry { animation: page-enter 850ms var(--ease) both; }
+.motion-entry { opacity: 0; transform: translateY(18px); }
+.motion-entry.entered { animation: page-enter 850ms var(--ease) both; }
 @keyframes page-enter { from { opacity: .4; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @keyframes menu-enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @media (max-width:1100px) { .auth-story { padding: 36px; } .auth-panel { padding: 24px; } .metric-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .content-grid { grid-template-columns: 1fr; } }
 @media (max-width:900px) { .app-shell { grid-template-columns: 1fr; } .sidebar { display: none; } .workspace-bar { margin: 16px 24px 0; } .menu-toggle { display: block; } .main-content { padding: 40px 24px 64px; } .auth-page { grid-template-columns: 1fr; } .auth-story { min-height: auto; padding: 32px; } .auth-story-copy { padding-block: 40px; } .auth-story h2 { font-size: clamp(2rem,5vw,3rem); } .auth-panel { padding: 24px 0 40px; } }
 @media (max-width:767px) { .main-content { padding: 32px 16px 64px; } .workspace-bar { margin: 12px 16px 0; padding: 8px 16px; } .workspace-breadcrumb { gap: 8px; } .workspace-tools > a { display: none; } .metric-grid, .grid-2 { grid-template-columns: 1fr; } .page-header, .row-between { flex-direction: column; align-items: flex-start; } .card, .metric-card { padding: 20px; border-width: 5px; border-radius: 24px; } .auth-story { padding: 28px 24px; border-radius: 26px; } .auth-card { padding: 26px 20px; } .auth-story-copy { padding-block: 32px; } .auth-story-foot > span { display: none; } .auth-panel { padding: 8px 0 24px; } .auth-card h1 { font-size: 2rem; } }
-@media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@media (prefers-reduced-motion:reduce) { .motion-entry { opacity: 1; transform: none; } *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
