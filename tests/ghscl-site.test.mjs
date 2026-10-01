@@ -47,7 +47,7 @@ test('authority boundary remains explicit', () => {
   assert.match(html, /AI assists\. Humans decide\./i);
   assert.match(html, /not a Malaysian Halal certificate/i);
   assert.match(html, /competent[- ]authority|competent authorit/i);
-  assert.match(html, /NONE OF THESE[\s\S]*CREATE MALAYSIAN HALAL CERTIFICATION/i);
+  assert.match(html, /Certification, border release and commercial approvals remain with their competent authorities and providers/i);
 });
 
 test('Shipment 001 stays explicitly pilot-only', () => {

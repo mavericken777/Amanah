@@ -1,135 +1,1215 @@
 {
   "version": "7.2.0-proposal",
   "locale": "en",
-  "availableLocales": ["en"],
-  "plannedLocales": ["zh-Hans", "ms", "ar"],
+  "availableLocales": [
+    "en"
+  ],
+  "plannedLocales": [
+    "zh-Hans",
+    "ms",
+    "ar"
+  ],
   "canonicalCommit": "14456e99937d6f11d63bd041dcffdb903d12594f",
   "baseUrl": "https://mavericken777.github.io/Amanah/",
-  "navigation": [["index.html","Home"],["ecosystem.html","Ecosystem"],["how-it-works.html","How It Works"],["digital-trust.html","AHTE Digital Trust"],["command-center.html","Command Center"],["traceability.html","Traceability"],["smart-audit.html","Smart Audit"],["china-gcc.html","China → GCC"],["partners.html","Partners"],["manufacturers.html","Manufacturers"],["finance-takaful.html","Finance & Takaful"],["verify.html","Verify"],["contact.html","Contact"]],
+  "navigation": [
+    [
+      "index.html",
+      "Home"
+    ],
+    [
+      "ecosystem.html",
+      "Ecosystem"
+    ],
+    [
+      "how-it-works.html",
+      "How It Works"
+    ],
+    [
+      "digital-trust.html",
+      "AHTE Digital Trust"
+    ],
+    [
+      "command-center.html",
+      "Command Center"
+    ],
+    [
+      "traceability.html",
+      "Traceability"
+    ],
+    [
+      "smart-audit.html",
+      "Smart Audit"
+    ],
+    [
+      "china-gcc.html",
+      "China → GCC"
+    ],
+    [
+      "partners.html",
+      "Partners"
+    ],
+    [
+      "manufacturers.html",
+      "Manufacturers"
+    ],
+    [
+      "finance-takaful.html",
+      "Finance & Takaful"
+    ],
+    [
+      "verify.html",
+      "Verify"
+    ],
+    [
+      "contact.html",
+      "Contact"
+    ]
+  ],
   "messages": {
     "brand": "GLOBAL HALAL DIGITAL TRUST",
     "operator": "GLOBAL HALAL SUPPLY CHAIN LIMITED · HONG KONG",
-    "menu": "Explore the ecosystem",
+    "menu": "Explore the platform",
     "skip": "Skip to content",
-    "onboard": "Start Manufacturer Onboarding",
-    "boundary": "AI/ML monitors, predicts and assists. Humans and competent authorities decide. AHTE does not independently create Halal certification, sovereign release, financing approval or Takaful decisions.",
-    "architecture": "Target architecture · production connections require authorized activation",
-    "source": "Canonical project sources",
+    "onboard": "Plan your rollout",
+    "boundary": "AI supports the people responsible for every decision. Competent authorities decide on certification and border release; approved providers own financing and Takaful decisions.",
+    "architecture": "Connected assurance. From origin to market.",
+    "source": "Explore the platform foundations",
     "principle": "Data stays where it belongs. Trust travels.",
-    "technical": "Technical detail",
+    "technical": "Inside the platform",
     "related": "Continue exploring"
   },
   "pages": [
     {
-      "slug":"ecosystem","label":"The ecosystem","title":"Distinct roles. One accountable trust chain.","description":"GHSCL operates the international digital infrastructure; AHTE links evidence and trust; JAKIM remains the authority system; China origin connects directly to GCC destination.","image":"architecture.webp",
-      "sections":[
-        {"id":"roles","title":"Who does what","cards":[["PHC","Perak State Government halal-industry GLC operating locally and internationally within the project ecosystem."],["GHSCL HK","International operating and digital-infrastructure vehicle for China → GCC orchestration and 24/7 Command Center operations."],["AHTE","Continuous standards, applicability, evidence, compliance, traceability, predictive analytics and trust intelligence."],["JAKIM","Competent-authority system connected through the direct JAKIM API target. Formal decisions remain human/competent-authority decisions."],["China origin ecosystem","Producers, suppliers, traceability systems, laboratories, manufacturers, warehouses, Sinotrans, ports and devices contribute attributable evidence."],["GCC destination ecosystem","Authorities, customs, importers, receiving warehouses, distributors, retailers and buyers apply destination controls and acceptance."]]},
-        {"id":"authority","title":"Direct JAKIM API is the project authority interface","flow":["AHTE","Direct JAKIM API ⇅","JAKIM authority system","PHC + JAKIM authorised human review"],"text":"Public/project topology does not insert a generic intermediary between AHTE and JAKIM. Formal certification review remains an authorised human authority workflow. Exact production endpoints, authentication, permissions and payload contracts remain source-locked until authorised."},
-        {"id":"boundaries","title":"Connected does not mean collapsed","text":"PHC, GHSCL, AHTE, laboratories, Sinotrans, port/customs authorities, GCC authorities, financiers, Takaful operators and competent Halal authorities retain distinct responsibilities. Evidence, monitoring and cryptographic integrity do not create another party's decision."}
+      "slug": "ecosystem",
+      "label": "The ecosystem",
+      "title": "One platform. Every stage. Confidence across borders.",
+      "description": "Connect the people, products, evidence and decisions behind Halal trade. From supplier qualification to retail verification, the Amanah Halal Trust Ecosystem brings the whole journey into one coordinated operating model.",
+      "image": "architecture.webp",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "What this means for your business",
+          "cards": [
+            [
+              "For manufacturers",
+              "Bring suppliers, ingredients, products, controls and audit actions into a clear market-readiness journey."
+            ],
+            [
+              "For logistics and importers",
+              "Follow custody, condition, shipment evidence and exceptions through the handoff to destination."
+            ],
+            [
+              "For auditors and institutions",
+              "Review evidence in context, coordinate corrective action and preserve accountable decisions."
+            ],
+            [
+              "For buyers and providers",
+              "Inspect scoped disclosures and review purpose-bound trade evidence without exposing unrelated records."
+            ]
+          ]
+        },
+        {
+          "id": "platform-suite",
+          "title": "The complete platform, connected end to end",
+          "text": "Amanah is the operational workspace. AHTE provides the trust and assurance layer. GHSCL’s international operating model connects participating organizations across the journey. Together, the platform brings everyday coordination and supply-chain assurance into one coherent experience.",
+          "cards": [
+            [
+              "Manufacturer readiness",
+              "Enterprise and facility profiles, products and SKUs, formulas and BOMs, suppliers, origin records, training and remediation."
+            ],
+            [
+              "Standards intelligence",
+              "Applicability across products, processes and destinations; requirement-to-control mapping, HCP and SCCP obligations, and source-bound standards references."
+            ],
+            [
+              "Laboratory and smart audit",
+              "Sample identity, chain of custody, scientific evidence, guided observations, findings, CAPA and re-verification."
+            ],
+            [
+              "Digital twins and trust intelligence",
+              "Connected representations of facilities, materials, batches, pallets, shipments, containers and seals; evidence graphs and integrity checks."
+            ],
+            [
+              "Command Center and risk response",
+              "Monitoring, alerts, exception ownership, predictive analysis, Preemptive Strategy, escalation and recall coordination."
+            ],
+            [
+              "Logistics and border interfaces",
+              "Warehouse and transport integration, Sinotrans logistics scope, telemetry, custody, port/customs events and destination receiving."
+            ],
+            [
+              "Authority connectivity",
+              "AHTE ⇄ Direct JAKIM API ⇄ JAKIM: evidence and status exchange subject to official activation; competent-authority decisions remain independently owned."
+            ],
+            [
+              "Trade finance and Takaful",
+              "Purpose-bound evidence packets, financing and underwriting case coordination, and approved digital-asset references."
+            ],
+            [
+              "Verification and market confidence",
+              "Issuer-authorized product, batch and shipment disclosures for buyers, receiving teams and downstream stakeholders."
+            ],
+            [
+              "The Amanah workspace",
+              "Projects, tasks, meetings, approvals, decisions, risks, documents, notifications and audit trails, organized by role and tenant."
+            ]
+          ]
+        },
+        {
+          "id": "end-to-end",
+          "title": "One journey from source to shelf",
+          "flow": [
+            "Qualify suppliers and origin",
+            "Prepare products and facilities",
+            "Map standards and controls",
+            "Connect laboratory evidence",
+            "Audit and close corrective actions",
+            "Coordinate authority review",
+            "Track warehouse and logistics custody",
+            "Review border and receiving events",
+            "Monitor exceptions and risk",
+            "Verify at distribution and retail"
+          ],
+          "text": "Each stage carries its context forward: the object, the evidence, the responsible organization and the next decision. Teams work from a connected record instead of rebuilding the story at every handoff."
+        },
+        {
+          "id": "roles",
+          "title": "Expertise across the complete journey",
+          "cards": [
+            [
+              "PHC",
+              "Perak State Government halal-industry GLC operating locally and internationally within the project ecosystem."
+            ],
+            [
+              "GHSCL HK",
+              "International operating and digital-infrastructure vehicle for China → GCC orchestration and 24/7 Command Center operations."
+            ],
+            [
+              "AHTE",
+              "Continuous standards, applicability, evidence, compliance, traceability, predictive analytics and trust intelligence."
+            ],
+            [
+              "JAKIM",
+              "Competent-authority system connected through the direct JAKIM API target. Formal decisions remain human/competent-authority decisions."
+            ],
+            [
+              "China origin ecosystem",
+              "Producers, suppliers, traceability systems, laboratories, manufacturers, warehouses, Sinotrans, ports and devices contribute attributable evidence."
+            ],
+            [
+              "GCC destination ecosystem",
+              "Authorities, customs, importers, receiving warehouses, distributors, retailers and buyers apply destination controls and acceptance."
+            ]
+          ]
+        },
+        {
+          "id": "authority",
+          "title": "A direct path for authority-connected assurance",
+          "flow": [
+            "AHTE",
+            "Direct JAKIM API ⇅",
+            "JAKIM authority system",
+            "PHC + JAKIM authorised human review"
+          ],
+          "text": "A direct connection keeps the authority workflow clear: AHTE ⇄ Direct JAKIM API ⇄ JAKIM. Formal certification review remains an authorised human authority workflow. Official connections are activated under the relevant authority’s authorization."
+        },
+        {
+          "id": "boundaries",
+          "title": "Shared confidence. Clear responsibilities.",
+          "text": "PHC, GHSCL, AHTE, laboratories, Sinotrans, port/customs authorities, GCC authorities, financiers, Takaful operators and competent Halal authorities retain distinct responsibilities. Evidence, monitoring and cryptographic integrity do not create another party's decision."
+        },
+        {
+          "id": "deployment-scope",
+          "title": "Start with the deployed workspace. Connect your operating environment.",
+          "text": "The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here. Live device feeds, laboratory and logistics systems, official authority connections, financing and Takaful providers are activated with the relevant organizations. Interactive examples on this website are demonstrations; Shipment 001 remains a pilot requiring real execution evidence.",
+          "link": [
+            "https://amanah-yq9x.vercel.app/login",
+            "Open Amanah"
+          ]
+        }
       ],
-      "sources":["00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md","00_EXECUTIVE_COMMAND/current-target-architecture-2026-09-30.json","00_EXECUTIVE_COMMAND/partner-registry.json"],"related":["how-it-works","digital-trust","command-center"]
+      "sources": [
+        "00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md",
+        "00_EXECUTIVE_COMMAND/current-target-architecture-2026-09-30.json",
+        "00_EXECUTIVE_COMMAND/partner-registry.json"
+      ],
+      "related": [
+        "how-it-works",
+        "digital-trust",
+        "command-center"
+      ]
     },
     {
-      "slug":"how-it-works","label":"How it works","title":"Origin to market. Evidence to authority. Prediction to prevention.","description":"The operating lifecycle starts before manufacturing and continues through China traceability/lab evidence, smart audit, direct JAKIM API authority workflow, Sinotrans, ports and GCC receiving.","image":"architecture.webp","interactive":"journey",
-      "sections":[
-        {"id":"origin","title":"Before the factory","flow":["Verified raw-material origin","Supplier / producer identity","Physical + digital identity","Material lot","Sample / seal","Chain of custody","China laboratory","Signed scientific evidence"],"text":"A material remains bound to source, lot, physical/digital identity, sample, custody and laboratory evidence before production decisions are made."},
-        {"id":"production","title":"Factory control and smart audit","flow":["Facility qualification","Product / formula / BOM","Applicability","HCP / SCCP","Factory-system evidence","Smart-glass audit","Finding / CAPA","Re-verification"],"text":"ERP, MES, QMS, WMS, LIMS, IoT, DMS and human evidence are connected rather than replaced."},
-        {"id":"decision","title":"Authority-linked trust","flow":["Complete evidence dossier","Direct JAKIM API","PHC + JAKIM authorised human review","Formal authority status","AHTE trust-state propagation"],"text":"Authority status and AHTE trust state remain separate records. A platform score cannot manufacture certification."},
-        {"id":"market","title":"China → GCC direct","flow":["Sinotrans warehouse","Pickup / container / seal","Origin port/customs API","International transit","GCC port/customs API","Importer / receiving","Destination warehouse","Distribution / retail"],"text":"Malaysia is the governance, assurance and authority-connectivity plane unless a separate physical movement is explicitly scoped."},
-        {"id":"continuous","title":"24/7 assurance","flow":["Observe","Correlate","Detect","Predict","Generate preemptive strategy","Assign / escalate","Human or authority action","CAPA / re-verification","Outcome"],"text":"The system aims to prevent integrity failures rather than only report them after the fact."}
+      "slug": "how-it-works",
+      "label": "How it works",
+      "title": "From raw material to market. Trust at every step.",
+      "description": "Follow the complete platform journey: qualify suppliers, prepare manufacturers, connect laboratory evidence, coordinate audits, carry trust through logistics and deliver clear information to the people receiving your products.",
+      "image": "architecture.webp",
+      "interactive": "journey",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "What this means for your business",
+          "cards": [
+            [
+              "A clearer starting point",
+              "Identify what your business needs before your team begins collecting documents."
+            ],
+            [
+              "A connected handoff",
+              "Carry the evidence context forward as responsibility moves between organizations."
+            ],
+            [
+              "An accountable finish",
+              "Record the receiving decision, unresolved exceptions and the actions needed next."
+            ]
+          ]
+        },
+        {
+          "id": "origin",
+          "title": "Build confidence before production begins",
+          "flow": [
+            "Verified raw-material origin",
+            "Supplier / producer identity",
+            "Physical + digital identity",
+            "Material lot",
+            "Sample / seal",
+            "Chain of custody",
+            "China laboratory",
+            "Signed scientific evidence"
+          ],
+          "text": "A material remains bound to source, lot, physical/digital identity, sample, custody and laboratory evidence before production decisions are made."
+        },
+        {
+          "id": "production",
+          "title": "Turn factory controls into a clear assurance story",
+          "flow": [
+            "Facility qualification",
+            "Product / formula / BOM",
+            "Applicability",
+            "HCP / SCCP",
+            "Factory-system evidence",
+            "Smart-glass audit",
+            "Finding / CAPA",
+            "Re-verification"
+          ],
+          "text": "ERP, MES, QMS, WMS, LIMS, IoT, DMS and human evidence are connected rather than replaced."
+        },
+        {
+          "id": "decision",
+          "title": "Connect readiness to accountable authority review",
+          "flow": [
+            "Complete evidence dossier",
+            "Direct JAKIM API",
+            "PHC + JAKIM authorised human review",
+            "Formal authority status",
+            "AHTE trust-state propagation"
+          ],
+          "text": "Authority status and AHTE trust state remain separate records. Teams can see operational readiness alongside independently issued authority status."
+        },
+        {
+          "id": "market",
+          "title": "China → GCC direct",
+          "flow": [
+            "Sinotrans warehouse",
+            "Pickup / container / seal",
+            "Origin port/customs API",
+            "International transit",
+            "GCC port/customs API",
+            "Importer / receiving",
+            "Destination warehouse",
+            "Distribution / retail"
+          ],
+          "text": "Malaysia is the governance, assurance and authority-connectivity plane unless a separate physical movement is explicitly scoped."
+        },
+        {
+          "id": "continuous",
+          "title": "Keep assurance connected beyond dispatch",
+          "flow": [
+            "Observe",
+            "Correlate",
+            "Detect",
+            "Predict",
+            "Generate preemptive strategy",
+            "Assign / escalate",
+            "Human or authority action",
+            "CAPA / re-verification",
+            "Outcome"
+          ],
+          "text": "The system aims to prevent integrity failures rather than only report them after the fact."
+        },
+        {
+          "id": "deployment-scope",
+          "title": "Start with the deployed workspace. Connect your operating environment.",
+          "text": "The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here. Live device feeds, laboratory and logistics systems, official authority connections, financing and Takaful providers are activated with the relevant organizations. Interactive examples on this website are demonstrations; Shipment 001 remains a pilot requiring real execution evidence.",
+          "link": [
+            "https://amanah-yq9x.vercel.app/login",
+            "Open Amanah"
+          ]
+        }
       ],
-      "sources":["00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md","master-standards-stack/CHINA_EXECUTION_PACK/00_MASTER_CHINA_EXECUTION_MODEL.md","docs/WEBSITE_REBUILD_MASTER_SPEC_v2_2026-09-30.md"],"related":["command-center","traceability","china-gcc"]
+      "sources": [
+        "00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md",
+        "master-standards-stack/CHINA_EXECUTION_PACK/00_MASTER_CHINA_EXECUTION_MODEL.md",
+        "docs/WEBSITE_REBUILD_MASTER_SPEC_v2_2026-09-30.md"
+      ],
+      "related": [
+        "command-center",
+        "traceability",
+        "china-gcc"
+      ]
     },
     {
-      "slug":"digital-trust","label":"AHTE digital trust","title":"Evidence graph. Digital twins. Hard gates. Accountable state.","description":"AHTE combines standards intelligence, digital twins, cryptographic integrity, AI/ML assurance, trust-state orchestration and direct authority connectivity.","image":"trust-core.webp","interactive":"graph",
-      "sections":[
-        {"id":"intelligence","title":"The intelligence layers","cards":[["Standards + applicability","Resolve instrument, version, requirement and scope before controls."],["Evidence graph","Bind source, actor, device, timestamp, custody and integrity proof to exact objects."],["AI/ML assurance","Find gaps, anomalies, contradictions and emerging risk; preserve model and evidence provenance."],["Digital twins","Facility, material, sample, batch, pallet, shipment, container and seal objects carry identity, relationships and events."]]},
-        {"id":"integrity","title":"Integrity protects history; it does not create truth","flow":["Evidence payload","Canonicalization","Content hash","Issuer signature","Timestamp / registry","Optional anchor","Verification"],"text":"Trust also depends on source, actor, custody, scope and accountable review."},
-        {"id":"state","title":"States are deliberately separate","cards":[["Formal certification state","Externally owned competent-authority decision."],["AHTE trust state","Evidence/control state of an object or transaction."],["Supply-chain state","Physical/custody/condition state."],["Port/customs release","Sovereign border state."],["Finance / Takaful state","External commercial/underwriting decision state."],["Token/digital-asset state","External legal/Shariah/regulatory state; not certification or title by AHTE."]]},
-        {"id":"connectors","title":"Replaceable connectors with explicit boundaries","cards":[["Direct JAKIM API","Evidence/status exchange without inventing official endpoints."],["LabConnector","Sample, custody, method, result and amendment/versioning."],["Sinotrans connector","Warehouse, logistics, custody, telemetry, container and seal events."],["Port/customs API","Authorised trust lookup plus sovereign inspection/hold/release event return."]]},
-        {"id":"extensions","title":"Target extension objects","text":"Connector state, Command Center alerts, predictions, preemptive strategies, finance evidence packets, financing cases, Takaful cases and tokenized-asset references are first-class post-freeze proposal objects. They cannot create authority, credit, underwriting, title or Halal status."}
+      "slug": "digital-trust",
+      "label": "AHTE digital trust",
+      "title": "Turn fragmented evidence into connected confidence.",
+      "description": "AHTE is the trust intelligence at the heart of Amanah: bringing standards, evidence, digital twins, controls and accountable decisions together so teams can see what is ready, what is missing and what needs attention.",
+      "image": "trust-core.webp",
+      "interactive": "graph",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "What this means for your business",
+          "cards": [
+            [
+              "See readiness in context",
+              "Link requirements to controls, controls to evidence and evidence to the objects under review."
+            ],
+            [
+              "Find the missing link",
+              "Surface incomplete records, contradictory evidence and expired obligations for accountable review."
+            ],
+            [
+              "Protect the history",
+              "Use identity, signatures, content hashes and custody records to make changes and provenance inspectable."
+            ]
+          ]
+        },
+        {
+          "id": "intelligence",
+          "title": "Intelligence that connects every part of the journey",
+          "cards": [
+            [
+              "Standards + applicability",
+              "Resolve instrument, version, requirement and scope before controls."
+            ],
+            [
+              "Evidence graph",
+              "Bind source, actor, device, timestamp, custody and integrity proof to exact objects."
+            ],
+            [
+              "AI/ML assurance",
+              "Find gaps, anomalies, contradictions and emerging risk; preserve model and evidence provenance."
+            ],
+            [
+              "Digital twins",
+              "Facility, material, sample, batch, pallet, shipment, container and seal objects carry identity, relationships and events."
+            ]
+          ]
+        },
+        {
+          "id": "integrity",
+          "title": "A history your teams can inspect",
+          "flow": [
+            "Evidence payload",
+            "Canonicalization",
+            "Content hash",
+            "Issuer signature",
+            "Timestamp / registry",
+            "Optional anchor",
+            "Verification"
+          ],
+          "text": "Trust also depends on source, actor, custody, scope and accountable review."
+        },
+        {
+          "id": "state",
+          "title": "The right status for the right decision",
+          "cards": [
+            [
+              "Formal certification state",
+              "Externally owned competent-authority decision."
+            ],
+            [
+              "AHTE trust state",
+              "Evidence/control state of an object or transaction."
+            ],
+            [
+              "Supply-chain state",
+              "Physical/custody/condition state."
+            ],
+            [
+              "Port/customs release",
+              "Sovereign border state."
+            ],
+            [
+              "Finance / Takaful state",
+              "External commercial/underwriting decision state."
+            ],
+            [
+              "Token/digital-asset state",
+              "External legal/Shariah/regulatory state; not certification or title by AHTE."
+            ]
+          ]
+        },
+        {
+          "id": "connectors",
+          "title": "Bring your existing systems into the trust network",
+          "cards": [
+            [
+              "Direct JAKIM API",
+              "Evidence/status exchange without inventing official endpoints."
+            ],
+            [
+              "LabConnector",
+              "Sample, custody, method, result and amendment/versioning."
+            ],
+            [
+              "Sinotrans connector",
+              "Warehouse, logistics, custody, telemetry, container and seal events."
+            ],
+            [
+              "Port/customs API",
+              "Authorised trust lookup plus sovereign inspection/hold/release event return."
+            ]
+          ]
+        },
+        {
+          "id": "extensions",
+          "title": "Extend assurance into operational and commercial workflows",
+          "text": "Connector state, Command Center alerts, predictions, preemptive strategies, finance evidence packets, financing cases, Takaful cases and tokenized-asset references are dedicated platform workflows. They cannot create authority, credit, underwriting, title or Halal status."
+        },
+        {
+          "id": "deployment-scope",
+          "title": "Start with the deployed workspace. Connect your operating environment.",
+          "text": "The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here. Live device feeds, laboratory and logistics systems, official authority connections, financing and Takaful providers are activated with the relevant organizations. Interactive examples on this website are demonstrations; Shipment 001 remains a pilot requiring real execution evidence.",
+          "link": [
+            "https://amanah-yq9x.vercel.app/login",
+            "Open Amanah"
+          ]
+        }
       ],
-      "sources":["00_EXECUTIVE_COMMAND/current-target-architecture-2026-09-30.json","00_EXECUTIVE_COMMAND/target-extension-schemas-2026-09-30.json","master-standards-stack/CHINA_EXECUTION_PACK/07_CRYPTOGRAPHIC_TRUST_ANCHOR_ARCHITECTURE.md"],"related":["command-center","traceability","verify"]
+      "sources": [
+        "00_EXECUTIVE_COMMAND/current-target-architecture-2026-09-30.json",
+        "00_EXECUTIVE_COMMAND/target-extension-schemas-2026-09-30.json",
+        "master-standards-stack/CHINA_EXECUTION_PACK/07_CRYPTOGRAPHIC_TRUST_ANCHOR_ARCHITECTURE.md"
+      ],
+      "related": [
+        "command-center",
+        "traceability",
+        "verify"
+      ]
     },
     {
-      "slug":"command-center","label":"24/7 Command Center","title":"Monitor now. Predict next. Intervene before failure.","description":"GHSCL operational roles and authorised JAKIM authority-side roles monitor the ecosystem through AHTE analytics, alerts, predictive models and preemptive strategy workflows.","image":"trust-core.webp",
-      "sections":[
-        {"id":"mission","title":"A first-class operating plane","text":"The Command Center is not a passive dashboard. It coordinates continuous monitoring, exception ownership, escalation, intervention, CAPA, re-verification and recall readiness."},
-        {"id":"domains","title":"24/7 monitored domains","cards":[["Origin + factory","Supplier, material, manufacturer, HCP/SCCP and smart-audit state."],["China traceability + laboratory","Serialization, aggregation, scan anomalies, sample/custody pipeline, method/result integrity and evidence status."],["Sinotrans","Warehouse, logistics, container, seal, telemetry, route and custody."],["Ports + GCC","Origin/destination port status, inspection, release, receiving and downstream distribution."],["Evidence + authority","Evidence expiry, authority-status synchronization and trust fractures."],["Predictive risk","Forecasts, blast radius and preemptive strategy recommendations."]]},
-        {"id":"analytics","title":"Descriptive → diagnostic → predictive → preemptive","flow":["What happened?","Why?","What is likely next?","What is exposed?","What preventive action is recommended?","Who owns it?","Was it executed?","Did it work?"]},
-        {"id":"decision","title":"Decision-class boundaries remain enforced","text":"AI/ML can assess, prioritize and support configured D4 holds. It cannot bypass D5/D6 authority decisions or silently release a human-reserved hold."}
+      "slug": "command-center",
+      "label": "24/7 Command Center",
+      "title": "See the whole operation. Act before risk spreads.",
+      "description": "Bring factory, laboratory, audit, logistics and destination signals into a shared Command Center. Give every exception an owner, every action a next step and every decision an evidence trail.",
+      "image": "trust-core.webp",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "What this means for your business",
+          "cards": [
+            [
+              "One operational picture",
+              "View exceptions across facilities, batches, laboratories, warehouses and shipments."
+            ],
+            [
+              "A named next action",
+              "Route an alert to the right team and track its assessment, intervention and closure."
+            ],
+            [
+              "Earlier intervention",
+              "Use predictive analysis and Preemptive Strategy workflows to identify exposure before it spreads."
+            ]
+          ]
+        },
+        {
+          "id": "mission",
+          "title": "Give your teams a shared operational picture",
+          "text": "The Command Center is not a passive dashboard. It coordinates continuous monitoring, exception ownership, escalation, intervention, CAPA, re-verification and recall readiness."
+        },
+        {
+          "id": "domains",
+          "title": "Visibility across the complete supply chain",
+          "cards": [
+            [
+              "Origin + factory",
+              "Supplier, material, manufacturer, HCP/SCCP and smart-audit state."
+            ],
+            [
+              "China traceability + laboratory",
+              "Serialization, aggregation, scan anomalies, sample/custody pipeline, method/result integrity and evidence status."
+            ],
+            [
+              "Sinotrans",
+              "Warehouse, logistics, container, seal, telemetry, route and custody."
+            ],
+            [
+              "Ports + GCC",
+              "Origin/destination port status, inspection, release, receiving and downstream distribution."
+            ],
+            [
+              "Evidence + authority",
+              "Evidence expiry, authority-status synchronization and trust fractures."
+            ],
+            [
+              "Predictive risk",
+              "Forecasts, blast radius and preemptive strategy recommendations."
+            ]
+          ]
+        },
+        {
+          "id": "analytics",
+          "title": "Descriptive → diagnostic → predictive → preemptive",
+          "flow": [
+            "What happened?",
+            "Why?",
+            "What is likely next?",
+            "What is exposed?",
+            "What preventive action is recommended?",
+            "Who owns it?",
+            "Was it executed?",
+            "Did it work?"
+          ]
+        },
+        {
+          "id": "decision",
+          "title": "Insight that supports accountable action",
+          "text": "AI/ML can assess, prioritize and support configured D4 holds. It cannot bypass D5/D6 authority decisions or silently release a human-reserved hold."
+        },
+        {
+          "id": "deployment-scope",
+          "title": "Start with the deployed workspace. Connect your operating environment.",
+          "text": "The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here. Live device feeds, laboratory and logistics systems, official authority connections, financing and Takaful providers are activated with the relevant organizations. Interactive examples on this website are demonstrations; Shipment 001 remains a pilot requiring real execution evidence.",
+          "link": [
+            "https://amanah-yq9x.vercel.app/login",
+            "Open Amanah"
+          ]
+        }
       ],
-      "sources":["05_PLATINUM_REAL_TIME_MONITORING/AHTE_24_7_COMMAND_CENTER_SPEC_2026-09-30.md","05_PLATINUM_REAL_TIME_MONITORING/PLATINUM_COMMAND_CENTER_INTEGRATION_ADDENDUM_2026-09-30.md","00_EXECUTIVE_COMMAND/target-extension-schemas-2026-09-30.json"],"related":["digital-trust","china-gcc","finance-takaful"]
+      "sources": [
+        "05_PLATINUM_REAL_TIME_MONITORING/AHTE_24_7_COMMAND_CENTER_SPEC_2026-09-30.md",
+        "05_PLATINUM_REAL_TIME_MONITORING/PLATINUM_COMMAND_CENTER_INTEGRATION_ADDENDUM_2026-09-30.md",
+        "00_EXECUTIVE_COMMAND/target-extension-schemas-2026-09-30.json"
+      ],
+      "related": [
+        "digital-trust",
+        "china-gcc",
+        "finance-takaful"
+      ]
     },
     {
-      "slug":"traceability","label":"End-to-end traceability","title":"Four synchronized chains from origin to market.","description":"Physical movement, identity/custody, evidence and authority/trust state remain linked from source material to GCC destination.","image":"corridor.webp","interactive":"chains",
-      "sections":[
-        {"id":"source","title":"Origin and genealogy","text":"Source → producer → supplier → material lot → sample → laboratory evidence → manufacturing batch → unit → box → carton → pallet → logistic unit → container → shipment → GCC inventory."},
-        {"id":"custody","title":"Custody follows the physical object","flow":["Factory","Sinotrans warehouse","Pickup","Container / seal","Origin port","Transit","GCC port","Receiving","Destination warehouse","Retail"]},
-        {"id":"binding","title":"Every event has a digital binding","text":"ObjectID + EventID + EvidenceID + ActorID + Timestamp + IntegrityProof, with source system, control, requirement, device and relationship references."},
-        {"id":"disclosure","title":"Traceability without unrestricted disclosure","text":"Role, organization, purpose and jurisdiction determine what manufacturers, auditors, authorities, logistics operators, importers, financiers and consumers can see. Cross-border default is minimum-necessary signed assertions, references, hashes and scoped metadata."}
+      "slug": "traceability",
+      "label": "End-to-end traceability",
+      "title": "Know where it came from. Trust where it goes.",
+      "description": "Connect raw materials to batches, batches to shipments and shipments to market. Amanah brings product genealogy, custody, condition and evidence into a traceable story across every handoff.",
+      "image": "corridor.webp",
+      "interactive": "chains",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "What this means for your business",
+          "cards": [
+            [
+              "Product genealogy",
+              "Follow material lots into formulas, production batches and downstream inventory."
+            ],
+            [
+              "Custody that travels",
+              "Bind warehouses, containers, seals, routes and receiving events to the same shipment context."
+            ],
+            [
+              "Focused recall response",
+              "Identify affected objects and relationships so teams can investigate the relevant scope."
+            ]
+          ]
+        },
+        {
+          "id": "source",
+          "title": "Origin and genealogy",
+          "text": "Source → producer → supplier → material lot → sample → laboratory evidence → manufacturing batch → unit → box → carton → pallet → logistic unit → container → shipment → GCC inventory."
+        },
+        {
+          "id": "custody",
+          "title": "Custody follows the physical object",
+          "flow": [
+            "Factory",
+            "Sinotrans warehouse",
+            "Pickup",
+            "Container / seal",
+            "Origin port",
+            "Transit",
+            "GCC port",
+            "Receiving",
+            "Destination warehouse",
+            "Retail"
+          ]
+        },
+        {
+          "id": "binding",
+          "title": "Every event contributes to the product story",
+          "text": "ObjectID + EventID + EvidenceID + ActorID + Timestamp + IntegrityProof, with source system, control, requirement, device and relationship references."
+        },
+        {
+          "id": "disclosure",
+          "title": "Share confidence while protecting business information",
+          "text": "Role, organization, purpose and jurisdiction determine what manufacturers, auditors, authorities, logistics operators, importers, financiers and consumers can see. Cross-border default is minimum-necessary signed assertions, references, hashes and scoped metadata."
+        },
+        {
+          "id": "deployment-scope",
+          "title": "Start with the deployed workspace. Connect your operating environment.",
+          "text": "The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here. Live device feeds, laboratory and logistics systems, official authority connections, financing and Takaful providers are activated with the relevant organizations. Interactive examples on this website are demonstrations; Shipment 001 remains a pilot requiring real execution evidence.",
+          "link": [
+            "https://amanah-yq9x.vercel.app/login",
+            "Open Amanah"
+          ]
+        }
       ],
-      "sources":["master-standards-stack/CHINA_EXECUTION_PACK/00_MASTER_CHINA_EXECUTION_MODEL.md","05_PLATINUM_REAL_TIME_MONITORING/PLATINUM_FULL_STACK_ARCHITECTURE.md","00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md"],"related":["china-gcc","digital-trust","verify"]
+      "sources": [
+        "master-standards-stack/CHINA_EXECUTION_PACK/00_MASTER_CHINA_EXECUTION_MODEL.md",
+        "05_PLATINUM_REAL_TIME_MONITORING/PLATINUM_FULL_STACK_ARCHITECTURE.md",
+        "00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md"
+      ],
+      "related": [
+        "china-gcc",
+        "digital-trust",
+        "verify"
+      ]
     },
     {
-      "slug":"smart-audit","label":"Smart-glass AI audit","title":"At the physical site. Bound to requirement and evidence.","description":"Wearable auditing links object identification, observations, evidence capture, AI assistance, human findings and re-verification.","image":"architecture.webp","interactive":"audit",
-      "sections":[
-        {"id":"workflow","title":"The complete audit session","flow":["Auditor + device + MFA","Assigned audit","Verify facility / scope","Load requirements / HCPs","Physical walkthrough","Identify object","Capture evidence","Local hash","AI assist","Human assessment","Finding / CAR","Re-verification","Sign","Sync / reconcile","Authority workflow"],"text":"AI assists. The auditor owns the finding. Formal certification remains with the competent authority workflow."},
-        {"id":"offline","title":"Offline evidence remains attributable","text":"Local event hash → server validation → sequence reconciliation → signature check → commit → acknowledgement."}
+      "slug": "smart-audit",
+      "label": "Smart-glass AI audit",
+      "title": "Bring the evidence to the point of inspection.",
+      "description": "Guide auditors through the requirements that matter, capture observations against the right objects and connect findings to corrective action. Smart audit turns the walkthrough into a structured assurance workflow.",
+      "image": "architecture.webp",
+      "interactive": "audit",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "What this means for your business",
+          "cards": [
+            [
+              "A guided walkthrough",
+              "Connect each observation to facility scope, applicable requirements and control points."
+            ],
+            [
+              "Less fragmented follow-up",
+              "Bring findings, corrective actions and re-verification into the same audit record."
+            ],
+            [
+              "Human judgment supported",
+              "Use AI assistance to highlight gaps while the auditor owns the assessment."
+            ]
+          ]
+        },
+        {
+          "id": "workflow",
+          "title": "A guided journey from inspection to action",
+          "flow": [
+            "Auditor + device + MFA",
+            "Assigned audit",
+            "Verify facility / scope",
+            "Load requirements / HCPs",
+            "Physical walkthrough",
+            "Identify object",
+            "Capture evidence",
+            "Local hash",
+            "AI assist",
+            "Human assessment",
+            "Finding / CAR",
+            "Re-verification",
+            "Sign",
+            "Sync / reconcile",
+            "Authority workflow"
+          ],
+          "text": "AI assists. The auditor owns the finding. Formal certification remains with the competent authority workflow."
+        },
+        {
+          "id": "offline",
+          "title": "Keep the evidence connected, even offline",
+          "text": "Local event hash → server validation → sequence reconciliation → signature check → commit → acknowledgement."
+        },
+        {
+          "id": "deployment-scope",
+          "title": "Start with the deployed workspace. Connect your operating environment.",
+          "text": "The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here. Live device feeds, laboratory and logistics systems, official authority connections, financing and Takaful providers are activated with the relevant organizations. Interactive examples on this website are demonstrations; Shipment 001 remains a pilot requiring real execution evidence.",
+          "link": [
+            "https://amanah-yq9x.vercel.app/login",
+            "Open Amanah"
+          ]
+        }
       ],
-      "sources":["master-standards-stack/CHINA_EXECUTION_PACK/05_SMART_GLASS_AUDIT_SPEC.md","00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md"],"related":["manufacturers","command-center","how-it-works"]
+      "sources": [
+        "master-standards-stack/CHINA_EXECUTION_PACK/05_SMART_GLASS_AUDIT_SPEC.md",
+        "00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md"
+      ],
+      "related": [
+        "manufacturers",
+        "command-center",
+        "how-it-works"
+      ]
     },
     {
-      "slug":"china-gcc","label":"China → GCC corridor","title":"Direct physical corridor. Malaysia governance and assurance.","description":"Shipment 001 is the first controlled proof-of-execution model linking China origin, traceability/lab, Sinotrans, ports and GCC destination through continuous evidence.","image":"corridor.webp",
-      "sections":[
-        {"id":"route","title":"Default physical route","flow":["China origin","Traceability / laboratory / manufacturer","Sinotrans warehouse","Origin port/customs","International transit","GCC port/customs","Importer / receiving","Warehouse / distribution / retail"],"text":"Do not describe the default Shipment 001 route as China → Malaysia → GCC."},
-        {"id":"sinotrans","title":"Sinotrans is warehouse + end-to-end logistics","text":"The target integration covers WMS/TMS/Y2T/MIS/EDI/IoT, booking, pickup, warehouse receipt/dispatch, segregation/storage, pallet/lot, container/seal, telemetry, route/geofence, custody, port transfer and proof of delivery."},
-        {"id":"ports","title":"Port/customs authorities receive an API/trust interface","text":"The interface supports minimum-necessary shipment trust resolution and sovereign inspection/sampling/hold/release event return. AHTE does not override port/customs authority."},
-        {"id":"pilot","title":"Shipment 001 remains a pilot until real evidence exists","text":"Architecture and simulations do not instantiate a shipment. Real entity, product, buyer/importer, batch, authority, lab, logistics and destination evidence are required."}
+      "slug": "china-gcc",
+      "label": "China → GCC corridor",
+      "title": "China to GCC. A direct route with a connected trust story.",
+      "description": "Connect China-origin manufacturing with GCC market requirements through manufacturer readiness, laboratory evidence, logistics custody and destination verification. Malaysia provides governance, assurance and authority connectivity.",
+      "image": "corridor.webp",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "What this means for your business",
+          "cards": [
+            [
+              "Origin readiness",
+              "Prepare supplier, product, factory and laboratory evidence before the shipment moves."
+            ],
+            [
+              "Logistics continuity",
+              "Connect warehouse, container, seal, custody and delivery evidence across the route."
+            ],
+            [
+              "Destination confidence",
+              "Give importers and receiving teams an authorized view of shipment evidence and status."
+            ]
+          ]
+        },
+        {
+          "id": "route",
+          "title": "A direct origin-to-market corridor",
+          "flow": [
+            "China origin",
+            "Traceability / laboratory / manufacturer",
+            "Sinotrans warehouse",
+            "Origin port/customs",
+            "International transit",
+            "GCC port/customs",
+            "Importer / receiving",
+            "Warehouse / distribution / retail"
+          ],
+          "text": "Products follow a direct China → GCC corridor, supported by Malaysia’s governance and assurance role."
+        },
+        {
+          "id": "sinotrans",
+          "title": "Connect warehousing and the complete logistics journey",
+          "text": "Integration scope covers WMS/TMS/Y2T/MIS/EDI/IoT, booking, pickup, warehouse receipt/dispatch, segregation/storage, pallet/lot, container/seal, telemetry, route/geofence, custody, port transfer and proof of delivery."
+        },
+        {
+          "id": "ports",
+          "title": "Give border and receiving teams the relevant evidence",
+          "text": "The interface supports minimum-necessary shipment trust resolution and sovereign inspection/sampling/hold/release event return. AHTE does not override port/customs authority."
+        },
+        {
+          "id": "pilot",
+          "title": "A focused first corridor for real execution",
+          "text": "Architecture and simulations do not instantiate a shipment. Real entity, product, buyer/importer, batch, authority, lab, logistics and destination evidence are required."
+        },
+        {
+          "id": "deployment-scope",
+          "title": "Start with the deployed workspace. Connect your operating environment.",
+          "text": "The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here. Live device feeds, laboratory and logistics systems, official authority connections, financing and Takaful providers are activated with the relevant organizations. Interactive examples on this website are demonstrations; Shipment 001 remains a pilot requiring real execution evidence.",
+          "link": [
+            "https://amanah-yq9x.vercel.app/login",
+            "Open Amanah"
+          ]
+        }
       ],
-      "sources":["00_EXECUTIVE_COMMAND/corridor-registry.json","deliverables/07_SINOTRANS_PLAYBOOK.md","master-standards-stack/CHINA_EXECUTION_PACK/08_CHINA_PILOT_SHIPMENT_001_GCC_RELEASE_PLAYBOOK.md"],"related":["traceability","command-center","partners"]
+      "sources": [
+        "00_EXECUTIVE_COMMAND/corridor-registry.json",
+        "deliverables/07_SINOTRANS_PLAYBOOK.md",
+        "master-standards-stack/CHINA_EXECUTION_PACK/08_CHINA_PILOT_SHIPMENT_001_GCC_RELEASE_PLAYBOOK.md"
+      ],
+      "related": [
+        "traceability",
+        "command-center",
+        "partners"
+      ]
     },
     {
-      "slug":"partners","label":"Ecosystem partners","title":"Each participant owns its mandate and evidence.","description":"AHTE connects institutions, manufacturers, laboratories, logistics, ports, financiers and destination actors without collapsing their legal or operational authority.","image":"architecture.webp",
-      "sections":[
-        {"id":"operating","title":"Operating participants","cards":[["GHSCL HK","International operating/digital infrastructure and Command Center function."],["China manufacturers","Facility, product, formula, process and production evidence."],["China traceability + laboratory","Physical/digital identity, serialization, aggregation, sample/custody and scientific evidence."],["Sinotrans","Warehouse/logistics execution and real-time evidence."],["Port/customs authorities","Sovereign inspection and release."],["GCC destination actors","Import, receiving, distribution and market acceptance."]]},
-        {"id":"finance","title":"Finance and Takaful are separate decision domains","text":"AHTE may provide authorised evidence packets and case-state integration; banks/financiers and Takaful operators retain their own decisions."}
+      "slug": "partners",
+      "label": "Ecosystem partners",
+      "title": "Build stronger trade connections around shared trust.",
+      "description": "Manufacturers, laboratories, logistics operators, importers and institutions each bring a vital part of the journey. Amanah gives partners a common evidence framework while preserving the responsibilities that make the ecosystem credible.",
+      "image": "architecture.webp",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "What this means for your business",
+          "cards": [
+            [
+              "Connect your contribution",
+              "Map the evidence, systems and decisions your organization brings to the ecosystem."
+            ],
+            [
+              "Keep your mandate",
+              "Work across a shared platform without surrendering your legal or operational responsibility."
+            ],
+            [
+              "Scale by workstream",
+              "Start with a defined facility, product family, integration or corridor and expand deliberately."
+            ]
+          ]
+        },
+        {
+          "id": "operating",
+          "title": "Operating participants",
+          "cards": [
+            [
+              "GHSCL HK",
+              "International operating/digital infrastructure and Command Center function."
+            ],
+            [
+              "China manufacturers",
+              "Facility, product, formula, process and production evidence."
+            ],
+            [
+              "China traceability + laboratory",
+              "Physical/digital identity, serialization, aggregation, sample/custody and scientific evidence."
+            ],
+            [
+              "Sinotrans",
+              "Warehouse/logistics execution and real-time evidence."
+            ],
+            [
+              "Port/customs authorities",
+              "Sovereign inspection and release."
+            ],
+            [
+              "GCC destination actors",
+              "Import, receiving, distribution and market acceptance."
+            ]
+          ]
+        },
+        {
+          "id": "finance",
+          "title": "Connect trade evidence to specialist providers",
+          "text": "AHTE may provide authorised evidence packets and case-state integration; banks/financiers and Takaful operators retain their own decisions."
+        },
+        {
+          "id": "deployment-scope",
+          "title": "Start with the deployed workspace. Connect your operating environment.",
+          "text": "The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here. Live device feeds, laboratory and logistics systems, official authority connections, financing and Takaful providers are activated with the relevant organizations. Interactive examples on this website are demonstrations; Shipment 001 remains a pilot requiring real execution evidence.",
+          "link": [
+            "https://amanah-yq9x.vercel.app/login",
+            "Open Amanah"
+          ]
+        }
       ],
-      "sources":["00_EXECUTIVE_COMMAND/partner-registry.json","partners/coda/INTEGRATION_AND_ENTERPRISE_ENABLEMENT_MODEL.md","deliverables/31_SHARIAH_FINANCING_API_TAKAFUL_TOKENOMICS_ARCHITECTURE_2026.md"],"related":["ecosystem","finance-takaful","china-gcc"]
+      "sources": [
+        "00_EXECUTIVE_COMMAND/partner-registry.json",
+        "partners/coda/INTEGRATION_AND_ENTERPRISE_ENABLEMENT_MODEL.md",
+        "deliverables/31_SHARIAH_FINANCING_API_TAKAFUL_TOKENOMICS_ARCHITECTURE_2026.md"
+      ],
+      "related": [
+        "ecosystem",
+        "finance-takaful",
+        "china-gcc"
+      ]
     },
     {
-      "slug":"manufacturers","label":"Manufacturers","title":"A scalable onboarding factory for complete Halal/Tayyib readiness.","description":"Manufacturer onboarding binds enterprise, facility, product, formula, raw materials, suppliers, systems, controls, laboratory evidence, smart audit and destination readiness.","image":"architecture.webp","interactive":"onboarding",
-      "sections":[
-        {"id":"gates","title":"End-to-end onboarding","flow":["Manufacturer identified","Legal entity / due diligence","Facility qualification","Product / SKU","Formula / BOM","Raw materials / suppliers","Origin provenance","System inventory","Digital twin","Applicability","HCP / SCCP","Evidence gap","Remediation / training","Lab / sample plan","Smart audit","Finding / CAPA","Re-verification","Direct JAKIM API / human authority workflow","Continuous monitoring","China→GCC market enablement"]},
-        {"id":"systems","title":"Integrate existing factory systems","text":"AHTE connects ERP, MES, QMS, WMS, LIMS, IoT, DMS and identity systems rather than replacing them solely to join the trust ecosystem."},
-        {"id":"applicability","title":"Applicability drives controls","text":"Entity, product, process, activity, destination and organization profile determine standards/instruments, HAS/IHCS profile, HCP/SCCP and expected evidence."}
+      "slug": "manufacturers",
+      "label": "Manufacturers",
+      "title": "Prepare your products for the next market.",
+      "description": "Bring your facility, ingredients, suppliers, controls, laboratory records and audit actions into one readiness journey. Connect the systems you already use and give your team a clearer route from preparation to market engagement.",
+      "image": "architecture.webp",
+      "interactive": "onboarding",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "What this means for your business",
+          "cards": [
+            [
+              "One readiness view",
+              "Bring product, ingredient, supplier and facility obligations together for your team."
+            ],
+            [
+              "Keep your existing systems",
+              "Connect ERP, MES, QMS, WMS, LIMS, IoT and document systems around a shared evidence model."
+            ],
+            [
+              "A practical action plan",
+              "Identify gaps, assign remediation, coordinate audit and prepare the next market conversation."
+            ]
+          ]
+        },
+        {
+          "id": "gates",
+          "title": "End-to-end onboarding",
+          "flow": [
+            "Manufacturer identified",
+            "Legal entity / due diligence",
+            "Facility qualification",
+            "Product / SKU",
+            "Formula / BOM",
+            "Raw materials / suppliers",
+            "Origin provenance",
+            "System inventory",
+            "Digital twin",
+            "Applicability",
+            "HCP / SCCP",
+            "Evidence gap",
+            "Remediation / training",
+            "Lab / sample plan",
+            "Smart audit",
+            "Finding / CAPA",
+            "Re-verification",
+            "Direct JAKIM API / human authority workflow",
+            "Continuous monitoring",
+            "China→GCC market enablement"
+          ]
+        },
+        {
+          "id": "systems",
+          "title": "Integrate existing factory systems",
+          "text": "AHTE connects ERP, MES, QMS, WMS, LIMS, IoT, DMS and identity systems rather than replacing them solely to join the trust ecosystem."
+        },
+        {
+          "id": "applicability",
+          "title": "Match your controls to your products and markets",
+          "text": "Entity, product, process, activity, destination and organization profile determine standards/instruments, HAS/IHCS profile, HCP/SCCP and expected evidence."
+        },
+        {
+          "id": "deployment-scope",
+          "title": "Start with the deployed workspace. Connect your operating environment.",
+          "text": "The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here. Live device feeds, laboratory and logistics systems, official authority connections, financing and Takaful providers are activated with the relevant organizations. Interactive examples on this website are demonstrations; Shipment 001 remains a pilot requiring real execution evidence.",
+          "link": [
+            "https://amanah-yq9x.vercel.app/login",
+            "Open Amanah"
+          ]
+        }
       ],
-      "sources":["partners/coda/INTEGRATION_AND_ENTERPRISE_ENABLEMENT_MODEL.md","deliverables/22_IQ300_JAKIM_MALAYSIAN_STANDARDS_INTELLIGENCE_LAYER.md","master-standards-stack/china-deployment/MANUFACTURER_ONBOARDING_DOSSIER.md"],"related":["smart-audit","how-it-works","china-gcc"]
+      "sources": [
+        "partners/coda/INTEGRATION_AND_ENTERPRISE_ENABLEMENT_MODEL.md",
+        "deliverables/22_IQ300_JAKIM_MALAYSIAN_STANDARDS_INTELLIGENCE_LAYER.md",
+        "master-standards-stack/china-deployment/MANUFACTURER_ONBOARDING_DOSSIER.md"
+      ],
+      "related": [
+        "smart-audit",
+        "how-it-works",
+        "china-gcc"
+      ]
     },
     {
-      "slug":"finance-takaful","label":"Shariah finance & Takaful","title":"Trust evidence can support finance without becoming the finance decision.","description":"The target Shariah Financing API supports trade finance, Takaful evidence/cases and approved token/digital-value references subject to separate Shariah, legal and regulatory approval.","image":"trust-core.webp",
-      "sections":[
-        {"id":"api","title":"Shariah Financing API target plane","flow":["Authorised AHTE trust/trade data","Purpose-bound finance evidence packet","Connector state","Financier / Takaful / approved digital-value workflow","External case / decision state","Decision reference returned where authorised"]},
-        {"id":"services","title":"Target services","cards":[["Trade financing","Evidence support for Islamic trade finance, purchase-order and receivables finance."],["Inventory/shipment financing","Asset, custody, shipment and exception-state evidence."],["Takaful","Underwriting and claims evidence/case support; decisions remain external."],["Tokenomics","External token/digital-asset references only where legal, regulatory and Shariah structures approve them."]]},
-        {"id":"boundaries","title":"Hard boundaries","text":"AHTE trust state is not a credit decision. Halal certification is not financing approval. AHTE is not the legal-title registry. Tokenization does not itself change ownership, legal title, regulatory status, Shariah status or certification state."}
+      "slug": "finance-takaful",
+      "label": "Shariah finance & Takaful",
+      "title": "Make trade evidence work harder for your business.",
+      "description": "Connect product, inventory, custody and shipment evidence to purpose-built financing and Takaful workflows. Give approved providers a clearer basis for review while keeping commercial, Shariah and regulatory decisions with them.",
+      "image": "trust-core.webp",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "What this means for your business",
+          "cards": [
+            [
+              "Stronger review context",
+              "Present inventory, shipment, custody and exception evidence in a purpose-bound packet."
+            ],
+            [
+              "Clearer case coordination",
+              "Track evidence requests and externally owned financing or underwriting case states."
+            ],
+            [
+              "Controlled digital value",
+              "Support tokenomics and digital-asset references only within approved legal and Shariah structures."
+            ]
+          ]
+        },
+        {
+          "id": "api",
+          "title": "Shariah Financing API: bring evidence into the financing conversation",
+          "flow": [
+            "Authorised AHTE trust/trade data",
+            "Purpose-bound finance evidence packet",
+            "Connector state",
+            "Financier / Takaful / approved digital-value workflow",
+            "External case / decision state",
+            "Decision reference returned where authorised"
+          ]
+        },
+        {
+          "id": "services",
+          "title": "Financing and protection across the trade journey",
+          "cards": [
+            [
+              "Trade financing",
+              "Evidence support for Islamic trade finance, purchase-order and receivables finance."
+            ],
+            [
+              "Inventory/shipment financing",
+              "Asset, custody, shipment and exception-state evidence."
+            ],
+            [
+              "Takaful",
+              "Underwriting and claims evidence/case support; decisions remain external."
+            ],
+            [
+              "Tokenomics",
+              "External token/digital-asset references only where legal, regulatory and Shariah structures approve them."
+            ]
+          ]
+        },
+        {
+          "id": "boundaries",
+          "title": "Confidence in independently owned decisions",
+          "text": "AHTE trust state is not a credit decision. Halal certification is not financing approval. AHTE is not the legal-title registry. Tokenization does not itself change ownership, legal title, regulatory status, Shariah status or certification state."
+        },
+        {
+          "id": "deployment-scope",
+          "title": "Start with the deployed workspace. Connect your operating environment.",
+          "text": "The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here. Live device feeds, laboratory and logistics systems, official authority connections, financing and Takaful providers are activated with the relevant organizations. Interactive examples on this website are demonstrations; Shipment 001 remains a pilot requiring real execution evidence.",
+          "link": [
+            "https://amanah-yq9x.vercel.app/login",
+            "Open Amanah"
+          ]
+        }
       ],
-      "sources":["deliverables/31_SHARIAH_FINANCING_API_TAKAFUL_TOKENOMICS_ARCHITECTURE_2026.md","00_EXECUTIVE_COMMAND/target-extension-schemas-2026-09-30.json"],"related":["command-center","partners","digital-trust"]
+      "sources": [
+        "deliverables/31_SHARIAH_FINANCING_API_TAKAFUL_TOKENOMICS_ARCHITECTURE_2026.md",
+        "00_EXECUTIVE_COMMAND/target-extension-schemas-2026-09-30.json"
+      ],
+      "related": [
+        "command-center",
+        "partners",
+        "digital-trust"
+      ]
     },
     {
-      "slug":"verify","label":"Verify","title":"Resolve an issuer-authorized disclosure, not a public database dump.","description":"Verification exposes the minimum authorised product, batch, shipment, evidence and status information without converting a token lookup into certification.","image":"trust-core.webp","interactive":"verify",
-      "sections":[
-        {"id":"scope","title":"Verification is scoped disclosure","text":"The verification service resolves issuer-authorized disclosure tokens. It does not infer certification from a product ID, hash or QR code."},
-        {"id":"integrity","title":"A hash proves integrity relative to a digest, not truth","text":"Verification also depends on trusted issuer identity, signature/key validity, evidence provenance, authority references and scope."}
+      "slug": "verify",
+      "label": "Verify",
+      "title": "Make trust visible at the moment it matters.",
+      "description": "Help buyers and receiving teams inspect an authorized product, batch or shipment disclosure. Connect the physical product to relevant evidence and status through issuer-provided verification links and QR codes.",
+      "image": "trust-core.webp",
+      "interactive": "verify",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "What this means for your business",
+          "cards": [
+            [
+              "Relevant evidence",
+              "Review the information the issuer has authorized for the product, batch or shipment."
+            ],
+            [
+              "Clear disclosure scope",
+              "See what a token covers and distinguish evidence integrity from authority status."
+            ],
+            [
+              "Protected business information",
+              "Share the information needed for a decision while confidential records remain controlled."
+            ]
+          ]
+        },
+        {
+          "id": "scope",
+          "title": "Show the information your buyer needs",
+          "text": "The verification service resolves issuer-authorized disclosure tokens. Each disclosure identifies its scope and relevant authority references."
+        },
+        {
+          "id": "integrity",
+          "title": "Inspect evidence, provenance and relevant authority status",
+          "text": "Verification also depends on trusted issuer identity, signature/key validity, evidence provenance, authority references and scope."
+        },
+        {
+          "id": "deployment-scope",
+          "title": "Start with the deployed workspace. Connect your operating environment.",
+          "text": "The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here. Live device feeds, laboratory and logistics systems, official authority connections, financing and Takaful providers are activated with the relevant organizations. Interactive examples on this website are demonstrations; Shipment 001 remains a pilot requiring real execution evidence.",
+          "link": [
+            "https://amanah-yq9x.vercel.app/login",
+            "Open Amanah"
+          ]
+        }
       ],
-      "sources":["00_EXECUTIVE_COMMAND/trust-packet-schemas.json","master-standards-stack/CHINA_EXECUTION_PACK/07_CRYPTOGRAPHIC_TRUST_ANCHOR_ARCHITECTURE.md"],"related":["digital-trust","traceability","ecosystem"]
+      "sources": [
+        "00_EXECUTIVE_COMMAND/trust-packet-schemas.json",
+        "master-standards-stack/CHINA_EXECUTION_PACK/07_CRYPTOGRAPHIC_TRUST_ANCHOR_ARCHITECTURE.md"
+      ],
+      "related": [
+        "digital-trust",
+        "traceability",
+        "ecosystem"
+      ]
     },
     {
-      "slug":"contact","label":"Contact / onboarding","title":"Enter the ecosystem through the correct workstream.","description":"Prepare a manufacturer, laboratory, logistics, authority, destination or finance/Takaful engagement without sending credentials or confidential evidence through the public site.","image":"architecture.webp","interactive":"contact",
-      "sections":[
-        {"id":"workstreams","title":"Primary workstreams","cards":[["Manufacturer onboarding","Enterprise, facility, product, evidence and market readiness."],["Laboratory integration","Traceability, sample/custody/method/result API and evidence integration."],["Sinotrans / logistics","Warehouse, transport, telemetry, container, seal and custody integration."],["Port/customs","Authorised trust-resolution and sovereign event interface."],["Institutional / JAKIM","Direct JAKIM API target integration subject to authorised production contract."],["Finance / Takaful","Purpose-bound evidence, case and counterparty integration workstream."]]},
-        {"id":"security","title":"Do not submit secrets on the public site","text":"Credentials, private keys, identity documents and confidential evidence belong in authenticated controlled channels."}
+      "slug": "contact",
+      "label": "Contact / onboarding",
+      "title": "Bring your business into the platform journey.",
+      "description": "Tell us where you fit in the supply chain and what you want to achieve. Prepare a focused engagement brief for manufacturer onboarding, laboratory integration, logistics, institutional connectivity or trade enablement.",
+      "image": "architecture.webp",
+      "interactive": "contact",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "What this means for your business",
+          "cards": [
+            [
+              "Choose your starting point",
+              "Select the role and workstream that best match your organization."
+            ],
+            [
+              "Define the outcome",
+              "Describe the product category, destination market or integration you want to explore."
+            ],
+            [
+              "Prepare a focused brief",
+              "Download your enquiry brief and use it in your engagement with the platform team."
+            ]
+          ]
+        },
+        {
+          "id": "workstreams",
+          "title": "Primary workstreams",
+          "cards": [
+            [
+              "Manufacturer onboarding",
+              "Enterprise, facility, product, evidence and market readiness."
+            ],
+            [
+              "Laboratory integration",
+              "Traceability, sample/custody/method/result API and evidence integration."
+            ],
+            [
+              "Sinotrans / logistics",
+              "Warehouse, transport, telemetry, container, seal and custody integration."
+            ],
+            [
+              "Port/customs",
+              "Authorised trust-resolution and sovereign event interface."
+            ],
+            [
+              "Institutional / JAKIM",
+              "Direct JAKIM API target integration subject to authorised production contract."
+            ],
+            [
+              "Finance / Takaful",
+              "Purpose-bound evidence, case and counterparty integration workstream."
+            ]
+          ]
+        },
+        {
+          "id": "security",
+          "title": "Keep confidential records in your controlled workspace",
+          "text": "Credentials, private keys, identity documents and confidential evidence belong in authenticated controlled channels."
+        },
+        {
+          "id": "deployment-scope",
+          "title": "Start with the deployed workspace. Connect your operating environment.",
+          "text": "The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here. Live device feeds, laboratory and logistics systems, official authority connections, financing and Takaful providers are activated with the relevant organizations. Interactive examples on this website are demonstrations; Shipment 001 remains a pilot requiring real execution evidence.",
+          "link": [
+            "https://amanah-yq9x.vercel.app/login",
+            "Open Amanah"
+          ]
+        }
       ],
-      "sources":["00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md","docs/CODEX_PLATFORM_REBUILD_MASTER_PROMPT_2026-09-30.md"],"related":["manufacturers","partners","ecosystem"]
+      "sources": [
+        "00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md",
+        "docs/CODEX_PLATFORM_REBUILD_MASTER_PROMPT_2026-09-30.md"
+      ],
+      "related": [
+        "manufacturers",
+        "partners",
+        "ecosystem"
+      ]
     }
   ]
 }
