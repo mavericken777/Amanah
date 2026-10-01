@@ -25,11 +25,19 @@
     if(chapter!==previousChapter){previousChapter=chapter;document.dispatchEvent(new Event('ghscl:chapter'));}
     sticky.dataset.scene = scene;
     document.querySelectorAll('[data-still]').forEach(el => el.classList.toggle('active', el.dataset.still === scene));
-    document.querySelector('#cinemaProgress').style.height = `${p * 100}%`;
+    const progress = document.querySelector('#cinemaProgress');
+    progress.style.height = '100%'; progress.style.transformOrigin = 'top'; progress.style.transform = `scaleY(${p})`;
     if (Number.isFinite(film.duration)) { targetTime = p * Math.max(0, film.duration - .12); film.dataset.timelineSeconds=targetTime.toFixed(2); seekFilm(); }
   }
   function queueStory() { if (!scrollPending) { scrollPending = true; requestAnimationFrame(story); } }
-  addEventListener('scroll', queueStory, { passive: true });
+  // Chapter boundaries trigger observation without a continuous scroll handler.
+  const chapterObserver = new IntersectionObserver(queueStory, { rootMargin: '-15% 0px -15% 0px' });
+  for (let i = 0; i <= 32; i++) {
+    const anchor = document.createElement('span');
+    anchor.setAttribute('aria-hidden', 'true');
+    anchor.style.cssText = `position:absolute;top:${i / 32 * 100}%;height:1px;width:1px;pointer-events:none;`;
+    cinema.append(anchor); chapterObserver.observe(anchor);
+  }
   addEventListener('resize', queueStory);
   film.addEventListener('loadedmetadata', story);
   film.addEventListener('canplay', () => { lastSeek=-1; story(); });
