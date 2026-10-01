@@ -4,9 +4,9 @@
 
 `mavericken777/GlobalHalalDigitalTrust` — branch `main`.
 
-[PROJECT-REPO: https://github.com/mavericken777/GlobalHalalDigitalTrust/tree/14456e99937d6f11d63bd041dcffdb903d12594f — 14456e99937d — 2026-09-30 — current project target snapshot]
+[PROJECT-REPO: https://github.com/mavericken777/GlobalHalalDigitalTrust/tree/ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5 — ccc10ca476b — 2026-10-02 — current project target snapshot]
 
-Current project-level target binding: `14456e99937d6f11d63bd041dcffdb903d12594f`.
+Current project-level target binding: `ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5`.
 
 The verified standards freeze remains `master-standards-stack/verified-2026-09-17/`. Post-freeze project architecture does not substitute for authority text or silently alter the frozen package.
 

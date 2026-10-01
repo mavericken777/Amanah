@@ -6,8 +6,8 @@
 
 | Domain | Current verified state |
 |---|---|
-| GlobalHalalDigitalTrust | main HEAD 14456e99937d |
-| Amanah | main HEAD 69697fd51d6 |
+| GlobalHalalDigitalTrust | main HEAD ccc10ca476b |
+| Amanah | main HEAD 5b160d34b7a6 |
 | Supabase | ACTIVE_HEALTHY; Postgres 17.11; ap-northeast-1 |
 | Edge functions | assurance ACTIVE v9; public-verify ACTIVE v5; ghscl-site ACTIVE v3 |
 | Live AHTE records | zero production users/shipments/authority decisions observed in current snapshot |
