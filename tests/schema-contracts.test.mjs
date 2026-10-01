@@ -5,9 +5,9 @@ import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import ts from 'typescript';
 
-test('literal application queries use columns in the current live schema',(t)=>{
+test('literal application queries use columns in the current application schema contract',(t)=>{
  const root=new URL('../',import.meta.url);
- const schema=ts.createSourceFile('database.types.ts',readFileSync(new URL('lib/database.types.ts',root),'utf8'),ts.ScriptTarget.Latest,true);
+ const schema=ts.createSourceFile('database.target.types.ts',readFileSync(new URL('lib/database.target.types.ts',root),'utf8'),ts.ScriptTarget.Latest,true);
  const database=schema.statements.find(x=>ts.isTypeAliasDeclaration(x)&&x.name.text==='Database').type;
  const member=(node,name)=>node.members.find(x=>x.name?.getText(schema)===name).type;
  const tables=member(member(database,'public'),'Tables');
@@ -37,5 +37,5 @@ test('literal application queries use columns in the current live schema',(t)=>{
  }
  assert.ok(checked>120,'Expected substantial query contract coverage');
  assert.deepEqual(failures,[]);
- t.diagnostic(checked+' literal column references checked against the generated live schema; dynamic expressions and nested relation selectors are outside this check');
+ t.diagnostic(checked+' literal column references checked against the generated application schema contract; dynamic expressions and nested relation selectors are outside this check');
 });
