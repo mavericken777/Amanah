@@ -1,0 +1,25 @@
+{
+  "artifact":"AMANAH Master Deliverable Index",
+  "version":"1.0.0",
+  "control_date":"2026-10-02",
+  "owner":"AMANAH / GHSCL programme office",
+  "source_priority":["GlobalHalalDigitalTrust verified package","GlobalHalalDigitalTrust main","Amanah main","registered live authority sources"],
+  "deliverables":[
+    {"id":"D01","name":"Canonical architecture","path":"docs/architecture/PLATFORM_ARCHITECTURE.md","owner":"AHTE","status":"CONTROLLING"},
+    {"id":"D02","name":"Canonical data model","path":"docs/architecture/DATA_MODEL.md","owner":"AHTE","status":"CONTROLLING"},
+    {"id":"D03","name":"Decision rights","path":"docs/architecture/COMPONENT_OWNERSHIP_AND_DECISION_RIGHTS_2026-10-02.md","owner":"Governance","status":"CONTROLLING"},
+    {"id":"D04","name":"Manufacturer onboarding","path":"app/(protected)/onboarding/page.tsx","owner":"Manufacturer platform","status":"IMPLEMENTED"},
+    {"id":"D05","name":"Canonical API","path":"docs/api/AMANAH_CANONICAL_API_CONTRACT_2026-10-02.yaml","owner":"Integration engineering","status":"INTERNAL CONTRACT"},
+    {"id":"D06","name":"API UAT pack","path":"docs/api/AMANAH_API_UAT_PACK_2026-10-02.md","owner":"Integration QA","status":"READY"},
+    {"id":"D07","name":"Platinum hardware BOM","path":"docs/hardware/PLATINUM_HARDWARE_MASTER_BOM_2026-10-02.json","owner":"Procurement","status":"RFQ READY"},
+    {"id":"D08","name":"Sinotrans A-Z","path":"docs/sinotrans/SINOTRANS_A_TO_Z_PLAYBOOK_2026-10-02.md","owner":"Logistics","status":"PARTNER VALIDATION"},
+    {"id":"D09","name":"CODA financing","path":"docs/coda/CODA_HARDWARE_FINANCING_EXECUTIVE_PACK_2026-10-02.md","owner":"Commercial","status":"PROPOSAL"},
+    {"id":"D10","name":"Corporate profile","path":"docs/marketing/AMANAH_CORPORATE_PROFILE_2026-10-02.md","owner":"Corporate","status":"BOARDROOM READY"},
+    {"id":"D11","name":"Infographic suite","path":"docs/marketing/MASTER_INFOGRAPHIC_SUITE_2026-10-02.md","owner":"Corporate design","status":"PRODUCTION SPEC"},
+    {"id":"D12","name":"69-section execution register","path":"docs/operations/AMANAH_69_EXECUTION_REGISTER_2026-10-02.md","owner":"Programme office","status":"CONTROLLING"},
+    {"id":"D13","name":"Truth baseline","path":"docs/operations/REFRESHED_TRUTH_BASELINE_2026-10-02.md","owner":"Programme office","status":"CONTROLLING"},
+    {"id":"D14","name":"Cross-consistency matrix","path":"docs/operations/CROSS_CONSISTENCY_MATRIX_2026-10-02.md","owner":"QA","status":"ACTIVE"},
+    {"id":"D15","name":"Red-team register","path":"docs/operations/RED_TEAM_REGISTER_2026-10-02.md","owner":"Assurance","status":"ACTIVE"}
+  ],
+  "hard_freeze":"master-standards-stack/verified-2026-09-17/"
+}
