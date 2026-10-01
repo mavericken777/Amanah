@@ -12,6 +12,7 @@ const runBuild=()=>{
 };
 runBuild();
 const data=JSON.parse(fs.readFileSync(path.join(base,'ecosystem.en.json'),'utf8'));
+const binding=JSON.parse(fs.readFileSync('config/source-binding.json','utf8'));
 const pages=['index.html',...data.pages.map(p=>p.slug+'.html')];
 
 test('every public route has resolvable assets, navigation and fragment targets',()=>{
@@ -33,8 +34,8 @@ test('every public route has resolvable assets, navigation and fragment targets'
   }
 });
 
-test('public source links bind to current GHDT target and avoid retired topology/sources',()=>{
-  assert.equal(data.canonicalCommit,JSON.parse(fs.readFileSync('config/source-binding.json','utf8')).commit);
+test('public source links bind to the declared public GHDT target snapshot and avoid retired topology/sources',()=>{
+  assert.equal(data.canonicalCommit,binding.public_site_commit||binding.commit);
   const all=data.pages.map(p=>JSON.stringify(p)).join('\n');
   for(const term of ['PHC','GHSCL','AHTE','Direct JAKIM API','HCP','SCCP','Sinotrans','custody','re-verification','Command Center','Preemptive Strategy','Takaful','tokenomics','port/customs'])assert.ok(all.toLowerCase().includes(term.toLowerCase()),term);
   assert.ok(!all.includes('Secure Authority Gateway ⇅'),'stale public authority gateway topology');
