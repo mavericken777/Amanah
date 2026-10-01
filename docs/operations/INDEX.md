@@ -7,3 +7,10 @@ Current controls: [STATUS](STATUS.md), [PENDING](PENDING.md), [release checklist
 - [Delivery requirements and implementation sequence](DELIVERY_PLAN.md)
 
 - [Full housekeeping change inventory](FULL_HOUSEKEEPING_2026-10-01.md)
+
+
+- [69-section execution register](AMANAH_69_EXECUTION_REGISTER_2026-10-02.md)
+- [refreshed truth baseline](REFRESHED_TRUTH_BASELINE_2026-10-02.md)
+- [master deliverable index](MASTER_DELIVERABLE_INDEX_2026-10-02.json)
+- [cross-consistency matrix](CROSS_CONSISTENCY_MATRIX_2026-10-02.md)
+- [red-team register](RED_TEAM_REGISTER_2026-10-02.md)
