@@ -28,5 +28,16 @@ type LatestExtensionTables = {
 };
 
 type PublicSchema = CurrentDatabase["public"];
-export type Database = Omit<CurrentDatabase,"public"> & { public: Omit<PublicSchema,"Tables"> & { Tables: PublicSchema["Tables"] & LatestExtensionTables } };
+type TargetPublicSchema = {
+  Tables: PublicSchema["Tables"] & LatestExtensionTables;
+  Views: PublicSchema["Views"];
+  Functions: PublicSchema["Functions"];
+  Enums: PublicSchema["Enums"];
+  CompositeTypes: PublicSchema["CompositeTypes"];
+};
+
+export type Database = {
+  __InternalSupabase: CurrentDatabase["__InternalSupabase"];
+  public: TargetPublicSchema;
+};
 export type { Json };
