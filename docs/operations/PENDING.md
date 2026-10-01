@@ -1,6 +1,6 @@
 # Pending closure
 
-Current implementation binding: `GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5`; Amanah controlling branch: `main`; latest verified implementation checkpoint: `8fe86c0db558ee861533a26f0917a23f5b59efa5`.
+Current implementation binding: `GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5`; Amanah controlling branch: `main`; latest reconciliation merge: `1c2d85749d31947b19730698325c49d870ac6c4a`.
 
 The verified freeze remains `master-standards-stack/verified-2026-09-17/`.
 
@@ -24,6 +24,7 @@ AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Malaysia provides gov
 - [OPEN GATE: production Amanah hosting authorization — owner: Maverick / hosting administrator — blocking: production UAT]
 - [OPEN GATE: Amanah GitHub branch-protection administration — owner: repository administrator — blocking: repository governance hardening]
 - [OPEN GATE: GlobalHalalDigitalTrust GitHub branch-protection administration — owner: repository administrator — blocking: canonical source governance hardening]
+- [OPEN GATE: Vercel deployment build capacity — current status: external `build-rate-limit` failure on both Amanah deployment status contexts; owner: Vercel account/hosting administrator — blocking: production deployment confirmation]
 
 ## Completion rule
 
@@ -35,7 +36,10 @@ Development/sandbox providers may exercise complete workflows only when clearly 
 
 [PILOT: Shipment 001 — China → GCC direct; NOT-INSTANTIATED]
 
-
 ## 2 October normalized domain closure
 
 The platform now has first-class schema objects for ProductionLine, SKU, CertificationScope, Vehicle, Driver, Warehouse, Pallet, Package, Container, Seal, RouteEvent and VerificationEvent, plus typed Sensor/Gateway profiles and typed Ingredient/RawMaterial material roles. This closes the repository-controlled data-model gap without altering the frozen standards package.
+
+## 2 October provenance/schema reconciliation
+
+Current implementation provenance remains pinned to `GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5`. The public static site remains explicitly pinned to target architecture snapshot `14456e99937d6f11d63bd041dcffdb903d12594f`, which is an ancestor of current main; the five later commits are control/provenance additions. Application query-contract validation now uses `lib/database.target.types.ts`, which composes the current schema with the controlled target extension tables used by the application.
