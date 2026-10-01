@@ -1,6 +1,6 @@
 # Pending closure
 
-Current implementation binding: `GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5`; Amanah main implementation: `5b160d34b7a60fb8e93d34b21cb40574f51a6215`.
+Current implementation binding: `GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5`; Amanah controlling branch: `main`; latest verified implementation checkpoint: `8fe86c0db558ee861533a26f0917a23f5b59efa5`.
 
 The verified freeze remains `master-standards-stack/verified-2026-09-17/`.
 

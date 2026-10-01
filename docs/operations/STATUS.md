@@ -1,6 +1,6 @@
 # Current Amanah implementation status
 
-Global control main: `ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5` (2 Oct 2026). Machine binding: [source-binding.json](../../config/source-binding.json). The 17 September verified freeze remains unchanged.
+Global control main: `ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5` (2 Oct 2026). The latest verified Amanah implementation checkpoint is `8fe86c0db558ee861533a26f0917a23f5b59efa5`; `main` remains the controlling branch. Machine binding: [source-binding.json](../../config/source-binding.json). The 17 September verified freeze remains unchanged.
 
 AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct; Malaysia is the governance/assurance/authority-connectivity plane. Shipment 001 is **NOT-INSTANTIATED**. No fixture, architectural illustration or development receipt closes a transaction or authority gate.
 
