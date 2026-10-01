@@ -9,7 +9,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "node --test tests/*.test.mjs",
-    "web:build": "node scripts/apply-website-policy.mjs && node scripts/build-ecosystem-site.mjs && node scripts/refresh-ecosystem-shell.mjs",
+    "web:build": "node scripts/apply-website-policy.mjs && node scripts/build-ecosystem-site.mjs && node scripts/refresh-ecosystem-shell.mjs && node scripts/finalize-website-provenance.mjs",
     "web:lint": "node scripts/check-ecosystem-site.mjs"
   },
   "engines": {
