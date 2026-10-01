@@ -7575,6 +7575,10 @@ export type Database = {
         }
         Returns: number
       }
+      ahte_register_manufacturer_onboarding: {
+        Args: { p_org: string; p_payload: Json }
+        Returns: Json
+      }
     }
     Enums: {
       [_ in never]: never
