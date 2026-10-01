@@ -41,7 +41,7 @@ async function registerManufacturer(formData: FormData) {
   }).select("id").single();
   if (identityError) throw identityError;
 
-  const { error: partnerError } = await supabase.from("ahte_partners").insert({
+  const { data: partner, error: partnerError } = await supabase.from("ahte_partners").insert({
     organization_id: organization.id,
     name: legalName,
     partner_type: "manufacturer",
@@ -49,7 +49,7 @@ async function registerManufacturer(formData: FormData) {
     authority_status: "unverified",
     identity_id: identity.id,
     notes: "Created through AMANAH onboarding. External authority status is not inferred.",
-  });
+  }).select("id").single();
   if (partnerError) throw partnerError;
 
   const { data: facility, error: facilityError } = await supabase.from("ahte_facilities").insert({
@@ -65,6 +65,7 @@ async function registerManufacturer(formData: FormData) {
 
   const { data: product, error: productError } = await supabase.from("ahte_products").insert({
     organization_id: organization.id,
+    manufacturer_partner_id: partner.id,
     name: productName,
     category: productCategory || null,
     status: "draft",
