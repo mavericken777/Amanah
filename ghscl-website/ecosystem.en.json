@@ -174,7 +174,7 @@
         },
         {
           "id": "roles",
-          "title": "Who does what",
+          "title": "Expertise across the complete journey",
           "cards": [
             [
               "PHC",
@@ -204,7 +204,7 @@
         },
         {
           "id": "authority",
-          "title": "Direct JAKIM API is the project authority interface",
+          "title": "A direct path for authority-connected assurance",
           "flow": [
             "AHTE",
             "Direct JAKIM API ⇅",
@@ -215,7 +215,7 @@
         },
         {
           "id": "boundaries",
-          "title": "Connected does not mean collapsed",
+          "title": "Shared confidence. Clear responsibilities.",
           "text": "PHC, GHSCL, AHTE, laboratories, Sinotrans, port/customs authorities, GCC authorities, financiers, Takaful operators and competent Halal authorities retain distinct responsibilities. Evidence, monitoring and cryptographic integrity do not create another party's decision."
         },
         {
@@ -267,7 +267,7 @@
         },
         {
           "id": "origin",
-          "title": "Before the factory",
+          "title": "Build confidence before production begins",
           "flow": [
             "Verified raw-material origin",
             "Supplier / producer identity",
@@ -282,7 +282,7 @@
         },
         {
           "id": "production",
-          "title": "Factory control and smart audit",
+          "title": "Turn factory controls into a clear assurance story",
           "flow": [
             "Facility qualification",
             "Product / formula / BOM",
@@ -297,7 +297,7 @@
         },
         {
           "id": "decision",
-          "title": "Authority-linked trust",
+          "title": "Connect readiness to accountable authority review",
           "flow": [
             "Complete evidence dossier",
             "Direct JAKIM API",
@@ -324,7 +324,7 @@
         },
         {
           "id": "continuous",
-          "title": "24/7 assurance",
+          "title": "Keep assurance connected beyond dispatch",
           "flow": [
             "Observe",
             "Correlate",
@@ -387,7 +387,7 @@
         },
         {
           "id": "intelligence",
-          "title": "The intelligence layers",
+          "title": "Intelligence that connects every part of the journey",
           "cards": [
             [
               "Standards + applicability",
@@ -409,7 +409,7 @@
         },
         {
           "id": "integrity",
-          "title": "Integrity protects history; it does not create truth",
+          "title": "A history your teams can inspect",
           "flow": [
             "Evidence payload",
             "Canonicalization",
@@ -423,7 +423,7 @@
         },
         {
           "id": "state",
-          "title": "States are deliberately separate",
+          "title": "The right status for the right decision",
           "cards": [
             [
               "Formal certification state",
@@ -453,7 +453,7 @@
         },
         {
           "id": "connectors",
-          "title": "Replaceable connectors with explicit boundaries",
+          "title": "Bring your existing systems into the trust network",
           "cards": [
             [
               "Direct JAKIM API",
@@ -475,7 +475,7 @@
         },
         {
           "id": "extensions",
-          "title": "Target extension objects",
+          "title": "Extend assurance into operational and commercial workflows",
           "text": "Connector state, Command Center alerts, predictions, preemptive strategies, finance evidence packets, financing cases, Takaful cases and tokenized-asset references are dedicated platform workflows. They cannot create authority, credit, underwriting, title or Halal status."
         },
         {
@@ -526,12 +526,12 @@
         },
         {
           "id": "mission",
-          "title": "A first-class operating plane",
+          "title": "Give your teams a shared operational picture",
           "text": "The Command Center is not a passive dashboard. It coordinates continuous monitoring, exception ownership, escalation, intervention, CAPA, re-verification and recall readiness."
         },
         {
           "id": "domains",
-          "title": "24/7 monitored domains",
+          "title": "Visibility across the complete supply chain",
           "cards": [
             [
               "Origin + factory",
@@ -575,7 +575,7 @@
         },
         {
           "id": "decision",
-          "title": "Decision-class boundaries remain enforced",
+          "title": "Insight that supports accountable action",
           "text": "AI/ML can assess, prioritize and support configured D4 holds. It cannot bypass D5/D6 authority decisions or silently release a human-reserved hold."
         },
         {
@@ -648,12 +648,12 @@
         },
         {
           "id": "binding",
-          "title": "Every event has a digital binding",
+          "title": "Every event contributes to the product story",
           "text": "ObjectID + EventID + EvidenceID + ActorID + Timestamp + IntegrityProof, with source system, control, requirement, device and relationship references."
         },
         {
           "id": "disclosure",
-          "title": "Traceability without unrestricted disclosure",
+          "title": "Share confidence while protecting business information",
           "text": "Role, organization, purpose and jurisdiction determine what manufacturers, auditors, authorities, logistics operators, importers, financiers and consumers can see. Cross-border default is minimum-necessary signed assertions, references, hashes and scoped metadata."
         },
         {
@@ -705,7 +705,7 @@
         },
         {
           "id": "workflow",
-          "title": "The complete audit session",
+          "title": "A guided journey from inspection to action",
           "flow": [
             "Auditor + device + MFA",
             "Assigned audit",
@@ -727,7 +727,7 @@
         },
         {
           "id": "offline",
-          "title": "Offline evidence remains attributable",
+          "title": "Keep the evidence connected, even offline",
           "text": "Local event hash → server validation → sequence reconciliation → signature check → commit → acknowledgement."
         },
         {
@@ -777,7 +777,7 @@
         },
         {
           "id": "route",
-          "title": "Default physical route",
+          "title": "A direct origin-to-market corridor",
           "flow": [
             "China origin",
             "Traceability / laboratory / manufacturer",
@@ -792,17 +792,17 @@
         },
         {
           "id": "sinotrans",
-          "title": "Sinotrans is warehouse + end-to-end logistics",
+          "title": "Connect warehousing and the complete logistics journey",
           "text": "Integration scope covers WMS/TMS/Y2T/MIS/EDI/IoT, booking, pickup, warehouse receipt/dispatch, segregation/storage, pallet/lot, container/seal, telemetry, route/geofence, custody, port transfer and proof of delivery."
         },
         {
           "id": "ports",
-          "title": "Port/customs authorities receive an API/trust interface",
+          "title": "Give border and receiving teams the relevant evidence",
           "text": "The interface supports minimum-necessary shipment trust resolution and sovereign inspection/sampling/hold/release event return. AHTE does not override port/customs authority."
         },
         {
           "id": "pilot",
-          "title": "Shipment 001 remains a pilot until real evidence exists",
+          "title": "A focused first corridor for real execution",
           "text": "Architecture and simulations do not instantiate a shipment. Real entity, product, buyer/importer, batch, authority, lab, logistics and destination evidence are required."
         },
         {
@@ -883,7 +883,7 @@
         },
         {
           "id": "finance",
-          "title": "Finance and Takaful are separate decision domains",
+          "title": "Connect trade evidence to specialist providers",
           "text": "AHTE may provide authorised evidence packets and case-state integration; banks/financiers and Takaful operators retain their own decisions."
         },
         {
@@ -966,7 +966,7 @@
         },
         {
           "id": "applicability",
-          "title": "Applicability drives controls",
+          "title": "Match your controls to your products and markets",
           "text": "Entity, product, process, activity, destination and organization profile determine standards/instruments, HAS/IHCS profile, HCP/SCCP and expected evidence."
         },
         {
@@ -1017,7 +1017,7 @@
         },
         {
           "id": "api",
-          "title": "Shariah Financing API target plane",
+          "title": "Shariah Financing API: bring evidence into the financing conversation",
           "flow": [
             "Authorised AHTE trust/trade data",
             "Purpose-bound finance evidence packet",
@@ -1029,7 +1029,7 @@
         },
         {
           "id": "services",
-          "title": "Target services",
+          "title": "Financing and protection across the trade journey",
           "cards": [
             [
               "Trade financing",
@@ -1051,7 +1051,7 @@
         },
         {
           "id": "boundaries",
-          "title": "Hard boundaries",
+          "title": "Confidence in independently owned decisions",
           "text": "AHTE trust state is not a credit decision. Halal certification is not financing approval. AHTE is not the legal-title registry. Tokenization does not itself change ownership, legal title, regulatory status, Shariah status or certification state."
         },
         {
@@ -1102,12 +1102,12 @@
         },
         {
           "id": "scope",
-          "title": "Verification is scoped disclosure",
+          "title": "Show the information your buyer needs",
           "text": "The verification service resolves issuer-authorized disclosure tokens. Each disclosure identifies its scope and relevant authority references."
         },
         {
           "id": "integrity",
-          "title": "A hash proves integrity relative to a digest, not truth",
+          "title": "Inspect evidence, provenance and relevant authority status",
           "text": "Verification also depends on trusted issuer identity, signature/key validity, evidence provenance, authority references and scope."
         },
         {
@@ -1188,7 +1188,7 @@
         },
         {
           "id": "security",
-          "title": "Do not submit secrets on the public site",
+          "title": "Keep confidential records in your controlled workspace",
           "text": "Credentials, private keys, identity documents and confidential evidence belong in authenticated controlled channels."
         },
         {

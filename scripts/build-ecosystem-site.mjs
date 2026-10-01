@@ -73,6 +73,7 @@ const homeCopy=[
 for(const [from,to] of homeCopy)home=home.replaceAll(from,to);
 home=home.replace(/(<section class="closing">[\s\S]*?<p>)[\s\S]*?(<\/p>)/,'$1Bring your business into a connected Halal trade ecosystem. Open the deployed Amanah workspace, explore the full platform and plan the integrations that support your route to market.$2');
 if(!home.includes('id="platformStart"'))home=home.replace('<div class="authority-note">','<div class="marketing-actions" id="platformStart"><a class="marketing-primary" href="https://amanah-yq9x.vercel.app/login">Open Amanah ↗</a><a href="contact.html#enquiry">Plan your rollout ↗</a></div><div class="authority-note">');
+home=home.replace(/<div class="authority-note">[\s\S]*?<\/div>/,'<div class="authority-note">Connected evidence supports accountable decisions. Certification, border release and commercial approvals remain with their competent authorities and providers.</div>');
 home=home.replace(/<footer class="(?:footer|site-footer)"[\s\S]*?<\/footer>/,footer());
 if(!home.includes('href="ecosystem.css"'))home=home.replace('</head>','<link rel="stylesheet" href="ecosystem.css"><link rel="stylesheet" href="premium.css"></head>');
 if(!home.includes('property="og:title"'))home=home.replace('</head>',meta('Global Halal Digital Trust Ecosystem','End-to-end evidence, human authority, 24/7 monitoring and China → GCC traceability.','index.html').replace(/<title>[\s\S]*?<\/title>|<meta name="description"[^>]*>/g,'')+'</head>');
