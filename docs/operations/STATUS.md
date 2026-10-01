@@ -1,6 +1,6 @@
 # Current Amanah implementation status
 
-Global control main: `ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5` (2 Oct 2026). The latest verified Amanah implementation checkpoint is `8fe86c0db558ee861533a26f0917a23f5b59efa5`; `main` remains the controlling branch. Machine binding: [source-binding.json](../../config/source-binding.json). The 17 September verified freeze remains unchanged.
+Global control main: `ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5` (2 Oct 2026). Current Amanah reconciliation merge: `1c2d85749d31947b19730698325c49d870ac6c4a`. Machine binding: [source-binding.json](../../config/source-binding.json). The 17 September verified freeze remains unchanged.
 
 AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct; Malaysia is the governance/assurance/authority-connectivity plane. Shipment 001 is **NOT-INSTANTIATED**. No fixture, architectural illustration or development receipt closes a transaction or authority gate.
 
@@ -23,10 +23,14 @@ The protected application, public website, SQL migrations, reference runtimes, O
 
 Every release must pass TypeScript, Node/schema/migration/RLS tests, Deno Edge Function checks, OPA/reference-runtime checks, Next production build, public link/provenance checks and browser smoke tests at the exact PR head. CI results, not this prose, control release eligibility. Authenticated production UAT requires an authorised deployed workspace and real roles; anonymous browser tests and isolated database policy tests do not replace it.
 
-2 October execution sync: manufacturer onboarding is implemented at `app/(protected)/onboarding/page.tsx`; the live schema normalization migration is represented in `supabase/migrations/20261002010000_canonical_domain_normalization.sql`; current generated TypeScript types are bound to the live schema. No production certification/authority/finance decision is created by onboarding.
+2 October execution sync: manufacturer onboarding is implemented at `app/(protected)/onboarding/page.tsx`; the live schema normalization migration is represented in `supabase/migrations/20261002010000_canonical_domain_normalization.sql`; application query-contract validation now uses `lib/database.target.types.ts`, which composes the current generated schema with the controlled target extension tables actually used by the application. No production certification/authority/finance decision is created by onboarding.
 
 Live Supabase read-back during this reconciliation: ACTIVE_HEALTHY, PostgreSQL 17.11, 120/120 public tables with RLS, repository migration lineage applied. Four security-definer RPC advisor warnings were reviewed: authentication, tenant membership, elevated role/actor guards and bounded rate limits remain enforced. Low-usage index advisories reflect absent production traffic and do not justify dropping integrity indexes.
 
 Prior dated reports are [HISTORICAL / SUPERSEDED / NON-CONTROLLING](../archive/README.md). They preserve their original evidence and cannot control current readiness, topology or provenance.
 
 The retired `ghscl-site` Edge Function redirects to the current public Pages website. `assurance` and `public-verify` remain separate protected/scoped backend services. Live read-back found zero authentication users, shipments and authority decisions; authenticated production UAT therefore remains an external deployment/identity gate.
+
+## External CI/deployment condition
+
+The current GitHub commit carries Vercel status failures for `amanah` and `amanah-yq9x` with target status `build-rate-limit`. This is an external Vercel capacity/rate-limit condition, not a source-code test result. It must not be represented as a successful production deployment. No code change was made to bypass that external gate.
