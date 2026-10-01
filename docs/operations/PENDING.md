@@ -1,6 +1,6 @@
 # Pending closure
 
-Current implementation binding: `GlobalHalalDigitalTrust@14456e99937d6f11d63bd041dcffdb903d12594f`.
+Current implementation binding: `GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5`; Amanah main implementation: `e18fca1221a83772ad7366840b8bd1d0e15b4f9`.
 
 The verified freeze remains `master-standards-stack/verified-2026-09-17/`.
 
@@ -34,3 +34,8 @@ An external gate does not authorize removal, hiding or architectural downgrade o
 Development/sandbox providers may exercise complete workflows only when clearly labelled non-production and must never generate fake authority, shipment, lab, customs, finance, Takaful or token legal-state evidence.
 
 [PILOT: Shipment 001 — China → GCC direct; NOT-INSTANTIATED]
+
+
+## 2 October normalized domain closure
+
+The platform now has first-class schema objects for ProductionLine, SKU, CertificationScope, Vehicle, Driver, Warehouse, Pallet, Package, Container, Seal, RouteEvent and VerificationEvent, plus typed Sensor/Gateway profiles and typed Ingredient/RawMaterial material roles. This closes the repository-controlled data-model gap without altering the frozen standards package.
