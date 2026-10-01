@@ -5,5 +5,7 @@
   "verified_at": "2026-10-02",
   "freeze": "master-standards-stack/verified-2026-09-17/",
   "authority_effect": "none",
-  "classification": "current implementation provenance"
+  "classification": "current implementation provenance",
+  "public_site_commit": "14456e99937d6f11d63bd041dcffdb903d12594f",
+  "public_site_provenance_note": "The public GHSCL static site is pinned to the verified target architecture snapshot 14456; current main ccc contains control/provenance additions only and is five commits ahead of that snapshot."
 }
