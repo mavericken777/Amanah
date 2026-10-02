@@ -12,7 +12,11 @@
 | Database | `supabase/migrations/` (applied history), `lib/database.types.ts` (base) + `lib/database.current.types.ts` (forward extensions) + `lib/database.target.types.ts` (application view) |
 | Integration | [internal contracts](lib/integrations/contracts.ts); canonical runtime mirrors under `reference-runtime/` |
 | CI / delivery | [.github/workflows/ci.yml](.github/workflows/ci.yml), [.github/workflows/ghscl-pages.yml](.github/workflows/ghscl-pages.yml) |
-| Security | [authorization model](docs/operations/SECURITY_MODEL.md) |
+| Security | [authorization model](docs/operations/SECURITY_MODEL.md), [cybersecurity architecture](docs/security/CYBERSECURITY_ARCHITECTURE_2026-10-02.md) |
+| Data governance | [data governance architecture](docs/governance/DATA_GOVERNANCE_ARCHITECTURE_2026-10-02.md) |
+| Continuity | [business continuity architecture](docs/operations/BUSINESS_CONTINUITY_ARCHITECTURE_2026-10-02.md) |
+| Exceptions | [exception engine](docs/operations/EXCEPTION_ENGINE_2026-10-02.md) |
+| Command Center | [global 24/7 command center](docs/operations/GLOBAL_COMMAND_CENTER_2026-10-02.md), `app/(protected)/ahte/command-center/page.tsx` |
 | Release | [checklist](docs/operations/RELEASE_CHECKLIST.md), [runbook](docs/operations/DEPLOYMENT_RUNBOOK.md) |
 | Historical audit | [archive](docs/archive/README.md) |
 
