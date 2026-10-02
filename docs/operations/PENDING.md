@@ -25,7 +25,7 @@ AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Malaysia provides gov
 - [OPEN GATE: Vercel deployment build capacity — current status: external `build-rate-limit` failure on both Amanah deployment status contexts; owner: Vercel account/hosting administrator — blocking: production deployment confirmation]
 
 
-**FULL ARCHITECTURE NOW → REAL CONNECTORS WHEN AVAILABLE → NO REDESIGN REQUIRED.**
+- [OPEN GATE: final legal/counterparty execution — exact entities, governing law, liability, data roles, commercial schedules and authorised signatures required]\n\n- [OPEN GATE: validated GHSCL price/cost book — owner: GHSCL commercial/finance — blocking: production numeric pricing and unit-economics forecast]\n\n- [OPEN GATE: externally binding SLA values — owner: contracting parties — blocking: contractual KPI/SLA commitments]\n\n- [OPEN GATE: statutory recognition of Academy qualifications — owner: competent authority — blocking: regulated professional recognition]\n\n**FULL ARCHITECTURE NOW → REAL CONNECTORS WHEN AVAILABLE → NO REDESIGN REQUIRED.**
 
 An external gate does not authorize removal, hiding or architectural downgrade of direct JAKIM API, Command Center, predictive/preemptive analytics, Sinotrans warehouse/logistics integration, port/customs APIs, GCC workflows or Shariah finance/Takaful/tokenomics.
 
