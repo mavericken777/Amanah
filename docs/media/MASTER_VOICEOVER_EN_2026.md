@@ -1,31 +1,41 @@
 # GHSCL / AMANAH Master Voiceover — English 2026
 
-**Delivery:** authoritative institutional narration; measured pace; no promotional overclaim.\n\n**Generated master audio:** `GHSCL_AMANAH_Master_Voiceover_EN_2026`\n**Runway task:** `dd8f3cc8-8eeb-43a3-8bca-72ff02d42c88`\n**Duration:** 222.354286 seconds\n**State:** GENERATED / RUNWAY WORKSPACE ASSET
+**Status:** GENERATED / CONTROLLED MEDIA ASSET  
+**Control date:** 2026-10-03  
+**Delivery:** authoritative institutional narration; measured pace; no promotional overclaim.
 
-## Master script
+## Generated masters
 
-Across global trade, Halal assurance depends on one principle: evidence must remain connected to the product, the process, the people, and the authority responsible for the decision.
+| Asset | Runtime | Runway task | Use |
+|---|---:|---|---|
+| `GHSCL_AMANAH_Master_Voiceover_EN_90s_v2` | 86.656871 s | `752c27b1-9201-4002-b8f7-caf368123abe` | Executive master |
+| `GHSCL_AMANAH_Master_Voiceover_EN_24s` | 29.071383 s | `6a5b4450-4c67-4f70-8f9d-11e1f1f1af3d` | Website / short cut |
 
-Global Halal Supply Chain Limited brings that journey into one digital trust infrastructure.
+The generated audio assets are retained in the connected media workspace. Repository control retains the exact narration, task identifiers and timed caption files; expiring media URLs are not committed as source-of-truth references.
 
-At origin, manufacturers, suppliers and facilities are registered with clear identity, scope and responsibility. Products, SKUs, ingredients and raw materials are linked to their suppliers, certificates, source documents and operating controls.
+## Executive master script
 
-Laboratory evidence enters through a controlled chain: sample identity, custody, method, quality control, result, technical review and signature. A laboratory result is evidence. It does not, by itself, create Halal status.
+Global Halal trade crosses many systems, organisations and jurisdictions. Trust must travel with the product.
 
-Smart audit connects the physical facility to the digital record. Observations, findings, corrective actions and re-verification are tied to the exact control point. Artificial intelligence can assist with validation, anomaly detection and risk analysis. Authorized humans and competent authorities make the reserved decisions.
+Global Halal Supply Chain Limited and AMANAH connect origin, manufacturers, suppliers, laboratories, audits, production, logistics and destination receiving through one evidence-led operating model.
 
-The authority topology is direct and explicit: AHTE, the Amanah Halal Trust Engine, connects through the Direct JAKIM API to JAKIM. The system carries evidence and status. It does not replace the competent authority.
+At the core, AHTE links requirements to controls, evidence and accountable review. Artificial intelligence assists with detection and assessment. Authorised humans and competent authorities make the reserved decisions.
 
-Once products move, the same trust record continues through warehouse, vehicle, container, seal, port, customs, international transit, GCC receiving, distribution and retail. Sinotrans and other logistics participants contribute custody and telemetry evidence to the same end-to-end chain.
+Laboratory results remain scientific evidence. Smart audit links observations to findings, corrective action and re-verification. Production and logistics connect batches, containers, seals, telemetry and custody.
 
-The default physical corridor is China to GCC direct. Malaysia provides governance, assurance and authority connectivity unless a separate physical route is specifically defined.
+The default physical corridor is China to the GCC, direct. Authority connectivity follows one clear topology: AHTE, Direct JAKIM API, JAKIM.
 
-Every critical object is bound to an Object ID, Event ID, Evidence ID, Actor ID, timestamp and integrity proof. Evidence is append-only and provenance-linked. A hash proves integrity of the recorded content; it does not prove the truth of the underlying claim.
+Across the corridor, the twenty-four-seven Command Center monitors evidence integrity, exceptions, predictive risk and recall exposure.
 
-The twenty-four seven Command Center monitors the full corridor: evidence completeness, trust fractures, custody exceptions, predictive risk, corrective action, re-verification and recall blast radius. Where configured, the platform may place a trust-fracture hold. It cannot execute sovereign release, Halal certification, financing approval or Takaful approval.
+Evidence before trust. Trust before operational release.
 
-The result is a layered trust model. Authority state, AHTE trust state, operational state, customs state and finance state remain separate. Evidence comes first. Trust follows. Operational release happens only after the required gates are satisfied.
+## Website / short-cut script
 
-This is the Global Halal Digital Trust Ecosystem.
+Trust starts at source. AMANAH connects products, suppliers, laboratories, audits, production and logistics through evidence that travels with the physical object. AHTE links controls to provenance and accountable review. AI assists. Authorised humans and competent authorities decide. China to GCC, direct. Evidence before trust. Trust before operational release.
 
-Data stays where it belongs. Trust travels.
+## Performance control
+
+- Voice: authoritative British male institutional narrator.
+- Pace: measured and neutral.
+- No language may imply AI, blockchain, laboratory, QR/NFC, sensors or AHTE create Halal certification.
+- No line may imply an actual Shipment 001, fabricated authority response, sovereign release, financing approval or Takaful approval.
