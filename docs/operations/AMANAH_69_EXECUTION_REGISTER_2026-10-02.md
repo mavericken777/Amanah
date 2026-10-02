@@ -7,11 +7,16 @@ Items 1–69 are one continuous programme, not disconnected workstreams.
 | # | Outcome | Status |
 |---:|---|---|
 | 1–5 | Truth baseline, execution standard, architecture, source map | COMPLETE / CONTROLLING |
-| 6–10 | Data model, onboarding, facility, product/SKU, supplier/material provenance | COMPLETE / RE-AUDIT AT PR HEAD |\n| 11–15 | Evidence management, AI-assisted review, human decision rights, laboratory, audit system | COMPLETE / RE-AUDIT AT PR HEAD |
-| 16–20 | Certification lifecycle, production monitoring, Platinum hardware, industry BOMs, hardware architecture | COMPLETE / RE-AUDIT AT PR HEAD |\n| 21–25 | CODA financing/executive pack, custody, seals, logistics operating model | COMPLETE / RE-AUDIT AT PR HEAD |
+| 6–10 | Data model, onboarding, facility, product/SKU, supplier/material provenance | COMPLETE / RE-AUDIT AT PR HEAD |
+| 11–15 | Evidence management, AI-assisted review, human decision rights, laboratory, audit system | COMPLETE / RE-AUDIT AT PR HEAD |
+| 16–20 | Certification lifecycle, production monitoring, Platinum hardware, industry BOMs, hardware architecture | COMPLETE / RE-AUDIT AT PR HEAD |
+| 21–25 | CODA financing/executive pack, custody, seals, logistics operating model | COMPLETE / RE-AUDIT AT PR HEAD |
 | 23–32 | Custody, seals, logistics, Sinotrans, port/tablet/glasses/adapters | CONTROLLED / PARTNER VALIDATION |
-| 33–35 | AI integration, API contract and partner kit | COMPLETE / MERGED |\n| 36–40 | Cybersecurity, data governance, continuity, exception engine, global command centre | COMPLETE / RE-AUDIT AT PR HEAD |\n| 41–45 | Manufacturer/authority command centres, product verification, stakeholder inventory/playbooks | COMPLETE / RE-AUDIT AT PR HEAD |
-| 46–50 | Website, corporate profile, infographics, cinematic video, voiceover | COMPLETE TO PROJECT CONTROL / ITEM 49 NEW 4K AI RENDER EXTERNAL GATE / RE-AUDIT AT PR HEAD |\n| 51–55 | Mandarin adaptation, legal/contractual pack, commercial model, KPI/SLA, training academy | NEXT EXECUTION BATCH |
+| 33–35 | AI integration, API contract and partner kit | COMPLETE / MERGED |
+| 36–40 | Cybersecurity, data governance, continuity, exception engine, global command centre | COMPLETE / RE-AUDIT AT PR HEAD |
+| 41–45 | Manufacturer/authority command centres, product verification, stakeholder inventory/playbooks | COMPLETE / RE-AUDIT AT PR HEAD |
+| 46–50 | Website, corporate profile, infographics, cinematic video, voiceover | COMPLETE TO PROJECT CONTROL / ITEM 49 NEW 4K AI RENDER EXTERNAL GATE / RE-AUDIT AT PR HEAD |
+| 51–55 | Mandarin adaptation, legal/contractual pack, commercial model, KPI/SLA, training academy | NEXT EXECUTION BATCH |
 | 56–59 | SOP library, China mission pack, meeting briefs, objection book | CONTROLLED DELIVERABLES |
 | 60–69 | Consistency QA, red-team, visual/document QC, claim verification, index, DoD, final test | ACTIVE QUALITY GATE |
 
