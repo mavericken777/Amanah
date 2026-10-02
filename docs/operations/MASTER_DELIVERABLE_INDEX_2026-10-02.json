@@ -127,14 +127,14 @@
       "name": "Master cinematic video",
       "path": "docs/media/MASTER_CINEMATIC_VIDEO_2026.md",
       "owner": "Corporate media",
-      "status": "WEB MASTER VERIFIED; 4K AI RENDER EXTERNAL GATE"
+      "status": "WEB MASTER VERIFIED + CAPTION/NARRATIVE CONTROL COMPLETE"
     },
     {
       "id": "D18",
       "name": "Master voiceover",
-      "path": "docs/media/VOICEOVER_ASSET_MANIFEST_2026-10-03.json",
+      "path": "docs/media/MASTER_VOICEOVER_EN_2026.md",
       "owner": "Corporate media",
-      "status": "GENERATED / WORKSPACE ASSET"
+      "status": "GENERATED / VERIFIED WORKSPACE ASSETS"
     }
   ],
   "hard_freeze": "master-standards-stack/verified-2026-09-17/"
