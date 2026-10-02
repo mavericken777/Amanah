@@ -11,7 +11,7 @@ Items 1–69 are one continuous programme, not disconnected workstreams.
 | 16–20 | Certification lifecycle, production monitoring, Platinum hardware, industry BOMs, hardware architecture | COMPLETE / RE-AUDIT AT PR HEAD |\n| 21–25 | CODA financing/executive pack, custody, seals, logistics operating model | COMPLETE / RE-AUDIT AT PR HEAD |
 | 23–32 | Custody, seals, logistics, Sinotrans, port/tablet/glasses/adapters | CONTROLLED / PARTNER VALIDATION |
 | 33–35 | AI integration, API contract and partner kit | COMPLETE / MERGED |\n| 36–40 | Cybersecurity, data governance, continuity, exception engine, global command centre | COMPLETE / RE-AUDIT AT PR HEAD |\n| 41–45 | Manufacturer/authority command centres, product verification, stakeholder inventory/playbooks | COMPLETE / RE-AUDIT AT PR HEAD |
-| 46–52 | Website, corporate profile, infographics, video/voiceover, Mandarin, legal pack | NEXT EXECUTION BATCH / CONTROLLED DELIVERABLES |
+| 46–50 | Website, corporate profile, infographics, cinematic video, voiceover | COMPLETE / RE-AUDIT AT PR HEAD |\n| 51–52 | Mandarin adaptation, legal/contractual pack | NEXT EXECUTION BATCH |
 | 53–59 | Commercial, KPI/SLA, academy, SOP, China mission, briefs, objection book | CONTROLLED DELIVERABLES |
 | 60–69 | Consistency QA, red-team, visual/document QC, claim verification, index, DoD, final test | ACTIVE QUALITY GATE |
 
