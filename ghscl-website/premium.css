@@ -169,3 +169,22 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 .site-brand img{width:38px;height:42px}.site-brand span{font-size:7.5px}.site-brand small{font-size:6.5px}
 .page-hero img{box-shadow:0 0 0 4px #0d0d0d,0 20px 70px #000}
 }
+
+/* 2026-10-02 attachment-derived corporate portal refinements */
+.identity-circuit{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.7}
+.site-header,main,.site-footer{position:relative;z-index:1}
+.site-brand>span{display:grid;gap:2px;min-width:0}
+.brand-trilingual{display:flex!important;align-items:center;gap:8px;margin-top:2px;font-family:Inter,Arial,sans-serif;font-size:7px!important;font-weight:500;letter-spacing:.06em!important;color:#8e8268!important;white-space:nowrap;text-transform:none}
+.brand-trilingual b{font-weight:500}
+.brand-trilingual b[lang="ar"]{font-family:'Noto Naskh Arabic',serif;font-size:9px;letter-spacing:0}
+.brand-trilingual i{font-style:normal;color:#d4af5f66}
+.system-state{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border-radius:999px;border:1px solid #d4af5f26;background:#d4af5f08;color:#ad9d7c;font-size:8px;letter-spacing:.09em;white-space:nowrap}
+.system-state>i{width:6px;height:6px;border-radius:50%;background:#d4af5f;box-shadow:0 0 10px #d4af5f88}
+.page-hero,.hero{isolation:isolate}
+.page-hero:after{content:"";position:absolute;inset:auto 5vw 42px;z-index:-1;height:1px;background:linear-gradient(90deg,transparent,#d4af5f4d,transparent)}
+.page-hero h1,.hero h1{text-shadow:0 10px 50px #000}
+.page-hero .marketing-primary,.hero .cta{box-shadow:inset 0 1px 0 #fff3c66e,0 12px 46px #d4af5f20}
+.entity-card,.interactive-panel,.home-roles article,.home-directory>a{backdrop-filter:blur(10px)}
+@media(max-width:1180px){.system-state{display:none}}
+@media(max-width:767px){.brand-trilingual{display:none!important}.identity-circuit{opacity:.42}}
+@media(prefers-reduced-motion:reduce){.identity-circuit{display:none}}
