@@ -1,0 +1,69 @@
+{
+  "artifact": "AMANAH Contract Schedule Register",
+  "version": "1.0.0",
+  "control_date": "2026-10-03",
+  "status": "LEGAL WORKING DRAFT",
+  "schedules": [
+    {
+      "id": "L01",
+      "name": "Master Cooperation / Services Agreement",
+      "execution_gate": "legal entities + mandate + governing law + liability"
+    },
+    {
+      "id": "L02",
+      "name": "Statement of Work",
+      "execution_gate": "scope + deliverables + owners + acceptance"
+    },
+    {
+      "id": "L03",
+      "name": "Data Processing & Evidence Governance",
+      "execution_gate": "data roles + jurisdictions + retention"
+    },
+    {
+      "id": "L04",
+      "name": "Security & Integration",
+      "execution_gate": "production contract + credentials + UAT"
+    },
+    {
+      "id": "L05",
+      "name": "KPI / SLA",
+      "execution_gate": "counterparty-agreed targets + remedies"
+    },
+    {
+      "id": "L06",
+      "name": "Commercial Schedule",
+      "execution_gate": "approved price book + taxes + payment terms"
+    },
+    {
+      "id": "L07",
+      "name": "Confidentiality / IP / Publicity",
+      "execution_gate": "IP allocation + marks/publicity approvals"
+    },
+    {
+      "id": "L08",
+      "name": "Laboratory Evidence",
+      "execution_gate": "legal lab + accreditation/scope + methods"
+    },
+    {
+      "id": "L09",
+      "name": "Logistics / Custody",
+      "execution_gate": "named entity/sites/lanes + liability/insurance"
+    },
+    {
+      "id": "L10",
+      "name": "Authority Connectivity",
+      "execution_gate": "authorized authority technical specification"
+    },
+    {
+      "id": "L11",
+      "name": "Finance / Takaful Evidence",
+      "execution_gate": "approved providers + legal/Shariah/regulatory terms"
+    },
+    {
+      "id": "L12",
+      "name": "Change / Exit / Transition",
+      "execution_gate": "retention + credentials + transition obligations"
+    }
+  ],
+  "authority_boundary": "AHTE ⇄ Direct JAKIM API ⇄ JAKIM; no commercial agreement delegates certification or sovereign powers to GHSCL/AHTE."
+}
