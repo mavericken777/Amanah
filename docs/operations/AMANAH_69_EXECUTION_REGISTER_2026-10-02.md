@@ -8,7 +8,7 @@ Items 1–69 are one continuous programme, not disconnected workstreams.
 |---:|---|---|
 | 1–5 | Truth baseline, execution standard, architecture, source map | COMPLETE / CONTROLLING |
 | 6–10 | Data model, onboarding, facility, product/SKU, supplier/material provenance | COMPLETE / RE-AUDIT AT PR HEAD |\n| 11–15 | Evidence management, AI-assisted review, human decision rights, laboratory, audit system | COMPLETE / RE-AUDIT AT PR HEAD |
-| 16–22 | Certification lifecycle, production monitoring, Platinum BOM, CODA financing | NEXT MODULAR BATCH / RFQ / PROPOSAL as applicable |
+| 16–20 | Certification lifecycle, production monitoring, Platinum hardware, industry BOMs, hardware architecture | COMPLETE / RE-AUDIT AT PR HEAD |\n| 21–25 | CODA financing, custody, seals, logistics operating model | NEXT MODULAR BATCH / PROPOSAL as applicable |
 | 23–32 | Custody, seals, logistics, Sinotrans, port/tablet/glasses/adapters | CONTROLLED / PARTNER VALIDATION |
 | 33–43 | AI integration, API, cyber, governance, continuity, exception, command centre, verification | CONTROLLED / IMPLEMENTED COMPONENTS |
 | 44–52 | Stakeholders, playbooks, website, profile, infographics, video, Mandarin, legal pack | CONTROLLED DELIVERABLES |
