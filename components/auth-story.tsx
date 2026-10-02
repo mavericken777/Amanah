@@ -8,6 +8,11 @@ export function AuthStory() {
         <span className="auth-brand-copy">
           <strong>GLOBAL HALAL SUPPLY CHAIN LIMITED</strong>
           <span>AMANAH · GLOBAL HALAL DIGITAL TRUST</span>
+          <span className="auth-brand-multilingual">
+            <b lang="zh-Hant">全球清真供應鏈有限公司</b>
+            <i aria-hidden="true">•</i>
+            <b lang="ar" dir="rtl">سلسلة التوريد العالمية للحلال</b>
+          </span>
         </span>
       </Link>
       <div className="auth-story-copy">
@@ -19,8 +24,11 @@ export function AuthStory() {
         </div>
       </div>
       <div className="auth-story-foot">
-        <span>AHTE ⇄ DIRECT JAKIM API ⇄ JAKIM</span>
-        <Link href="https://mavericken777.github.io/Amanah/ecosystem.html">Explore the ecosystem <span aria-hidden="true">↗</span></Link>
+        <span>AHTE ⇄ DIRECT JAKIM API ⇄ JAKIM · CONNECTOR: PENDING AUTHORIZATION</span>
+        <span className="auth-story-links">
+          <Link href="https://mavericken777.github.io/Amanah/verify.html">Verify disclosure <span aria-hidden="true">↗</span></Link>
+          <Link href="https://mavericken777.github.io/Amanah/ecosystem.html">Explore ecosystem <span aria-hidden="true">↗</span></Link>
+        </span>
       </div>
     </aside>
   );
