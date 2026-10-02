@@ -1,5 +1,27 @@
 import Link from "next/link";
 
 export function AuthStory() {
-  return <aside className="auth-story"><Link href="/login" className="brand"><div className="brand-mark" aria-hidden="true">A</div><strong>Amanah<span className="brand-dot">.</span></strong></Link><div className="auth-story-copy"><span className="eyebrow">THE INFRASTRUCTURE OF TRUST</span><h2>Evidence connected.<br /><em>Responsibility clear.</em></h2><p>A controlled workspace for the people, evidence and decisions behind cross-border Halal supply chains.</p><div className="trust-path" aria-label="Evidence workflow"><span>Evidence</span><i aria-hidden="true">→</i><span>Human review</span><i aria-hidden="true">→</i><span>Accountable action</span></div></div><div className="auth-story-foot"><span>AMANAH HALAL TRUST ECOSYSTEM</span><Link href="https://mavericken777.github.io/Amanah/partners.html">Explore the ecosystem <span aria-hidden="true">↗</span></Link></div></aside>;
+  return (
+    <aside className="auth-story">
+      <Link href="/login" className="brand" aria-label="Global Halal Supply Chain Limited — Amanah">
+        <img className="auth-brand-crest" src="/ghscl-crest.svg" alt="" />
+        <span className="auth-brand-copy">
+          <strong>GLOBAL HALAL SUPPLY CHAIN LIMITED</strong>
+          <span>AMANAH · GLOBAL HALAL DIGITAL TRUST</span>
+        </span>
+      </Link>
+      <div className="auth-story-copy">
+        <span className="eyebrow">THE INFRASTRUCTURE OF TRUST</span>
+        <h2>Evidence connected.<br /><em>Responsibility clear.</em></h2>
+        <p>A controlled institutional workspace connecting origin, standards, evidence, audit, custody, human review and operational action across the China → GCC corridor.</p>
+        <div className="trust-path" aria-label="Amanah trust workflow">
+          <span>Evidence</span><i aria-hidden="true">→</i><span>Assessment</span><i aria-hidden="true">→</i><span>Human authority</span><i aria-hidden="true">→</i><span>Release</span>
+        </div>
+      </div>
+      <div className="auth-story-foot">
+        <span>AHTE ⇄ DIRECT JAKIM API ⇄ JAKIM</span>
+        <Link href="https://mavericken777.github.io/Amanah/ecosystem.html">Explore the ecosystem <span aria-hidden="true">↗</span></Link>
+      </div>
+    </aside>
+  );
 }
