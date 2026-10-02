@@ -8,6 +8,12 @@
     menu.addEventListener('toggle', () => summary.setAttribute('aria-expanded', String(menu.open)));
     summary.setAttribute('aria-expanded', String(menu.open));
     menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { menu.open = false; }));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && menu.open) {
+        menu.open = false;
+        summary.focus({ preventScroll: true });
+      }
+    });
   }
 
   // Trilingual registered identity line: English remains primary; Traditional Chinese and Arabic are supporting identity treatments.

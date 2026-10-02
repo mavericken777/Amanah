@@ -1,0 +1,56 @@
+{
+  "artifact": "AMANAH Unit Economics Model",
+  "version": "1.0.0",
+  "control_date": "2026-10-03",
+  "classification": "COMMERCIAL PROPOSAL",
+  "currency": "VARIABLE",
+  "revenue_components": [
+    "onboarding",
+    "subscription",
+    "integration",
+    "managed_ops",
+    "usage",
+    "training",
+    "hardware_margin",
+    "approved_services"
+  ],
+  "direct_cost_components": [
+    "cloud",
+    "support",
+    "integration_labour",
+    "command_centre_labour",
+    "hardware_cogs",
+    "third_party_passthrough",
+    "travel",
+    "payment_fees"
+  ],
+  "formulas": {
+    "revenue": "sum(revenue_components)",
+    "direct_cost": "sum(direct_cost_components)",
+    "gross_profit": "revenue-direct_cost",
+    "gross_margin_pct": "gross_profit/revenue",
+    "contribution": "gross_profit-variable_commercial_support-variable_partner_cost",
+    "cac_payback_months": "cac/monthly_contribution"
+  },
+  "scenario_inputs": [
+    "organisations",
+    "facilities",
+    "products_skus",
+    "suppliers_materials",
+    "connectors",
+    "monthly_events",
+    "shipments",
+    "verification_queries",
+    "support_tier",
+    "command_center_coverage",
+    "hardware_bom",
+    "implementation_days",
+    "training_seats",
+    "travel",
+    "partner_passthrough",
+    "currency",
+    "tax",
+    "contract_term"
+  ],
+  "hard_rule": "No numeric price, margin, customer commitment, partner margin or forecast is a verified fact without validated cost/price evidence."
+}

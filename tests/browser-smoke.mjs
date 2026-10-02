@@ -14,7 +14,7 @@ try {
   });
   const page=await context.newPage();
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  for(const name of ['index','corporate-profile','visuals',...data.pages.map(p=>p.slug)]) {
+  for(const name of ['index','corporate-profile','visuals','zh-Hans',...data.pages.map(p=>p.slug)]) {
    const response=await page.goto(`http://127.0.0.1:8080/${name}.html`);
    assert.equal(response.status(),200,name);
    await page.locator('h1').waitFor();

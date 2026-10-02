@@ -36,3 +36,12 @@ AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Shipment 001 remains 
 - [Voiceover asset manifest](docs/media/VOICEOVER_ASSET_MANIFEST_2026-10-03.json)
 - Public corporate profile: `ghscl-website/corporate-profile.html`
 - Public infographic gallery: `ghscl-website/visuals.html`
+
+## 3 October batch 51–55
+
+- [Mandarin master adaptation](docs/localization/MANDARIN_MASTER_ADAPTATION_2026-10-03.md)
+- Mandarin public landing: `ghscl-website/zh-Hans.html`
+- [Master legal / contractual pack](docs/legal/AMANAH_MASTER_LEGAL_CONTRACTUAL_PACK_2026-10-03.md)
+- [Commercial model / unit economics](docs/commercial/AMANAH_COMMERCIAL_MODEL_UNIT_ECONOMICS_2026-10-03.md)
+- [KPI / SLA framework](docs/operations/AMANAH_KPI_SLA_FRAMEWORK_2026-10-03.md)
+- [Training academy](docs/training/AMANAH_TRAINING_ACADEMY_2026-10-03.md)
