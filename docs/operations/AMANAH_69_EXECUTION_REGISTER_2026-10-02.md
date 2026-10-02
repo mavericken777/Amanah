@@ -20,3 +20,5 @@ Items 1–69 are one continuous programme, not disconnected workstreams.
 JAKIM production API; China laboratory legal identity/accreditation/method scope; Sinotrans contracting entity/sites/systems; port/customs permissions; GCC importer/destination acceptance; finance/Takaful/regulatory onboarding; real Shipment 001 evidence; production hosting/identity UAT.
 
 **Shipment 001 remains NOT-INSTANTIATED until real product/buyer/PO/certificate/custody/destination evidence exists.**
+
+| 26–30 | Vehicle stack, Sinotrans A–U/audit readiness, port model/tablet | COMPLETE / RE-AUDIT AT PR HEAD |
