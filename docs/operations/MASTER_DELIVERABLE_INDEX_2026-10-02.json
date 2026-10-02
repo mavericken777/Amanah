@@ -1,6 +1,6 @@
 {
   "artifact": "AMANAH Master Deliverable Index",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "control_date": "2026-10-03",
   "owner": "AMANAH / GHSCL programme office",
   "source_priority": [
@@ -135,6 +135,41 @@
       "path": "docs/media/MASTER_VOICEOVER_EN_2026.md",
       "owner": "Corporate media",
       "status": "GENERATED / VERIFIED WORKSPACE ASSETS"
+    },
+    {
+      "id": "D19",
+      "name": "Mandarin master adaptation",
+      "path": "docs/localization/MANDARIN_MASTER_ADAPTATION_2026-10-03.md",
+      "owner": "Corporate / China mission",
+      "status": "CONTROLLED + PUBLIC LANDING"
+    },
+    {
+      "id": "D20",
+      "name": "Master legal/contractual pack",
+      "path": "docs/legal/AMANAH_MASTER_LEGAL_CONTRACTUAL_PACK_2026-10-03.md",
+      "owner": "Legal / Commercial",
+      "status": "LEGAL WORKING DRAFT"
+    },
+    {
+      "id": "D21",
+      "name": "Commercial model & unit economics",
+      "path": "docs/commercial/AMANAH_COMMERCIAL_MODEL_UNIT_ECONOMICS_2026-10-03.md",
+      "owner": "Commercial",
+      "status": "COMMERCIAL PROPOSAL"
+    },
+    {
+      "id": "D22",
+      "name": "KPI/SLA framework",
+      "path": "docs/operations/AMANAH_KPI_SLA_FRAMEWORK_2026-10-03.md",
+      "owner": "Operations",
+      "status": "CONTROLLED FRAMEWORK"
+    },
+    {
+      "id": "D23",
+      "name": "Training academy",
+      "path": "docs/training/AMANAH_TRAINING_ACADEMY_2026-10-03.md",
+      "owner": "Academy / Governance",
+      "status": "PROJECT-DEFINED CURRICULUM"
     }
   ],
   "hard_freeze": "master-standards-stack/verified-2026-09-17/"
