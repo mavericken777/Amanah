@@ -20,7 +20,13 @@ try {
    await page.locator('h1').waitFor();
    assert.equal(await page.locator('h1').count(),1,name);
    assert.ok(await page.locator('h1').isVisible(),name);
-   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),name+' horizontal overflow');
+   const overflow=await page.evaluate(()=>({
+    ok: document.documentElement.scrollWidth<=innerWidth+1,
+    scrollWidth: document.documentElement.scrollWidth,
+    innerWidth,
+    offenders:[...document.querySelectorAll('body *')].map(el=>{const r=el.getBoundingClientRect();return {tag:el.tagName,cls:el.className||'',id:el.id||'',left:r.left,right:r.right,width:r.width};}).filter(x=>x.left<-1||x.right>innerWidth+1).slice(0,20)
+   }));
+   assert.ok(overflow.ok,name+' horizontal overflow: '+JSON.stringify(overflow));
    if(await page.locator('.source-panel').count()) {
     const contrast=await page.locator('.source-panel').evaluate(panel=>{
      function luminance(color) {
