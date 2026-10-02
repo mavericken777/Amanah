@@ -145,3 +145,14 @@ linear-gradient(145deg,#0d0b07,#030303 68%);color:#f5efdf;border:1px solid #d4af
 .auth-card a{color:#d4af5f}
 .auth-card>.brand-mark{display:none}
 @media(max-width:900px){.auth-story{min-height:440px}.auth-card{padding:30px 24px}}
+
+/* Attachment-derived trilingual gateway refinements */
+.auth-brand-multilingual{display:flex!important;align-items:center;gap:8px;margin-top:2px!important;font-family:Inter,Arial,sans-serif;font-size:.52rem!important;letter-spacing:.04em!important;color:#8f846d!important;text-transform:none}
+.auth-brand-multilingual b{font-weight:500}
+.auth-brand-multilingual b[lang="ar"]{font-family:'Noto Naskh Arabic',serif;font-size:.64rem;letter-spacing:0}
+.auth-brand-multilingual i{font-style:normal;color:#d4af5f66}
+.auth-story-links{display:flex;gap:14px;flex-wrap:wrap}
+.auth-story-links a{white-space:nowrap}
+.auth-story-foot>span:first-child{color:#9f9278}
+.auth-card:before{content:"";display:block;height:1px;background:linear-gradient(90deg,transparent,#d4af5f55,transparent);margin:-10px 0 18px}
+@media(max-width:767px){.auth-brand-multilingual{display:none!important}.auth-story-links{gap:10px}}
