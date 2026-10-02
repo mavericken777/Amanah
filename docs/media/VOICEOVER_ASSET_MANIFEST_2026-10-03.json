@@ -1,0 +1,29 @@
+{
+  "artifact": "GHSCL / AMANAH Voiceover Asset Manifest",
+  "control_date": "2026-10-03",
+  "workspace_asset_state": "GENERATED",
+  "assets": [
+    {
+      "name": "GHSCL_AMANAH_Master_Voiceover_EN_90s_v2",
+      "task_id": "752c27b1-9201-4002-b8f7-caf368123abe",
+      "duration_seconds": 86.656871,
+      "use": "executive master"
+    },
+    {
+      "name": "GHSCL_AMANAH_Master_Voiceover_EN_24s",
+      "task_id": "6a5b4450-4c67-4f70-8f9d-11e1f1f1af3d",
+      "duration_seconds": 29.071383,
+      "use": "website / short cut"
+    },
+    {
+      "name": "GHSCL_AMANAH_Master_Voiceover_EN_2026",
+      "task_id": "dd8f3cc8-8eeb-43a3-8bca-72ff02d42c88",
+      "duration_seconds": 222.354286,
+      "use": "extended institutional narration"
+    }
+  ],
+  "authority_boundary": "AI assists; authorised humans and competent authorities decide.",
+  "note": "Expiring media URLs are not source-of-truth identifiers. The generated assets remain in the connected media workspace and are bound by task ID and controlled script.",
+  "controlling_master_task_id": "752c27b1-9201-4002-b8f7-caf368123abe",
+  "controlling_master_use": "executive master"
+}

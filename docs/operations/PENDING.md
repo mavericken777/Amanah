@@ -1,8 +1,6 @@
 # Pending closure
 
-Current implementation binding: `GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5`; Amanah controlling branch: `main`; latest reconciliation merge: `1c2d85749d31947b19730698325c49d870ac6c4a`.
-
-The verified freeze remains `master-standards-stack/verified-2026-09-17/`.
+Current mutable repository head is controlled by `docs/operations/STATUS.md`; historical batch SHAs remain audit-time snapshots.\n\nThe verified freeze remains `master-standards-stack/verified-2026-09-17/`.
 
 Repository-controlled architecture synchronization is handled in `docs/operations/STATUS.md`. Historical reconciliation reports remain historical evidence and are not rewritten to imply later review.
 
@@ -26,7 +24,6 @@ AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Malaysia provides gov
 - [OPEN GATE: GlobalHalalDigitalTrust GitHub branch-protection administration — owner: repository administrator — blocking: canonical source governance hardening]
 - [OPEN GATE: Vercel deployment build capacity — current status: external `build-rate-limit` failure on both Amanah deployment status contexts; owner: Vercel account/hosting administrator — blocking: production deployment confirmation]
 
-## Completion rule
 
 **FULL ARCHITECTURE NOW → REAL CONNECTORS WHEN AVAILABLE → NO REDESIGN REQUIRED.**
 

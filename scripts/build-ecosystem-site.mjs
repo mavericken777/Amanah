@@ -8,6 +8,11 @@ const site = path.join(root, 'ghscl-website');
 const data = JSON.parse(fs.readFileSync(path.join(site, 'ecosystem.en.json'), 'utf8'));
 const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const m = data.messages;
+function atomicWrite(file, content) {
+  const tmp = file + '.tmp-' + process.pid;
+  fs.writeFileSync(tmp, content);
+  fs.renameSync(tmp, file);
+}
 const sourceUrl = p => `https://github.com/mavericken777/GlobalHalalDigitalTrust/blob/${data.canonicalCommit}/${p}`;
 function protect(html) {
   html=html.replace(/<meta http-equiv="Content-Security-Policy"[^>]*>/g,'');
@@ -41,7 +46,7 @@ function interactive(kind) {
 for(const page of data.pages) {
   const url=page.slug+'.html';
   const html=`<!doctype html><html lang="${data.locale}" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08090b">${meta(page.label,page.description,url)}<link rel="icon" href="media/ghscl-monogram.svg"><link rel="stylesheet" href="ecosystem.css"><link rel="stylesheet" href="premium.css"></head><body data-page="${page.slug}"><a class="skip-link" href="#main">${esc(m.skip)}</a>${nav(url)}<main id="main"><section class="page-hero"><div><span class="site-kicker">${esc(page.label)}</span><h1>${esc(page.title)}</h1><p>${esc(page.description)}</p><div class="marketing-actions"><a class="marketing-primary" href="https://amanah-yq9x.vercel.app/login">Open Amanah ↗</a><a href="contact.html#enquiry">Plan your platform rollout ↗</a></div><span class="architecture-label">${esc(m.architecture)}</span></div><img src="media/${page.image}" width="1536" height="864" alt="Concept visualization of ${esc(page.label.toLowerCase())}; not live operational data" fetchpriority="high"></section><nav class="page-index" aria-label="On this page">${page.sections.map(s=>`<a href="#${s.id}">${esc(s.title)}</a>`).join('')}${page.interactive?'<a href="#'+({graph:'explorer',journey:'explorer',audit:'auditDemo',chains:'chainExplorer',onboarding:'onboarding',verify:'verification',contact:'enquiry'}[page.interactive])+'">Explore / prepare</a>':''}</nav>${page.sections.map(section).join('')}${interactive(page.interactive)}<aside class="source-panel"><details><summary><h2>${esc(m.source)}</h2></summary><ul>${page.sources.map(p=>`<li><a href="${sourceUrl(p)}" target="_blank" rel="noreferrer">${esc(p)}</a></li>`).join('')}</ul><p>PROJECT-REPO · ${data.canonicalCommit.slice(0,12)} · Project architecture, not external authority evidence.</p></details></aside><section class="related"><span class="site-kicker">${esc(m.related)}</span>${page.related.map(slug=>{const p=data.pages.find(x=>x.slug===slug);return `<a href="${slug}.html">${esc(p.label)} ↗</a>`}).join('')}</section></main>${footer()}<script src="ecosystem.js" defer></script><script src="premium.js" defer></script></body></html>\n`;
-  fs.writeFileSync(path.join(site,url),protect(html));
+  atomicWrite(path.join(site,url),protect(html));
 }
 // Preserve the existing cinematic homepage and reuse its media/runtime while updating architecture copy.
 let home=fs.readFileSync(path.join(site,'index.html'),'utf8');
@@ -80,8 +85,8 @@ if(!home.includes('property="og:title"'))home=home.replace('</head>',meta('Globa
 if(!home.includes('src="ecosystem.js"'))home=home.replace('</body>','<script src="ecosystem.js" defer></script><script src="premium.js" defer></script></body>');
 if(!home.includes('href="premium.css"'))home=home.replace('</head>','<link rel="stylesheet" href="premium.css"></head>');
 if(!home.includes('src="premium.js"'))home=home.replace('</body>','<script src="premium.js" defer></script></body>');
-fs.writeFileSync(path.join(site,'index.html'),protect(home));
+atomicWrite(path.join(site,'index.html'),protect(home));
 const urls=['index.html',...data.pages.map(p=>p.slug+'.html')];
-fs.writeFileSync(path.join(site,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u=>`<url><loc>${data.baseUrl+u}</loc></url>`).join('')}</urlset>\n`);
-fs.writeFileSync(path.join(site,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${data.baseUrl}sitemap.xml\n`);
+atomicWrite(path.join(site,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u=>`<url><loc>${data.baseUrl+u}</loc></url>`).join('')}</urlset>\n`);
+atomicWrite(path.join(site,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${data.baseUrl}sitemap.xml\n`);
 console.log(`Built ${data.pages.length} ecosystem pages and upgraded homepage to V7.`);

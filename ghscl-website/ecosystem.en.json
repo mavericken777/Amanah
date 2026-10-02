@@ -1,5 +1,5 @@
 {
-  "version": "7.2.0-proposal",
+  "version": "7.3.0",
   "locale": "en",
   "availableLocales": [
     "en"
@@ -19,6 +19,14 @@
     [
       "ecosystem.html",
       "Ecosystem"
+    ],
+    [
+      "corporate-profile.html",
+      "Corporate Profile"
+    ],
+    [
+      "visuals.html",
+      "Visuals"
     ],
     [
       "how-it-works.html",

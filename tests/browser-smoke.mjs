@@ -14,7 +14,7 @@ try {
   });
   const page=await context.newPage();
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  for(const name of ['index',...data.pages.map(p=>p.slug)]) {
+  for(const name of ['index','corporate-profile','visuals',...data.pages.map(p=>p.slug)]) {
    const response=await page.goto(`http://127.0.0.1:8080/${name}.html`);
    assert.equal(response.status(),200,name);
    await page.locator('h1').waitFor();
@@ -102,5 +102,5 @@ try {
   const response=await page.request.get('http://127.0.0.1:3000'+route);
   assert.equal(response.status(),401,route);
  }
- console.log(`Browser smoke passed: ${data.pages.length+1} public pages × 2 viewports; ${protectedPages.length} protected routes; anonymous API guards. No production transaction was performed.`);
+ console.log(`Browser smoke passed: ${data.pages.length+3} public pages × 2 viewports; ${protectedPages.length} protected routes; anonymous API guards. No production transaction was performed.`);
 } finally {await browser.close();}
