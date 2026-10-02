@@ -66,6 +66,6 @@ test('final closure does not close external gates or instantiate Shipment 001',(
   assert.ok(s.includes('Genuine authority, partner and transaction dependencies remain external OPEN GATEs'));
   assert.ok(s.includes('Shipment 001: **NOT-INSTANTIATED**'));
   const pending=fs.readFileSync('docs/operations/PENDING.md','utf8');
-  assert.ok(pending.includes('Direct JAKIM API endpoints'));
+  assert.ok(pending.includes('production direct JAKIM API endpoints'));
   assert.ok(pending.includes('real Shipment 001 evidence'));
 });
