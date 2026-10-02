@@ -71,6 +71,10 @@
     [
       "contact.html",
       "Contact"
+    ],
+    [
+      "zh-Hans.html",
+      "中文"
     ]
   ],
   "messages": {
