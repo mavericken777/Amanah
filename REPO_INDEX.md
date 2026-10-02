@@ -45,3 +45,13 @@ AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Shipment 001 remains 
 - [Commercial model / unit economics](docs/commercial/AMANAH_COMMERCIAL_MODEL_UNIT_ECONOMICS_2026-10-03.md)
 - [KPI / SLA framework](docs/operations/AMANAH_KPI_SLA_FRAMEWORK_2026-10-03.md)
 - [Training academy](docs/training/AMANAH_TRAINING_ACADEMY_2026-10-03.md)
+
+
+## 3 October batch 56–60
+
+- [SOP library](docs/sop/AMANAH_SOP_LIBRARY_MASTER_2026-10-03.md)
+- [China Mission executive pack](docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md)
+- [China Mission meeting brief book](docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md)
+- [Objection-handling book](docs/mission/OBJECTION_HANDLING_BOOK_2026-10-03.md)
+- [Cross-consistency QA](docs/operations/CROSS_CONSISTENCY_QA_2026-10-03.md)
+- [Batch 56–60 execution audit](docs/operations/AMANAH_69_BATCH_56_60_2026-10-03.md)

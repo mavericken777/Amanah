@@ -1,6 +1,6 @@
 {
   "artifact": "AMANAH Master Deliverable Index",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "control_date": "2026-10-03",
   "owner": "AMANAH / GHSCL programme office",
   "source_priority": [
@@ -170,6 +170,41 @@
       "path": "docs/training/AMANAH_TRAINING_ACADEMY_2026-10-03.md",
       "owner": "Academy / Governance",
       "status": "PROJECT-DEFINED CURRICULUM"
+    },
+    {
+      "id": "D24",
+      "name": "SOP library",
+      "path": "docs/sop/AMANAH_SOP_LIBRARY_MASTER_2026-10-03.md",
+      "owner": "Operations / Governance",
+      "status": "PROJECT-CONTROLLED"
+    },
+    {
+      "id": "D25",
+      "name": "China Mission executive pack",
+      "path": "docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md",
+      "owner": "GHSCL programme office",
+      "status": "MISSION READY / CONFIRMATIONS EVIDENCE-BOUND"
+    },
+    {
+      "id": "D26",
+      "name": "China Mission meeting brief book",
+      "path": "docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md",
+      "owner": "Mission / Stakeholder engagement",
+      "status": "PROJECT-CONTROLLED"
+    },
+    {
+      "id": "D27",
+      "name": "Objection-handling book",
+      "path": "docs/mission/OBJECTION_HANDLING_BOOK_2026-10-03.md",
+      "owner": "Executive / Commercial / Technical",
+      "status": "PROJECT-CONTROLLED"
+    },
+    {
+      "id": "D28",
+      "name": "Cross-consistency QA",
+      "path": "docs/operations/CROSS_CONSISTENCY_QA_2026-10-03.md",
+      "owner": "QA / Programme office",
+      "status": "CONTROLLED BASELINE"
     }
   ],
   "hard_freeze": "master-standards-stack/verified-2026-09-17/"
