@@ -226,3 +226,7 @@ main,.site-footer{position:relative;z-index:1}
     transform:none!important;
   }
 }
+
+/* Keep navigation above the cinematic hero stacking context. */
+.site-header{z-index:1000!important}
+.site-menu{position:relative;z-index:1001}
