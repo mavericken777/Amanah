@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600&family=Noto+Naskh+Arabic:wght@500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 /* One visual language across every generated public page. */
 :root { --bg:#0a1c16; --surface:#10291f; --text:#f1f2e8; --quiet:#bbc9b9; --accent:#c3d69f; --border:#ffffff12; --ink:#0a1c16; --ink2:#10291f; --ivory:#f1f2e8; --jade:#c3d69f; --muted:#bbc9b9; --line:#ffffff12; --ease:cubic-bezier(.32,.72,0,1); color-scheme:dark; }
@@ -109,3 +110,123 @@ input[type=checkbox] { accent-color:var(--accent); }
 .source-panel details[open] summary{margin-bottom:20px}
 .closing .marketing-actions{justify-content:center}
 @media(max-width:767px){.marketing-actions{gap:12px}.marketing-actions a{font-size:13px;padding:12px 16px}}
+
+
+/* 2026-10-02 corporate identity: obsidian / imperial gold */
+:root{
+  --bg:#050505;--surface:#0d0d0d;--text:#f6f1e7;--quiet:#b8ac91;--accent:#d4af5f;--border:#d4af5f2b;
+  --ink:#050505;--ink2:#0b0b0b;--ivory:#f6f1e7;--jade:#d4af5f;--muted:#a99d84;--line:#d4af5f24;
+  --gold-bright:#f2d78d;--gold:#d4af5f;--gold-deep:#8e641f;--ease:cubic-bezier(.22,.72,.18,1);color-scheme:dark
+}
+html,body{background:#050505}
+body{font-family:Inter,Manrope,Bahnschrift,'Segoe UI',sans-serif;color:var(--text);background:
+radial-gradient(circle at 78% -12%,rgba(212,175,95,.15),transparent 34%),
+radial-gradient(circle at 8% 30%,rgba(139,99,31,.08),transparent 28%),#050505}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.13;background-image:
+linear-gradient(90deg,transparent 0 49.85%,rgba(212,175,95,.14) 50%,transparent 50.15%),
+linear-gradient(0deg,transparent 0 49.85%,rgba(212,175,95,.10) 50%,transparent 50.15%);
+background-size:84px 84px;mask-image:radial-gradient(circle at 50% 25%,#000,transparent 78%)}
+h1,h2,h3,.hero h1,.site-brand span,.boot-word{font-family:Cinzel,Georgia,serif}
+.site-header{background:rgba(5,5,5,.9);border:1px solid rgba(212,175,95,.24);box-shadow:inset 0 1px 0 #fff1cc10,0 22px 80px #000a}
+.site-brand{gap:12px;color:#f1dfac;letter-spacing:.14em}
+.site-brand img{width:48px;height:52px;padding:0;background:transparent;border-radius:0;filter:drop-shadow(0 0 16px rgba(212,175,95,.2))}
+.site-brand small{color:#a89876;letter-spacing:.13em;margin-top:3px}
+.site-menu summary{background:#d4af5f0a;border:1px solid #d4af5f24;color:#ead59f}
+.site-menu nav{background:rgba(7,7,7,.97);border:1px solid rgba(212,175,95,.24);box-shadow:0 30px 100px #000}
+.site-menu nav a:hover,.site-menu nav a[aria-current]{background:linear-gradient(90deg,#d4af5f18,transparent);color:#f0d78e}
+.site-start,.cta,button,.marketing-actions .marketing-primary{background:linear-gradient(135deg,#f1d68a 0%,#d1aa55 48%,#8d641f 100%);color:#080706;box-shadow:inset 0 1px 0 #fff4ca88,0 8px 32px #d4af5f1c}
+.site-kicker,.kicker,.eyebrow{color:#d8b86a}
+.page-hero{position:relative}
+.page-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(212,175,95,.06),transparent 42%);pointer-events:none}
+.page-hero h1,.section-intro h2,.interactive-panel h2,.home-ecosystem h2{color:#f7f0df}
+.page-hero p,.section-body p,.hero .hero-sub{color:#b8ad95}
+.page-hero img{border:1px solid rgba(212,175,95,.3);box-shadow:0 0 0 7px #0d0d0d,0 30px 110px #000;filter:saturate(.72) contrast(1.05) sepia(.12)}
+.architecture-label,.hero-principle{color:#d6bd7c}
+.entity-card,.home-roles article,.home-directory>a,.graph-detail,.interactive-panel,.system-flow li,.readiness-grid label,.verification-fields div{
+background:linear-gradient(145deg,rgba(18,18,18,.97),rgba(7,7,7,.98));border:1px solid rgba(212,175,95,.22);
+box-shadow:inset 0 1px 0 #f7e8bb0a,0 24px 70px #0007}
+.entity-grid .entity-card:first-child,.home-roles article:first-child{background:linear-gradient(145deg,#181309,#0a0907);border-color:#d4af5f45}
+.entity-card h3,.home-roles h3,.home-directory span{color:#f0dfaf}
+.system-flow li::before{color:#d4af5f}
+input,select,textarea{background:#080808;color:#f6f1e7;border:1px solid #d4af5f40;box-shadow:inset 0 1px 0 #fff1c508;border-radius:12px}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #d4af5f;outline-offset:3px}
+.audit-hud{background:#050505ed;border:1px solid #d4af5f48}
+.source-panel{background:#050505;border-top:1px solid #d4af5f20}
+.related a,.page-index a{background:#d4af5f0a;border:1px solid #d4af5f18;color:#d9c99f}
+.site-footer{background:#030303;border-top:1px solid #d4af5f1f}
+.site-footer img{width:min(460px,100%);height:auto;max-height:72px}
+.hero{background:#040404}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 72% 30%,rgba(212,175,95,.12),transparent 36%),linear-gradient(to bottom,transparent 60%,#050505)}
+.hero .hero-backdrop{filter:saturate(.55) sepia(.18) contrast(1.08);opacity:.42}
+.site-header~main .hero h1{color:#f8f2e3}
+.hero h1 em{color:#d5b568;font-family:Cinzel,Georgia,serif;font-style:normal}
+.ghost{color:#d0c09b}
+.identity-band,.system,.workflow-section{border-color:#d4af5f1a}
+.identity-rule{color:#e3c978;border-color:#d4af5f38}
+.home-sound{background:#090909;border:1px solid #d4af5f2b;color:#d9c69b}
+.sound-dot{background:#d4af5f!important}
+@media(max-width:767px){
+.site-brand img{width:38px;height:42px}.site-brand span{font-size:7.5px}.site-brand small{font-size:6.5px}
+.page-hero img{box-shadow:0 0 0 4px #0d0d0d,0 20px 70px #000}
+}
+
+/* 2026-10-02 attachment-derived corporate portal refinements */
+.identity-circuit{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.7}
+.site-header,main,.site-footer{position:relative;z-index:1}
+.site-brand>span{display:grid;gap:2px;min-width:0}
+.brand-trilingual{display:flex!important;align-items:center;gap:8px;margin-top:2px;font-family:Inter,Arial,sans-serif;font-size:7px!important;font-weight:500;letter-spacing:.06em!important;color:#8e8268!important;white-space:nowrap;text-transform:none}
+.brand-trilingual b{font-weight:500}
+.brand-trilingual b[lang="ar"]{font-family:'Noto Naskh Arabic',serif;font-size:9px;letter-spacing:0}
+.brand-trilingual i{font-style:normal;color:#d4af5f66}
+.system-state{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border-radius:999px;border:1px solid #d4af5f26;background:#d4af5f08;color:#ad9d7c;font-size:8px;letter-spacing:.09em;white-space:nowrap}
+.system-state>i{width:6px;height:6px;border-radius:50%;background:#d4af5f;box-shadow:0 0 10px #d4af5f88}
+.page-hero,.hero{isolation:isolate}
+.page-hero:after{content:"";position:absolute;inset:auto 5vw 42px;z-index:-1;height:1px;background:linear-gradient(90deg,transparent,#d4af5f4d,transparent)}
+.page-hero h1,.hero h1{text-shadow:0 10px 50px #000}
+.page-hero .marketing-primary,.hero .cta{box-shadow:inset 0 1px 0 #fff3c66e,0 12px 46px #d4af5f20}
+.entity-card,.interactive-panel,.home-roles article,.home-directory>a{backdrop-filter:blur(10px)}
+@media(max-width:1180px){.system-state{display:none}}
+@media(max-width:767px){.brand-trilingual{display:none!important}.identity-circuit{opacity:.42}}
+@media(prefers-reduced-motion:reduce){.identity-circuit{display:none}}
+
+/* Browser-smoke hardening: prevent identity chrome from widening the document. */
+.site-header{min-width:0}
+.site-brand{min-width:0;max-width:min(58vw,620px)}
+.site-brand>span{min-width:0;overflow:hidden}
+.brand-trilingual{max-width:100%;flex-wrap:wrap;white-space:normal;line-height:1.25}
+@media(max-width:1600px){.system-state{display:none}}
+@media(max-width:900px){.site-brand{max-width:calc(100vw - 130px)}}
+
+/* Final viewport containment: keep floating corporate chrome and cinematic media inside the viewport. */
+.site-header{
+  left:4vw;
+  right:auto;
+  width:calc(100vw - 8vw);
+  max-width:1392px;
+  box-sizing:border-box;
+}
+.hero,.cinema-sticky,.scene-stills,.page-hero{overflow:hidden}
+.hero-backdrop,.scene-stills img{max-width:100%;box-sizing:border-box}
+@media(min-width:1513px){
+  .site-header{left:50%;transform:translateX(-50%);width:min(1392px,calc(100vw - 8vw))}
+}
+@media(max-width:767px){
+  .site-header{left:16px;right:16px;width:auto;max-width:none;transform:none}
+}
+
+/* The identity circuit uses its own z-layer; the floating navigation must remain fixed, not flow-relative. */
+.site-header{position:fixed!important}
+main,.site-footer{position:relative;z-index:1}
+@media(max-width:767px){
+  .site-header{
+    left:16px!important;
+    right:16px!important;
+    width:calc(100vw - 32px)!important;
+    max-width:calc(100vw - 32px)!important;
+    transform:none!important;
+  }
+}
+
+/* Keep navigation above the cinematic hero stacking context. */
+.site-header{z-index:1000!important}
+.site-menu{position:relative;z-index:1001}

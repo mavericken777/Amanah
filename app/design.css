@@ -111,3 +111,48 @@ body > main.page { margin: 56px auto; padding: 0 24px; max-width: 980px; }
 @media (max-width:900px) { .app-shell { grid-template-columns: 1fr; } .sidebar { display: none; } .workspace-bar { margin: 16px 24px 0; } .menu-toggle { display: block; } .main-content { padding: 40px 24px 64px; } .auth-page { grid-template-columns: 1fr; } .auth-story { min-height: auto; padding: 32px; } .auth-story-copy { padding-block: 40px; } .auth-story h2 { font-size: clamp(2rem,5vw,3rem); } .auth-panel { padding: 24px 0 40px; } }
 @media (max-width:767px) { .main-content { padding: 32px 16px 64px; } .workspace-bar { margin: 12px 16px 0; padding: 8px 16px; } .workspace-breadcrumb { gap: 8px; } .workspace-tools > a { display: none; } .metric-grid, .grid-2 { grid-template-columns: 1fr; } .page-header, .row-between { flex-direction: column; align-items: flex-start; } .card, .metric-card { padding: 20px; border-width: 5px; border-radius: 24px; } .auth-story { padding: 28px 24px; border-radius: 26px; } .auth-card { padding: 26px 20px; } .auth-story-copy { padding-block: 32px; } .auth-story-foot > span { display: none; } .auth-panel { padding: 8px 0 24px; } .auth-card h1 { font-size: 2rem; } }
 @media (prefers-reduced-motion:reduce) { .motion-entry { opacity: 1; transform: none; } *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+
+/* 2026-10-02 corporate identity alignment for Amanah authentication */
+.auth-page{background:#050505;color:#f5efdf;position:relative;overflow:hidden}
+.auth-page::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:
+linear-gradient(90deg,transparent 0 49.8%,#d4af5f28 50%,transparent 50.2%),
+linear-gradient(0deg,transparent 0 49.8%,#d4af5f18 50%,transparent 50.2%);background-size:72px 72px}
+.auth-story{background:
+radial-gradient(circle at 68% 18%,rgba(212,175,95,.18),transparent 32%),
+linear-gradient(145deg,#0d0b07,#030303 68%);color:#f5efdf;border:1px solid #d4af5f2d;box-shadow:inset 0 1px 0 #fff0bd12,0 30px 100px #000}
+.auth-story::after{border-color:#d4af5f20;box-shadow:0 0 0 60px #d4af5f08,0 0 0 120px #d4af5f04}
+.auth-story .brand{color:#ead69e;display:flex;align-items:center;gap:14px}
+.auth-brand-crest{width:52px;height:58px;filter:drop-shadow(0 0 18px rgba(212,175,95,.22))}
+.auth-brand-copy{display:grid;gap:3px}.auth-brand-copy strong{font-family:Cinzel,Georgia,serif;font-size:.88rem;letter-spacing:.12em}
+.auth-brand-copy span{font-size:.58rem;letter-spacing:.14em;color:#9f9278}
+.auth-story .eyebrow,.auth-card .eyebrow{background:#d4af5f0d;color:#d4af5f;border:1px solid #d4af5f26}
+.auth-story h2{font-family:Cinzel,Georgia,serif;font-weight:600;letter-spacing:-.035em}
+.auth-story h2 em{font-family:Cinzel,Georgia,serif;font-style:normal;color:#d4af5f}
+.auth-story p{color:#b9ae95}
+.trust-path span{background:#d4af5f0b;box-shadow:inset 0 0 0 1px #d4af5f20;color:#ddca98}
+.trust-path i{color:#d4af5f}
+.auth-story-foot{color:#9f947d}.auth-story-foot a{color:#d4af5f}
+.auth-panel{background:radial-gradient(circle at 50% 45%,rgba(212,175,95,.08),transparent 44%)}
+.auth-card{background:linear-gradient(150deg,#111,#080808);border:1px solid #d4af5f33;box-shadow:inset 0 1px 0 #fff0bd0c,0 30px 100px #000;padding:40px}
+.auth-card .auth-crest{display:block;width:76px;height:84px;margin:0 auto 6px;filter:drop-shadow(0 0 22px rgba(212,175,95,.24))}
+.auth-card h1{font-family:Cinzel,Georgia,serif;color:#f6edd8;font-weight:600;letter-spacing:-.035em}
+.auth-card .muted{color:#a99e86}
+.auth-card label{color:#d7c697;letter-spacing:.035em}
+.auth-card input{background:#050505;border:1px solid #d4af5f38;color:#f6edd8;box-shadow:inset 0 1px 0 #ffffff07}
+.auth-card input:focus{outline:2px solid #d4af5f55;border-color:#d4af5f}
+.auth-card .button{background:linear-gradient(135deg,#f0d58a,#d2aa55 50%,#8a611d);color:#070605;box-shadow:inset 0 1px 0 #fff2be80,0 10px 30px #d4af5f18}
+.auth-card a{color:#d4af5f}
+.auth-card>.brand-mark{display:none}
+@media(max-width:900px){.auth-story{min-height:440px}.auth-card{padding:30px 24px}}
+
+/* Attachment-derived trilingual gateway refinements */
+.auth-brand-multilingual{display:flex!important;align-items:center;gap:8px;margin-top:2px!important;font-family:Inter,Arial,sans-serif;font-size:.52rem!important;letter-spacing:.04em!important;color:#8f846d!important;text-transform:none}
+.auth-brand-multilingual b{font-weight:500}
+.auth-brand-multilingual b[lang="ar"]{font-family:'Noto Naskh Arabic',serif;font-size:.64rem;letter-spacing:0}
+.auth-brand-multilingual i{font-style:normal;color:#d4af5f66}
+.auth-story-links{display:flex;gap:14px;flex-wrap:wrap}
+.auth-story-links a{white-space:nowrap}
+.auth-story-foot>span:first-child{color:#9f9278}
+.auth-card:before{content:"";display:block;height:1px;background:linear-gradient(90deg,transparent,#d4af5f55,transparent);margin:-10px 0 18px}
+@media(max-width:767px){.auth-brand-multilingual{display:none!important}.auth-story-links{gap:10px}}
