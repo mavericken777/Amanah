@@ -33,11 +33,11 @@ Amanah/AHTE is an orchestration, evidence, monitoring and decision-support layer
 
 Primary doctrine/reference repository: `mavericken777/GlobalHalalDigitalTrust` (`main`).
 
-Current reviewed project target snapshot:
+Current implementation binding:
 
-- Repository commit: `14456e99937d6f11d63bd041dcffdb903d12594f`
-- SHA12: `14456e99937d`
-- Verified project-repo snapshot: `2026-09-30`
+- Repository commit: `ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5`
+- SHA12: `ccc10ca476b`
+- Verified project-repo snapshot: `2026-10-02`
 - Freeze boundary: `master-standards-stack/verified-2026-09-17/`
 - Doctrine: `00_EXECUTIVE_COMMAND/IQ300_DOCTRINE.md`
 - Current target architecture: `00_EXECUTIVE_COMMAND/CURRENT_TARGET_ARCHITECTURE_2026-09-30.md`
