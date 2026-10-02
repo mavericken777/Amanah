@@ -1,47 +1,75 @@
-# GHSCL hybrid identity — architecture presentation V7.2 / 2026-10-01
+# GHSCL corporate identity and media control — 2026-10-03
 
-[PROPOSAL: visual identity and stakeholder presentation — path point: Control → Evidence → Authority Gate → Trust State → Operational Release]
-
-Sovereign + ultra-premium + infrastructure is a creative direction, not a claim of government endorsement, certification or deployed sovereign infrastructure.
+[PROJECT-DEFINED CORPORATE IDENTITY / MEDIA CONTROL]
 
 ## Identity
 
-The hexagonal infrastructure monogram (`media/ghscl-monogram.svg`) is an original code-drawn brand symbol. It is not an official authority seal. The angular GHSCL wordmark (`media/ghscl-wordmark.svg`) uses vector paths for the five initials. Do not substitute it for certification marks.
+Primary corporate identity: **GLOBAL HALAL SUPPLY CHAIN LIMITED**.
 
-Palette: obsidian #08090B; platinum #C3C5C8; warm ivory #F0EDE5; architectural gold #B39A69. Use gold for chapter position, focal accents and primary actions. Contrast and legibility take priority over muted aesthetic.
+Platform identity: **AMANAH · GLOBAL HALAL DIGITAL TRUST**.
 
-Typography: Inter Tight for large editorial headlines; Manrope for body copy; DM Mono for indices and provenance labels. System fallbacks remain usable when remote fonts are unavailable.
+Supporting multilingual identity:
+- 全球清真供應鏈有限公司
+- سلسلة التوريد العالمية للحلال
 
-Composition: 6vw desktop margins, a 1360px content maximum, 120px section rhythm, 20–24px mobile margins and 80px mobile rhythm. Never distort vector assets. Decorative gold rings/hexagons are brand language, never authority badges.
+The corporate shield / Halal circuit mark is an original project brand device. It is not an official authority seal and must not be presented as a certification mark.
 
-Motion: slow globe rotation, pointer response, ordered chapter changes, restrained media parallax and a timed opening identity cue. Muted by default. Sound starts only through user interaction. Reduced motion presents all chapters as readable static content.
+## Visual system
 
-## Assets and honest provenance
+Palette:
+- Obsidian: #050505
+- Imperial gold: #D4AF5F
+- Bright gold: #F2D78D
+- Deep gold: #8E641F
+- Warm ivory: #F6F1E7
+- Muted bronze: #A99D84
 
-Four original AI-generated concept renders depict imagined architecture, a port, a physical trust-packet metaphor and a control room. They are not photographs of actual operations, current shipments, laboratories or government facilities. Full prompts remain in `media/production-prompts.json`.
+Design language: restrained sovereign-enterprise presentation, metallic shield/circuit geometry, precise institutional typography, black/gold depth, subtle world/evidence-network motifs, strong legibility and minimal decorative motion.
 
-The 24-second concept motion study uses those renders with restrained editorial motion. It does not establish live operations or a deployed 3D system.
+Motion is muted by default. Sound requires user interaction. Reduced-motion users receive readable static content.
 
-[OPEN GATE: new cinematic video generation — owner: media production / workspace administrator — blocking: stakeholder film asset]
+## Website media
 
-## Current narrative
+Controlled public media includes:
+- `media/architecture.webp`
+- `media/corridor.webp`
+- `media/trust-core.webp`
+- `media/control-room.webp`
+- `media/ghscl-hybrid-film.mp4`
+- `media/ghscl-hybrid-film.webm`
+- `media/ghscl-master-film-en.vtt`
+- `media/infographics/*.svg`
 
-Global problem → fractured trust → GHSCL infrastructure → AHTE evidence/trust core → China traceability/laboratory → Digital Audit Twin → Platinum monitoring → 24/7 Command Center → China → GCC direct corridor → direct JAKIM API / PHC+JAKIM authorised human authority boundary → Sinotrans warehouse/logistics → origin/GCC ports → destination release → Shariah finance/Takaful support → trust travels.
+Concept renders and cinematic media are visualisations unless explicitly bound to real production evidence. They are not photographs of actual authority systems, current shipments, laboratories or government facilities.
 
-[PILOT: Shipment 001 — China → GCC direct visualisation]
+## Cinematic status
 
-All monitoring signals shown in public cinematic media are simulated unless explicitly sourced from authorised production feeds. Globe arcs are schematic; they assert no shipping route, operating volume, bill of lading or live sensor record.
+The existing web motion master is present and CI-verified. It remains the active website film.
 
-## Canonical binding and boundary
+The controlled 90-second executive master package is defined in `docs/media/MASTER_CINEMATIC_VIDEO_2026.md`, with storyboard, shot prompts, exact authority boundaries, generated master voiceovers and captions.
 
-GlobalHalalDigitalTrust@`14456e99937d6f11d63bd041dcffdb903d12594f`. Freeze: `master-standards-stack/verified-2026-09-17/` remains unchanged.
+[OPEN GATE: new AI-generated 4K photoreal executive master — external media-plan activation required; no redesign or narrative work remains.]
 
-Current China execution source family: `master-standards-stack/CHINA_EXECUTION_PACK/`. The lower-case duplicate path is retired lineage.
+## Voiceover status
 
-`Authority → Standard / Instrument → Clause / Requirement → Applicability → Control → HCP / SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → Authority Gate → Trust State → Operational Release`.
+Generated English masters:
+- executive cut task `752c27b1-9201-4002-b8f7-caf368123abe`
+- website/short cut task `6a5b4450-4c67-4f70-8f9d-11e1f1f1af3d`
 
-Current project authority topology is `AHTE ⇄ Direct JAKIM API ⇄ JAKIM`. Formal certification review remains an authorised human authority workflow. Exact production transport/security contracts remain source-locked until authorised.
+The generated audio is retained in the connected media workspace. Repository control uses task identifiers, exact scripts and caption files rather than expiring download URLs.
 
-Certification remains with competent authorities under their mandates. GCC destination acceptance remains with competent authorities/importers. Port/customs release remains sovereign. Finance/Takaful/token/digital-asset decisions remain externally owned. `NOT DETECTED ≠ HALAL`.
+## Canonical narrative
 
-The visual narrative must never be read as permission to invent an authority decision, production connection, shipment event, sovereign release, financing decision, Takaful decision, title state or Shariah/regulatory approval.
+Global problem → evidence continuity → GHSCL infrastructure → AHTE standards/evidence/trust core → manufacturer and laboratory evidence → smart audit → production monitoring → Sinotrans warehouse/logistics → origin/GCC ports → China → GCC direct corridor → Direct JAKIM API / human authority boundary → Command Center → destination verification → finance/Takaful evidence support → operational release.
+
+## Authority and claim boundary
+
+Public topology: **AHTE ⇄ Direct JAKIM API ⇄ JAKIM**.
+
+Certification remains a competent-authority decision. AI, blockchain, laboratories, QR/NFC, sensors, cryptographic hashes and AHTE trust state do not independently create Halal certification.
+
+Port/customs release remains sovereign. Finance/Takaful decisions remain externally owned. `NOT_DETECTED ≠ HALAL`.
+
+`[PILOT: Shipment 001 — China → GCC direct]` remains NOT-INSTANTIATED until real transaction evidence exists.
+
+All public media must distinguish project architecture, simulated signals and real production evidence.
