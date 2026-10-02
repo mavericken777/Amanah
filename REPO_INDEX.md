@@ -65,3 +65,14 @@ AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Shipment 001 remains 
 - [Claim verification register](docs/operations/CLAIM_VERIFICATION_REGISTER_2026-10-03.md)
 - [Human-readable master deliverable index](docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md)
 - [Batch 61–65 execution audit](docs/operations/AMANAH_69_BATCH_61_65_2026-10-03.md)
+
+
+## 3 October final batch 66–69
+
+- [Definition of Done](docs/operations/DEFINITION_OF_DONE_2026-10-03.md)
+- [Execution priority and sequence](docs/operations/EXECUTION_PRIORITY_SEQUENCE_2026-10-03.md)
+- [Standing execution instruction](docs/operations/STANDING_EXECUTION_INSTRUCTION_2026-10-03.md)
+- [Final operating test](docs/operations/FINAL_OPERATING_TEST_2026-10-03.md)
+- [69-item final closure record](docs/operations/AMANAH_69_FINAL_CLOSURE_2026-10-03.md)
+
+**Programme state:** 69/69 complete to project-controlled scope after final exact-head CI and merge. External activation gates remain controlled in PENDING.
