@@ -22,3 +22,5 @@ JAKIM production API; China laboratory legal identity/accreditation/method scope
 **Shipment 001 remains NOT-INSTANTIATED until real product/buyer/PO/certificate/custody/destination evidence exists.**
 
 | 26–30 | Vehicle stack, Sinotrans A–U/audit readiness, port model/tablet | COMPLETE / RE-AUDIT AT PR HEAD |
+
+| 31–35 | Port smart glasses, regulatory adapters, AI copilot, API contract, partner kit | COMPLETE / RE-AUDIT AT PR HEAD |
