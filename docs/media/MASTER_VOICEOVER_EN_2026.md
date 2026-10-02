@@ -1,6 +1,6 @@
 # GHSCL / AMANAH Master Voiceover — English 2026
 
-**Delivery:** authoritative institutional narration; measured pace; no promotional overclaim.
+**Delivery:** authoritative institutional narration; measured pace; no promotional overclaim.\n\n**Generated master audio:** `GHSCL_AMANAH_Master_Voiceover_EN_2026`\n**Runway task:** `dd8f3cc8-8eeb-43a3-8bca-72ff02d42c88`\n**Duration:** 222.354286 seconds\n**State:** GENERATED / RUNWAY WORKSPACE ASSET
 
 ## Master script
 
