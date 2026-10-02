@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
-const types=readFileSync(new URL("../lib/database.target.types.ts",import.meta.url),"utf8");
+const types=readFileSync(new URL("../lib/database.current.types.ts",import.meta.url),"utf8");
 const hardware=readFileSync(new URL("../docs/hardware/PLATINUM_HARDWARE_MASTER_BOM_2026-10-02.json",import.meta.url),"utf8");
 const cert=readFileSync(new URL("../docs/architecture/CERTIFICATION_CREDENTIAL_LIFECYCLE_2026-10-02.md",import.meta.url),"utf8");
 const monitor=readFileSync(new URL("../docs/operations/REAL_TIME_PRODUCTION_MONITORING_2026-10-02.md",import.meta.url),"utf8");
