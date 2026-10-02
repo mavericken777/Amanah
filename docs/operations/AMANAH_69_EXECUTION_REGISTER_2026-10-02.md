@@ -17,8 +17,9 @@ Items 1–69 are one continuous programme, not disconnected workstreams.
 | 41–45 | Manufacturer/authority command centres, product verification, stakeholder inventory/playbooks | COMPLETE / RE-AUDIT AT PR HEAD |
 | 46–50 | Website, corporate profile, infographics, cinematic video, voiceover | COMPLETE TO PROJECT CONTROL / ITEM 49 NEW 4K AI RENDER EXTERNAL GATE / RE-AUDIT AT PR HEAD |
 | 51–55 | Mandarin adaptation, legal/contractual pack, commercial model, KPI/SLA, training academy | COMPLETE TO PROJECT CONTROL / EXTERNAL EXECUTION & PRICE/SLA/ACCREDITATION GATES / RE-AUDIT AT PR HEAD |
-| 56–60 | SOP library, China mission pack, meeting briefs, objection book, cross-consistency QA | NEXT EXECUTION BATCH |
-| 61–65 | Red-team, visual QC, document QC, claim verification, master deliverable index | ACTIVE QUALITY GATE |\n| 66–69 | Definition of done, execution priority, standing instruction, final operating test | FINAL QUALITY GATE |
+| 56–60 | SOP library, China mission pack, meeting briefs, objection book, cross-consistency QA | COMPLETE TO PROJECT CONTROL / RE-AUDIT AT PR HEAD |
+| 61–65 | Red-team, visual QC, document QC, claim verification, master deliverable index | NEXT EXECUTION BATCH |
+| 66–69 | Definition of done, execution priority, standing instruction, final operating test | FINAL QUALITY GATE |
 
 ## Hard external activation gates
 
