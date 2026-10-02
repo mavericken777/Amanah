@@ -1,0 +1,11 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+const coda=readFileSync(new URL("../docs/coda/CODA_HARDWARE_FINANCING_EXECUTIVE_PACK_2026-10-02.md",import.meta.url),"utf8");
+const custody=readFileSync(new URL("../docs/custody/DIGITAL_CHAIN_OF_CUSTODY_2026-10-02.md",import.meta.url),"utf8");
+const seal=readFileSync(new URL("../docs/custody/DIGITAL_SEAL_TAMPER_MODEL_2026-10-02.md",import.meta.url),"utf8");
+const logistics=readFileSync(new URL("../docs/logistics/LOGISTICS_OPERATING_MODEL_2026-10-02.md",import.meta.url),"utf8");
+test("CODA pack is proposal not invented approval",()=>{assert.match(coda,/COMMERCIAL PROPOSAL/);assert.match(coda,/No CODA funding commitment is claimed/);for(const x of ["36 months","60 months","84 months"])assert.match(coda,new RegExp(x));});
+test("custody requires attributable integrity binding",()=>{for(const x of ["ObjectID","EventID","ActorID","IntegrityProof","append-only"])assert.match(custody,new RegExp(x));});
+test("seal model routes tamper through hold and re-verification",()=>{assert.match(seal,/TAMPER_SUSPECTED/);assert.match(seal,/D4 HOLD/);assert.match(seal,/re-verification/);});
+test("logistics remains China to GCC direct and sovereign release external",()=>{assert.match(logistics,/China → GCC Direct/);assert.match(logistics,/GCC port\/customs/);assert.match(logistics,/no Halal certification\/customs release/);});
