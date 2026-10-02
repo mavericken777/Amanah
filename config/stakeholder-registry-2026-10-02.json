@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "control_date": "2026-10-02",
+  "status": "PROJECT_CONTROLLED",
+  "source_binding": "mavericken777/GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5",
+  "rule": "Partner status is never inferred from architecture, meetings, proposals or adapters.",
+  "stakeholders": [
+    {"class":"PHC","role":"Malaysia governance/assurance and halal-industry GLC role","decision_boundary":"authority scope remains source-bound","activation_gate":"verified legal/mandate scope for each production function"},
+    {"class":"GHSCL_HK","role":"international operating/digital-infrastructure vehicle; China-GCC coordination; Command Center","decision_boundary":"no sovereign certification/customs/finance decision","activation_gate":"operator identities and production counterparties"},
+    {"class":"JAKIM_COMPETENT_AUTHORITY","role":"formal authority/human D5-D6 workflow","decision_boundary":"sovereign/human authority","activation_gate":"Direct JAKIM API authorized specification, scopes and credentials"},
+    {"class":"CHINA_MANUFACTURER","role":"facility/product/process/production evidence","decision_boundary":"no authority certification","activation_gate":"named tenant, facility, products and production feeds"},
+    {"class":"CHINA_SUPPLIER_PRODUCER","role":"origin/material/lot/provenance evidence","decision_boundary":"no authority certification","activation_gate":"named supplier/origin records"},
+    {"class":"CHINA_TRACEABILITY_PROVIDER","role":"serialization/aggregation/anti-counterfeit/identity evidence","decision_boundary":"integrity/traceability is not certification","activation_gate":"named provider/system contract"},
+    {"class":"LABORATORY","role":"sample/custody/method/QC/result/review/signature evidence","decision_boundary":"NOT_DETECTED != HALAL; laboratory does not certify","activation_gate":"legal identity, accreditation, method scope and API"},
+    {"class":"SINOTRANS","role":"warehouse/logistics/custody/telemetry integration","decision_boundary":"no certification or sovereign release","activation_gate":"contracting entity, sites/lanes, systems and credentials"},
+    {"class":"ORIGIN_PORT_CUSTOMS","role":"inspection/hold/release/custody","decision_boundary":"sovereign","activation_gate":"authority permission and interface contract"},
+    {"class":"GCC_AUTHORITY_CUSTOMS","role":"destination inspection/release","decision_boundary":"sovereign","activation_gate":"jurisdiction-specific authorization"},
+    {"class":"GCC_IMPORTER_WAREHOUSE_DISTRIBUTOR_RETAILER","role":"destination acceptance/receiving/distribution/verification","decision_boundary":"destination legal/market responsibilities","activation_gate":"named entities and systems"},
+    {"class":"FINANCE_TAKAFUL","role":"purpose-specific evidence consumer","decision_boundary":"independent financing/underwriting/claim decision","activation_gate":"counterparty, Shariah/legal/regulatory approval"},
+    {"class":"AUDITOR_HALAL_OFFICER","role":"human audit/review/finding/CAPA/re-verification","decision_boundary":"according to authorized mandate","activation_gate":"verified role and competence"},
+    {"class":"TECHNOLOGY_DEVICE_PROVIDER","role":"ERP/MES/QMS/WMS/LIMS/IoT/DMS/identity/integrity integration","decision_boundary":"no certification authority","activation_gate":"approved integration and security profile"},
+    {"class":"BUYER_CONSUMER","role":"authorized disclosure verification","decision_boundary":"verification view does not create certification","activation_gate":"issuer-authorized disclosure token"}
+  ]
+}
