@@ -1,6 +1,6 @@
 # Current Amanah implementation status
 
-Global control main: `ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5` (2 Oct 2026). Current Amanah reconciliation merge: `1c2d85749d31947b19730698325c49d870ac6c4a`. Machine binding: [source-binding.json](../../config/source-binding.json). The 17 September verified freeze remains unchanged.
+Global control source binding: `mavericken777/GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5` (2 Oct 2026). Current mutable Amanah implementation state is repository `main`; exact release eligibility is determined from the commit under review and its CI/deployment evidence, not by a hard-coded mutable SHA in this file. Machine binding: [source-binding.json](../../config/source-binding.json). The 17 September verified freeze remains unchanged.
 
 AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct; Malaysia is the governance/assurance/authority-connectivity plane. Shipment 001 is **NOT-INSTANTIATED**. No fixture, architectural illustration or development receipt closes a transaction or authority gate.
 
@@ -34,3 +34,8 @@ The retired `ghscl-site` Edge Function redirects to the current public Pages web
 ## External CI/deployment condition
 
 The current GitHub commit carries Vercel status failures for `amanah` and `amanah-yq9x` with target status `build-rate-limit`. This is an external Vercel capacity/rate-limit condition, not a source-code test result. It must not be represented as a successful production deployment. No code change was made to bypass that external gate.
+
+
+## 3 October execution sync — Items 56–60
+
+Repository-controlled SOPs, China mission executive pack, stakeholder meeting briefs, objection-handling book and cross-consistency QA are now controlled artifacts. Mission dates/roster/meeting confirmations remain evidence-bound; no working itinerary or discussion is converted into a confirmed external commitment by this status file.
