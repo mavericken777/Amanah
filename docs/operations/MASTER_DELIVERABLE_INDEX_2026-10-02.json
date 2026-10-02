@@ -1,6 +1,6 @@
 {
   "artifact": "AMANAH Master Deliverable Index",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "control_date": "2026-10-03",
   "owner": "AMANAH / GHSCL programme office",
   "source_priority": [
@@ -106,14 +106,14 @@
       "name": "Cross-consistency matrix",
       "path": "docs/operations/CROSS_CONSISTENCY_MATRIX_2026-10-02.md",
       "owner": "QA",
-      "status": "ACTIVE"
+      "status": "CONTROLLING ASSERTION MATRIX"
     },
     {
       "id": "D15",
       "name": "Red-team register",
       "path": "docs/operations/RED_TEAM_REGISTER_2026-10-02.md",
       "owner": "Assurance",
-      "status": "ACTIVE"
+      "status": "SUPERSEDED BY D29 / HISTORICAL SUMMARY"
     },
     {
       "id": "D16",
@@ -205,6 +205,41 @@
       "path": "docs/operations/CROSS_CONSISTENCY_QA_2026-10-03.md",
       "owner": "QA / Programme office",
       "status": "CONTROLLED BASELINE"
+    },
+    {
+      "id": "D29",
+      "name": "Programme red-team review",
+      "path": "docs/operations/RED_TEAM_REVIEW_2026-10-03.md",
+      "owner": "Assurance",
+      "status": "CONTROLLED"
+    },
+    {
+      "id": "D30",
+      "name": "Visual QC report",
+      "path": "docs/operations/VISUAL_QC_REPORT_2026-10-03.md",
+      "owner": "Corporate design / QA",
+      "status": "CONTROLLED"
+    },
+    {
+      "id": "D31",
+      "name": "Document QC report",
+      "path": "docs/operations/DOCUMENT_QC_REPORT_2026-10-03.md",
+      "owner": "Programme office / QA",
+      "status": "CONTROLLED"
+    },
+    {
+      "id": "D32",
+      "name": "Claim verification register",
+      "path": "docs/operations/CLAIM_VERIFICATION_REGISTER_2026-10-03.md",
+      "owner": "QA / Governance",
+      "status": "CONTROLLING CLAIM REGISTER"
+    },
+    {
+      "id": "D33",
+      "name": "Human-readable master deliverable index",
+      "path": "docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md",
+      "owner": "Programme office",
+      "status": "CONTROLLING DIRECTORY"
     }
   ],
   "hard_freeze": "master-standards-stack/verified-2026-09-17/"

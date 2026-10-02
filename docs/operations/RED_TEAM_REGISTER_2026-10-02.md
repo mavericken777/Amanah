@@ -1,6 +1,8 @@
 # AMANAH Red-Team Register
 
-**Version:** 1.0.0 | **Control date:** 2026-10-02
+**Status:** HISTORICAL / SUPERSEDED / NON-CONTROLLING as of 2026-10-03.  
+**Current control:** [RED_TEAM_REVIEW_2026-10-03.md](RED_TEAM_REVIEW_2026-10-03.md)
+
 
 | Perspective | Challenge | Control response |
 |---|---|---|

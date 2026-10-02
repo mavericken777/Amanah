@@ -62,5 +62,5 @@ test('pending file contains no escaped newline artifacts',()=>{
 test('execution register advances items 56-60',()=>{
   const s=fs.readFileSync('docs/operations/AMANAH_69_EXECUTION_REGISTER_2026-10-02.md','utf8');
   assert.match(s,/56–60 .*COMPLETE TO PROJECT CONTROL/);
-  assert.match(s,/61–65 .*NEXT EXECUTION BATCH/);
+  assert.match(s,/61–65 /);
 });

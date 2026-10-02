@@ -55,3 +55,13 @@ AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Shipment 001 remains 
 - [Objection-handling book](docs/mission/OBJECTION_HANDLING_BOOK_2026-10-03.md)
 - [Cross-consistency QA](docs/operations/CROSS_CONSISTENCY_QA_2026-10-03.md)
 - [Batch 56–60 execution audit](docs/operations/AMANAH_69_BATCH_56_60_2026-10-03.md)
+
+
+## 3 October batch 61–65
+
+- [Programme red-team review](docs/operations/RED_TEAM_REVIEW_2026-10-03.md)
+- [Visual QC report](docs/operations/VISUAL_QC_REPORT_2026-10-03.md)
+- [Document QC report](docs/operations/DOCUMENT_QC_REPORT_2026-10-03.md)
+- [Claim verification register](docs/operations/CLAIM_VERIFICATION_REGISTER_2026-10-03.md)
+- [Human-readable master deliverable index](docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md)
+- [Batch 61–65 execution audit](docs/operations/AMANAH_69_BATCH_61_65_2026-10-03.md)
