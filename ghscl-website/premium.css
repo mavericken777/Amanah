@@ -196,3 +196,20 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 .brand-trilingual{max-width:100%;flex-wrap:wrap;white-space:normal;line-height:1.25}
 @media(max-width:1600px){.system-state{display:none}}
 @media(max-width:900px){.site-brand{max-width:calc(100vw - 130px)}}
+
+/* Final viewport containment: keep floating corporate chrome and cinematic media inside the viewport. */
+.site-header{
+  left:4vw;
+  right:auto;
+  width:calc(100vw - 8vw);
+  max-width:1392px;
+  box-sizing:border-box;
+}
+.hero,.cinema-sticky,.scene-stills,.page-hero{overflow:hidden}
+.hero-backdrop,.scene-stills img{max-width:100%;box-sizing:border-box}
+@media(min-width:1513px){
+  .site-header{left:50%;transform:translateX(-50%);width:min(1392px,calc(100vw - 8vw))}
+}
+@media(max-width:767px){
+  .site-header{left:16px;right:16px;width:auto;max-width:none;transform:none}
+}
