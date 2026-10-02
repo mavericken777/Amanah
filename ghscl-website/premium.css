@@ -213,3 +213,16 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 @media(max-width:767px){
   .site-header{left:16px;right:16px;width:auto;max-width:none;transform:none}
 }
+
+/* The identity circuit uses its own z-layer; the floating navigation must remain fixed, not flow-relative. */
+.site-header{position:fixed!important}
+main,.site-footer{position:relative;z-index:1}
+@media(max-width:767px){
+  .site-header{
+    left:16px!important;
+    right:16px!important;
+    width:calc(100vw - 32px)!important;
+    max-width:calc(100vw - 32px)!important;
+    transform:none!important;
+  }
+}
