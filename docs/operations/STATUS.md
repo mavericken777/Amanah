@@ -44,3 +44,8 @@ Repository-controlled SOPs, China mission executive pack, stakeholder meeting br
 ## 3 October execution sync — Items 61–65
 
 Programme-wide red-team, visual QC, document QC and claim verification now have controlling 2026-10-03 reports. The boardroom corporate-profile corrective implementation is merged; the duplicate corrective PR was closed as superseded. The human-readable master deliverable index now provides the stakeholder directory for Items 1–65. External production/authority/partner gates remain in PENDING.md.
+
+
+## 3 October final programme sync — Items 66–69
+
+Definition of Done, execution priority, standing execution instruction and final operating test are now controlled. The 69-item programme is complete to repository/project-controlled scope subject to the final exact-head CI/merge. This status does not close external activation gates in PENDING and does not instantiate Shipment 001.
