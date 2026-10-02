@@ -1,0 +1,16 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+const read=p=>readFileSync(new URL(p,import.meta.url),"utf8");
+const cyber=read("../docs/security/CYBERSECURITY_ARCHITECTURE_2026-10-02.md");
+const data=read("../docs/governance/DATA_GOVERNANCE_ARCHITECTURE_2026-10-02.md");
+const bc=read("../docs/operations/BUSINESS_CONTINUITY_ARCHITECTURE_2026-10-02.md");
+const ex=read("../docs/operations/EXCEPTION_ENGINE_2026-10-02.md");
+const cc=read("../docs/operations/GLOBAL_COMMAND_CENTER_2026-10-02.md");
+const page=read("../app/(protected)/ahte/command-center/page.tsx");
+const guard=read("../supabase/migrations/20260930035500_release_gate_enforcement.sql");
+test("36 cybersecurity preserves authority boundary",()=>{for(const x of["RLS","D5/D6","does not certify Halal","threat"])assert.match(cyber,new RegExp(x,"i"));});
+test("37 data governance is federated and evidence-safe",()=>{for(const x of["Data stays where it belongs","minimum necessary","supersede","Hash proves integrity, not truth"])assert.match(data,new RegExp(x));});
+test("38 continuity fails closed at authority gate",()=>{for(const x of["no automatic authority decision","RTO","RPO","no AI D5/D6"])assert.match(bc,new RegExp(x,"i"));});
+test("39 exception engine binds hold to human reverification",()=>{for(const x of["HOLD","QUARANTINED","RE-VERIFICATION","D4"])assert.match(ex,new RegExp(x));assert.match(guard,/human_reverification_required/);});
+test("40 command center is operational and tenant-scoped",()=>{for(const x of["ahte_command_center_alerts","ahte_predictions","ahte_preemptive_strategies"])assert.match(page,new RegExp(x));assert.match(page,/\.eq\("organization_id", org\.id\)/);assert.match(cc,/China → GCC direct/);});
