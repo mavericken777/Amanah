@@ -188,3 +188,11 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 @media(max-width:1180px){.system-state{display:none}}
 @media(max-width:767px){.brand-trilingual{display:none!important}.identity-circuit{opacity:.42}}
 @media(prefers-reduced-motion:reduce){.identity-circuit{display:none}}
+
+/* Browser-smoke hardening: prevent identity chrome from widening the document. */
+.site-header{min-width:0}
+.site-brand{min-width:0;max-width:min(58vw,620px)}
+.site-brand>span{min-width:0;overflow:hidden}
+.brand-trilingual{max-width:100%;flex-wrap:wrap;white-space:normal;line-height:1.25}
+@media(max-width:1600px){.system-state{display:none}}
+@media(max-width:900px){.site-brand{max-width:calc(100vw - 130px)}}
