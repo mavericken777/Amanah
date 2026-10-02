@@ -39,3 +39,8 @@ The current GitHub commit carries Vercel status failures for `amanah` and `amana
 ## 3 October execution sync — Items 56–60
 
 Repository-controlled SOPs, China mission executive pack, stakeholder meeting briefs, objection-handling book and cross-consistency QA are now controlled artifacts. Mission dates/roster/meeting confirmations remain evidence-bound; no working itinerary or discussion is converted into a confirmed external commitment by this status file.
+
+
+## 3 October execution sync — Items 61–65
+
+Programme-wide red-team, visual QC, document QC and claim verification now have controlling 2026-10-03 reports. The boardroom corporate-profile corrective implementation is merged; the duplicate corrective PR was closed as superseded. The human-readable master deliverable index now provides the stakeholder directory for Items 1–65. External production/authority/partner gates remain in PENDING.md.
