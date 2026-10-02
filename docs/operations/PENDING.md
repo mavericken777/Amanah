@@ -26,7 +26,7 @@ AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Malaysia provides gov
 - [OPEN GATE: GlobalHalalDigitalTrust GitHub branch-protection administration — owner: repository administrator — blocking: canonical source governance hardening]
 - [OPEN GATE: Vercel deployment build capacity — current status: external `build-rate-limit` failure on both Amanah deployment status contexts; owner: Vercel account/hosting administrator — blocking: production deployment confirmation]
 
-## Completion rule
+- [OPEN GATE: AI-generated 4K stakeholder cinematic — owner: corporate media / Runway workspace administrator — blocking: new photoreal 90-second generated master only; existing website motion master and generated voiceovers are complete]\n\n## Completion rule
 
 **FULL ARCHITECTURE NOW → REAL CONNECTORS WHEN AVAILABLE → NO REDESIGN REQUIRED.**
 
