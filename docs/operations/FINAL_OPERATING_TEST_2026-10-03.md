@@ -64,8 +64,8 @@ Final closure requires exact-head success for:
 
 This PASS means repository-controlled architecture, implementation contracts, operating materials and evidence paths are internally complete and consistent. It does not fabricate external production activation.
 
-**Items 1–69: COMPLETE TO PROJECT-CONTROLLED SCOPE**, subject to exact-head final CI and merge.
+**Items 1–69: COMPLETE TO PROJECT-CONTROLLED SCOPE.** Exact-head final CI passed on PR #54, the closure batch merged to `main`, and current Vercel deployment contexts are green.
 
 Shipment 001 remains NOT-INSTANTIATED.
 
-**Closure:** Item 69 complete to project control after final exact-head CI and merge.
+**Closure:** Item 69 complete to project control. Final exact-head CI and merge are verified.

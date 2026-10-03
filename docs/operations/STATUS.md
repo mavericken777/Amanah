@@ -33,7 +33,7 @@ The retired `ghscl-site` Edge Function redirects to the current public Pages web
 
 ## External CI/deployment condition
 
-The current GitHub commit carries Vercel status failures for `amanah` and `amanah-yq9x` with target status `build-rate-limit`. This is an external Vercel capacity/rate-limit condition, not a source-code test result. It must not be represented as a successful production deployment. No code change was made to bypass that external gate.
+Current main deployment checks are green for both Vercel contexts (`amanah` and `amanah-yq9x`). The prior external build-rate-limit condition is closed. Production hosting remains distinct from authenticated production UAT and external connector activation.
 
 
 ## 3 October execution sync — Items 56–60
@@ -48,4 +48,4 @@ Programme-wide red-team, visual QC, document QC and claim verification now have 
 
 ## 3 October final programme sync — Items 66–69
 
-Definition of Done, execution priority, standing execution instruction and final operating test are now controlled. The 69-item programme is complete to repository/project-controlled scope subject to the final exact-head CI/merge. This status does not close external activation gates in PENDING and does not instantiate Shipment 001.
+Definition of Done, execution priority, standing execution instruction and final operating test are now controlled. The 69-item programme is complete to repository/project-controlled scope. Final exact-head CI passed on PR #54, the closure batch merged to main as `62f1fbc025eb8e981e8cb92fcc98ae11be4400a3`, and both Vercel deployment contexts on that main commit are green. This status does not close external activation gates in PENDING and does not instantiate Shipment 001.
