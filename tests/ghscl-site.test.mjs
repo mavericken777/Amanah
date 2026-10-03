@@ -18,7 +18,7 @@ test('homepage explains Amanah to first-time visitors', () => {
 test('homepage preserves the Amanah and AHTE relationship and points to deeper material', () => {
   assert.match(html,/Amanah Halal Trust Ecosystem/);
   for (const path of ['ecosystem.html','how-it-works.html','digital-trust.html','china-gcc.html','contact.html#enquiry']) assert.ok(html.includes(`href="${path}"`), `missing ${path}`);
-  assert.match(deep['digital-trust'],/AHTE ⇄ Direct JAKIM API ⇄ JAKIM/);
+  assert.match(fs.readFileSync('ghscl-website/ecosystem.html','utf8'),/AHTE ⇄ Direct JAKIM API ⇄ JAKIM/);
   assert.match(deep['china-gcc'],/China/);
 });
 
