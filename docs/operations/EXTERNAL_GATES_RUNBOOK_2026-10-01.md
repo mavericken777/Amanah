@@ -1,71 +1,78 @@
-# Amanah external operations closure runbook — 2026-10-01
+# Amanah External Operations Runbook
 
-## Purpose
+**Original control date:** 2026-10-01  
+**Reconciled:** 2026-10-03  
+**Purpose:** account / managed-service / counterparty gates that repository code cannot close by itself.
 
-This document records the remaining account/managed-service operations that cannot be completed by repository code alone. It is an execution runbook, not authority text, and does not change the IQ300 freeze.
+This runbook is operational guidance, not authority text, and does not change the verified freeze.
 
-## Managed service state
+## 1. Managed service state
 
-Read-back: ACTIVE_HEALTHY, PostgreSQL 17.11. Managed maintenance is routine operations, not an outstanding reconciliation gate. Backup/restore and production UAT remain deployment responsibilities.
+Supabase project state is controlled by `docs/operations/STATUS.md`. Managed maintenance, backup/restore and production operations remain normal platform responsibilities rather than architecture gaps.
 
 ## 2. Protect Amanah `main`
 
-Required repository ruleset for `mavericken777/Amanah`:
+Required repository governance:
+- pull request required;
+- direct pushes prohibited;
+- required Amanah CI checks;
+- force pushes / branch deletion blocked;
+- conversation resolution required;
+- emergency bypass only where explicitly governed.
 
-- target branch: `main`;
-- require pull request before merge;
-- block direct pushes;
-- require Amanah CI checks: `typecheck`, `test`, `edge-functions`, `policies`, `reference-platform`, `reference-runtime`, `build`, `browser-smoke`;
-- block force pushes and branch deletion;
-- require conversation resolution;
-- use only explicitly governed emergency bypasses.
-
-The currently connected GitHub integration exposes ruleset reads but not ruleset/branch-protection administration. This remains an account-administration gate rather than a code defect.
+[OPEN GATE: Amanah GitHub branch-protection administration — owner: repository administrator — blocking: repository governance hardening]
 
 ## 3. Protect GlobalHalalDigitalTrust `main`
 
-Apply equivalent source-governance controls to `mavericken777/GlobalHalalDigitalTrust`:
+Apply equivalent source-governance controls appropriate to the canonical repository.
 
-- target `main`;
-- pull request required;
-- direct pushes prohibited;
-- required CI checks appropriate to that repository;
-- block force pushes and branch deletion;
-- require conversation resolution;
-- controlled emergency bypass only where explicitly governed.
+[OPEN GATE: GlobalHalalDigitalTrust GitHub branch-protection administration — owner: repository administrator — blocking: canonical source governance hardening]
 
-## 4. Production Amanah web hosting
+## 4. Production hosting and authenticated UAT
 
-Supabase project URL:
+Production hosting/deployment state is reported in `docs/operations/STATUS.md`; the obsolete generic “hosting authorization” gate is not the current blocker.
 
+Required remaining UAT evidence:
+- authorized production test identities;
+- correct tenant / role membership;
+- sign-in and callback verification;
+- representative protected-route access;
+- role/permission negative tests;
+- stakeholder acceptance record;
+- environment verification without exposing secrets.
+
+### Environment configuration
+
+Configure production secrets and public environment values only in the hosting provider’s protected environment. Never commit credentials, service-role keys or secret keys.
+
+Supabase URL:
 `https://lqvyyylrydcpjochknag.supabase.co`
 
-Required production application environment:
+Expected public variables include:
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+- `NEXT_PUBLIC_SITE_URL`
 
-```text
-NEXT_PUBLIC_SUPABASE_URL=https://lqvyyylrydcpjochknag.supabase.co
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=<current Supabase publishable key>
-NEXT_PUBLIC_SITE_URL=https://<final-production-domain>/
-```
+Auth redirect URLs must match the authorized production domain and `/auth/callback`.
 
-Never commit credentials, service-role keys or secret keys. Configure production environment variables in the hosting provider's protected environment surface.
+[OPEN GATE: authenticated production UAT identities/roles and stakeholder acceptance — owner: authorized platform administrators + participating organisations]
 
-### Auth callback validation
+## 5. External connector activation
 
-Before production launch, configure the final production Site URL and exact production redirect URL(s) in Supabase Auth URL Configuration.
+Production activation requires attributable counterparty/authority evidence:
+- Direct JAKIM API specification, authorization, credentials and UAT;
+- laboratory identity/accreditation/method scope and production interface;
+- Sinotrans contracting entity/sites/lanes/systems and security agreement;
+- origin/GCC port/customs permissions;
+- GCC destination acceptance/import release;
+- finance/Takaful/regulatory counterparties and approvals.
 
-Minimum production callback target:
+No missing external input justifies removing the implemented integration point.
 
-`https://<final-production-domain>/auth/callback`
+## 6. Transaction activation
 
-## Closure evidence required
+Shipment 001 remains NOT-INSTANTIATED until transaction-native product, buyer/importer, batch, authority, laboratory, custody/logistics and destination evidence exists.
 
-This file may be marked closed only after evidence exists for each applicable gate:
+## Closure evidence
 
-- Amanah GitHub: ruleset read-back showing `main` protected;
-- GlobalHalalDigitalTrust GitHub: ruleset read-back showing `main` protected;
-- Hosting: production URL + successful build/deployment + Auth callback test + environment verification without exposing secrets.
-
-[OPEN GATE: Amanah GitHub branch protection — owner: GitHub repository administrator — blocking: repository governance hardening]
-[OPEN GATE: GlobalHalalDigitalTrust GitHub branch protection — owner: GitHub repository administrator — blocking: canonical source governance hardening]
-[OPEN GATE: production Amanah hosting authorization — owner: Maverick / hosting account administrator — blocking: production UAT]
+An external gate closes only when its exact evidence is attached/referenced in the controlled system. Development fixtures, architecture diagrams and internal receipts do not close production gates.
