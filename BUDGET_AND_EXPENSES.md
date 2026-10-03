@@ -1,23 +1,33 @@
-# Budget & Expenses
+# China Mission Budget & Expenses
 
-Working currency: TBD
+**Status:** COMMERCIAL CONTROL FRAME / NO APPROVED NUMERIC BUDGET IN REPOSITORY  
+**Controlling commercial boundary:** `docs/commercial/AMANAH_COMMERCIAL_MODEL_UNIT_ECONOMICS_2026-10-03.md`
 
-## Budget
+No working currency, travel budget, supplier quotation or reimbursement amount is treated as approved unless supported by an authorised budget/expense record.
 
-| Category | Planned | Actual | Variance | Owner | Status |
+## Budget control categories
+
+| Category | Planned | Actual | Variance | Accountable role | State |
 |---|---:|---:|---:|---|---|
-| Flights | 0 | 0 | 0 | TBD | Pending |
-| Accommodation | 0 | 0 | 0 | TBD | Pending |
-| Ground transport | 0 | 0 | 0 | TBD | Pending |
-| Meals | 0 | 0 | 0 | TBD | Pending |
-| Meetings / business | 0 | 0 | 0 | TBD | Pending |
-| Contingency | 0 | 0 | 0 | TBD | Pending |
-| Total | 0 | 0 | 0 | | |
+| Flights / rail | SOURCE-LOCKED | SOURCE-LOCKED | calculated after evidence | Travel / finance | OPEN GATE |
+| Accommodation | SOURCE-LOCKED | SOURCE-LOCKED | calculated after evidence | Travel / finance | OPEN GATE |
+| Ground transport | SOURCE-LOCKED | SOURCE-LOCKED | calculated after evidence | Travel / finance | OPEN GATE |
+| Meals / per diem | SOURCE-LOCKED | SOURCE-LOCKED | calculated after evidence | Finance | OPEN GATE |
+| Meetings / business | SOURCE-LOCKED | SOURCE-LOCKED | calculated after evidence | Mission / finance | OPEN GATE |
+| Contingency | SOURCE-LOCKED | SOURCE-LOCKED | calculated after approval | Finance | OPEN GATE |
 
-## Expense log
+## Expense evidence
 
-| Date | Category | Description | Amount | Currency | Paid by | Reimbursable | Receipt location | Status |
-|---|---|---|---:|---|---|---|---|---|
-| TBD | TBD | TBD | 0 | TBD | TBD | TBD | Secure storage | Pending |
+Expense entries belong in the authenticated Amanah finance workflow or approved finance system with:
+- date;
+- category;
+- description;
+- amount and currency;
+- payer / cost centre;
+- reimbursable status;
+- receipt/evidence reference;
+- approval state.
 
-Never commit card numbers, bank credentials, or sensitive financial documents.
+Do not commit payment-card numbers, bank credentials, invoices containing sensitive personal data, or private booking credentials.
+
+[OPEN GATE: approved China Mission budget / working currency / expense policy — owner: GHSCL finance/commercial]
