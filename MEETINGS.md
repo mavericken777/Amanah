@@ -1,35 +1,44 @@
-# Meetings & Engagements
+# China Mission Meetings & Engagements
 
-| Date | Time | Organisation / Person | City | Venue | Purpose | Attendees | Owner | Status |
-|---|---|---|---|---|---|---|---|---|
-| TBD | TBD | TBD | TBD | TBD | TBD | TBD | TBD | Pending |
+**Status:** CURRENT MEETING-CONTROL HANDOFF  
+**Controlling brief book:** `docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md`
 
-## Meeting preparation template
+The old blank meeting table is superseded by the controlled meeting brief book and Amanah meeting records.
 
-Meeting: TBD
+## Meeting readiness gate
 
-Objective:
-TBD
+A meeting may be marked **CONFIRMED** only when the following are known:
+1. exact counterparty legal entity;
+2. named participants / titles;
+3. date, local time, city and venue or authorized remote channel;
+4. meeting objective and decision sought;
+5. meeting owner;
+6. required documents / evidence;
+7. written confirmation or equivalent evidence reference.
 
-Desired outcome:
-TBD
+## Priority briefs already controlled
 
-Attendees:
-TBD
+- CODA / industrial network
+- Manufacturer
+- Laboratory
+- China traceability / serialization provider
+- Sinotrans
+- PHC / GHSCL internal mission governance
+- Port / customs technical discovery
+- GCC buyer / importer follow-up
 
-Agenda:
-1. TBD
-2. TBD
-3. TBD
+## Close-out
 
-Documents required:
-TBD
+Within 15 minutes after each meeting, update Amanah with:
+- participants;
+- evidence shown / received;
+- decisions;
+- proposals vs facts;
+- actions / owners / due dates;
+- open gates;
+- next meeting;
+- legal / MOA status;
+- commercial status;
+- technical integration status.
 
-Follow-up owner:
-TBD
-
-Outcome / notes:
-TBD
-
-Related actions:
-Record follow-up work in ACTION_ITEMS.md.
+[SOURCE-LOCKED: actual meeting confirmations and attendance]
