@@ -1,24 +1,35 @@
 # Project Updates
 
-Use this file for dated progress updates intended for Mr and the wider team.
+**Status:** CURRENT SUMMARY / NOT A SUBSTITUTE FOR STATUS.md
 
-## 2026-09-29 — Project workspace setup
+For current implementation truth use `docs/operations/STATUS.md`; for external gates use `docs/operations/PENDING.md`.
 
-Overall status: Setup
+## 2026-10-03 — Programme closure and refinement
+
+Overall status: **69/69 COMPLETE TO PROJECT-CONTROLLED SCOPE**
 
 Completed:
-- Repository structure created.
-- Core planning and tracking documents established.
+- Canonical architecture, source binding and data model.
+- Manufacturer, facility, product/SKU, supplier/material and evidence lifecycle controls.
+- AI-assisted review, human governance, laboratory, audit/CAPA, certification lifecycle and production monitoring.
+- Hardware/BOM, custody/logistics, Sinotrans, port/customs adapter and API packages.
+- Cybersecurity, governance, continuity, exception and Command Center controls.
+- Website, corporate profile, infographic suite, cinematic/voiceover controls and Mandarin adaptation.
+- Legal, commercial, KPI/SLA, academy, SOP, China Mission and QA packs.
+- Definition of Done, final operating test and final programme closure.
+- Post-closure current-state and China Mission root-file reconciliation.
 
-In progress:
-- Collecting and confirming the actual China trip details.
+External / source-locked:
+- JAKIM production API specification/authorization/credentials.
+- real laboratory production identity/scope/interface.
+- Sinotrans production systems/sites/lanes.
+- port/customs permissions.
+- GCC destination acceptance.
+- finance/Takaful/regulatory counterparties.
+- authenticated production UAT identities/roles and stakeholder acceptance.
+- real Shipment 001 evidence.
+- final legal/counterparty execution and validated commercial inputs.
 
-Blocked:
-- None recorded.
+Shipment 001 remains **NOT-INSTANTIATED**.
 
-Next actions:
-- Populate trip dates.
-- Add travellers and responsibilities.
-- Confirm itinerary.
-- Confirm meetings.
-- Complete logistics and document requirements.
+The repository must not convert any external gate into a completed fact without evidence.
