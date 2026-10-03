@@ -1,17 +1,22 @@
-# Accommodation
+# China Mission Accommodation
 
-| City | Property | Check-in | Check-out | Room / allocation | Booking status | Owner | Notes |
-|---|---|---|---|---|---|---|---|
-| TBD | TBD | TBD | TBD | TBD | Pending | TBD | |
+**Status:** EVIDENCE-BOUND ROOMING HANDOFF  
+**Controlling mission pack:** `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md`
 
-## Check-in notes
+The controlled mission pack records seven nights as a planning assumption within the proposed 11–18 October 2026 window. No property, city, room allocation or booking is represented as confirmed without booking evidence.
 
-TBD
+## Accommodation controls
 
-## Check-out notes
+| Element | Current state | Required evidence |
+|---|---|---|
+| Property / city | SOURCE-LOCKED | confirmed hotel booking |
+| Check-in / check-out | SOURCE-LOCKED | booking confirmation |
+| Room allocation | SOURCE-LOCKED | approved rooming list |
+| Late arrival / early departure | SOURCE-LOCKED | itinerary + hotel confirmation |
+| Hotel transport / meeting proximity | TO VALIDATE | confirmed itinerary / route plan |
 
-TBD
+## Data handling
 
-## Hotel contact
+Store only team-shareable operational information here. Booking credentials, payment details, identity documents and other sensitive information remain in approved secure storage.
 
-Store only information appropriate for team sharing. Sensitive booking credentials remain in approved secure storage.
+[SOURCE-LOCKED: accommodation and rooming confirmations]
