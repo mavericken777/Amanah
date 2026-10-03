@@ -68,11 +68,11 @@ Missing production credentials or counterparties do not justify deleting or hidi
 Project ref: `lqvyyylrydcpjochknag`  
 Region: `ap-northeast-1`
 
-Live verification on 2026-10-01:
+Current verified runtime state (reconciled 2026-10-03):
 
 - project status: `ACTIVE_HEALTHY`
 - PostgreSQL: `17.11`
-- 106 public base tables; RLS enabled on all 106
+- 120 public tables; RLS enabled on all 120
 - current target extension tables live: `ahte_command_center_alerts`, `ahte_predictions`, `ahte_preemptive_strategies`, `ahte_finance_evidence_packets`
 - target extension RLS, audit triggers and realtime publication applied where specified
 - foreign-key indexes for the new extension tables applied
