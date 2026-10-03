@@ -1,7 +1,8 @@
 # AMANAH 69 — Final Closure Record
 
-**Control date:** 2026-10-03
-**Scope:** Items 66–69 and programme closure
+**Control date:** 2026-10-03  
+**Scope:** Items 66–69 and programme closure  
+**Status:** FINAL / PROJECT-CONTROLLED CLOSURE VERIFIED  
 **Close-out loop:** VERIFY → RECONCILE → EXECUTE → VALIDATE → CROSS-CHECK → AUDIT → CLOSE / OPEN GATE
 
 | Item | Deliverable | Status |
@@ -9,11 +10,11 @@
 | 66 | Definition of Done | COMPLETE TO PROJECT CONTROL |
 | 67 | Execution priority / sequence | COMPLETE TO PROJECT CONTROL |
 | 68 | Standing execution instruction | COMPLETE TO PROJECT CONTROL |
-| 69 | Final operating test | COMPLETE TO PROJECT CONTROL SUBJECT TO EXACT-HEAD CI |
+| 69 | Final operating test | COMPLETE / EXACT-HEAD CI + MERGE VERIFIED |
 
-## Programme closure condition
+## Programme closure
 
-All 69 mandated items have repository-controlled outputs or implemented controls. Genuine authority, partner and transaction dependencies remain external OPEN GATEs rather than fabricated completions.
+All 69 mandated items have repository-controlled outputs or implemented controls. Final exact-head CI and merge were verified. Genuine authority, partner, account and transaction dependencies remain external OPEN GATEs rather than fabricated completions.
 
 ## Canonical controls at closure
 
@@ -29,15 +30,15 @@ All 69 mandated items have repository-controlled outputs or implemented controls
 
 ## External gates retained
 
-See `docs/operations/PENDING.md` for Direct JAKIM production authorization, laboratory production interface/scope, Sinotrans production systems/sites/lanes, port/customs permissions, GCC destination acceptance, finance/Takaful approvals, production hosting/UAT and real Shipment 001 evidence.
+See `docs/operations/PENDING.md` for Direct JAKIM production authorization, laboratory production interface/scope, Sinotrans production systems/sites/lanes, port/customs permissions, GCC destination acceptance, finance/Takaful approvals, authenticated production UAT identities/roles and stakeholder acceptance, branch-protection administration, final legal/counterparty execution, validated commercial inputs and real Shipment 001 evidence.
 
-## Final repository requirement
+## Ongoing repository rule
 
-Final closure requires:
-1. exact-head CI passes all jobs;
-2. final PR is merged to main;
-3. main is rechecked;
-4. no unintended repository-controlled open PR remains;
-5. deployment state is reported separately from source-code CI.
+Every subsequent repository change must:
+1. pass exact-head CI;
+2. preserve the freeze/source binding unless explicitly re-versioned;
+3. preserve authority and state separation;
+4. update current-state controls when mutable facts change;
+5. keep deployment/production activation distinct from repository capability.
 
 This record does not convert an external gate into a completed production event.
