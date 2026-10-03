@@ -24,7 +24,6 @@ AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Malaysia provides gov
 - [OPEN GATE: production Amanah hosting authorization — owner: Maverick / hosting administrator — blocking: production UAT]
 - [OPEN GATE: Amanah GitHub branch-protection administration — owner: repository administrator — blocking: repository governance hardening]
 - [OPEN GATE: GlobalHalalDigitalTrust GitHub branch-protection administration — owner: repository administrator — blocking: canonical source governance hardening]
-- [OPEN GATE: Vercel deployment build capacity — current status: external `build-rate-limit` failure on both Amanah deployment status contexts; owner: Vercel account/hosting administrator — blocking: production deployment confirmation]
 
 
 - [OPEN GATE: final legal/counterparty execution — exact entities, governing law, liability, data roles, commercial schedules and authorised signatures required]
