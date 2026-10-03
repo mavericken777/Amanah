@@ -5,7 +5,7 @@ const data=JSON.parse(fs.readFileSync('ghscl-website/ecosystem.en.json','utf8'))
 fs.mkdirSync('browser-results',{recursive:true});
 const browser=await chromium.launch({headless:true});
 try {
- for(const viewport of [{width:1440,height:1000},{width:390,height:844}]) {
+ for(const viewport of [{width:375,height:844},{width:768,height:1024},{width:1024,height:900},{width:1440,height:1000}]) {
   const context=await browser.newContext({viewport,reducedMotion:'reduce'});
   // Only local fixture servers; no production reads/writes, fonts or disclosure requests.
   await context.route('**/*',route=>{
@@ -71,7 +71,7 @@ try {
   await context.close();
  }
  const page=await browser.newPage();
- for(const viewport of [{width:1440,height:1000},{width:390,height:844}]) {
+ for(const viewport of [{width:375,height:844},{width:768,height:1024},{width:1024,height:900},{width:1440,height:1000}]) {
   await page.setViewportSize(viewport);
   for(const route of ['/login','/auth/sign-up']) {
    await page.goto('http://127.0.0.1:3000'+route);
@@ -102,5 +102,5 @@ try {
   const response=await page.request.get('http://127.0.0.1:3000'+route);
   assert.equal(response.status(),401,route);
  }
- console.log(`Browser smoke passed: ${data.pages.length+3} public pages × 2 viewports; ${protectedPages.length} protected routes; anonymous API guards. No production transaction was performed.`);
+ console.log(`Browser smoke passed: ${data.pages.length+3} public pages × 4 viewports; ${protectedPages.length} protected routes; anonymous API guards. No production transaction was performed.`);
 } finally {await browser.close();}
