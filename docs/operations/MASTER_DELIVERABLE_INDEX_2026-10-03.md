@@ -88,7 +88,7 @@
 
 ## J. Quality state
 
-Items 1–69 are complete to project-controlled scope subject to final exact-head CI and merge. Genuine external activation gates remain in `PENDING.md`; they do not justify removing implemented/defined capabilities.
+Items 1–69 are complete to project-controlled scope. Final exact-head CI and merge are verified. Genuine external activation gates remain in `PENDING.md`; they do not justify removing implemented/defined capabilities.
 
 ## K. Final programme controls
 

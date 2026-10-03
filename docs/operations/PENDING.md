@@ -21,7 +21,7 @@ AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Malaysia provides gov
 - [OPEN GATE: GCC destination acceptance/import release — owner: applicable GCC authority/importer — blocking: Operational Release]
 - [OPEN GATE: Shariah Finance/Takaful/tokenomics counterparties and product approvals — owner: applicable bank/financier/Takaful/Shariah/legal/regulatory parties — blocking: finance transaction activation]
 - [OPEN GATE: real Shipment 001 evidence — owner: transaction participants — blocking: Evidence → Audit Test → Authority Gate]
-- [OPEN GATE: production Amanah hosting authorization — owner: Maverick / hosting administrator — blocking: production UAT]
+- [OPEN GATE: authenticated production UAT identities/roles and stakeholder acceptance — owner: authorised platform administrators + participating organisations — blocking: authenticated production UAT; current hosting deployment contexts are green]
 - [OPEN GATE: Amanah GitHub branch-protection administration — owner: repository administrator — blocking: repository governance hardening]
 - [OPEN GATE: GlobalHalalDigitalTrust GitHub branch-protection administration — owner: repository administrator — blocking: canonical source governance hardening]
 
