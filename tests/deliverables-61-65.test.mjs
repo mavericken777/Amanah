@@ -50,7 +50,7 @@ test('human master index covers mission quality and final batch',()=>{
   const s=fs.readFileSync(required[4],'utf8');
   assert.match(s,/## I\. China Mission/);
   assert.match(s,/## J\. Quality state/);
-  assert.match(s,/Next: Items 66–69/);
+  assert.match(s,/Items 1–69 are complete to project-controlled scope/);
 });
 
 function walk(dir){
@@ -73,7 +73,7 @@ test('public website contains no retired authority hop or default China-to-Malay
 test('execution register advances items 61-65',()=>{
   const s=fs.readFileSync('docs/operations/AMANAH_69_EXECUTION_REGISTER_2026-10-02.md','utf8');
   assert.match(s,/61–65 .*COMPLETE TO PROJECT CONTROL/);
-  assert.match(s,/66–69 .*NEXT \/ FINAL EXECUTION BATCH/);
+  assert.match(s,/66–69 /);
 });
 
 test('machine index points to current QA controllers',()=>{

@@ -1,6 +1,6 @@
 {
   "artifact": "AMANAH Master Deliverable Index",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "control_date": "2026-10-03",
   "owner": "AMANAH / GHSCL programme office",
   "source_priority": [
@@ -240,7 +240,43 @@
       "path": "docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md",
       "owner": "Programme office",
       "status": "CONTROLLING DIRECTORY"
+    },
+    {
+      "id": "D34",
+      "name": "Definition of Done",
+      "path": "docs/operations/DEFINITION_OF_DONE_2026-10-03.md",
+      "owner": "Programme office / QA",
+      "status": "CONTROLLING"
+    },
+    {
+      "id": "D35",
+      "name": "Execution priority and sequence",
+      "path": "docs/operations/EXECUTION_PRIORITY_SEQUENCE_2026-10-03.md",
+      "owner": "Programme office",
+      "status": "CONTROLLING"
+    },
+    {
+      "id": "D36",
+      "name": "Standing execution instruction",
+      "path": "docs/operations/STANDING_EXECUTION_INSTRUCTION_2026-10-03.md",
+      "owner": "Programme office / Governance",
+      "status": "CONTROLLING"
+    },
+    {
+      "id": "D37",
+      "name": "Final operating test",
+      "path": "docs/operations/FINAL_OPERATING_TEST_2026-10-03.md",
+      "owner": "QA / Programme office",
+      "status": "FINAL QUALITY GATE"
+    },
+    {
+      "id": "D38",
+      "name": "69-item final closure record",
+      "path": "docs/operations/AMANAH_69_FINAL_CLOSURE_2026-10-03.md",
+      "owner": "Programme office",
+      "status": "FINAL CLOSURE RECORD"
     }
   ],
-  "hard_freeze": "master-standards-stack/verified-2026-09-17/"
+  "hard_freeze": "master-standards-stack/verified-2026-09-17/",
+  "programme_status": "69/69 COMPLETE TO PROJECT-CONTROLLED SCOPE SUBJECT TO FINAL EXACT-HEAD CI"
 }

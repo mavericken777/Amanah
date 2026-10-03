@@ -88,8 +88,14 @@
 
 ## J. Quality state
 
-Items 1–65 are complete to project-controlled scope after exact-head CI passes for this batch. Genuine external activation gates remain in `PENDING.md`; they do not justify removing implemented/defined capabilities.
+Items 1–69 are complete to project-controlled scope subject to final exact-head CI and merge. Genuine external activation gates remain in `PENDING.md`; they do not justify removing implemented/defined capabilities.
 
-Next: Items 66–69 — definition of done, priority sequencing, standing execution instruction and final operating test.
+## K. Final programme controls
+
+- Definition of Done — `docs/operations/DEFINITION_OF_DONE_2026-10-03.md`
+- Execution priority / sequence — `docs/operations/EXECUTION_PRIORITY_SEQUENCE_2026-10-03.md`
+- Standing execution instruction — `docs/operations/STANDING_EXECUTION_INSTRUCTION_2026-10-03.md`
+- Final operating test — `docs/operations/FINAL_OPERATING_TEST_2026-10-03.md`
+- Final closure record — `docs/operations/AMANAH_69_FINAL_CLOSURE_2026-10-03.md`
 
 **Frozen baseline remains unchanged:** `master-standards-stack/verified-2026-09-17/`.
