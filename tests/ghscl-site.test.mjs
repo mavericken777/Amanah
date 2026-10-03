@@ -38,6 +38,9 @@ test('brand media remain available and homepage uses the approved visual assets'
 
 test('ecosystem runtime parses successfully', () => {
   assert.doesNotThrow(() => new vm.Script(js, { filename: 'ghscl-website/ecosystem.js' }));
+  const menu=fs.readFileSync('ghscl-website/home-menu.js','utf8');
+  assert.doesNotThrow(() => new vm.Script(menu, { filename: 'ghscl-website/home-menu.js' }));
+  assert.match(menu,/event\.key === 'Escape'/);
 });
 
 test('homepage responsive, keyboard and reduced-motion support exists', () => {
