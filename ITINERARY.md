@@ -1,28 +1,34 @@
-# China Trip Itinerary
+# China Mission Itinerary — Evidence-Bound Control
 
-| Date | City | Time | Activity | Location | Transport | Owner | Status | Notes |
-|---|---|---|---|---|---|---|---|---|
-| TBD | TBD | TBD | Arrival / travel | TBD | TBD | TBD | Pending | |
-| TBD | TBD | TBD | Meeting | TBD | TBD | TBD | Pending | |
-| TBD | TBD | TBD | Meeting | TBD | TBD | TBD | Pending | |
-| TBD | TBD | TBD | Departure / travel | TBD | TBD | TBD | Pending | |
+**Status:** PLANNING FRAME / NOT A CONFIRMED TRAVEL RECORD  
+**Controlling mission pack:** `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md`
 
-## Status legend
+The controlled mission pack records a **proposed planning window of 11–18 October 2026**, 12 travellers and seven nights. That planning record is not proof that flights, hotels, cities, transfers or meetings are confirmed.
 
-Confirmed
-Tentative
-Pending
-Blocked
-Cancelled
+## Itinerary control
 
-## Daily brief
+| Element | Current state | Required evidence before CONFIRMED |
+|---|---|---|
+| Mission window | PROPOSED: 11–18 Oct 2026 | booked transport / approved mission confirmation |
+| Traveller count | PLANNING: 12 | approved final roster |
+| City sequence | SOURCE-LOCKED | confirmed routing / booking evidence |
+| External meetings | SOURCE-LOCKED | written counterparty confirmation |
+| Ground transport | SOURCE-LOCKED | booking / assigned provider |
+| Daily timing | SOURCE-LOCKED | confirmed transport + meetings |
 
-### Day 1 — TBD
+## Daily brief standard
 
-Objective: TBD
+For each confirmed mission day record in Amanah:
+- city and objective;
+- movements and buffers;
+- confirmed meetings and participants;
+- required materials;
+- meeting owner;
+- decision sought;
+- evidence requested;
+- follow-up owner;
+- risk / contingency.
 
-Key movements: TBD
+Do not publish or circulate an itinerary as “confirmed” until the supporting evidence exists.
 
-Meetings: TBD
-
-Actions required: TBD
+[SOURCE-LOCKED: final itinerary and bookings]
