@@ -1,42 +1,50 @@
 # Team Guide
 
-## How to use Amanah
+## Start here
 
-README.md is the entry point.
+1. `README.md` — platform purpose and architecture.
+2. `REPO_INDEX.md` — controlling artifact by domain.
+3. `docs/operations/STATUS.md` — current verified project state.
+4. `docs/operations/PENDING.md` — genuine external / source-locked gates.
+5. `docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md` — stakeholder deliverable directory.
 
-ACTION_ITEMS.md answers: what needs to be done?
+## China Mission controls
 
-ITINERARY.md answers: where do we need to be and when?
+- `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md` — mission strategy and discipline.
+- `docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md` — counterparty meeting briefs.
+- `ACTION_ITEMS.md` — evidence-bound action handoff.
+- `ITINERARY.md` — itinerary evidence gates.
+- `MEETINGS.md` — meeting confirmation / close-out rules.
+- `LOGISTICS.md` — travel logistics evidence gates.
+- `ACCOMMODATION.md` — rooming evidence gates.
+- `RISK_REGISTER.md` — mission risk handoff.
+- `DOCUMENTS_AND_COMPLIANCE.md` — document-readiness controls.
+- `TEAM_AND_RESPONSIBILITIES.md` — role-based accountability.
 
-MEETINGS.md answers: who are we meeting and why?
+## Where live operational records belong
 
-UPDATES.md answers: what changed recently?
+Use the authenticated Amanah workspace for:
+- tasks and owners;
+- meeting records;
+- risks;
+- documents/evidence references;
+- decisions;
+- project updates;
+- finance/expenses;
+- approvals and workflows.
 
-DECISIONS.md answers: what has been agreed?
+Use Git for durable architecture, controlled packs, templates, policies and non-sensitive handoffs — not passwords, identity documents, secret credentials, private booking details or mutable personal data.
 
-RISK_REGISTER.md answers: what could affect the project?
+## Editing discipline
 
-## Editing
+Before changing a controlling artifact:
+1. identify the controlling source;
+2. distinguish verified fact / repository capability / project-defined capability / external integration / commercial proposal / assumption;
+3. preserve authority boundaries;
+4. update affected dependent artifacts;
+5. run full CI;
+6. merge only after validation.
 
-1. Open the relevant file.
-2. Update the information.
-3. Use clear dates and names.
-4. Check the status.
-5. Commit the change with a meaningful message.
-
-Good commit examples:
-- Update China itinerary — add Beijing meeting
-- Confirm hotel booking — Shanghai
-- Update action owner — travel documents
-
-## GitHub basics
-
-A repository is the project workspace.
-
-A branch is a separate version where changes can be made safely.
-
-A commit is a saved change.
-
-A pull request is a request to merge a branch into another branch.
-
-For routine factual updates, small commits are easier to understand and review.
+Canonical topology: **AHTE ⇄ Direct JAKIM API ⇄ JAKIM**.  
+Physical corridor: **China → GCC direct**.  
+AI assists; authorised humans / competent authorities decide.
