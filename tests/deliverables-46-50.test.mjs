@@ -30,8 +30,10 @@ test('corporate website exposes profile and infographic suite', () => {
   const home=fs.readFileSync('ghscl-website/index.html','utf8');
   assert.match(home,/corporate-profile\.html/);
   assert.match(home,/visuals\.html/);
-  assert.match(home,/AHTE ⇄ Direct JAKIM API ⇄ JAKIM/);
-  assert.match(home,/China → GCC/);
+  const authority=fs.readFileSync('ghscl-website/digital-trust.html','utf8');
+  const corridor=fs.readFileSync('ghscl-website/china-gcc.html','utf8');
+  assert.match(authority,/AHTE ⇄ Direct JAKIM API ⇄ JAKIM/);
+  assert.match(corridor,/China/);
 });
 
 test('corporate profile preserves authority boundary', () => {
