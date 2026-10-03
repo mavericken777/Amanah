@@ -1,46 +1,45 @@
-# Project Overview
+# Project Overview — Amanah / Global Halal Digital Trust
+
+**Status:** CURRENT PROJECT HANDOFF  
+**Controlling navigation:** `README.md` → `REPO_INDEX.md` → `docs/operations/STATUS.md`
 
 ## Purpose
 
-Provide Mr and the team with a single reliable project reference for the China trip, covering planning, execution, decisions, responsibilities, logistics, updates, and follow-up.
+Amanah is the operational application layer for the Global Halal Digital Trust Ecosystem. It connects project/workflow management with AHTE standards/applicability, evidence, human governance, laboratory, audit/CAPA, production monitoring, custody/logistics, Command Center, authority-connectivity and verification workflows.
 
-## Objectives
+The China Mission is one operational workstream inside Amanah; it is not the definition of the platform.
 
-- Keep important trip information in one controlled location.
-- Make responsibilities and deadlines visible.
-- Maintain a current itinerary and meeting schedule.
-- Record decisions and changes.
-- Track risks, dependencies, and outstanding actions.
-- Reduce reliance on fragmented chat messages for permanent information.
+## Canonical operating position
 
-## Scope
+- Authority topology: **AHTE ⇄ Direct JAKIM API ⇄ JAKIM**.
+- Physical corridor: **China → GCC direct**.
+- Malaysia: governance / assurance / authority-connectivity plane unless separately scoped.
+- AI: D0–D2 and configured D4 support; no D5/D6 authority decision.
+- Evidence precedes trust; trust precedes operational release.
+- Shipment 001 remains **NOT-INSTANTIATED** until real transaction evidence exists.
 
-### In scope
+## Current programme state
 
-Travel planning, itinerary, transportation, accommodation, meetings, people, responsibilities, documents, budget tracking, risks, action items, decisions, status updates, and post-trip follow-up.
+The 69-item project-controlled programme is complete and final CI/merge are verified. Genuine external activation gates remain controlled in `docs/operations/PENDING.md`.
 
-### Out of scope
+## China Mission objective
 
-Passwords, API keys, private access links, identity documents, payment-card information, and sensitive files that belong in approved secure storage.
+Convert the completed project architecture into real origin-side relationships, integration discovery, manufacturer/laboratory/logistics evidence pathways, commercial inputs and accountable next actions without converting planning assumptions into commitments.
 
-## Success criteria
+## Systems of record
 
-The team should be able to answer from this repository:
+| Information | System / controller |
+|---|---|
+| Current project truth | `docs/operations/STATUS.md` |
+| External gates | `docs/operations/PENDING.md` |
+| Deliverables | `docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md` |
+| Mission strategy | `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md` |
+| Meeting briefs | `docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md` |
+| Live task / meeting / risk records | authenticated Amanah workspace |
+| Sensitive traveller / booking records | approved secure storage |
 
-- Where are we going and when?
-- Who is travelling?
-- Who owns each task?
-- What meetings are scheduled?
-- What is confirmed and what is pending?
-- What documents are outstanding?
-- What has changed?
-- What decisions have been made?
-- What risks are active?
-- What needs action now?
+## Ownership rule
 
-## Ownership
+Named individuals and legal signing mandates must be entered only when actually confirmed. Role-based accountability is used until then.
 
-Project owner: TBD
-Executive / Mr: TBD
-Team lead: TBD
-Repository maintainer: TBD
+[SOURCE-LOCKED: final traveller roster, mission appointments and external commitments]
