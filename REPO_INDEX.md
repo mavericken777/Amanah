@@ -76,3 +76,8 @@ AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Shipment 001 remains 
 - [69-item final closure record](docs/operations/AMANAH_69_FINAL_CLOSURE_2026-10-03.md)
 
 **Programme state:** 69/69 complete to project-controlled scope. Final exact-head CI and merge are verified; current Vercel deployment contexts are green. External authority/partner/transaction/UAT gates remain controlled in PENDING.
+
+## 3 October final refinement
+
+- [Final five-point refinement pass](docs/operations/FINAL_REFINEMENT_PASS_2026-10-03.md)
+- Current-state regression guard: `tests/final-current-state.test.mjs`
