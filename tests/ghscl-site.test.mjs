@@ -4,76 +4,52 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 
 const html = fs.readFileSync('ghscl-website/index.html', 'utf8');
-const css = fs.readFileSync('ghscl-website/v4.css', 'utf8') + fs.readFileSync('ghscl-website/hybrid.css', 'utf8');
-const js = fs.readFileSync('ghscl-website/v4.js', 'utf8') + fs.readFileSync('ghscl-website/hybrid.js', 'utf8');
+const css = fs.readFileSync('ghscl-website/home-refresh.css', 'utf8');
+const deep = Object.fromEntries(['digital-trust','china-gcc','smart-audit'].map(name => [name, fs.readFileSync(`ghscl-website/${name}.html`, 'utf8')]));
+const js = fs.readFileSync('ghscl-website/ecosystem.js', 'utf8');
 
-test('GHSCL hybrid keeps the flagship narrative structure', () => {
-  for (const id of ['top','cinema','system','twin','monitoring','corridor','stakeholders']) {
-    assert.match(html, new RegExp(`id=["']${id}["']`), `missing #${id}`);
-  }
-  assert.match(html, /Data stays[\s\S]*Trust travels/i);
-  assert.match(html, /Seventeen technical instruments/i);
+test('homepage explains Amanah to first-time visitors', () => {
+  for (const id of ['top','journey']) assert.match(html, new RegExp(`id=["']${id}["']`));
+  for (const phrase of ['Every product carries a story.','Make trust travel with it.','From a source record to a confident handoff.','WHY A CONNECTED STORY MATTERS','Connected workflows for the people behind halal trade.','A practical workspace, built on a wider trust foundation.','Start a conversation']) assert.ok(html.includes(phrase), `missing visitor message: ${phrase}`);
+  assert.equal((html.match(/<h1\b/g)||[]).length,1);
+  assert.match(html,/home-refresh\.css/);
 });
 
-test('Hybrid contains persistent cinematic, WebGL and original media assets', () => {
-  for (const path of [
-    'ghscl-website/media/ghscl-trust-film.mp4',
-    'ghscl-website/media/ghscl-hybrid-film.mp4',
-    'ghscl-website/media/ghscl-hybrid-film.webm',
-    'ghscl-website/media/ghscl-mark.svg',
-    'ghscl-website/media/facility-render.svg',
-    'ghscl-website/media/lab-render.svg',
-    'ghscl-website/media/port-render.svg',
-    'ghscl-website/media/trust-object.svg',
-    'ghscl-website/media/architecture.webp',
-    'ghscl-website/media/corridor.webp',
-    'ghscl-website/media/trust-core.webp',
-    'ghscl-website/media/control-room.webp',
-    'ghscl-website/media/ghscl-monogram.svg',
-    'ghscl-website/media/ghscl-wordmark.svg'
-  ]) assert.ok(fs.existsSync(path), `missing ${path}`);
-  assert.match(html, /ghscl-hybrid-film\.mp4/);
-  assert.match(js, /getContext\(['"]webgl['"]/);
-  assert.match(js, /AudioContext|webkitAudioContext/);
-  assert.match(js, /currentTime/);
+test('homepage preserves the Amanah and AHTE relationship and points to deeper material', () => {
+  assert.match(html,/Amanah Halal Trust Ecosystem/);
+  for (const path of ['ecosystem.html','how-it-works.html','digital-trust.html','china-gcc.html','contact.html#enquiry']) assert.ok(html.includes(`href="${path}"`), `missing ${path}`);
+  assert.match(fs.readFileSync('ghscl-website/ecosystem.html','utf8'),/AHTE ⇄ Direct JAKIM API ⇄ JAKIM/);
+  assert.match(deep['china-gcc'],/China/);
 });
 
-test('removed AHTE explainer does not regress', () => {
-  assert.doesNotMatch(html, /WHAT\s+(?:IS|AHTE\s+IS)\s+AHTE/i);
-  assert.doesNotMatch(html, /What it does[\s\S]*What it never does/i);
+test('authority boundaries and pilot status remain available in the appropriate detail pages', () => {
+  assert.match(html,/Certification and other official decisions remain with the competent authorities and providers/);
+  assert.doesNotMatch(html,/\[PILOT: SHIPMENT 001\]|NOT[_ -]PRODUCTION[_ -]READY|release gate/i);
+  assert.match(deep['smart-audit'],/certification|competent authority/i);
+  assert.match(fs.readFileSync('ghscl-website/ecosystem.en.json','utf8'),/Shipment 001 remains a pilot requiring real execution evidence/);
 });
 
-test('authority boundary remains explicit', () => {
-  assert.match(html, /AI assists\. Humans decide\./i);
-  assert.match(html, /not a Malaysian Halal certificate/i);
-  assert.match(html, /competent[- ]authority|competent authorit/i);
-  assert.match(html, /Certification, border release and commercial approvals remain with their competent authorities and providers/i);
+test('brand media remain available and homepage uses the approved visual assets', () => {
+  for (const path of ['ghscl-website/media/ghscl-mark.svg','ghscl-website/media/architecture.webp','ghscl-website/media/corridor.webp','ghscl-website/media/ghscl-monogram.svg','ghscl-website/media/ghscl-wordmark.svg','ghscl-website/media/ghscl-hybrid-film.mp4']) assert.ok(fs.existsSync(path), `missing ${path}`);
+  assert.match(html,/media\/architecture\.webp/);
+  assert.match(html,/media\/ghscl-wordmark\.svg/);
+  assert.doesNotMatch(html,/webglHero|ghscl-hybrid-film/);
 });
 
-test('Shipment 001 stays explicitly pilot-only', () => {
-  assert.match(html, /\[PILOT: SHIPMENT 001\]/);
-  assert.match(html, /NO BILL OF LADING OR LIVE SENSOR DATA CLAIMED/i);
+test('ecosystem runtime parses successfully', () => {
+  assert.doesNotThrow(() => new vm.Script(js, { filename: 'ghscl-website/ecosystem.js' }));
 });
 
-test('Hybrid JavaScript parses successfully', () => {
-  assert.doesNotThrow(() => new vm.Script(js, { filename: 'ghscl-website/v4.js' }));
+test('homepage responsive, keyboard and reduced-motion support exists', () => {
+  assert.match(css,/max-width: 767px/);
+  assert.match(css,/max-width: 900px/);
+  assert.match(css,/prefers-reduced-motion: reduce/);
+  assert.match(html,/class="skip-link"/);
+  assert.match(html,/class="site-menu"/);
+  assert.match(html,/aria-label="Primary"/);
 });
 
-test('responsive, accessibility and reduced-motion safeguards exist', () => {
-  assert.match(css, /@media\(max-width:/);
-  assert.match(css, /prefers-reduced-motion/);
-  assert.match(html, /aria-pressed=["']false["']/);
-});
-
-test('site does not use insecure http assets', () => {
-  assert.doesNotMatch(html, /(?:src|href)=["']http:\/\//i);
-  assert.doesNotMatch(css, /url\(["']?http:\/\//i);
-});
-
- test('hybrid exposes all eight scenes and remains bound to corrected canonical source', () => {
-  assert.equal((html.match(/class="cinema-chapter /g) || []).length,8);
-  assert.equal((html.match(/class="chapter-jump /g) || []).length,8);
-  assert.ok(html.includes(JSON.parse(fs.readFileSync('config/source-binding.json','utf8')).commit));
-  assert.match(html,/authority_decided state has no onward machine transition/);
-  assert.match(html,/JAKIM \/ MAIN \/ JAIN/);
+test('homepage does not use insecure http assets', () => {
+  assert.doesNotMatch(html,/(?:src|href)=["']http:\/\//i);
+  assert.doesNotMatch(css,/url\(["']?http:\/\//i);
 });
