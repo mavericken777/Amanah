@@ -14,7 +14,7 @@
 
 ## Programme closure
 
-All 69 mandated items have repository-controlled outputs or implemented controls. Final exact-head CI and merge were verified. Genuine authority, partner, account and transaction dependencies remain external OPEN GATEs rather than fabricated completions.
+All 69 mandated items have repository-controlled outputs or implemented controls. Final exact-head CI and merge were verified. Genuine authority, partner and transaction dependencies remain external OPEN GATEs rather than fabricated completions. Account-administration and authenticated-UAT dependencies remain external gates as well.
 
 ## Canonical controls at closure
 
