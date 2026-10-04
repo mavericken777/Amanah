@@ -4,8 +4,7 @@ module.exports = {
       staticDistDir: "./platinum-site/dist",
       numberOfRuns: 1,
       settings: {
-        chromeFlags: "--headless --no-sandbox --disable-dev-shm-usage",
-        preset: "mobile"
+        chromeFlags: "--headless --no-sandbox --disable-dev-shm-usage"
       }
     },
     assert: {
