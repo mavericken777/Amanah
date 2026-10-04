@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import * as d3 from "d3";
 
 const logisticsNodes = [
   { id: "cn", label: "China Origin", x: 90, y: 145, detail: "Manufacturer / laboratory / origin evidence" },
@@ -24,54 +23,67 @@ export function TrustTerminal() {
     const svgElement = logisticsRef.current;
     if (!svgElement) return;
 
-    const svg = d3.select(svgElement);
-    svg.selectAll("*").remove();
+    let cancelled = false;
+    let teardown = () => {};
 
-    const layer = svg.append("g").attr("class", "d3-layer");
+    const observer = new IntersectionObserver(async entries => {
+      if (!entries.some(entry => entry.isIntersecting) || cancelled) return;
+      observer.disconnect();
+      const d3 = await import("d3");
+      if (cancelled || !logisticsRef.current) return;
 
-    const directRoute = [{ x: 90, y: 145 }, { x: 250, y: 82 }, { x: 410, y: 85 }, { x: 560, y: 135 }];
-    const line = d3.line<{x:number;y:number}>().x(d => d.x).y(d => d.y).curve(d3.curveBasis);
+      const svg = d3.select(svgElement);
+      svg.selectAll("*").remove();
 
-    layer.append("path")
-      .attr("class", "route-line route-line-direct")
-      .attr("d", line(directRoute) ?? "");
+      const layer = svg.append("g").attr("class", "d3-layer");
+      const directRoute = [{ x: 90, y: 145 }, { x: 250, y: 82 }, { x: 410, y: 85 }, { x: 560, y: 135 }];
+      const line = d3.line<{x:number;y:number}>().x(d => d.x).y(d => d.y).curve(d3.curveBasis);
 
-    layer.append("path")
-      .attr("class", "route-line route-line-governance")
-      .attr("d", line([{x:320,y:235},{x:320,y:160},{x:410,y:85}]) ?? "");
+      layer.append("path")
+        .attr("class", "route-line route-line-direct")
+        .attr("d", line(directRoute) ?? "");
 
-    const nodes = layer.selectAll<SVGGElement, typeof logisticsNodes[number]>("g.route-node")
-      .data(logisticsNodes, d => d.id)
-      .join(enter => {
-        const group = enter.append("g")
-          .attr("class", "route-node")
-          .attr("tabindex", 0)
-          .attr("role", "button")
-          .attr("aria-label", d => `${d.label}: ${d.detail}`)
-          .attr("transform", d => `translate(${d.x},${d.y})`)
-          .on("click", (_, d) => setLogisticsNode(d))
-          .on("keydown", (event, d) => {
-            if (event.key === "Enter" || event.key === " ") {
-              event.preventDefault();
-              setLogisticsNode(d);
-            }
-          });
+      layer.append("path")
+        .attr("class", "route-line route-line-governance")
+        .attr("d", line([{x:320,y:235},{x:320,y:160},{x:410,y:85}]) ?? "");
 
-        group.append("circle").attr("r", 8);
-        group.append("text").attr("y", -16).attr("text-anchor", "middle").text(d => d.label);
-        return group;
-      });
+      const nodes = layer.selectAll<SVGGElement, typeof logisticsNodes[number]>("g.route-node")
+        .data(logisticsNodes)
+        .join(enter => {
+          const group = enter.append("g")
+            .attr("class", "route-node")
+            .attr("tabindex", 0)
+            .attr("role", "button")
+            .attr("aria-label", d => `${d.label}: ${d.detail}`)
+            .attr("transform", d => `translate(${d.x},${d.y})`)
+            .on("click", (_, d) => setLogisticsNode(d))
+            .on("keydown", (event, d) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                setLogisticsNode(d);
+              }
+            });
 
-    nodes.classed("active", d => d.id === logisticsNode.id);
+          group.append("circle").attr("r", 8);
+          group.append("text").attr("y", -16).attr("text-anchor", "middle").text(d => d.label);
+          return group;
+        });
 
-    const zoom = d3.zoom<SVGSVGElement, unknown>()
-      .scaleExtent([.9, 2])
-      .on("zoom", event => layer.attr("transform", event.transform.toString()));
+      nodes.classed("active", d => d.id === logisticsNode.id);
 
-    svg.call(zoom).call(zoom.transform, d3.zoomIdentity);
+      const zoom = d3.zoom<SVGSVGElement, unknown>()
+        .scaleExtent([.9, 2])
+        .on("zoom", event => layer.attr("transform", event.transform.toString()));
 
+      svg.call(zoom).call(zoom.transform, d3.zoomIdentity);
+      teardown = () => svg.on(".zoom", null);
+    }, { rootMargin: "160px" });
+
+    observer.observe(svgElement);
     return () => {
-      svg.on(".zoom", null);
+      cancelled = true;
+      observer.disconnect();
+      teardown();
     };
   }, [logisticsNode.id]);
 
