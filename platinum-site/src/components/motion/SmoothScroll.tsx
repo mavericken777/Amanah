@@ -33,16 +33,17 @@ export function SmoothScroll() {
       };
     };
 
-    const idle = "requestIdleCallback" in window
+    const supportsIdle = typeof window.requestIdleCallback === "function";
+    const idle: number = supportsIdle
       ? window.requestIdleCallback(() => void start(), { timeout: 900 })
-      : window.setTimeout(() => void start(), 250);
+      : setTimeout(() => void start(), 250);
 
     return () => {
       cancelled = true;
-      if ("cancelIdleCallback" in window && typeof idle === "number") {
+      if (supportsIdle) {
         window.cancelIdleCallback(idle);
       } else {
-        window.clearTimeout(idle);
+        clearTimeout(idle);
       }
       cleanup();
     };
