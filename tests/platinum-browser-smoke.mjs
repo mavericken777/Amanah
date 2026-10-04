@@ -13,6 +13,13 @@ for (const width of viewports) {
   const errors = [];
   page.on("pageerror", error => errors.push(String(error)));
   await page.goto("http://127.0.0.1:4173/", { waitUntil: "networkidle" });
+  await page.evaluate(() => {
+    document.documentElement.style.scrollBehavior = "auto";
+    window.scrollTo(0, window.innerHeight);
+  });
+  await page.waitForFunction(() => document.documentElement.classList.contains("platinum-smooth-scroll"), { timeout: 10000 });
+  await page.locator(".platinum-scroll-progress").waitFor({ state: "attached" });
+  assert.ok(await page.evaluate(() => document.documentElement.classList.contains("platinum-smooth-scroll")), "Lenis smooth scroll must initialize on first scroll when reduced motion is off");
   assert.equal(errors.length, 0, `page errors at ${width}px: ${errors.join(" | ")}`);
 
   const metrics = await page.evaluate(() => ({
@@ -99,6 +106,11 @@ for (const width of viewports) {
   assert.ok(phaseThree.finance, "finance / Takaful partner pathway missing");
   assert.ok(phaseThree.corporateProfile >= 1, "corporate profile conversion path missing");
 
+  await page.locator("#terminal").scrollIntoViewIfNeeded();
+  await page.locator(".terminal-card").first().waitFor({ state: "attached" });
+  await page.locator("#verification-journey").scrollIntoViewIfNeeded();
+  await page.locator(".journey-stage").first().waitFor({ state: "attached" });
+
   const phaseFour = await page.evaluate(() => ({
     terminal: Boolean(document.querySelector("#terminal")),
     journey: Boolean(document.querySelector("#verification-journey")),
@@ -153,6 +165,9 @@ for (const width of viewports) {
 await page.emulateMedia({ reducedMotion: "reduce" });
 await page.setViewportSize({ width: 375, height: 900 });
 await page.goto("http://127.0.0.1:4173/", { waitUntil: "networkidle" });
+assert.equal(await page.evaluate(() => document.documentElement.classList.contains("platinum-smooth-scroll")), false, "Reduced motion must disable Lenis");
+await page.locator("#verification-journey").scrollIntoViewIfNeeded();
+await page.locator(".journey-stage").first().waitFor({ state: "attached" });
 assert.equal(await page.locator(".journey-stage").count(), 4, "Reduced-motion Phase 4 fallback must preserve all journey stages");
 assert.equal(await page.locator(".static-shield").count(), 1, "Reduced-motion Phase 4 fallback must preserve a static shield");
 assert.equal(await page.locator(".halal-shield-stage canvas").count(), 0, "Reduced-motion Phase 4 fallback must not require WebGL");

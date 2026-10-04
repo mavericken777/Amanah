@@ -21,7 +21,7 @@
 | Requirement | Observed state | Closure needed |
 |---|---|---|
 | Total JS ≤ 200 KB gzipped | Build emitted 366,930 bytes (358.3 KiB) across entry and async chunks. Entry alone is 90,957 bytes; the current budget checks entry size and each async chunk separately, so the aggregate target is not enforced. | Reduce aggregate shipped JavaScript to ≤204,800 bytes, or obtain an explicit revised budget interpretation before marking this gate complete. |
-| Lenis + GSAP single RAF and Motion scroll progress | Current `SmoothScroll.tsx` toggles a CSS class; `ScrollProgress.tsx` uses a custom requestAnimationFrame loop. Neither integrates Lenis/Motion as specified. | Implement and validate the requested integrations, or revise the controlling brief and package dependencies with approval from the project owner. |
+| Lenis + GSAP single RAF and Motion scroll progress | Implemented in PR #75: Lenis uses `autoRaf: false` and GSAP's ticker; Motion `useScroll/useSpring` drives progress, with reduced-motion bypass. | Closed after exact-head and post-merge CI pass. |
 | Lighthouse coverage of homepage | CI processes five discovered URLs; the run log does not list the homepage among them. | Add the root route explicitly to Lighthouse collection and confirm it is assessed on mobile. |
 | Reduced-transparency behavior | CSS fallback exists and CI checks for its selector, but the browser smoke does not emulate reduced transparency. | Add automated emulation coverage where supported and inspect fallback rendering. |
 | Physical-device / 3G validation | CI uses desktop Chromium viewport emulation. No physical phone or throttled 3G test is recorded. | Run the attached real-device and 3G checks and save the results before closing Phase 6. |

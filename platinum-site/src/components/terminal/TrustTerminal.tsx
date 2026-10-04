@@ -13,7 +13,7 @@ const complianceRows = [
   ["Direct JAKIM API", "Pending authorization", "Integration architecture is implemented; production activation requires authorised endpoint and credentials."],
 ];
 
-export function TrustTerminal() {
+export function TrustTerminal({ sectionId = "terminal" }: { sectionId?: string }) {
   const logisticsRef = useRef<SVGSVGElement>(null);
   const [logisticsNode, setLogisticsNode] = useState(logisticsNodes[0]);
   const [releaseState, setReleaseState] = useState("EVIDENCE PACKET READY");
@@ -93,7 +93,7 @@ export function TrustTerminal() {
   }
 
   return (
-    <section className="section terminal-section" id="terminal" aria-labelledby="terminal-title">
+    <section className="section terminal-section" id={sectionId || undefined} aria-labelledby="terminal-title">
       <div className="section-heading">
         <p className="eyebrow">08 / INTERACTIVE TRUST TERMINAL</p>
         <h2 id="terminal-title">Inspect the trust property behind every interaction.</h2>

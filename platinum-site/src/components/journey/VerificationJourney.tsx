@@ -36,7 +36,7 @@ const stages = [
   },
 ];
 
-export function VerificationJourney() {
+export function VerificationJourney({ sectionId = "verification-journey" }: { sectionId?: string }) {
   const rootRef = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotion();
 
@@ -106,7 +106,7 @@ export function VerificationJourney() {
   }, [reducedMotion]);
 
   return (
-    <section className="section journey-section" id="verification-journey" ref={rootRef} aria-labelledby="journey-title">
+    <section className="section journey-section" id={sectionId || undefined} ref={rootRef} aria-labelledby="journey-title">
       <div className="section-heading">
         <p className="eyebrow">09 / VERIFICATION JOURNEY</p>
         <h2 id="journey-title">Four stages. One evidence lineage. No collapsed authority boundary.</h2>
