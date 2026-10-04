@@ -14,11 +14,11 @@ export function HalalShield3D() {
     let cancelled = false;
     let runtime: ShieldRuntimeHandle | null = null;
     let resizeObserver: ResizeObserver | null = null;
+    let loading = false;
 
-    const observer = new IntersectionObserver(async entries => {
-      if (!entries.some(entry => entry.isIntersecting) || cancelled) return;
-      observer.disconnect();
-
+    const mount = async () => {
+      if (cancelled || loading || runtime) return;
+      loading = true;
       try {
         const module = await import("./halalShieldRuntime");
         if (cancelled || !hostRef.current) return;
@@ -32,7 +32,6 @@ export function HalalShield3D() {
           );
         };
         host.addEventListener("pointermove", onPointer, { passive: true });
-
         resizeObserver = new ResizeObserver(() => {
           runtime?.resize(host.clientWidth || 420, host.clientHeight || 420);
         });
@@ -45,28 +44,37 @@ export function HalalShield3D() {
           originalDispose();
         };
       } catch {
-        // Static shield remains the deterministic fallback when WebGL is unavailable.
         setInteractive(false);
+      } finally {
+        loading = false;
       }
-    }, { rootMargin: "120px" });
+    };
 
-    observer.observe(host);
+    // Keep the deterministic static shield on initial load. The heavier WebGL runtime
+    // is fetched only after genuine user intent, preventing hero decoration from
+    // consuming the page's main-thread performance budget.
+    const onIntent = () => void mount();
+    host.addEventListener("pointerenter", onIntent, { once: true, passive: true });
+    host.addEventListener("focusin", onIntent, { once: true });
+    host.addEventListener("touchstart", onIntent, { once: true, passive: true });
 
     return () => {
       cancelled = true;
-      observer.disconnect();
+      host.removeEventListener("pointerenter", onIntent);
+      host.removeEventListener("focusin", onIntent);
+      host.removeEventListener("touchstart", onIntent);
       resizeObserver?.disconnect();
       runtime?.dispose();
     };
   }, [reducedMotion]);
 
   return (
-    <div className="halal-shield-stage" ref={hostRef} data-interactive={interactive ? "true" : "false"}>
+    <div className="halal-shield-stage" ref={hostRef} data-interactive={interactive ? "true" : "false"} tabIndex={0}>
       <div className="static-shield" aria-hidden="true">
         <span className="static-shield-ring" />
         <strong lang="ar" dir="rtl">حلال</strong>
       </div>
-      <span className="shield-caption">{reducedMotion ? "STATIC TRUST SHIELD" : "INTERACTIVE TRUST SHIELD"}</span>
+      <span className="shield-caption">{reducedMotion ? "STATIC TRUST SHIELD" : interactive ? "INTERACTIVE TRUST SHIELD" : "TRUST SHIELD · INTERACT TO EXPLORE"}</span>
     </div>
   );
 }
