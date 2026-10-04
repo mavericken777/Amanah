@@ -140,6 +140,30 @@ for (const width of viewports) {
     assert.equal(await toggle.getAttribute("aria-expanded"), "false", "Escape did not close mobile navigation");
   }
 
+  const reducedTransparencyFallback = await page.evaluate(() => {
+    for (const sheet of document.styleSheets) {
+      let rules;
+      try {
+        rules = sheet.cssRules;
+      } catch {
+        continue;
+      }
+      for (const rule of rules) {
+        if (!(rule instanceof CSSMediaRule) || !rule.conditionText.includes("prefers-reduced-transparency")) continue;
+        for (const nested of rule.cssRules) {
+          if (nested instanceof CSSStyleRule && nested.selectorText === ".glass") {
+            const style = nested.style;
+            return style.background.includes("--obsidian-raised")
+              && style.getPropertyValue("backdrop-filter") === "none"
+              && style.getPropertyValue("-webkit-backdrop-filter") === "none";
+          }
+        }
+      }
+    }
+    return false;
+  });
+  assert.ok(reducedTransparencyFallback, "reduced-transparency fallback must use an opaque surface and disable blur");
+
   await page.addScriptTag({ path: axePath });
   const axe = await page.evaluate(async () => await globalThis.axe.run(document, {
     runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] }
