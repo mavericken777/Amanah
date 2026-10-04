@@ -1,4 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
+import { SmoothScroll } from "./components/motion/SmoothScroll";
+import { ScrollProgress } from "./components/motion/ScrollProgress";
+import { CircuitMapBackground } from "./components/hero/CircuitMapBackground";
+import { HalalShield3D } from "./components/hero/HalalShield3D";
+import { TrustTerminal } from "./components/terminal/TrustTerminal";
+import { VerificationJourney } from "./components/journey/VerificationJourney";
 
 const trustPath = [
   "Authority",
@@ -117,7 +123,7 @@ export default function App() {
   }, [verifyQuery]);
 
   return (
-    <div className="platinum-shell">
+    <div className="platinum-shell">\n      <SmoothScroll />\n      <ScrollProgress />
       <a className="skip-link" href="#main">Skip to content</a>
 
       <header className="platinum-header glass">
@@ -152,7 +158,7 @@ export default function App() {
       </header>
 
       <main id="main">
-        <section className="hero" id="top" aria-labelledby="hero-title">
+        <section className="hero hero-phase4" id="top" aria-labelledby="hero-title">\n          <CircuitMapBackground />
           <div className="hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">GLOBAL HALAL DIGITAL TRUST &amp; TRADE INFRASTRUCTURE</p>
@@ -178,10 +184,10 @@ export default function App() {
                 <span>AMANAH / TRUST TERMINAL</span>
                 <span>PROJECT ARCHITECTURE</span>
               </div>
-              <div className="shield-orbit" aria-hidden="true">
-                <span className="orbit orbit-one" />
-                <span className="orbit orbit-two" />
-                <span className="hero-shield">حلال</span>
+              <div className="shield-orbit">
+                <span className="orbit orbit-one" aria-hidden="true" />
+                <span className="orbit orbit-two" aria-hidden="true" />
+                <HalalShield3D />
               </div>
               <dl>
                 <div><dt>Authority</dt><dd>Human / competent authority</dd></div>
@@ -497,7 +503,7 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section engagement-section" id="engage">
+        <TrustTerminal />\n\n        <VerificationJourney />\n\n        <section className="section engagement-section" id="engage">
           <div className="section-heading">
             <p className="eyebrow">11 / ENGAGEMENT</p>
             <h2>Start from the role, corridor or integration you actually control.</h2>
