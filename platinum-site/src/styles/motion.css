@@ -1,4 +1,4 @@
-.platinum-smooth-scroll { scroll-behavior: smooth; }
+.platinum-smooth-scroll { scroll-behavior: auto; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
