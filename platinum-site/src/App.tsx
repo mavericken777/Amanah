@@ -152,6 +152,8 @@ export default function App() {
           <a href="#corridor" onClick={() => setMenuOpen(false)}>China → GCC</a>
           <a href="#assurance" onClick={() => setMenuOpen(false)}>Assurance</a>
           <a href="#command" onClick={() => setMenuOpen(false)}>Command Center</a>
+          <a href="#terminal" onClick={() => setMenuOpen(false)}>Trust Terminal</a>
+          <a href="#verification-journey" onClick={() => setMenuOpen(false)}>Journey</a>
           <a href="#verify" onClick={() => setMenuOpen(false)}>Verify</a>
           <a href="#institutions" onClick={() => setMenuOpen(false)}>Institutions</a>
           <a href="#engage" onClick={() => setMenuOpen(false)}>Engage</a>
