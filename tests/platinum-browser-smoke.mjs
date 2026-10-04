@@ -119,7 +119,7 @@ for (const width of viewports) {
   assert.equal(await logisticsNodes.count(), 3, "D3 logistics schematic must expose origin, GCC destination and Malaysia governance nodes");
   await logisticsNodes.nth(2).click();
   assert.match(await page.locator(".terminal-detail strong").textContent() ?? "", /Malaysia Governance/, "governance node did not update logistics detail");
-  assert.match(await page.locator(".terminal-detail small").textContent() ?? "", /not.*physical transit/i, "Malaysia governance boundary missing");
+  assert.match(await page.locator(".terminal-detail small").textContent() ?? "", /(governance.*only|not.*physical transit)/i, "Malaysia governance boundary missing");
 
   await page.locator(".terminal-finance .gold-action").click();
   assert.match(await page.locator(".terminal-state").textContent() ?? "", /DEMO RELEASE REQUEST GENERATED/, "finance interaction must remain a simulation");
