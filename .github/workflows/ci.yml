@@ -116,6 +116,7 @@ jobs:
           done
           curl -sf http://127.0.0.1:4173/ >/dev/null || { cat /tmp/platinum-preview.log; exit 1; }
           node tests/platinum-browser-smoke.mjs
+          node tests/platinum-route-smoke.mjs
       - uses: browser-actions/setup-chrome@v1
         id: setup-chrome
       - name: Install pinned Lighthouse CI
