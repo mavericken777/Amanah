@@ -33,7 +33,11 @@ The retired `ghscl-site` Edge Function redirects to the current public Pages web
 
 ## External CI/deployment condition
 
-Current main deployment checks are green for both Vercel contexts (`amanah` and `amanah-yq9x`). The prior external build-rate-limit condition is closed. Production hosting remains distinct from authenticated production UAT and external connector activation.
+Exact release/deployment state is commit-specific and must be read from the corresponding CI/deployment checks rather than treated as a durable prose claim. The controlled public GitHub Pages deployment is independently verified by its deployment workflow.
+
+2026-10-04 reconciliation: current main `14f4e06bdf8141fe1af5c9a2ecf74db39c1002c5` passed Amanah CI run #440 and GitHub Pages deployment run #57, including exact built-page verification. Both Vercel contexts on that same commit currently report an external account build-rate-limit failure. That Vercel condition does not establish an application-code failure and is not rewritten as a green deployment.
+
+Production hosting remains distinct from authenticated production UAT and external connector activation.
 
 
 ## 3 October execution sync — Items 56–60
