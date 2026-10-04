@@ -1,4 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
+import { SmoothScroll } from "./components/motion/SmoothScroll";
+import { ScrollProgress } from "./components/motion/ScrollProgress";
+import { CircuitMapBackground } from "./components/hero/CircuitMapBackground";
+import { HalalShield3D } from "./components/hero/HalalShield3D";
+import { TrustTerminal } from "./components/terminal/TrustTerminal";
+import { VerificationJourney } from "./components/journey/VerificationJourney";
 
 const trustPath = [
   "Authority",
@@ -118,6 +124,8 @@ export default function App() {
 
   return (
     <div className="platinum-shell">
+      <SmoothScroll />
+      <ScrollProgress />
       <a className="skip-link" href="#main">Skip to content</a>
 
       <header className="platinum-header glass">
@@ -144,6 +152,8 @@ export default function App() {
           <a href="#corridor" onClick={() => setMenuOpen(false)}>China → GCC</a>
           <a href="#assurance" onClick={() => setMenuOpen(false)}>Assurance</a>
           <a href="#command" onClick={() => setMenuOpen(false)}>Command Center</a>
+          <a href="#terminal" onClick={() => setMenuOpen(false)}>Trust Terminal</a>
+          <a href="#verification-journey" onClick={() => setMenuOpen(false)}>Journey</a>
           <a href="#verify" onClick={() => setMenuOpen(false)}>Verify</a>
           <a href="#institutions" onClick={() => setMenuOpen(false)}>Institutions</a>
           <a href="#engage" onClick={() => setMenuOpen(false)}>Engage</a>
@@ -152,7 +162,8 @@ export default function App() {
       </header>
 
       <main id="main">
-        <section className="hero" id="top" aria-labelledby="hero-title">
+        <section className="hero hero-phase4" id="top" aria-labelledby="hero-title">
+          <CircuitMapBackground />
           <div className="hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">GLOBAL HALAL DIGITAL TRUST &amp; TRADE INFRASTRUCTURE</p>
@@ -178,10 +189,10 @@ export default function App() {
                 <span>AMANAH / TRUST TERMINAL</span>
                 <span>PROJECT ARCHITECTURE</span>
               </div>
-              <div className="shield-orbit" aria-hidden="true">
-                <span className="orbit orbit-one" />
-                <span className="orbit orbit-two" />
-                <span className="hero-shield">حلال</span>
+              <div className="shield-orbit">
+                <span className="orbit orbit-one" aria-hidden="true" />
+                <span className="orbit orbit-two" aria-hidden="true" />
+                <HalalShield3D />
               </div>
               <dl>
                 <div><dt>Authority</dt><dd>Human / competent authority</dd></div>
@@ -496,6 +507,10 @@ export default function App() {
             ))}
           </div>
         </section>
+
+        <TrustTerminal />
+
+        <VerificationJourney />
 
         <section className="section engagement-section" id="engage">
           <div className="section-heading">
