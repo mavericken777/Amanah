@@ -60,6 +60,7 @@ test('platinum homepage uses the obsidian and gold design and accessible trust d
   assert.equal((html.match(/class="terminal-card"/g)||[]).length,4);
   assert.match(html, /class="platinum-shield"/);
   assert.match(platinum, /--platinum-gold: oklch\(/);
+  assert.ok(platinum.includes('.platinum-home .stack-participants span { color: var(--platinum-gold-light); background: var(--platinum-raised);'), 'Amanah/AHTE participant labels need a high-contrast surface');
   for (const rule of ['max-width: 1024px','max-width: 900px','max-width: 767px','max-width: 480px','prefers-reduced-transparency: reduce','prefers-reduced-motion: reduce']) assert.ok(platinum.includes(rule), 'missing design rule: '+rule);
   assert.doesNotMatch(html, /JAKIM SYNC ACTIVE|ZERO PORCINE|PORCINE DNA: NOT DETECTED|99\.7%|RELEASE TRIGGERED/);
 });
