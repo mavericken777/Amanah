@@ -60,3 +60,16 @@ linear-gradient(180deg,var(--obsidian-base),oklch(.08 .004 260));color:var(--tex
 .secondary-path-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:1rem 0}
 .secondary-path-grid span{padding:.9rem;border:1px solid oklch(.78 .13 85 / .18);border-radius:.8rem;background:oklch(.14 .005 260 / .62);color:var(--text-muted);font-size:.72rem}
 @media(max-width:720px){.secondary-special{width:calc(100vw - 2rem)}.secondary-inline-form,.secondary-checklist,.secondary-path-grid{grid-template-columns:1fr}}
+
+/* Lighthouse accessibility hardening for secondary public routes. */
+.secondary-shell{--secondary-muted:oklch(.78 .012 85)}
+.secondary-nav a,.secondary-hero>div>p:not(.eyebrow),.secondary-topology,.secondary-crest small,
+.secondary-index a,.secondary-lede,.secondary-card p,.secondary-boundary>p:last-child,
+.secondary-footer p,.secondary-footer nav a,.secondary-result p,.secondary-special>p,
+.secondary-path-grid span,.secondary-progress{color:var(--secondary-muted)}
+.secondary-card{background:oklch(.18 .006 260 / .92)}
+.secondary-index a{background:oklch(.17 .006 260 / .9)}
+.secondary-flow li,.secondary-checklist label,.secondary-path-grid span{background:oklch(.18 .006 260 / .92)}
+.secondary-inline-form input{border-color:oklch(.78 .13 85 / .45)}
+.secondary-inline-form button:focus-visible,.secondary-inline-form input:focus-visible,
+.secondary-index a:focus-visible,.secondary-nav a:focus-visible{outline:3px solid var(--focus-ring);outline-offset:3px}
