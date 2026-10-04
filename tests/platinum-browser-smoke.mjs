@@ -113,7 +113,9 @@ for (const width of viewports) {
   assert.equal(phaseFour.journeyStages, 4, "verification journey must expose four stages");
   assert.ok(phaseFour.directJakim && phaseFour.notDetected && phaseFour.shipmentBoundary, "phase 4 authority/evidence boundaries missing");
 
+  await page.locator("#terminal").scrollIntoViewIfNeeded();
   const logisticsNodes = page.locator(".logistics-map .route-node");
+  await logisticsNodes.first().waitFor({ state: "attached" });
   assert.equal(await logisticsNodes.count(), 3, "D3 logistics schematic must expose origin, GCC destination and Malaysia governance nodes");
   await logisticsNodes.nth(2).click();
   assert.match(await page.locator(".terminal-detail strong").textContent() ?? "", /Malaysia Governance/, "governance node did not update logistics detail");
