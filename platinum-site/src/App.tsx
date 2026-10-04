@@ -228,17 +228,13 @@ export default function App() {
           <span className="sr-only">{menuOpen ? "Close navigation" : "Open navigation"}</span>
         </button>
         <nav id="primary-nav" aria-label="Primary navigation" className={menuOpen ? "open" : ""}>
-          <a href="#ecosystem" onClick={() => setMenuOpen(false)}>Ecosystem</a>
-          <a href="#trust" onClick={() => setMenuOpen(false)}>AHTE Trust</a>
-          <a href="#corridor" onClick={() => setMenuOpen(false)}>China → GCC</a>
-          <a href="#assurance" onClick={() => setMenuOpen(false)}>Assurance</a>
-          <a href="#monitoring" onClick={() => setMenuOpen(false)}>Live monitoring</a>
+          <a href="#trust" onClick={() => setMenuOpen(false)}>Trust model</a>
+          <a href="#corridor" onClick={() => setMenuOpen(false)}>Goods journey</a>
+          <a href="#assurance" onClick={() => setMenuOpen(false)}>Audit &amp; lab</a>
           <a href="#command" onClick={() => setMenuOpen(false)}>Command Center</a>
-          <a href="#terminal" onClick={() => setMenuOpen(false)}>Trust Terminal</a>
-          <a href="#verification-journey" onClick={() => setMenuOpen(false)}>Journey</a>
+          <a href="#monitoring" onClick={() => setMenuOpen(false)}>Monitoring</a>
+          <a href="#partners" onClick={() => setMenuOpen(false)}>Partners</a>
           <a href="#verify" onClick={() => setMenuOpen(false)}>Verify</a>
-          <a href="#institutions" onClick={() => setMenuOpen(false)}>Institutions</a>
-          <a href="#engage" onClick={() => setMenuOpen(false)}>Engage</a>
         </nav>
         <a className="header-cta" href="https://amanah-yq9x.vercel.app/login">Secure portal ↗</a>
       </header>
@@ -385,11 +381,12 @@ export default function App() {
               ))}
             </div>
             <article className="corridor-detail glass" role="tabpanel" aria-live="polite">
-              <p className="eyebrow">CURRENT STAGE</p>
+              <p className="eyebrow">CURRENT HANDOFF · {String(activeCorridor + 1).padStart(2, "0")} / {String(corridor.length).padStart(2, "0")}</p>
               <h3>{corridor[activeCorridor][0]}</h3>
               <p>{corridor[activeCorridor][1]}</p>
               <div className="journey-progress" aria-label={`Stage ${activeCorridor + 1} of ${corridor.length}`}><div className="journey-progress-label"><span>GOODS JOURNEY</span><strong>{String(activeCorridor + 1).padStart(2, "0")} / {String(corridor.length).padStart(2, "0")}</strong></div><div className="journey-progress-track"><span style={{ width: `${((activeCorridor + 1) / corridor.length) * 100}%` }} /></div></div>
-              <div className="journey-progress" aria-label={`Stage ${activeCorridor + 1} of ${corridor.length}`}><div className="journey-progress-label"><span>GOODS JOURNEY</span><strong>{String(activeCorridor + 1).padStart(2, "0")} / {String(corridor.length).padStart(2, "0")}</strong></div><div className="journey-progress-track"><span style={{ width: `${((activeCorridor + 1) / corridor.length) * 100}%` }} /></div></div><dl className="journey-evidence"><div><dt>Accountable owner</dt><dd>{corridor[activeCorridor][2]}</dd></div><div><dt>Evidence at this handoff</dt><dd>{corridor[activeCorridor][3]}</dd></div><div><dt>Next accountable handoff</dt><dd>{corridor[activeCorridor][4]}</dd></div></dl><small>Interactive architecture walkthrough · no live shipment or sovereign release data.</small>
+              <dl className="journey-evidence"><div><dt>Accountable owner</dt><dd>{corridor[activeCorridor][2]}</dd></div><div><dt>Evidence at this handoff</dt><dd>{corridor[activeCorridor][3]}</dd></div><div><dt>Next accountable handoff</dt><dd>{corridor[activeCorridor][4]}</dd></div></dl>
+              <small>Interactive architecture walkthrough · no live shipment or sovereign release data.</small>
             </article>
           </div>
           <div className="standards-note standards-map"><strong>Standards in the operating model</strong><span>Food and manufacturing controls: MS 1500:2019. Transport: MS 2400-1:2019. Warehousing: MS 2400-2:2019. Retailing: MS 2400-3:2019. The platform maps licensed, controlled requirements to evidence; an operator’s conformity is established through scope, records and competent review.</span><a href="https://www.jsm.gov.my/announcement/781-kelulusan-malaysian-standards-ms-bil-5-2024" target="_blank" rel="noreferrer">View Standards Malaysia revision notice ↗</a></div>
