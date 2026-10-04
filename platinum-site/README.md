@@ -70,3 +70,15 @@ The repository CI validates the isolated platinum experience alongside the exist
 ## Promotion rule
 
 A passing build is not deployment. Promotion into the public website is performed only by the controlled GitHub Pages workflow after exact-head CI succeeds. The workflow preserves existing secondary pages and overlays the quality-gated platinum homepage into the deployment artifact; post-deployment exact-artifact verification must still pass.
+
+
+### Phase 4 — Tasks 26–30
+
+- Lenis smooth scroll integrated into the GSAP ticker with reduced-motion bypass
+- fixed Motion scroll-progress indicator
+- circuit-map hero layer and lazy-loaded Three.js حلال shield with static fallback
+- interactive D3 corridor, Shariah-finance evidence-packet simulator, laboratory evidence visualization and compliance artifact explorer
+- four-stage GSAP verification journey with desktop pinning and mobile/reduced-motion static degradation
+- keyboard/accessibility, 44px target and reduced-transparency safeguards
+
+The Phase 4 implementation is source-adapted to the controlling architecture: China → GCC direct, AHTE ⇄ Direct JAKIM API ⇄ JAKIM, laboratory evidence is not certification, external finance/Takaful/customs decisions remain externally owned, and Shipment 001 remains NOT-INSTANTIATED.
