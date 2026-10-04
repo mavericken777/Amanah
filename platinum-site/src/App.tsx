@@ -130,7 +130,21 @@ export default function App() {
 
       <header className="platinum-header glass">
         <a className="identity" href="#top" aria-label="Global Halal Supply Chain Limited home">
-          <span className="identity-mark" aria-hidden="true">حلال</span>
+          <span className="identity-mark" aria-hidden="true">
+            <svg viewBox="0 0 120 140" focusable="false">
+              <defs><linearGradient id="brand-gold" x1="0" x2="1" y1="0" y2="1"><stop stopColor="#F2D78D"/><stop offset=".52" stopColor="#D4AF5F"/><stop offset="1" stopColor="#8E641F"/></linearGradient></defs>
+              <path d="M60 5 110 25v39c0 33-20 56-50 71C30 120 10 97 10 64V25L60 5Z" fill="#090909" stroke="url(#brand-gold)" strokeWidth="3"/>
+              <path d="M60 13 102 30v34c0 28-16 48-42 62C34 112 18 92 18 64V30l42-17Z" fill="none" stroke="url(#brand-gold)" strokeWidth="1.4"/>
+              <path d="M60 24 91 37v27c0 21-12 36-31 47C41 100 29 85 29 64V37l31-13Z" fill="none" stroke="#D4AF5F" strokeWidth="1" opacity=".72"/>
+              <circle cx="60" cy="63" r="25" fill="none" stroke="url(#brand-gold)" strokeWidth="1.2"/>
+              <circle cx="60" cy="63" r="20" fill="none" stroke="#D4AF5F" strokeWidth=".8" opacity=".7"/>
+              <path d="m60 37 6 9 11-3-3 11 9 9-9 6 3 11-11-3-6 9-6-9-11 3 3-11-9-6 9-9-3-11 11 3 6-9Z" fill="none" stroke="url(#brand-gold)" strokeWidth="1.1"/>
+              <path d="M41 44c7 4 10 10 9 16-7-3-12-3-17 0 1-7 3-12 8-16Zm38 0c-7 4-10 10-9 16 7-3 12-3 17 0-1-7-3-12-8-16ZM41 82c7-4 10-10 9-16-7 3-12 3-17 0 1 7 3 12 8 16Zm38 0c-7-4-10-10-9-16 7 3 12 3 17 0-1 7-3 12-8 16Z" fill="none" stroke="#D4AF5F" strokeWidth="1"/>
+              <circle cx="60" cy="63" r="15" fill="#090909" stroke="url(#brand-gold)" strokeWidth="1.2"/>
+              <text x="60" y="68" textAnchor="middle" fill="#F2D78D" fontFamily="serif" fontSize="11" fontWeight="700">حلال</text>
+              <path d="M34 102c8 7 17 12 26 17 9-5 18-10 26-17" fill="none" stroke="#D4AF5F" strokeWidth="1" opacity=".7"/>
+            </svg>
+          </span>
           <span className="identity-copy">
             <strong>GLOBAL HALAL SUPPLY CHAIN LIMITED</strong>
             <small>AMANAH · GLOBAL HALAL DIGITAL TRUST · HONG KONG</small>
