@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const trustPath = [
   "Authority",
@@ -90,6 +90,15 @@ export default function App() {
   const [activeAudit, setActiveAudit] = useState(0);
   const [activeEvent, setActiveEvent] = useState(0);
   const [verifyQuery, setVerifyQuery] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   const verifyPreview = useMemo(() => {
     const trimmed = verifyQuery.trim();
@@ -119,13 +128,25 @@ export default function App() {
             <small>AMANAH · GLOBAL HALAL DIGITAL TRUST · HONG KONG</small>
           </span>
         </a>
-        <nav aria-label="Primary navigation">
-          <a href="#ecosystem">Ecosystem</a>
-          <a href="#trust">AHTE Trust</a>
-          <a href="#corridor">China → GCC</a>
-          <a href="#assurance">Assurance</a>
-          <a href="#command">Command Center</a>
-          <a href="#verify">Verify</a>
+        <button
+          type="button"
+          className="mobile-menu-toggle"
+          aria-expanded={menuOpen}
+          aria-controls="primary-nav"
+          onClick={() => setMenuOpen(value => !value)}
+        >
+          <span aria-hidden="true">{menuOpen ? "×" : "☰"}</span>
+          <span className="sr-only">{menuOpen ? "Close navigation" : "Open navigation"}</span>
+        </button>
+        <nav id="primary-nav" aria-label="Primary navigation" className={menuOpen ? "open" : ""}>
+          <a href="#ecosystem" onClick={() => setMenuOpen(false)}>Ecosystem</a>
+          <a href="#trust" onClick={() => setMenuOpen(false)}>AHTE Trust</a>
+          <a href="#corridor" onClick={() => setMenuOpen(false)}>China → GCC</a>
+          <a href="#assurance" onClick={() => setMenuOpen(false)}>Assurance</a>
+          <a href="#command" onClick={() => setMenuOpen(false)}>Command Center</a>
+          <a href="#verify" onClick={() => setMenuOpen(false)}>Verify</a>
+          <a href="#institutions" onClick={() => setMenuOpen(false)}>Institutions</a>
+          <a href="#engage" onClick={() => setMenuOpen(false)}>Engage</a>
         </nav>
         <a className="header-cta" href="https://amanah-yq9x.vercel.app/login">Secure portal ↗</a>
       </header>
@@ -196,9 +217,39 @@ export default function App() {
           </div>
         </section>
 
+        <section className="section institutional-section" id="institutions">
+          <div className="section-heading">
+            <p className="eyebrow">02 / INSTITUTIONAL STRUCTURE</p>
+            <h2>One ecosystem. Four clearly separated roles.</h2>
+            <p>The operating model keeps governance, international operations, digital trust and competent-authority decisions visible rather than blending them into one platform claim.</p>
+          </div>
+          <div className="institution-grid">
+            <article className="institution-card glass">
+              <span>PHC</span>
+              <h3>Perak Halal Corporation</h3>
+              <p>Perak State Government halal-industry GLC supporting halal-industry development, governance and international ecosystem coordination.</p>
+            </article>
+            <article className="institution-card glass">
+              <span>GHSCL HK</span>
+              <h3>Global Halal Supply Chain Limited</h3>
+              <p>International operating and digital-infrastructure vehicle for China → GCC coordination and 24/7 Command Center operations.</p>
+            </article>
+            <article className="institution-card glass">
+              <span>AHTE</span>
+              <h3>Amanah Halal Trust Ecosystem</h3>
+              <p>Standards, applicability, controls, evidence, digital twins, custody, AI-assisted assurance, exceptions and trust-state orchestration.</p>
+            </article>
+            <article className="institution-card authority-card glass">
+              <span>AUTHORITY</span>
+              <h3>AHTE ⇄ Direct JAKIM API ⇄ JAKIM</h3>
+              <p>Formal Halal certification and D5/D6 authority decisions remain with authorised humans and the competent authority.</p>
+            </article>
+          </div>
+        </section>
+
         <section className="section trust-section" id="trust">
           <div className="section-heading">
-            <p className="eyebrow">02 / CANONICAL TRUST PATH</p>
+            <p className="eyebrow">03 / CANONICAL TRUST PATH</p>
             <h2>Every conclusion must be traceable to its basis.</h2>
             <p>The platform follows a controlled path from authority source to operational release.</p>
           </div>
@@ -219,7 +270,7 @@ export default function App() {
 
         <section className="section" id="corridor">
           <div className="section-heading">
-            <p className="eyebrow">03 / CHINA → GCC DIRECT</p>
+            <p className="eyebrow">04 / CHINA → GCC DIRECT</p>
             <h2>The corridor is a sequence of accountable handoffs.</h2>
             <p>Malaysia remains the governance, assurance and authority-connectivity plane unless a separate physical movement is explicitly scoped.</p>
           </div>
@@ -253,7 +304,7 @@ export default function App() {
 
         <section className="section assurance-section" id="assurance">
           <div className="section-heading">
-            <p className="eyebrow">04 / LABORATORY + SMART AUDIT</p>
+            <p className="eyebrow">05 / LABORATORY + SMART AUDIT</p>
             <h2>Evidence becomes useful when its chain is inspectable.</h2>
             <p>Laboratory science and audit observations remain distinct evidence streams. Neither independently creates Halal certification.</p>
           </div>
@@ -315,7 +366,7 @@ export default function App() {
 
         <section className="section command-section" id="command">
           <div className="section-heading">
-            <p className="eyebrow">05 / 24/7 COMMAND CENTER</p>
+            <p className="eyebrow">06 / 24/7 COMMAND CENTER</p>
             <h2>Exceptions need ownership, not decoration.</h2>
             <p>The Command Center separates observation, assessment, hold state, accountable action and re-verification.</p>
           </div>
@@ -353,7 +404,7 @@ export default function App() {
 
         <section className="section verify-section" id="verify">
           <div className="section-heading">
-            <p className="eyebrow">06 / PUBLIC VERIFICATION</p>
+            <p className="eyebrow">07 / PUBLIC VERIFICATION</p>
             <h2>Reveal only what the issuer has authorised.</h2>
             <p>Product, batch and shipment disclosures are purpose-bound. Public verification is not a search engine for confidential factory data.</p>
           </div>
@@ -389,7 +440,7 @@ export default function App() {
 
         <section className="section connector-section" id="connectors">
           <div className="section-heading">
-            <p className="eyebrow">07 / CONNECTOR READINESS</p>
+            <p className="eyebrow">08 / CONNECTOR READINESS</p>
             <h2>Complete interfaces now. Activate external systems without redesign.</h2>
             <p>Connector state is explicit so architecture readiness is never confused with production authorisation.</p>
           </div>
@@ -407,9 +458,32 @@ export default function App() {
           </div>
         </section>
 
+        <section className="section partner-section" id="partners">
+          <div className="section-heading">
+            <p className="eyebrow">09 / PARTNER + TRADE ENABLEMENT</p>
+            <h2>Connect operational evidence to the organisations that need it.</h2>
+            <p>Each partner receives a purpose-bound view while retaining its own mandate, contractual responsibility and decision authority.</p>
+          </div>
+          <div className="partner-grid">
+            {[
+              ["China manufacturers", "Enterprise, facility, product, supplier, raw-material and production evidence."],
+              ["Laboratories", "Sample, custody, method/QC, result, review and signed evidence."],
+              ["Sinotrans", "Warehouse, TMS/WMS, telemetry, container, seal and custody events."],
+              ["Ports / customs", "Authorised trust resolution; inspection, hold and sovereign release remain externally owned."],
+              ["GCC import / retail", "Receiving, warehouse, distribution, retail and issuer-authorised verification."],
+              ["Islamic finance / Takaful", "Purpose-bound evidence packets; financing, underwriting and claims decisions remain with approved providers."],
+            ].map(([title, text]) => (
+              <article className="partner-card" key={title}>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="section" id="pathways">
           <div className="section-heading">
-            <p className="eyebrow">08 / PARTICIPANT PATHWAYS</p>
+            <p className="eyebrow">10 / PARTICIPANT PATHWAYS</p>
             <h2>Enter the ecosystem through the work you actually own.</h2>
           </div>
           <div className="pathway-grid">
@@ -423,9 +497,32 @@ export default function App() {
           </div>
         </section>
 
+        <section className="section engagement-section" id="engage">
+          <div className="section-heading">
+            <p className="eyebrow">11 / ENGAGEMENT</p>
+            <h2>Start from the role, corridor or integration you actually control.</h2>
+            <p>Use the secure Amanah workspace for authenticated operations. Use the current public site for corporate profile, onboarding context and disclosure verification.</p>
+          </div>
+          <div className="engagement-grid">
+            <a className="engagement-card glass" href="https://amanah-yq9x.vercel.app/login">
+              <span>SECURE WORKSPACE</span><strong>Open Amanah</strong><small>Authenticated operations ↗</small>
+            </a>
+            <a className="engagement-card glass" href="https://mavericken777.github.io/Amanah/corporate-profile.html">
+              <span>INSTITUTIONAL</span><strong>Corporate profile</strong><small>GHSCL ecosystem profile ↗</small>
+            </a>
+            <a className="engagement-card glass" href="https://mavericken777.github.io/Amanah/manufacturers.html">
+              <span>MANUFACTURER</span><strong>Start onboarding</strong><small>Prepare enterprise readiness ↗</small>
+            </a>
+            <a className="engagement-card glass" href="https://mavericken777.github.io/Amanah/verify.html">
+              <span>PUBLIC TRUST</span><strong>Verify disclosure</strong><small>Issuer-authorised evidence ↗</small>
+            </a>
+          </div>
+          <p className="engagement-note">English is the controlling public language for this build. Chinese and Arabic corporate identity lines are present; full translated operational content is not represented as complete until reviewed translations are source-controlled.</p>
+        </section>
+
         <section className="final-cta glass" aria-labelledby="final-title">
           <div>
-            <p className="eyebrow">09 / SECURE PLATFORM ACCESS</p>
+            <p className="eyebrow">12 / SECURE PLATFORM ACCESS</p>
             <h2 id="final-title">Global visibility. Controlled access.</h2>
             <p>Use the secure workspace for authenticated operations, or inspect an issuer-authorised disclosure through the public verifier.</p>
           </div>

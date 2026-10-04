@@ -327,3 +327,54 @@ main { position: relative; z-index: 1; }
   .connector-head{display:none}
   .panel-head{align-items:flex-start;flex-direction:column}
 }
+
+
+/* Phase 3 tasks 21–25: responsive navigation, institutional structure, partner enablement, engagement and promotion readiness */
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.mobile-menu-toggle{display:none;align-items:center;justify-content:center;width:2.8rem;height:2.8rem;border:1px solid oklch(0.78 0.13 85 / .25);border-radius:999px;background:oklch(0.18 0.005 260 / .72);color:var(--gold-bright);cursor:pointer}
+.mobile-menu-toggle>span:first-child{font-size:1.1rem;line-height:1}
+
+.institutional-section,.partner-section,.engagement-section{border-top:1px solid oklch(0.78 0.13 85 / .12)}
+.institution-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}
+.institution-card{min-height:15rem;padding:1.15rem;border-radius:1rem}
+.institution-card>span{color:var(--gold-primary);font-size:.62rem;font-weight:800;letter-spacing:.1em}
+.institution-card h3{margin:1.1rem 0 .6rem;color:var(--gold-bright);font-family:"Playfair Display",Georgia,serif;font-size:1.45rem;line-height:1.15}
+.institution-card p{margin:0;color:var(--text-muted);font-size:.8rem;line-height:1.65}
+.authority-card{grid-column:span 1;background:linear-gradient(145deg,oklch(0.28 0.04 85 / .28),oklch(0.15 0.005 260 / .5))}
+
+.partner-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+.partner-card{min-height:12rem;padding:1.1rem;border-top:1px solid oklch(0.78 0.13 85 / .35);background:linear-gradient(180deg,oklch(0.22 0.008 260 / .5),transparent)}
+.partner-card h3{margin:.35rem 0 .6rem;color:var(--gold-bright);font-family:"Playfair Display",Georgia,serif;font-size:1.35rem}
+.partner-card p{margin:0;color:var(--text-muted);font-size:.8rem;line-height:1.65}
+
+.engagement-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}
+.engagement-card{min-height:10.5rem;padding:1.1rem;border-radius:1rem;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;transition:transform .22s ease,border-color .22s ease}
+.engagement-card:hover{transform:translateY(-2px);border-color:oklch(0.78 0.13 85 / .45)}
+.engagement-card span{color:var(--gold-primary);font-size:.58rem;font-weight:800;letter-spacing:.1em}
+.engagement-card strong{color:var(--gold-bright);font-family:"Playfair Display",Georgia,serif;font-size:1.4rem}
+.engagement-card small{color:var(--text-muted)}
+.engagement-note{max-width:66rem;margin:1rem 0 0;color:var(--text-muted);font-size:.72rem;line-height:1.6}
+
+@media(max-width:1200px){
+  .institution-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .engagement-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:1080px){
+  .platinum-header{grid-template-columns:minmax(0,1fr) auto auto}
+  .mobile-menu-toggle{display:inline-flex}
+  .platinum-header nav{
+    display:none;position:absolute;top:calc(100% + .6rem);left:0;right:0;padding:.8rem;
+    border:1px solid oklch(0.78 0.13 85 / .2);border-radius:1rem;background:oklch(0.13 0.005 260 / .97);
+    box-shadow:0 1.5rem 5rem oklch(0 0 0 / .55);backdrop-filter:blur(18px)
+  }
+  .platinum-header nav.open{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.35rem}
+  .platinum-header nav a{min-height:2.8rem;padding:.75rem .8rem;border-radius:.7rem;display:flex;align-items:center}
+  .platinum-header nav a:hover,.platinum-header nav a:focus-visible{background:oklch(0.28 0.04 85 / .28)}
+  .partner-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:720px){
+  .platinum-header{grid-template-columns:minmax(0,1fr) auto}
+  .header-cta{display:none}
+  .platinum-header nav.open{grid-template-columns:1fr}
+  .institution-grid,.partner-grid,.engagement-grid{grid-template-columns:1fr}
+}

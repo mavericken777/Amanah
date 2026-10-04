@@ -83,6 +83,32 @@ for (const width of viewports) {
 
   assert.equal(await page.locator(".connector-row").count(), 6, "connector readiness table must include five interfaces plus header");
 
+  const phaseThree = await page.evaluate(() => ({
+    institutions: Boolean(document.querySelector("#institutions")),
+    partners: Boolean(document.querySelector("#partners")),
+    engage: Boolean(document.querySelector("#engage")),
+    phc: document.body.textContent?.includes("Perak Halal Corporation") ?? false,
+    ghscl: document.body.textContent?.includes("Global Halal Supply Chain Limited") ?? false,
+    authorityTopology: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false,
+    finance: document.body.textContent?.includes("Islamic finance / Takaful") ?? false,
+    corporateProfile: [...document.querySelectorAll('a[href*="corporate-profile.html"]')].length
+  }));
+  assert.ok(phaseThree.institutions && phaseThree.partners && phaseThree.engage,
+    `phase 3 structure incomplete at ${width}px: ${JSON.stringify(phaseThree)}`);
+  assert.ok(phaseThree.phc && phaseThree.ghscl && phaseThree.authorityTopology, "institutional topology incomplete");
+  assert.ok(phaseThree.finance, "finance / Takaful partner pathway missing");
+  assert.ok(phaseThree.corporateProfile >= 1, "corporate profile conversion path missing");
+
+  if (width <= 768) {
+    const toggle = page.locator(".mobile-menu-toggle");
+    assert.equal(await toggle.count(), 1, "mobile navigation toggle missing");
+    await toggle.click();
+    assert.equal(await toggle.getAttribute("aria-expanded"), "true", "mobile navigation did not open");
+    assert.ok(await page.locator("#primary-nav").evaluate(el => el.classList.contains("open")), "mobile navigation open class missing");
+    await page.keyboard.press("Escape");
+    assert.equal(await toggle.getAttribute("aria-expanded"), "false", "Escape did not close mobile navigation");
+  }
+
   await page.addScriptTag({ path: axePath });
   const axe = await page.evaluate(async () => await globalThis.axe.run(document, {
     runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] }
