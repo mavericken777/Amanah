@@ -1,4 +1,5 @@
 import source from "../../../../ghscl-website/ecosystem.en.json";
+import { SecondaryInteractions } from "./SecondaryInteractions";
 
 type Card=[string,string];
 type LinkPair=[string,string];
@@ -43,6 +44,7 @@ export function SecondaryPage(){
           {section.link?<a className="button-secondary" href={section.link[0]}>{section.link[1]} ↗</a>:null}
         </div>
       </section>)}
+      <SecondaryInteractions slug={slug} />
       <section className="secondary-boundary glass"><p className="eyebrow">AUTHORITY BOUNDARY</p><h2>Technology strengthens assurance. It does not create the competent-authority decision.</h2><p>{site.messages.boundary}</p></section>
     </main>
     <footer className="secondary-footer"><div><strong>{site.messages.brand}</strong><p>{site.messages.principle}</p></div><nav aria-label="Footer">{site.navigation.map(([href,label])=><a href={href} key={href}>{label}</a>)}</nav><p className="secondary-source-note">Frozen standards baseline preserved · external production connectors remain separately authorised.</p></footer>
