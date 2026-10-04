@@ -157,5 +157,41 @@ assert.equal(await page.locator(".journey-stage").count(), 4, "Reduced-motion Ph
 assert.equal(await page.locator(".static-shield").count(), 1, "Reduced-motion Phase 4 fallback must preserve a static shield");
 assert.equal(await page.locator(".halal-shield-stage canvas").count(), 0, "Reduced-motion Phase 4 fallback must not require WebGL");
 
+
+const secondaryRoutes = [
+  "ecosystem.html","how-it-works.html","digital-trust.html","command-center.html",
+  "traceability.html","smart-audit.html","china-gcc.html","partners.html",
+  "manufacturers.html","finance-takaful.html","verify.html","contact.html"
+];
+await page.emulateMedia({ reducedMotion: "no-preference" });
+await page.setViewportSize({ width: 1024, height: 900 });
+for (const route of secondaryRoutes) {
+  const routeErrors = [];
+  const handler = error => routeErrors.push(String(error));
+  page.on("pageerror", handler);
+  await page.goto(`http://127.0.0.1:4173/${route}`, { waitUntil: "networkidle" });
+  page.off("pageerror", handler);
+  const routeMetrics = await page.evaluate(() => ({
+    h1: document.querySelectorAll("h1").length,
+    header: Boolean(document.querySelector(".secondary-header")),
+    topology: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false,
+    overflow: document.documentElement.scrollWidth > innerWidth + 1
+  }));
+  assert.equal(routeErrors.length, 0, `${route} page errors: ${routeErrors.join(" | ")}`);
+  assert.equal(routeMetrics.h1, 1, `${route} must expose exactly one h1`);
+  assert.ok(routeMetrics.header && routeMetrics.topology, `${route} platinum shell / topology missing`);
+  assert.equal(routeMetrics.overflow, false, `${route} horizontal overflow`);
+}
+await page.goto("http://127.0.0.1:4173/verify.html", { waitUntil: "networkidle" });
+assert.equal(await page.locator(".secondary-special").count(), 1, "verify route must expose platinum verification interaction");
+await page.locator("#route-token").fill("DEMO-TOKEN-ROUTE");
+assert.match(await page.locator(".secondary-result strong").textContent() ?? "", /DEMO ONLY/, "verify route must remain explicitly demo-only");
+
+await page.goto("http://127.0.0.1:4173/manufacturers.html", { waitUntil: "networkidle" });
+assert.equal(await page.locator(".secondary-checklist input").count(), 5, "manufacturer route must expose five readiness areas");
+
+await page.goto("http://127.0.0.1:4173/contact.html", { waitUntil: "networkidle" });
+assert.equal(await page.locator(".secondary-path-grid span").count(), 6, "contact route must expose six controlled engagement workstreams");
+
 await browser.close();
-console.log("Platinum responsive and accessibility smoke passed at 375/768/1024/1440.");
+console.log("Platinum full-site responsive, accessibility and route smoke passed.");
