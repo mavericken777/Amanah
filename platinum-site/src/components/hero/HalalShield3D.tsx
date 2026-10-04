@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
+import type { ShieldRuntimeHandle } from "./halalShieldRuntime";
 
 export function HalalShield3D() {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -11,7 +12,7 @@ export function HalalShield3D() {
 
     const host = hostRef.current;
     let cancelled = false;
-    let runtime: Awaited<ReturnType<typeof import("./halalShieldRuntime")>>["mountHalalShield"] extends (...args: never[]) => infer R ? R | null : never = null;
+    let runtime: ShieldRuntimeHandle | null = null;
     let resizeObserver: ResizeObserver | null = null;
 
     const observer = new IntersectionObserver(async entries => {
