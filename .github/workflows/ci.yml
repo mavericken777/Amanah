@@ -63,6 +63,25 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - run: npm run build
 
+  platinum-foundation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 22
+      - name: Install platinum foundation dependencies
+        run: npm install --prefix platinum-site --package-lock=false --no-audit --no-fund
+      - name: Build platinum Vite foundation
+        run: npm run build --prefix platinum-site
+      - name: Validate Phase 0 CSS safeguards
+        run: |
+          grep -q -- "--obsidian-base: oklch" platinum-site/src/styles/tokens.css
+          grep -q "prefers-reduced-motion: reduce" platinum-site/src/styles/motion.css
+          grep -q "prefers-reduced-transparency: reduce" platinum-site/src/styles/glass.css
+          grep -q "@supports not (backdrop-filter" platinum-site/src/styles/glass.css
+
+
   policies:
     runs-on: ubuntu-latest
     steps:
