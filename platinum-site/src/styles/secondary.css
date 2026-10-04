@@ -1,0 +1,45 @@
+/* Phase 5 tasks 31–35: full-site platinum route convergence */
+.secondary-shell{min-height:100dvh;background:
+radial-gradient(circle at 82% 2%,oklch(.4 .08 85 / .12),transparent 30%),
+linear-gradient(180deg,var(--obsidian-base),oklch(.08 .004 260));color:var(--text-primary)}
+.secondary-header{position:sticky;top:.8rem;z-index:80;margin:0 auto;width:min(94vw,92rem)}
+.secondary-nav{display:flex;align-items:center;gap:.85rem;min-width:0}
+.secondary-nav a{color:var(--text-muted);font-size:.67rem;text-decoration:none;white-space:nowrap}
+.secondary-nav a:hover,.secondary-nav a[aria-current=page]{color:var(--gold-bright)}
+.secondary-hero{width:min(92rem,92vw);margin:0 auto;padding:clamp(7rem,12vw,11rem) 0 5rem;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(18rem,.8fr);gap:clamp(2rem,6vw,7rem);align-items:center}
+.secondary-hero h1{margin:.7rem 0 1.3rem;max-width:14ch;color:var(--gold-bright);font-family:"Playfair Display",Georgia,serif;font-size:clamp(3rem,6.2vw,6.6rem);line-height:.97;letter-spacing:-.045em}
+.secondary-hero>div>p:not(.eyebrow){max-width:52rem;color:var(--text-muted);font-size:clamp(1rem,1.5vw,1.22rem);line-height:1.75}
+.secondary-topology{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.4rem;color:var(--text-muted);font-family:"JetBrains Mono","IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.04em}
+.secondary-topology span{color:var(--gold-primary)}
+.secondary-crest{position:relative;aspect-ratio:1;border-radius:1.4rem;display:grid;place-items:center;overflow:hidden}
+.secondary-orbit{position:absolute;width:72%;aspect-ratio:1;border:1px solid oklch(.78 .13 85 / .22);border-radius:50%;box-shadow:0 0 0 3rem oklch(.78 .13 85 / .025),0 0 0 6rem oklch(.78 .13 85 / .018)}
+.secondary-shield{position:relative;width:42%;aspect-ratio:.88;clip-path:polygon(50% 0,94% 19%,87% 74%,50% 100%,13% 74%,6% 19%);display:grid;place-items:center;border:1px solid var(--gold-primary);background:radial-gradient(circle at 50% 35%,oklch(.34 .06 85 / .7),oklch(.12 .005 260));box-shadow:inset 0 0 0 .28rem oklch(.78 .13 85 / .07),0 1rem 4rem oklch(0 0 0 / .45)}
+.secondary-shield strong{color:var(--gold-bright);font-family:Amiri,serif;font-size:clamp(2.4rem,5vw,4.8rem)}
+.secondary-crest small{position:absolute;bottom:1.4rem;padding:0 1rem;color:var(--text-muted);font-size:.56rem;letter-spacing:.08em;text-align:center}
+.secondary-index{width:min(92rem,92vw);margin:0 auto 2rem;display:flex;gap:.55rem;overflow:auto;padding:.5rem 0 1rem;scrollbar-width:thin}
+.secondary-index a{flex:none;padding:.62rem .78rem;border:1px solid oklch(.78 .13 85 / .16);border-radius:999px;color:var(--text-muted);font-size:.64rem;text-decoration:none}
+.secondary-index a:hover{border-color:oklch(.78 .13 85 / .42);color:var(--gold-bright)}
+.secondary-section{width:min(92rem,92vw);margin:0 auto;padding:clamp(4rem,8vw,7rem) 0;border-top:1px solid oklch(.78 .13 85 / .12);display:grid;grid-template-columns:minmax(15rem,.75fr) minmax(0,1.55fr);gap:clamp(2rem,6vw,6rem)}
+.secondary-section-heading>span{display:inline-grid;place-items:center;width:2.7rem;height:2.7rem;border:1px solid oklch(.78 .13 85 / .25);border-radius:50%;color:var(--gold-primary);font-family:"JetBrains Mono","IBM Plex Mono",monospace;font-size:.62rem}
+.secondary-section h2,.secondary-boundary h2{margin:.65rem 0;color:var(--gold-bright);font-family:"Playfair Display",Georgia,serif;font-size:clamp(2rem,4.1vw,4.4rem);line-height:1.03}
+.secondary-lede{margin:0 0 1.4rem;color:var(--text-muted);font-size:1rem;line-height:1.75}
+.secondary-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.secondary-card{padding:1.3rem;border-radius:1rem;min-height:11rem}
+.secondary-card h3{margin:0 0 .7rem;color:var(--gold-bright);font-family:"Playfair Display",Georgia,serif;font-size:1.35rem}
+.secondary-card p{margin:0;color:var(--text-muted);font-size:.78rem;line-height:1.65}
+.secondary-flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;padding:0;list-style:none}
+.secondary-flow li{display:flex;gap:.75rem;align-items:center;padding:.85rem;border:1px solid oklch(.78 .13 85 / .14);border-radius:.8rem;background:oklch(.15 .005 260 / .62)}
+.secondary-flow span{color:var(--gold-primary);font-family:"JetBrains Mono","IBM Plex Mono",monospace;font-size:.58rem}
+.secondary-flow strong{font-size:.76rem}
+.secondary-boundary{width:min(92rem,92vw);margin:2rem auto 6rem;padding:clamp(1.5rem,4vw,3rem);border-radius:1.3rem}
+.secondary-boundary h2{max-width:20ch}
+.secondary-boundary>p:last-child{max-width:60rem;color:var(--text-muted);line-height:1.7}
+.secondary-footer{padding:3rem 4vw 4rem;border-top:1px solid oklch(.78 .13 85 / .12);display:grid;grid-template-columns:1fr 2fr;gap:2rem;background:oklch(.08 .004 260)}
+.secondary-footer strong{color:var(--gold-bright);font-family:"Playfair Display",Georgia,serif}
+.secondary-footer p{color:var(--text-muted);font-size:.7rem}
+.secondary-footer nav{display:flex;justify-content:flex-end;gap:.65rem;flex-wrap:wrap}
+.secondary-footer nav a{color:var(--text-muted);font-size:.64rem;text-decoration:none}
+.secondary-source-note{grid-column:1/-1;padding-top:1rem;border-top:1px solid oklch(.78 .13 85 / .1)}
+.secondary-not-found{min-height:100dvh;display:grid;place-content:center;gap:1rem;padding:2rem;background:var(--obsidian-base);color:var(--text-primary)}
+@media(max-width:1100px){.secondary-nav{display:none}.secondary-hero{grid-template-columns:1fr}.secondary-crest{width:min(30rem,100%);justify-self:center}.secondary-section{grid-template-columns:1fr}.secondary-section-heading h2{max-width:18ch}}
+@media(max-width:720px){.secondary-header{width:calc(100vw - 1rem);top:.5rem}.secondary-header .identity-copy strong{font-size:.62rem}.secondary-header .identity-copy small{font-size:.5rem}.secondary-header .header-cta{font-size:.58rem;padding:.6rem}.secondary-hero{width:calc(100vw - 2rem);padding-top:6rem}.secondary-hero h1{font-size:clamp(2.7rem,14vw,4.4rem)}.secondary-index,.secondary-section,.secondary-boundary{width:calc(100vw - 2rem)}.secondary-card-grid,.secondary-flow{grid-template-columns:1fr}.secondary-footer{grid-template-columns:1fr}.secondary-footer nav{justify-content:flex-start}}
