@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "quality:budget": "node scripts/check-budget.mjs",
+    "quality:promotion": "node scripts/check-promotion.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
