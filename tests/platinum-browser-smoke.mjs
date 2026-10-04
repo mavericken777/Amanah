@@ -71,7 +71,7 @@ for (const width of viewports) {
     command: Boolean(document.querySelector("#command")),
     verify: Boolean(document.querySelector("#verify")),
     connectors: Boolean(document.querySelector("#connectors")),
-    notDetectedBoundary: document.body.textContent?.includes("NOT_DETECTED ≠ HALAL") ?? false,
+    notDetectedBoundary: document.body.textContent?.toLowerCase().includes("not equivalent to") ?? false,
     directJakim: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false
   }));
   assert.ok(
