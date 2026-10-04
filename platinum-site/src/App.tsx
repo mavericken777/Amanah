@@ -1,10 +1,30 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { SmoothScroll } from "./components/motion/SmoothScroll";
-import { ScrollProgress } from "./components/motion/ScrollProgress";
 import { CircuitMapBackground } from "./components/hero/CircuitMapBackground";
 import { HalalShield3D } from "./components/hero/HalalShield3D";
+const ScrollProgress = lazy(() => import("./components/motion/ScrollProgress").then(module => ({ default: module.ScrollProgress })));
 const TrustTerminal = lazy(() => import("./components/terminal/TrustTerminal").then(module => ({ default: module.TrustTerminal })));
 const VerificationJourney = lazy(() => import("./components/journey/VerificationJourney").then(module => ({ default: module.VerificationJourney })));
+
+function ScrollProgressOnIntent() {
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    if (window.scrollY > 0) {
+      setEnabled(true);
+      return;
+    }
+    const enable = () => setEnabled(true);
+    window.addEventListener("scroll", enable, { once: true, passive: true });
+    return () => window.removeEventListener("scroll", enable);
+  }, []);
+
+  return enabled ? (
+    <Suspense fallback={null}>
+      <ScrollProgress />
+    </Suspense>
+  ) : null;
+}
 
 function DeferredFeature({ id, minHeight, children }: { id: string; minHeight: number; children: ReactNode }) {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -154,7 +174,7 @@ export default function App() {
   return (
     <div className="platinum-shell">
       <SmoothScroll />
-      <ScrollProgress />
+      <ScrollProgressOnIntent />
       <a className="skip-link" href="#main">Skip to content</a>
 
       <header className="platinum-header glass">

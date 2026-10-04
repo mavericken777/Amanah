@@ -8,30 +8,41 @@ export function SmoothScroll() {
     if (reducedMotion) return;
 
     let disposed = false;
+    let active = false;
     let destroy = () => {};
 
-    void Promise.all([import("lenis"), import("gsap")]).then(([lenisModule, gsapModule]) => {
-      if (disposed) return;
+    const initialize = () => {
+      if (active || disposed) return;
+      active = true;
+      window.removeEventListener("scroll", initialize);
 
-      const lenis = new lenisModule.default({ autoRaf: false });
-      const ticker = (time: number) => lenis.raf(time * 1000);
-      const { gsap } = gsapModule;
+      void Promise.all([import("lenis"), import("gsap")]).then(([lenisModule, gsapModule]) => {
+        if (disposed) return;
 
-      gsap.ticker.lagSmoothing(0);
-      gsap.ticker.add(ticker);
-      document.documentElement.classList.add("platinum-smooth-scroll");
+        const lenis = new lenisModule.default({ autoRaf: false });
+        const ticker = (time: number) => lenis.raf(time * 1000);
+        const { gsap } = gsapModule;
 
-      destroy = () => {
-        gsap.ticker.remove(ticker);
-        lenis.destroy();
-        document.documentElement.classList.remove("platinum-smooth-scroll");
-      };
-    }).catch((error: unknown) => {
-      console.error("Lenis smooth scrolling could not initialize; native scrolling remains available.", error);
-    });
+        gsap.ticker.lagSmoothing(0);
+        gsap.ticker.add(ticker);
+        document.documentElement.classList.add("platinum-smooth-scroll");
+
+        destroy = () => {
+          gsap.ticker.remove(ticker);
+          lenis.destroy();
+          document.documentElement.classList.remove("platinum-smooth-scroll");
+        };
+      }).catch((error: unknown) => {
+        console.error("Lenis smooth scrolling could not initialize; native scrolling remains available.", error);
+      });
+    };
+
+    if (window.scrollY > 0) initialize();
+    else window.addEventListener("scroll", initialize, { once: true, passive: true });
 
     return () => {
       disposed = true;
+      window.removeEventListener("scroll", initialize);
       destroy();
       document.documentElement.classList.remove("platinum-smooth-scroll");
     };

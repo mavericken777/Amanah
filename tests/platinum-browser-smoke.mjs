@@ -13,7 +13,13 @@ for (const width of viewports) {
   const errors = [];
   page.on("pageerror", error => errors.push(String(error)));
   await page.goto("http://127.0.0.1:4173/", { waitUntil: "networkidle" });
-  assert.ok(await page.evaluate(() => document.documentElement.classList.contains("platinum-smooth-scroll")), "Lenis smooth scroll must initialize when reduced motion is off");
+  await page.evaluate(() => {
+    document.documentElement.style.scrollBehavior = "auto";
+    window.scrollTo(0, window.innerHeight);
+  });
+  await page.waitForFunction(() => document.documentElement.classList.contains("platinum-smooth-scroll"), { timeout: 10000 });
+  await page.locator(".platinum-scroll-progress").waitFor({ state: "attached" });
+  assert.ok(await page.evaluate(() => document.documentElement.classList.contains("platinum-smooth-scroll")), "Lenis smooth scroll must initialize on first scroll when reduced motion is off");
   assert.equal(errors.length, 0, `page errors at ${width}px: ${errors.join(" | ")}`);
 
   const metrics = await page.evaluate(() => ({
