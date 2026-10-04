@@ -42,14 +42,14 @@ export default function LoginPage() {
           <img className="auth-crest" src="/ghscl-crest.svg" alt="Global Halal Supply Chain Limited crest" />
           <div className="eyebrow">AMANAH SECURE GATEWAY</div>
           <h1>Enter Amanah.</h1>
-          <p className="muted">Secure access to the operational workspace for evidence, controls, audits, approvals, monitoring, logistics and accountable decisions.</p>
+          <p className="muted">Secure access to the operational workspace for evidence, controls, audits, approvals, monitoring, logistics and accountable decisions.</p>\n          <div className="auth-security-row" aria-label="Gateway properties"><span>Controlled access</span><span>Audit-aware workflow</span><span>Human authority boundary</span></div>
           <form className="stack" onSubmit={submit}>
             <label>Institutional email<input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" /></label>
             <label>Password<input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" /></label>
             {error ? <p role="alert" className="error">{error}</p> : null}
             <button className="button" disabled={busy} type="submit">{busy ? "Authorizing…" : <>Authorize secure session <span className="button-icon" aria-hidden="true">↗</span></>}</button>
           </form>
-          <p className="muted small">New authorized user? <Link href="/auth/sign-up">Create an account</Link></p>
+          <div className="auth-card-links"><p className="muted small">New authorized user? <Link href="/auth/sign-up">Create an account</Link></p><p className="muted small"><Link href="https://mavericken777.github.io/Amanah/">Return to public ecosystem ↗</Link></p></div>
         </div>
       </div>
     </main>
