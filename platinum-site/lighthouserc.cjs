@@ -2,6 +2,21 @@ module.exports = {
   ci: {
     collect: {
       staticDistDir: "./platinum-site/dist",
+      url: [
+        "http://localhost/",
+        "http://localhost/ecosystem.html",
+        "http://localhost/how-it-works.html",
+        "http://localhost/digital-trust.html",
+        "http://localhost/command-center.html",
+        "http://localhost/traceability.html",
+        "http://localhost/smart-audit.html",
+        "http://localhost/china-gcc.html",
+        "http://localhost/partners.html",
+        "http://localhost/manufacturers.html",
+        "http://localhost/finance-takaful.html",
+        "http://localhost/verify.html",
+        "http://localhost/contact.html"
+      ],
       numberOfRuns: 1,
       settings: {
         chromeFlags: "--headless --no-sandbox --disable-dev-shm-usage"
