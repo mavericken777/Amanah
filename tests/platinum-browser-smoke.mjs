@@ -26,6 +26,25 @@ for (const width of viewports) {
   assert.ok(metrics.title.length > 0, "missing document title");
   assert.equal(metrics.lang, "en", "document language must be English");
   assert.equal(metrics.h1, 1, "exactly one h1 required");
+  const phaseOne = await page.evaluate(() => ({
+    header: Boolean(document.querySelector(".platinum-header")),
+    hero: Boolean(document.querySelector("#top")),
+    ecosystem: Boolean(document.querySelector("#ecosystem")),
+    trust: Boolean(document.querySelector("#trust")),
+    corridor: Boolean(document.querySelector("#corridor")),
+    pathways: Boolean(document.querySelector("#pathways")),
+    loginLinks: [...document.querySelectorAll('a[href*="amanah-yq9x.vercel.app/login"]')].length,
+    verifyLinks: [...document.querySelectorAll('a[href*="verify.html"]')].length
+  }));
+  assert.ok(phaseOne.header && phaseOne.hero && phaseOne.ecosystem && phaseOne.trust && phaseOne.corridor && phaseOne.pathways,
+    `phase 1 structure incomplete at ${width}px: ${JSON.stringify(phaseOne)}`);
+  assert.ok(phaseOne.loginLinks >= 2, "secure portal entry points missing");
+  assert.ok(phaseOne.verifyLinks >= 1, "public verification entry point missing");
+
+  const stageButtons = page.locator(".corridor-nav button");
+  assert.equal(await stageButtons.count(), 5, "corridor must expose five accountable stages");
+  await stageButtons.nth(1).click();
+  assert.equal(await page.locator(".corridor-detail h3").textContent(), "Laboratory", "corridor interaction did not update");
 
   await page.addScriptTag({ path: axePath });
   const axe = await page.evaluate(async () => await globalThis.axe.run(document, {
