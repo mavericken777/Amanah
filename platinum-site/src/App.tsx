@@ -73,11 +73,18 @@ const trustPath = [
 ];
 
 const corridor = [
-  ["China origin", "Producer, supplier, manufacturer and factory systems"],
-  ["Laboratory", "Sample → custody → method / QC → result → review / signature → evidence"],
-  ["Sinotrans", "Warehouse, logistics, telemetry, seal and custody events"],
-  ["Ports / customs", "Authorised trust interfaces; sovereign release remains external"],
-  ["GCC destination", "Importer, receiving, warehouse, distribution, retail and verification"],
+  ["Source & suppliers", "Map farms, raw materials, supplier identity, origin documents and approved source relationships before the product enters a controlled factory.", "Supplier and manufacturer", "Source identity, supplier documents, material lot and custody events", "Qualified source record → receiving and formulation"],
+  ["Factory & product setup", "Register the entity, facility, production line, SKU, ingredients, packaging and process scope. Map applicable requirements to each product and market.", "Manufacturer quality / Halal team", "Facility and line profile, product formula, supplier links, control plan and training", "Applicable controls → sampling and audit"],
+  ["Laboratory evidence", "Register a sealed, identified sample against the exact product and batch; record collection, custody, method, QC, review and signed result.", "China Food Security & Innovation Laboratory / authorised laboratory", "Sample ID, seal, custody, method and QC record, signed report and evidence link", "Reviewed scientific evidence → audit and product control"],
+  ["Smart-glasses audit", "Guide an auditor through the scoped checklist in the factory. AI can surface relevant controls and flag gaps; the auditor observes, assesses and signs.", "Assigned human auditor", "Control reference, actor, timestamp, object, observation, photo or document evidence, signature", "Verified audit evidence → findings or scope recommendation"],
+  ["Controlled production", "Bind approved inputs, line status, cleaning and sertu records where applicable, operator training, production run and lot genealogy.", "Manufacturer production / quality", "Material consumption, process events, cleaning evidence, line and batch links", "Batch genealogy → finished-goods release review"],
+  ["Manufacturer warehouse", "Prepare dispatch by lot, pallet and package. Confirm identity, segregation, status, seal, loading and accountable handover.", "Manufacturer warehouse and carrier", "Pick / pack, pallet IDs, segregation, seal, vehicle, handover actor and time", "Custody transfer → Sinotrans receiving"],
+  ["Sinotrans warehouse", "Receive, scan, assign storage location and monitor the shipment under the configured Halal logistics control plan.", "Sinotrans warehouse operator", "Inbound condition, location, segregation, cleaning, temperature, access and outbound events", "Warehouse custody → transport planning"],
+  ["China → GCC transport", "Bind vehicle, container and seal; capture location and condition events; raise exceptions and hold affected scope for accountable review.", "Sinotrans transport operations", "Vehicle / container / seal identity, route, telemetry, handovers and exception actions", "In-transit custody → origin port"],
+  ["Origin port & export", "Present the shipment and authorised records to origin-port and export processes. Inspection, customs acceptance and release remain external decisions.", "Origin port, customs and exporter", "Manifest references, seal check, inspection events, authority responses and release evidence", "Authorised export handoff → GCC port"],
+  ["GCC port & import", "Resolve the authorised disclosure, process destination inspections, holds and import steps, then capture the authority-owned outcome.", "GCC port, customs and importer", "Arrival, custody, inspection, import documents, holds and official release record", "Sovereign import outcome → destination receiving"],
+  ["GCC receiving & distribution", "Reconcile received lots, condition and seals; place stock into controlled storage; preserve custody across distributors and retailers.", "Importer, distributor and retailer", "Receipt reconciliation, storage location, onward dispatch and discrepancy records", "Verified receiving record → buyer or retail disclosure"],
+  ["Consumer verification & response", "Let a buyer scan an issuer-authorised QR disclosure. If evidence changes, trace affected lots, notify accountable operators and coordinate recall action.", "Issuer, authorised buyer and responsible operator", "Purpose-bound disclosure, current trust state, event history and recall links", "Post-market signal → investigation and corrective action"],
 ];
 
 const pathways = [
@@ -89,19 +96,29 @@ const pathways = [
 ];
 
 const labStages = [
-  ["Sample registered", "Sample identity is bound to the exact product, SKU, batch or case before testing begins."],
-  ["Custody accepted", "Seal, handoff, actor and timestamp evidence preserve the sample chain."],
-  ["Method / QC", "The laboratory records method scope, controls, instrument context and quality checks."],
-  ["Result reviewed", "Technical review and authorised signature convert a laboratory result into attributable evidence."],
-  ["Evidence attached", "AHTE binds the signed laboratory evidence to the relevant control without turning the result into certification."],
+  ["Sample registered", "Give the sample a unique ID and bind it to the exact product, SKU and batch. Record collector, time, seal and sampling basis before analysis."],
+  ["Custody accepted", "The receiving analyst confirms identity, seal condition and handover. Each custodian, timestamp and condition is linked to the same sample record."],
+  ["Method & quality controls", "The China Food Security & Innovation Laboratory records selected method, scope, instrument context, controls and QC. Applicable product requirements map to controlled MS 1500:2019 references; method and laboratory scope are confirmed for each test."],
+  ["Technical review & signature", "An authorised reviewer checks the result against the method, QC and sample chain, then signs the report. A laboratory result is scientific evidence; it does not issue Halal certification."],
+  ["Evidence bound to product", "AHTE attaches the signed report to the relevant product, batch and control with provenance. “Not detected” is not equivalent to “Halal”; the competent authority's decision remains separate."],
 ];
 
 const auditStages = [
-  ["Scope", "Confirm facility, process, product scope, applicable controls and assigned auditor."],
-  ["Observe", "Capture attributable evidence against the identified object or control point."],
-  ["Assess", "AI may flag gaps or contradictions; the human auditor owns the assessment and finding."],
-  ["Correct", "Assign corrective action, due date, accountable owner and supporting evidence."],
-  ["Re-verify", "Retest the affected control and preserve the superseding evidence trail before closure."],
+  ["Scope & prepare", "Select facility, production line, SKU, process and applicable controls. Smart glasses show the approved checklist and required evidence at each control."],
+  ["Guided observation", "At the control point, the wearable view guides the auditor to the relevant area and captures an attributable image, note or reading against the identified object."],
+  ["AI assistance in context", "AI can organise observations, read permitted labels and flag a possible gap or contradiction. It offers prompts for the auditor to assess; it does not declare a product Halal or make an authority decision."],
+  ["Human assessment & audit proof", "The auditor confirms and signs the observation. The record binds control ID, product or facility object, human actor, timestamp, source media and integrity reference. This is an auditable inspection record, not a certificate by itself."],
+  ["CAPA & re-verification", "Assign findings to an accountable owner with a due date and corrective evidence. Revisit the affected control and route any certification decision through the competent authority."],
+];
+
+const monitorStages = [
+  ["Capture", "Temperature, door, seal, GNSS, warehouse and production events are associated with the relevant asset, lot and time. The physical sensor and source remain identifiable."],
+  ["Validate at edge", "A gateway checks device identity, timestamp and payload shape; buffers events during network loss and protects the event before forwarding."],
+  ["Bind the evidence", "The platform correlates sensor observations with product, batch, vehicle, container, seal, route, custody actor and applicable control."],
+  ["Apply controls", "Configured limits and rule checks identify a suspected breach, missing handover or conflicting record. A finding retains its rule, source event and affected scope."],
+  ["Assess & predict", "Command Center operators see the affected chain and possible blast radius. AI can prioritise signals and recommend prevention; its output is attributed and reviewable."],
+  ["Hold & escalate", "An authorised operational role may place a scoped D4 hold and assign an owner. Certification, customs and sovereign D5/D6 decisions stay with competent authorities."],
+  ["Correct & close", "The owner attaches corrective evidence; a reviewer re-verifies the control and records disposition. Only the appropriate accountable actor advances the next state."],
 ];
 
 const commandEvents = [
@@ -144,6 +161,7 @@ export default function App() {
   const [activeLab, setActiveLab] = useState(0);
   const [activeAudit, setActiveAudit] = useState(0);
   const [activeEvent, setActiveEvent] = useState(0);
+  const [activeMonitor, setActiveMonitor] = useState(0);
   const [verifyQuery, setVerifyQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -210,16 +228,13 @@ export default function App() {
           <span className="sr-only">{menuOpen ? "Close navigation" : "Open navigation"}</span>
         </button>
         <nav id="primary-nav" aria-label="Primary navigation" className={menuOpen ? "open" : ""}>
-          <a href="#ecosystem" onClick={() => setMenuOpen(false)}>Ecosystem</a>
-          <a href="#trust" onClick={() => setMenuOpen(false)}>AHTE Trust</a>
-          <a href="#corridor" onClick={() => setMenuOpen(false)}>China → GCC</a>
-          <a href="#assurance" onClick={() => setMenuOpen(false)}>Assurance</a>
+          <a href="#trust" onClick={() => setMenuOpen(false)}>Trust model</a>
+          <a href="#corridor" onClick={() => setMenuOpen(false)}>Goods journey</a>
+          <a href="#assurance" onClick={() => setMenuOpen(false)}>Audit &amp; lab</a>
           <a href="#command" onClick={() => setMenuOpen(false)}>Command Center</a>
-          <a href="#terminal" onClick={() => setMenuOpen(false)}>Trust Terminal</a>
-          <a href="#verification-journey" onClick={() => setMenuOpen(false)}>Journey</a>
+          <a href="#monitoring" onClick={() => setMenuOpen(false)}>Monitoring</a>
+          <a href="#partners" onClick={() => setMenuOpen(false)}>Partners</a>
           <a href="#verify" onClick={() => setMenuOpen(false)}>Verify</a>
-          <a href="#institutions" onClick={() => setMenuOpen(false)}>Institutions</a>
-          <a href="#engage" onClick={() => setMenuOpen(false)}>Engage</a>
         </nav>
         <a className="header-cta" href="https://amanah-yq9x.vercel.app/login">Secure portal ↗</a>
       </header>
@@ -231,6 +246,7 @@ export default function App() {
             <div className="hero-copy">
               <p className="eyebrow">GLOBAL HALAL DIGITAL TRUST &amp; TRADE INFRASTRUCTURE</p>
               <h1 id="hero-title">Evidence before trust.<br /><em>Trust before release.</em></h1>
+              <p className="hero-principle">A Halal assurance journey you can inspect, stage by stage.</p>
               <p className="hero-lede">
                 A premium operating layer for end-to-end Halal assurance across the China → GCC direct corridor:
                 manufacturer readiness, laboratory evidence, smart audit, custody, command-centre intelligence and
@@ -345,8 +361,8 @@ export default function App() {
         <section className="section" id="corridor">
           <div className="section-heading">
             <p className="eyebrow">04 / CHINA → GCC DIRECT</p>
-            <h2>The corridor is a sequence of accountable handoffs.</h2>
-            <p>Malaysia remains the governance, assurance and authority-connectivity plane unless a separate physical movement is explicitly scoped.</p>
+            <h2>Follow every product handoff from factory to GCC consumer.</h2>
+            <p>Choose a stage to see who acts, what evidence is created and what must be true before custody moves forward. The physical pilot corridor is China → GCC direct; Malaysia is the governance, assurance and authority-connectivity plane.</p>
           </div>
           <div className="corridor-layout">
             <div className="corridor-nav" role="tablist" aria-label="Corridor stages">
@@ -365,15 +381,15 @@ export default function App() {
               ))}
             </div>
             <article className="corridor-detail glass" role="tabpanel" aria-live="polite">
-              <p className="eyebrow">CURRENT STAGE</p>
+              <p className="eyebrow">CURRENT HANDOFF · {String(activeCorridor + 1).padStart(2, "0")} / {String(corridor.length).padStart(2, "0")}</p>
               <h3>{corridor[activeCorridor][0]}</h3>
               <p>{corridor[activeCorridor][1]}</p>
-              <div className="event-line" aria-hidden="true">
-                <span /><span /><span /><span /><span />
-              </div>
-              <small>Illustrative architecture state · no live shipment or sovereign release data.</small>
+              <div className="journey-progress" aria-label={`Stage ${activeCorridor + 1} of ${corridor.length}`}><div className="journey-progress-label"><span>GOODS JOURNEY</span><strong>{String(activeCorridor + 1).padStart(2, "0")} / {String(corridor.length).padStart(2, "0")}</strong></div><div className="journey-progress-track"><span style={{ width: `${((activeCorridor + 1) / corridor.length) * 100}%` }} /></div></div>
+              <dl className="journey-evidence"><div><dt>Accountable owner</dt><dd>{corridor[activeCorridor][2]}</dd></div><div><dt>Evidence at this handoff</dt><dd>{corridor[activeCorridor][3]}</dd></div><div><dt>Next accountable handoff</dt><dd>{corridor[activeCorridor][4]}</dd></div></dl>
+              <small>Interactive architecture walkthrough · no live shipment or sovereign release data.</small>
             </article>
           </div>
+          <div className="standards-note standards-map"><strong>Standards in the operating model</strong><span>Food and manufacturing controls: MS 1500:2019. Transport: MS 2400-1:2019. Warehousing: MS 2400-2:2019. Retailing: MS 2400-3:2019. The platform maps licensed, controlled requirements to evidence; an operator’s conformity is established through scope, records and competent review.</span><a href="https://www.jsm.gov.my/announcement/781-kelulusan-malaysian-standards-ms-bil-5-2024" target="_blank" rel="noreferrer">View Standards Malaysia revision notice ↗</a></div>
         </section>
 
         <section className="section assurance-section" id="assurance">
@@ -386,9 +402,10 @@ export default function App() {
           <div className="assurance-grid">
             <article className="assurance-panel glass" id="laboratory">
               <div className="panel-head">
-                <span className="eyebrow">LABORATORY EVIDENCE CHAIN</span>
-                <span className="state-chip">NOT_DETECTED ≠ HALAL</span>
+                <span className="eyebrow">CHINA FOOD SECURITY &amp; INNOVATION LABORATORY</span>
+                <span className="state-chip">NOT DETECTED ≠ HALAL</span>
               </div>
+              <p className="partner-intro">Sample intake → sealed custody → method and QC → technical review → signed report → product evidence.</p>
               <div className="stepper" role="tablist" aria-label="Laboratory evidence stages">
                 {labStages.map(([title], index) => (
                   <button
@@ -404,9 +421,11 @@ export default function App() {
                 ))}
               </div>
               <div className="step-detail" role="tabpanel" aria-live="polite">
-                <small>STAGE {String(activeLab + 1).padStart(2, "0")}</small>
+                <small>LAB EVIDENCE · STAGE {String(activeLab + 1).padStart(2, "0")}</small>
                 <h3>{labStages[activeLab][0]}</h3>
                 <p>{labStages[activeLab][1]}</p>
+              </div>
+              <div className="standards-note"><strong>Standards mapping</strong><span>MS 1500:2019 · Halal food — general requirements. The applicable requirement links to its control and evidence through a licensed, controlled source; normative clauses are not reproduced here.</span>
               </div>
             </article>
 
@@ -430,10 +449,11 @@ export default function App() {
                 ))}
               </div>
               <div className="step-detail" role="tabpanel" aria-live="polite">
-                <small>STAGE {String(activeAudit + 1).padStart(2, "0")}</small>
+                <small>SMART-GLASSES AUDIT · STAGE {String(activeAudit + 1).padStart(2, "0")}</small>
                 <h3>{auditStages[activeAudit][0]}</h3>
                 <p>{auditStages[activeAudit][1]}</p>
               </div>
+              <div className="smart-glasses-demo" aria-label="Simulated smart-glasses audit overlay"><div className="smart-glasses-view"><span>FIELD VIEW · DEMONSTRATION</span><strong>CONTROL {String(activeAudit + 1).padStart(2, "0")} / {auditStages[activeAudit][0].toUpperCase()}</strong><i className="view-reticle" aria-hidden="true" /><small>AI GUIDE · REVIEW REQUIRED</small></div><div className="smart-glasses-proof"><span>INSPECTION RECORD</span><strong>Object · actor · time · evidence</strong><p>Auditor confirms and signs each observation. The audit trail supports assurance review; it does not itself confer certification.</p></div></div>
             </article>
           </div>
         </section>
@@ -476,9 +496,29 @@ export default function App() {
           </div>
         </section>
 
+        <section className="section monitoring-section" id="monitoring">
+          <div className="section-heading">
+            <p className="eyebrow">07 / CONTINUOUS MONITORING · FULL STACK</p>
+            <h2>One signal. A traceable response across the whole chain.</h2>
+            <p>Explore how an event moves from sensor to accountable closure: source, edge, evidence, controls, Command Center, authorised action and re-verification.</p>
+          </div>
+          <div className="monitoring-layout">
+            <div className="monitoring-nav" role="tablist" aria-label="End-to-end monitoring stages">
+              {monitorStages.map(([title], index) => <button key={title} type="button" role="tab" aria-selected={activeMonitor === index} className={activeMonitor === index ? "active" : ""} onClick={() => setActiveMonitor(index)}><span>{String(index + 1).padStart(2, "0")}</span>{title}</button>)}
+            </div>
+            <article className="monitoring-detail glass" role="tabpanel" aria-live="polite">
+              <p className="eyebrow">MONITORING LAYER {String(activeMonitor + 1).padStart(2, "0")} / {String(monitorStages.length).padStart(2, "0")}</p>
+              <h3>{monitorStages[activeMonitor][0]}</h3>
+              <p>{monitorStages[activeMonitor][1]}</p>
+              <div className="monitoring-chain" aria-label="Sensor to response architecture">{["Sensor", "Edge", "Evidence", "Rules", "Command", "Human / authority"].map((label, index) => <span className={index <= Math.min(activeMonitor, 5) ? "reached" : ""} key={label}>{label}</span>)}</div>
+              <small>Illustrative platform flow · real telemetry, connected counterparties and production credentials are not represented by this walkthrough.</small>
+            </article>
+          </div>
+        </section>
+
         <section className="section verify-section" id="verify">
           <div className="section-heading">
-            <p className="eyebrow">07 / PUBLIC VERIFICATION</p>
+            <p className="eyebrow">08 / PUBLIC VERIFICATION</p>
             <h2>Reveal only what the issuer has authorised.</h2>
             <p>Product, batch and shipment disclosures are purpose-bound. Public verification is not a search engine for confidential factory data.</p>
           </div>
@@ -514,7 +554,7 @@ export default function App() {
 
         <section className="section connector-section" id="connectors">
           <div className="section-heading">
-            <p className="eyebrow">08 / CONNECTOR READINESS</p>
+            <p className="eyebrow">09 / CONNECTOR READINESS</p>
             <h2>Complete interfaces now. Activate external systems without redesign.</h2>
             <p>Connector state is explicit so architecture readiness is never confused with production authorisation.</p>
           </div>
@@ -534,7 +574,7 @@ export default function App() {
 
         <section className="section partner-section" id="partners">
           <div className="section-heading">
-            <p className="eyebrow">09 / PARTNER + TRADE ENABLEMENT</p>
+            <p className="eyebrow">10 / PARTNER + TRADE ENABLEMENT</p>
             <h2>Connect operational evidence to the organisations that need it.</h2>
             <p>Each partner receives a purpose-bound view while retaining its own mandate, contractual responsibility and decision authority.</p>
           </div>
@@ -557,7 +597,7 @@ export default function App() {
 
         <section className="section" id="pathways">
           <div className="section-heading">
-            <p className="eyebrow">10 / PARTICIPANT PATHWAYS</p>
+            <p className="eyebrow">11 / PARTICIPANT PATHWAYS</p>
             <h2>Enter the ecosystem through the work you actually own.</h2>
           </div>
           <div className="pathway-grid">
@@ -585,7 +625,7 @@ export default function App() {
 
         <section className="section engagement-section" id="engage">
           <div className="section-heading">
-            <p className="eyebrow">11 / ENGAGEMENT</p>
+            <p className="eyebrow">12 / ENGAGEMENT</p>
             <h2>Start from the role, corridor or integration you actually control.</h2>
             <p>Use the secure Amanah workspace for authenticated operations. Use the current public site for corporate profile, onboarding context and disclosure verification.</p>
           </div>

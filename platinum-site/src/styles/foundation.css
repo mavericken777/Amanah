@@ -395,3 +395,59 @@ main { position: relative; z-index: 1; }
 /* Reserve stable space for deferred interactive sections and keep their anchor targets clear of the sticky header. */
 .deferred-feature { scroll-margin-top: 6rem; }
 .feature-loading { margin: 0; padding: 2rem; color: var(--text-muted); }
+
+
+/* Luxury black-and-gold editorial system and the complete interactive journey. */
+:root { --text-muted: oklch(0.74 0.012 260); }
+.platinum-header nav { gap: .85rem; }
+.platinum-header nav a,.header-cta { font-size: .8rem; }
+.identity-copy strong { max-width: 15rem; overflow: visible; text-overflow: clip; white-space: normal; line-height: 1.2; }
+.hero h1 { max-width: none; font-size: clamp(3.25rem, 4.7vw, 4.5rem); line-height: 1.04; letter-spacing: -.052em; }
+.hero-lede { color: oklch(.76 .012 260); }
+.hero-principle { margin: 1rem 0 0; color: var(--gold-bright); font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.15rem, 1.8vw, 1.55rem); font-style: italic; }
+.eyebrow { font-size: .74rem; }
+.button-primary,.button-secondary { font-size: .88rem; }
+.status-row { font-size: .76rem; }
+.hero-phase4::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .1; background: linear-gradient(45deg,transparent 49.65%,oklch(.78 .13 85 / .55) 50%,transparent 50.35%),linear-gradient(-45deg,transparent 49.65%,oklch(.78 .13 85 / .55) 50%,transparent 50.35%); background-size: 96px 96px; mask-image: linear-gradient(90deg,transparent 8%,black 78%); }
+.partner-intro { margin: 1rem 0 0; color: var(--gold-bright); font-size: .88rem; line-height: 1.6; }
+.standards-note { display: grid; gap: .4rem; margin-top: .75rem; padding: 1rem; border-left: 2px solid var(--gold-primary); background: oklch(.2 .02 85 / .25); color: var(--text-muted); font-size: .78rem; line-height: 1.6; }
+.standards-note strong { color: var(--gold-bright); letter-spacing: .04em; }
+.standards-note a { color: var(--gold-bright); font-weight: 700; text-underline-offset: .2em; }
+.journey-progress { margin: 1.1rem 0 .7rem; }
+.journey-progress-label { display: flex; justify-content: space-between; gap: 1rem; color: var(--gold-primary); font-size: .68rem; letter-spacing: .09em; }
+.journey-progress-label strong { color: var(--text-primary); }
+.journey-progress-track { height: .35rem; margin-top: .45rem; overflow: hidden; border-radius: 999px; background: oklch(.78 .13 85 / .14); }
+.journey-progress-track span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg,var(--gold-primary),var(--gold-bright)); transition: width .35s ease; }
+.journey-evidence { display: grid; gap: .65rem; margin: .45rem 0 1rem; }
+.journey-evidence div { display: grid; grid-template-columns: minmax(9rem,.45fr) 1fr; gap: .8rem; padding: .7rem 0; border-top: 1px solid oklch(.78 .13 85 / .14); }
+.journey-evidence dt { color: var(--gold-primary); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; }
+.journey-evidence dd { margin: 0; color: var(--text-primary); font-size: .82rem; line-height: 1.55; }
+.smart-glasses-demo { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin-top: .8rem; }
+.smart-glasses-view,.smart-glasses-proof { min-height: 10rem; padding: 1rem; border: 1px solid oklch(.78 .13 85 / .18); border-radius: .9rem; background: linear-gradient(145deg,oklch(.22 .015 85 / .35),oklch(.13 .005 260 / .8)); }
+.smart-glasses-view { position: relative; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+.smart-glasses-view::before,.smart-glasses-view::after { position: absolute; inset: 1.7rem 1.25rem; content: ""; border: 1px solid oklch(.78 .13 85 / .28); clip-path: polygon(0 0,35% 0,35% 8%,65% 8%,65% 0,100% 0,100% 100%,65% 100%,65% 92%,35% 92%,35% 100%,0 100%); pointer-events: none; }
+.smart-glasses-view::after { inset: 2.4rem 2.2rem; opacity: .45; }
+.smart-glasses-view span,.smart-glasses-view small,.smart-glasses-proof span { color: var(--gold-primary); font-size: .62rem; letter-spacing: .1em; }
+.smart-glasses-view strong { position: relative; z-index: 1; max-width: 13rem; color: var(--text-primary); font-size: .82rem; line-height: 1.45; }
+.view-reticle { position: absolute; top: 48%; left: 50%; width: 2rem; height: 2rem; border: 1px solid var(--gold-bright); border-radius: 50%; transform: translate(-50%,-50%); box-shadow: 0 0 1.5rem oklch(.78 .13 85 / .3); }
+.smart-glasses-proof { display: flex; flex-direction: column; justify-content: center; gap: .6rem; }
+.smart-glasses-proof strong { color: var(--text-primary); font-size: .85rem; }
+.smart-glasses-proof p { margin: 0; color: var(--text-muted); font-size: .75rem; line-height: 1.55; }
+.monitoring-section { border-top: 1px solid oklch(.78 .13 85 / .12); }
+.monitoring-layout { display: grid; grid-template-columns: minmax(16rem,.7fr) minmax(0,1.3fr); gap: 1rem; }
+.monitoring-nav { display: grid; gap: .45rem; }
+.monitoring-nav button { display: grid; grid-template-columns: 2.25rem 1fr; gap: .65rem; align-items: center; width: 100%; min-height: 3.1rem; padding: .7rem .85rem; border: 1px solid oklch(.78 .13 85 / .15); border-radius: .8rem; background: oklch(.18 .005 260 / .65); color: var(--text-primary); text-align: left; cursor: pointer; }
+.monitoring-nav button span { color: var(--gold-primary); font-size: .68rem; }
+.monitoring-nav button.active { border-color: var(--gold-primary); background: oklch(.28 .04 85 / .32); }
+.monitoring-detail { display: flex; flex-direction: column; justify-content: center; min-height: 25rem; padding: clamp(1.5rem,4vw,3rem); border-radius: 1.2rem; }
+.monitoring-detail h3 { margin: .4rem 0 .8rem; color: var(--gold-bright); font-family: "Playfair Display", Georgia, serif; font-size: clamp(2rem,3.2vw,3.2rem); }
+.monitoring-detail>p:not(.eyebrow) { color: var(--text-muted); line-height: 1.75; }
+.monitoring-detail>small { color: var(--text-muted); line-height: 1.5; }
+.monitoring-chain { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.2rem 0; }
+.monitoring-chain span { padding: .5rem .7rem; border: 1px solid oklch(.78 .13 85 / .18); border-radius: 999px; color: var(--text-muted); font-size: .7rem; }
+.monitoring-chain span.reached { border-color: oklch(.78 .13 85 / .55); color: var(--gold-bright); background: oklch(.28 .04 85 / .25); }
+@media (max-width:1080px) { .hero h1 { font-size: clamp(3rem,5.4vw,4.2rem); } }
+@media (max-width:720px) { .identity-copy strong { max-width: 12rem; } .hero h1 { font-size: clamp(2.8rem,9.5vw,3.8rem); } .monitoring-layout { grid-template-columns: 1fr; } }
+@media (max-width:430px) { .hero h1 { font-size: clamp(2.4rem,10.2vw,2.9rem); } .smart-glasses-demo { grid-template-columns: 1fr; } .journey-evidence div { grid-template-columns: 1fr; gap: .25rem; } }
+
+@media (max-width:720px) { .corridor-nav { grid-template-columns: repeat(2,minmax(0,1fr)); align-content:start; } .corridor-nav button { min-height:3.4rem; padding:.65rem; gap:.45rem; font-size:.76rem; } }

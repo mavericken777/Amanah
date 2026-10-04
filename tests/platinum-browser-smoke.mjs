@@ -33,52 +33,70 @@ for (const width of viewports) {
   assert.ok(metrics.title.length > 0, "missing document title");
   assert.equal(metrics.lang, "en", "document language must be English");
   assert.equal(metrics.h1, 1, "exactly one h1 required");
+  if (width >= 1280) {
+    const headingLines = await page.locator("#hero-title").evaluate(el => Math.round(el.getBoundingClientRect().height / parseFloat(getComputedStyle(el).lineHeight)));
+    assert.ok(headingLines <= 2, `desktop hero headline must stay to two lines, got ${headingLines}`);
+  }
+  assert.equal(await page.locator("#primary-nav a").count(), 7, "primary navigation should expose the main visitor journeys");
   const phaseOne = await page.evaluate(() => ({
     header: Boolean(document.querySelector(".platinum-header")),
     hero: Boolean(document.querySelector("#top")),
     ecosystem: Boolean(document.querySelector("#ecosystem")),
     trust: Boolean(document.querySelector("#trust")),
     corridor: Boolean(document.querySelector("#corridor")),
+    monitoring: Boolean(document.querySelector("#monitoring")),
     pathways: Boolean(document.querySelector("#pathways")),
     loginLinks: [...document.querySelectorAll('a[href*="amanah-yq9x.vercel.app/login"]')].length,
     verifyLinks: [...document.querySelectorAll('a[href*="verify.html"]')].length
   }));
-  assert.ok(phaseOne.header && phaseOne.hero && phaseOne.ecosystem && phaseOne.trust && phaseOne.corridor && phaseOne.pathways,
+  assert.ok(phaseOne.header && phaseOne.hero && phaseOne.ecosystem && phaseOne.trust && phaseOne.corridor && phaseOne.monitoring && phaseOne.pathways,
     `phase 1 structure incomplete at ${width}px: ${JSON.stringify(phaseOne)}`);
   assert.ok(phaseOne.loginLinks >= 2, "secure portal entry points missing");
   assert.ok(phaseOne.verifyLinks >= 1, "public verification entry point missing");
 
   const stageButtons = page.locator(".corridor-nav button");
-  assert.equal(await stageButtons.count(), 5, "corridor must expose five accountable stages");
-  await stageButtons.nth(1).click();
-  assert.equal(await page.locator(".corridor-detail h3").textContent(), "Laboratory", "corridor interaction did not update");
+  assert.equal(await stageButtons.count(), 12, "goods journey must expose twelve accountable handoffs");
+  await stageButtons.nth(6).click();
+  assert.equal(await page.locator(".corridor-detail h3").textContent(), "Sinotrans warehouse", "warehouse handoff interaction did not update");
+  await stageButtons.nth(11).click();
+  assert.equal(await page.locator(".corridor-detail h3").textContent(), "Consumer verification & response", "consumer endpoint interaction did not update");
+  assert.match(await page.locator(".journey-evidence").textContent() ?? "", /Purpose-bound disclosure/, "consumer evidence and handoff detail missing");
 
   const phaseTwo = await page.evaluate(() => ({
     assurance: Boolean(document.querySelector("#assurance")),
     laboratory: Boolean(document.querySelector("#laboratory")),
     smartAudit: Boolean(document.querySelector("#smart-audit")),
+    chinaLab: document.body.textContent?.includes("CHINA FOOD SECURITY & INNOVATION LABORATORY") ?? false,
+    standardsMap: document.body.textContent?.includes("MS 2400-2:2019") ?? false,
     command: Boolean(document.querySelector("#command")),
     verify: Boolean(document.querySelector("#verify")),
     connectors: Boolean(document.querySelector("#connectors")),
-    notDetectedBoundary: document.body.textContent?.includes("NOT_DETECTED ≠ HALAL") ?? false,
+    notDetectedBoundary: document.body.textContent?.includes("NOT DETECTED ≠ HALAL") ?? false,
     directJakim: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false
   }));
   assert.ok(
-    phaseTwo.assurance && phaseTwo.laboratory && phaseTwo.smartAudit && phaseTwo.command && phaseTwo.verify && phaseTwo.connectors,
+    phaseTwo.assurance && phaseTwo.laboratory && phaseTwo.smartAudit && phaseTwo.chinaLab && phaseTwo.standardsMap && phaseTwo.command && phaseTwo.verify && phaseTwo.connectors,
     `phase 2 structure incomplete at ${width}px: ${JSON.stringify(phaseTwo)}`
   );
   assert.ok(phaseTwo.notDetectedBoundary, "laboratory evidence boundary missing");
+  assert.ok(phaseTwo.chinaLab && phaseTwo.standardsMap, "named laboratory and current standards mapping missing");
   assert.ok(phaseTwo.directJakim, "direct JAKIM topology missing");
 
   const labButtons = page.locator("#laboratory .stepper button");
   assert.equal(await labButtons.count(), 5, "laboratory chain must expose five stages");
   await labButtons.nth(3).click();
-  assert.equal(await page.locator("#laboratory .step-detail h3").textContent(), "Result reviewed", "laboratory interaction did not update");
+  assert.equal(await page.locator("#laboratory .step-detail h3").textContent(), "Technical review & signature", "laboratory interaction did not update");
 
   const auditButtons = page.locator("#smart-audit .stepper button");
   assert.equal(await auditButtons.count(), 5, "smart audit must expose five stages");
   await auditButtons.nth(4).click();
-  assert.equal(await page.locator("#smart-audit .step-detail h3").textContent(), "Re-verify", "audit interaction did not update");
+  assert.equal(await page.locator("#smart-audit .step-detail h3").textContent(), "CAPA & re-verification", "audit interaction did not update");
+  assert.match(await page.locator(".smart-glasses-proof").textContent() ?? "", /auditor confirms and signs/i, "smart-glasses audit evidence boundary missing");
+
+  const monitorButtons = page.locator(".monitoring-nav button");
+  assert.equal(await monitorButtons.count(), 7, "full-stack monitoring must expose seven stages");
+  await monitorButtons.nth(6).click();
+  assert.match(await page.locator(".monitoring-detail h3").textContent() ?? "", /Correct & close/, "monitoring response path did not update");
 
   const eventButtons = page.locator(".event-list button");
   assert.equal(await eventButtons.count(), 3, "command centre must expose illustrative exceptions");
