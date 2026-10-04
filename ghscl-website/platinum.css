@@ -220,7 +220,7 @@
 .platinum-home .stack-layer > span, .platinum-home .stack-connector { color: var(--platinum-gold); }
 .platinum-home .stack-layer b { color: var(--platinum-ivory); }
 .platinum-home .stack-layer small, .platinum-home .stack-participants span { color: var(--platinum-muted); }
-.platinum-home .stack-participants span { border-color: var(--platinum-line-soft); }
+.platinum-home .stack-participants span { color: var(--platinum-gold-light); background: var(--platinum-raised); border-color: var(--platinum-line); }
 .platinum-home .home-corridor { border-block: 1px solid var(--platinum-line); }
 .platinum-home .corridor-shade { background: linear-gradient(90deg, oklch(0.13 0.012 258 / .97), oklch(0.13 0.012 258 / .78) 48%, oklch(0.13 0.012 258 / .26)); }
 .platinum-home .corridor-copy h2 { color: var(--platinum-ivory); font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
