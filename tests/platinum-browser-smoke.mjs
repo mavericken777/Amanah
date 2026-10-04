@@ -160,6 +160,8 @@ await page.emulateMedia({ reducedMotion: "reduce" });
 await page.setViewportSize({ width: 375, height: 900 });
 await page.goto("http://127.0.0.1:4173/", { waitUntil: "networkidle" });
 assert.equal(await page.evaluate(() => document.documentElement.classList.contains("platinum-smooth-scroll")), false, "Reduced motion must disable Lenis");
+await page.locator("#verification-journey").scrollIntoViewIfNeeded();
+await page.locator(".journey-stage").first().waitFor({ state: "attached" });
 assert.equal(await page.locator(".journey-stage").count(), 4, "Reduced-motion Phase 4 fallback must preserve all journey stages");
 assert.equal(await page.locator(".static-shield").count(), 1, "Reduced-motion Phase 4 fallback must preserve a static shield");
 assert.equal(await page.locator(".halal-shield-stage canvas").count(), 0, "Reduced-motion Phase 4 fallback must not require WebGL");
