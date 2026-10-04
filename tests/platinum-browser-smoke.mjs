@@ -46,6 +46,43 @@ for (const width of viewports) {
   await stageButtons.nth(1).click();
   assert.equal(await page.locator(".corridor-detail h3").textContent(), "Laboratory", "corridor interaction did not update");
 
+  const phaseTwo = await page.evaluate(() => ({
+    assurance: Boolean(document.querySelector("#assurance")),
+    laboratory: Boolean(document.querySelector("#laboratory")),
+    smartAudit: Boolean(document.querySelector("#smart-audit")),
+    command: Boolean(document.querySelector("#command")),
+    verify: Boolean(document.querySelector("#verify")),
+    connectors: Boolean(document.querySelector("#connectors")),
+    notDetectedBoundary: document.body.textContent?.includes("NOT_DETECTED ≠ HALAL") ?? false,
+    directJakim: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false
+  }));
+  assert.ok(
+    phaseTwo.assurance && phaseTwo.laboratory && phaseTwo.smartAudit && phaseTwo.command && phaseTwo.verify && phaseTwo.connectors,
+    `phase 2 structure incomplete at ${width}px: ${JSON.stringify(phaseTwo)}`
+  );
+  assert.ok(phaseTwo.notDetectedBoundary, "laboratory evidence boundary missing");
+  assert.ok(phaseTwo.directJakim, "direct JAKIM topology missing");
+
+  const labButtons = page.locator("#laboratory .stepper button");
+  assert.equal(await labButtons.count(), 5, "laboratory chain must expose five stages");
+  await labButtons.nth(3).click();
+  assert.equal(await page.locator("#laboratory .step-detail h3").textContent(), "Result reviewed", "laboratory interaction did not update");
+
+  const auditButtons = page.locator("#smart-audit .stepper button");
+  assert.equal(await auditButtons.count(), 5, "smart audit must expose five stages");
+  await auditButtons.nth(4).click();
+  assert.equal(await page.locator("#smart-audit .step-detail h3").textContent(), "Re-verify", "audit interaction did not update");
+
+  const eventButtons = page.locator(".event-list button");
+  assert.equal(await eventButtons.count(), 3, "command centre must expose illustrative exceptions");
+  await eventButtons.nth(2).click();
+  assert.equal(await page.locator(".command-detail h3").textContent(), "Route deviation", "command-centre interaction did not update");
+
+  await page.locator("#verify-token").fill("DEMO-TOKEN-001");
+  assert.equal(await page.locator(".verify-result strong").textContent(), "DEMO ONLY", "verification preview must remain explicitly non-production");
+
+  assert.equal(await page.locator(".connector-row").count(), 6, "connector readiness table must include five interfaces plus header");
+
   await page.addScriptTag({ path: axePath });
   const axe = await page.evaluate(async () => await globalThis.axe.run(document, {
     runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] }
