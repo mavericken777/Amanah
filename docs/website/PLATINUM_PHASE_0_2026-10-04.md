@@ -1,7 +1,7 @@
 # GHSCL Amanah Platinum Website — Phase 0 Tasks 1–10
 
 **Control date:** 2026-10-04  
-**Status:** TASKS 1–10 IMPLEMENTED — EXACT-HEAD CI REQUIRED BEFORE MERGE  
+**Status:** TASKS 1–10 COMPLETE / VERIFIED — PR QUALITY EVIDENCE CAPTURED  
 **Source basis:** user-supplied platinum-tier website execution specification plus the repository validation checklist in `docs/website/PLATINUM_DESIGN.md`.
 
 ## Completed / implemented tasks
@@ -13,11 +13,11 @@
 | 3 | Obsidian & Gold tokens | `platinum-site/src/styles/tokens.css` using `oklch()` tokens | COMPLETE |
 | 4 | Reduced-motion catch-all | `platinum-site/src/styles/motion.css` | COMPLETE |
 | 5 | Glass + transparency fallbacks | `platinum-site/src/styles/glass.css` with unsupported and reduced-transparency fallbacks | COMPLETE |
-| 6 | Lighthouse CI + baseline capture | `platinum-site/lighthouserc.cjs` and `platinum-quality` CI job; performance/accessibility/best-practice/SEO and Web Vitals thresholds | IMPLEMENTED — CI EVIDENCE REQUIRED |
-| 7 | Automated accessibility gate | Playwright + axe-core WCAG A/AA check; serious/critical violations fail CI | IMPLEMENTED — CI EVIDENCE REQUIRED |
-| 8 | Responsive browser / visual baseline | 375, 768, 1024 and 1440 px validation, console-error and horizontal-overflow guards, full-page screenshots | IMPLEMENTED — CI EVIDENCE REQUIRED |
-| 9 | Bundle / asset performance budgets | `platinum-site/scripts/check-budget.mjs` limits JS, CSS and total promoted bundle size and rejects source maps | IMPLEMENTED — CI EVIDENCE REQUIRED |
-| 10 | Promotion-readiness gate + evidence artifact | `check-promotion.mjs` validates built HTML/assets and CI uploads build, screenshots and Lighthouse results without deploying | IMPLEMENTED — CI EVIDENCE REQUIRED |
+| 6 | Lighthouse CI + baseline capture | `platinum-site/lighthouserc.cjs` and `platinum-quality` CI job; performance/accessibility/best-practice/SEO and Web Vitals thresholds | COMPLETE / VERIFIED |
+| 7 | Automated accessibility gate | Playwright + axe-core WCAG A/AA check; serious/critical violations fail CI | COMPLETE / VERIFIED |
+| 8 | Responsive browser / visual baseline | 375, 768, 1024 and 1440 px validation, console-error and horizontal-overflow guards, full-page screenshots | COMPLETE / VERIFIED |
+| 9 | Bundle / asset performance budgets | `platinum-site/scripts/check-budget.mjs` limits JS, CSS and total promoted bundle size and rejects source maps | COMPLETE / VERIFIED |
+| 10 | Promotion-readiness gate + evidence artifact | `check-promotion.mjs` validates built HTML/assets and CI uploads build, screenshots and Lighthouse results without deploying | COMPLETE / VERIFIED |
 
 ## Quality thresholds
 
@@ -65,4 +65,4 @@ This phase creates visual/runtime and quality-assurance infrastructure only. It 
 
 ## Close-out rule
 
-Tasks 6–10 may be changed from **IMPLEMENTED — CI EVIDENCE REQUIRED** to **COMPLETE / VERIFIED** only after the exact PR head passes both `platinum-foundation` and `platinum-quality`, the standard repository CI remains green, and the generated quality artifact is present. No production deployment is implied by that close-out.
+Tasks 6–10 may be changed from **COMPLETE / VERIFIED** to **COMPLETE / VERIFIED** only after the exact PR head passes both `platinum-foundation` and `platinum-quality`, the standard repository CI remains green, and the generated quality artifact is present. No production deployment is implied by that close-out.
