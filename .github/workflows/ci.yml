@@ -82,6 +82,59 @@ jobs:
           grep -q "@supports not (backdrop-filter" platinum-site/src/styles/glass.css
 
 
+  platinum-quality:
+    runs-on: ubuntu-latest
+    needs: [platinum-foundation]
+    timeout-minutes: 20
+    env:
+      PLAYWRIGHT_MODULE: /tmp/platinum-browser/node_modules/playwright/index.mjs
+      AXE_PATH: /tmp/platinum-browser/node_modules/axe-core/axe.min.js
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 22
+      - name: Install platinum dependencies
+        run: npm install --prefix platinum-site --package-lock=false --no-audit --no-fund
+      - name: Build platinum site
+        run: npm run build --prefix platinum-site
+      - name: Enforce bundle and asset budgets
+        run: npm run quality:budget --prefix platinum-site
+      - name: Enforce promotion-readiness structure
+        run: npm run quality:promotion --prefix platinum-site
+      - name: Install pinned browser and accessibility tooling outside application dependencies
+        run: |
+          npm install --prefix /tmp/platinum-browser --no-audit --no-fund playwright@1.63.0 axe-core@4.10.3
+          /tmp/platinum-browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Responsive and accessibility browser validation
+        run: |
+          mkdir -p platinum-site/quality-results
+          npm run preview --prefix platinum-site -- --host 127.0.0.1 --port 4173 > /tmp/platinum-preview.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -sf http://127.0.0.1:4173/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl -sf http://127.0.0.1:4173/ >/dev/null || { cat /tmp/platinum-preview.log; exit 1; }
+          node tests/platinum-browser-smoke.mjs
+      - uses: browser-actions/setup-chrome@v1
+        id: setup-chrome
+      - name: Install pinned Lighthouse CI
+        run: npm install --prefix /tmp/platinum-lhci --no-audit --no-fund @lhci/cli@0.14.0
+      - name: Capture Lighthouse baseline and enforce thresholds
+        env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
+        run: /tmp/platinum-lhci/node_modules/.bin/lhci autorun --config=platinum-site/lighthouserc.cjs
+      - name: Upload Phase 0 quality evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: platinum-phase0-quality-${{ github.sha }}
+          path: |
+            platinum-site/dist/
+            platinum-site/quality-results/
+            platinum-site/lighthouse-results/
+
+
   policies:
     runs-on: ubuntu-latest
     steps:
