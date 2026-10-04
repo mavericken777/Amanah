@@ -60,6 +60,14 @@ try {
     await page.locator('#onboardingChecklist input').first().check();
     assert.match(await page.locator('#readinessSummary').textContent(),/^1 of /);
    }
+   if(name==='index') {
+    const cards=page.locator('.terminal-card');
+    assert.equal(await cards.count(),4,'homepage trust terminal cards');
+    await cards.first().locator('summary').click();
+    assert.ok(await cards.first().getAttribute('open')!==null,'homepage terminal disclosure opens');
+    await cards.first().locator('summary').click();
+    assert.equal(await cards.first().getAttribute('open'),null,'homepage terminal disclosure closes');
+   }
    if(name==='verify') {
     await page.locator('#verificationToken').fill('https://untrusted.example/?token=invalid');
     await page.locator('#verifyButton').click();

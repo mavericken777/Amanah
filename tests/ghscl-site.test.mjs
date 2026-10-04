@@ -52,6 +52,18 @@ test('homepage responsive, keyboard and reduced-motion support exists', () => {
   assert.match(html,/aria-label="Primary"/);
 });
 
+test('platinum homepage uses the obsidian and gold design and accessible trust disclosures', () => {
+  const platinum = fs.readFileSync('ghscl-website/platinum.css', 'utf8');
+  assert.match(html, /class="home-refresh platinum-home"/);
+  assert.match(html, /href="platinum.css"/);
+  assert.match(html, /id="trust-terminal"/);
+  assert.equal((html.match(/class="terminal-card"/g)||[]).length,4);
+  assert.match(html, /class="platinum-shield"/);
+  assert.match(platinum, /--platinum-gold: oklch\(/);
+  for (const rule of ['max-width: 1024px','max-width: 900px','max-width: 767px','max-width: 480px','prefers-reduced-transparency: reduce','prefers-reduced-motion: reduce']) assert.ok(platinum.includes(rule), 'missing design rule: '+rule);
+  assert.doesNotMatch(html, /JAKIM SYNC ACTIVE|ZERO PORCINE|PORCINE DNA: NOT DETECTED|99\.7%|RELEASE TRIGGERED/);
+});
+
 test('homepage does not use insecure http assets', () => {
   assert.doesNotMatch(html,/(?:src|href)=["']http:\/\//i);
   assert.doesNotMatch(css,/url\(["']?http:\/\//i);
