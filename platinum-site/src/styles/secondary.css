@@ -73,3 +73,6 @@ linear-gradient(180deg,var(--obsidian-base),oklch(.08 .004 260));color:var(--tex
 .secondary-inline-form input{border-color:oklch(.78 .13 85 / .45)}
 .secondary-inline-form button:focus-visible,.secondary-inline-form input:focus-visible,
 .secondary-index a:focus-visible,.secondary-nav a:focus-visible{outline:3px solid var(--focus-ring);outline-offset:3px}
+
+.secondary-footer nav{gap:.45rem .7rem}
+.secondary-footer nav a{display:inline-flex;align-items:center;min-height:28px;padding:.35rem .3rem}
