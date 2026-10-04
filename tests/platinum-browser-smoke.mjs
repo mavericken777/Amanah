@@ -154,8 +154,7 @@ for (const width of viewports) {
           if (nested instanceof CSSStyleRule && nested.selectorText === ".glass") {
             const style = nested.style;
             return style.background.includes("--obsidian-raised")
-              && (style.getPropertyValue("backdrop-filter") === "none"
-                || style.getPropertyValue("-webkit-backdrop-filter") === "none");
+              && /(?:-webkit-)?backdrop-filter:\s*none(?:\s*!important)?/i.test(nested.cssText);
           }
         }
       }
