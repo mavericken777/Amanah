@@ -35,6 +35,14 @@ It remains separate from the repository-root Next.js protected Amanah applicatio
 - issuer-authorised public-verification preview
 - connector-readiness matrix for Direct JAKIM API, laboratory, Sinotrans, ports/customs and finance/Takaful
 
+### Phase 3 — Tasks 21–25
+
+- responsive institutional navigation and mobile keyboard behavior
+- PHC / GHSCL HK / AHTE / Direct JAKIM institutional structure
+- partner and trade-enablement pathways across China, laboratory, Sinotrans, ports/customs, GCC and finance/Takaful
+- corporate engagement paths to secure workspace, profile, onboarding and verifier
+- controlled GitHub Pages promotion that overlays the platinum homepage while preserving all existing secondary public pages
+
 ## Authority and evidence boundaries
 
 The site presents the controlling topology:
@@ -61,4 +69,4 @@ The repository CI validates the isolated platinum experience alongside the exist
 
 ## Promotion rule
 
-A passing build is not deployment. Promotion into the public website requires the exact-head quality gates, merge, and a controlled public-source switch with post-promotion verification.
+A passing build is not deployment. Promotion into the public website is performed only by the controlled GitHub Pages workflow after exact-head CI succeeds. The workflow preserves existing secondary pages and overlays the quality-gated platinum homepage into the deployment artifact; post-deployment exact-artifact verification must still pass.
