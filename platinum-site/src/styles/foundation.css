@@ -449,3 +449,5 @@ main { position: relative; z-index: 1; }
 @media (max-width:1080px) { .hero h1 { font-size: clamp(3rem,5.4vw,4.2rem); } }
 @media (max-width:720px) { .identity-copy strong { max-width: 12rem; } .hero h1 { font-size: clamp(2.8rem,9.5vw,3.8rem); } .monitoring-layout { grid-template-columns: 1fr; } }
 @media (max-width:430px) { .hero h1 { font-size: clamp(2.4rem,10.2vw,2.9rem); } .smart-glasses-demo { grid-template-columns: 1fr; } .journey-evidence div { grid-template-columns: 1fr; gap: .25rem; } }
+
+@media (max-width:720px) { .corridor-nav { grid-template-columns: repeat(2,minmax(0,1fr)); align-content:start; } .corridor-nav button { min-height:3.4rem; padding:.65rem; gap:.45rem; font-size:.76rem; } }
