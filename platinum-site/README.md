@@ -1,18 +1,49 @@
-# GHSCL Amanah Platinum Site — Phase 0
+# GHSCL Amanah Platinum Site
 
-This package is the Vite + TypeScript foundation for the next-generation public trust-terminal experience.
+This package is the isolated Vite + TypeScript implementation of the next-generation public trust-terminal experience.
 
-It is intentionally isolated from the existing Next.js protected Amanah application and the current generated GitHub Pages site so Phase 0 can be built and validated without destabilising production surfaces. Later promotion into the public deployment must pass the repository release gates.
+It remains separate from the repository-root Next.js protected Amanah application and the currently published generated site until a controlled promotion decision is made. The purpose is to build and validate the complete public experience without destabilising authenticated operations.
 
-## Phase 0 implemented
+## Implemented phases
 
-1. Vite + TypeScript + React foundation.
-2. GSAP, Lenis, Motion, D3 and Three.js dependency manifest.
-3. `src/styles/tokens.css` — Obsidian & Gold tokens using `oklch()`.
-4. `src/styles/motion.css` — global reduced-motion safeguard.
-5. `src/styles/glass.css` — glass treatment with unsupported/reduced-transparency fallbacks.
+### Phase 0 — Tasks 1–10
 
-The foundation page renders the token system for validation only. It does not claim live telemetry, laboratory results, authority decisions or Shipment 001 evidence.
+- Vite + TypeScript + React foundation
+- declared motion/data/3D dependencies
+- obsidian/gold design tokens
+- reduced-motion safeguards
+- glass / reduced-transparency fallbacks
+- Lighthouse CI thresholds
+- axe-core accessibility gate
+- responsive browser validation at 375 / 768 / 1024 / 1440
+- bundle/asset performance budgets
+- promotion-readiness artifact
+
+### Phase 1 — Tasks 11–15
+
+- institutional shell and navigation
+- executive hero and corporate identity
+- canonical trust-path presentation
+- China → GCC direct corridor explorer
+- participant pathways and secure conversion layer
+
+### Phase 2 — Tasks 16–20
+
+- laboratory evidence-chain interaction
+- smart-audit / CAPA / re-verification interaction
+- 24/7 Command Center exception and decision-ladder experience
+- issuer-authorised public-verification preview
+- connector-readiness matrix for Direct JAKIM API, laboratory, Sinotrans, ports/customs and finance/Takaful
+
+## Authority and evidence boundaries
+
+The site presents the controlling topology:
+
+**AHTE ⇄ Direct JAKIM API ⇄ JAKIM**
+
+AI assists; authorised humans and competent authorities decide. Laboratory output is evidence, not certification. Hashes prove integrity, not truth. Ports/customs and finance/Takaful states remain externally owned.
+
+Direct JAKIM production connectivity and other real external connectors are activated only when the relevant authority/partner supplies authorised production inputs. Shipment 001 remains NOT-INSTANTIATED until real evidence exists.
 
 ## Local commands
 
@@ -22,6 +53,12 @@ npm install
 npm run dev
 npm run build
 npm run preview
+npm run quality:budget
+npm run quality:promotion
 ```
 
-The repository CI runs the Phase 0 build and validates the required CSS safeguards.
+The repository CI validates the isolated platinum experience alongside the existing Amanah application and public-site regression suites.
+
+## Promotion rule
+
+A passing build is not deployment. Promotion into the public website requires the exact-head quality gates, merge, and a controlled public-source switch with post-promotion verification.

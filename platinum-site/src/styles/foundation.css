@@ -241,3 +241,89 @@ main { position: relative; z-index: 1; }
   .hero-actions,.final-actions { display: grid; grid-template-columns: 1fr; }
   .trust-path { grid-template-columns: 1fr; }
 }
+
+
+/* Phase 2 tasks 16–20: laboratory, audit, command centre, verifier and connector readiness */
+.assurance-section,.command-section,.verify-section,.connector-section{
+  border-top:1px solid oklch(0.78 0.13 85 / .12);
+}
+.assurance-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.assurance-panel{padding:1.15rem;border-radius:1.2rem;min-width:0}
+.panel-head,.command-head{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.panel-head .eyebrow{margin:0}
+.state-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:1.8rem;padding:.4rem .65rem;border:1px solid oklch(0.78 0.13 85 / .28);
+  border-radius:999px;background:oklch(0.26 0.04 85 / .3);color:var(--gold-bright);
+  font-size:.58rem;font-weight:800;letter-spacing:.06em;line-height:1.2;text-align:center
+}
+.stepper{display:grid;gap:.45rem;margin-top:1rem}
+.stepper button{
+  width:100%;display:grid;grid-template-columns:2.3rem 1fr;gap:.6rem;align-items:center;
+  min-height:3rem;padding:.7rem .8rem;border:1px solid oklch(0.78 0.13 85 / .14);
+  border-radius:.75rem;background:oklch(0.18 0.005 260 / .55);text-align:left;cursor:pointer
+}
+.stepper button span{color:var(--gold-primary);font-size:.62rem}
+.stepper button.active{border-color:var(--gold-primary);background:oklch(0.28 0.04 85 / .35)}
+.step-detail{min-height:11rem;margin-top:.75rem;padding:1.1rem;border-radius:1rem;background:linear-gradient(145deg,oklch(0.22 0.01 260 / .75),oklch(0.15 0.005 260 / .45));border:1px solid oklch(0.78 0.13 85 / .12)}
+.step-detail small{color:var(--gold-primary);letter-spacing:.1em}
+.step-detail h3,.command-detail h3,.verify-result h3{margin:.55rem 0 .6rem;color:var(--gold-bright);font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.7rem,3vw,2.8rem)}
+.step-detail p,.command-detail p,.verify-result p{margin:0;color:var(--text-muted);line-height:1.7}
+
+.command-grid{display:grid;grid-template-columns:minmax(16rem,.7fr) minmax(0,1.3fr);gap:1rem}
+.event-list{display:grid;gap:.55rem}
+.event-list button{
+  width:100%;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"sev title" "sev object";
+  gap:.2rem .8rem;align-items:center;padding:.9rem;border:1px solid oklch(0.78 0.13 85 / .16);
+  border-radius:.9rem;background:oklch(0.18 0.005 260 / .58);text-align:left;cursor:pointer
+}
+.event-list button.active{border-color:var(--gold-primary);background:oklch(0.28 0.04 85 / .3)}
+.event-list .severity{grid-area:sev;min-width:3.7rem;padding:.36rem .45rem;border-radius:.45rem;text-align:center;font-size:.55rem;font-weight:900;letter-spacing:.08em}
+.severity-high{background:oklch(.45 .15 35 / .35);color:oklch(.82 .1 55)}
+.severity-medium{background:oklch(.5 .12 85 / .3);color:var(--gold-bright)}
+.event-list strong{grid-area:title;color:var(--text-primary);font-size:.78rem}
+.event-list small{grid-area:object;color:var(--text-muted)}
+.command-detail{min-height:22rem;padding:clamp(1.4rem,3vw,2.5rem);border-radius:1.2rem;display:flex;flex-direction:column;justify-content:center}
+.command-head{color:var(--text-muted);font-size:.7rem;letter-spacing:.08em}
+.decision-ladder{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.4rem;margin:1.5rem 0}
+.decision-ladder span{padding:.65rem .45rem;border:1px solid oklch(0.78 0.13 85 / .16);border-radius:.6rem;color:var(--text-muted);font-size:.58rem;text-align:center}
+.decision-ladder span:nth-child(5){border-color:var(--gold-primary);color:var(--gold-bright)}
+.command-detail>small{color:var(--text-muted)}
+
+.verify-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:1rem}
+.verify-form,.verify-result{padding:clamp(1.2rem,3vw,2rem);border-radius:1.2rem}
+.verify-form{display:grid;gap:1rem}
+.verify-form label{color:var(--gold-bright);font-size:.72rem;font-weight:800;letter-spacing:.05em}
+.verify-form input{
+  width:100%;min-height:3.2rem;padding:.8rem .9rem;border:1px solid oklch(0.78 0.13 85 / .28);
+  border-radius:.8rem;background:oklch(0.13 0.005 260 / .8);color:var(--text-primary)
+}
+.verify-form p{margin:0;color:var(--text-muted);font-size:.72rem;line-height:1.6}
+.qr-schematic{width:9rem;aspect-ratio:1;display:grid;grid-template-columns:repeat(6,1fr);gap:.18rem;padding:.6rem;border:1px solid oklch(0.78 0.13 85 / .25);background:var(--obsidian-base)}
+.qr-schematic i{background:oklch(0.25 0.01 260);border-radius:.12rem}
+.qr-schematic i.on{background:var(--gold-primary)}
+.verify-result strong{display:inline-block;margin:.3rem 0 1rem;color:var(--gold-primary);font-size:.72rem;letter-spacing:.08em}
+.verify-result dl{display:grid;gap:.5rem;margin:1.2rem 0}
+.verify-result dl div{display:grid;grid-template-columns:minmax(8rem,.55fr) 1fr;gap:1rem;padding:.7rem;border-top:1px solid oklch(0.78 0.13 85 / .12)}
+.verify-result dt{color:var(--gold-primary);font-size:.65rem}
+.verify-result dd{margin:0;color:var(--text-muted);font-size:.72rem}
+.verify-result a{color:var(--gold-primary);font-size:.75rem;font-weight:800;text-decoration:none}
+
+.connector-table{overflow:hidden;border-radius:1.2rem}
+.connector-row{display:grid;grid-template-columns:minmax(11rem,.7fr) minmax(11rem,.6fr) minmax(0,1.7fr);gap:1rem;align-items:center;padding:1rem 1.2rem;border-top:1px solid oklch(0.78 0.13 85 / .12)}
+.connector-row:first-child{border-top:0}
+.connector-row strong{color:var(--text-primary);font-size:.8rem}
+.connector-row p{margin:0;color:var(--text-muted);font-size:.75rem;line-height:1.55}
+.connector-head{background:oklch(0.24 0.02 85 / .32);color:var(--gold-primary);font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+
+@media(max-width:1080px){
+  .assurance-grid{grid-template-columns:1fr}
+  .decision-ladder{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(max-width:720px){
+  .command-grid,.verify-grid{grid-template-columns:1fr}
+  .decision-ladder{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .connector-row{grid-template-columns:1fr;gap:.5rem}
+  .connector-head{display:none}
+  .panel-head{align-items:flex-start;flex-direction:column}
+}
