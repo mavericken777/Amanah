@@ -123,7 +123,9 @@ export default function App() {
   }, [verifyQuery]);
 
   return (
-    <div className="platinum-shell">\n      <SmoothScroll />\n      <ScrollProgress />
+    <div className="platinum-shell">
+      <SmoothScroll />
+      <ScrollProgress />
       <a className="skip-link" href="#main">Skip to content</a>
 
       <header className="platinum-header glass">
@@ -158,7 +160,8 @@ export default function App() {
       </header>
 
       <main id="main">
-        <section className="hero hero-phase4" id="top" aria-labelledby="hero-title">\n          <CircuitMapBackground />
+        <section className="hero hero-phase4" id="top" aria-labelledby="hero-title">
+          <CircuitMapBackground />
           <div className="hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">GLOBAL HALAL DIGITAL TRUST &amp; TRADE INFRASTRUCTURE</p>
@@ -503,7 +506,11 @@ export default function App() {
           </div>
         </section>
 
-        <TrustTerminal />\n\n        <VerificationJourney />\n\n        <section className="section engagement-section" id="engage">
+        <TrustTerminal />
+
+        <VerificationJourney />
+
+        <section className="section engagement-section" id="engage">
           <div className="section-heading">
             <p className="eyebrow">11 / ENGAGEMENT</p>
             <h2>Start from the role, corridor or integration you actually control.</h2>
