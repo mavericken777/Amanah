@@ -99,6 +99,35 @@ for (const width of viewports) {
   assert.ok(phaseThree.finance, "finance / Takaful partner pathway missing");
   assert.ok(phaseThree.corporateProfile >= 1, "corporate profile conversion path missing");
 
+  const phaseFour = await page.evaluate(() => ({
+    terminal: Boolean(document.querySelector("#terminal")),
+    journey: Boolean(document.querySelector("#verification-journey")),
+    terminalCards: document.querySelectorAll(".terminal-card").length,
+    journeyStages: document.querySelectorAll(".journey-stage").length,
+    directJakim: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false,
+    notDetected: document.body.textContent?.includes("NOT_DETECTED ≠ HALAL") ?? false,
+    shipmentBoundary: document.body.textContent?.toLowerCase().includes("shipment 001: not instantiated") ?? false
+  }));
+  assert.ok(phaseFour.terminal && phaseFour.journey, `phase 4 structure incomplete at ${width}px: ${JSON.stringify(phaseFour)}`);
+  assert.equal(phaseFour.terminalCards, 4, "trust terminal must expose four interactive cards");
+  assert.equal(phaseFour.journeyStages, 4, "verification journey must expose four stages");
+  assert.ok(phaseFour.directJakim && phaseFour.notDetected && phaseFour.shipmentBoundary, "phase 4 authority/evidence boundaries missing");
+
+  const logisticsNodes = page.locator(".logistics-map .route-node");
+  assert.equal(await logisticsNodes.count(), 3, "D3 logistics schematic must expose origin, GCC destination and Malaysia governance nodes");
+  await logisticsNodes.nth(2).click();
+  assert.match(await page.locator(".terminal-detail strong").textContent() ?? "", /Malaysia Governance/, "governance node did not update logistics detail");
+  assert.match(await page.locator(".terminal-detail small").textContent() ?? "", /not.*physical transit/i, "Malaysia governance boundary missing");
+
+  await page.locator(".terminal-finance .gold-action").click();
+  assert.match(await page.locator(".terminal-state").textContent() ?? "", /DEMO RELEASE REQUEST GENERATED/, "finance interaction must remain a simulation");
+
+  const complianceButtons = page.locator(".compliance-list button");
+  assert.equal(await complianceButtons.count(), 4, "compliance card must expose four evidence artifacts");
+  await complianceButtons.nth(3).click();
+  assert.equal(await complianceButtons.nth(3).getAttribute("aria-expanded"), "true", "compliance artifact did not expand");
+  assert.match(await complianceButtons.nth(3).textContent() ?? "", /Pending authorization/i, "Direct JAKIM connector state must not be represented as live");
+
   if (width <= 768) {
     const toggle = page.locator(".mobile-menu-toggle");
     assert.equal(await toggle.count(), 1, "mobile navigation toggle missing");
@@ -118,6 +147,13 @@ for (const width of viewports) {
 
   await page.screenshot({ path: `platinum-site/quality-results/platinum-${width}.png`, fullPage: true });
 }
+
+await page.emulateMedia({ reducedMotion: "reduce" });
+await page.setViewportSize({ width: 375, height: 900 });
+await page.goto("http://127.0.0.1:4173/", { waitUntil: "networkidle" });
+assert.equal(await page.locator(".journey-stage").count(), 4, "Reduced-motion Phase 4 fallback must preserve all journey stages");
+assert.equal(await page.locator(".static-shield").count(), 1, "Reduced-motion Phase 4 fallback must preserve a static shield");
+assert.equal(await page.locator(".halal-shield-stage canvas").count(), 0, "Reduced-motion Phase 4 fallback must not require WebGL");
 
 await browser.close();
 console.log("Platinum responsive and accessibility smoke passed at 375/768/1024/1440.");
