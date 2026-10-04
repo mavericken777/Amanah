@@ -403,7 +403,7 @@ export default function App() {
             <article className="assurance-panel glass" id="laboratory">
               <div className="panel-head">
                 <span className="eyebrow">CHINA FOOD SECURITY &amp; INNOVATION LABORATORY</span>
-                <span className="state-chip">EVIDENCE · NOT CERTIFICATION</span>
+                <span className="state-chip">NOT DETECTED ≠ HALAL</span>
               </div>
               <p className="partner-intro">Sample intake → sealed custody → method and QC → technical review → signed report → product evidence.</p>
               <div className="stepper" role="tablist" aria-label="Laboratory evidence stages">
