@@ -36,6 +36,15 @@ for (const file of files) {
 }
 
 if (cssBytes > limits.css) throw new Error(`.css budget exceeded: ${cssBytes} > ${limits.css} bytes`);
+const cssSources = await Promise.all(files.filter(file => extname(file) === ".css").map(file => readFile(file, "utf8")));
+const reducedTransparencyFallback = cssSources.some(source => {
+  const match = source.match(/@media\s*\(prefers-reduced-transparency:\s*reduce\)\s*\{[\s\S]*?\.glass\s*\{([^}]*)\}/i);
+  if (!match) return false;
+  const declarations = match[1];
+  return /background\s*:\s*var\(--obsidian-raised\)/i.test(declarations)
+    && /(?:-webkit-)?backdrop-filter\s*:\s*none(?:\s*!important)?/i.test(declarations);
+});
+if (!reducedTransparencyFallback) throw new Error("Built CSS is missing the opaque, blur-free reduced-transparency fallback for .glass");
 if (total > limits.total) throw new Error(`Total bundle budget exceeded: ${total} > ${limits.total} bytes`);
 
 const indexHtml = await readFile(join(distPath, "index.html"), "utf8");
