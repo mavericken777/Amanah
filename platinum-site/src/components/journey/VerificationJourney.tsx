@@ -1,9 +1,5 @@
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const stages = [
   {
@@ -47,42 +43,66 @@ export function VerificationJourney() {
   useEffect(() => {
     if (reducedMotion || !rootRef.current) return;
 
-    const mm = gsap.matchMedia();
     const root = rootRef.current;
+    let cancelled = false;
+    let cleanup = () => {};
 
-    mm.add("(min-width: 801px)", () => {
-      const panels = gsap.utils.toArray<HTMLElement>(".journey-stage", root);
-      const ctx = gsap.context(() => {
-        panels.forEach((panel, index) => {
-          if (index === panels.length - 1) return;
-          ScrollTrigger.create({
-            trigger: panel,
-            start: "top top+=96",
-            end: "bottom top+=96",
-            pin: panel.querySelector(".journey-stage-inner"),
-            pinSpacing: false,
-            scrub: .5,
+    const observer = new IntersectionObserver(async entries => {
+      if (!entries.some(entry => entry.isIntersecting) || cancelled) return;
+      observer.disconnect();
+
+      const [{ gsap }, scrollTriggerModule] = await Promise.all([
+        import("gsap"),
+        import("gsap/ScrollTrigger"),
+      ]);
+      if (cancelled) return;
+
+      const ScrollTrigger = scrollTriggerModule.ScrollTrigger;
+      gsap.registerPlugin(ScrollTrigger);
+      const mm = gsap.matchMedia();
+
+      mm.add("(min-width: 801px)", () => {
+        const panels = gsap.utils.toArray<HTMLElement>(".journey-stage", root);
+        const ctx = gsap.context(() => {
+          panels.forEach((panel, index) => {
+            if (index === panels.length - 1) return;
+            ScrollTrigger.create({
+              trigger: panel,
+              start: "top top+=96",
+              end: "bottom top+=96",
+              pin: panel.querySelector(".journey-stage-inner"),
+              pinSpacing: false,
+              scrub: .5,
+            });
           });
-        });
-      }, root);
-      return () => ctx.revert();
-    });
+        }, root);
+        return () => ctx.revert();
+      });
 
-    mm.add("(max-width: 800px)", () => {
-      const ctx = gsap.context(() => {
-        gsap.utils.toArray<HTMLElement>(".journey-stage", root).forEach(panel => {
-          gsap.fromTo(panel, { opacity: .45, y: 28 }, {
-            opacity: 1,
-            y: 0,
-            duration: .6,
-            scrollTrigger: { trigger: panel, start: "top 82%", once: true },
+      mm.add("(max-width: 800px)", () => {
+        const ctx = gsap.context(() => {
+          gsap.utils.toArray<HTMLElement>(".journey-stage", root).forEach(panel => {
+            gsap.fromTo(panel, { opacity: .45, y: 28 }, {
+              opacity: 1,
+              y: 0,
+              duration: .6,
+              scrollTrigger: { trigger: panel, start: "top 82%", once: true },
+            });
           });
-        });
-      }, root);
-      return () => ctx.revert();
-    });
+        }, root);
+        return () => ctx.revert();
+      });
 
-    return () => mm.revert();
+      cleanup = () => mm.revert();
+    }, { rootMargin: "450px 0px" });
+
+    observer.observe(root);
+
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+      cleanup();
+    };
   }, [reducedMotion]);
 
   return (
