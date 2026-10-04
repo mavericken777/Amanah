@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/create-route-pages.mjs",
     "preview": "vite preview",
     "quality:budget": "node scripts/check-budget.mjs",
     "quality:promotion": "node scripts/check-promotion.mjs"
