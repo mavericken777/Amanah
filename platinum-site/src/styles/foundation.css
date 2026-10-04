@@ -391,3 +391,7 @@ main { position: relative; z-index: 1; }
 }
 .identity-mark svg { display: block; width: 100%; height: 100%; overflow: visible; }
 .hero-terminal { border-color: oklch(0.78 0.13 85 / .56); }
+
+/* Reserve stable space for deferred interactive sections and keep their anchor targets clear of the sticky header. */
+.deferred-feature { scroll-margin-top: 6rem; }
+.feature-loading { margin: 0; padding: 2rem; color: var(--text-muted); }

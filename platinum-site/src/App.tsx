@@ -1,10 +1,39 @@
-import { useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { SmoothScroll } from "./components/motion/SmoothScroll";
 import { ScrollProgress } from "./components/motion/ScrollProgress";
 import { CircuitMapBackground } from "./components/hero/CircuitMapBackground";
 import { HalalShield3D } from "./components/hero/HalalShield3D";
-import { TrustTerminal } from "./components/terminal/TrustTerminal";
-import { VerificationJourney } from "./components/journey/VerificationJourney";
+const TrustTerminal = lazy(() => import("./components/terminal/TrustTerminal").then(module => ({ default: module.TrustTerminal })));
+const VerificationJourney = lazy(() => import("./components/journey/VerificationJourney").then(module => ({ default: module.VerificationJourney })));
+
+function DeferredFeature({ id, minHeight, children }: { id: string; minHeight: number; children: ReactNode }) {
+  const hostRef = useRef<HTMLDivElement>(null);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const host = hostRef.current;
+    if (!host) return;
+    if (!("IntersectionObserver" in window)) {
+      setReady(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        setReady(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: "720px 0px" });
+    observer.observe(host);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div id={id} ref={hostRef} className="deferred-feature" aria-busy={!ready} style={{ minHeight: `${minHeight}px` }}>
+      {ready ? children : null}
+    </div>
+  );
+}
 
 const trustPath = [
   "Authority",
@@ -522,9 +551,17 @@ export default function App() {
           </div>
         </section>
 
-        <TrustTerminal />
+        <DeferredFeature id="terminal" minHeight={650}>
+          <Suspense fallback={<p className="feature-loading" role="status">Loading interactive trust terminal…</p>}>
+            <TrustTerminal sectionId="" />
+          </Suspense>
+        </DeferredFeature>
 
-        <VerificationJourney />
+        <DeferredFeature id="verification-journey" minHeight={680}>
+          <Suspense fallback={<p className="feature-loading" role="status">Loading verification journey…</p>}>
+            <VerificationJourney sectionId="" />
+          </Suspense>
+        </DeferredFeature>
 
         <section className="section engagement-section" id="engage">
           <div className="section-heading">

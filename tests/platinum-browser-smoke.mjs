@@ -100,6 +100,11 @@ for (const width of viewports) {
   assert.ok(phaseThree.finance, "finance / Takaful partner pathway missing");
   assert.ok(phaseThree.corporateProfile >= 1, "corporate profile conversion path missing");
 
+  await page.locator("#terminal").scrollIntoViewIfNeeded();
+  await page.locator(".terminal-card").first().waitFor({ state: "attached" });
+  await page.locator("#verification-journey").scrollIntoViewIfNeeded();
+  await page.locator(".journey-stage").first().waitFor({ state: "attached" });
+
   const phaseFour = await page.evaluate(() => ({
     terminal: Boolean(document.querySelector("#terminal")),
     journey: Boolean(document.querySelector("#verification-journey")),
