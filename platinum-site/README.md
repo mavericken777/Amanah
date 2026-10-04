@@ -2,7 +2,7 @@
 
 This package is the isolated Vite + TypeScript implementation of the next-generation public trust-terminal experience.
 
-It remains separate from the repository-root Next.js protected Amanah application and the currently published generated site until a controlled promotion decision is made. The purpose is to build and validate the complete public experience without destabilising authenticated operations.
+It remains separate from the repository-root Next.js protected Amanah application. The controlled GitHub Pages workflow promotes its generated public routes while preserving authenticated operations.
 
 ## Implemented phases
 
@@ -69,7 +69,7 @@ The repository CI validates the isolated platinum experience alongside the exist
 
 ## Promotion rule
 
-A passing build is not deployment. Promotion into the public website is performed only by the controlled GitHub Pages workflow after exact-head CI succeeds. The workflow preserves existing secondary pages and overlays the quality-gated platinum homepage into the deployment artifact; post-deployment exact-artifact verification must still pass.
+A passing build is not deployment. Promotion into the public website is performed by the controlled GitHub Pages workflow after exact-head CI succeeds. The workflow overlays all generated platinum public routes and verifies the promoted artifact against the main commit. The Phase 5 promotion for `3a900d445538777a2d6e96071a11c3a61dd89cf6` succeeded; see `docs/website/PLATINUM_PHASE_6_AUDIT_2026-10-04.md` for the remaining performance and device-validation gates.
 
 
 ### Phase 4 — Tasks 26–30
