@@ -82,3 +82,14 @@ A passing build is not deployment. Promotion into the public website is performe
 - keyboard/accessibility, 44px target and reduced-transparency safeguards
 
 The Phase 4 implementation is source-adapted to the controlling architecture: China → GCC direct, AHTE ⇄ Direct JAKIM API ⇄ JAKIM, laboratory evidence is not certification, external finance/Takaful/customs decisions remain externally owned, and Shipment 001 remains NOT-INSTANTIATED.
+
+
+### Phase 5 — Tasks 31–35
+
+- shared platinum renderer for the complete secondary public information architecture
+- static route generation with route-specific metadata
+- controlled Verify / Manufacturer / Contact interactions
+- secure Amanah login visual parity with the public trust-terminal identity
+- full-site GitHub Pages promotion and route-level CI verification
+
+Phase 5 consumes the existing `ghscl-website/ecosystem.en.json` content source so the platinum renderer does not create a second architecture narrative. The frozen standards baseline is not modified.
