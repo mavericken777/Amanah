@@ -35,15 +35,6 @@
     brand.append(line);
   }
 
-  // Neutral connector-state label. It deliberately does not imply a live authority connection.
-  const header = document.querySelector('.site-header');
-  if (header && !header.querySelector('.system-state')) {
-    const state = document.createElement('span');
-    state.className = 'system-state';
-    state.innerHTML = '<i aria-hidden="true"></i><span>AUTHORITY CONNECTIVITY · PENDING AUTHORIZATION</span>';
-    header.insertBefore(state, header.querySelector('.site-menu'));
-  }
-
   const onboard = document.querySelector('.site-start');
   if (onboard) {
     const arrow = document.createElement('span');
