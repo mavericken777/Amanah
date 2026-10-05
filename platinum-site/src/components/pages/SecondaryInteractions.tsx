@@ -1,10 +1,7 @@
 import { useMemo, useState } from "react";
+import { demoVerificationRecords } from "../../data/demoJourney";
 
-const examples = [
-  { token: "GHSC-MY-2026-8891", product: "Malaysia-origin product journey", batch: "MY-DEMO-2026-01", stages: ["Product identity linked", "Audit and laboratory evidence assembled", "Warehouse, seal and temperature events recorded", "Consumer passport prepared"] },
-  { token: "JAKIM-AMANAH-0921", product: "Authority-reference journey", batch: "CN-DEMO-2026-02", stages: ["Sample reference linked to a batch", "Control observations and laboratory evidence grouped", "Container, route and condition events recorded", "Market disclosure view prepared"] },
-  { token: "HK-GHSC-2026-1188", product: "Hong Kong coordination journey", batch: "CN-DEMO-2026-03", stages: ["Product identity and origin references assembled", "Audit and laboratory records linked to controls", "Warehouse, transport and port handoffs recorded", "Provenance view prepared for the market"] },
-];
+const examples = demoVerificationRecords;
 
 export function SecondaryInteractions({ slug }: { slug: string }) {
   const [token, setToken] = useState("");
