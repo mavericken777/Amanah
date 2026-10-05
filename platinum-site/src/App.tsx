@@ -372,6 +372,39 @@ export default function App() {
               <dl className="journey-evidence"><div><dt>Accountable owner</dt><dd>{corridor[activeCorridor][2]}</dd></div><div><dt>Evidence at this handoff</dt><dd>{corridor[activeCorridor][3]}</dd></div><div><dt>Next accountable handoff</dt><dd>{corridor[activeCorridor][4]}</dd></div></dl>
             </article>
           </div>
+          <section className="journey-perspectives" aria-label="Explore the selected handoff in different views">
+            <div className="journey-perspective-controls" role="group" aria-label="Journey view">
+              {([
+                ["journey", "Journey"],
+                ["actor", "Actor"],
+                ["standards", "Standards"],
+                ["trust", "Trust record"],
+              ] as const).map(([perspective, label]) => (
+                <button key={perspective} type="button" aria-pressed={journeyPerspective === perspective} onClick={() => setJourneyPerspective(perspective)}>{label}</button>
+              ))}
+            </div>
+            <div className="journey-perspective-panel glass" data-perspective={journeyPerspective} aria-live="polite">
+              {journeyPerspective === "journey" ? <>
+                <p className="eyebrow">ONE JOURNEY · ONE PRODUCT IDENTITY</p>
+                <h3>{corridor[activeCorridor][0]}</h3>
+                <p>Use the twelve handoffs and journey scrubber above to follow this same product from source to consumer.</p>
+              </> : journeyPerspective === "actor" ? <>
+                <p className="eyebrow">ACTOR VIEW · ACCOUNTABILITY STAYS WITH THE ACTOR</p>
+                <h3>{corridor[activeCorridor][2]}</h3>
+                <dl className="journey-evidence"><div><dt>Action</dt><dd>{corridor[activeCorridor][0]} · {corridor[activeCorridor][1]}</dd></div><div><dt>Evidence created or consumed</dt><dd>{corridor[activeCorridor][3]}</dd></div><div><dt>Next handoff</dt><dd>{corridor[activeCorridor][4]}</dd></div></dl>
+              </> : journeyPerspective === "standards" ? <>
+                <p className="eyebrow">STANDARDS VIEW · APPLICABILITY DEPENDS ON SCOPE</p>
+                <h3>{standardsTopics[activeCorridor]}</h3>
+                <dl className="journey-evidence"><div><dt>Control objective</dt><dd>{corridor[activeCorridor][1]}</dd></div><div><dt>Evidence</dt><dd>{corridor[activeCorridor][3]}</dd></div><div><dt>Responsible actor</dt><dd>{corridor[activeCorridor][2]}</dd></div></dl>
+                <p className="standards-scope-note">Confirm the applicable instrument, edition and clause against the controlled source for this product, operator and market. This view does not assert certification or conformity.</p>
+              </> : <>
+                <p className="eyebrow">TRUST RECORD · SAME PRODUCT, CURRENT HANDOFF</p>
+                <h3>{corridor[activeCorridor][0]}</h3>
+                <dl className="journey-evidence"><div><dt>Journey ID</dt><dd>GHSC-DEMO-24001</dd></div><div><dt>Product batch</dt><dd>{demoProduct.batch}</dd></div><div><dt>Actor / event</dt><dd>{corridor[activeCorridor][2]} · {corridor[activeCorridor][0]}</dd></div><div><dt>Evidence reference</dt><dd>{corridor[activeCorridor][3]}</dd></div></dl>
+                <p className="standards-scope-note">An integrity proof helps show that recorded content has not changed; it does not prove that the underlying claim is true.</p>
+              </>}
+            </div>
+          </section>
           <section className="trust-passport glass" aria-labelledby="passport-title" data-stage={activeCorridor + 1}>
             <div className="passport-heading">
               <div>
