@@ -15,7 +15,7 @@ export function SecondaryInteractions({ slug }: { slug: string }) {
     <p className="eyebrow">PRODUCT PASSPORT</p><h2>Follow the evidence through the journey.</h2>
     <p>Enter a sample reference to explore how origin, assessment, custody and market disclosure connect.</p>
     <form className="secondary-inline-form" onSubmit={(event) => { event.preventDefault(); setSubmitted(token); }}>
-      <label className="sr-only" htmlFor="route-token">Sample reference</label><input id="route-token" value={token} onChange={(event) => setToken(event.target.value)} placeholder="Try GHSC-MY-2026-8891" />
+      <label className="sr-only" htmlFor="route-token">Sample reference</label><input id="route-token" value={token} onChange={(event) => { setToken(event.target.value); setSubmitted(event.target.value); }} placeholder="Try GHSC-MY-2026-8891" />
       <button type="submit">View passport</button>
     </form>
     {record && <div className="passport-result" aria-live="polite"><div className="passport-heading"><div><p className="eyebrow">{record.batch}</p><h3>{record.product}</h3></div><span>Journey view</span></div><ol className="passport-timeline">{record.stages.map((stage, index) => <li key={stage}><span>{String(index + 1).padStart(2, "0")}</span><strong>{stage}</strong></li>)}</ol><p className="passport-note">Sample journey · select a step in the home journey to explore its evidence and handoffs.</p></div>}
