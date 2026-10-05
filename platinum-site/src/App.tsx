@@ -211,30 +211,32 @@ export default function App() {
         <nav id="primary-nav" aria-label="Primary navigation" className={menuOpen ? "open" : ""}>
           <a href="#trust" onClick={() => setMenuOpen(false)}>Trust model</a>
           <a href="#corridor" onClick={() => setMenuOpen(false)}>Goods journey</a>
+          <a href="#passport-route-gold" onClick={() => setMenuOpen(false)}>Trust passport</a>
           <a href="#assurance" onClick={() => setMenuOpen(false)}>Audit &amp; lab</a>
           <a href="#command" onClick={() => setMenuOpen(false)}>Command Center</a>
-          <details className="site-nav-menu">
-            <summary>Explore</summary>
-            <div className="site-nav-menu-panel">
-              <a href="ecosystem.html">Complete ecosystem</a>
-              <a href="corporate-profile.html">Corporate profile</a>
-              <a href="digital-trust.html">Digital trust</a>
-              <a href="traceability.html">Traceability</a>
-              <a href="smart-audit.html">Smart audit</a>
-              <a href="china-gcc.html">China → GCC</a>
-              <a href="command-center.html">Command Center</a>
-              <a href="manufacturers.html">Manufacturers</a>
-              <a href="partners.html">Partners</a>
-              <a href="finance-takaful.html">Finance &amp; Takaful</a>
-              <a href="visuals.html">Visual journey</a>
-              <a href="contact.html">Contact</a>
-              <a href="zh-Hant.html" lang="zh-Hant">繁體中文</a>
-              <a href="ar.html" lang="ar" dir="rtl">العربية</a>
-              <a href="login/index.html">Institutional access</a>
-            </div>
-          </details>
           <a href="#verify" onClick={() => setMenuOpen(false)}>Verify</a>
+          <a href="#partners" onClick={() => setMenuOpen(false)}>Partners</a>
         </nav>
+        <details className="site-nav-menu">
+          <summary>Explore</summary>
+          <div className="site-nav-menu-panel">
+            <a href="ecosystem.html">Complete ecosystem</a>
+            <a href="corporate-profile.html">Corporate profile</a>
+            <a href="digital-trust.html">Digital trust</a>
+            <a href="traceability.html">Traceability</a>
+            <a href="smart-audit.html">Smart audit</a>
+            <a href="china-gcc.html">China → GCC</a>
+            <a href="command-center.html">Command Center</a>
+            <a href="manufacturers.html">Manufacturers</a>
+            <a href="partners.html">Partners</a>
+            <a href="finance-takaful.html">Finance &amp; Takaful</a>
+            <a href="visuals.html">Visual journey</a>
+            <a href="contact.html">Contact</a>
+            <a href="zh-Hant.html" lang="zh-Hant">繁體中文</a>
+            <a href="ar.html" lang="ar" dir="rtl">العربية</a>
+            <a href="login/index.html">Institutional access</a>
+          </div>
+        </details>
         <a className="header-cta" href="login/index.html">Secure portal ↗</a>
       </header>
 
