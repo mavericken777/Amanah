@@ -60,6 +60,10 @@ for (const width of viewports) {
   await heroShield.click();
   assert.equal(await heroShield.getAttribute("aria-expanded"), "true", "shield interaction should reveal its meaning");
   assert.match(await page.locator("#shield-meaning").textContent() ?? "", /identity.*evidence.*custody/i, "shield explanation should describe the trust connection");
+  const shieldBox = await heroShield.boundingBox();
+  const captionBox = await page.locator("#shield-meaning").boundingBox();
+  assert.ok(shieldBox && captionBox && captionBox.y >= shieldBox.y + shieldBox.height - 1,
+    "shield explanation must sit below the crest without overlapping it");
   assert.ok(phaseOne.verifyLinks >= 1, "public verification entry point missing");
 
   const stageButtons = page.locator(".corridor-nav button");
