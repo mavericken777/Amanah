@@ -1,0 +1,213 @@
+/* AMANAH Platinum-Tier final art direction — 2026-10-05.
+   Ultra-luxury black + gold, Islamic geometric discipline, institutional clarity. */
+:root{
+  --pt-black:#050505;--pt-obsidian:#090807;--pt-raised:#12100d;--pt-raised-2:#19150f;
+  --pt-gold:#d7b25e;--pt-gold-light:#f0d88f;--pt-gold-deep:#89601f;
+  --pt-ivory:#f5eedf;--pt-sand:#cfc3a9;--pt-muted:#9f947f;--pt-line:rgba(215,178,94,.2);
+}
+html,body,#root{background:var(--pt-black)}
+body{
+  color:var(--pt-ivory);
+  background:
+    radial-gradient(ellipse at 79% -10%,rgba(198,149,55,.14),transparent 40rem),
+    radial-gradient(ellipse at 8% 54%,rgba(108,75,26,.07),transparent 30rem),
+    linear-gradient(180deg,#050505,#080706 48%,#050505);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.2;
+  background-image:
+    radial-gradient(circle at 30% 20%,rgba(255,255,255,.018) 0 1px,transparent 1.3px),
+    linear-gradient(30deg,transparent 48.8%,rgba(215,178,94,.028) 49.45%,transparent 50.1%),
+    linear-gradient(150deg,transparent 48.8%,rgba(215,178,94,.02) 49.45%,transparent 50.1%);
+  background-size:7px 7px,104px 104px,104px 104px;
+  mask-image:radial-gradient(ellipse at 55% 20%,#000 0 28%,transparent 78%);
+}
+.platinum-shell,.secondary-shell{background:transparent!important}
+.platinum-header,.secondary-header{
+  border-radius:.7rem!important;
+  background:linear-gradient(135deg,rgba(17,15,11,.96),rgba(5,5,5,.94))!important;
+  border:1px solid rgba(215,178,94,.28)!important;
+  box-shadow:inset 0 1px 0 rgba(255,241,197,.035),0 18px 55px rgba(0,0,0,.42)!important;
+}
+.identity-mark{
+  border-radius:.45rem!important;
+  background:#070605!important;
+  box-shadow:0 0 0 1px rgba(215,178,94,.42),0 10px 28px rgba(0,0,0,.34)!important;
+}
+.identity-copy strong{color:#ebd38f!important;font-family:Cinzel,Georgia,serif!important;letter-spacing:.12em!important}
+.identity-copy small{color:#95876d!important}
+#primary-nav>a,.secondary-nav>a{color:#b9ae99!important}
+#primary-nav>a:hover,.secondary-nav>a:hover{color:#f0d88f!important}
+.site-nav-menu-panel,.secondary-route-panel,.secondary-mobile-panel{
+  border-radius:.7rem!important;background:rgba(7,7,6,.985)!important;
+  border-color:rgba(215,178,94,.27)!important;box-shadow:0 28px 90px #000!important
+}
+.header-cta,.button-primary{
+  border-radius:.45rem!important;
+  background:linear-gradient(135deg,#f0d88f,#c89e4d 61%,#8a611f)!important;
+  border:1px solid #f0d88f!important;color:#0a0703!important;
+  box-shadow:inset 0 1px 0 rgba(255,250,221,.6),0 10px 28px rgba(201,154,54,.12)!important;
+}
+.button-secondary{
+  border-radius:.45rem!important;background:rgba(215,178,94,.025)!important;
+  border:1px solid rgba(215,178,94,.3)!important;color:#dbc47f!important;
+}
+.hero-phase4{
+  min-height:min(900px,calc(100svh - 5rem))!important;
+  background:
+    radial-gradient(circle at 77% 43%,rgba(192,142,46,.13),transparent 29rem),
+    linear-gradient(120deg,#050505,#0b0906 60%,#0e0a05)!important;
+  border-bottom:1px solid rgba(215,178,94,.18)!important
+}
+.hero-phase4::before{
+  opacity:.85!important;
+  background:
+    repeating-conic-gradient(from 0deg at 77% 44%,rgba(218,183,106,.038) 0deg .7deg,transparent .7deg 15deg),
+    repeating-radial-gradient(circle at 77% 44%,transparent 0 44px,rgba(218,183,106,.026) 45px 46px)!important;
+  mask-image:radial-gradient(ellipse at 77% 44%,#000 0 20%,transparent 70%)!important
+}
+.hero-phase4 .hero-grid{min-height:min(780px,82vh)!important}
+.hero-copy>.eyebrow{color:#c8a655!important;font:700 .66rem "DM Mono",monospace!important;letter-spacing:.18em!important}
+.hero h1{
+  max-width:13ch!important;font-family:Cinzel,"Cormorant Garamond",Georgia,serif!important;
+  font-size:clamp(3.9rem,6.7vw,7.1rem)!important;font-weight:500!important;
+  line-height:.96!important;color:var(--pt-ivory)!important;text-shadow:0 24px 70px #000!important
+}
+.hero h1 em{color:var(--pt-gold-light)!important;font-style:normal!important}
+.hero-principle{
+  max-width:43rem!important;color:#e1c97f!important;font-family:"Cormorant Garamond",Georgia,serif!important;
+  font-size:clamp(1.4rem,2vw,1.9rem)!important;font-style:italic
+}
+.hero-lede{max-width:46rem!important;color:#c6baa3!important;font-size:clamp(.98rem,1.15vw,1.12rem)!important}
+.hero-terminal{
+  min-height:36rem!important;border-radius:.75rem!important;border:1px solid rgba(215,178,94,.34)!important;
+  background:linear-gradient(180deg,rgba(9,8,6,.66),rgba(5,5,5,.91))!important;
+  box-shadow:inset 0 1px 0 rgba(255,242,200,.04),0 34px 85px rgba(0,0,0,.48)!important;
+  overflow:hidden!important
+}
+.hero-terminal::after{border-radius:.48rem!important;border-color:rgba(215,178,94,.12)!important}
+.brand-world-art{
+  opacity:.54!important;object-position:center center!important;filter:saturate(.78) contrast(1.08)!important;
+  mix-blend-mode:screen!important;mask-image:linear-gradient(180deg,#000 0 58%,transparent 95%)!important
+}
+.terminal-head{color:#d8c28a!important;font:600 .6rem "DM Mono",monospace!important;letter-spacing:.09em!important}
+.shield-orbit{display:grid;place-items:center;min-height:17rem!important}
+.static-shield{
+  width:clamp(12rem,19vw,17rem)!important;border:0!important;background:transparent!important;
+  padding:0!important;box-shadow:none!important
+}
+.static-shield img{
+  width:100%!important;height:auto!important;display:block!important;
+  filter:drop-shadow(0 26px 32px rgba(0,0,0,.72)) drop-shadow(0 0 28px rgba(215,178,94,.15))!important
+}
+.shield-caption{max-width:25rem!important;margin-inline:auto!important;color:#a99c82!important;text-align:center!important}
+.hero-terminal dl>div{
+  border-radius:.4rem!important;border-color:rgba(215,178,94,.17)!important;
+  background:rgba(7,6,5,.72)!important
+}
+.hero-terminal dt{color:#84775e!important}.hero-terminal dd{color:#d2c5aa!important}
+.section,.final-cta,.platinum-footer{width:min(90rem,calc(100% - 3rem))!important}
+.section{padding-block:clamp(5.3rem,8.8vw,8.3rem)!important;border-color:rgba(215,178,94,.12)!important}
+.section-heading{max-width:62rem!important}
+.section-heading>.eyebrow,.panel-head>.eyebrow,.passport-heading .eyebrow,.corridor-detail>.eyebrow{
+  color:#c9a654!important;font:700 .62rem "DM Mono",monospace!important;letter-spacing:.16em!important
+}
+.section-heading h2,.final-cta h2,.secondary-hero h1,.secondary-section-heading h2{
+  font-family:Cinzel,"Cormorant Garamond",Georgia,serif!important;color:var(--pt-ivory)!important;font-weight:500!important
+}
+.section-heading>p:not(.eyebrow),.secondary-lede{color:#b9ae99!important}
+.capability-card,.institution-card,.corridor-detail,.trust-passport,.assurance-panel,.command-detail,.monitoring-detail,.verify-form,.verify-result,.partner-card,.pathway-card,.engagement-card,.final-cta,.secondary-card,.secondary-special .passport-result{
+  border-radius:.55rem!important;
+  border:1px solid rgba(215,178,94,.17)!important;
+  background:
+    linear-gradient(145deg,rgba(255,241,194,.02),transparent 38%),
+    linear-gradient(160deg,#12100d,#080807 72%)!important;
+  box-shadow:inset 0 1px 0 rgba(255,243,204,.025),0 22px 60px rgba(0,0,0,.23)!important
+}
+.capability-card:hover,.institution-card:hover,.partner-card:hover,.pathway-card:hover,.engagement-card:hover{
+  border-color:rgba(215,178,94,.33)!important;transform:translateY(-2px)
+}
+.capability-card h3,.institution-card h3,.partner-card h3,.pathway-card h3,.engagement-card strong{
+  color:#e9d59d!important;font-family:Cinzel,Georgia,serif!important
+}
+.authority-card{background:linear-gradient(145deg,#181208,#080706 74%)!important;border-color:rgba(215,178,94,.34)!important}
+.trust-path li{border-color:rgba(215,178,94,.15)!important;background:#0c0b09!important}
+.trust-path li span{color:#caa755!important}.trust-path li strong{color:#d8cdb6!important}
+.trust-note{border-radius:.5rem!important;border-color:rgba(215,178,94,.25)!important;background:#0b0907!important}
+.trust-note code{color:#e0c57b!important}
+.corridor-nav button,.monitoring-nav button,.stepper button,.event-list button{
+  border-radius:.38rem!important;border-color:rgba(215,178,94,.18)!important;background:#0d0c0a!important;color:#bcb09a!important
+}
+.corridor-nav button.active,.monitoring-nav button.active,.stepper button.active,.event-list button.active{
+  background:linear-gradient(135deg,#e8cc84,#b98f45)!important;color:#100c05!important;border-color:#f0d88f!important
+}
+.trust-passport{
+  border-color:rgba(215,178,94,.34)!important;
+  background:
+    radial-gradient(circle at 8% 15%,rgba(215,178,94,.08),transparent 28%),
+    linear-gradient(135deg,#17130d,#080807 70%)!important
+}
+.passport-heading h3{font-family:Cinzel,Georgia,serif!important;color:#f0d88f!important}
+.passport-id,.passport-map,.passport-detail{
+  border-radius:.35rem!important;background:rgba(6,6,5,.68)!important;border-color:rgba(215,178,94,.18)!important
+}
+.passport-route-progress{filter:drop-shadow(0 0 6px rgba(215,178,94,.45))!important}
+.state-chip,.severity{border-radius:999px!important}
+.standards-note{border-left:2px solid #b58b40!important;background:linear-gradient(90deg,rgba(215,178,94,.06),transparent)!important}
+.assurance-panel{padding:clamp(1.25rem,2vw,2rem)!important}
+.decision-ladder span,.monitoring-chain span{border-radius:.35rem!important;border-color:rgba(215,178,94,.17)!important;background:#0b0a08!important}
+.monitoring-chain span.reached{color:#e6ce8a!important;border-color:rgba(215,178,94,.36)!important}
+.verify-form input{
+  border-radius:.35rem!important;background:#070706!important;border:1px solid rgba(215,178,94,.27)!important;color:#f1e7d3!important
+}
+.verification-samples button{border-radius:.35rem!important}
+.qr-schematic{border-color:rgba(215,178,94,.26)!important;background:#0a0907!important}
+.qr-schematic i.on{background:#d7b25e!important}
+.engagement-card{min-height:11rem!important}
+.final-cta{border-color:rgba(215,178,94,.3)!important}
+.platinum-footer{border-top-color:rgba(215,178,94,.2)!important}
+.footer-lockup{border-radius:.35rem!important;border-color:rgba(215,178,94,.2)!important;background:#060605!important}
+.secondary-shell{
+  background:
+    radial-gradient(ellipse at 82% 4%,rgba(197,148,55,.11),transparent 36rem),
+    linear-gradient(180deg,#050505,#090807 58%,#050505)!important
+}
+.secondary-hero{padding-top:clamp(4rem,7vw,6rem)!important}
+.secondary-hero h1{color:#ead394!important}
+.secondary-crest{
+  border-radius:.6rem!important;border-color:rgba(215,178,94,.29)!important;
+  background:#070706!important;box-shadow:0 30px 80px rgba(0,0,0,.42)!important
+}
+.secondary-brand-art{opacity:.9!important;filter:saturate(.82) contrast(1.05)!important}
+.secondary-crest>small{border-radius:.35rem!important;color:#dbc47e!important}
+.secondary-index a{border-radius:.35rem!important;border-color:rgba(215,178,94,.18)!important;background:#0c0b09!important}
+.secondary-route-panel a,.secondary-mobile-panel a{border-radius:.3rem!important}
+.secondary-boundary,.secondary-source-note{display:none!important}
+@media(max-width:1050px){
+  .hero-phase4 .hero-grid{grid-template-columns:minmax(0,1fr) minmax(18rem,.8fr)!important;gap:2rem!important}
+  .hero h1{font-size:clamp(3.3rem,6.5vw,5.3rem)!important}
+}
+@media(max-width:760px){
+  .platinum-header,.secondary-header{border-radius:.55rem!important}
+  .hero-phase4{min-height:unset!important;padding-top:2.4rem!important}
+  .hero-phase4 .hero-grid{grid-template-columns:1fr!important;gap:2.1rem!important}
+  .hero h1{font-size:clamp(3.05rem,13vw,4.7rem)!important}
+  .hero-terminal{min-height:29rem!important}
+  .brand-world-art{opacity:.42!important}
+  .section,.final-cta,.platinum-footer{width:calc(100% - 1.25rem)!important}
+  .section{padding-block:4.3rem!important}
+  .secondary-hero{width:calc(100% - 1.25rem)!important}
+}
+@media(max-width:480px){
+  .hero h1{font-size:clamp(2.8rem,14vw,4rem)!important}
+  .hero-principle{font-size:1.34rem!important}
+  .static-shield{width:11rem!important}
+  .hero-terminal{padding:1rem!important}
+}
+@media(prefers-reduced-transparency:reduce){
+  .platinum-header,.secondary-header,.hero-terminal,.site-nav-menu-panel,.secondary-route-panel{backdrop-filter:none!important;background:#080706!important}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .capability-card:hover,.institution-card:hover,.partner-card:hover,.pathway-card:hover,.engagement-card:hover{transform:none!important}
+}
