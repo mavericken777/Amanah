@@ -187,7 +187,12 @@ for (const width of viewports) {
     runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] }
   }));
   const severe = axe.violations.filter(v => ["serious", "critical"].includes(v.impact ?? ""));
-  assert.equal(severe.length, 0, `axe serious/critical violations at ${width}px: ${JSON.stringify(severe.map(v => ({ id:v.id, impact:v.impact, nodes:v.nodes.length })))}`);
+  const severeDetails = severe.map(v => ({
+    id: v.id,
+    impact: v.impact,
+    nodes: v.nodes.map(n => ({ target: n.target, html: n.html, failureSummary: n.failureSummary }))
+  }));
+  assert.equal(severe.length, 0, `axe serious/critical violations at ${width}px: ${JSON.stringify(severeDetails)}`);
 
   await page.screenshot({ path: `platinum-site/quality-results/platinum-${width}.png`, fullPage: true });
 }
