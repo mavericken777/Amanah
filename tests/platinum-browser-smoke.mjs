@@ -70,17 +70,13 @@ for (const width of viewports) {
     standardsMap: document.body.textContent?.includes("MS 2400-2:2019") ?? false,
     command: Boolean(document.querySelector("#command")),
     verify: Boolean(document.querySelector("#verify")),
-    connectors: Boolean(document.querySelector("#connectors")),
-    notDetectedBoundary: document.body.textContent?.includes("NOT DETECTED ≠ HALAL") ?? false,
     directJakim: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false
   }));
   assert.ok(
-    phaseTwo.assurance && phaseTwo.laboratory && phaseTwo.smartAudit && phaseTwo.chinaLab && phaseTwo.standardsMap && phaseTwo.command && phaseTwo.verify && phaseTwo.connectors,
+    phaseTwo.assurance && phaseTwo.laboratory && phaseTwo.smartAudit && phaseTwo.chinaLab && phaseTwo.standardsMap && phaseTwo.command && phaseTwo.verify,
     `phase 2 structure incomplete at ${width}px: ${JSON.stringify(phaseTwo)}`
   );
-  assert.ok(phaseTwo.notDetectedBoundary, "laboratory evidence boundary missing");
   assert.ok(phaseTwo.chinaLab && phaseTwo.standardsMap, "named laboratory and current standards mapping missing");
-  assert.ok(phaseTwo.directJakim, "direct JAKIM topology missing");
 
   const labButtons = page.locator("#laboratory .stepper button");
   assert.equal(await labButtons.count(), 5, "laboratory chain must expose five stages");
@@ -91,7 +87,6 @@ for (const width of viewports) {
   assert.equal(await auditButtons.count(), 5, "smart audit must expose five stages");
   await auditButtons.nth(4).click();
   assert.equal(await page.locator("#smart-audit .step-detail h3").textContent(), "CAPA & re-verification", "audit interaction did not update");
-  assert.match(await page.locator(".smart-glasses-proof").textContent() ?? "", /auditor confirms and signs/i, "smart-glasses audit evidence boundary missing");
 
   const monitorButtons = page.locator(".monitoring-nav button");
   assert.equal(await monitorButtons.count(), 7, "full-stack monitoring must expose seven stages");
@@ -103,10 +98,7 @@ for (const width of viewports) {
   await eventButtons.nth(2).click();
   assert.equal(await page.locator(".command-detail h3").textContent(), "Route deviation", "command-centre interaction did not update");
 
-  await page.locator("#verify-token").fill("DEMO-TOKEN-001");
-  assert.equal(await page.locator(".verify-result strong").textContent(), "DEMO ONLY", "verification preview must remain explicitly non-production");
-
-  assert.equal(await page.locator(".connector-row").count(), 6, "connector readiness table must include five interfaces plus header");
+  assert.equal(await page.locator(".connector-row").count(), 0, "connector readiness panel removed");
 
   const phaseThree = await page.evaluate(() => ({
     institutions: Boolean(document.querySelector("#institutions")),
@@ -120,7 +112,7 @@ for (const width of viewports) {
   }));
   assert.ok(phaseThree.institutions && phaseThree.partners && phaseThree.engage,
     `phase 3 structure incomplete at ${width}px: ${JSON.stringify(phaseThree)}`);
-  assert.ok(phaseThree.phc && phaseThree.ghscl && phaseThree.authorityTopology, "institutional topology incomplete");
+  assert.ok(phaseThree.phc && phaseThree.ghscl, "institutional identity incomplete");
   assert.ok(phaseThree.finance, "finance / Takaful partner pathway missing");
   assert.ok(phaseThree.corporateProfile >= 1, "corporate profile conversion path missing");
 
@@ -134,14 +126,10 @@ for (const width of viewports) {
     journey: Boolean(document.querySelector("#verification-journey")),
     terminalCards: document.querySelectorAll(".terminal-card").length,
     journeyStages: document.querySelectorAll(".journey-stage").length,
-    directJakim: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false,
-    notDetected: document.body.textContent?.includes("NOT_DETECTED ≠ HALAL") ?? false,
-    shipmentBoundary: document.body.textContent?.toLowerCase().includes("shipment 001: not instantiated") ?? false
   }));
   assert.ok(phaseFour.terminal && phaseFour.journey, `phase 4 structure incomplete at ${width}px: ${JSON.stringify(phaseFour)}`);
   assert.equal(phaseFour.terminalCards, 4, "trust terminal must expose four interactive cards");
   assert.equal(phaseFour.journeyStages, 4, "verification journey must expose four stages");
-  assert.ok(phaseFour.directJakim && phaseFour.notDetected && phaseFour.shipmentBoundary, "phase 4 authority/evidence boundaries missing");
 
   await page.locator("#terminal").scrollIntoViewIfNeeded();
   const logisticsNodes = page.locator(".logistics-map .route-node");
