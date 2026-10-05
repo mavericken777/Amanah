@@ -21,7 +21,7 @@ function protect(html) {
   return html.replace('</head>',`<meta http-equiv="Content-Security-Policy" content="${policy}"></head>`);
 }
 function nav(current) {
-  return `<header class="site-header"><a class="site-brand" href="index.html"><img src="media/ghscl-monogram.svg" width="40" height="40" alt=""><span>${esc(m.brand)}<small>${esc(m.operator)}</small></span></a><details class="site-menu"><summary>${esc(m.menu)}</summary><nav aria-label="Primary">${data.navigation.map(([url,label])=>`<a href="${url}"${current===url?' aria-current="page"':''}>${esc(label)}</a>`).join('')}</nav></details><a class="site-start" href="manufacturers.html#onboarding">${esc(m.onboard)}</a></header>`;
+  return `<header class="site-header"><a class="site-brand" href="index.html"><img src="media/ghscl-monogram.svg" width="40" height="40" alt=""><span>${esc(m.brand)}<small>${esc(m.operator)}</small></span></a><details class="site-menu"><summary>${esc(m.menu)}</summary><nav aria-label="Primary">${data.navigation.map(([url,label])=>`<a href="${url}"${current===url?' aria-current="page"':''}>${esc(label)}</a>`).join('')}</nav></details><a class="site-start" href="login/index.html">${esc(m.onboard)}</a></header>`;
 }
 function footer() {
   return `<footer class="site-footer"><div><img src="media/ghscl-wordmark.svg" width="120" height="32" alt="GHSCL"><p>${esc(m.principle)}</p><p>${esc(m.boundary)}</p></div><nav aria-label="Footer">${data.navigation.map(([u,l])=>`<a href="${u}">${esc(l)}</a>`).join('')}</nav><p class="site-provenance">Platform foundations · Canonical ${data.canonicalCommit.slice(0,12)} · Freeze: verified-2026-09-17/ · English first; Chinese, Malay and Arabic planned.</p></footer>`;
