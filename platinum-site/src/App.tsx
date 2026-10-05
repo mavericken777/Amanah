@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } 
 import { SmoothScroll } from "./components/motion/SmoothScroll";
 import { CircuitMapBackground } from "./components/hero/CircuitMapBackground";
 import { HalalShield3D } from "./components/hero/HalalShield3D";
+import { demoProduct, demoVerificationRecords } from "./data/demoJourney";
 const ScrollProgress = lazy(() => import("./components/motion/ScrollProgress").then(module => ({ default: module.ScrollProgress })));
 const TrustTerminal = lazy(() => import("./components/terminal/TrustTerminal").then(module => ({ default: module.TrustTerminal })));
 const VerificationJourney = lazy(() => import("./components/journey/VerificationJourney").then(module => ({ default: module.VerificationJourney })));
@@ -121,11 +122,7 @@ const monitorStages = [
   ["Correct & close", "The owner attaches corrective evidence; a reviewer re-verifies the control and records disposition. Only the appropriate accountable actor advances the next state."],
 ];
 
-const verificationRecords = [
-  { token: "GHSC-MY-2026-8891", product: "Malaysia-origin product journey", batch: "MY-DEMO-2026-01", events: [["01 / Identity", "Product, batch and source reference are linked."], ["02 / Audit & laboratory", "Audit observations and a signed scientific report are shown in the example."], ["03 / Cold-chain custody", "Warehouse, seal, temperature and handoff events appear in sequence."], ["04 / Consumer view", "The product passport brings the shared journey into one readable view."]] },
-  { token: "JAKIM-AMANAH-0921", product: "Authority-reference journey", batch: "CN-DEMO-2026-02", events: [["01 / Identity", "The sample reference is bound to a product and batch."], ["02 / Audit & laboratory", "Control observations and laboratory evidence are grouped by requirement."], ["03 / Cold-chain custody", "Container, route and condition events build a custody timeline."], ["04 / Consumer view", "The disclosure view presents the journey stages for review."]] },
-  { token: "HK-GHSC-2026-1188", product: "Hong Kong coordination journey", batch: "CN-DEMO-2026-03", events: [["01 / Identity", "Product identity and origin references are assembled."], ["02 / Audit & laboratory", "Audit and laboratory records are connected to the relevant controls."], ["03 / Cold-chain custody", "Shipment events follow warehouse, transport and port handoffs."], ["04 / Consumer view", "A concise provenance story is prepared for the market view."]] },
-];
+const verificationRecords = demoVerificationRecords;
 
 const commandEvents = [
   {
@@ -408,7 +405,7 @@ export default function App() {
               </div>
               <div className="passport-details">
                 <div className="passport-detail">
-                  <span>PRODUCT</span><strong>Premium Halal food product</strong><small>Batch CN-DEMO-24001</small>
+                  <span>PRODUCT</span><strong>{demoProduct.name}</strong><small>Batch {demoProduct.batch}</small>
                 </div>
                 <div className="passport-detail">
                   <span>CURRENT HANDOFF · {String(activeCorridor + 1).padStart(2, "0")} / {String(corridor.length).padStart(2, "0")}</span><strong>{corridor[activeCorridor][0]}</strong><small>{corridor[activeCorridor][2]}</small>
