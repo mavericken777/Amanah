@@ -259,7 +259,8 @@ export default function App() {
               </div>
             </div>
 
-            <aside className="hero-terminal glass" aria-label="Trust architecture summary">\n              <img className="brand-world-art" src="media/ghscl-worldmark.webp" alt="" aria-hidden="true" />
+            <aside className="hero-terminal glass" aria-label="Trust architecture summary">
+              <img className="brand-world-art" src="media/ghscl-worldmark.webp" alt="" aria-hidden="true" />
               <div className="terminal-head">
                 <span>AMANAH / TRUST TERMINAL</span>
                 <span>PROJECT ARCHITECTURE</span>
