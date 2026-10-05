@@ -199,7 +199,7 @@ body::before{opacity:.045;background-size:92px 92px;mask-image:radial-gradient(e
 
 .journey-perspectives{margin:1.2rem 0 2rem}
 .journey-perspective-controls{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 .85rem}
-.journey-perspective-controls button{min-height:2.75rem;padding:.65rem 1rem;border:1px solid rgba(205,166,91,.32);border-radius:999px;background:#11100e;color:#d9d0bd;font:600 .78rem/1.2 inherit;letter-spacing:.04em;cursor:pointer}
+.journey-perspective-controls button{min-height:2.75rem;padding:.65rem 1rem;border:1px solid rgba(205,166,91,.32);border-radius:999px;background:#11100e;color:#d9d0bd;font-family:inherit;font-size:.78rem;font-weight:600;line-height:1.2;letter-spacing:.04em;cursor:pointer}
 .journey-perspective-controls button:hover,.journey-perspective-controls button:focus-visible{border-color:#e9cf8e;color:#fff0c4}
 .journey-perspective-controls button[aria-pressed="true"]{border-color:#f1d99d;background:linear-gradient(125deg,#f0d89a,#b89148);color:#16130c}
 .journey-perspective-panel{padding:clamp(1.1rem,2.2vw,1.7rem);border-radius:1.2rem}
