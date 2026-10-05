@@ -180,3 +180,7 @@ body::before{opacity:.045;background-size:92px 92px;mask-image:radial-gradient(e
  .platinum-header>.site-nav-menu{position:absolute;right:4.1rem;top:50%;transform:translateY(-50%)}
  .site-nav-menu-panel{position:fixed;top:4.55rem;right:.5rem;left:auto;width:min(25rem,90vw);min-width:0;grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+#primary-nav>a,.site-nav-menu>summary,.site-nav-menu-panel>a,.platinum-footer nav a{min-height:44px}
+#primary-nav>a,.site-nav-menu-panel>a,.platinum-footer nav a{display:inline-flex;align-items:center;padding:.55rem .45rem}
+.site-nav-menu>summary{display:flex;align-items:center;justify-content:center;padding:.55rem .7rem}
