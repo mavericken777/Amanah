@@ -32,7 +32,8 @@ for (const route of routes) {
 
 await page.goto("http://127.0.0.1:4173/verify.html", { waitUntil: "networkidle" });
 await page.locator("#route-token").fill("GHSC-MY-2026-8891");
-assert.match(await page.locator(".passport-heading h3").textContent() ?? "", /Malaysia-origin product journey/);
+assert.equal(await page.locator(".passport-heading h3").textContent(), "Premium Halal food product", "sample passport must use the canonical demo product");
+assert.match(await page.locator(".passport-heading").textContent() ?? "", /CN-DEMO-24001/, "sample passport must use the canonical demo batch");
 assert.equal(await page.locator(".passport-timeline li").count(), 4, "sample passport should expose all four journey stages");
 
 await page.goto("http://127.0.0.1:4173/manufacturers.html", { waitUntil: "networkidle" });

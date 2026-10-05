@@ -116,6 +116,7 @@ jobs:
           done
           curl -sf http://127.0.0.1:4173/ >/dev/null || { cat /tmp/platinum-preview.log; exit 1; }
           node tests/platinum-browser-smoke.mjs
+          node tests/platinum-mobile-smoke.mjs
           node tests/platinum-route-smoke.mjs
       - uses: browser-actions/setup-chrome@v1
         id: setup-chrome
@@ -125,6 +126,10 @@ jobs:
         env:
           CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
         run: /tmp/platinum-lhci/node_modules/.bin/lhci autorun --config=platinum-site/lighthouserc.cjs
+      - name: Capture mobile Lighthouse homepage baseline and enforce mobile thresholds
+        env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
+        run: /tmp/platinum-lhci/node_modules/.bin/lhci autorun --config=platinum-site/lighthouserc.mobile.cjs
       - name: Upload Phase 0 quality evidence
         uses: actions/upload-artifact@v4
         if: always()
@@ -134,6 +139,7 @@ jobs:
             platinum-site/dist/
             platinum-site/quality-results/
             platinum-site/lighthouse-results/
+            platinum-site/lighthouse-mobile-results/
 
 
   policies:

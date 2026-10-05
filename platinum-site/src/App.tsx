@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } 
 import { SmoothScroll } from "./components/motion/SmoothScroll";
 import { CircuitMapBackground } from "./components/hero/CircuitMapBackground";
 import { HalalShield3D } from "./components/hero/HalalShield3D";
+import { demoProduct, demoVerificationRecords, demoJourneyStages } from "./data/demoJourney";
 const ScrollProgress = lazy(() => import("./components/motion/ScrollProgress").then(module => ({ default: module.ScrollProgress })));
 const TrustTerminal = lazy(() => import("./components/terminal/TrustTerminal").then(module => ({ default: module.TrustTerminal })));
 const VerificationJourney = lazy(() => import("./components/journey/VerificationJourney").then(module => ({ default: module.VerificationJourney })));
@@ -72,20 +73,7 @@ const trustPath = [
   "Operational Release",
 ];
 
-const corridor = [
-  ["Source & suppliers", "Map farms, raw materials, supplier identity, origin documents and approved source relationships before the product enters a controlled factory.", "Supplier and manufacturer", "Source identity, supplier documents, material lot and custody events", "Qualified source record → receiving and formulation"],
-  ["Factory & product setup", "Register the entity, facility, production line, SKU, ingredients, packaging and process scope. Map applicable requirements to each product and market.", "Manufacturer quality / Halal team", "Facility and line profile, product formula, supplier links, control plan and training", "Applicable controls → sampling and audit"],
-  ["Laboratory evidence", "Register a sealed, identified sample against the exact product and batch; record collection, custody, method, QC, review and signed result.", "China Food Security & Innovation Laboratory / authorised laboratory", "Sample ID, seal, custody, method and QC record, signed report and evidence link", "Reviewed scientific evidence → audit and product control"],
-  ["Smart-glasses audit", "Guide an auditor through the scoped checklist in the factory. AI can surface relevant controls and flag gaps; the auditor observes, assesses and signs.", "Assigned human auditor", "Control reference, actor, timestamp, object, observation, photo or document evidence, signature", "Verified audit evidence → findings or scope recommendation"],
-  ["Controlled production", "Bind approved inputs, line status, cleaning and sertu records where applicable, operator training, production run and lot genealogy.", "Manufacturer production / quality", "Material consumption, process events, cleaning evidence, line and batch links", "Batch genealogy → finished-goods release review"],
-  ["Manufacturer warehouse", "Prepare dispatch by lot, pallet and package. Confirm identity, segregation, status, seal, loading and accountable handover.", "Manufacturer warehouse and carrier", "Pick / pack, pallet IDs, segregation, seal, vehicle, handover actor and time", "Custody transfer → Sinotrans receiving"],
-  ["Sinotrans warehouse", "Receive, scan, assign storage location and monitor the shipment under the configured Halal logistics control plan.", "Sinotrans warehouse operator", "Inbound condition, location, segregation, cleaning, temperature, access and outbound events", "Warehouse custody → transport planning"],
-  ["China → GCC transport", "Bind vehicle, container and seal; capture location and condition events; raise exceptions and hold affected scope for accountable review.", "Sinotrans transport operations", "Vehicle / container / seal identity, route, telemetry, handovers and exception actions", "In-transit custody → origin port"],
-  ["Origin port & export", "Present the shipment and authorised records to origin-port and export processes. Record document checks, physical inspection, seal condition and the port or customs response before export handoff.", "Origin port, customs and exporter", "Manifest references, seal check, inspection events, authority responses and release evidence", "Authorised export handoff → GCC port"],
-  ["GCC port & import", "Resolve the authorised disclosure, process destination inspections, holds and import steps, then capture the authority-owned outcome.", "GCC port, customs and importer", "Arrival, custody, inspection, import documents, holds and official release record", "Sovereign import outcome → destination receiving"],
-  ["GCC receiving & distribution", "Reconcile received lots, condition and seals; place stock into controlled storage; preserve custody across distributors and retailers.", "Importer, distributor and retailer", "Receipt reconciliation, storage location, onward dispatch and discrepancy records", "Verified receiving record → buyer or retail disclosure"],
-  ["Consumer verification & response", "Let a buyer scan an issuer-authorised QR disclosure. If evidence changes, trace affected lots, notify accountable operators and coordinate recall action.", "Issuer, authorised buyer and responsible operator", "Purpose-bound disclosure, current trust state, event history and recall links", "Post-market signal → investigation and corrective action"],
-];
+const corridor = demoJourneyStages;
 
 const pathways = [
   ["Manufacturer", "Onboard enterprise, facility, products, suppliers and evidence."],
@@ -98,7 +86,7 @@ const pathways = [
 const labStages = [
   ["Sample registered", "Give the sample a unique ID and bind it to the exact product, SKU and batch. Record collector, time, seal and sampling basis before analysis."],
   ["Custody accepted", "The receiving analyst confirms identity, seal condition and handover. Each custodian, timestamp and condition is linked to the same sample record."],
-  ["Method & quality controls", "The China Food Security & Innovation Laboratory records selected method, scope, instrument context, controls and QC. Applicable product requirements map to controlled MS 1500:2019 references; method and laboratory scope are confirmed for each test."],
+  ["Method & quality controls", "The selected laboratory records method, scope, instrument context, controls and QC. Applicable requirements map to controlled MS 1500:2019 references; the method and laboratory scope must be confirmed for each test."],
   ["Technical review & signature", "An authorised reviewer checks the result against the method, QC and sample chain, then signs the report. The report becomes scientific evidence for the relevant product and control review."],
   ["Evidence bound to product", "AHTE attaches the signed report to the relevant product, batch and control with provenance. A test finding is considered alongside ingredients, process, handling and the applicable authority review."],
 ];
@@ -121,11 +109,7 @@ const monitorStages = [
   ["Correct & close", "The owner attaches corrective evidence; a reviewer re-verifies the control and records disposition. Only the appropriate accountable actor advances the next state."],
 ];
 
-const verificationRecords = [
-  { token: "GHSC-MY-2026-8891", product: "Malaysia-origin product journey", batch: "MY-DEMO-2026-01", events: [["01 / Identity", "Product, batch and source reference are linked."], ["02 / Audit & laboratory", "Audit observations and a signed scientific report are shown in the example."], ["03 / Cold-chain custody", "Warehouse, seal, temperature and handoff events appear in sequence."], ["04 / Consumer view", "The product passport brings the shared journey into one readable view."]] },
-  { token: "JAKIM-AMANAH-0921", product: "Authority-reference journey", batch: "CN-DEMO-2026-02", events: [["01 / Identity", "The sample reference is bound to a product and batch."], ["02 / Audit & laboratory", "Control observations and laboratory evidence are grouped by requirement."], ["03 / Cold-chain custody", "Container, route and condition events build a custody timeline."], ["04 / Consumer view", "The disclosure view presents the journey stages for review."]] },
-  { token: "HK-GHSC-2026-1188", product: "Hong Kong coordination journey", batch: "CN-DEMO-2026-03", events: [["01 / Identity", "Product identity and origin references are assembled."], ["02 / Audit & laboratory", "Audit and laboratory records are connected to the relevant controls."], ["03 / Cold-chain custody", "Shipment events follow warehouse, transport and port handoffs."], ["04 / Consumer view", "A concise provenance story is prepared for the market view."]] },
-];
+const verificationRecords = demoVerificationRecords;
 
 const commandEvents = [
   {
@@ -408,7 +392,7 @@ export default function App() {
               </div>
               <div className="passport-details">
                 <div className="passport-detail">
-                  <span>PRODUCT</span><strong>Premium Halal food product</strong><small>Batch CN-DEMO-24001</small>
+                  <span>PRODUCT</span><strong>{demoProduct.name}</strong><small>Batch {demoProduct.batch}</small>
                 </div>
                 <div className="passport-detail">
                   <span>CURRENT HANDOFF · {String(activeCorridor + 1).padStart(2, "0")} / {String(corridor.length).padStart(2, "0")}</span><strong>{corridor[activeCorridor][0]}</strong><small>{corridor[activeCorridor][2]}</small>
@@ -437,7 +421,7 @@ export default function App() {
           <div className="assurance-grid">
             <article className="assurance-panel glass" id="laboratory">
               <div className="panel-head">
-                <span className="eyebrow">CHINA FOOD SECURITY &amp; INNOVATION LABORATORY</span>
+                <span className="eyebrow">LABORATORY EVIDENCE · DEMONSTRATION WORKFLOW</span>
                 <span className="state-chip">NOT DETECTED ≠ HALAL</span>
               </div>
               <p className="partner-intro">Sample intake → sealed custody → method and QC → technical review → signed report → product evidence.</p>

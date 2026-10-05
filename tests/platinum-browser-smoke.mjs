@@ -61,22 +61,25 @@ for (const width of viewports) {
   await stageButtons.nth(11).click();
   assert.equal(await page.locator(".corridor-detail h3").textContent(), "Consumer verification & response", "consumer endpoint interaction did not update");
   assert.match(await page.locator(".journey-evidence").textContent() ?? "", /Purpose-bound disclosure/, "consumer evidence and handoff detail missing");
+  await page.getByRole("button", { name: "GHSC-MY-2026-8891" }).click();
+  assert.equal(await page.locator(".verify-result h3").textContent(), "Premium Halal food product", "public sample must follow the canonical demo product");
+  assert.match(await page.locator(".verify-result").textContent() ?? "", /Batch CN-DEMO-24001/, "public sample batch must match the journey passport");
 
   const phaseTwo = await page.evaluate(() => ({
     assurance: Boolean(document.querySelector("#assurance")),
     laboratory: Boolean(document.querySelector("#laboratory")),
     smartAudit: Boolean(document.querySelector("#smart-audit")),
-    chinaLab: document.body.textContent?.includes("CHINA FOOD SECURITY & INNOVATION LABORATORY") ?? false,
+    labDemo: document.body.textContent?.includes("LABORATORY EVIDENCE · DEMONSTRATION WORKFLOW") ?? false,
     standardsMap: document.body.textContent?.includes("MS 2400-2:2019") ?? false,
     command: Boolean(document.querySelector("#command")),
     verify: Boolean(document.querySelector("#verify")),
     directJakim: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false
   }));
   assert.ok(
-    phaseTwo.assurance && phaseTwo.laboratory && phaseTwo.smartAudit && phaseTwo.chinaLab && phaseTwo.standardsMap && phaseTwo.command && phaseTwo.verify,
+    phaseTwo.assurance && phaseTwo.laboratory && phaseTwo.smartAudit && phaseTwo.labDemo && phaseTwo.standardsMap && phaseTwo.command && phaseTwo.verify,
     `phase 2 structure incomplete at ${width}px: ${JSON.stringify(phaseTwo)}`
   );
-  assert.ok(phaseTwo.chinaLab && phaseTwo.standardsMap, "named laboratory and current standards mapping missing");
+  assert.ok(phaseTwo.labDemo && phaseTwo.standardsMap, "laboratory demo status and current standards mapping missing");
 
   const labButtons = page.locator("#laboratory .stepper button");
   assert.equal(await labButtons.count(), 5, "laboratory chain must expose five stages");
@@ -177,6 +180,14 @@ await page.locator(".journey-stage").first().waitFor({ state: "attached" });
 assert.equal(await page.locator(".journey-stage").count(), 4, "Reduced-motion Phase 4 fallback must preserve all journey stages");
 assert.equal(await page.locator(".static-shield").count(), 1, "Reduced-motion Phase 4 fallback must preserve a static shield");
 assert.equal(await page.locator(".halal-shield-stage canvas").count(), 0, "Reduced-motion Phase 4 fallback must not require WebGL");
+
+const verifierPage = await browser.newPage({ viewport: { width: 375, height: 812 } });
+await verifierPage.goto("http://127.0.0.1:4173/verify.html", { waitUntil: "networkidle" });
+await verifierPage.locator("#route-token").fill("GHSC-MY-2026-8891");
+await verifierPage.locator(".passport-result").waitFor({ state: "visible" });
+assert.equal(await verifierPage.locator(".passport-result h3").textContent(), "Premium Halal food product", "secondary verifier must use the canonical demo product");
+assert.match(await verifierPage.locator(".passport-result").textContent() ?? "", /CN-DEMO-24001/, "secondary verifier batch must match the journey passport");
+await verifierPage.close();
 
 await browser.close();
 console.log("Platinum responsive and accessibility smoke passed at 375/768/1024/1440.");
