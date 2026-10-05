@@ -239,7 +239,7 @@ body::before{display:none!important}
 .capability-card,.institution-card,.engagement-card,.corridor-detail,.passport-detail,.terminal-card{border-radius:.3rem!important;background:#13120f!important;box-shadow:none!important}
 .button-primary,.button-secondary,.gold-action{border-radius:.2rem!important;box-shadow:none!important}
 .logistics-map{display:block;width:100%;height:auto;min-height:14rem;overflow:visible}
-.logistics-map .route-line{fill:none;stroke:#b99653;stroke-width:2.5}
+.logistics-map .route-line{fill:none;stroke:#b99653;stroke-width:2.5;pointer-events:none}
 .logistics-map .route-line-governance{stroke-dasharray:7 7;opacity:.65}
 .logistics-map .route-node{cursor:pointer;outline:none}
 .logistics-map .route-node circle{fill:#12100b;stroke:#d0ad62;stroke-width:2.5}
