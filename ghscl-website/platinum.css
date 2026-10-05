@@ -294,3 +294,176 @@
 @media (prefers-reduced-motion: reduce) {
   .platinum-home *, .platinum-home *::before, .platinum-home *::after { animation: none !important; scroll-behavior: auto !important; transition: none !important; }
 }
+
+
+/* 2026-10-05 PLATINUM-TIER FINAL ART DIRECTION
+   Reference: supplied black leather / gold Halal shield / global circuit identity. */
+:root{
+  --platinum-black:#050505;
+  --platinum-obsidian:#0a0908;
+  --platinum-charcoal:#11100e;
+  --platinum-gold:#d7b25e;
+  --platinum-gold-light:#f0d88f;
+  --platinum-gold-deep:#8a611f;
+  --platinum-ivory:#f5eedf;
+  --platinum-muted:#afa38d;
+  --platinum-line:rgba(215,178,94,.22);
+}
+.platinum-home{
+  background:
+    radial-gradient(ellipse at 78% -12%,rgba(198,150,57,.14),transparent 38%),
+    radial-gradient(ellipse at 16% 52%,rgba(111,76,24,.075),transparent 32%),
+    #050505;
+  color:var(--platinum-ivory);
+}
+.platinum-home::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.2;
+  background-image:
+    radial-gradient(circle at 18% 20%,rgba(255,255,255,.018) 0 1px,transparent 1.3px),
+    linear-gradient(30deg,transparent 48.8%,rgba(215,178,94,.035) 49.5%,transparent 50.2%),
+    linear-gradient(150deg,transparent 48.8%,rgba(215,178,94,.025) 49.5%,transparent 50.2%);
+  background-size:7px 7px,96px 96px,96px 96px;
+  mask-image:radial-gradient(circle at 55% 24%,#000,transparent 78%);
+}
+.platinum-home .home-hero{
+  min-height:max(760px,100svh);
+  background:#050505;
+  border-bottom:1px solid var(--platinum-line);
+}
+.platinum-home .home-hero-image{
+  opacity:.36;
+  object-fit:contain;
+  object-position:74% 48%;
+  filter:contrast(1.07) saturate(.82) drop-shadow(0 28px 52px rgba(0,0,0,.6));
+  transform:scale(.9);
+  transform-origin:78% 50%;
+}
+.platinum-home .home-hero-shade{
+  background:
+    linear-gradient(90deg,#050505 0%,rgba(5,5,5,.96) 36%,rgba(5,5,5,.71) 59%,rgba(5,5,5,.24) 100%),
+    linear-gradient(0deg,#050505 0%,transparent 42%);
+}
+.platinum-home .home-hero-content{
+  width:min(1380px,calc(100% - 7vw));
+  margin-top:150px;
+}
+.platinum-home .home-hero h1{
+  max-width:860px;
+  color:var(--platinum-ivory);
+  font-family:Cinzel,"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(58px,6.3vw,104px);
+  font-weight:500;
+  line-height:.97;
+  letter-spacing:-.032em;
+  text-shadow:0 22px 70px #000;
+}
+.platinum-home .home-hero h1 em{
+  color:var(--platinum-gold-light);
+  font-style:normal;
+  text-shadow:0 0 40px rgba(215,178,94,.12),0 18px 60px #000;
+}
+.platinum-home .home-hero-lead{
+  max-width:720px;color:#d0c6b3;font-size:clamp(15px,1.2vw,18px);line-height:1.85;
+}
+.platinum-home .home-caption{
+  color:#bea86d;border-color:rgba(215,178,94,.22);
+  font:600 9px/1.55 "DM Mono",ui-monospace,monospace;letter-spacing:.09em;
+}
+.platinum-shield-image{
+  width:clamp(210px,22vw,360px)!important;height:auto!important;
+  right:6%!important;top:50%!important;transform:translateY(-48%)!important;
+  display:grid!important;place-items:center!important;opacity:.96!important;
+}
+.platinum-shield-image img{
+  width:100%;height:auto;display:block;
+  filter:drop-shadow(0 36px 48px rgba(0,0,0,.7)) drop-shadow(0 0 34px rgba(215,178,94,.16));
+}
+.platinum-shield-image small{
+  position:static!important;margin-top:15px!important;
+  color:#bfa86c!important;text-align:center!important;
+  font:600 8px/1.4 "DM Mono",ui-monospace,monospace!important;letter-spacing:.16em!important;
+}
+.platinum-shield-image::before,.platinum-shield-image::after{
+  content:"";position:absolute;inset:12%;z-index:-1;border:1px solid rgba(215,178,94,.07);
+  transform:rotate(45deg);box-shadow:0 0 0 32px rgba(215,178,94,.018),0 0 0 64px rgba(215,178,94,.012);
+}
+.platinum-shield-image::after{transform:rotate(22.5deg);inset:22%;opacity:.65}
+.platinum-home .home-intro,.platinum-home .home-friction,.platinum-home .home-terminal,
+.platinum-home .home-platform,.platinum-home .home-architecture,.platinum-home .home-participants,
+.platinum-home .home-depth,.platinum-home .home-cta{border-color:rgba(215,178,94,.16)}
+.platinum-home .home-section-head h2,.platinum-home .home-friction h2,
+.platinum-home .home-platform h2,.platinum-home .home-architecture h2,.platinum-home .home-participants h2{
+  color:var(--platinum-ivory);font-family:Cinzel,"Cormorant Garamond",Georgia,serif;
+  font-weight:500;letter-spacing:-.025em
+}
+.journey-track-full{
+  grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  gap:1px!important;
+  border:1px solid rgba(215,178,94,.18);
+  background:rgba(215,178,94,.12);
+}
+.journey-track-full article{
+  min-height:210px;padding:25px 22px!important;
+  background:linear-gradient(160deg,#12100d,#080807)!important;
+  border:0!important;border-radius:0!important;
+}
+.journey-track-full article:hover{background:linear-gradient(160deg,#19140c,#0b0907)!important}
+.journey-track-full article>span{color:#d7b25e!important;font:600 9px "DM Mono",monospace!important}
+.journey-track-full h3{color:#ead69c!important;font-family:Cinzel,Georgia,serif!important;font-size:18px!important}
+.journey-track-full p{color:#a99f8d!important;font-size:12px!important;line-height:1.75!important}
+.trust-passport{
+  display:grid;grid-template-columns:minmax(240px,.8fr) 1.5fr;gap:28px;
+  margin:28px 0;padding:30px;border:1px solid rgba(215,178,94,.28);
+  background:
+    radial-gradient(circle at 7% 20%,rgba(215,178,94,.11),transparent 29%),
+    linear-gradient(145deg,#17130d,#080807 72%);
+  box-shadow:inset 0 1px 0 rgba(255,241,194,.05),0 22px 70px rgba(0,0,0,.34);
+}
+.trust-passport h3{
+  margin:.3rem 0;color:#f0d88f;font-family:Cinzel,Georgia,serif;
+  font-size:clamp(25px,3vw,40px);letter-spacing:.02em
+}
+.trust-passport p{color:#a99e88}
+.trust-passport dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin:0;background:rgba(215,178,94,.14)}
+.trust-passport dl>div{padding:18px;background:#0d0c0a}
+.trust-passport dt{color:#7f7461;font:600 8px "DM Mono",monospace;letter-spacing:.13em;text-transform:uppercase}
+.trust-passport dd{margin:7px 0 0;color:#d9c99f;font-size:12px;line-height:1.5}
+.home-terminal .terminal-note{
+  color:#8f846f;font-size:10px;letter-spacing:.04em;
+}
+.platinum-home .terminal-card,.platinum-home .architecture-stack,.platinum-home .participant-grid article,
+.platinum-home .depth-links a{
+  border-color:rgba(215,178,94,.18)!important;
+  background:linear-gradient(155deg,rgba(21,18,13,.98),rgba(8,8,7,.99))!important;
+}
+.platinum-home .terminal-card summary b,.platinum-home .participant-grid h3,
+.platinum-home .stack-layer b{color:#eee2c4!important}
+.platinum-home .home-primary{
+  background:linear-gradient(135deg,#f2dc9a,#c89e4e 60%,#89601f)!important;
+  color:#0b0804!important;border:1px solid #f0d88f!important;
+  box-shadow:inset 0 1px 0 rgba(255,247,215,.65),0 13px 36px rgba(190,143,50,.14)!important;
+}
+.platinum-home .home-secondary{
+  color:#dfc984!important;border-color:rgba(215,178,94,.36)!important;background:rgba(215,178,94,.035)!important;
+}
+@media(max-width:1100px){
+  .journey-track-full{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .platinum-shield-image{right:3%!important;width:230px!important;opacity:.72!important}
+  .platinum-home .home-hero-image{object-position:82% 46%;opacity:.28}
+}
+@media(max-width:767px){
+  .platinum-home .home-hero{min-height:760px;align-items:end}
+  .platinum-home .home-hero-content{width:calc(100% - 40px);margin:230px auto 66px}
+  .platinum-home .home-hero h1{font-size:clamp(45px,12vw,64px);max-width:560px}
+  .platinum-home .home-hero-lead{font-size:14px}
+  .platinum-home .home-hero-image{object-position:center 15%;opacity:.25;transform:scale(.68);transform-origin:center top}
+  .platinum-home .home-hero-shade{background:linear-gradient(0deg,#050505 0%,rgba(5,5,5,.93) 60%,rgba(5,5,5,.48) 100%)}
+  .platinum-shield-image{top:16%!important;right:50%!important;transform:translateX(50%)!important;width:145px!important;opacity:.76!important}
+  .journey-track-full{grid-template-columns:1fr!important}
+  .journey-track-full article{min-height:0}
+  .trust-passport{grid-template-columns:1fr;padding:22px}
+  .trust-passport dl{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  .platinum-shield-image,.platinum-home .home-hero-image{transform:none!important}
+}
