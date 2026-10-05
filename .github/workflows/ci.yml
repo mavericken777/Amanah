@@ -105,7 +105,7 @@ jobs:
       - name: Install pinned browser and accessibility tooling outside application dependencies
         run: |
           npm install --prefix /tmp/platinum-browser --no-audit --no-fund playwright@1.63.0 axe-core@4.10.3
-          /tmp/platinum-browser/node_modules/.bin/playwright install --with-deps chromium
+          /tmp/platinum-browser/node_modules/.bin/playwright install chromium
       - name: Responsive and accessibility browser validation
         run: |
           mkdir -p platinum-site/quality-results
@@ -171,7 +171,7 @@ jobs:
       - name: Install pinned browser validation tool outside application dependencies
         run: |
           npm install --prefix /tmp/amanah-browser --no-audit --no-fund playwright@1.63.0 axe-core@4.10.3
-          /tmp/amanah-browser/node_modules/.bin/playwright install --with-deps chromium
+          /tmp/amanah-browser/node_modules/.bin/playwright install chromium
       - name: Start isolated fixture servers and exercise website/protected routes
         run: |
           mkdir -p browser-results
