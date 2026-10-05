@@ -263,3 +263,5 @@ body::before{display:none!important}
 
 /* Scroll reveals must not dim readable journey content below AA contrast. */
 .journey-stage{opacity:1!important}
+
+@media(min-width:1280px){.hero h1{max-width:none;font-size:clamp(3.25rem,5vw,4.8rem)}}
