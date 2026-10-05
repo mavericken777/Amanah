@@ -184,3 +184,14 @@ body::before{opacity:.045;background-size:92px 92px;mask-image:radial-gradient(e
 #primary-nav>a,.site-nav-menu>summary,.site-nav-menu-panel>a,.platinum-footer nav a{min-height:44px}
 #primary-nav>a,.site-nav-menu-panel>a,.platinum-footer nav a{display:inline-flex;align-items:center;padding:.55rem .45rem}
 .site-nav-menu>summary{display:flex;align-items:center;justify-content:center;padding:.55rem .7rem}
+
+.secondary-special .passport-result{margin-top:1.25rem;padding:1.15rem;border:1px solid rgba(204,167,99,.25);border-radius:1rem;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(10,9,8,.85))}
+.secondary-special .passport-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin:0 0 .65rem}
+.secondary-special .passport-heading h3{max-width:26ch;margin:.2rem 0 .5rem;font:600 clamp(1.55rem,2.6vw,2.15rem)/1.12 "Playfair Display",Georgia,serif;color:#eed9a0}
+.secondary-special .passport-heading>span{flex:0 0 auto;margin-top:.35rem;padding:.45rem .7rem;border:1px solid rgba(204,167,99,.3);border-radius:999px;color:#e5d4aa;font-size:.72rem}
+.secondary-special .passport-timeline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin:1rem 0;padding:0;list-style:none}
+.secondary-special .passport-timeline>li{display:grid;grid-template-columns:2rem minmax(0,1fr);align-items:start;gap:.65rem;padding:.8rem;border:1px solid rgba(204,167,99,.18);border-radius:.8rem;background:rgba(17,16,14,.78)}
+.secondary-special .passport-timeline>li>span{display:grid;place-items:center;width:2rem;height:2rem;border:1px solid rgba(204,167,99,.35);border-radius:50%;color:#eed9a0;font-family:"JetBrains Mono",monospace;font-size:.65rem}
+.secondary-special .passport-timeline>li>strong{color:#e9e1d2;font-size:.8rem;line-height:1.5}
+.secondary-special .passport-note{margin-top:.7rem;color:#c6beaf;font-size:.74rem}
+@media(max-width:760px){.secondary-special .passport-timeline{grid-template-columns:1fr}.secondary-special .passport-heading{flex-direction:column;gap:.25rem}}
