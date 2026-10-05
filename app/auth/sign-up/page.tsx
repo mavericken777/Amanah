@@ -48,18 +48,19 @@ export default function SignUpPage() {
     <main className="auth-page">
       <AuthStory />
       <div className="auth-panel"><div className="auth-card">
-        <div className="brand-mark">A</div>
-        <div className="eyebrow">AMANAH PLATFORM</div>
-        <h1>Create your account.</h1>
+        <img className="auth-crest" src="/ghscl-crest.svg" alt="Global Halal Supply Chain Limited crest" />
+        <div className="eyebrow">AMANAH SECURE ONBOARDING</div>
+        <h1>Create your Amanah account.</h1>
+        <p className="muted">Join the controlled workspace used for evidence, standards, audit, laboratory, custody, monitoring and accountable decisions.</p>
         <form className="stack" onSubmit={submit}>
           <label>Full name<input required value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" /></label>
-          <label>Email<input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" /></label>
+          <label>Institutional email<input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" /></label>
           <label>Password<input minLength={8} type="password" required value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="new-password" /></label>
           {error ? <p role="alert" className="error">{error}</p> : null}
           {message ? <p role="status" className="success">{message}</p> : null}
-          <button className="button" disabled={busy} type="submit">{busy ? "Creating\u2026" :  <>Create account <span className="button-icon" aria-hidden="true">↗</span></>}</button>
+          <button className="button" disabled={busy} type="submit">{busy ? "Creating…" : <>Create secure account <span className="button-icon" aria-hidden="true">↗</span></>}</button>
         </form>
-        <p className="muted small"><Link href="/login">Back to sign in</Link></p>
+        <div className="auth-card-links"><p className="muted small"><Link href="/login">Back to secure sign in</Link></p><p className="muted small"><Link href="https://mavericken777.github.io/Amanah/">Explore the ecosystem ↗</Link></p></div>
       </div></div>
     </main>
   );
