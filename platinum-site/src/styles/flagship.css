@@ -265,3 +265,8 @@ body::before{display:none!important}
 .journey-stage{opacity:1!important}
 
 @media(min-width:1280px){.hero h1{max-width:none;font-size:clamp(3.25rem,5vw,4.8rem)}}
+
+/* Keep the crest explanatory text below the clickable shield. */
+.hero-terminal .halal-shield-stage{aspect-ratio:auto}
+.hero-terminal .static-shield{position:relative;z-index:2;clip-path:none;box-shadow:none}
+.hero-terminal .shield-caption{position:static;bottom:auto;z-index:2}
