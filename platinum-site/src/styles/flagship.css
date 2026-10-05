@@ -154,3 +154,5 @@ body::before{opacity:.045;background-size:92px 92px;mask-image:radial-gradient(e
 /* Verifier interactions */
 .verification-samples{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;margin-top:1rem}.verification-samples>span{flex-basis:100%;color:#bfb5a1;font-size:.76rem}.verification-samples button{border:1px solid rgba(204,167,99,.26);border-radius:999px;background:rgba(190,151,75,.08);color:#ead6a5;padding:.5rem .7rem;font:500 .65rem "DM Mono",monospace;cursor:pointer}.verification-samples button:hover{border-color:#d8b96f;background:rgba(190,151,75,.16)}.verification-events{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;padding:0;margin:1rem 0;list-style:none}.verification-events li{display:grid;gap:.3rem;padding:.75rem;border:1px solid rgba(205,166,91,.18);border-radius:.7rem;background:rgba(9,8,7,.42)}.verification-events li strong{color:#e8d29c;font-size:.75rem}.verification-events li span{color:#bdb5a5;font-size:.75rem;line-height:1.5}
 @media(max-width:760px){.verification-events{grid-template-columns:1fr}}
+
+@media (min-width:1280px){.hero h1{max-width:none;font-size:clamp(3.25rem,4.2vw,3.8rem);}}
