@@ -232,7 +232,7 @@ export default function App() {
           <div className="hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">AMANAH · GLOBAL HALAL DIGITAL TRUST</p>
-              <h1 id="hero-title">The infrastructure of trust.<br /><em>From origin to market.</em></h1>
+              <h1 id="hero-title">Trust travels.<br /><em>Origin to market.</em></h1>
               <p className="hero-principle">Every product carries evidence. Every handoff carries accountability.</p>
               <p className="hero-lede">
                 Follow one continuous China → GCC product identity across manufacturer onboarding, materials, audit, laboratory evidence, production, custody, Sinotrans logistics, ports, GCC distribution and consumer verification—under accountable human and competent-authority governance.
