@@ -52,6 +52,14 @@ for (const width of viewports) {
   assert.ok(phaseOne.header && phaseOne.hero && phaseOne.ecosystem && phaseOne.trust && phaseOne.corridor && phaseOne.monitoring && phaseOne.pathways,
     `phase 1 structure incomplete at ${width}px: ${JSON.stringify(phaseOne)}`);
   assert.ok(phaseOne.loginLinks >= 2, "secure portal entry points missing");
+  const heroShield = page.locator(".hero-terminal .static-shield");
+  assert.equal(await heroShield.count(), 1, "homepage should use the shield-only crest");
+  assert.equal(await page.locator('.hero-terminal img[src*="ghscl-worldmark"]').count(), 0, "homepage should not use the generic worldmark artwork");
+  const heroVisual = await page.locator(".hero-terminal").evaluate(el => getComputedStyle(el).backdropFilter);
+  assert.equal(heroVisual, "none", "hero trust visual should not use glass blur");
+  await heroShield.click();
+  assert.equal(await heroShield.getAttribute("aria-expanded"), "true", "shield interaction should reveal its meaning");
+  assert.match(await page.locator("#shield-meaning").textContent() ?? "", /identity.*evidence.*custody/i, "shield explanation should describe the trust connection");
   assert.ok(phaseOne.verifyLinks >= 1, "public verification entry point missing");
 
   const stageButtons = page.locator(".corridor-nav button");
@@ -179,7 +187,12 @@ for (const width of viewports) {
     runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] }
   }));
   const severe = axe.violations.filter(v => ["serious", "critical"].includes(v.impact ?? ""));
-  assert.equal(severe.length, 0, `axe serious/critical violations at ${width}px: ${JSON.stringify(severe.map(v => ({ id:v.id, impact:v.impact, nodes:v.nodes.length })))}`);
+  const severeDetails = severe.map(v => ({
+    id: v.id,
+    impact: v.impact,
+    nodes: v.nodes.map(n => ({ target: n.target, html: n.html, failureSummary: n.failureSummary }))
+  }));
+  assert.equal(severe.length, 0, `axe serious/critical violations at ${width}px: ${JSON.stringify(severeDetails)}`);
 
   await page.screenshot({ path: `platinum-site/quality-results/platinum-${width}.png`, fullPage: true });
 }

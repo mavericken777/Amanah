@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 const logisticsNodes = [
   { id: "cn", label: "China Origin", x: 90, y: 145, detail: "Manufacturer / laboratory / origin evidence" },
@@ -14,78 +14,9 @@ const complianceRows = [
 ];
 
 export function TrustTerminal({ sectionId = "terminal" }: { sectionId?: string }) {
-  const logisticsRef = useRef<SVGSVGElement>(null);
   const [logisticsNode, setLogisticsNode] = useState(logisticsNodes[0]);
   const [releaseState, setReleaseState] = useState("EVIDENCE PACKET READY");
   const [expandedCompliance, setExpandedCompliance] = useState<number | null>(null);
-
-  useEffect(() => {
-    const svgElement = logisticsRef.current;
-    if (!svgElement) return;
-
-    let cancelled = false;
-    let teardown = () => {};
-
-    const observer = new IntersectionObserver(async entries => {
-      if (!entries.some(entry => entry.isIntersecting) || cancelled) return;
-      observer.disconnect();
-      const d3 = await import("d3");
-      if (cancelled || !logisticsRef.current) return;
-
-      const svg = d3.select(svgElement);
-      svg.selectAll("*").remove();
-
-      const layer = svg.append("g").attr("class", "d3-layer");
-      const directRoute = [{ x: 90, y: 145 }, { x: 250, y: 82 }, { x: 410, y: 85 }, { x: 560, y: 135 }];
-      const line = d3.line<{x:number;y:number}>().x(d => d.x).y(d => d.y).curve(d3.curveBasis);
-
-      layer.append("path")
-        .attr("class", "route-line route-line-direct")
-        .attr("d", line(directRoute) ?? "");
-
-      layer.append("path")
-        .attr("class", "route-line route-line-governance")
-        .attr("d", line([{x:320,y:235},{x:320,y:160},{x:410,y:85}]) ?? "");
-
-      const nodes = layer.selectAll<SVGGElement, typeof logisticsNodes[number]>("g.route-node")
-        .data(logisticsNodes)
-        .join(enter => {
-          const group = enter.append("g")
-            .attr("class", "route-node")
-            .attr("tabindex", 0)
-            .attr("role", "button")
-            .attr("aria-label", d => `${d.label}: ${d.detail}`)
-            .attr("transform", d => `translate(${d.x},${d.y})`)
-            .on("click", (_, d) => setLogisticsNode(d))
-            .on("keydown", (event, d) => {
-              if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                setLogisticsNode(d);
-              }
-            });
-
-          group.append("circle").attr("r", 8);
-          group.append("text").attr("y", -16).attr("text-anchor", "middle").text(d => d.label);
-          return group;
-        });
-
-      nodes.classed("active", d => d.id === logisticsNode.id);
-
-      const zoom = d3.zoom<SVGSVGElement, unknown>()
-        .scaleExtent([.9, 2])
-        .on("zoom", event => layer.attr("transform", event.transform.toString()));
-
-      svg.call(zoom).call(zoom.transform, d3.zoomIdentity);
-      teardown = () => svg.on(".zoom", null);
-    }, { rootMargin: "160px" });
-
-    observer.observe(svgElement);
-    return () => {
-      cancelled = true;
-      observer.disconnect();
-      teardown();
-    };
-  }, [logisticsNode.id]);
 
   function simulateReleaseRequest() {
     setReleaseState("DEMO RELEASE REQUEST GENERATED");
@@ -103,14 +34,39 @@ export function TrustTerminal({ sectionId = "terminal" }: { sectionId?: string }
       <div className="terminal-bento">
         <article className="terminal-card terminal-logistics glass">
           <div className="terminal-card-head">
-            <span className="eyebrow">LOGISTICS / D3 CORRIDOR</span>
+            <span className="eyebrow">ORIGIN → GCC / DIRECT CORRIDOR</span>
             <span className="state-chip">DEMO TOPOLOGY</span>
           </div>
-          <svg ref={logisticsRef} className="logistics-map" viewBox="0 0 650 300" aria-label="Interactive China to GCC corridor schematic" />
+          <svg className="logistics-map" viewBox="0 0 650 300" role="group" aria-label="Interactive China to GCC corridor schematic">
+            <path className="route-line route-line-direct" d="M90 145 C210 70 420 72 560 135" />
+            <path className="route-line route-line-governance" d="M320 235 C320 170 410 105 430 83" />
+            {logisticsNodes.map(node => (
+              <g
+                className={`route-node${logisticsNode.id === node.id ? " active" : ""}`}
+                key={node.id}
+                transform={`translate(${node.x},${node.y})`}
+                role="button"
+                tabIndex={0}
+                aria-label={`${node.label}: ${node.detail}`}
+                aria-pressed={logisticsNode.id === node.id}
+                onClick={() => setLogisticsNode(node)}
+                onKeyDown={event => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setLogisticsNode(node);
+                  }
+                }}
+              >
+                <rect x="-66" y="-42" width="132" height="84" fill="transparent" aria-hidden="true" />
+                <circle r="8" />
+                <text y="-16" textAnchor="middle">{node.label}</text>
+              </g>
+            ))}
+          </svg>
           <div className="terminal-detail" aria-live="polite">
             <strong>{logisticsNode.label}</strong>
             <p>{logisticsNode.detail}</p>
-            <small>Pan / zoom enabled. China → GCC is the physical default corridor; Malaysia is shown as governance connectivity only.</small>
+            <small>Select a node. China → GCC is the physical default corridor; Malaysia is shown as governance connectivity only.</small>
           </div>
         </article>
 
