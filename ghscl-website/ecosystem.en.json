@@ -136,11 +136,11 @@
           "cards": [
             [
               "Manufacturer readiness",
-              "Enterprise and facility profiles, products and SKUs, formulas and BOMs, suppliers, origin records, training and remediation."
+              "Enterprise and facility profiles, products and SKUs, formulas and BOMs, suppliers, origin records, training and remediation from onboarding through continuous assurance."
             ],
             [
               "Standards intelligence",
-              "Applicability across products, processes and destinations; requirement-to-control mapping, HCP and SCCP obligations, and source-bound standards references."
+              "Complete applicable Malaysian/JAKIM standards and instruments are mapped by applicability to requirements, controls, HCP/SCCP obligations and source-bound evidence; MS2400 is one applicable standards family, not the complete framework."
             ],
             [
               "Laboratory and smart audit",
@@ -230,9 +230,9 @@
             "AHTE",
             "Direct JAKIM API ⇅",
             "JAKIM authority system",
-            "PHC + JAKIM authorised human review"
+            "PHC + JAKIM Mufti / scholars / authorised Halal officers human review"
           ],
-          "text": "A direct connection keeps the authority workflow clear: AHTE ⇄ Direct JAKIM API ⇄ JAKIM. Formal certification review remains an authorised human authority workflow. Official connections are activated under the relevant authority’s authorization."
+          "text": "A direct connection keeps the authority workflow clear: AHTE ⇄ Direct JAKIM API ⇄ JAKIM. Formal certification approval or disapproval remains an authorised human authority workflow involving PHC and the relevant JAKIM Mufti, scholars and Halal officers; AI does not certify. Official connections are activated under the relevant authority’s authorization."
         },
         {
           "id": "boundaries",
@@ -313,7 +313,7 @@
           "flow": [
             "Complete evidence dossier",
             "Direct JAKIM API",
-            "PHC + JAKIM authorised human review",
+            "PHC + JAKIM Mufti / scholars / authorised Halal officers human review",
             "Formal authority status",
             "AHTE trust-state propagation"
           ],
@@ -348,7 +348,7 @@
             "CAPA / re-verification",
             "Outcome"
           ],
-          "text": "The system aims to prevent integrity failures rather than only report them after the fact."
+          "text": "The Command Center combines continuous evidence monitoring with AI/ML predictive analytics and preemptive strategies so accountable teams can identify emerging risk, place configured holds, act, and re-verify before operational release."
         }
       ],
       "sources": [

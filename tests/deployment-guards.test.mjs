@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import {execFileSync} from 'node:child_process';
 
 test('Pages privileged job only accepts this repository main push or main manual dispatch',()=>{
- const yaml=fs.readFileSync('.github/workflows/ghscl-pages.yml','utf8');
+ const yaml=fs.readFileSync('.github/workflows/ghscl-pages.yml','utf8').replaceAll('\r\n','\n');
  const expression=yaml.match(/    if: >-\n([\s\S]*?)\n    runs-on:/)[1].trim();
  const allowed=new Function('github',`return (${expression});`);
  const run={conclusion:'success',event:'push',head_branch:'main',head_repository:{full_name:'mavericken777/Amanah'}};

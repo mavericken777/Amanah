@@ -170,7 +170,7 @@ jobs:
       - run: npm run web:build && npm run build
       - name: Install pinned browser validation tool outside application dependencies
         run: |
-          npm install --prefix /tmp/amanah-browser --no-audit --no-fund playwright@1.63.0
+          npm install --prefix /tmp/amanah-browser --no-audit --no-fund playwright@1.63.0 axe-core@4.10.3
           /tmp/amanah-browser/node_modules/.bin/playwright install --with-deps chromium
       - name: Start isolated fixture servers and exercise website/protected routes
         run: |
@@ -182,6 +182,16 @@ jobs:
             sleep 1
           done
           node tests/browser-smoke.mjs
+          AXE_PATH=/tmp/amanah-browser/node_modules/axe-core/axe.min.js node tests/journey-browser.mjs
+      - uses: browser-actions/setup-chrome@v1
+        id: journey-chrome
+      - name: Desktop and mobile Lighthouse for controlling journey
+        env:
+          CHROME_PATH: ${{ steps.journey-chrome.outputs.chrome-path }}
+        run: |
+          npm install --prefix /tmp/journey-lhci --no-audit --no-fund @lhci/cli@0.14.0
+          /tmp/journey-lhci/node_modules/.bin/lhci autorun --config=lighthouserc.journey.cjs
+          /tmp/journey-lhci/node_modules/.bin/lhci autorun --config=lighthouserc.journey-mobile.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

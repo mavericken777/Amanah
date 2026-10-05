@@ -6,6 +6,8 @@ The verified freeze remains `master-standards-stack/verified-2026-09-17/`.
 
 Repository-controlled architecture synchronization is handled in `docs/operations/STATUS.md`. Historical reconciliation reports remain historical evidence and are not rewritten to imply later review.
 
+Website redesign acceptance is controlled by [the 5 October brief delivery](WEBSITE_BRIEF_2026-10-05.md) and exact-head CI/deployment evidence. Illustrative website interactions do not close the external gates below or instantiate Shipment 001.
+
 ## Authority integration topology
 
 AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Malaysia provides governance, assurance and authority connectivity.

@@ -27,7 +27,7 @@ export function AuthStory() {
         <span>AHTE ⇄ DIRECT JAKIM API ⇄ JAKIM · CONNECTOR: PENDING AUTHORIZATION</span>
         <span className="auth-story-links">
           <Link href="https://mavericken777.github.io/Amanah/verify.html">Verify disclosure <span aria-hidden="true">↗</span></Link>
-          <Link href="https://mavericken777.github.io/Amanah/ecosystem.html">Explore ecosystem <span aria-hidden="true">↗</span></Link>
+          <Link href="/trust-journey/index.html">Explore the Trust Journey <span aria-hidden="true">↗</span></Link>
         </span>
       </div>
     </aside>

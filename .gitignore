@@ -11,6 +11,7 @@ Thumbs.db
 
 # Temporary files
 *.tmp
+*.tmp-*
 *.temp
 *.log
 *.swp
@@ -26,3 +27,4 @@ supabase/.temp/
 
 # Browser verification evidence is uploaded by CI
 browser-results/
+public/trust-journey/

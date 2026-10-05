@@ -9,6 +9,7 @@
 | Canonical mirrors | [checksum manifest](config/canonical-mirror-manifest.json) |
 | Protected application | `app/(protected)/`, `lib/`, `proxy.ts` |
 | Website | [website source](ghscl-website/ecosystem.en.json), [provenance](ghscl-website/source-manifest.json) |
+| Controlling website brief | [5 October design and interaction delivery](docs/operations/WEBSITE_BRIEF_2026-10-05.md); `ghscl-website/journey.js` and `scripts/build-trust-journey.mjs` |
 | Database | `supabase/migrations/` (applied history), `lib/database.types.ts` (base) + `lib/database.current.types.ts` (forward extensions) + `lib/database.target.types.ts` (application view) |
 | Integration | [internal contracts](lib/integrations/contracts.ts); canonical runtime mirrors under `reference-runtime/` |
 | CI / delivery | [.github/workflows/ci.yml](.github/workflows/ci.yml), [.github/workflows/ghscl-pages.yml](.github/workflows/ghscl-pages.yml) |

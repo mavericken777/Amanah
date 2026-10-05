@@ -2,6 +2,8 @@
 
 Amanah is the operational application layer for the Amanah Halal Trust Ecosystem (AHTE). It combines the operational platform with IQ300 source-aware standards/applicability, evidence, HITM, trust-state, Command Center and trade-control layers.
 
+The [5 October controlling website brief](docs/operations/WEBSITE_BRIEF_2026-10-05.md) replaces the oversized shield homepage with a connected product journey and Arial typography. `npm run web:build` generates the public experience; `npm run build` also makes it available at `/trust-journey/index.html` in the Vercel application. The authenticated workspace remains protected.
+
 ## Platform scope
 
 - Operational core: identity, organizations, projects, tasks, meetings, documents, decisions, risks, finance, updates, notifications, audit, workflows, approvals, collaboration and administration.

@@ -61,12 +61,9 @@ try {
     assert.match(await page.locator('#readinessSummary').textContent(),/^1 of /);
    }
    if(name==='index') {
-    const cards=page.locator('.terminal-card');
-    assert.equal(await cards.count(),4,'homepage trust terminal cards');
-    await cards.first().locator('summary').click();
-    assert.ok(await cards.first().getAttribute('open')!==null,'homepage terminal disclosure opens');
-    await cards.first().locator('summary').click();
-    assert.equal(await cards.first().getAttribute('open'),null,'homepage terminal disclosure closes');
+    assert.equal(await page.locator('#stageNav button').count(),13);
+    await page.locator('#stageNav button').last().click();
+    assert.match(await page.locator('#stageTitle').textContent(),/Consumer/);
    }
    if(name==='verify') {
     await page.locator('#verificationToken').fill('https://untrusted.example/?token=invalid');

@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { SmoothScroll } from "./components/motion/SmoothScroll";
-import { HalalShield3D } from "./components/hero/HalalShield3D";
-import { CircuitMapBackground } from "./components/hero/CircuitMapBackground";
+
+
 import { demoProduct, demoVerificationRecords, demoJourneyStages } from "./data/demoJourney";
 const ScrollProgress = lazy(() => import("./components/motion/ScrollProgress").then(module => ({ default: module.ScrollProgress })));
 const TrustTerminal = lazy(() => import("./components/terminal/TrustTerminal").then(module => ({ default: module.TrustTerminal })));
@@ -244,14 +244,12 @@ export default function App() {
             </div>
 
             <aside className="hero-terminal" aria-label="Amanah trust principles">
-              <CircuitMapBackground />
+
               <div className="terminal-head">
                 <span>AMANAH / DIGITAL TRUST</span>
                 <span>ONE PRODUCT · TRACEABLE HANDOFFS</span>
               </div>
-              <div className="shield-orbit">
-                <HalalShield3D />
-              </div>
+
               <dl>
                 <div><dt>Identity</dt><dd>One record across product and batch</dd></div>
                 <div><dt>Evidence</dt><dd>Source, scope and review stay visible</dd></div>
