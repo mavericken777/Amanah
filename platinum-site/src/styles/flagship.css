@@ -195,3 +195,14 @@ body::before{opacity:.045;background-size:92px 92px;mask-image:radial-gradient(e
 .secondary-special .passport-timeline>li>strong{color:#e9e1d2;font-size:.8rem;line-height:1.5}
 .secondary-special .passport-note{margin-top:.7rem;color:#c6beaf;font-size:.74rem}
 @media(max-width:760px){.secondary-special .passport-timeline{grid-template-columns:1fr}.secondary-special .passport-heading{flex-direction:column;gap:.25rem}}
+
+
+.journey-perspectives{margin:1.2rem 0 2rem}
+.journey-perspective-controls{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 .85rem}
+.journey-perspective-controls button{min-height:2.75rem;padding:.65rem 1rem;border:1px solid rgba(205,166,91,.32);border-radius:999px;background:#11100e;color:#d9d0bd;font:600 .78rem/1.2 inherit;letter-spacing:.04em;cursor:pointer}
+.journey-perspective-controls button:hover,.journey-perspective-controls button:focus-visible{border-color:#e9cf8e;color:#fff0c4}
+.journey-perspective-controls button[aria-pressed="true"]{border-color:#f1d99d;background:linear-gradient(125deg,#f0d89a,#b89148);color:#16130c}
+.journey-perspective-panel{padding:clamp(1.1rem,2.2vw,1.7rem);border-radius:1.2rem}
+.journey-perspective-panel h3{margin:.2rem 0 .85rem}
+.standards-scope-note{margin:.9rem 0 0;padding:.8rem 1rem;border-left:2px solid #b89148;color:#bdb5a5;font-size:.83rem;line-height:1.65}
+@media(max-width:600px){.journey-perspective-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.journey-perspective-controls button{width:100%}}
