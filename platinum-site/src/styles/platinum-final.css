@@ -34,7 +34,7 @@ body::after{
   background:#070605!important;
   box-shadow:0 0 0 1px rgba(215,178,94,.42),0 10px 28px rgba(0,0,0,.34)!important;
 }
-.identity-copy strong{color:#ebd38f!important;font-family:Cinzel,Georgia,serif!important;letter-spacing:.12em!important}
+.identity-copy strong{color:#ebd38f!important;font-family:Arial, Helvetica, sans-serif;letter-spacing:.12em!important}
 .identity-copy small{color:#95876d!important}
 #primary-nav>a,.secondary-nav>a{color:#b9ae99!important}
 #primary-nav>a:hover,.secondary-nav>a:hover{color:#f0d88f!important}
@@ -67,15 +67,15 @@ body::after{
   mask-image:radial-gradient(ellipse at 77% 44%,#000 0 20%,transparent 70%)!important
 }
 .hero-phase4 .hero-grid{min-height:min(780px,82vh)!important}
-.hero-copy>.eyebrow{color:#c8a655!important;font:700 .66rem "DM Mono",monospace!important;letter-spacing:.18em!important}
+.hero-copy>.eyebrow{color:#c8a655!important;font:700 .66rem Arial, Helvetica, sans-serif!important;letter-spacing:.18em!important}
 .hero h1{
-  max-width:15ch!important;font-family:Cinzel,"Cormorant Garamond",Georgia,serif!important;
+  max-width:15ch!important;font-family:Arial, Helvetica, sans-serif;
   font-size:clamp(3.9rem,5.2vw,5.8rem)!important;font-weight:500!important;
   line-height:.96!important;color:var(--pt-ivory)!important;text-shadow:0 24px 70px #000!important
 }
 .hero h1 em{color:var(--pt-gold-light)!important;font-style:normal!important}
 .hero-principle{
-  max-width:43rem!important;color:#e1c97f!important;font-family:"Cormorant Garamond",Georgia,serif!important;
+  max-width:43rem!important;color:#e1c97f!important;font-family:Arial, Helvetica, sans-serif;
   font-size:clamp(1.4rem,2vw,1.9rem)!important;font-style:italic
 }
 .hero-lede{max-width:46rem!important;color:#c6baa3!important;font-size:clamp(.98rem,1.15vw,1.12rem)!important}
@@ -90,7 +90,7 @@ body::after{
   opacity:.54!important;object-position:center center!important;filter:saturate(.78) contrast(1.08)!important;
   mix-blend-mode:screen!important;mask-image:linear-gradient(180deg,#000 0 58%,transparent 95%)!important
 }
-.terminal-head{color:#d8c28a!important;font:600 .6rem "DM Mono",monospace!important;letter-spacing:.09em!important}
+.terminal-head{color:#d8c28a!important;font:600 .6rem Arial, Helvetica, sans-serif!important;letter-spacing:.09em!important}
 .shield-orbit{display:grid;place-items:center;min-height:17rem!important}
 .static-shield{
   width:clamp(12rem,19vw,17rem)!important;border:0!important;background:transparent!important;
@@ -110,10 +110,10 @@ body::after{
 .section{padding-block:clamp(5.3rem,8.8vw,8.3rem)!important;border-color:rgba(215,178,94,.12)!important}
 .section-heading{max-width:62rem!important}
 .section-heading>.eyebrow,.panel-head>.eyebrow,.passport-heading .eyebrow,.corridor-detail>.eyebrow{
-  color:#c9a654!important;font:700 .62rem "DM Mono",monospace!important;letter-spacing:.16em!important
+  color:#c9a654!important;font:700 .62rem Arial, Helvetica, sans-serif!important;letter-spacing:.16em!important
 }
 .section-heading h2,.final-cta h2,.secondary-hero h1,.secondary-section-heading h2{
-  font-family:Cinzel,"Cormorant Garamond",Georgia,serif!important;color:var(--pt-ivory)!important;font-weight:500!important
+  font-family:Arial, Helvetica, sans-serif;color:var(--pt-ivory)!important;font-weight:500!important
 }
 .section-heading>p:not(.eyebrow),.secondary-lede{color:#b9ae99!important}
 .capability-card,.institution-card,.corridor-detail,.trust-passport,.assurance-panel,.command-detail,.monitoring-detail,.verify-form,.verify-result,.partner-card,.pathway-card,.engagement-card,.final-cta,.secondary-card,.secondary-special .passport-result{
@@ -128,8 +128,7 @@ body::after{
   border-color:rgba(215,178,94,.33)!important;transform:translateY(-2px)
 }
 .capability-card h3,.institution-card h3,.partner-card h3,.pathway-card h3,.engagement-card strong{
-  color:#e9d59d!important;font-family:Cinzel,Georgia,serif!important
-}
+  color:#e9d59d!important;font-family:Arial, Helvetica, sans-serif}
 .authority-card{background:linear-gradient(145deg,#181208,#080706 74%)!important;border-color:rgba(215,178,94,.34)!important}
 .trust-path li{border-color:rgba(215,178,94,.15)!important;background:#0c0b09!important}
 .trust-path li span{color:#caa755!important}.trust-path li strong{color:#d8cdb6!important}
@@ -147,7 +146,7 @@ body::after{
     radial-gradient(circle at 8% 15%,rgba(215,178,94,.08),transparent 28%),
     linear-gradient(135deg,#17130d,#080807 70%)!important
 }
-.passport-heading h3{font-family:Cinzel,Georgia,serif!important;color:#f0d88f!important}
+.passport-heading h3{font-family:Arial, Helvetica, sans-serif;color:#f0d88f!important}
 .passport-id,.passport-map,.passport-detail{
   border-radius:.35rem!important;background:rgba(6,6,5,.68)!important;border-color:rgba(215,178,94,.18)!important
 }

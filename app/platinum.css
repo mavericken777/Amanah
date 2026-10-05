@@ -26,7 +26,7 @@ body{
     radial-gradient(ellipse at 4% 45%,rgba(112,78,26,.08),transparent 34%),
     #060606;
   color:var(--text);
-  font-family:"Manrope","Segoe UI",sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 body::before{
   content:"";
@@ -42,7 +42,7 @@ a{color:var(--accent-2)}
 a:hover{text-decoration:none;color:#ffe9ac}
 h1,h2,h3{
   color:#f7f0e2;
-  font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  font-family:Arial, Helvetica, sans-serif;
   font-weight:600;letter-spacing:-.025em;
 }
 h1{font-size:clamp(2.35rem,4.2vw,4.75rem);line-height:.98}
@@ -79,7 +79,7 @@ p{color:#c8beaa}
 }
 .brand-copy{min-width:0;display:grid;gap:2px}
 .brand-copy strong{
-  display:block;color:#eed994;font:600 .79rem/1.25 "Cormorant Garamond",Georgia,serif;
+  display:block;color:#eed994;font:600 .79rem/1.25 Arial, Helvetica, sans-serif;
   letter-spacing:.09em;text-transform:uppercase;
 }
 .brand-copy>span{display:block;color:#9f9279;font-size:.56rem!important;letter-spacing:.12em;text-transform:uppercase}
@@ -144,7 +144,7 @@ p{color:#c8beaa}
 .metric-grid{gap:14px}
 .metric-card{padding:22px}
 .metric-card span{color:#998e7a;font-size:.72rem;letter-spacing:.035em}
-.metric-card strong{color:#f2ddb0;font:500 2.7rem/1 "Cormorant Garamond",Georgia,serif;letter-spacing:-.045em}
+.metric-card strong{color:#f2ddb0;font:500 2.7rem/1 Arial, Helvetica, sans-serif;letter-spacing:-.045em}
 .metric-card:hover{transform:translateY(-2px)}
 .content-grid{gap:22px}
 .subnav{

@@ -65,6 +65,8 @@ jobs:
             cp "$page" "ghscl-website/$(basename "$page")"
           done
           printf '%s\n' "PLATINUM_FULL_SITE=1" "RELEASE_HEAD=${{ github.event.workflow_run.head_sha || github.sha }}" > ghscl-website/platinum-release.txt
+      - name: Apply controlling website brief to published artifact
+        run: node scripts/build-trust-journey.mjs
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload website

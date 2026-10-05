@@ -1,7 +1,7 @@
 /* Amanah: editorial structure, restrained depth and operational clarity. */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+500;600;700;800&display=swap');
 :root { --bg: #f4f5ef; --surface: #fffef9; --text: #162e27; --muted: #546960; --line: rgba(23,65,47,.1); --accent: #19654b; --accent-2: #124e39; --danger: #a3323b; --success: #19654b; --shadow: 0 18px 60px rgba(30,64,49,.055), 0 2px 8px rgba(30,64,49,.025); --radius: 24px; --ease: cubic-bezier(.32,.72,0,1); }
-body { font-family: "Manrope", "Bahnschrift", "Segoe UI", sans-serif; background: radial-gradient(ellipse at 90% 0%, #e7ece2, transparent 45%), var(--bg); }
+body { font-family:Arial, Helvetica, sans-serif; background: radial-gradient(ellipse at 90% 0%, #e7ece2, transparent 45%), var(--bg); }
 button, input, select, textarea { font: inherit; }
 button, a { transition: transform 350ms var(--ease), background-color 350ms var(--ease), color 350ms var(--ease); }
 a:hover { text-decoration: none; }
@@ -18,7 +18,7 @@ h3 { font-weight: 650; }
 .brand strong { font-size: 1.55rem; letter-spacing: -.065em; font-weight: 700; }
 .brand > div > span { margin-top: 5px; font-size: .62rem; }
 .brand-dot { display: inline !important; color: #9aab6e !important; font-size: inherit !important; }
-.brand-mark { width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(145deg, #367f61, #124633); font-size: 1.35rem; box-shadow: inset 0 1px 0 #ffffff50, 0 0 0 5px #19654b08; font-weight: 500; font-family: Georgia, serif; flex-shrink: 0; }
+.brand-mark { width: 42px; height: 42px; border-radius: 14px; background: linear-gradient(145deg, #367f61, #124633); font-size: 1.35rem; box-shadow: inset 0 1px 0 #ffffff50, 0 0 0 5px #19654b08; font-weight: 500; font-family:Arial, Helvetica, sans-serif; flex-shrink: 0; }
 .nav { gap: 24px; }
 .nav-group { display: grid; gap: 2px; }
 .nav-group-label { font-size: .57rem; letter-spacing: .17em; margin: 0 0 10px; padding-inline: 14px; font-weight: 600; }
@@ -75,7 +75,7 @@ body > main.page { margin: 56px auto; padding: 0 24px; max-width: 980px; }
 .auth-story-copy { padding-block: 70px; max-width: 580px; }
 .auth-story .eyebrow { background: #ffffff09; color: #bdcda9; padding: 8px 12px; font-size: .6rem; }
 .auth-story h2 { font-size: clamp(2rem,3.65vw,4rem); line-height: 1.16; font-weight: 500; letter-spacing: -.055em; }
-.auth-story h2 em { color: #bfd69e; font-family: Georgia, serif; font-weight: 400; }
+.auth-story h2 em { color: #bfd69e; font-family:Arial, Helvetica, sans-serif; font-weight: 400; }
 .auth-story p { color: #c0cdc0; font-size: .92rem; max-width: 440px; margin-block: 26px 36px; }
 .trust-path { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: .62rem; color: #d7e2ca; }
 .trust-path span { padding: 10px 14px; border-radius: 100px; background: #ffffff08; box-shadow: inset 0 0 0 1px #ffffff13; }
@@ -124,11 +124,11 @@ linear-gradient(145deg,#0d0b07,#030303 68%);color:#f5efdf;border:1px solid #d4af
 .auth-story::after{border-color:#d4af5f20;box-shadow:0 0 0 60px #d4af5f08,0 0 0 120px #d4af5f04}
 .auth-story .brand{color:#ead69e;display:flex;align-items:center;gap:14px}
 .auth-brand-crest{width:52px;height:58px;filter:drop-shadow(0 0 18px rgba(212,175,95,.22))}
-.auth-brand-copy{display:grid;gap:3px}.auth-brand-copy strong{font-family:Cinzel,Georgia,serif;font-size:.88rem;letter-spacing:.12em}
+.auth-brand-copy{display:grid;gap:3px}.auth-brand-copy strong{font-family:Arial, Helvetica, sans-serif;font-size:.88rem;letter-spacing:.12em}
 .auth-brand-copy span{font-size:.58rem;letter-spacing:.14em;color:#9f9278}
 .auth-story .eyebrow,.auth-card .eyebrow{background:#d4af5f0d;color:#d4af5f;border:1px solid #d4af5f26}
-.auth-story h2{font-family:Cinzel,Georgia,serif;font-weight:600;letter-spacing:-.035em}
-.auth-story h2 em{font-family:Cinzel,Georgia,serif;font-style:normal;color:#d4af5f}
+.auth-story h2{font-family:Arial, Helvetica, sans-serif;font-weight:600;letter-spacing:-.035em}
+.auth-story h2 em{font-family:Arial, Helvetica, sans-serif;font-style:normal;color:#d4af5f}
 .auth-story p{color:#b9ae95}
 .trust-path span{background:#d4af5f0b;box-shadow:inset 0 0 0 1px #d4af5f20;color:#ddca98}
 .trust-path i{color:#d4af5f}
@@ -136,7 +136,7 @@ linear-gradient(145deg,#0d0b07,#030303 68%);color:#f5efdf;border:1px solid #d4af
 .auth-panel{background:radial-gradient(circle at 50% 45%,rgba(212,175,95,.08),transparent 44%)}
 .auth-card{background:linear-gradient(150deg,#111,#080808);border:1px solid #d4af5f33;box-shadow:inset 0 1px 0 #fff0bd0c,0 30px 100px #000;padding:40px}
 .auth-card .auth-crest{display:block;width:76px;height:84px;margin:0 auto 6px;filter:drop-shadow(0 0 22px rgba(212,175,95,.24))}
-.auth-card h1{font-family:Cinzel,Georgia,serif;color:#f6edd8;font-weight:600;letter-spacing:-.035em}
+.auth-card h1{font-family:Arial, Helvetica, sans-serif;color:#f6edd8;font-weight:600;letter-spacing:-.035em}
 .auth-card .muted{color:#a99e86}
 .auth-card label{color:#d7c697;letter-spacing:.035em}
 .auth-card input{background:#050505;border:1px solid #d4af5f38;color:#f6edd8;box-shadow:inset 0 1px 0 #ffffff07}
@@ -147,9 +147,9 @@ linear-gradient(145deg,#0d0b07,#030303 68%);color:#f5efdf;border:1px solid #d4af
 @media(max-width:900px){.auth-story{min-height:440px}.auth-card{padding:30px 24px}}
 
 /* Attachment-derived trilingual gateway refinements */
-.auth-brand-multilingual{display:flex!important;align-items:center;gap:8px;margin-top:2px!important;font-family:Inter,Arial,sans-serif;font-size:.52rem!important;letter-spacing:.04em!important;color:#8f846d!important;text-transform:none}
+.auth-brand-multilingual{display:flex!important;align-items:center;gap:8px;margin-top:2px!important;font-family:Arial, Helvetica, sans-serif;font-size:.52rem!important;letter-spacing:.04em!important;color:#8f846d!important;text-transform:none}
 .auth-brand-multilingual b{font-weight:500}
-.auth-brand-multilingual b[lang="ar"]{font-family:'Noto Naskh Arabic',serif;font-size:.64rem;letter-spacing:0}
+.auth-brand-multilingual b[lang="ar"]{font-family:Arial, Helvetica, sans-serif;font-size:.64rem;letter-spacing:0}
 .auth-brand-multilingual i{font-style:normal;color:#d4af5f66}
 .auth-story-links{display:flex;gap:14px;flex-wrap:wrap}
 .auth-story-links a{white-space:nowrap}

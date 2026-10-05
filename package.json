@@ -5,11 +5,12 @@
   "description": "Amanah operational application layer for the Amanah Halal Trust Ecosystem (AHTE).",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run web:build && node scripts/copy-trust-experience.mjs",
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs",
-    "web:build": "node scripts/apply-website-policy.mjs && node scripts/build-ecosystem-site.mjs && node scripts/refresh-ecosystem-shell.mjs && node scripts/finalize-website-provenance.mjs",
+    "web:build": "node scripts/apply-website-policy.mjs && node scripts/build-ecosystem-site.mjs && node scripts/refresh-ecosystem-shell.mjs && node scripts/build-trust-journey.mjs && node scripts/finalize-website-provenance.mjs",
     "web:lint": "node scripts/check-ecosystem-site.mjs"
   },
   "engines": {

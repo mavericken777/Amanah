@@ -52,18 +52,7 @@ for (const width of viewports) {
   assert.ok(phaseOne.header && phaseOne.hero && phaseOne.ecosystem && phaseOne.trust && phaseOne.corridor && phaseOne.monitoring && phaseOne.pathways,
     `phase 1 structure incomplete at ${width}px: ${JSON.stringify(phaseOne)}`);
   assert.ok(phaseOne.loginLinks >= 2, "secure portal entry points missing");
-  const heroShield = page.locator(".hero-terminal .static-shield");
-  assert.equal(await heroShield.count(), 1, "homepage should use the shield-only crest");
-  assert.equal(await page.locator('.hero-terminal img[src*="ghscl-worldmark"]').count(), 0, "homepage should not use the generic worldmark artwork");
-  const heroVisual = await page.locator(".hero-terminal").evaluate(el => getComputedStyle(el).backdropFilter);
-  assert.equal(heroVisual, "none", "hero trust visual should not use glass blur");
-  await heroShield.click();
-  assert.equal(await heroShield.getAttribute("aria-expanded"), "true", "shield interaction should reveal its meaning");
-  assert.match(await page.locator("#shield-meaning").textContent() ?? "", /identity.*evidence.*custody/i, "shield explanation should describe the trust connection");
-  const shieldBox = await heroShield.boundingBox();
-  const captionBox = await page.locator("#shield-meaning").boundingBox();
-  assert.ok(shieldBox && captionBox && captionBox.y >= shieldBox.y + shieldBox.height - 1,
-    "shield explanation must sit below the crest without overlapping it");
+  assert.equal(await page.locator('.halal-shield-stage,.static-shield').count(),0,'Superseded hero shield must be absent');
   assert.ok(phaseOne.verifyLinks >= 1, "public verification entry point missing");
 
   const stageButtons = page.locator(".corridor-nav button");
@@ -208,7 +197,7 @@ assert.equal(await page.evaluate(() => document.documentElement.classList.contai
 await page.locator("#verification-journey").scrollIntoViewIfNeeded();
 await page.locator(".journey-stage").first().waitFor({ state: "attached" });
 assert.equal(await page.locator(".journey-stage").count(), 4, "Reduced-motion Phase 4 fallback must preserve all journey stages");
-assert.equal(await page.locator(".static-shield").count(), 1, "Reduced-motion Phase 4 fallback must preserve a static shield");
+assert.equal(await page.locator(".static-shield").count(), 0, "Superseded hero shield must be absent");
 assert.equal(await page.locator(".halal-shield-stage canvas").count(), 0, "Reduced-motion Phase 4 fallback must not require WebGL");
 
 const verifierPage = await browser.newPage({ viewport: { width: 375, height: 812 } });

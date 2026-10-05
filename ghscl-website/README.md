@@ -2,6 +2,8 @@
 
 Static stakeholder-facing website for Global Halal Supply Chain Ltd HK (GHSCL).
 
+Current homepage controller: [5 October 2026 website brief](../docs/operations/WEBSITE_BRIEF_2026-10-05.md). The homepage is a single interactive product journey with Arial typography and no oversized shield. The Pages workflow applies this controller after the secondary-page promotion step, so a legacy homepage cannot overwrite it. The same public experience is generated for Vercel under `/trust-journey/index.html`.
+
 Proposal V7.2 is bound to `GlobalHalalDigitalTrust@14456e99937d6f11d63bd041dcffdb903d12594f` and the unchanged freeze `master-standards-stack/verified-2026-09-17/`.
 
 The public information architecture covers:
