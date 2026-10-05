@@ -75,6 +75,8 @@ const trustPath = [
 
 const corridor = demoJourneyStages;
 
+const standardsTopics = ["Supplier and material scope", "Facility and product controls", "Sample and laboratory evidence", "Audit and human assessment", "Controlled production", "Warehouse dispatch", "Warehouse receiving and storage", "Transport custody", "Export handoff", "Import and release", "Destination distribution", "Consumer disclosure"];
+
 const pathways = [
   ["Manufacturer", "Onboard enterprise, facility, products, suppliers and evidence."],
   ["Laboratory", "Bind scientific evidence to exact samples, methods and signed results."],
@@ -141,6 +143,7 @@ const commandEvents = [
 
 export default function App() {
   const [activeCorridor, setActiveCorridor] = useState(0);
+  const [journeyPerspective, setJourneyPerspective] = useState<"journey" | "actor" | "standards" | "trust">("journey");
   const [activeLab, setActiveLab] = useState(0);
   const [activeAudit, setActiveAudit] = useState(0);
   const [activeEvent, setActiveEvent] = useState(0);
