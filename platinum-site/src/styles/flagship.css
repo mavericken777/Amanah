@@ -156,3 +156,7 @@ body::before{opacity:.045;background-size:92px 92px;mask-image:radial-gradient(e
 @media(max-width:760px){.verification-events{grid-template-columns:1fr}}
 
 @media (min-width:1280px){.hero h1{max-width:none;font-size:clamp(3.25rem,4.2vw,3.8rem);}}
+
+.secondary-nav>a,.secondary-route-menu>summary,.secondary-route-panel>a,.secondary-mobile-menu>summary,.secondary-mobile-panel>a,.secondary-footer nav a{min-height:44px}
+.secondary-nav>a,.secondary-route-panel>a,.secondary-mobile-panel>a,.secondary-footer nav a{display:inline-flex;align-items:center;padding:.55rem .65rem}
+.secondary-route-menu>summary,.secondary-mobile-menu>summary{display:flex;align-items:center;justify-content:center;padding:.55rem .8rem}
