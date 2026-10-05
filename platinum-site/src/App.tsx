@@ -81,7 +81,7 @@ const corridor = [
   ["Manufacturer warehouse", "Prepare dispatch by lot, pallet and package. Confirm identity, segregation, status, seal, loading and accountable handover.", "Manufacturer warehouse and carrier", "Pick / pack, pallet IDs, segregation, seal, vehicle, handover actor and time", "Custody transfer → Sinotrans receiving"],
   ["Sinotrans warehouse", "Receive, scan, assign storage location and monitor the shipment under the configured Halal logistics control plan.", "Sinotrans warehouse operator", "Inbound condition, location, segregation, cleaning, temperature, access and outbound events", "Warehouse custody → transport planning"],
   ["China → GCC transport", "Bind vehicle, container and seal; capture location and condition events; raise exceptions and hold affected scope for accountable review.", "Sinotrans transport operations", "Vehicle / container / seal identity, route, telemetry, handovers and exception actions", "In-transit custody → origin port"],
-  ["Origin port & export", "Present the shipment and authorised records to origin-port and export processes. Inspection, ", "Origin port, customs and exporter", "Manifest references, seal check, inspection events, authority responses and release evidence", "Authorised export handoff → GCC port"],
+  ["Origin port & export", "Present the shipment and authorised records to origin-port and export processes. Record document checks, physical inspection, seal condition and the port or customs response before export handoff.", "Origin port, customs and exporter", "Manifest references, seal check, inspection events, authority responses and release evidence", "Authorised export handoff → GCC port"],
   ["GCC port & import", "Resolve the authorised disclosure, process destination inspections, holds and import steps, then capture the authority-owned outcome.", "GCC port, customs and importer", "Arrival, custody, inspection, import documents, holds and official release record", "Sovereign import outcome → destination receiving"],
   ["GCC receiving & distribution", "Reconcile received lots, condition and seals; place stock into controlled storage; preserve custody across distributors and retailers.", "Importer, distributor and retailer", "Receipt reconciliation, storage location, onward dispatch and discrepancy records", "Verified receiving record → buyer or retail disclosure"],
   ["Consumer verification & response", "Let a buyer scan an issuer-authorised QR disclosure. If evidence changes, trace affected lots, notify accountable operators and coordinate recall action.", "Issuer, authorised buyer and responsible operator", "Purpose-bound disclosure, current trust state, event history and recall links", "Post-market signal → investigation and corrective action"],
@@ -99,8 +99,8 @@ const labStages = [
   ["Sample registered", "Give the sample a unique ID and bind it to the exact product, SKU and batch. Record collector, time, seal and sampling basis before analysis."],
   ["Custody accepted", "The receiving analyst confirms identity, seal condition and handover. Each custodian, timestamp and condition is linked to the same sample record."],
   ["Method & quality controls", "The China Food Security & Innovation Laboratory records selected method, scope, instrument context, controls and QC. Applicable product requirements map to controlled MS 1500:2019 references; method and laboratory scope are confirmed for each test."],
-  ["Technical review & signature", "An authorised reviewer checks the result against the method, QC and sample chain, then signs the report. A laboratory result is scientific evidence; "],
-  ["Evidence bound to product", "AHTE attaches the signed report to the relevant product, batch and control with provenance. “Not detected” is not equivalent to “Halal”; "],
+  ["Technical review & signature", "An authorised reviewer checks the result against the method, QC and sample chain, then signs the report. The report becomes scientific evidence for the relevant product and control review."],
+  ["Evidence bound to product", "AHTE attaches the signed report to the relevant product, batch and control with provenance. A test finding is considered alongside ingredients, process, handling and the applicable authority review."],
 ];
 
 const auditStages = [
@@ -117,8 +117,14 @@ const monitorStages = [
   ["Bind the evidence", "The platform correlates sensor observations with product, batch, vehicle, container, seal, route, custody actor and applicable control."],
   ["Apply controls", "Configured limits and rule checks identify a suspected breach, missing handover or conflicting record. A finding retains its rule, source event and affected scope."],
   ["Assess & predict", "Command Center operators see the affected chain and possible blast radius. AI can prioritise signals and recommend prevention; its output is attributed and reviewable."],
-  ["Hold & escalate", "An authorised operational role may place a scoped D4 hold and assign an owner. "],
+  ["Hold & escalate", "A scoped operational hold preserves the affected lot or shipment while the accountable owner investigates, escalates the event and attaches corrective evidence."],
   ["Correct & close", "The owner attaches corrective evidence; a reviewer re-verifies the control and records disposition. Only the appropriate accountable actor advances the next state."],
+];
+
+const verificationRecords = [
+  { token: "GHSC-MY-2026-8891", product: "Malaysia-origin product journey", batch: "MY-DEMO-2026-01", events: [["01 / Identity", "Product, batch and source reference are linked."], ["02 / Audit & laboratory", "Audit observations and a signed scientific report are shown in the example."], ["03 / Cold-chain custody", "Warehouse, seal, temperature and handoff events appear in sequence."], ["04 / Consumer view", "The product passport brings the shared journey into one readable view."]] },
+  { token: "JAKIM-AMANAH-0921", product: "Authority-reference journey", batch: "CN-DEMO-2026-02", events: [["01 / Identity", "The sample reference is bound to a product and batch."], ["02 / Audit & laboratory", "Control observations and laboratory evidence are grouped by requirement."], ["03 / Cold-chain custody", "Container, route and condition events build a custody timeline."], ["04 / Consumer view", "The disclosure view presents the journey stages for review."]] },
+  { token: "HK-GHSC-2026-1188", product: "Hong Kong coordination journey", batch: "CN-DEMO-2026-03", events: [["01 / Identity", "Product identity and origin references are assembled."], ["02 / Audit & laboratory", "Audit and laboratory records are connected to the relevant controls."], ["03 / Cold-chain custody", "Shipment events follow warehouse, transport and port handoffs."], ["04 / Consumer view", "A concise provenance story is prepared for the market view."]] },
 ];
 
 const commandEvents = [
@@ -167,19 +173,15 @@ export default function App() {
   }, []);
 
   const verifyPreview = useMemo(() => {
-    const trimmed = verifyQuery.trim();
+    const trimmed = verifyQuery.trim().toUpperCase();
     if (!trimmed) {
-      return {
-        title: "No disclosure selected",
-        state: "AWAITING ISSUER TOKEN",
-        detail: "Public verification requires an issuer-authorised disclosure token or QR link. Private factory records are not searchable here.",
-      };
+      return { title: "Choose a product journey", state: "READY TO EXPLORE", detail: "Enter a reference or select a demonstration record to follow identity, assurance and cold-chain custody.", events: [] as Array<[string, string]> };
     }
-    return {
-      title: "Verification preview",
-      state: "",
-      detail: `“${trimmed.slice(0, 42)}${trimmed.length > 42 ? "…" : ""}”  `,
-    };
+    const record = verificationRecords.find(item => item.token === trimmed);
+    if (record) {
+      return { title: record.product, state: "DEMONSTRATION RECORD", detail: `${record.token} · Batch ${record.batch}`, events: record.events };
+    }
+    return { title: "No matching record", state: "CHECK THE REFERENCE", detail: "Select one of the demonstration references below, or enter an issuer-provided product passport code.", events: [] as Array<[string, string]> };
   }, [verifyQuery]);
 
   return (
@@ -190,21 +192,7 @@ export default function App() {
 
       <header className="platinum-header glass">
         <a className="identity" href="#top" aria-label="Global Halal Supply Chain Limited home">
-          <span className="identity-mark" aria-hidden="true">
-            <svg viewBox="0 0 120 140" focusable="false">
-              <defs><linearGradient id="brand-gold" x1="0" x2="1" y1="0" y2="1"><stop stopColor="#F2D78D"/><stop offset=".52" stopColor="#D4AF5F"/><stop offset="1" stopColor="#8E641F"/></linearGradient></defs>
-              <path d="M60 5 110 25v39c0 33-20 56-50 71C30 120 10 97 10 64V25L60 5Z" fill="#090909" stroke="url(#brand-gold)" strokeWidth="3"/>
-              <path d="M60 13 102 30v34c0 28-16 48-42 62C34 112 18 92 18 64V30l42-17Z" fill="none" stroke="url(#brand-gold)" strokeWidth="1.4"/>
-              <path d="M60 24 91 37v27c0 21-12 36-31 47C41 100 29 85 29 64V37l31-13Z" fill="none" stroke="#D4AF5F" strokeWidth="1" opacity=".72"/>
-              <circle cx="60" cy="63" r="25" fill="none" stroke="url(#brand-gold)" strokeWidth="1.2"/>
-              <circle cx="60" cy="63" r="20" fill="none" stroke="#D4AF5F" strokeWidth=".8" opacity=".7"/>
-              <path d="m60 37 6 9 11-3-3 11 9 9-9 6 3 11-11-3-6 9-6-9-11 3 3-11-9-6 9-9-3-11 11 3 6-9Z" fill="none" stroke="url(#brand-gold)" strokeWidth="1.1"/>
-              <path d="M41 44c7 4 10 10 9 16-7-3-12-3-17 0 1-7 3-12 8-16Zm38 0c-7 4-10 10-9 16 7-3 12-3 17 0-1-7-3-12-8-16ZM41 82c7-4 10-10 9-16-7 3-12 3-17 0 1 7 3 12 8 16Zm38 0c-7-4-10-10-9-16 7 3 12 3 17 0-1 7-3 12-8 16Z" fill="none" stroke="#D4AF5F" strokeWidth="1"/>
-              <circle cx="60" cy="63" r="15" fill="#090909" stroke="url(#brand-gold)" strokeWidth="1.2"/>
-              <text x="60" y="68" textAnchor="middle" fill="#F2D78D" fontFamily="serif" fontSize="11" fontWeight="700">حلال</text>
-              <path d="M34 102c8 7 17 12 26 17 9-5 18-10 26-17" fill="none" stroke="#D4AF5F" strokeWidth="1" opacity=".7"/>
-            </svg>
-          </span>
+          <span className="identity-mark" aria-hidden="true"><img src="media/ghscl-favicon.png" alt="" /></span>
           <span className="identity-copy">
             <strong>GLOBAL HALAL SUPPLY CHAIN LIMITED</strong>
             <small>AMANAH · GLOBAL HALAL DIGITAL TRUST · HONG KONG</small>
@@ -223,12 +211,32 @@ export default function App() {
         <nav id="primary-nav" aria-label="Primary navigation" className={menuOpen ? "open" : ""}>
           <a href="#trust" onClick={() => setMenuOpen(false)}>Trust model</a>
           <a href="#corridor" onClick={() => setMenuOpen(false)}>Goods journey</a>
+          <a href="#passport-route-gold" onClick={() => setMenuOpen(false)}>Trust passport</a>
           <a href="#assurance" onClick={() => setMenuOpen(false)}>Audit &amp; lab</a>
           <a href="#command" onClick={() => setMenuOpen(false)}>Command Center</a>
-          <a href="#monitoring" onClick={() => setMenuOpen(false)}>Monitoring</a>
-          <a href="#partners" onClick={() => setMenuOpen(false)}>Partners</a>
           <a href="#verify" onClick={() => setMenuOpen(false)}>Verify</a>
+          <a href="#partners" onClick={() => setMenuOpen(false)}>Partners</a>
         </nav>
+        <details className="site-nav-menu">
+          <summary>Explore</summary>
+          <div className="site-nav-menu-panel">
+            <a href="ecosystem.html">Complete ecosystem</a>
+            <a href="corporate-profile.html">Corporate profile</a>
+            <a href="digital-trust.html">Digital trust</a>
+            <a href="traceability.html">Traceability</a>
+            <a href="smart-audit.html">Smart audit</a>
+            <a href="china-gcc.html">China → GCC</a>
+            <a href="command-center.html">Command Center</a>
+            <a href="manufacturers.html">Manufacturers</a>
+            <a href="partners.html">Partners</a>
+            <a href="finance-takaful.html">Finance &amp; Takaful</a>
+            <a href="visuals.html">Visual journey</a>
+            <a href="contact.html">Contact</a>
+            <a href="zh-Hant.html" lang="zh-Hant">繁體中文</a>
+            <a href="ar.html" lang="ar" dir="rtl">العربية</a>
+            <a href="login/index.html">Institutional access</a>
+          </div>
+        </details>
         <a className="header-cta" href="https://amanah-yq9x.vercel.app/login">Secure portal ↗</a>
       </header>
 
@@ -251,7 +259,7 @@ export default function App() {
               </div>
             </div>
 
-            <aside className="hero-terminal glass" aria-label="Trust architecture summary">
+            <aside className="hero-terminal glass" aria-label="Trust architecture summary">\n              <img className="brand-world-art" src="media/ghscl-worldmark.webp" alt="" aria-hidden="true" />
               <div className="terminal-head">
                 <span>AMANAH / TRUST TERMINAL</span>
                 <span>PROJECT ARCHITECTURE</span>
@@ -376,6 +384,45 @@ export default function App() {
               <dl className="journey-evidence"><div><dt>Accountable owner</dt><dd>{corridor[activeCorridor][2]}</dd></div><div><dt>Evidence at this handoff</dt><dd>{corridor[activeCorridor][3]}</dd></div><div><dt>Next accountable handoff</dt><dd>{corridor[activeCorridor][4]}</dd></div></dl>
             </article>
           </div>
+          <section className="trust-passport glass" aria-labelledby="passport-title" data-stage={activeCorridor + 1}>
+            <div className="passport-heading">
+              <div>
+                <p className="eyebrow">DIGITAL TRUST PASSPORT · JOURNEY DEMONSTRATOR</p>
+                <h3 id="passport-title">One product record. Every accountable handoff.</h3>
+                <p>Follow how identity, evidence and custody build as the product moves from origin to market.</p>
+              </div>
+              <div className="passport-id"><span>JOURNEY ID</span><strong>GHSC-DEMO-24001</strong><small>China → GCC direct</small></div>
+            </div>
+            <div className="passport-body">
+              <div className="passport-map" role="img" aria-label={`Journey marker at ${corridor[activeCorridor][0]} along the China to GCC route`}>
+                <svg viewBox="0 0 700 190" aria-hidden="true">
+                  <defs><linearGradient id="passport-route-gold" x1="0" x2="1"><stop stopColor="#8e682c"/><stop offset=".52" stopColor="#e9cb85"/><stop offset="1" stopColor="#b58a43"/></linearGradient></defs>
+                  <path className="passport-route-base" d="M54 132 C198 22 492 22 646 132"/>
+                  <path className="passport-route-progress" d="M54 132 C198 22 492 22 646 132" pathLength="100" style={{ strokeDasharray: "100", strokeDashoffset: `${100 - ((activeCorridor + 1) / corridor.length) * 100}` }} />
+                  <circle className="passport-node" cx="54" cy="132" r="6"/><circle className="passport-node" cx="646" cy="132" r="6"/>
+                  <circle className="passport-governance" cx="396" cy="71" r="5"/>
+                  <circle className="passport-current" cx={54 + activeCorridor * (592 / (corridor.length - 1))} cy={132 - 60 * Math.sin(Math.PI * activeCorridor / (corridor.length - 1))} r="9"/>
+                  <text x="42" y="165">CHINA · ORIGIN</text><text x="538" y="165">GCC · MARKET</text><text x="342" y="48">MALAYSIA · ASSURANCE</text>
+                </svg>
+              </div>
+              <div className="passport-details">
+                <div className="passport-detail">
+                  <span>PRODUCT</span><strong>Premium Halal food product</strong><small>Batch CN-DEMO-24001</small>
+                </div>
+                <div className="passport-detail">
+                  <span>CURRENT HANDOFF · {String(activeCorridor + 1).padStart(2, "0")} / {String(corridor.length).padStart(2, "0")}</span><strong>{corridor[activeCorridor][0]}</strong><small>{corridor[activeCorridor][2]}</small>
+                </div>
+                <div className="passport-detail passport-evidence">
+                  <span>EVIDENCE &amp; CUSTODY</span><strong>{corridor[activeCorridor][3]}</strong><small>Next: {corridor[activeCorridor][4]}</small>
+                </div>
+              </div>
+            </div>
+            <div className="passport-scrubber">
+              <label htmlFor="journey-scrubber"><span>Journey scrubber</span><strong>{corridor[activeCorridor][0]}</strong></label>
+              <input id="journey-scrubber" type="range" min="0" max={corridor.length - 1} value={activeCorridor} onChange={event => setActiveCorridor(Number(event.target.value))} aria-valuetext={`Stage ${activeCorridor + 1}: ${corridor[activeCorridor][0]}`} />
+              <div className="passport-scrubber-labels"><span>Origin</span><span>Audit</span><span>Warehouse</span><span>Port</span><span>GCC consumer</span></div>
+            </div>
+          </section>
           <div className="standards-note standards-map"><strong>Standards in the operating model</strong><span>Food and manufacturing controls: MS 1500:2019. Transport: MS 2400-1:2019. Warehousing: MS 2400-2:2019. Retailing: MS 2400-3:2019. The platform maps licensed, controlled requirements to evidence; an operator’s conformity is established through scope, records and competent review.</span><a href="https://www.jsm.gov.my/announcement/781-kelulusan-malaysian-standards-ms-bil-5-2024" target="_blank" rel="noreferrer">View Standards Malaysia revision notice ↗</a></div>
         </section>
 
@@ -516,6 +563,7 @@ export default function App() {
                 placeholder="Paste a token to preview the disclosure experience"
                 autoComplete="off"
               />
+              <div className="verification-samples" aria-label="Demonstration records"><span>Try a journey</span>{verificationRecords.map(record => <button key={record.token} type="button" onClick={() => setVerifyQuery(record.token)}>{record.token}</button>)}</div>
               <div className="qr-schematic" aria-hidden="true">
                 {Array.from({ length: 36 }, (_, index) => <i key={index} className={index % 3 === 0 || index % 7 === 0 ? "on" : ""} />)}
               </div>
@@ -525,12 +573,13 @@ export default function App() {
               <h3>{verifyPreview.title}</h3>
               <strong>{verifyPreview.state}</strong>
               <p>{verifyPreview.detail}</p>
+              {verifyPreview.events.length > 0 ? <ol className="verification-events">{verifyPreview.events.map(([title, detail]) => <li key={title}><strong>{title}</strong><span>{detail}</span></li>)}</ol> : null}
               <dl>
                 <div><dt>Evidence integrity</dt><dd>Issuer signature + provenance required</dd></div>
                 <div><dt>Authority status</dt><dd>Separate from AHTE trust state</dd></div>
                 <div><dt>Scope</dt><dd>Product / batch / shipment as authorised</dd></div>
               </dl>
-              <a href="https://mavericken777.github.io/Amanah/verify.html">Open current public verifier ↗</a>
+              <a href="verify.html">Open current public verifier ↗</a>
             </article>
           </div>
         </section>
@@ -547,9 +596,9 @@ export default function App() {
               ["China manufacturers", "Enterprise, facility, product, supplier, raw-material and production evidence."],
               ["Laboratories", "Sample, custody, method/QC, result, review and signed evidence."],
               ["Sinotrans", "Warehouse, TMS/WMS, telemetry, container, seal and custody events."],
-              ["Ports / customs", "Authorised trust resolution; inspection, hold and "],
+              ["Ports / customs", "Authorised trust resolution, inspection and hold events, release outcomes and destination handoff records."],
               ["GCC import / retail", "Receiving, warehouse, distribution, retail and issuer-authorised verification."],
-              ["Islamic finance / Takaful", "Purpose-bound evidence packets; "],
+              ["Islamic finance / Takaful", "Purpose-bound evidence packets support approved financing and Takaful workflows; providers make their own commercial, legal and Shariah decisions."],
             ].map(([title, text]) => (
               <article className="partner-card" key={title}>
                 <h3>{title}</h3>
@@ -597,17 +646,17 @@ export default function App() {
             <a className="engagement-card glass" href="https://amanah-yq9x.vercel.app/login">
               <span>SECURE WORKSPACE</span><strong>Open Amanah</strong><small>Authenticated operations ↗</small>
             </a>
-            <a className="engagement-card glass" href="https://mavericken777.github.io/Amanah/corporate-profile.html">
+            <a className="engagement-card glass" href="corporate-profile.html">
               <span>INSTITUTIONAL</span><strong>Corporate profile</strong><small>GHSCL ecosystem profile ↗</small>
             </a>
-            <a className="engagement-card glass" href="https://mavericken777.github.io/Amanah/manufacturers.html">
+            <a className="engagement-card glass" href="manufacturers.html">
               <span>MANUFACTURER</span><strong>Start onboarding</strong><small>Prepare enterprise readiness ↗</small>
             </a>
-            <a className="engagement-card glass" href="https://mavericken777.github.io/Amanah/verify.html">
+            <a className="engagement-card glass" href="verify.html">
               <span>PUBLIC TRUST</span><strong>Verify disclosure</strong><small>Issuer-authorised evidence ↗</small>
             </a>
           </div>
-          <p className="engagement-note">English is the controlling public language for this build. Chinese and Arabic corporate identity lines are present; full translated operational content is not represented as complete until reviewed translations are source-controlled.</p>
+          <nav className="language-links" aria-label="Language"><span>Explore in</span><a href="zh-Hant.html" lang="zh-Hant">繁體中文</a><a href="ar.html" lang="ar" dir="rtl">العربية</a></nav>
         </section>
 
         <section className="final-cta glass" aria-labelledby="final-title">
@@ -618,12 +667,12 @@ export default function App() {
           </div>
           <div className="final-actions">
             <a className="button-primary" href="https://amanah-yq9x.vercel.app/login">Secure portal ↗</a>
-            <a className="button-secondary" href="https://mavericken777.github.io/Amanah/verify.html">Verify disclosure ↗</a>
+            <a className="button-secondary" href="verify.html">Verify disclosure ↗</a>
           </div>
         </section>
       </main>
 
-      <footer className="platinum-footer">
+      <footer className="platinum-footer"><img className="footer-lockup" src="media/ghscl-multilingual.webp" alt="Global Halal Supply Chain Limited in English, Traditional Chinese and Arabic" />
         <div>
           <strong>GLOBAL HALAL SUPPLY CHAIN LIMITED</strong>
           <span>全球清真供應鏈有限公司 · سلسلة التوريد العالمية للحلال</span>

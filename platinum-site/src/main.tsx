@@ -8,6 +8,7 @@ import "./styles/glass.css";
 import "./styles/foundation.css";
 import "./styles/phase4.css";
 import "./styles/secondary.css";
+import "./styles/flagship.css";
 
 const file = window.location.pathname.split("/").filter(Boolean).pop() ?? "index.html";
 const isHome = file === "index.html" || !file.includes(".");

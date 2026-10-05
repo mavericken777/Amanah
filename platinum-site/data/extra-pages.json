@@ -1,0 +1,177 @@
+[
+  {
+    "slug": "corporate-profile",
+    "label": "Corporate Profile",
+    "title": "A trusted trade ecosystem with clearly owned decisions.",
+    "description": "Global Halal Supply Chain Limited connects international trade operations with Amanah’s evidence and assurance infrastructure, while every institution keeps its own mandate.",
+    "sections": [
+      {
+        "id": "institutional-structure",
+        "title": "Institutions connected by role",
+        "cards": [
+          [
+            "Perak Halal Corporation",
+            "Perak’s halal-industry development and governance partner, connecting Malaysian assurance capabilities with international market development."
+          ],
+          [
+            "Global Halal Supply Chain Limited",
+            "The Hong Kong operating company coordinating trade services, partner engagement and the international supply-chain programme."
+          ],
+          [
+            "Amanah Halal Trust Ecosystem",
+            "The digital trust layer connecting standards applicability, controls, evidence, custody, audit and operational monitoring."
+          ],
+          [
+            "Competent authorities",
+            "Authorised public bodies make certification and sovereign release decisions through their established processes."
+          ]
+        ]
+      },
+      {
+        "id": "operating-model",
+        "title": "A continuous operating model",
+        "text": "Manufacturer readiness, product identity, laboratory evidence, guided audit, warehouse operations, logistics, port handoffs, destination receiving and consumer verification share a coherent record of who acted and what evidence supports the next step.",
+        "flow": [
+          "Governance & standards",
+          "Supplier and manufacturer readiness",
+          "Product and batch identity",
+          "Audit and laboratory evidence",
+          "Custody and monitoring",
+          "Destination and consumer trust"
+        ]
+      },
+      {
+        "id": "hong-kong",
+        "title": "An international coordination base",
+        "text": "Global Halal Supply Chain Limited is based at RM 2112, Hong Kong Plaza, 188 Connaught Road West, Hong Kong. Its international coordination model connects participating manufacturers, laboratories, logistics operators, ports, importers and market partners."
+      },
+      {
+        "id": "assurance",
+        "title": "Trust that can be followed",
+        "text": "Each handoff links an accountable actor, a relevant object, a timestamp and its supporting evidence. The resulting journey helps institutions see what happened and which decision remains theirs."
+      }
+    ]
+  },
+  {
+    "slug": "visuals",
+    "label": "Visual Journey",
+    "title": "See how trust moves with the product.",
+    "description": "Explore the connected journey from material origin to a GCC consumer, with each interaction showing the people, controls, evidence and custody behind a handoff.",
+    "sections": [
+      {
+        "id": "origin-to-product",
+        "title": "Start with source and product identity",
+        "text": "A material lot is linked to supplier identity, origin records, product formulation, manufacturing scope and the controls that apply to its destination market.",
+        "flow": [
+          "Raw material origin",
+          "Supplier identity",
+          "Product / SKU / batch",
+          "Applicable controls"
+        ]
+      },
+      {
+        "id": "audit-lab",
+        "title": "Observe the control. Bind the evidence.",
+        "cards": [
+          [
+            "Smart-glasses audit",
+            "A guided view brings the auditor to the relevant control, captures an attributable observation and routes findings into corrective action and re-verification."
+          ],
+          [
+            "Laboratory chain",
+            "A sample is identified, sealed and tracked through custody, method, quality control, technical review and a signed scientific report."
+          ],
+          [
+            "Human assessment",
+            "AI can organise evidence and surface gaps. Auditors and competent authorities retain the decisions within their mandate."
+          ]
+        ]
+      },
+      {
+        "id": "custody-to-market",
+        "title": "Carry custody through every handoff",
+        "text": "Warehouse scans, vehicle and seal identity, temperature and door events, route changes, port inspections, import steps and distribution records follow the same product journey.",
+        "flow": [
+          "Manufacturer warehouse",
+          "Sinotrans warehouse",
+          "China → GCC transport",
+          "Origin port & export",
+          "GCC port & import",
+          "Receiving & distribution",
+          "Consumer verification"
+        ]
+      },
+      {
+        "id": "signal-to-response",
+        "title": "Turn a signal into an accountable response",
+        "text": "The Command Center connects sensor or document events to applicable controls, identifies affected lots, assigns an owner, records a hold or corrective action and follows the re-verification to closure."
+      }
+    ]
+  },
+  {
+    "slug": "zh-Hant",
+    "label": "繁體中文",
+    "title": "從原料來源到市場，每一段旅程都清晰可查。",
+    "description": "AMANAH 將製造商準備、產品識別、實驗室證據、稽核、物流交接與消費者查驗連結為完整的清真供應鏈旅程。",
+    "sections": [
+      {
+        "id": "journey",
+        "title": "一條連續的產品旅程",
+        "text": "從原料來源、供應商、工廠、產品與批次識別，到實驗室檢測、現場稽核、倉儲、運輸、港口、海灣合作委員會市場及消費者查驗。每一段交接都記錄負責人、時間與相關證據。",
+        "flow": [
+          "原料來源與供應商",
+          "工廠與產品設定",
+          "實驗室證據",
+          "智慧稽核",
+          "製造與批次",
+          "倉儲與物流",
+          "出口與進口港口",
+          "接收、分銷與消費者查驗"
+        ]
+      },
+      {
+        "id": "assurance",
+        "title": "把證據與責任連結起來",
+        "text": "AMANAH 將標準適用性、控制措施、稽核觀察、檢測報告、保管鏈與營運監控連結起來，協助團隊理解每項記錄由誰建立，以及下一步由誰負責。"
+      },
+      {
+        "id": "roles",
+        "title": "各機構保留清晰職責",
+        "text": "平台支援跨境協作與證據管理。稽核人員、實驗室、物流營運者、進出口機構及主管機關，依各自職責作出評估與決定。"
+      }
+    ]
+  },
+  {
+    "slug": "ar",
+    "label": "العربية",
+    "title": "رحلة موثوقة من المصدر إلى السوق.",
+    "description": "تربط أمانة جاهزية المصنّع وهوية المنتج وأدلة المختبر والتدقيق وتسليمات النقل والتحقق للمستهلك ضمن رحلة واحدة قابلة للتتبع.",
+    "sections": [
+      {
+        "id": "journey",
+        "title": "رحلة منتج متصلة",
+        "text": "من مصدر المواد الخام والمورّد إلى المصنع وهوية المنتج والدفعة، ثم أدلة المختبر والتدقيق والمستودعات والنقل والموانئ والاستلام والتوزيع والتحقق للمستهلك. يسجل كل تسليم الجهة المسؤولة والوقت والأدلة المرتبطة.",
+        "flow": [
+          "مصدر المواد والمورّد",
+          "إعداد المصنع والمنتج",
+          "أدلة المختبر",
+          "التدقيق الذكي",
+          "الإنتاج والدفعة",
+          "المستودعات والخدمات اللوجستية",
+          "موانئ التصدير والاستيراد",
+          "الاستلام والتوزيع والتحقق"
+        ]
+      },
+      {
+        "id": "assurance",
+        "title": "الأدلة والمسؤولية في سجل واحد",
+        "text": "تربط أمانة بين انطباق المعايير والضوابط وملاحظات التدقيق وتقارير المختبر وسلسلة الحيازة والمراقبة التشغيلية، لتوضيح أساس كل إجراء والجهة المسؤولة عن الخطوة التالية."
+      },
+      {
+        "id": "roles",
+        "title": "أدوار مؤسسية واضحة",
+        "text": "تدعم المنصة التعاون وإدارة الأدلة عبر الحدود، مع احتفاظ المدققين والمختبرات ومشغلي الخدمات اللوجستية والجهات الحكومية كلٌّ بمسؤوليته وقراره."
+      }
+    ]
+  }
+]
