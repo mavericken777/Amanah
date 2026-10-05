@@ -535,25 +535,6 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section connector-section" id="connectors">
-          <div className="section-heading">
-            <p className="eyebrow">09 / CONNECTOR READINESS</p>
-            <h2>Complete interfaces now. Activate external systems without redesign.</h2>
-            <p>Connector state is explicit so </p>
-          </div>
-          <div className="connector-table glass" role="table" aria-label="Connector readiness">
-            <div className="connector-row connector-head" role="row">
-              <span role="columnheader">Interface</span><span role="columnheader">State</span><span role="columnheader">Scope</span>
-            </div>
-            {connectors.map(([name, state, scope]) => (
-              <div className="connector-row" role="row" key={name}>
-                <strong role="cell">{name}</strong>
-                <span role="cell" className="state-chip">{state}</span>
-                <p role="cell">{scope}</p>
-              </div>
-            ))}
-          </div>
-        </section>
 
         <section className="section partner-section" id="partners">
           <div className="section-heading">
