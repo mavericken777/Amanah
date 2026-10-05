@@ -69,8 +69,8 @@ body::after{
 .hero-phase4 .hero-grid{min-height:min(780px,82vh)!important}
 .hero-copy>.eyebrow{color:#c8a655!important;font:700 .66rem "DM Mono",monospace!important;letter-spacing:.18em!important}
 .hero h1{
-  max-width:13ch!important;font-family:Cinzel,"Cormorant Garamond",Georgia,serif!important;
-  font-size:clamp(3.9rem,6.7vw,7.1rem)!important;font-weight:500!important;
+  max-width:15ch!important;font-family:Cinzel,"Cormorant Garamond",Georgia,serif!important;
+  font-size:clamp(3.9rem,5.2vw,5.8rem)!important;font-weight:500!important;
   line-height:.96!important;color:var(--pt-ivory)!important;text-shadow:0 24px 70px #000!important
 }
 .hero h1 em{color:var(--pt-gold-light)!important;font-style:normal!important}
