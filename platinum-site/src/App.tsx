@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { SmoothScroll } from "./components/motion/SmoothScroll";
 import { HalalShield3D } from "./components/hero/HalalShield3D";
+import { CircuitMapBackground } from "./components/hero/CircuitMapBackground";
 import { demoProduct, demoVerificationRecords, demoJourneyStages } from "./data/demoJourney";
 const ScrollProgress = lazy(() => import("./components/motion/ScrollProgress").then(module => ({ default: module.ScrollProgress })));
 const TrustTerminal = lazy(() => import("./components/terminal/TrustTerminal").then(module => ({ default: module.TrustTerminal })));
@@ -165,7 +166,7 @@ export default function App() {
     }
     const record = verificationRecords.find(item => item.token === trimmed);
     if (record) {
-      return { title: record.product, state: "DEMONSTRATION RECORD", detail: `${record.token} · Batch ${record.batch}`, events: record.events };
+      return { title: record.product, state: "ILLUSTRATIVE PASSPORT", detail: `${record.token} · Batch ${record.batch}`, events: record.events };
     }
     return { title: "No matching record", state: "CHECK THE REFERENCE", detail: "Select one of the demonstration references below, or enter an issuer-provided product passport code.", events: [] as Array<[string, string]> };
   }, [verifyQuery]);
@@ -230,12 +231,11 @@ export default function App() {
         <section className="hero hero-phase4" id="top" aria-labelledby="hero-title">
           <div className="hero-grid">
             <div className="hero-copy">
-              <p className="eyebrow">GLOBAL HALAL DIGITAL TRUST &amp; TRADE INFRASTRUCTURE</p>
-              <h1 id="hero-title">Evidence before trust.<br /><em>Trust before release.</em></h1>
-              <p className="hero-principle">A Halal assurance journey you can inspect, stage by stage.</p>
+              <p className="eyebrow">AMANAH · GLOBAL HALAL DIGITAL TRUST</p>
+              <h1 id="hero-title">Trust travels.<br /><em>Origin to market.</em></h1>
+              <p className="hero-principle">Every product carries evidence. Every handoff carries accountability.</p>
               <p className="hero-lede">
-                One accountable product identity. Evidence and custody that stay inspectable at every handoff.
-                Follow a China → GCC journey from origin records through release, receiving and consumer verification.
+                Follow one continuous China → GCC product identity across manufacturer onboarding, materials, audit, laboratory evidence, production, custody, Sinotrans logistics, ports, GCC distribution and consumer verification—under accountable human and competent-authority governance.
               </p>
               <div className="hero-actions">
                 <a className="button-primary" href="https://amanah-yq9x.vercel.app/login">Open Amanah ↗</a>
@@ -244,6 +244,7 @@ export default function App() {
             </div>
 
             <aside className="hero-terminal" aria-label="Amanah trust principles">
+              <CircuitMapBackground />
               <div className="terminal-head">
                 <span>AMANAH / DIGITAL TRUST</span>
                 <span>ONE PRODUCT · TRACEABLE HANDOFFS</span>
@@ -340,7 +341,7 @@ export default function App() {
           <div className="section-heading">
             <p className="eyebrow">04 / CHINA → GCC DIRECT</p>
             <h2>Follow every product handoff from factory to GCC consumer.</h2>
-            <p>Choose a stage to see who acts, what evidence is created and what must be true before custody moves forward. The physical pilot corridor is China → GCC direct; Malaysia is the governance, assurance and authority-connectivity plane.</p>
+            <p>Choose a stage to see who acts, what evidence is created and what must be true before custody moves forward. The physical corridor is China → GCC direct; Malaysia is the governance, assurance and authority-connectivity plane.</p>
           </div>
           <div className="corridor-layout">
             <div className="corridor-nav" role="tablist" aria-label="Corridor stages">
@@ -390,7 +391,7 @@ export default function App() {
                 <p className="eyebrow">STANDARDS VIEW · APPLICABILITY DEPENDS ON SCOPE</p>
                 <h3>{standardsTopics[activeCorridor]}</h3>
                 <dl className="journey-evidence"><div><dt>Control objective</dt><dd>{corridor[activeCorridor][1]}</dd></div><div><dt>Evidence</dt><dd>{corridor[activeCorridor][3]}</dd></div><div><dt>Responsible actor</dt><dd>{corridor[activeCorridor][2]}</dd></div></dl>
-                <p className="standards-scope-note">Confirm the applicable instrument, edition and clause against the controlled source for this product, operator and market. This view does not assert certification or conformity.</p>
+                <p className="standards-scope-note">Confirm the applicable instrument, edition and clause against the controlled source for this product, operator and market. Use the controlled source and competent review for the applicable scope, instrument and conformity decision.</p>
               </> : <>
                 <p className="eyebrow">TRUST RECORD · SAME PRODUCT, CURRENT HANDOFF</p>
                 <h3>{corridor[activeCorridor][0]}</h3>
@@ -402,7 +403,7 @@ export default function App() {
           <section className="trust-passport glass" aria-labelledby="passport-title" data-stage={activeCorridor + 1}>
             <div className="passport-heading">
               <div>
-                <p className="eyebrow">DIGITAL TRUST PASSPORT · JOURNEY DEMONSTRATOR</p>
+                <p className="eyebrow">DIGITAL TRUST PASSPORT</p>
                 <h3 id="passport-title">One product record. Every accountable handoff.</h3>
                 <p>Follow how identity, evidence and custody build as the product moves from origin to market.</p>
               </div>
@@ -451,7 +452,7 @@ export default function App() {
           <div className="assurance-grid">
             <article className="assurance-panel glass" id="laboratory">
               <div className="panel-head">
-                <span className="eyebrow">LABORATORY EVIDENCE · DEMONSTRATION WORKFLOW</span>
+                <span className="eyebrow">LABORATORY EVIDENCE</span>
                 <span className="state-chip">NOT DETECTED ≠ HALAL</span>
               </div>
               <p className="partner-intro">Sample intake → sealed custody → method and QC → technical review → signed report → product evidence.</p>

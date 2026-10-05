@@ -9,7 +9,7 @@ for(const p of content.pages){if(!p.title||!p.description||!p.sources.length)thr
 const homepage=fs.readFileSync(`${base}index.html`,'utf8');
 const homeCss=fs.readFileSync(`${base}home-refresh.css`,'utf8');
 const platinumCss=fs.readFileSync(`${base}platinum.css`,'utf8');
-for(const phrase of ['Every product carries a story.','Make trust travel with it.','Amanah','AHTE','Illustrative architecture journey.','Start a conversation']){
+for(const phrase of ['From origin to market.','Trust travels with the product.','Amanah','AHTE','AHTE ⇄ Direct JAKIM API ⇄ JAKIM','China → GCC direct','Start a conversation']){
   if(!homepage.includes(phrase))throw new Error(`Homepage is missing required visitor content: ${phrase}`);
 }
 for(const selector of ['id="top"','id="journey"','class="home-friction"','class="home-platform"','class="home-architecture"','class="home-corridor"','class="home-depth"','class="home-terminal"']){

@@ -10,7 +10,7 @@ const js = fs.readFileSync('ghscl-website/ecosystem.js', 'utf8');
 
 test('homepage explains Amanah to first-time visitors', () => {
   for (const id of ['top','journey']) assert.match(html, new RegExp(`id=["']${id}["']`));
-  for (const phrase of ['Every product carries a story.','Make trust travel with it.','From a source record to a confident handoff.','WHY A CONNECTED STORY MATTERS','Connected workflows for the people behind halal trade.','A practical workspace, built on a wider trust foundation.','Start a conversation']) assert.ok(html.includes(phrase), `missing visitor message: ${phrase}`);
+  for (const phrase of ['From origin to market.','Trust travels with the product.','One product. One identity. One continuous story.','WHY A CONNECTED STORY MATTERS','AHTE ⇄ Direct JAKIM API ⇄ JAKIM','China → GCC direct','Start a conversation']) assert.ok(html.includes(phrase), `missing visitor message: ${phrase}`);
   assert.equal((html.match(/<h1\b/g)||[]).length,1);
   assert.match(html,/home-refresh\.css/);
 });
@@ -58,7 +58,7 @@ test('platinum homepage uses the obsidian and gold design and accessible trust d
   assert.match(html, /href="platinum.css"/);
   assert.match(html, /id="trust-terminal"/);
   assert.equal((html.match(/class="terminal-card"/g)||[]).length,4);
-  assert.match(html, /class="platinum-shield"/);
+  assert.match(html, /class="[^"]*platinum-shield[^"]*"/);
   assert.match(platinum, /--platinum-gold: oklch\(/);
   assert.ok(platinum.includes('.platinum-home .stack-participants span { color: var(--platinum-gold-light); background: var(--platinum-raised);'), 'Amanah/AHTE participant labels need a high-contrast surface');
   for (const rule of ['max-width: 1024px','max-width: 900px','max-width: 767px','max-width: 480px','prefers-reduced-transparency: reduce','prefers-reduced-motion: reduce']) assert.ok(platinum.includes(rule), 'missing design rule: '+rule);
