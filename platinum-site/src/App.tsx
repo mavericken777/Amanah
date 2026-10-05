@@ -1,6 +1,5 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { SmoothScroll } from "./components/motion/SmoothScroll";
-import { CircuitMapBackground } from "./components/hero/CircuitMapBackground";
 import { HalalShield3D } from "./components/hero/HalalShield3D";
 import { demoProduct, demoVerificationRecords, demoJourneyStages } from "./data/demoJourney";
 const ScrollProgress = lazy(() => import("./components/motion/ScrollProgress").then(module => ({ default: module.ScrollProgress })));
@@ -229,39 +228,34 @@ export default function App() {
 
       <main id="main">
         <section className="hero hero-phase4" id="top" aria-labelledby="hero-title">
-          <CircuitMapBackground />
           <div className="hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">GLOBAL HALAL DIGITAL TRUST &amp; TRADE INFRASTRUCTURE</p>
               <h1 id="hero-title">Evidence before trust.<br /><em>Trust before release.</em></h1>
               <p className="hero-principle">A Halal assurance journey you can inspect, stage by stage.</p>
               <p className="hero-lede">
-                A premium operating layer for end-to-end Halal assurance across the China → GCC direct corridor:
-                manufacturer readiness, laboratory evidence, smart audit, custody, command-centre intelligence and
-                authority-connected review.
+                One accountable product identity. Evidence and custody that stay inspectable at every handoff.
+                Follow a China → GCC journey from origin records through release, receiving and consumer verification.
               </p>
               <div className="hero-actions">
                 <a className="button-primary" href="https://amanah-yq9x.vercel.app/login">Open Amanah ↗</a>
-                <a className="button-secondary" href="#ecosystem">Explore the ecosystem</a>
+                <a className="button-secondary" href="#terminal">Enter the trust journey ↓</a>
               </div>
             </div>
 
-            <aside className="hero-terminal glass" aria-label="Trust architecture summary">
-              <img className="brand-world-art" src="media/ghscl-worldmark.webp" alt="" aria-hidden="true" />
+            <aside className="hero-terminal" aria-label="Amanah trust principles">
               <div className="terminal-head">
-                <span>AMANAH / TRUST TERMINAL</span>
-                <span>PROJECT ARCHITECTURE</span>
+                <span>AMANAH / DIGITAL TRUST</span>
+                <span>ONE PRODUCT · TRACEABLE HANDOFFS</span>
               </div>
               <div className="shield-orbit">
-                <span className="orbit orbit-one" aria-hidden="true" />
-                <span className="orbit orbit-two" aria-hidden="true" />
                 <HalalShield3D />
               </div>
               <dl>
-                <div><dt>Authority</dt><dd>Human / competent authority</dd></div>
-                <div><dt>Evidence</dt><dd>Append-only + provenance-linked</dd></div>
-                <div><dt>AI</dt><dd>D0–D2 + configured D4 holds</dd></div>
-                <div><dt>Release</dt><dd>After required authority gates</dd></div>
+                <div><dt>Identity</dt><dd>One record across product and batch</dd></div>
+                <div><dt>Evidence</dt><dd>Source, scope and review stay visible</dd></div>
+                <div><dt>Custody</dt><dd>Each handoff carries its own event</dd></div>
+                <div><dt>Authority</dt><dd>Certification remains a human decision</dd></div>
               </dl>
             </aside>
           </div>
