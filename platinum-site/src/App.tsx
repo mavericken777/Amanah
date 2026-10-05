@@ -70,8 +70,10 @@ const trustPath = [
   "Re-verification",
   "Authority Gate",
   "Trust State",
-  "Operaticonst corridor = demoJourneyStages;ective action"],
+  "Operational Release",
 ];
+
+const corridor = demoJourneyStages;
 
 const pathways = [
   ["Manufacturer", "Onboard enterprise, facility, products, suppliers and evidence."],
