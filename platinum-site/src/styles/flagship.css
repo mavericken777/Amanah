@@ -260,3 +260,6 @@ body::before{display:none!important}
 /* Keep the consumer verification stage legible against its matte dark panel. */
 .journey-consumer .journey-stage-copy .journey-index,.journey-consumer .journey-stage-copy .eyebrow{color:#d8b96f!important}
 .journey-consumer .journey-stage-copy>p,.journey-consumer .journey-stage-copy ul li{color:#c7c0b2!important}
+
+/* Scroll reveals must not dim readable journey content below AA contrast. */
+.journey-stage{opacity:1!important}
