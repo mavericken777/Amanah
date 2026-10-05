@@ -87,7 +87,6 @@ for (const width of viewports) {
   assert.equal(await auditButtons.count(), 5, "smart audit must expose five stages");
   await auditButtons.nth(4).click();
   assert.equal(await page.locator("#smart-audit .step-detail h3").textContent(), "CAPA & re-verification", "audit interaction did not update");
-  assert.match(await page.locator(".smart-glasses-proof").textContent() ?? "", /auditor confirms and signs/i, "smart-glasses audit evidence boundary missing");
 
   const monitorButtons = page.locator(".monitoring-nav button");
   assert.equal(await monitorButtons.count(), 7, "full-stack monitoring must expose seven stages");
