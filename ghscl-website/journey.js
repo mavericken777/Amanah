@@ -4,8 +4,8 @@ const journey = {
   stages: [
     ['Origin','Manufacturer','China facility','Register producer, facility, ingredients and product identity.','Facility scope, supplier provenance, formulation and packaging records','Establish the object and its source before assessment.','INITIAL','Manufacturer'],
     ['Identity','Manufacturer','China facility','Associate the SKU, lot, batch and destination with one product.','SKU-DEMO-01, lot CN-LOT-01, product dossier and destination scope','Bind every later observation to the same object.','INITIAL','Manufacturer'],
-    ['Audit','Human auditor','Ingredient storage','Inspect materials, segregation, sanitation, packaging and labels with AI guidance.','Attributable checklist, observations, media manifest and auditor sign-off','Human auditors assess observations; AI prompts and organizes evidence.','ASSESSED','Manufacturer'],
-    ['Lab','Laboratory reviewer','China laboratory','Seal a sample, record custody, apply the scoped method and review the result.','SAMPLE-DEMO-01, custody record, method/QC record and signed review','A reviewed result supports a control; NOT_DETECTED ≠ HALAL.','ASSESSED','Laboratory'],
+    ['Audit','Human auditor','Ingredient storage','Inspect materials, segregation, sanitation, packaging and labels with AI guidance.','Attributable checklist, observations, media manifest and auditor sign-off','Human auditors assess observations; AI prompts and organizes evidence.','INITIAL','Manufacturer'],
+    ['Lab','Laboratory reviewer','China laboratory','Seal a sample, record custody, apply the scoped method and review the result.','SAMPLE-DEMO-01, custody record, method/QC record and signed review','A reviewed result supports a control; NOT_DETECTED ≠ HALAL.','INITIAL','Laboratory'],
     ['Standards','Assurance team','Evidence workspace','Map applicable instruments to controls and retrievable evidence.','Applicability assessment, HCP/SCCP, audit test and source binding','Complete Malaysian/JAKIM framework and destination requirements govern applicability.','EVIDENCE-COMPLETE','Manufacturer'],
     ['Warehouse','Warehouse operator','China warehouse','Receive, segregate, inspect and prepare the batch for dispatch.','Zone record, receiving inspection, handling and temperature history','Preserve segregation and accountable handling.','ASSESSED','Warehouse'],
     ['Logistics','Logistics operator','China dispatch','Record pickup, container assignment, loading, seal and custody transfer.','CONTAINER-DEMO-01, SEAL-DEMO-01 and signed transfer manifest','Sinotrans is the reference logistics workflow; operational connections require authorization.','ASSESSED','Logistics provider'],
@@ -75,6 +75,7 @@ if (typeof document !== 'undefined') {
     [...$('stageNav').children].forEach((b,i)=>{b.setAttribute('aria-pressed',String(i===index));});
     [...$('viewModes').children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===mode)));
     [...$('routeNodes').children].forEach((b,i)=>{b.classList.toggle('reached',i<=index);b.setAttribute('aria-pressed',String(i===index));});
+    const route=$('journeyRoute'); const point=route.getPointAtLength(route.getTotalLength()*index/(journey.stages.length-1)); $('routeMarker').setAttribute('cx',String(point.x)); $('routeMarker').setAttribute('cy',String(point.y));
     $('routeLocation').textContent = `${s[2]} · ${s[7]} · ${journey.batch}`;
     $('timeline').replaceChildren(); journey.stages.slice(0,index+1).forEach((v,i)=>{const b=element('button',`${String(i+1).padStart(2,'0')} · ${v[0]} · ${v[1]}`);b.type='button';b.addEventListener('click',()=>select(i));$('timeline').append(b);});
     $('custodyHolder').textContent=s[7]; renderPassport();

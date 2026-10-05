@@ -1,5 +1,4 @@
 /* Amanah: editorial structure, restrained depth and operational clarity. */
-500;600;700;800&display=swap');
 :root { --bg: #f4f5ef; --surface: #fffef9; --text: #162e27; --muted: #546960; --line: rgba(23,65,47,.1); --accent: #19654b; --accent-2: #124e39; --danger: #a3323b; --success: #19654b; --shadow: 0 18px 60px rgba(30,64,49,.055), 0 2px 8px rgba(30,64,49,.025); --radius: 24px; --ease: cubic-bezier(.32,.72,0,1); }
 body { font-family:Arial, Helvetica, sans-serif; background: radial-gradient(ellipse at 90% 0%, #e7ece2, transparent 45%), var(--bg); }
 button, input, select, textarea { font: inherit; }
