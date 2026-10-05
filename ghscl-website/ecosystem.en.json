@@ -313,7 +313,7 @@
             "Formal authority status",
             "AHTE trust-state propagation"
           ],
-          "text": "Authority status and AHTE trust state remain separate records. Teams can see operational readiness alongside independently issued authority status."
+          "text": "Authority status and AHTE trust state remain separate records. Teams can see operational readiness alongside independently issued authority status. Competent authorities decide on Halal certification, and border authorities decide on release."
         },
         {
           "id": "market",
@@ -1120,5 +1120,6 @@
         "ecosystem"
       ]
     }
-  ]
+  ],
+  "operationalStatus": "Shipment 001 remains a pilot requiring real execution evidence."
 }
