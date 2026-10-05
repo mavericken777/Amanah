@@ -74,12 +74,16 @@
       "Contact"
     ],
     [
-      "zh-Hans.html",
-      "中文"
+      "zh-Hant.html",
+      "繁體中文"
     ],
     [
       "login/index.html",
       "Secure portal access"
+    ],
+    [
+      "ar.html",
+      "العربية"
     ]
   ],
   "messages": {
