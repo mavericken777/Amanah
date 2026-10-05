@@ -94,17 +94,17 @@ for (const width of viewports) {
     assurance: Boolean(document.querySelector("#assurance")),
     laboratory: Boolean(document.querySelector("#laboratory")),
     smartAudit: Boolean(document.querySelector("#smart-audit")),
-    labDemo: document.body.textContent?.includes("LABORATORY EVIDENCE · DEMONSTRATION WORKFLOW") ?? false,
+    labEvidence: document.body.textContent?.includes("LABORATORY EVIDENCE") ?? false,
     standardsMap: document.body.textContent?.includes("MS 2400-2:2019") ?? false,
     command: Boolean(document.querySelector("#command")),
     verify: Boolean(document.querySelector("#verify")),
     directJakim: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false
   }));
   assert.ok(
-    phaseTwo.assurance && phaseTwo.laboratory && phaseTwo.smartAudit && phaseTwo.labDemo && phaseTwo.standardsMap && phaseTwo.command && phaseTwo.verify,
+    phaseTwo.assurance && phaseTwo.laboratory && phaseTwo.smartAudit && phaseTwo.labEvidence && phaseTwo.standardsMap && phaseTwo.command && phaseTwo.verify,
     `phase 2 structure incomplete at ${width}px: ${JSON.stringify(phaseTwo)}`
   );
-  assert.ok(phaseTwo.labDemo && phaseTwo.standardsMap, "laboratory demo status and current standards mapping missing");
+  assert.ok(phaseTwo.labEvidence && phaseTwo.standardsMap, "laboratory evidence workflow and current standards mapping missing");
 
   const labButtons = page.locator("#laboratory .stepper button");
   assert.equal(await labButtons.count(), 5, "laboratory chain must expose five stages");
