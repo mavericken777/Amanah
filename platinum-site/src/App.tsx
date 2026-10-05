@@ -237,7 +237,7 @@ export default function App() {
             <a href="login/index.html">Institutional access</a>
           </div>
         </details>
-        <a className="header-cta" href="login/index.html">Secure portal ↗</a>
+        <a className="header-cta" href="https://amanah-yq9x.vercel.app/login">Secure portal ↗</a>
       </header>
 
       <main id="main">
@@ -254,7 +254,7 @@ export default function App() {
                 authority-connected review.
               </p>
               <div className="hero-actions">
-                <a className="button-primary" href="login/index.html">Open Amanah ↗</a>
+                <a className="button-primary" href="https://amanah-yq9x.vercel.app/login">Open Amanah ↗</a>
                 <a className="button-secondary" href="#ecosystem">Explore the ecosystem</a>
               </div>
             </div>
@@ -618,7 +618,7 @@ export default function App() {
               <article className="pathway-card" key={title}>
                 <h3>{title}</h3>
                 <p>{text}</p>
-                <a href="login/index.html">Enter Amanah ↗</a>
+                <a href="https://amanah-yq9x.vercel.app/login">Enter Amanah ↗</a>
               </article>
             ))}
           </div>
@@ -643,7 +643,7 @@ export default function App() {
             <p>Use the secure Amanah workspace for authenticated operations. Use the current public site for corporate profile, onboarding context and disclosure verification.</p>
           </div>
           <div className="engagement-grid">
-            <a className="engagement-card glass" href="login/index.html">
+            <a className="engagement-card glass" href="https://amanah-yq9x.vercel.app/login">
               <span>SECURE WORKSPACE</span><strong>Open Amanah</strong><small>Authenticated operations ↗</small>
             </a>
             <a className="engagement-card glass" href="corporate-profile.html">
@@ -666,7 +666,7 @@ export default function App() {
             <p>Use the secure workspace for authenticated operations, or inspect an issuer-authorised disclosure through the public verifier.</p>
           </div>
           <div className="final-actions">
-            <a className="button-primary" href="login/index.html">Secure portal ↗</a>
+            <a className="button-primary" href="https://amanah-yq9x.vercel.app/login">Secure portal ↗</a>
             <a className="button-secondary" href="verify.html">Verify disclosure ↗</a>
           </div>
         </section>
