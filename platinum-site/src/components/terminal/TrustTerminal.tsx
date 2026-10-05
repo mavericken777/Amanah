@@ -57,6 +57,7 @@ export function TrustTerminal({ sectionId = "terminal" }: { sectionId?: string }
                   }
                 }}
               >
+                <rect x="-66" y="-42" width="132" height="84" fill="transparent" aria-hidden="true" />
                 <circle r="8" />
                 <text y="-16" textAnchor="middle">{node.label}</text>
               </g>
