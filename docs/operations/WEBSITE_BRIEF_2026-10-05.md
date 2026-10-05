@@ -2,6 +2,8 @@
 
 Controlling source: `Pasted markdown.md`, recovered as the latest attachment from ChatGPT conversation `6abedbf1-4d3c-83ec-aa9e-9c1f0ad2708f`. The 84-section creative/product/interaction brief is read in full. The user's direct corrections supersede its crest and font proposals: no oversized homepage shield or replacement emblem; Arial / Helvetica / sans-serif throughout.
 
+Source SHA-256: `b2761ba57d142ba56dac7b6143ebdacea2db6ee148aef2bd890898af0ee8d167`.
+
 | Domain | Controller |
 | --- | --- |
 | Homepage narrative and chapter hierarchy | `scripts/build-trust-journey.mjs` |

@@ -1,5 +1,7 @@
 # Current Amanah implementation status
 
+Website presentation controller (5 October 2026): [controlling brief delivery](WEBSITE_BRIEF_2026-10-05.md). The connected journey supersedes the oversized crest homepage; Arial typography applies to public and authenticated surfaces. Release status comes from exact-head CI and hosting read-back.
+
 Global control source binding: `mavericken777/GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5` (2 Oct 2026). Current mutable Amanah implementation state is repository `main`; exact release eligibility is determined from the commit under review and its CI/deployment evidence, not by a hard-coded mutable SHA in this file. Machine binding: [source-binding.json](../../config/source-binding.json). The 17 September verified freeze remains unchanged.
 
 AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct; Malaysia is the governance/assurance/authority-connectivity plane. Shipment 001 is **NOT-INSTANTIATED**. No fixture, architectural illustration or development receipt closes a transaction or authority gate.
