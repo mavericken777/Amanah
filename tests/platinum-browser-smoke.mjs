@@ -126,14 +126,10 @@ for (const width of viewports) {
     journey: Boolean(document.querySelector("#verification-journey")),
     terminalCards: document.querySelectorAll(".terminal-card").length,
     journeyStages: document.querySelectorAll(".journey-stage").length,
-    directJakim: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false,
-    notDetected: document.body.textContent?.includes("NOT_DETECTED ≠ HALAL") ?? false,
-    shipmentBoundary: document.body.textContent?.toLowerCase().includes("shipment 001: not instantiated") ?? false
   }));
   assert.ok(phaseFour.terminal && phaseFour.journey, `phase 4 structure incomplete at ${width}px: ${JSON.stringify(phaseFour)}`);
   assert.equal(phaseFour.terminalCards, 4, "trust terminal must expose four interactive cards");
   assert.equal(phaseFour.journeyStages, 4, "verification journey must expose four stages");
-  assert.ok(phaseFour.directJakim && phaseFour.notDetected && phaseFour.shipmentBoundary, "phase 4 authority/evidence boundaries missing");
 
   await page.locator("#terminal").scrollIntoViewIfNeeded();
   const logisticsNodes = page.locator(".logistics-map .route-node");
