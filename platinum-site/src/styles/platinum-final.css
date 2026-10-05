@@ -211,3 +211,11 @@ body::after{
   *{scroll-behavior:auto!important}
   .capability-card:hover,.institution-card:hover,.partner-card:hover,.pathway-card:hover,.engagement-card:hover{transform:none!important}
 }
+
+/* Gold circuit network behind the trust shield — derived from the supplied global-network concept. */
+.hero-terminal .circuit-map{position:absolute;inset:3.2rem 1.2rem auto;width:calc(100% - 2.4rem);height:18rem;z-index:0;opacity:.38;overflow:visible;pointer-events:none}
+.hero-terminal .world-wire path{fill:none;stroke:rgba(215,178,94,.16);stroke-width:1.2}
+.hero-terminal .circuit-traces path{fill:none;stroke:#d7b25e;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;opacity:.72;filter:drop-shadow(0 0 5px rgba(215,178,94,.16))}
+.hero-terminal .circuit-map circle{fill:#f0d88f;opacity:.72}
+.hero-terminal .terminal-head,.hero-terminal .shield-orbit,.hero-terminal>dl{position:relative;z-index:1}
+@media(max-width:760px){.hero-terminal .circuit-map{height:14rem;top:3.6rem;opacity:.3}}
