@@ -21,7 +21,7 @@ AI assists. Authorised humans and competent authorities decide.
 
 ## Malaysian / JAKIM Halal framework
 
-AMANAH uses a registry-driven standards model, not an MS 1500 / MS 2400-only model.
+AMANAH uses a registry-driven standards model. MS 1500 and MS 2400 are important parts of the framework, but they are not the whole Malaysian/JAKIM Halal standards universe.
 
 The current verified primary standards catalogue contains 17 Malaysian Standards and is extended by applicable product/technical standards such as MS 2683:2017. Applicability is resolved by product, facility, process, material, logistics activity, certification scope, destination and evidence context.
 
