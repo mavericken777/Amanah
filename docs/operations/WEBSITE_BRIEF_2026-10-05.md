@@ -1,42 +1,133 @@
-# Controlling website delivery — 5 October 2026
+# AMANAH Website Presentation Brief — China Mission
 
-Controlling source: `Pasted markdown.md`, recovered as the latest attachment from ChatGPT conversation `6abedbf1-4d3c-83ec-aa9e-9c1f0ad2708f`. The 84-section creative/product/interaction brief is read in full. The user's direct corrections supersede its crest and font proposals: no oversized homepage shield or replacement emblem; Arial / Helvetica / sans-serif throughout.
+**Purpose:** Present AMANAH / Global Halal Digital Trust as a complete institutional platform for China → GCC Halal trade, assurance, custody and verification.
 
-Source SHA-256: `b2761ba57d142ba56dac7b6143ebdacea2db6ee148aef2bd890898af0ee8d167`.
+## Design direction
 
-| Domain | Controller |
-| --- | --- |
-| Homepage narrative and chapter hierarchy | `scripts/build-trust-journey.mjs` |
-| Single product identity and interactive state | `ghscl-website/journey.js` |
-| Black/gold design, mobile, focus and reduced motion | `ghscl-website/journey.css` |
-| Other public routes | `ghscl-website/ecosystem.en.json`, generated routes and existing Platinum secondary routes |
-| Neutral typography across public routes | `ghscl-website/neutral-font.css`; neutral application and Platinum CSS |
-| Vercel shared public experience | `scripts/copy-trust-experience.mjs`, generated `public/trust-journey/` |
-| Release | CI → exact-head release verification → Pages promotion → controlling-brief homepage build |
-| Behavioral acceptance | `tests/journey-browser.mjs` at 375 / 768 / 1024 / 1440 pixels |
-| Lighthouse | `lighthouserc.journey.cjs`, `lighthouserc.journey-mobile.cjs` |
+- black / obsidian base;
+- metallic gold accents;
+- warm ivory / white text;
+- Arial / Helvetica / neutral sans-serif;
+- subtle Islamic geometric structure;
+- no oversized decorative shield;
+- no meaningless ornament;
+- no prototype/demo visual language;
+- no engineering status panels;
+- no repository jargon;
+- no repeated caveat walls;
+- clear government / enterprise presentation quality;
+- responsive desktop, tablet and mobile.
 
-## Requirements mapping
+Every visual must explain a real relationship: authority, evidence, standards, product genealogy, laboratory chain, audit flow, production, custody, logistics, border, destination, verification, finance or Command Center.
 
-| Brief scope | Implemented experience |
-| --- | --- |
-| §§6–11, 42–43, 62–65 | One product, thirteen stages, synchronized passport / event timeline / route / actor / evidence / custody, eight view modes and keyboard-operable scrubber |
-| §§12–16 | Fourteen checkpoints in the smart-glasses audit walkthrough, AI guidance, accountable human review and attributable proof-of-audit fields |
-| §§17–21 | Ten sample / custody / method / review steps; source-bound requirements and Standards mode |
-| §§22–28 | Warehouse zones, custody transfer explorer, Sinotrans reference role, port checkpoints and direct China–GCC route |
-| §§29–35 | Five monitoring views, five exception scenarios, HOLD / corrective action / re-verification path, GCC distribution and retail |
-| §§36–41 | Consumer provenance, twelve actor roles and seven clickable architecture layers tied to the actual operational model |
-| §§44–61 | Documentary chapter hierarchy, informational route hero, progressive disclosure, neutral fonts, semantic controls, mobile layouts, focus and reduced motion |
-| §§66–84 | Existing site / repository / deployment inspection, updated regression assumptions, browser / axe / Lighthouse / repository CI gates |
+## Homepage narrative
 
-## Authority and source constraints
+The homepage must explain, in this order:
 
-The immutable `master-standards-stack/verified-2026-09-17/` baseline is unchanged. AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. AI assists; authorized humans / competent authority decide. Exact normative text remains source-locked when unavailable.
+1. AMANAH / Global Halal Digital Trust;
+2. institutional architecture — PHC, GHSCL Hong Kong, AHTE, Direct JAKIM API and JAKIM;
+3. China → GCC direct corridor;
+4. manufacturer onboarding and KYC;
+5. facility / product / SKU / supplier / ingredient / raw-material provenance;
+6. complete Malaysian/JAKIM Halal framework;
+7. laboratory evidence;
+8. smart-glass / tablet audit;
+9. CAPA and re-verification;
+10. certification / credential workflow;
+11. production / IoT / digital twin / batch evidence;
+12. warehouse and Sinotrans logistics;
+13. container / seal / custody;
+14. ports / customs / authority interaction;
+15. GCC importer / warehouse / distribution / retail;
+16. product verification;
+17. 24/7 GHSCL + JAKIM Command Center;
+18. predictive analytics / preemptive strategy;
+19. cybersecurity / interoperability;
+20. Shariah finance / Takaful;
+21. partnership call-to-action.
 
-`DEMO-SHIPMENT-001` / `CN-DEMO-24001` is an explicitly illustrative website record. It is not the real pilot. Shipment 001 remains NOT-INSTANTIATED without real execution evidence. No certification, customs release, financing approval, laboratory result, integrity signature or production API response is fabricated.
+## Standards presentation
 
-Named laboratory relationship / accreditation and Sinotrans activation are disclosed at the relevant detail level. External credentials do not remove interface capability. Formal authority, AHTE, operational, customs and finance states remain separate.
+The standards experience must never imply that MS 1500 and MS 2400 are the whole framework.
 
-## Validation state
+Show the current verified Malaysian/JAKIM standards registry:
 
-Implementation and local behavioral validation complete; exact-head CI, Lighthouse and deployment read-back must pass before release completion is asserted. Deployment URLs and merge SHA are reported only after verification.
+- MS 1500:2019;
+- MS 2400-1:2019;
+- MS 2400-2:2019;
+- MS 2400-3:2019;
+- MS 2424:2019;
+- MS 2634:2019;
+- MS 2636:2019;
+- MS 2738:2023;
+- MS 2803:2025;
+- MS 2393:2023;
+- MS 2627:2017;
+- MS 2627-2:2025;
+- MS 1900:2025;
+- MS 2691:2021;
+- MS 2610:2015;
+- MS 2809:2025;
+- MS 2810:2025.
+
+Also show applicable technical/product standards such as MS 2683:2017 when relevant.
+
+The standards registry operates together with:
+
+- MPPHM 2020;
+- MHMS 2020;
+- HAS;
+- IHCS;
+- protocols;
+- circulars;
+- authority instructions;
+- destination rules;
+- laboratory methods;
+- scheme-specific and product-specific requirements.
+
+The platform must remain registry-driven so additional applicable Malaysian/JAKIM instruments can be added without redesign.
+
+## Platform message
+
+**AHTE ⇄ Direct JAKIM API ⇄ JAKIM**
+
+**China → GCC direct**
+
+**AI assists. Authorised humans and competent authorities decide.**
+
+**Evidence before trust. Trust before operational release.**
+
+## End-to-end platform path
+
+**Origin / Manufacturer  
+→ Organisation / KYC  
+→ Facility  
+→ Product / SKU  
+→ Supplier / Raw Material  
+→ Standards Applicability  
+→ Evidence  
+→ AI-Assisted Review  
+→ Human Governance  
+→ Laboratory  
+→ Smart Audit  
+→ Finding / CAPA  
+→ Re-verification  
+→ Certification / Credential Workflow  
+→ Production / IoT / Digital Twin  
+→ Batch / Warehouse  
+→ Sinotrans Logistics  
+→ Container / Seal / Custody  
+→ Port / Customs  
+→ GCC Destination  
+→ Distribution / Retail  
+→ Product Verification  
+→ Command Center  
+→ Continuous Assurance**
+
+## Presentation rule
+
+The public site must feel complete and operational.
+
+Keep implementation mechanics invisible. Present the platform capability, workflow and stakeholder value directly.
+
+Where legal identity, authority wording, accreditation or commercial terms need counterpart confirmation, keep those items in the private pre-signature checklist rather than distributing caveat-heavy public copy.
