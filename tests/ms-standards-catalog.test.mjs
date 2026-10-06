@@ -32,27 +32,28 @@ test("complete 17-standard operating catalogue is consistent across platform sou
 
   assert.equal(operatingSet.catalog_count, 17);
   assert.equal(operatingSet.standards.length, 17);
+  assert.equal(config.catalog_count, 17);
   assert.equal(config.standards.length, 17);
 
   for (const code of expected) {
-    assert.ok(operatingSet.standards.some((s) => s.code === code), `operating set missing ${code}`);
-    assert.ok(config.standards.some((s) => s.code === code), `machine catalogue missing ${code}`);
-    assert.ok(migration.includes(code), `database seed missing ${code}`);
-    assert.ok(publicPage.includes(code), `public standards page missing ${code}`);
-    assert.ok(homePage.includes(code), `public homepage missing ${code}`);
+    assert.ok(operatingSet.standards.some((s) => s.code === code), "operating set missing " + code);
+    assert.ok(config.standards.some((s) => s.code === code), "machine catalogue missing " + code);
+    assert.ok(migration.includes(code), "database seed missing " + code);
+    assert.ok(publicPage.includes(code), "public standards page missing " + code);
+    assert.ok(homePage.includes(code), "public homepage missing " + code);
   }
-});
 
-test("certification framework remains layered above the MS catalogue", () => {
-  const operatingSet = JSON.parse(fs.readFileSync("docs/ahte/MS_OPERATING_SET.json", "utf8"));
-  for (const item of ["MPPHM 2020","MHMS 2020","HAS","IHCS","protocols","circulars","authority instructions","destination rules","laboratory methods"]) {
-    assert.ok(operatingSet.certification_layer.includes(item), `framework layer missing ${item}`);
-  }
-  assert.match(operatingSet.scope_rule, /MS 1500 and MS 2400 are not the entire Malaysian\/JAKIM standards universe/);
-  assert.equal(config.catalog_count, 17);
   assert.equal(operatingSet.supplemental_instruments[0].code, "MS 2683:2017");
   assert.ok(publicPage.includes("MS 2683:2017"));
   assert.ok(homePage.includes("MS 2683:2017"));
   assert.match(publisher, /MS_OPERATING_SET\.json/);
   assert.match(homePage, /COMPLETE MALAYSIAN \/ JAKIM STANDARDS/);
+});
+
+test("certification framework remains layered above the MS catalogue", () => {
+  const operatingSet = JSON.parse(fs.readFileSync("docs/ahte/MS_OPERATING_SET.json", "utf8"));
+  for (const item of ["MPPHM 2020","MHMS 2020","HAS","IHCS","protocols","circulars","authority instructions","destination rules","laboratory methods"]) {
+    assert.ok(operatingSet.certification_layer.includes(item), "framework layer missing " + item);
+  }
+  assert.match(operatingSet.scope_rule, /MS 1500 and MS 2400 are not the entire Malaysian\/JAKIM standards universe/);
 });
