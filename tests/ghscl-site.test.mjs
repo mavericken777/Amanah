@@ -58,3 +58,13 @@ test('public experience includes first-class GCC importer and retail market rout
   assert.match(html,/Importer receiving/);
   assert.match(html,/Retail \/ marketplace workspace/);
 });
+
+
+test('nested public routes retain local Arial typography and recursive normalization',()=>{
+  const login=fs.readFileSync('ghscl-website/login/index.html','utf8');
+  assert.doesNotMatch(login,/Cinzel|Cormorant|fonts\.googleapis|fonts\.gstatic/);
+  assert.match(login,/Arial,\s*Helvetica,\s*sans-serif/);
+  const builder=fs.readFileSync('scripts/build-trust-journey.mjs','utf8');
+  assert.match(builder,/walkFiles/);
+  assert.match(builder,/path\.relative\(path\.dirname\(file\),path\.join\(site,'neutral-font\.css'\)\)/);
+});
