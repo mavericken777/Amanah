@@ -77,6 +77,39 @@ const corridor = demoJourneyStages;
 
 const standardsTopics = ["Supplier and material scope", "Facility and product controls", "Sample and laboratory evidence", "Audit and human assessment", "Controlled production", "Warehouse dispatch", "Warehouse receiving and storage", "Transport custody", "Export handoff", "Import and release", "Destination distribution", "Consumer disclosure"];
 
+const msOperatingSet = [
+  ["MS 1500:2019", "Halal food — General requirements"],
+  ["MS 2400-1:2019", "Halal supply chain management system — Transportation"],
+  ["MS 2400-2:2019", "Halal supply chain management system — Warehousing"],
+  ["MS 2400-3:2019", "Halal supply chain management system — Retailing"],
+  ["MS 2424:2019", "Halal pharmaceuticals — General requirements"],
+  ["MS 2634:2019", "Halal cosmetics — General requirements"],
+  ["MS 2636:2019", "Halal medical device — General requirements"],
+  ["MS 2738:2023", "Halal consumable goods — General requirements"],
+  ["MS 2803:2025", "Usage of animal bone, skin and hair"],
+  ["MS 2393:2023", "Islamic terminology"],
+  ["MS 2627:2017", "Detection of porcine DNA — Food"],
+  ["MS 2627-2:2025", "Detection of porcine DNA — Cosmetics"],
+  ["MS 1900:2025", "Shariah-based quality management system"],
+  ["MS 2691:2021", "Halal profession competency standard"],
+  ["MS 2610:2015", "Muslim-friendly hospitality services"],
+  ["MS 2809:2025", "Authentication using chemometric techniques"],
+  ["MS 2810:2025", "Identification of pig skin and hair"],
+] as const;
+
+const certificationFramework = [
+  "MPPHM 2020",
+  "MHMS 2020",
+  "HAS",
+  "IHCS",
+  "Protocols",
+  "Circulars",
+  "Authority instructions",
+  "Destination rules",
+  "Laboratory methods",
+] as const;
+
+
 const pathways = [
   ["Manufacturer", "Onboard enterprise, facility, products, suppliers and evidence."],
   ["Laboratory", "Bind scientific evidence to exact samples, methods and signed results."],
@@ -88,7 +121,7 @@ const pathways = [
 const labStages = [
   ["Sample registered", "Give the sample a unique ID and bind it to the exact product, SKU and batch. Record collector, time, seal and sampling basis before analysis."],
   ["Custody accepted", "The receiving analyst confirms identity, seal condition and handover. Each custodian, timestamp and condition is linked to the same sample record."],
-  ["Method & quality controls", "The selected laboratory records method, scope, instrument context, controls and QC. Applicable requirements map to controlled MS 1500:2019 references; the method and laboratory scope must be confirmed for each test."],
+  ["Method & quality controls", "The selected laboratory records method, scope, instrument context, controls and QC. Applicable requirements are selected from the complete Malaysian/JAKIM operating set, together with the relevant laboratory method and product scope."],
   ["Technical review & signature", "An authorised reviewer checks the result against the method, QC and sample chain, then signs the report. The report becomes scientific evidence for the relevant product and control review."],
   ["Evidence bound to product", "AHTE attaches the signed report to the relevant product, batch and control with provenance. A test finding is considered alongside ingredients, process, handling and the applicable authority review."],
 ];
@@ -198,7 +231,7 @@ export default function App() {
         <nav id="primary-nav" aria-label="Primary navigation" className={menuOpen ? "open" : ""}>
           <a href="#trust" onClick={() => setMenuOpen(false)}>Trust model</a>
           <a href="#corridor" onClick={() => setMenuOpen(false)}>Goods journey</a>
-          <a href="#passport-route-gold" onClick={() => setMenuOpen(false)}>Trust passport</a>
+          <a href="#standards" onClick={() => setMenuOpen(false)}>Standards</a>
           <a href="#assurance" onClick={() => setMenuOpen(false)}>Audit &amp; lab</a>
           <a href="#command" onClick={() => setMenuOpen(false)}>Command Center</a>
           <a href="#verify" onClick={() => setMenuOpen(false)}>Verify</a>
@@ -335,9 +368,33 @@ export default function App() {
           </div>
         </section>
 
+        <section className="section standards-section" id="standards">
+          <div className="section-heading">
+            <p className="eyebrow">04 / COMPLETE MALAYSIAN/JAKIM STANDARDS SET</p>
+            <h2>The platform does not stop at MS 1500 and MS 2400.</h2>
+            <p>AHTE evaluates the complete 17-standard operating catalogue from the frozen verified source set, then applies the relevant certification, governance, destination and laboratory instruments to the actual product, process, facility, operator and market scope.</p>
+          </div>
+          <div className="capability-grid standards-catalog-grid" aria-label="Complete 17-standard Malaysian/JAKIM operating catalogue">
+            {msOperatingSet.map(([code, title]) => (
+              <article className="capability-card standard-card glass" key={code}>
+                <span className="card-index">{code}</span>
+                <h3>{title}</h3>
+                <p>First-class applicability candidate in the AHTE standards and instrument registry.</p>
+              </article>
+            ))}
+          </div>
+          <div className="trust-note standards-framework-note glass">
+            <strong>Certification and governance layer</strong>
+            <div className="decision-ladder">
+              {certificationFramework.map(item => <span key={item}>{item}</span>)}
+            </div>
+            <p>Applicability is resolved by scope. Requirements flow through the canonical path: Authority → Standard / Instrument → Requirement → Applicability → Control → HCP / SCCP → Evidence.</p>
+          </div>
+        </section>
+
         <section className="section" id="corridor">
           <div className="section-heading">
-            <p className="eyebrow">04 / CHINA → GCC DIRECT</p>
+            <p className="eyebrow">05 / CHINA → GCC DIRECT</p>
             <h2>Follow every product handoff from factory to GCC consumer.</h2>
             <p>Choose a stage to see who acts, what evidence is created and what must be true before custody moves forward. The physical corridor is China → GCC direct; Malaysia is the governance, assurance and authority-connectivity plane.</p>
           </div>
@@ -437,12 +494,12 @@ export default function App() {
               <div className="passport-scrubber-labels"><span>Origin</span><span>Audit</span><span>Warehouse</span><span>Port</span><span>GCC consumer</span></div>
             </div>
           </section>
-          <div className="standards-note standards-map"><strong>Standards in the operating model</strong><span>Food and manufacturing controls: MS 1500:2019. Transport: MS 2400-1:2019. Warehousing: MS 2400-2:2019. Retailing: MS 2400-3:2019. The platform maps licensed, controlled requirements to evidence; an operator’s conformity is established through scope, records and competent review.</span><a href="https://www.jsm.gov.my/announcement/781-kelulusan-malaysian-standards-ms-bil-5-2024" target="_blank" rel="noreferrer">View Standards Malaysia revision notice ↗</a></div>
+          <div className="standards-note standards-map"><strong>Complete standards operating model</strong><span>All 17 standards in the frozen Malaysian/JAKIM operating catalogue remain first-class applicability candidates. AHTE selects the relevant standards and certification/governance instruments by product, facility, process, operator, journey stage and destination scope.</span></div>
         </section>
 
         <section className="section assurance-section" id="assurance">
           <div className="section-heading">
-            <p className="eyebrow">05 / LABORATORY + SMART AUDIT</p>
+            <p className="eyebrow">06 / LABORATORY + SMART AUDIT</p>
             <h2>Evidence becomes useful when its chain is inspectable.</h2>
             <p>Laboratory science and audit observations remain distinct evidence streams. Neither independently creates Halal certification.</p>
           </div>
@@ -473,8 +530,7 @@ export default function App() {
                 <h3>{labStages[activeLab][0]}</h3>
                 <p>{labStages[activeLab][1]}</p>
               </div>
-              <div className="standards-note"><strong>Standards mapping</strong><span>MS 1500:2019 · Halal food — general requirements. The applicable requirement links to its control and evidence through a licensed, controlled source; normative clauses are not reproduced here.</span>
-              </div>
+              <div className="standards-note"><strong>Standards mapping</strong><span>Laboratory evidence is mapped to whichever standards, requirements and test methods are applicable from the complete controlled Malaysian/JAKIM operating set. MS 1500 and MS 2400 are not treated as the entire standards universe.</span></div>
             </article>
 
             <article className="assurance-panel glass" id="smart-audit">
@@ -507,7 +563,7 @@ export default function App() {
 
         <section className="section command-section" id="command">
           <div className="section-heading">
-            <p className="eyebrow">06 / 24/7 COMMAND CENTER</p>
+            <p className="eyebrow">07 / 24/7 COMMAND CENTER</p>
             <h2>Exceptions need ownership, not decoration.</h2>
             <p>The Command Center separates observation, assessment, hold state, accountable action and re-verification.</p>
           </div>
@@ -544,7 +600,7 @@ export default function App() {
 
         <section className="section monitoring-section" id="monitoring">
           <div className="section-heading">
-            <p className="eyebrow">07 / CONTINUOUS MONITORING · FULL STACK</p>
+            <p className="eyebrow">08 / CONTINUOUS MONITORING · FULL STACK</p>
             <h2>One signal. A traceable response across the whole chain.</h2>
             <p>Explore how an event moves from sensor to accountable closure: source, edge, evidence, controls, Command Center, authorised action and re-verification.</p>
           </div>
@@ -563,7 +619,7 @@ export default function App() {
 
         <section className="section verify-section" id="verify">
           <div className="section-heading">
-            <p className="eyebrow">08 / PUBLIC VERIFICATION</p>
+            <p className="eyebrow">09 / PUBLIC VERIFICATION</p>
             <h2>Reveal only what the issuer has authorised.</h2>
             <p>Product, batch and shipment disclosures are purpose-bound. Public verification is not a search engine for confidential factory data.</p>
           </div>
@@ -675,7 +731,7 @@ export default function App() {
 
         <section className="final-cta glass" aria-labelledby="final-title">
           <div>
-            <p className="eyebrow">12 / SECURE PLATFORM ACCESS</p>
+            <p className="eyebrow">13 / SECURE PLATFORM ACCESS</p>
             <h2 id="final-title">Global visibility. Controlled access.</h2>
             <p>Use the secure workspace for authenticated operations, or inspect an issuer-authorised disclosure through the public verifier.</p>
           </div>
