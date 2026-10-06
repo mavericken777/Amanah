@@ -44,3 +44,17 @@ test('interactive controls and accessible responsive rules',()=>{
   for(const id of ['scrubber','passportTabs','auditNext','labSteps','warehouseZones','portNodes','exceptionButtons','consumerScan','actorButtons','architectureButtons']) assert.ok(html.includes('id="'+id+'"'),id);
   for(const rule of ['max-width:1024px','max-width:900px','max-width:767px','max-width:480px','max-width:390px','prefers-reduced-motion:reduce','prefers-reduced-transparency:reduce',':focus-visible']) assert.ok(css.includes(rule),rule);
 });
+
+
+test('public experience includes first-class GCC importer and retail market routes',()=>{
+  assert.ok(fs.existsSync('ghscl-website/gcc-importer.html'),'gcc-importer.html');
+  assert.ok(fs.existsSync('ghscl-website/retail-market.html'),'retail-market.html');
+  const importer=fs.readFileSync('ghscl-website/gcc-importer.html','utf8');
+  const retail=fs.readFileSync('ghscl-website/retail-market.html','utf8');
+  assert.match(importer,/Pre-arrival readiness/);
+  assert.match(importer,/Importer Command Center/);
+  assert.match(retail,/Listing eligibility/);
+  assert.match(retail,/Retailer Command Center/);
+  assert.match(html,/Importer receiving/);
+  assert.match(html,/Retail \/ marketplace workspace/);
+});
