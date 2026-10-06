@@ -4,7 +4,7 @@ AMANAH is the end-to-end operational and digital trust platform for the Global H
 
 It connects manufacturer onboarding, product and material provenance, Malaysian/JAKIM Halal requirements, evidence, laboratories, smart audit, production monitoring, Sinotrans logistics, ports/customs, GCC destination operations, verification and the 24/7 Command Center as one continuous journey.
 
-## China Trip master package
+## China Trip master delivery prompt
 
 The complete China-trip delivery brief is:
 
