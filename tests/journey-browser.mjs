@@ -43,7 +43,9 @@ try {
   await page.locator('#warehouseZones button').filter({hasText:'Quarantine'}).click();assert.match(await page.locator('#warehouseDetail').textContent(),/Quarantine/);
   for(const id of ['custodyRibbon','portNodes','actorButtons','architectureButtons'])await page.locator(`#${id} button`).last().click();
 )}).click();
-  await page.locator('#monitorViews button').filter({hasText:/^Custody$/}).click();await page.locator('#stageNav button').first().click();assert.match(await page.locator('#monitorPanel').textContent(),/Manufacturer/);
+  await page.locator('#monitorViews button').filter({hasText:/^Custody$/}).click();
+  await page.locator('#stageNav button').first().click();
+  assert.match(await page.locator('#monitorPanel').textContent(),/Manufacturer/);
   await page.locator('#monitorViews button').filter({hasText:/^Exceptions$/}).click();
   await page.locator('#exceptionButtons button').first().click();assert.match(await page.locator('#exceptionState').textContent(),/HOLD/);assert.match(await page.locator('#monitorPanel').textContent(),/Temperature excursion/);
   await page.locator('#passportTabs button').filter({hasText:'Overview'}).click();assert.match(await page.locator('#passportBody').textContent(),/HOLD/);
