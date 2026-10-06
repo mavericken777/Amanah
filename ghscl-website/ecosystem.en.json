@@ -1,5 +1,5 @@
 {
-  "version": "7.4.0",
+  "version": "7.5.0",
   "locale": "en",
   "availableLocales": [
     "en"
@@ -50,8 +50,16 @@
       "Traceability"
     ],
     [
+      "laboratory.html",
+      "Laboratory"
+    ],
+    [
       "smart-audit.html",
       "Smart Audit"
+    ],
+    [
+      "hardware.html",
+      "Hardware"
     ],
     [
       "china-gcc.html",
@@ -60,6 +68,10 @@
     [
       "gcc-importer.html",
       "GCC Importer"
+    ],
+    [
+      "distributor.html",
+      "GCC Distributor"
     ],
     [
       "retail-market.html",
@@ -72,6 +84,14 @@
     [
       "manufacturers.html",
       "Manufacturers"
+    ],
+    [
+      "interoperability.html",
+      "API & Interoperability"
+    ],
+    [
+      "cybersecurity.html",
+      "Cybersecurity"
     ],
     [
       "finance-takaful.html",
@@ -1293,6 +1313,309 @@
       "related": [
         "gcc-importer",
         "verify",
+        "command-center"
+      ]
+    },
+    {
+      "slug": "laboratory",
+      "label": "Laboratory",
+      "title": "Analytical evidence with an unbroken sample chain.",
+      "description": "AMANAH binds test requirements, sample identity, collection, sealing, custody, receipt, method, QC, technical review, authorised sign-off and reports into the wider assurance case without treating a laboratory result as Halal certification.",
+      "image": "architecture.webp",
+      "sections": [
+        {
+          "id": "lifecycle",
+          "title": "From test requirement to signed evidence",
+          "flow": [
+            "Test requirement",
+            "Sample request",
+            "Sample identity",
+            "Collection",
+            "Seal",
+            "Chain of custody",
+            "Transport",
+            "Receipt",
+            "Seal verification",
+            "Accession",
+            "Aliquot",
+            "Method",
+            "QC",
+            "Result",
+            "Technical review",
+            "Authorised signatory",
+            "Report",
+            "Evidence"
+          ],
+          "text": "Every analytical result remains bound to the sample, product/batch context, method, reviewer and provenance needed for accountable assessment."
+        },
+        {
+          "id": "boundary",
+          "title": "Laboratory evidence is not certification",
+          "cards": [
+            [
+              "Scientific result",
+              "A result contributes analytical evidence to the assurance case."
+            ],
+            [
+              "Method and QC",
+              "Accredited scope, method controls and quality-control records determine how the result may be interpreted."
+            ],
+            [
+              "Authority decision",
+              "NOT_DETECTED ≠ HALAL. Certification remains with authorised humans and the competent authority."
+            ]
+          ]
+        },
+        {
+          "id": "integration",
+          "title": "LIMS and partner integration",
+          "text": "Laboratory systems connect through controlled adapters and canonical evidence objects. Serialization or anti-counterfeit platforms may support identity and traceability, but they do not replace a complete LIMS scientific workflow."
+        }
+      ],
+      "sources": [
+        "docs/laboratory/LABORATORY_INTEGRATION_PROFILE.md",
+        "docs/ahte/AHTE_PLATFORM_ARCHITECTURE.md"
+      ],
+      "related": [
+        "smart-audit",
+        "digital-trust",
+        "verify"
+      ]
+    },
+    {
+      "slug": "hardware",
+      "label": "Hardware",
+      "title": "Field evidence starts with trusted devices.",
+      "description": "The AMANAH hardware architecture connects smart glasses, handhelds, RFID, environmental sensors, gateways, cameras, scales, telematics and edge computing to attributable evidence and device trust.",
+      "image": "architecture.webp",
+      "sections": [
+        {
+          "id": "field",
+          "title": "Hardware by operating environment",
+          "cards": [
+            [
+              "Audit",
+              "Smart glasses and tablets for QR/NFC, OCR, image/video, voice notes and signed session evidence."
+            ],
+            [
+              "Factory and warehouse",
+              "RFID, environmental sensing, access, cameras where permitted, scales and gateways tied to facility, line, batch and operator context."
+            ],
+            [
+              "Logistics",
+              "GNSS, seal, door, temperature/environment and vehicle telemetry connected to custody and route events."
+            ],
+            [
+              "Laboratory",
+              "Sample identity, sealing, scanning, instruments and workstation controls integrated with LIMS evidence."
+            ]
+          ]
+        },
+        {
+          "id": "trust",
+          "title": "Device trust and offline continuity",
+          "flow": [
+            "Device identity",
+            "Secure boot / signed firmware",
+            "Device certificate",
+            "Capture",
+            "Hash / sign",
+            "Encrypted local buffer",
+            "Reconnect",
+            "Sequence validation",
+            "Replay / duplicate check",
+            "Commit",
+            "Acknowledge"
+          ],
+          "text": "Offline operation preserves original evidence and sequence integrity; reconnecting never fabricates a successful external transaction."
+        },
+        {
+          "id": "procurement",
+          "title": "Procurement remains industry-specific",
+          "text": "Exact model, part number, regional certification, API/SDK, calibration, warranty, maintenance, lead time, spares and replacement availability are evaluated by industry and use case. Indicative hardware research is not a supplier quotation."
+        }
+      ],
+      "sources": [
+        "docs/hardware/PLATINUM_HARDWARE_ARCHITECTURE.md",
+        "docs/architecture/PLATFORM_ARCHITECTURE.md"
+      ],
+      "related": [
+        "smart-audit",
+        "traceability",
+        "cybersecurity"
+      ]
+    },
+    {
+      "slug": "distributor",
+      "label": "GCC distributor",
+      "title": "Preserve trust through destination distribution.",
+      "description": "AMANAH gives GCC distributors and 3PL operators traceable receiving, warehouse assignment, lot movement, custody transfer, route, proof-of-delivery, exception and recall workflows.",
+      "image": "corridor.webp",
+      "sections": [
+        {
+          "id": "flow",
+          "title": "Distributor / 3PL operating flow",
+          "flow": [
+            "Importer allocation",
+            "Distributor receiving",
+            "Warehouse assignment",
+            "Pallet / package identity",
+            "Inventory lot",
+            "FEFO / FIFO as applicable",
+            "Condition monitoring",
+            "Transfer order",
+            "Vehicle / route",
+            "Custody transfer",
+            "Retailer allocation",
+            "Proof of delivery",
+            "Return / withdrawal / recall"
+          ],
+          "text": "Every destination movement remains linked to the same product, batch, custody and authority context created upstream."
+        },
+        {
+          "id": "exceptions",
+          "title": "Destination exceptions remain actionable",
+          "cards": [
+            [
+              "Condition breach",
+              "Hold affected stock and preserve environmental evidence."
+            ],
+            [
+              "Identity or quantity mismatch",
+              "Record discrepancy, quarantine where required and reconcile against shipment and receiving records."
+            ],
+            [
+              "Recall",
+              "Propagate affected material/batch/SKU scope through warehouses, routes, retailers and orders."
+            ]
+          ]
+        },
+        {
+          "id": "visibility",
+          "title": "Distributor Command Center",
+          "text": "Monitor inventory lots, expiry/FEFO exposure, custody transfers, routes, delivery exceptions, returns and recall scope without exposing unrelated confidential origin data."
+        }
+      ],
+      "sources": [
+        "docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md",
+        "docs/architecture/DATA_MODEL.md"
+      ],
+      "related": [
+        "gcc-importer",
+        "retail-market",
+        "command-center"
+      ]
+    },
+    {
+      "slug": "interoperability",
+      "label": "API & interoperability",
+      "title": "Connect partner systems without redesigning AMANAH.",
+      "description": "AHTE keeps one canonical internal model while partner systems connect through governed adapters supporting modern APIs, legacy exchange patterns and controlled schema transformation.",
+      "image": "architecture.webp",
+      "sections": [
+        {
+          "id": "adapters",
+          "title": "Supported integration patterns",
+          "cards": [
+            [
+              "Synchronous",
+              "REST, SOAP and XML interfaces with versioning, idempotency, timeout and retry controls."
+            ],
+            [
+              "Enterprise and legacy",
+              "EDI, CSV, SFTP and batch exchange for systems that cannot expose modern APIs."
+            ],
+            [
+              "Event-driven",
+              "Queues, event streaming and webhooks for operational changes, telemetry and status propagation."
+            ]
+          ]
+        },
+        {
+          "id": "security",
+          "title": "Integration security and lifecycle",
+          "flow": [
+            "UNCONFIGURED",
+            "DEVELOPMENT",
+            "SANDBOX",
+            "PENDING_AUTHORIZATION",
+            "PRODUCTION"
+          ],
+          "text": "OAuth/OIDC where appropriate, mTLS, PKI, device certificates, rate limits, secrets management, versioning, deprecation, UAT and rollback controls are applied without fabricating partner or authority activation."
+        },
+        {
+          "id": "copilot",
+          "title": "AI-assisted schema integration",
+          "text": "The integration copilot can compare partner schemas with the AMANAH canonical model, identify field gaps, propose mappings and test payloads, and run compatibility checks. Compliance-critical transformations require human approval and immutable mapping history."
+        }
+      ],
+      "sources": [
+        "docs/api/AMANAH_API_UAT_PACK_2026-10-02.md",
+        "docs/architecture/PLATFORM_ARCHITECTURE.md"
+      ],
+      "related": [
+        "digital-trust",
+        "cybersecurity",
+        "partners"
+      ]
+    },
+    {
+      "slug": "cybersecurity",
+      "label": "Cybersecurity",
+      "title": "Zero-trust controls for a cross-border evidence network.",
+      "description": "AMANAH cybersecurity protects identity, devices, APIs, evidence, workloads and operational continuity across manufacturers, laboratories, logistics, authorities and destination participants.",
+      "image": "trust-core.webp",
+      "sections": [
+        {
+          "id": "controls",
+          "title": "Security control plane",
+          "cards": [
+            [
+              "Identity and access",
+              "IAM, MFA, RBAC and ABAC where appropriate, least privilege and tenant isolation."
+            ],
+            [
+              "Cryptographic trust",
+              "PKI, mTLS, TPM/HSM, device certificates, encryption, signed firmware and integrity proofs."
+            ],
+            [
+              "Platform security",
+              "Secrets management, segmentation, API security, vulnerability management, SBOM and software supply-chain controls."
+            ],
+            [
+              "Detection and response",
+              "SIEM, alerting, incident response, evidence preservation and forensic readiness."
+            ]
+          ]
+        },
+        {
+          "id": "continuity",
+          "title": "Continuity under failure",
+          "flow": [
+            "Capture",
+            "Hash / sign",
+            "Encrypted local buffer",
+            "Reconnect",
+            "Validate sequence",
+            "Replay / duplicate check",
+            "Commit",
+            "Acknowledge"
+          ],
+          "text": "Cloud, API, authority-interface, partner, network, gateway, sensor, vehicle-connectivity and power outages are explicit operating states. An outage is never converted into fabricated success."
+        },
+        {
+          "id": "governance",
+          "title": "Security preserves authority boundaries",
+          "text": "Security and cryptographic integrity protect evidence and access; they do not create Halal certification, customs release, financing approval, Takaful approval or legal title."
+        }
+      ],
+      "sources": [
+        "docs/security/SECURITY.md",
+        "docs/architecture/PLATFORM_ARCHITECTURE.md"
+      ],
+      "related": [
+        "interoperability",
+        "digital-trust",
         "command-center"
       ]
     }
