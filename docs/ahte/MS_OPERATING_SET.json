@@ -45,54 +45,54 @@
     },
     {
       "code": "MS 2803:2025",
-      "title": "Usage of animal bone, skin and hair",
+      "title": "Usage of animal bone, skin and hair — General requirements for halal products",
       "source_status": "detailed_normative_source_locked"
     },
     {
       "code": "MS 2393:2023",
-      "title": "Islamic terminology",
+      "title": "Islamic and halal terminologies — Definitions and interpretations",
       "source_status": "public_structure_verified"
     },
     {
       "code": "MS 2627:2017",
-      "title": "Detection of porcine DNA — Food",
+      "title": "Detection of porcine DNA — Test method — Food and food products",
       "source_status": "public_structure_verified"
     },
     {
       "code": "MS 2627-2:2025",
-      "title": "Detection of porcine DNA — Cosmetics",
+      "title": "Detection of porcine DNA — Test method — Part 2: Cosmetics",
       "source_status": "detailed_normative_source_locked"
     },
     {
       "code": "MS 1900:2025",
-      "title": "Shariah-based quality management system",
+      "title": "Shariah-based quality management system — Requirements",
       "source_status": "detailed_normative_source_locked"
     },
     {
       "code": "MS 2691:2021",
-      "title": "Halal profession competency standard",
+      "title": "Halal profession — General requirements",
       "source_status": "public_structure_verified"
     },
     {
       "code": "MS 2610:2015",
-      "title": "Muslim-friendly hospitality services",
+      "title": "Muslim-friendly hospitality services — Requirements",
       "source_status": "public_structure_verified"
     },
     {
       "code": "MS 2809:2025",
-      "title": "Authentication using chemometric techniques",
+      "title": "Authentication of products using chemometric techniques",
       "source_status": "detailed_normative_source_locked"
     },
     {
       "code": "MS 2810:2025",
-      "title": "Identification of pig skin and hair",
+      "title": "Consumable goods — Test method — Identification of pig skin and hair",
       "source_status": "detailed_normative_source_locked"
     }
   ],
   "rule": "All 17 standards remain first-class applicability candidates. Exact normative text is only used where verified/licensed; certification authority remains with the competent authority.",
   "control_date": "2026-09-17",
   "catalog_count": 17,
-  "scope_rule": "The platform must evaluate the complete applicable Malaysian/JAKIM Halal framework. MS 1500 and MS 2400 are not treated as the entire standards universe.",
+  "scope_rule": "All 17 controlled standards are first-class applicability candidates. MS 1500 and MS 2400 are not the entire Malaysian/JAKIM standards universe; the platform evaluates the complete applicable Malaysian/JAKIM Halal framework.",
   "certification_layer": [
     "MPPHM 2020",
     "MHMS 2020",
@@ -103,5 +103,15 @@
     "authority instructions",
     "destination rules",
     "laboratory methods"
-  ]
+  ],
+  "supplemental_instruments": [
+    {
+      "code": "MS 2683:2017",
+      "title": "Kelulut (Stingless bee) honey — Specification",
+      "role": "Supplemental product-quality/specification instrument when a Kelulut honey SKU is in scope",
+      "catalog_status": "Not an 18th member of the controlled 17-standard halal operating set",
+      "source_status": "primary_supplied_supplemental_standard"
+    }
+  ],
+  "supersession_note": "Historical/supporting standards remain versioned in provenance and are not silently promoted as current primary halal requirements."
 }
