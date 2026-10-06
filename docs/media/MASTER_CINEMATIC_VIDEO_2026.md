@@ -99,4 +99,8 @@ Modern institutional score: low-register orchestral/electronic bed, precise indu
 
 ## Claim boundaries
 
+- No AI certification.
+- No laboratory certification.
+- No blockchain, QR/NFC, sensor or software certification.
+
 AI, blockchain, laboratory results, QR/NFC, sensors and software do not create Halal certification. Sovereign border release and regulated finance/Takaful decisions remain with their accountable institutions. Real production events must be backed by real evidence.
