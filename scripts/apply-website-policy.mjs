@@ -21,7 +21,7 @@ const replacements = new Map([
   ],
   [
     'Formal certification review remains an authorised human authority workflow.',
-    'Formal certification approval or disapproval remains an authorised human authority workflow involving PHC and the relevant JAKIM Mufti, scholars and Halal officers; AI does not certify.'
+    'Formal certification approval or disapproval remains with authorised humans in the competent-authority workflow; PHC supports ecosystem development, assurance and institutional coordination but is not presented as the certification authority. AI does not certify.'
   ],
   [
     'The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here.',

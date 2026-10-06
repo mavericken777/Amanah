@@ -461,8 +461,8 @@ export default function App() {
             <div className="standards-catalog-head">
               <div>
                 <p className="eyebrow">COMPLETE MALAYSIAN / JAKIM STANDARDS REGISTRY</p>
-                <h3 id="ms-catalog-title">All 17 controlled Malaysian Standards are first-class applicability candidates.</h3>
-                <p>The platform does not reduce Halal assurance to MS 1500 and MS 2400. AHTE resolves the applicable standard or instrument by product, service, facility, process, logistics activity, destination and evidence context.</p>
+                <h3 id="ms-catalog-title">The complete applicable Malaysian/JAKIM framework is resolved by scope — never by a fixed standards count.</h3>
+                <p>The platform does not reduce Halal assurance to MS 1500 and MS 2400, or to any fixed catalogue size. AHTE resolves applicable Malaysian Standards together with MPPHM, MHMS, HAS, IHCS, protocols, circulars, authority instructions, destination requirements, laboratory methods and other verified instruments by product, service, facility, process, logistics activity and evidence context.</p>
               </div>
               <span className="state-chip">17 MS STANDARDS</span>
             </div>

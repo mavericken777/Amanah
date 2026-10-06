@@ -50,6 +50,10 @@ test("current primary Malaysian/JAKIM standards registry is complete across plat
   assert.ok(publicPage.includes("MS 2683:2017"));
   assert.ok(homePage.includes("MS 2683:2017"));
   assert.match(publisher, /MS_OPERATING_SET\.json/);
+  assert.match(homePage, /complete current Malaysian\/JAKIM standards registry/i);
+  assert.match(homePage, /certification and governance layer/i);
+  assert.doesNotMatch(homePage, /complete controlled 17-standard/i);
+  assert.doesNotMatch(homePage, /17-standard halal operating set/i);
 });
 
 test("complete JAKIM framework remains layered above the extensible MS registry", () => {
@@ -63,4 +67,9 @@ test("complete JAKIM framework remains layered above the extensible MS registry"
   const historical = operatingSet.superseded_context ?? [];
   assert.ok(historical.some((x) => x.historical.includes("MS 2594:2015") && x.current === "MS 2738:2023"));
   assert.ok(historical.some((x) => x.historical === "MS 2200-2:2013" && x.current === "MS 2803:2025"));
+
+  const flagship = fs.readFileSync("platinum-site/src/App.tsx", "utf8");
+  assert.match(flagship, /complete applicable Malaysian\/JAKIM framework/i);
+  assert.match(flagship, /never by a fixed standards count/i);
+  assert.doesNotMatch(flagship, /All 17 controlled Malaysian Standards are first-class applicability candidates/);
 });

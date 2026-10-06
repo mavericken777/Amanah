@@ -57,6 +57,15 @@ test('public experience includes first-class GCC importer and retail market rout
   assert.match(retail,/Retailer Command Center/);
   assert.match(html,/Importer receiving/);
   assert.match(html,/Retail \/ marketplace workspace/);
+
+  for (const route of ['laboratory.html','hardware.html','distributor.html','interoperability.html','cybersecurity.html']) {
+    assert.ok(fs.existsSync('ghscl-website/' + route), route);
+  }
+  assert.match(fs.readFileSync('ghscl-website/laboratory.html','utf8'),/NOT_DETECTED ≠ HALAL/);
+  assert.match(fs.readFileSync('ghscl-website/hardware.html','utf8'),/Device trust and offline continuity/);
+  assert.match(fs.readFileSync('ghscl-website/distributor.html','utf8'),/Distributor \/ 3PL operating flow/);
+  assert.match(fs.readFileSync('ghscl-website/interoperability.html','utf8'),/REST, SOAP and XML/);
+  assert.match(fs.readFileSync('ghscl-website/cybersecurity.html','utf8'),/Zero-trust controls/);
 });
 
 
