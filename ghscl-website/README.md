@@ -1,81 +1,108 @@
 # Global Halal Digital Trust Ecosystem website
 
-Static stakeholder-facing website for Global Halal Supply Chain Ltd HK (GHSCL).
+Stakeholder-facing website for Global Halal Supply Chain Ltd HK (GHSCL) and the AMANAH / AHTE ecosystem.
 
-Current homepage controller: [5 October 2026 website brief](../docs/operations/WEBSITE_BRIEF_2026-10-05.md). The homepage is a single interactive product journey with Arial typography and no oversized shield. The Pages workflow applies this controller after the secondary-page promotion step, so a legacy homepage cannot overwrite it. The same public experience is generated for Vercel under `/trust-journey/index.html`.
+## Presentation purpose
 
-Proposal V7.2 is bound to `GlobalHalalDigitalTrust@14456e99937d6f11d63bd041dcffdb903d12594f` and the unchanged freeze `master-standards-stack/verified-2026-09-17/`.
+The site is built for institutional, government, enterprise and partner conversations, especially the China mission.
 
-The public information architecture covers:
+It presents one continuous platform story:
 
-- ecosystem roles and authority boundaries;
-- complete operating lifecycle;
+**China origin  
+→ manufacturer onboarding  
+→ product / SKU / supplier / material provenance  
+→ Malaysian/JAKIM standards applicability  
+→ laboratory evidence  
+→ smart audit  
+→ CAPA / re-verification  
+→ certification / credential workflow  
+→ production / IoT / digital twin  
+→ warehouse  
+→ Sinotrans logistics  
+→ container / seal / custody  
+→ port / customs  
+→ GCC destination  
+→ distribution / retail  
+→ product verification  
+→ 24/7 Command Center  
+→ continuous assurance**
+
+## Institutional architecture
+
+**AHTE ⇄ Direct JAKIM API ⇄ JAKIM**
+
+**China → GCC direct**
+
+PHC, GHSCL Hong Kong, AHTE, JAKIM, laboratories, manufacturers, Sinotrans, ports/customs, GCC market participants and finance/Takaful parties are shown according to their actual role in the ecosystem.
+
+AI assists. Authorised humans and competent authorities decide.
+
+## Standards
+
+The website does not reduce the Malaysian/JAKIM Halal framework to MS 1500 and MS 2400.
+
+It presents the current verified primary standards registry:
+
+- MS 1500:2019
+- MS 2400-1:2019
+- MS 2400-2:2019
+- MS 2400-3:2019
+- MS 2424:2019
+- MS 2634:2019
+- MS 2636:2019
+- MS 2738:2023
+- MS 2803:2025
+- MS 2393:2023
+- MS 2627:2017
+- MS 2627-2:2025
+- MS 1900:2025
+- MS 2691:2021
+- MS 2610:2015
+- MS 2809:2025
+- MS 2810:2025
+
+Applicable product/technical Malaysian Standards, including MS 2683:2017 where relevant, are added by scope.
+
+The standards registry operates together with MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination rules and laboratory methods.
+
+## Design
+
+- black / obsidian;
+- metallic gold;
+- warm ivory;
+- Arial / Helvetica / neutral sans-serif;
+- subtle Islamic geometric structure;
+- no oversized decorative shield;
+- information-led architecture and process visuals;
+- responsive desktop, tablet and mobile.
+
+## Key routes
+
+- ecosystem;
+- standards;
 - AHTE digital trust;
-- China traceability + laboratory integration;
-- 24/7 GHSCL operational + authorised JAKIM authority-side Command Center;
-- predictive analytics + explicit Preemptive Strategy Engine;
-- end-to-end traceability;
-- smart-glass AI-assisted audit;
-- China → GCC direct corridor;
-- Sinotrans warehouse + end-to-end logistics real-time integration;
-- origin/GCC port-customs API trust interfaces;
-- manufacturers/onboarding;
-- Shariah Financing API / Takaful / approved tokenomics target plane;
-- public verification;
-- contact / workstream routing.
+- manufacturer onboarding;
+- laboratory;
+- smart audit;
+- monitoring;
+- Command Center;
+- China → GCC corridor;
+- Sinotrans logistics;
+- ports/customs;
+- finance / Takaful;
+- verification;
+- corporate profile;
+- Mandarin landing;
+- contact / partnership.
 
-The project authority topology displayed publicly is:
+## Presentation brief
 
-`AHTE ⇄ Direct JAKIM API ⇄ JAKIM`
+See:
 
-Formal certification review remains an authorised human authority workflow. A generic software gateway may exist internally as an adapter abstraction, but the public/project topology must not insert a fictional intermediary between AHTE and JAKIM.
+- [China Mission master delivery prompt](../docs/mission/AMANAH_CHINA_TRIP_PLATINUM_MASTER_DELIVERY_PROMPT_2026-10-07.md)
+- [China Mission prompt coverage audit](../docs/mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)
+- [Website presentation brief](../docs/operations/WEBSITE_BRIEF_2026-10-05.md)
 
-## Build
+## Core principle
 
-English content is structured in `ecosystem.en.json`; `scripts/build-ecosystem-site.mjs` generates public pages, navigation/footer, source links and SEO artifacts.
-
-The GitHub Pages workflow performs:
-
-1. `npm ci`
-2. `npm run web:build`
-3. `npm run web:lint`
-4. Pages artifact upload/deployment
-
-This prevents source-content changes from leaving generated public pages stale.
-
-Simplified Chinese, Malay and Arabic/RTL remain planned localization targets until delivered translations are actually present.
-
-## Public boundary
-
-Interactive architecture examples are demonstration-only. Smart audit is not connected hardware/AI inference unless a production provider is configured. Manufacturer readiness/contact tools do not create applications, certification or authority records.
-
-Public verification uses an issuer-authorized token. It does not search private factory data, expose service credentials, independently verify all upstream signatures, or create formal certification.
-
-The website must never imply that:
-
-- AI/ML certifies Halal;
-- laboratory results certify Halal;
-- cryptographic hashes prove the underlying claim is true;
-- AHTE creates JAKIM decisions;
-- AHTE creates sovereign port/customs release;
-- AHTE creates financing/Takaful decisions;
-- AHTE is the legal-title registry;
-- tokenization itself changes legal title, ownership, regulatory status, Shariah status or certification state.
-
-## Corridor
-
-Default physical corridor: **China → GCC direct**.
-
-Malaysia remains the governance/assurance/authority-connectivity plane unless a separate physical movement is explicitly scoped. Shipment 001 remains `[PILOT]` and is not instantiated by website content or demonstrations.
-
-Current China execution sources use canonical `master-standards-stack/CHINA_EXECUTION_PACK/`; the lower-case duplicate path is retired lineage.
-
-## Temporary hosting
-
-GitHub Pages publishes this folder as the temporary stakeholder site:
-
-`https://mavericken777.github.io/Amanah/`
-
-External production integrations remain explicit gates: direct JAKIM API, China laboratory, Sinotrans production systems, port/customs authorities, GCC destination systems, and Shariah finance/Takaful/tokenomics counterparties.
-
-**FULL ARCHITECTURE NOW → REAL CONNECTORS WHEN AVAILABLE → NO REDESIGN REQUIRED.**
+**Evidence before trust. Trust before operational release.**
