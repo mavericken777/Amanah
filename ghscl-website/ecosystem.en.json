@@ -34,6 +34,10 @@
       "How It Works"
     ],
     [
+      "standards.html",
+      "Standards"
+    ],
+    [
       "digital-trust.html",
       "AHTE Digital Trust"
     ],
@@ -97,7 +101,8 @@
     "source": "Explore the platform foundations",
     "principle": "Data stays where it belongs. Trust travels.",
     "technical": "Inside the platform",
-    "related": "Continue exploring"
+    "related": "Continue exploring",
+    "standards": "Complete 17-standard Malaysian/JAKIM Halal operating set"
   },
   "pages": [
     {
