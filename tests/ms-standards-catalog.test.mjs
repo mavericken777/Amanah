@@ -54,6 +54,7 @@ test("supplemental applicable MS instruments remain separate from the controlled
   const operatingSet = JSON.parse(fs.readFileSync("docs/ahte/MS_OPERATING_SET.json", "utf8"));
   const config = JSON.parse(fs.readFileSync("config/ahte-standards-catalog.json", "utf8"));
   const publicPage = fs.readFileSync("ghscl-website/standards.html", "utf8");
+  const supplementalMigration = fs.readFileSync("supabase/migrations/20261006142000_seed_supplemental_ms_catalog.sql", "utf8");
 
   assert.equal(operatingSet.standards.length, 17);
   assert.equal(config.standards.length, 17);
