@@ -27,6 +27,7 @@ test("complete 17-standard operating catalogue is consistent across platform sou
   const config = JSON.parse(fs.readFileSync("config/ahte-standards-catalog.json", "utf8"));
   const migration = fs.readFileSync("supabase/migrations/0013_seed_17_standard_reference_catalog.sql", "utf8");
   const publicPage = fs.readFileSync("ghscl-website/standards.html", "utf8");
+  const supplementalMigration = fs.readFileSync("supabase/migrations/20261006142000_seed_supplemental_ms_catalog.sql", "utf8");
 
   assert.equal(operatingSet.catalog_count, 17);
   assert.equal(operatingSet.standards.length, 17);
@@ -53,6 +54,7 @@ test("supplemental applicable MS instruments remain separate from the controlled
   const operatingSet = JSON.parse(fs.readFileSync("docs/ahte/MS_OPERATING_SET.json", "utf8"));
   const config = JSON.parse(fs.readFileSync("config/ahte-standards-catalog.json", "utf8"));
   const publicPage = fs.readFileSync("ghscl-website/standards.html", "utf8");
+  const supplementalMigration = fs.readFileSync("supabase/migrations/20261006142000_seed_supplemental_ms_catalog.sql", "utf8");
 
   assert.equal(operatingSet.standards.length, 17);
   assert.equal(config.standards.length, 17);
@@ -60,6 +62,8 @@ test("supplemental applicable MS instruments remain separate from the controlled
   assert.ok(config.supplemental_standards.some((s) => s.code === "MS 2683:2017"));
   assert.match(publicPage, /MS 2683:2017/);
   assert.match(publicPage, /does not become an 18th member/i);
+  assert.match(supplementalMigration, /MS 2683:2017/);
+  assert.match(supplementalMigration, /supplemental_standard/);
   assert.equal(
     operatingSet.standards.find((s) => s.code === "MS 2691:2021")?.title,
     "Halal profession — General requirements"
