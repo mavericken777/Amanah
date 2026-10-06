@@ -2,7 +2,7 @@
 
 Static stakeholder-facing website for Global Halal Supply Chain Ltd HK (GHSCL).
 
-Current homepage controller: [5 October 2026 website brief](../docs/operations/WEBSITE_BRIEF_2026-10-05.md). The homepage is a single interactive product journey with Arial typography and no oversized shield. The Pages workflow applies this controller after the secondary-page promotion step, so a legacy homepage cannot overwrite it. The same public experience is generated for Vercel under `/trust-journey/index.html`.
+Website brief: [5 October 2026 delivery brief](../docs/operations/WEBSITE_BRIEF_2026-10-05.md). China-trip stakeholder presentation follows the [7 October Platinum-Tier master prompt](../docs/mission/CHINA_TRIP_PLATINUM_MASTER_PROMPT_2026-10-07.md). The homepage is a single interactive China → GCC product journey with Arial/Helvetica-style typography, black/gold institutional styling and no oversized decorative shield.
 
 Proposal V7.2 is bound to `GlobalHalalDigitalTrust@14456e99937d6f11d63bd041dcffdb903d12594f` and the unchanged freeze `master-standards-stack/verified-2026-09-17/`.
 
@@ -45,22 +45,18 @@ This prevents source-content changes from leaving generated public pages stale.
 
 Simplified Chinese, Malay and Arabic/RTL remain planned localization targets until delivered translations are actually present.
 
-## Public boundary
+## Presentation accuracy
 
-Interactive architecture examples are demonstration-only. Smart audit is not connected hardware/AI inference unless a production provider is configured. Manufacturer readiness/contact tools do not create applications, certification or authority records.
+Keep stakeholder pages clean and confident while preserving the real decision model:
 
-Public verification uses an issuer-authorized token. It does not search private factory data, expose service credentials, independently verify all upstream signatures, or create formal certification.
+- AI assists; authorised humans / competent authorities decide.
+- Laboratory results are evidence.
+- Hashes preserve integrity; they do not establish the truth of an underlying claim.
+- Port/customs release remains a sovereign decision.
+- Financing/Takaful decisions remain with the relevant authorised institutions.
+- External partnerships and production connections are represented as executed only when supporting evidence exists.
 
-The website must never imply that:
-
-- AI/ML certifies Halal;
-- laboratory results certify Halal;
-- cryptographic hashes prove the underlying claim is true;
-- AHTE creates JAKIM decisions;
-- AHTE creates sovereign port/customs release;
-- AHTE creates financing/Takaful decisions;
-- AHTE is the legal-title registry;
-- tokenization itself changes legal title, ownership, regulatory status, Shariah status or certification state.
+Do not repeat these points as warning panels throughout the site; place them only where they explain the relevant workflow.
 
 ## Corridor
 
@@ -76,6 +72,4 @@ GitHub Pages publishes this folder as the temporary stakeholder site:
 
 `https://mavericken777.github.io/Amanah/`
 
-External production integrations remain explicit gates: direct JAKIM API, China laboratory, Sinotrans production systems, port/customs authorities, GCC destination systems, and Shariah finance/Takaful/tokenomics counterparties.
-
-**FULL ARCHITECTURE NOW → REAL CONNECTORS WHEN AVAILABLE → NO REDESIGN REQUIRED.**
+The website presents the complete platform architecture. Production partner connections use the same architecture when counterpart credentials and permissions are activated.
