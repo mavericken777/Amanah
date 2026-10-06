@@ -2,7 +2,8 @@
 
 ## Current presentation package
 
-- [China Trip master delivery prompt](docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md)
+- [China Trip master delivery prompt](docs/mission/AMANAH_CHINA_TRIP_PLATINUM_MASTER_DELIVERY_PROMPT_2026-10-07.md)
+- [Prompt coverage audit](docs/mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)
 - [Website presentation brief](docs/operations/WEBSITE_BRIEF_2026-10-05.md)
 - [Master deliverable index](docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md)
 - [China Mission executive pack](docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md)
