@@ -25,6 +25,9 @@ test('authority, logistics, port and finance roles remain separated',()=>{
   assert.match(target.authority_workflow.connectivity,/DIRECT JAKIM API/);
   assert.equal(target.authority_workflow.nur_ai_platform_hop,false);
   assert.equal(target.authority_workflow.ai_makes_formal_certification_decision,false);
+  assert.equal(target.authority_workflow.project_formal_certification_review,'authorised competent-authority human workflow');
+  assert.ok(!target.authority_workflow.participants.some((p)=>/PHC|Mufti|scholars/i.test(p)));
+  assert.match(target.actors.phc.role,/halal-industry GLC/i);
   assert.match(target.actors.sinotrans.role,/warehouse and logistics/i);
   assert.equal(target.actors.port_customs.ahte_overrides_decision,false);
   assert.equal(target.finance_plane.halal_certification_equals_finance_approval,false);
