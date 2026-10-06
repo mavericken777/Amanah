@@ -1024,6 +1024,83 @@ Localise:
 - API overview;
 - technical brief.
 
+## O. China Counterparty Signing / Meeting Suite
+
+Prepare partner-specific meeting and signing material for the confirmed or scheduled China/Hong Kong mission counterpart categories, including:
+
+- CODA — manufacturer mobilisation, procurement enablement and hardware-financing proposition;
+- Lulu / GCC buyer engagement — product qualification, procurement and destination-market pathway;
+- Sinotrans Hong Kong / Beijing / Shanghai — warehouse, fleet, logistics, custody, port and system-integration operating model;
+- laboratory / food-safety / agricultural research counterpart — sample custody, analytical methods, evidence integration, accreditation/method-scope due diligence and agricultural cooperation scope;
+- BORONEX / Blue Diamond technical engagement — technology evidence, sanitation/disinfection application, factory/QA due diligence and trial protocol;
+- Macau / Hengqin institutional engagement — local market cooperation, halal ecosystem development and follow-up workplan;
+- additional retailers, importers, manufacturers, authorities and technology partners confirmed for the mission.
+
+For each counterpart provide:
+
+- one-page executive brief;
+- meeting objective;
+- proposed cooperation scope;
+- AMANAH role;
+- counterpart role;
+- data / API / evidence exchange;
+- implementation milestones;
+- decisions sought;
+- MOA / MOU / agreement draft where applicable;
+- technical annex;
+- commercial annex where applicable;
+- action / follow-up sheet.
+
+Use the exact legal entity and authorised signatory details from confirmed counterpart materials when preparing execution copies.
+
+## P. China Mission Binder / Offline Pack
+
+Prepare one complete offline package that can be used without internet access:
+
+- master executive deck;
+- 5 / 15 / 30-minute decks;
+- partner-specific decks;
+- corporate profile;
+- complete Malaysian/JAKIM framework summary;
+- standards applicability matrix;
+- MOA / agreement signing pack;
+- Sinotrans playbook;
+- CODA pack;
+- laboratory pack;
+- hardware catalogue;
+- API / integration binder;
+- stakeholder briefs;
+- meeting briefs;
+- objection-handling book;
+- infographic suite;
+- cinematic video;
+- Mandarin versions;
+- demo assets;
+- demo backup;
+- contact / follow-up sheet;
+- signing tracker;
+- implementation milestone tracker.
+
+Provide both presentation-screen and print-ready versions.
+
+## Q. China Manufacturer / Product Opportunity Pack
+
+Prepare the commercial origin-side opportunity package:
+
+- priority GCC-demand product categories;
+- manufacturer qualification criteria;
+- target manufacturer shortlist;
+- facility / product / SKU onboarding pathway;
+- supplier / raw-material evidence requirements;
+- laboratory / audit requirements;
+- hardware readiness;
+- Sinotrans logistics readiness;
+- GCC buyer / importer qualification pathway;
+- commercial next-step template.
+
+Connect manufacturer opportunity selection directly to the AMANAH onboarding, assurance, logistics and GCC market workflow.
+
+
 ---
 
 # 21. WEBSITE
