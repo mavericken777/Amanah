@@ -86,15 +86,15 @@ const msOperatingSet = [
   ["MS 2634:2019", "Halal cosmetics — General requirements"],
   ["MS 2636:2019", "Halal medical device — General requirements"],
   ["MS 2738:2023", "Halal consumable goods — General requirements"],
-  ["MS 2803:2025", "Usage of animal bone, skin and hair"],
-  ["MS 2393:2023", "Islamic terminology"],
-  ["MS 2627:2017", "Detection of porcine DNA — Food"],
-  ["MS 2627-2:2025", "Detection of porcine DNA — Cosmetics"],
-  ["MS 1900:2025", "Shariah-based quality management system"],
-  ["MS 2691:2021", "Halal profession competency standard"],
-  ["MS 2610:2015", "Muslim-friendly hospitality services"],
-  ["MS 2809:2025", "Authentication using chemometric techniques"],
-  ["MS 2810:2025", "Identification of pig skin and hair"],
+  ["MS 2803:2025", "Usage of animal bone, skin and hair — General requirements for halal products"],
+  ["MS 2393:2023", "Islamic and halal terminologies — Definitions and interpretations"],
+  ["MS 2627:2017", "Detection of porcine DNA — Test method — Food and food products"],
+  ["MS 2627-2:2025", "Detection of porcine DNA — Test method — Part 2: Cosmetics"],
+  ["MS 1900:2025", "Shariah-based quality management system — Requirements"],
+  ["MS 2691:2021", "Halal profession — General requirements"],
+  ["MS 2610:2015", "Muslim-friendly hospitality services — Requirements"],
+  ["MS 2809:2025", "Authentication of products using chemometric techniques"],
+  ["MS 2810:2025", "Consumable goods — Test method — Identification of pig skin and hair"],
 ] as const;
 
 const certificationFramework = [
@@ -382,6 +382,10 @@ export default function App() {
                 <p>First-class applicability candidate in the AHTE standards and instrument registry.</p>
               </article>
             ))}
+          </div>
+          <div className="trust-note standards-framework-note glass">
+            <strong>Supplemental standards register</strong>
+            <p><b>MS 2683:2017</b> · Kelulut (Stingless bee) honey — Specification is retained as a supplemental product-quality/specification instrument when that SKU type is in scope. It is not treated as an 18th member of the 17-standard halal operating set.</p>
           </div>
           <div className="trust-note standards-framework-note glass">
             <strong>Certification and governance layer</strong>
