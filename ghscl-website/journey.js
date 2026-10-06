@@ -44,7 +44,7 @@ const journey = {
 };
 if (typeof document !== 'undefined') {
   const $ = id => document.getElementById(id);
-  let index = 0, mode = 'Journey', auditStep = 0, labStep = 0, exception = '', passportTab = 'Overview';
+  let index = 0, mode = 'Journey', auditStep = 0, labStep = 0, exception = '', passportTab = 'Overview', monitorView = 'Map';
   const element = (tag, text, cls) => { const el = document.createElement(tag); el.textContent = text; if (cls) el.className = cls; return el; };
   const buttons = (host, labels, action) => labels.forEach((label, i) => { const b = element('button', label); b.type = 'button'; b.addEventListener('click', () => action(i, label)); host.append(b); });
   function fields(host, values) { host.replaceChildren(); const dl = document.createElement('dl'); values.forEach(([key,val]) => { dl.append(element('dt',key),element('dd',val)); }); host.append(dl); }
@@ -64,6 +64,17 @@ if (typeof document !== 'undefined') {
     fields($('passportBody'), views[passportTab]);
     [...$('passportTabs').children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===passportTab)));
   }
+  function renderMonitor() {
+    const s=journey.stages[index];
+    $('monitorPanel').textContent={
+      Map:`China → maritime route → GCC; current stage: ${s[2]}`,
+      Timeline:`${index+1} illustrative events; inspect each event in the synchronized timeline.`,
+      Custody:`Current holder: ${s[7]}`,
+      Evidence:`${journey.batch} · EVENT-DEMO-${index+1} · provenance and integrity obligations apply.`,
+      Exceptions:exception||'Select an exception scenario below.'
+    }[monitorView];
+    [...$('monitorViews').children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===monitorView)));
+  }
   function render() {
     const s = journey.stages[index];
     $('stageTitle').textContent = `${String(index+1).padStart(2,'0')} / ${s[0]}`;
@@ -78,7 +89,7 @@ if (typeof document !== 'undefined') {
     const route=$('journeyRoute'); const point=route.getPointAtLength(route.getTotalLength()*index/(journey.stages.length-1)); $('routeMarker').setAttribute('cx',String(point.x)); $('routeMarker').setAttribute('cy',String(point.y));
     $('routeLocation').textContent = `${s[2]} · ${s[7]} · ${journey.batch}`;
     $('timeline').replaceChildren(); journey.stages.slice(0,index+1).forEach((v,i)=>{const b=element('button',`${String(i+1).padStart(2,'0')} · ${v[0]} · ${v[1]}`);b.type='button';b.addEventListener('click',()=>select(i));$('timeline').append(b);});
-    $('custodyHolder').textContent=s[7]; renderPassport();
+    $('custodyHolder').textContent=s[7]; renderMonitor(); renderPassport();
   }
   function select(i) { index=i; render(); }
   buttons($('stageNav'),journey.stages.map(s=>s[0]),select);
@@ -96,7 +107,7 @@ if (typeof document !== 'undefined') {
   buttons($('warehouseZones'),['Receiving','Quarantine','Halal storage','Separation','Picking','Dispatch','Cold storage','Inspection'],(_,zone)=>fields($('warehouseDetail'),[['Zone',zone],['Batch',journey.batch],['Control','Segregation, contamination prevention and attributable handling'],['Condition','Illustrative 4.2°C'],['Custody','Warehouse operator'],['Evidence','Zone, receiving and handling records']]));
   buttons($('custodyRibbon'),['Manufacturer','Logistics provider','Warehouse','Port','Carrier','Importer','Distributor'],(i,actor)=>fields($('custodyDetail'),[['Outgoing',i?$('custodyRibbon').children[i-1].textContent:'Origin'],['Incoming',actor],['Batch',journey.batch],['Time','2026-10-05T08:00:00Z · illustrative'],['Seal','SEAL-DEMO-01'],['Evidence','Attributable transfer manifest; no actual signature asserted']]));
   buttons($('portNodes'),['Container','Seal','Documents','Inspection','Vessel','Release'],(_,node)=>fields($('portDetail'),[['Checkpoint',node],['Actor','Port / customs authority'],['Action','Reconcile scoped identity and authorized evidence'],['Object',journey.shipment],['Result','Illustrative obligation; no sovereign release asserted'],['Trust impact','AHTE, authority and customs states stay separate']]));
-  buttons($('monitorViews'),['Map','Timeline','Custody','Evidence','Exceptions'],(_,view)=>{$('monitorPanel').textContent={Map:`China → maritime route → GCC; current stage: ${journey.stages[index][2]}`,Timeline:`${index+1} illustrative events; inspect each event in the synchronized timeline.`,Custody:`Current holder: ${journey.stages[index][7]}`,Evidence:`${journey.batch} · EVENT-DEMO-${index+1} · provenance and integrity obligations apply.`,Exceptions:exception||'Select an exception scenario below.'}[view];});
+  buttons($('monitorViews'),['Map','Timeline','Custody','Evidence','Exceptions'],(_,view)=>{monitorView=view;renderMonitor();});
   buttons($('exceptionButtons'),['Temperature excursion','Seal mismatch','Missing custody event','Document mismatch','Route deviation'],(_,v)=>{exception=v;$('exceptionState').textContent=`${v} → alert → policy assessment → HOLD → investigation → corrective action → re-verification → human / competent-authority gate. No automatic release.`;render();});
   $('resetException').addEventListener('click',()=>{exception='';$('exceptionState').textContent='Scenario reset. No real-world hold or release was changed.';render();});
   buttons($('actorButtons'),journey.actors.map(a=>a[0]),i=>fields($('actorDetail'),[['Role',journey.actors[i][0]],['Creates / consumes',journey.actors[i][1]],['Value and responsibility',journey.actors[i][2]]]));
