@@ -52,7 +52,7 @@ export default async function AHTESourcePage(){
           <div className="eyebrow">{standard.code}</div>
           <h3>{standard.title}</h3>
           <p>{standard.role}</p>
-          <p className="muted">{standard.applicability}</p>
+          <p className="muted">{standard.role}</p>
         </article>)}
       </div>
     </section>
