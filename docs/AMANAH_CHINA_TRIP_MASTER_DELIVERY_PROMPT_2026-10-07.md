@@ -83,7 +83,7 @@ Assurance, evidence and trust-intelligence engine responsible for standards appl
 
 AI, blockchain, QR/NFC, sensors, laboratories, tokens and software do not replace formal competent-authority decisions.
 
-AI assists. Authorised humans and competent authorities decide.
+AI assists. Authorised humans and competent authorities decide.\n\n**China → GCC direct**
 
 **Default physical corridor: China → GCC direct.**
 
@@ -126,7 +126,7 @@ The certification/governance framework must also incorporate, where applicable:
 - JAKIM protocols;
 - circulars;
 - authority instructions;
-- destination-market requirements;
+- destination rules / destination rules / destination-market requirements;
 - approved laboratory methods;
 - applicable product, facility, logistics and certification instructions.
 
