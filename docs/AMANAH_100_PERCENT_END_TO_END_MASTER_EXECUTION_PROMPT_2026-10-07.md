@@ -4,6 +4,8 @@
 **Status:** CONTROLLING PLATFORM DELIVERY PROMPT  
 **Purpose:** Deliver the complete AMANAH / Global Halal Digital Trust ecosystem as finished, stakeholder-usable outputs across platform, website, presentations, operations, agreements, China mission material and destination-market execution.
 
+**Persistent user requirements:** [NOTE TO SELF — Maverick / AMANAH controlling user mandate](NOTE_TO_SELF_CONTROLLING_USER_MANDATE_2026-10-07.md). Read it before executing this prompt; it is the compact anti-regression requirements memory for the repository.
+
 ---
 
 # 0. EXECUTION MANDATE

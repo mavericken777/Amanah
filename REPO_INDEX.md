@@ -2,6 +2,8 @@
 
 ## Current presentation package
 
+- **CONTROLLING USER MANDATE:** [NOTE TO SELF — Maverick / AMANAH](docs/NOTE_TO_SELF_CONTROLLING_USER_MANDATE_2026-10-07.md)
+
 - [100% end-to-end master execution prompt](docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md)
 - [China Trip master delivery prompt](docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md)
 - [Prompt coverage audit](docs/mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)
