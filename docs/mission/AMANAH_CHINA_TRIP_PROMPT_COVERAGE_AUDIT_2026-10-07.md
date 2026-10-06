@@ -13,7 +13,7 @@ The previous mandate was broad, but it mixed three different things:
 
 That made the work look fragmented and encouraged completion claims based on engineering files instead of finished presentation material.
 
-The revised master prompt closes that problem by making the **finished China-mission delivery suite** the primary outcome and keeping engineering activity behind the scenes.
+The revised master prompt closes that problem by making the **finished end-to-end stakeholder delivery suite** the primary outcome and keeping engineering activity behind the scenes. The China-mission prompt is now a mission-specific derivative of the controlling 100% end-to-end platform prompt.
 
 ## Coverage review
 
@@ -41,7 +41,9 @@ The revised master prompt closes that problem by making the **finished China-mis
 | Sinotrans | Strong | Needed finished audit/readiness binder | Closed |
 | Custody / seal / route | Strong | Needed one complete product-to-container-to-port narrative | Closed |
 | Port / customs | Strong | Needed finished partner/API pack | Closed |
-| GCC destination | Present | Needed fuller importer/distributor/retail workflow | Closed |
+| GCC importer | Previously generic | Needed dedicated onboarding, pre-arrival, receiving, discrepancy/quarantine, inventory and Command Center workflow | Closed |
+| Distributor / 3PL | Previously implicit | Needed destination custody, transfer, warehouse, proof-of-delivery and recall execution | Closed |
+| Retailer / marketplace | Previously generic | Needed dedicated listing, receiving, sale eligibility, verification, withdrawal and recall propagation | Closed |
 | Product verification | Strong | Needed four audiences: consumer/buyer/retailer/authority | Closed |
 | Command Center | Strong | Needed descriptive/diagnostic/predictive/preemptive views | Closed |
 | Exception engine | Strong | Needed recall/blast-radius as a boardroom story | Closed |
@@ -111,3 +113,22 @@ The final prompt also closes three practical trip-use gaps that were not explici
 | Manufacturer / product opportunity pack | Connects GCC market demand to China manufacturer qualification, AMANAH onboarding, assurance and Sinotrans/GCC execution | Closed |
 
 Counterparty categories explicitly covered now include CODA, Lulu/GCC buyer engagement, Sinotrans Hong Kong/Beijing/Shanghai, laboratory / food-safety / agricultural research counterparts, BORONEX / Blue Diamond, Macau/Hengqin institutional engagement, and additional confirmed mission partners.
+
+
+## 7 October 2026 destination-market closure
+
+A second deep-dive identified that importer and retailer were named but not operationally specified at the same depth as manufacturer, laboratory and Sinotrans.
+
+This is now closed by the controlling master prompt and repository implementation:
+
+- dedicated GCC Importer platform workflow;
+- dedicated Distributor / 3PL workflow;
+- dedicated Retail / Marketplace / E-commerce workflow;
+- buyer / authority / retailer / consumer verification separation;
+- destination recall / withdrawal propagation;
+- importer and retail Command Center coverage;
+- public GCC Importer and Retail / Marketplace website experiences;
+- protected AMANAH GCC Importer and Retail / Marketplace workspaces;
+- destination-market playbook.
+
+The standards rule is also explicit: the current verified primary registry contains 17 current standards, but **17 is not a permanent ceiling**. Every additional verified applicable Malaysian/JAKIM Standard, product/technical instrument and authority instruction in the controlled source package must be represented through the registry without redesign.
