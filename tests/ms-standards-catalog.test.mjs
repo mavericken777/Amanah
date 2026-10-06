@@ -27,6 +27,8 @@ test("complete 17-standard operating catalogue is consistent across platform sou
   const config = JSON.parse(fs.readFileSync("config/ahte-standards-catalog.json", "utf8"));
   const migration = fs.readFileSync("supabase/migrations/0013_seed_17_standard_reference_catalog.sql", "utf8");
   const publicPage = fs.readFileSync("ghscl-website/standards.html", "utf8");
+  const homePage = fs.readFileSync("ghscl-website/index.html", "utf8");
+  const publisher = fs.readFileSync("scripts/build-trust-journey.mjs", "utf8");
 
   assert.equal(operatingSet.catalog_count, 17);
   assert.equal(operatingSet.standards.length, 17);
@@ -37,6 +39,7 @@ test("complete 17-standard operating catalogue is consistent across platform sou
     assert.ok(config.standards.some((s) => s.code === code), `machine catalogue missing ${code}`);
     assert.ok(migration.includes(code), `database seed missing ${code}`);
     assert.ok(publicPage.includes(code), `public standards page missing ${code}`);
+    assert.ok(homePage.includes(code), `public homepage missing ${code}`);
   }
 });
 
@@ -45,5 +48,11 @@ test("certification framework remains layered above the MS catalogue", () => {
   for (const item of ["MPPHM 2020","MHMS 2020","HAS","IHCS","protocols","circulars","authority instructions","destination rules","laboratory methods"]) {
     assert.ok(operatingSet.certification_layer.includes(item), `framework layer missing ${item}`);
   }
-  assert.match(operatingSet.scope_rule, /MS 1500 and MS 2400 are not treated as the entire standards universe/);
+  assert.match(operatingSet.scope_rule, /MS 1500 and MS 2400 are not the entire Malaysian\/JAKIM standards universe/);
+  assert.equal(config.catalog_count, 17);
+  assert.equal(operatingSet.supplemental_instruments[0].code, "MS 2683:2017");
+  assert.ok(publicPage.includes("MS 2683:2017"));
+  assert.ok(homePage.includes("MS 2683:2017"));
+  assert.match(publisher, /MS_OPERATING_SET\.json/);
+  assert.match(homePage, /COMPLETE MALAYSIAN \/ JAKIM STANDARDS/);
 });
