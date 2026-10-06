@@ -1,17 +1,17 @@
-# AMANAH / Global Halal Digital Trust — Project Overview
+# AMANAH / Global Halal Digital Trust — China Mission Overview
 
 AMANAH is the end-to-end operational and digital trust platform for the Global Halal Digital Trust ecosystem.
 
-For the China trip, the platform is presented as one connected journey:
+For the China mission, present the platform as one connected journey:
 
 **Origin / Manufacturer → Organisation / KYC → Facility → Product / SKU → Supplier / Ingredient / Raw Material → Evidence → Standards Applicability → AI-Assisted Review → Human Governance → Laboratory → Smart Audit → CAPA / Re-verification → Certification / Credential Workflow → Production / IoT / Digital Twin → Warehouse → Sinotrans Logistics → Container / Seal / Custody → Port / Customs → Direct JAKIM API → GCC Destination → Distribution / Retail → Product Verification → 24/7 Command Center**
 
 ## Institutional architecture
 
 - **PHC** — Perak State Government halal-industry GLC.
-- **GHSCL Hong Kong** — international operating and digital-infrastructure vehicle.
-- **AHTE** — standards, evidence, controls, HCP/SCCP, trust, digital twins, AI/ML and predictive/preemptive assurance.
-- **JAKIM** — competent-authority connectivity through the direct interface.
+- **GHSCL Hong Kong** — international operating and digital-infrastructure vehicle for China → GCC coordination and 24/7 operations.
+- **AHTE** — standards applicability, evidence, controls, HCP/SCCP, trust, digital twins, AI/ML, predictive analytics, preemptive strategy, CAPA, re-verification and recall.
+- **JAKIM** — competent-authority connectivity through the direct authority interface.
 
 **AHTE ⇄ Direct JAKIM API ⇄ JAKIM**
 
@@ -19,21 +19,24 @@ For the China trip, the platform is presented as one connected journey:
 
 AI assists. Authorised humans and competent authorities decide.
 
-## Malaysian / JAKIM framework
+## Malaysian / JAKIM Halal framework
 
-AMANAH uses the complete current project-verified 17-standard Malaysian/JAKIM operating catalogue together with the applicable MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination requirements and laboratory methods.
+AMANAH uses a registry-driven standards model, not an MS 1500 / MS 2400-only model.
 
-MS 1500 and MS 2400 are not treated as the whole framework.
+The current verified primary standards catalogue contains 17 Malaysian Standards and is extended by applicable product/technical standards such as MS 2683:2017. Applicability is resolved by product, facility, process, material, logistics activity, certification scope, destination and evidence context.
 
-## China Trip package
+The standards registry operates together with **MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination requirements and laboratory methods**.
+
+## China Mission package
 
 Use:
 
 - `docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md`
+- `docs/mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md`
 - `docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md`
 - `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md`
 - `docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md`
 - `docs/sinotrans/SINOTRANS_A_TO_Z_PLAYBOOK_2026-10-02.md`
 - `docs/coda/CODA_HARDWARE_FINANCING_EXECUTIVE_PACK_2026-10-02.md`
 
-The China Mission is used to present the complete platform, progress partner engagement and move counterpart discussions into concrete implementation, integration, commercial and signing work.
+The mission objective is to present the complete platform, progress partner engagement and convert meetings into concrete implementation, integration, commercial and signing actions.
