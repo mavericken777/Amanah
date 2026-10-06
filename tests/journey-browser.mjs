@@ -20,29 +20,7 @@ try {
   await page.locator('#labSteps button').last().click();assert.match(await page.locator('#labCurrent').textContent(),/updated/);
   await page.locator('#warehouseZones button').filter({hasText:'Quarantine'}).click();assert.match(await page.locator('#warehouseDetail').textContent(),/Quarantine/);
   for(const id of ['custodyRibbon','portNodes','actorButtons','architectureButtons'])await page.locator(`#${id} button`).last().click();
-  for(const view of ['Map','Timeline','Custody','Evidence','Exceptions'])await page.locator('#monitorViews button').filter({hasText:new RegExp(`^${view}import assert from 'node:assert/strict';
-import fs from 'node:fs';
-const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'playwright');
-const browser=await chromium.launch({headless:true, ...(process.env.CHROME_PATH ? {executablePath:process.env.CHROME_PATH} : {})});
-fs.mkdirSync('browser-results',{recursive:true});
-try {
- for(const width of [375,768,1024,1440]) {
-  const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce',bypassCSP:true});
-  const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(process.env.JOURNEY_URL||'http://127.0.0.1:8080/index.html');
-  await page.locator('#stageNav button').first().waitFor();
-  assert.equal(await page.locator('#stageNav button').count(),13);
-  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
-  assert.match(await page.locator('h1').evaluate(e=>getComputedStyle(e).fontFamily),/Arial/);
-  assert.equal(await page.locator('.platinum-shield,canvas,.home-hero-image').count(),0);
-  for(let i=0;i<13;i++){await page.locator('#stageNav button').nth(i).click();assert.match(await page.locator('#stageTitle').textContent(),new RegExp(`^${String(i+1).padStart(2,'0')}`));assert.ok((await page.locator('#passportBody').textContent()).includes('CN-DEMO-24001'));}
-  for(const view of ['Journey','Trust','Actor','Standards','Custody','Monitoring','Consumer','Technical']){await page.locator('#viewModes button').filter({hasText:new RegExp(`^${view}$`)}).click();assert.ok((await page.locator('#modeExplanation').textContent()).length>20);}
-  for(let i=0;i<13;i++)await page.locator('#auditNext').click();assert.match(await page.locator('#auditCheckpoint').textContent(),/Audit record created/);
-  await page.locator('#auditReset').click();assert.ok(await page.locator('#auditPrevious').isDisabled());
-  await page.locator('#labSteps button').last().click();assert.match(await page.locator('#labCurrent').textContent(),/updated/);
-  await page.locator('#warehouseZones button').filter({hasText:'Quarantine'}).click();assert.match(await page.locator('#warehouseDetail').textContent(),/Quarantine/);
-  for(const id of ['custodyRibbon','portNodes','actorButtons','architectureButtons'])await page.locator(`#${id} button`).last().click();
-)}).click();
+  for(const view of ['Map','Timeline','Custody','Evidence','Exceptions'])await page.locator('#monitorViews button').filter({hasText:new RegExp(`^${view}$`)}).click();
   await page.locator('#monitorViews button').filter({hasText:/^Custody$/}).click();
   await page.locator('#stageNav button').first().click();
   assert.match(await page.locator('#monitorPanel').textContent(),/Manufacturer/);
