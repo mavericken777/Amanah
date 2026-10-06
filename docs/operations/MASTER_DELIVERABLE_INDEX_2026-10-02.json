@@ -12,7 +12,7 @@
     },
     {
       "id": "D02",
-      "name": "Complete Malaysian/JAKIM operating set",
+      "name": "Complete Malaysian/JAKIM standards registry",
       "path": "docs/ahte/MS_OPERATING_SET.json",
       "status": "CURRENT"
     },
@@ -128,7 +128,6 @@
   "platform": {
     "authority_topology": "AHTE ⇄ Direct JAKIM API ⇄ JAKIM",
     "corridor": "China → GCC direct",
-    "standards_count": 17,
     "standards_layer": [
       "MPPHM 2020",
       "MHMS 2020",
@@ -142,6 +141,9 @@
     ],
     "supplemental": [
       "MS 2683:2017"
-    ]
+    ],
+    "registry_mode": "extensible_applicability_registry",
+    "current_primary_standards_count": 17,
+    "applicability_rule": "Evaluate the full current Malaysian/JAKIM standards registry plus every verified applicable product/technical instrument; do not hard-code the platform to MS 1500/MS 2400 or a fixed count."
   }
 }
