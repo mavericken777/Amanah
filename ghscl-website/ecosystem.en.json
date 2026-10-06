@@ -263,9 +263,9 @@
             "AHTE",
             "Direct JAKIM API ⇅",
             "JAKIM authority system",
-            "PHC + JAKIM Mufti / scholars / authorised Halal officers human review"
+            "Authorised competent-authority human review"
           ],
-          "text": "A direct connection keeps the authority workflow clear: AHTE ⇄ Direct JAKIM API ⇄ JAKIM. Formal certification approval or disapproval remains an authorised human authority workflow involving PHC and the relevant JAKIM Mufti, scholars and Halal officers; AI does not certify. Official connections are activated under the relevant authority’s authorization."
+          "text": "A direct connection keeps the authority workflow clear: AHTE ⇄ Direct JAKIM API ⇄ JAKIM. Formal certification approval or disapproval remains with authorised humans in the competent-authority workflow; PHC supports ecosystem development, assurance and institutional coordination but is not presented as the certification authority. AI does not certify. Official connections are activated under the relevant authority’s authorization."
         },
         {
           "id": "boundaries",
