@@ -16,7 +16,10 @@ The Academy trains users to operate AMANAH/AHTE workflows. It does not confer st
 | A3 Laboratory | lab managers, sample officers, reviewers | sample/custody/method/QC/result evidence integration |
 | A4 Auditor | authorised/internal auditors | smart-audit workflow, findings, CAPA, re-verification |
 | A5 Logistics | warehouse, transport, Sinotrans users | custody, seal, telemetry, exceptions |
-| A6 Port/Destination | integration/receiving teams | minimum-necessary evidence and sovereign boundary |
+| A6 Port | port/customs integration and inspection teams | minimum-necessary evidence and sovereign boundary |
+| A6A GCC Importer | importer compliance/receiving/warehouse teams | pre-arrival, receiving, discrepancy/quarantine and inventory eligibility |
+| A6B Distributor / 3PL | destination warehouse/transport teams | custody, storage, transfer, POD, returns and recall execution |
+| A6C Retail / Marketplace | buyers, DC/store/fulfilment and e-commerce teams | listing, receiving, sale eligibility, verification and recall propagation |
 | A7 Command Center | 24/7 operators | alert triage, HOLD, escalation, prediction, recall |
 | A8 Integration | engineers / security | API, event contracts, identity, mTLS/OIDC, retries/UAT |
 | A9 Governance | admins, reviewers, authority-side roles | D0–D6, segregation of duties, audit history |
@@ -46,7 +49,10 @@ Audit planning, object identification, evidence capture, finding, corrective act
 Batch/lot identity, sensors, equipment, exception detection, trust-fracture HOLD and human disposition.
 
 ### Module 8 — Logistics / ports / GCC
-Warehouse, container, seal, telemetry, custody, ports/customs, importer receiving and downstream verification.
+Warehouse, container, seal, telemetry, custody and ports/customs.
+
+### Module 8A — GCC importer / distributor / retail
+Pre-arrival dossier, importer receiving, discrepancy/quarantine, destination inventory, distributor/3PL custody, retail/marketplace listing and receiving, buyer/retailer verification, withdrawal and recall propagation.
 
 ### Module 9 — AI governance
 D0–D6; AI may support D0–D2 and configured D4; D5/D6 reserved.
