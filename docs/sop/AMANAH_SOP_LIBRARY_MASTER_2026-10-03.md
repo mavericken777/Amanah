@@ -40,8 +40,11 @@ Each SOP must identify: trigger; accountable owner; authorised actors; required 
 | SOP-16 | Shipment / container / seal | Shipment built | Logistics operator | Bound shipment/container/seal lineage |
 | SOP-17 | Route / telemetry exception | Threshold / route anomaly | Command centre | HOLD / investigation / action record |
 | SOP-18 | Port / customs interface | Border event | Port/customs integration | Signed lookup/event exchange; sovereign state external |
-| SOP-19 | GCC receiving | Destination receipt | Importer / receiving | Reconciliation + acceptance / exception |
-| SOP-20 | Public / buyer verification | Authorized token presented | Verification service | Scoped disclosure only |
+| SOP-19 | GCC importer pre-arrival / receiving | Destination receipt | Importer | Dossier + reconciliation + accept/discrepancy/quarantine + inventory eligibility |
+| SOP-19A | Distributor / 3PL transfer | Importer allocation / transfer order | Distributor / 3PL | Batch/lot custody + storage + delivery / return evidence |
+| SOP-19B | Retail / marketplace listing & receiving | Listing / PO / ASN | Retailer / marketplace | Listing eligibility + receiving + stock/sale state |
+| SOP-19C | Retail withdrawal / recall | Hold / recall trigger | Retailer + Command Center | Affected DC/store/order scope + containment evidence |
+| SOP-20 | Public / buyer / retailer / authority verification | Authorized token presented | Verification service | Scoped disclosure only |
 | SOP-21 | Incident / cybersecurity | Security event | Security | Containment, evidence, recovery, notification |
 | SOP-22 | Business continuity / failover | Service disruption | Operations | Recovery action + continuity evidence |
 | SOP-23 | Recall / blast radius | Recall trigger | Command centre | Affected object graph + containment actions |
@@ -71,6 +74,12 @@ The platform may assemble evidence, validate completeness and transmit through t
 
 ### SOP-17 — Trust fracture / exception
 Detect → classify → configured D4 HOLD where allowed → determine blast radius → assign owner → collect evidence → human review → CAPA / re-verification → authority gate if required → operational disposition. A D4 HOLD cannot be silently machine-released where human/authority review is reserved.
+
+### SOP-19 — GCC destination
+Pre-arrival dossier → port release reference → importer receiving → container/seal/SKU/batch/condition reconciliation → credential/document check → accept/discrepancy/quarantine → destination inventory → distributor/3PL transfer → retailer/marketplace listing/receiving → verification. All destination events preserve upstream lineage.
+
+### SOP-19C — Retail withdrawal / recall
+Recall trigger → determine affected product/SKU/batch → importer inventory → distributor transfers → retail DC/store/order → block/withdraw → notification/evidence → reconciliation → governed closure.
 
 ### SOP-25 — Production connector promotion
 Connector states: UNCONFIGURED → DEVELOPMENT → SANDBOX → PENDING_AUTHORIZATION → PRODUCTION.  
