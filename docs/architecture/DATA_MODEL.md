@@ -52,13 +52,13 @@ Every organization-owned domain record carries `organization_id` and is protecte
 | AuthorityDecision | ahte_authority_decisions | authority gate |
 | Exception | ahte_fracture_events + findings | hold/CAPA |
 | Alert | ahte_command_center_alerts | prediction/strategy |
-| VerificationEvent | ahte_verification_events | public/buyer/authority |
+| VerificationEvent | ahte_verification_events | public/buyer/authority/retailer |
 
 ## 3. Required envelope
 Material event/evidence objects support canonical ID, external IDs, owner, actor, lifecycle/status, timestamps, evidence refs, integrity/signature refs, version/supersession, jurisdiction/confidentiality and audit history.
 
 ## 4. Genealogy
-`Manufacturer -> Facility -> ProductionLine -> Product -> SKU -> Batch -> Package -> Pallet -> Container -> Shipment -> Custody/Route -> Port -> Destination -> Verification`
+`Manufacturer -> Facility -> ProductionLine -> Product -> SKU -> Batch -> Package -> Pallet -> Container -> Shipment -> Custody/Route -> OriginPort -> GCCPort -> Importer -> Distributor/3PL -> Retailer/Marketplace -> Verification`
 
 Material provenance:
 `Product/SKU -> FormulaMaterial -> Material(role) -> Supplier -> MaterialLot -> Certificate/Evidence`
@@ -66,11 +66,22 @@ Material provenance:
 ## 5. Change control
 Ingredient, supplier, origin, facility, production line, formulation, packaging, certificate or applicable regulatory changes create auditable change events and may trigger reassessment/reverification according to the applicable rule pack.
 
-## 6. Authority separation
+## 6. Destination participant model
+
+GCC importer, distributor/3PL, retailer and marketplace are first-class participant roles without duplicating legal identity.
+
+- **Importer** = Organisation/Partner role + authorised users + destination facilities/warehouses + shipment/receiving evidence.
+- **Distributor/3PL** = Organisation/Partner role + facilities/warehouses + vehicles/drivers + custody/route events.
+- **Retailer/Marketplace** = Organisation/Partner role + store/DC/fulfilment locations + product/SKU listing and verification relationships.
+- **Buyer/Consumer/Authority verifier** = role/purpose-scoped identity or disclosure context + VerificationEvent.
+
+This preserves one canonical organisation identity while allowing distinct destination responsibilities, decision rights, evidence and integrations.
+
+## 7. Authority separation
 `ahte_authority_decisions` stores external decisions; `ahte_authority_gates` evaluates prerequisite gates; `ahte_release_decisions` represents operational release. They remain distinct.
 
-## 7. Security contract
+## 8. Security contract
 New normalized tables use member SELECT/INSERT/UPDATE and owner/admin DELETE unless append-only semantics are stricter. Authority-sensitive operations remain role checked server/database side. Client-supplied organization ID is not trusted as sole authorization.
 
-## 8. Semantic authority
+## 9. Semantic authority
 Machine-readable entity catalogue: `config/canonical-domain-model-2026-10-02.json`. Generated TypeScript types are derivatives of the live database schema.
