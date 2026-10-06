@@ -2,7 +2,7 @@
 
 Amanah is the operational application layer for the Amanah Halal Trust Ecosystem (AHTE). It combines the operational platform with IQ300 source-aware standards/applicability, evidence, HITM, trust-state, Command Center and trade-control layers.
 
-The [5 October controlling website brief](docs/operations/WEBSITE_BRIEF_2026-10-05.md) replaces the oversized shield homepage with a connected product journey and Arial typography. `npm run web:build` generates the public experience; `npm run build` also makes it available at `/trust-journey/index.html` in the Vercel application. The authenticated workspace remains protected.
+The China-trip delivery programme is defined in the [7 October Platinum-Tier master prompt](docs/mission/CHINA_TRIP_PLATINUM_MASTER_PROMPT_2026-10-07.md), with a [coverage audit](docs/mission/CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md) showing that the full platform—not only the website—is represented. The public website uses the connected product journey, Arial/Helvetica-style typography and no oversized decorative shield.
 
 ## Platform scope
 
@@ -13,6 +13,14 @@ The [5 October controlling website brief](docs/operations/WEBSITE_BRIEF_2026-10-
 - Integration planes: direct JAKIM API; China traceability/laboratory; factory systems; Sinotrans warehouse/logistics; origin and GCC port/customs APIs; GCC destination; Shariah Financing API / Takaful / approved tokenomics target plane.
 - Trade pilot model: China → GCC direct / Shipment 001.
 - Operational support: China Trip workspace and project-management modules.
+
+## Complete Malaysian/JAKIM Halal framework
+
+Amanah evaluates the complete applicable Malaysian/JAKIM Halal framework. The current verified project catalogue contains 17 first-class MS applicability candidates plus supplemental product/technical MS instruments where relevant. MS 1500 and MS 2400 are not treated as the complete standards universe.
+
+The certification/authority layer also includes MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination requirements and laboratory methods.
+
+See `docs/ahte/MS_OPERATING_SET.json` and `config/ahte-standards-catalog.json`.
 
 ## Authority boundary
 
