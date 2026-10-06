@@ -47,3 +47,21 @@ test("certification framework remains layered above the MS catalogue", () => {
   }
   assert.match(operatingSet.scope_rule, /MS 1500 and MS 2400 are not treated as the entire standards universe/);
 });
+
+
+test("supplemental applicable MS instruments remain separate from the controlled 17-standard core", () => {
+  const operatingSet = JSON.parse(fs.readFileSync("docs/ahte/MS_OPERATING_SET.json", "utf8"));
+  const config = JSON.parse(fs.readFileSync("config/ahte-standards-catalog.json", "utf8"));
+  const publicPage = fs.readFileSync("ghscl-website/standards.html", "utf8");
+
+  assert.equal(operatingSet.standards.length, 17);
+  assert.equal(config.standards.length, 17);
+  assert.ok(operatingSet.supplemental_applicability.some((s) => s.code === "MS 2683:2017"));
+  assert.ok(config.supplemental_standards.some((s) => s.code === "MS 2683:2017"));
+  assert.match(publicPage, /MS 2683:2017/);
+  assert.match(publicPage, /does not become an 18th member/i);
+  assert.equal(
+    operatingSet.standards.find((s) => s.code === "MS 2691:2021")?.title,
+    "Halal profession — General requirements"
+  );
+});
