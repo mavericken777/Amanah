@@ -8,9 +8,11 @@ It connects manufacturer onboarding, product and material provenance, Malaysian/
 
 The complete China-trip delivery brief is:
 
-**[AMANAH China Trip — Master Delivery Prompt](docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md)**
+**[AMANAH China Trip — Master Delivery Prompt](docs/mission/AMANAH_CHINA_TRIP_PLATINUM_MASTER_DELIVERY_PROMPT_2026-10-07.md)**
 
-This replaces the earlier fragmented 69-item programme files for current presentation and delivery work.
+This is the primary China-trip presentation and delivery brief. Internal implementation records remain supporting material and are not part of the presentation package.
+
+Prompt coverage audit: **[China Trip prompt coverage audit](docs/mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)**.
 
 ## Platform journey
 
