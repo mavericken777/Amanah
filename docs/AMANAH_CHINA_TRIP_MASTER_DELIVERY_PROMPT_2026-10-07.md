@@ -85,6 +85,8 @@ AI, blockchain, QR/NFC, sensors, laboratories, tokens and software do not replac
 
 AI assists. Authorised humans and competent authorities decide.
 
+**Default physical corridor: China → GCC direct.**
+
 ---
 
 # 3. COMPLETE MALAYSIAN / JAKIM HALAL FRAMEWORK
