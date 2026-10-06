@@ -2,6 +2,7 @@
 
 ## Current presentation package
 
+- [100% end-to-end master execution prompt](docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md)
 - [China Trip master delivery prompt](docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md)
 - [Prompt coverage audit](docs/mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)
 - [Website presentation brief](docs/operations/WEBSITE_BRIEF_2026-10-05.md)
@@ -28,6 +29,9 @@
 - [API UAT pack](docs/api/AMANAH_API_UAT_PACK_2026-10-02.md)
 - [SOP library](docs/sop/AMANAH_SOP_LIBRARY_MASTER_2026-10-03.md)
 - [Training academy](docs/training/AMANAH_TRAINING_ACADEMY_2026-10-03.md)
+- [GCC importer / distributor / retailer playbook](docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md)
+- GCC Importer workspace: `app/(protected)/ahte/gcc-importer/`
+- Retail / Marketplace workspace: `app/(protected)/ahte/retail-market/`
 
 ## Corporate / media / legal
 
@@ -42,6 +46,8 @@
 ## Public experience
 
 - Public website: `ghscl-website/`
+- GCC Importer public route: `ghscl-website/gcc-importer.html`
+- Retail / Marketplace public route: `ghscl-website/retail-market.html`
 - Platinum site: `platinum-site/`
 - Corporate profile: `ghscl-website/corporate-profile.html`
 - Visual gallery: `ghscl-website/visuals.html`

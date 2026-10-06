@@ -1,5 +1,5 @@
 {
-  "version": "7.3.0",
+  "version": "7.4.0",
   "locale": "en",
   "availableLocales": [
     "en"
@@ -56,6 +56,14 @@
     [
       "china-gcc.html",
       "China → GCC"
+    ],
+    [
+      "gcc-importer.html",
+      "GCC Importer"
+    ],
+    [
+      "retail-market.html",
+      "Retail & Marketplace"
     ],
     [
       "partners.html",
@@ -1127,6 +1135,165 @@
         "manufacturers",
         "partners",
         "ecosystem"
+      ]
+    },
+    {
+      "slug": "gcc-importer",
+      "label": "GCC importer",
+      "title": "From border release to distribution eligibility.",
+      "description": "Amanah gives GCC importers one receiving view across shipment identity, credential status, container and seal reconciliation, condition, discrepancies, quarantine, warehouse placement and onward distribution.",
+      "image": "corridor.webp",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "A destination operating workspace",
+          "cards": [
+            [
+              "Pre-arrival readiness",
+              "Review PO, manifest, product/SKU/batch, credential status, authority references, container/seal and condition history before arrival."
+            ],
+            [
+              "Receiving control",
+              "Reconcile quantity, condition, temperature, seal, documents and product identity at the importer handoff."
+            ],
+            [
+              "Distribution eligibility",
+              "Carry accepted lots into destination inventory while preserving quarantine, discrepancy and recall states."
+            ]
+          ]
+        },
+        {
+          "id": "flow",
+          "title": "Importer receiving flow",
+          "flow": [
+            "GCC port release reference",
+            "Receiving appointment",
+            "Container / seal reconciliation",
+            "SKU / batch / quantity / condition",
+            "Credential / document check",
+            "Accept / discrepancy / quarantine",
+            "Warehouse placement",
+            "Inventory lot",
+            "Distribution eligibility"
+          ],
+          "text": "The importer receives the same product, batch, custody and authority context created upstream rather than rebuilding it from separate documents."
+        },
+        {
+          "id": "command",
+          "title": "Importer Command Center",
+          "cards": [
+            [
+              "Inbound shipments",
+              "ETA, port/customs status, container/seal and custody."
+            ],
+            [
+              "Credential visibility",
+              "Issuing authority, validity, trust state and expiry exposure."
+            ],
+            [
+              "Receiving exceptions",
+              "Discrepancy, damaged cargo, temperature, quarantine and governed resolution."
+            ],
+            [
+              "Onward allocation",
+              "Distributor, retailer and market allocations linked to batch/lot lineage."
+            ]
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": "Evidence that continues after import",
+          "text": "Importer receiving records, warehouse placement, discrepancies, quarantine and onward allocation remain traceable to shipment, product, batch, custody and authority references."
+        }
+      ],
+      "sources": [
+        "docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md",
+        "docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md"
+      ],
+      "related": [
+        "china-gcc",
+        "retail-market",
+        "verify"
+      ]
+    },
+    {
+      "slug": "retail-market",
+      "label": "Retail & marketplace",
+      "title": "Verify before listing, receiving, selling and recalling.",
+      "description": "Amanah connects retailer and marketplace product listing, receiving, batch traceability, credential validity, exceptions, verification and recall propagation.",
+      "image": "corridor.webp",
+      "sections": [
+        {
+          "id": "business-value",
+          "title": "Market readiness at the point of sale",
+          "cards": [
+            [
+              "Listing eligibility",
+              "Check product/SKU identity, manufacturer/importer, credential validity, destination requirements and open holds before listing."
+            ],
+            [
+              "Receiving eligibility",
+              "Reconcile PO/ASN, SKU/batch, quantity, condition and storage before stock becomes available."
+            ],
+            [
+              "Recall precision",
+              "Trace affected batch/lot through importer inventory, distribution, stores, fulfilment centres and orders."
+            ]
+          ]
+        },
+        {
+          "id": "flow",
+          "title": "Retail / marketplace operating flow",
+          "flow": [
+            "Approved importer / supplier",
+            "Product / SKU listing",
+            "Credential / trust check",
+            "PO / ASN",
+            "SKU / batch scan",
+            "Quantity / condition",
+            "Storage / shelf / fulfilment",
+            "Sale availability",
+            "Buyer / consumer verification",
+            "Withdrawal / recall"
+          ],
+          "text": "Retail controls remain connected to the same product identity and evidence lineage used at origin, audit, laboratory, logistics and import."
+        },
+        {
+          "id": "marketplace",
+          "title": "Marketplace and e-commerce",
+          "cards": [
+            [
+              "Seller / listing approval",
+              "Bind seller and SKU to the approved product and destination-market context."
+            ],
+            [
+              "Order lineage",
+              "Connect fulfilment centre, batch/lot and order-to-shipment evidence."
+            ],
+            [
+              "Verification",
+              "Expose the issuer-authorised Digital Trust Passport without leaking confidential business data."
+            ],
+            [
+              "Withdrawal / recall",
+              "Propagate affected product/batch status to listings, orders and fulfilment stock."
+            ]
+          ]
+        },
+        {
+          "id": "command",
+          "title": "Retailer Command Center",
+          "text": "Monitor approved listings, inbound orders, credential expiry, receiving exceptions, blocked/quarantined stock, recall scope, affected stores/orders and verification events."
+        }
+      ],
+      "sources": [
+        "docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md",
+        "docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md"
+      ],
+      "related": [
+        "gcc-importer",
+        "verify",
+        "command-center"
       ]
     }
   ],

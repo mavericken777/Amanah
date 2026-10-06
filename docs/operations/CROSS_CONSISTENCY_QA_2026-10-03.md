@@ -23,6 +23,10 @@ The following must be identical across architecture, website, application, corpo
 | Connector lifecycle | UNCONFIGURED / DEVELOPMENT / SANDBOX / PENDING_AUTHORIZATION / PRODUCTION | PASS |
 | Authority/trust/operational/customs/finance state | separate state domains | PASS |
 | Sinotrans | warehouse/logistics/custody/telemetry; no certification/sovereign release | PASS |
+| GCC importer | pre-arrival/receiving/quarantine/inventory eligibility is first-class | PASS |
+| Distributor / 3PL | destination custody/transfers/POD/recall is first-class | PASS |
+| Retail / marketplace | listing/receiving/sale eligibility/withdrawal/recall is first-class | PASS |
+| Standards completeness | current primary registry is not a permanent ceiling; all verified applicable instruments are scope-driven | PASS |
 | Finance/Takaful | evidence support only; independent decision | PASS |
 
 ## 2. Deliverable-family reconciliation
@@ -40,6 +44,8 @@ The following must be identical across architecture, website, application, corpo
 | Commercial | docs/commercial/AMANAH_COMMERCIAL_MODEL_UNIT_ECONOMICS_2026-10-03.md | proposal / price validation | PASS |
 | KPI/SLA | docs/operations/AMANAH_KPI_SLA_FRAMEWORK_2026-10-03.md | contractual vs proposed SLA | PASS |
 | Academy | docs/training/AMANAH_TRAINING_ACADEMY_2026-10-03.md | competence vs statutory authority | PASS |
+| GCC destination | docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md | importer/distributor/retail operating continuity | PASS |
+| Master prompt | docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md | complete end-to-end acceptance and deliverables | PASS |
 | Mandarin | docs/localization/MANDARIN_MASTER_ADAPTATION_2026-10-03.md | topology / corridor / boundary parity | PASS |
 | Mission | docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md | meeting claims / readiness evidence | PASS |
 | SOPs | docs/sop/AMANAH_SOP_LIBRARY_MASTER_2026-10-03.md | operational path / escalation / evidence | PASS |
@@ -58,6 +64,12 @@ The execution register previously identified Items 56–60 as the next batch. Th
 
 ### QA-60-04 — master deliverable index
 The deliverable index stopped at Item 55 output. This batch adds controlled deliverables for Items 56–60.
+
+### QA-60-05 — destination-market depth
+Importer, distributor/3PL and retailer/marketplace were previously present but too generic compared with origin, lab and Sinotrans. They are now first-class platform, website, Command Center, SOP, training, media and playbook experiences.
+
+### QA-60-06 — standards ceiling
+The current verified primary catalogue count is descriptive, not architectural. Public and controlled material now states that every additional verified applicable Malaysian/JAKIM standard or instrument is loaded by scope without redesign.
 
 ## 4. External conditions intentionally not “fixed” by repository text
 

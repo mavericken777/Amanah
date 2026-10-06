@@ -7,7 +7,7 @@ const domains = [
   "Manufacturer / facility", "Supplier / raw material", "Laboratory / sample", "HCP / SCCP",
   "Smart-glass audit", "Authority status", "Sinotrans warehouse", "Sinotrans logistics",
   "Container / seal", "Telemetry / route / geofence", "Custody", "Origin + GCC ports",
-  "GCC receiving", "CAPA / re-verification", "Evidence expiry", "Trust fracture",
+  "GCC importer / receiving", "Distributor / 3PL", "Retail / marketplace", "CAPA / re-verification", "Evidence expiry", "Trust fracture",
   "Predictive risk", "Preemptive strategy", "Recall / blast radius",
 ];
 

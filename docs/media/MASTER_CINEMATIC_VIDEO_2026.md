@@ -1,63 +1,106 @@
-# GHSCL / AMANAH Master Cinematic Video — 2026
+# GHSCL / AMANAH Master Cinematic Film Package — 2026
 
-**Version:** 2.0.0  
-**Control date:** 2026-10-03  
-**Status:** EXISTING WEB MASTER VERIFIED / 90-SECOND EXECUTIVE MASTER PRODUCTION PACKAGE COMPLETE
+**Version:** 3.0.0  
+**Control date:** 2026-10-07  
+**Status:** CONTROLLING PLATINUM-TIER FILM PRODUCTION SPECIFICATION
 
-## Controlled media assets
+## Deliverables
 
-- `ghscl-website/media/ghscl-hybrid-film.mp4`
-- `ghscl-website/media/ghscl-hybrid-film.webm`
-- `ghscl-website/media/ghscl-trust-film.mp4`
-- poster: `ghscl-website/media/trust-core.webp`
-- captions: `ghscl-website/media/ghscl-master-film-en.vtt`
-- deterministic render pipeline: `scripts/render-ghscl-film.py`
-- storyboard: `docs/stakeholder-video/AHTE_STAKEHOLDER_FILM_STORYBOARD.md`
-- prompt pack: `docs/stakeholder-video/AHTE_VIDEO_GENERATION_PROMPTS.md`
-- voiceover control: `docs/media/MASTER_VOICEOVER_EN_2026.md`
+- 4–6 minute institutional master film.
+- 60-second executive cut.
+- 30-second campaign cut.
+- 16:9 4K master plus approved web/social derivatives.
+- English master narration.
+- Simplified Chinese adaptation and subtitles.
+- Arabic/Malay subtitle architecture as required.
+- Storyboard, shot list, edit decision list, UI-overlay specification, sound design and render specification.
 
-## Narrative lock
+Existing repository video files are supporting assets, not substitutes for the complete master production specification.
 
-1. GLOBAL PROBLEM — cross-border trade requires evidence continuity.
-2. FRACTURED TRUST — a broken evidence/custody link creates a hold, not a compensating score.
-3. GHSCL INFRASTRUCTURE — authority, controls, evidence and decisions remain distinct.
-4. DIGITAL AUDIT TWIN — facilities, zones, process, materials and evidence are connected.
-5. PLATINUM MONITORING — exceptions, hold, blast radius, human review and re-verification.
-6. CHINA → GCC — origin, laboratory, Sinotrans warehouse/logistics, port, transit and GCC receiving.
-7. AUTHORITY / HITM — AHTE ⇄ Direct JAKIM API ⇄ JAKIM; AI assists; authorised humans/competent authorities decide.
-8. OPERATIONAL RELEASE — evidence before trust; trust before operational release.
+## Art direction
 
-## 90-second executive edit decision list
+Black/obsidian, restrained metallic gold and warm ivory. Arial/Helvetica/neutral sans-serif for all titles and UI overlays. Islamic design influence appears through geometry, rhythm, proportion and fine-line structure.
 
-| Time | Picture | On-screen message |
+**No oversized decorative shield or emblem as a hero/end-card device.** The film’s visual focus is the product identity, evidence, people, physical operations, custody and verification.
+
+## Master narrative — 4–6 minutes
+
+| Sequence | Screen story | Required content |
 |---|---|---|
-| 00–08 | Origin manufacturing / material identity | TRUST STARTS AT SOURCE |
-| 08–16 | Supplier/product/evidence objects converge | EVIDENCE WITH PROVENANCE |
-| 16–24 | AHTE architecture layers | STANDARDS · CONTROLS · EVIDENCE |
-| 24–32 | AI assessment handed to reviewer | AI ASSISTS · HUMANS DECIDE |
-| 32–40 | Laboratory custody workflow | NOT DETECTED ≠ HALAL |
-| 40–48 | Smart audit / findings / CAPA | FIND · CORRECT · RE-VERIFY |
-| 48–58 | Batch / seal / telemetry / HOLD | CONTINUOUS ASSURANCE |
-| 58–70 | China warehouse → port → vessel → GCC | CHINA → GCC DIRECT |
-| 70–78 | Authority topology | AHTE ⇄ DIRECT JAKIM API ⇄ JAKIM |
-| 78–86 | Command Center risk view | DETECT · PREDICT · INTERVENE |
-| 86–90 | Corporate shield / wordmark | EVIDENCE BEFORE TRUST |
+| 01. Trust problem | One product moving through many organisations | Fragmented records become one connected evidence story |
+| 02. China origin | Manufacturer, KYC, facility, product/SKU | Organisation/facility/product identity |
+| 03. Provenance | Supplier, ingredient, raw material, lot | Product/SKU → material → supplier → origin/evidence |
+| 04. Complete framework | Standards/applicability | Complete registry-driven Malaysian/JAKIM framework; not MS1500/MS2400 only |
+| 05. AI + humans | Document review and escalation | D0–D6 boundary; AI assists, accountable humans decide |
+| 06. Laboratory | Sample through signed evidence | NOT_DETECTED ≠ HALAL |
+| 07. Smart audit | Auditor, smart glasses/tablet, CAPA | Observation → evidence → finding → corrective action → re-verification |
+| 08. Credential workflow | Dossier and authority gate | AHTE ⇄ Direct JAKIM API ⇄ JAKIM; authority state remains externally owned |
+| 09. Production | Line, IoT, digital twin, batch | Sensor/event evidence attached to exact objects |
+| 10. Warehouse | Segregation, condition, dispatch | Physical state and evidence continuity |
+| 11. Sinotrans | Vehicle/container/seal/telemetry | Digital chain of custody |
+| 12. Port / customs | China export and GCC arrival | Inspection/hold/release attributed to sovereign authority |
+| 13. GCC importer | Pre-arrival and receiving | Container/seal, SKU/batch, condition, credential, discrepancy/quarantine |
+| 14. Distributor / 3PL | Destination transfer | Inventory lot, custody, route, proof of delivery |
+| 15. Retail / marketplace | Listing, receiving, shelf/fulfilment | Verify before listing, receiving and selling |
+| 16. Product verification | Buyer, authority, retailer, consumer | Purpose-bound Digital Trust Passport |
+| 17. Command Center | Global corridor operations | Detect → predict → recommend/preempt → assign/escalate → CAPA/re-verification |
+| 18. Recall | Blast-radius propagation | Importer inventory → distributor → stores/orders |
+| 19. Finance/Takaful | Evidence-supported case | Financing/underwriting decision remains separately owned |
+| 20. Closing | China → GCC direct corridor | Evidence before trust. Trust before operational release. |
 
-## Current delivery position
+## 60-second cut
 
-The website motion master is already present in H.264 and VP9/WebM forms and is referenced by the corporate website. CI verifies required film assets exist.
+Origin → provenance → laboratory → audit → production → Sinotrans → ports → **GCC importer → distributor → retail → verification** → Command Center → authority topology.
 
-The 90-second executive master is fully specified with controlled storyboard, exact shot order, text overlays, voiceover, captions, brand system and claim controls. A new AI-generated 4K photoreal master cannot be rendered from the currently connected media workspace because video generation is not enabled on its present plan.
+## 30-second cut
 
-[OPEN GATE: external video-generation plan activation — no redesign required; all project-controlled production inputs are complete.]
+One product identity travelling China → GCC with visible evidence continuity across origin, assurance, custody, importer, retail and verification.
 
-## Non-negotiable claim boundaries
+## Narration controls
+
+The narration must say, in plain institutional language:
+
+- the platform connects evidence and operations across the entire corridor;
+- the Malaysian/JAKIM framework is registry-driven and broader than MS1500/MS2400;
+- AI supports analysis and prediction;
+- authorised humans/competent authorities retain reserved decisions;
+- laboratories produce evidence, not Halal certification;
+- importer/distributor/retailer preserve destination evidence and recall traceability;
+- AHTE ⇄ Direct JAKIM API ⇄ JAKIM;
+- China → GCC direct.
+
+## Shot specification
+
+Every scene identifies:
+- duration;
+- location/environment;
+- actor;
+- physical object;
+- camera move;
+- evidence/UI overlay;
+- transition;
+- sound cue;
+- narration;
+- status/decision owner.
+
+No abstract “AI magic”, generic holograms, ornamental shield hero, blockchain-as-certification metaphor or unsupported production claim.
+
+## Audio
+
+Modern institutional score: low-register orchestral/electronic bed, precise industrial field sound, restrained percussion. Scanner/door/seal/warehouse/port sounds may reinforce physical handoffs. Voice remains primary.
+
+## Render
+
+- 3840×2160 UHD master.
+- 24/25 fps master according to production pipeline.
+- H.264/H.265 delivery; mezzanine ProRes/DNxHR where production environment supports it.
+- Captions delivered as sidecar WebVTT/SRT plus burned-in preview.
+- Audio master and M&E stem retained.
+
+## Claim boundaries
 
 - No AI certification.
-- No blockchain certification.
 - No laboratory certification.
-- No QR/NFC/sensor certification.
-- No fabricated Shipment 001 execution.
-- No fabricated JAKIM production response or authority decision.
-- No sovereign release by AHTE or GHSCL.
-- No fabricated Sinotrans, GCC, finance or Takaful production response.
+- No blockchain, QR/NFC, sensor or software certification.
+
+AI, blockchain, laboratory results, QR/NFC, sensors and software do not create Halal certification. Sovereign border release and regulated finance/Takaful decisions remain with their accountable institutions. Real production events must be backed by real evidence.

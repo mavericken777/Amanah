@@ -4,13 +4,17 @@ AMANAH is the end-to-end operational and digital trust platform for the Global H
 
 It connects manufacturer onboarding, product and material provenance, Malaysian/JAKIM Halal requirements, evidence, laboratories, smart audit, production monitoring, Sinotrans logistics, ports/customs, GCC destination operations, verification and the 24/7 Command Center as one continuous journey.
 
-## China Trip master delivery prompt
+## Controlling master execution prompt
 
-The complete China-trip delivery brief is:
+The complete platform brief is:
+
+**[AMANAH — 100% End-to-End Master Execution Prompt](docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md)**
+
+The China-trip brief remains the mission-specific derivative:
 
 **[AMANAH China Trip — Master Delivery Prompt](docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md)**
 
-This is the primary China-trip presentation and delivery brief. Internal implementation records remain supporting material and are not part of the presentation package.
+Finished stakeholder deliverables are the primary outcome; internal implementation records remain supporting QA material.
 
 Prompt coverage audit: **[China Trip prompt coverage audit](docs/mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)**.
 
@@ -36,9 +40,11 @@ Prompt coverage audit: **[China Trip prompt coverage audit](docs/mission/AMANAH_
 → Container / Seal / Custody  
 → Port / Customs  
 → Direct JAKIM API  
-→ GCC Destination  
-→ Distribution / Retail  
-→ Product Verification  
+→ GCC Port / Customs  
+→ GCC Importer / Receiving / Warehouse  
+→ Distributor / 3PL  
+→ Retailer / Marketplace / E-commerce  
+→ Buyer / Authority / Retailer / Consumer Verification  
 → Command Center  
 → Continuous Assurance**
 
@@ -57,7 +63,7 @@ AI assists. Authorised humans and competent authorities decide.
 
 AMANAH does **not** treat MS 1500 and MS 2400 as the entire framework.
 
-The current project-verified Malaysian/JAKIM operating catalogue contains 17 first-class standards:
+The platform is not capped at a fixed standards count. The current project-verified primary Malaysian/JAKIM registry contains the following 17 current primary standards, while every additional verified applicable product/technical Malaysian Standard must also be evaluated by scope:
 
 1. MS 1500:2019
 2. MS 2400-1:2019
@@ -87,7 +93,7 @@ The default physical corridor is:
 
 **China → GCC direct**
 
-China provides origin, manufacturers, suppliers, laboratories, factory systems and product evidence. Sinotrans provides warehouse/logistics and custody operations. Ports/customs handle sovereign border processes. GCC covers importer, receiving, warehouse, distribution, retail and verification.
+China provides origin, manufacturers, suppliers, laboratories, factory systems and product evidence. Sinotrans provides warehouse/logistics and custody operations. Ports/customs handle sovereign border processes. GCC destination operations are first-class platform experiences covering importer onboarding and pre-arrival, receiving/quarantine, destination warehouse, distributor/3PL custody, retailer/marketplace listing and receiving, recall propagation and buyer/authority/retailer/consumer verification.
 
 Malaysia provides governance, assurance and authority connectivity unless a separate physical route is specifically scoped.
 

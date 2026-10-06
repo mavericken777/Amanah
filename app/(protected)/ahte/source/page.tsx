@@ -35,7 +35,7 @@ export default async function AHTESourcePage(){
         </div>
         <span className="status">{operatingSet.catalog_count} standards</span>
       </div>
-      <p className="muted">The applicability engine evaluates the current primary standards catalogue plus every applicable product/technical instrument, then layers MPPHM, MHMS, HAS, IHCS, protocols, circulars, authority instructions, destination rules and laboratory methods.</p>
+      <p className="muted">The applicability engine evaluates every verified applicable Malaysian/JAKIM Standard and product/technical instrument in the controlled registry. The current primary catalogue is 17 standards, but 17 is not a permanent ceiling. MPPHM, MHMS, HAS, IHCS, protocols, circulars, authority instructions, destination rules and laboratory methods are layered by scope.</p>
       <div className="card-grid">
         {operatingSet.standards.map((standard)=><article className="card" key={standard.code}>
           <div className="eyebrow">{standard.code}</div>

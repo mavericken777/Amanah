@@ -4,9 +4,13 @@
 
 AMANAH / Global Halal Digital Trust is presented as one end-to-end platform for China-origin Halal trade, assurance, custody and GCC market verification.
 
-## China Mission delivery
+## Controlling delivery prompts
 
-Primary China-trip brief:
+Primary platform brief:
+
+- [100% end-to-end master execution prompt](../AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md)
+
+Mission-specific brief:
 
 - [Master delivery prompt](../AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md)
 - [Prompt coverage audit](../mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)
@@ -25,13 +29,13 @@ AI assists. Authorised humans and competent authorities decide.
 
 Evidence before trust. Trust before operational release.
 
-The lifecycle connects manufacturer/KYC, facility, product/SKU, supplier/material provenance, standards applicability, evidence, laboratory, smart audit, CAPA, authority workflow, production/IoT/digital twin, batch, warehouse, Sinotrans logistics, custody, ports/customs, GCC distribution, verification and the 24/7 Command Center.
+The lifecycle connects manufacturer/KYC, facility, product/SKU, supplier/material provenance, standards applicability, evidence, laboratory, smart audit, CAPA, authority workflow, production/IoT/digital twin, batch, warehouse, Sinotrans logistics, custody, ports/customs, GCC importer receiving, distributor/3PL custody, retailer/marketplace operations, buyer/authority/consumer verification and the 24/7 Command Center.
 
 ## Malaysian / JAKIM framework
 
 The standards architecture is registry-driven and is not limited to MS 1500 or MS 2400.
 
-The current verified primary standards catalogue contains 17 standards in `docs/ahte/MS_OPERATING_SET.json`, with additional applicable product/technical standards such as MS 2683:2017 evaluated by scope.
+The registry is not capped to a permanent count. The current verified primary catalogue contains 17 current standards in `docs/ahte/MS_OPERATING_SET.json`; every additional verified applicable product/technical instrument, including MS 2683:2017 when in scope, is evaluated without redesign.
 
 The wider framework includes MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination rules and laboratory methods.
 
@@ -45,7 +49,7 @@ The public website and authenticated application use the same platform story:
 - Arial / Helvetica / neutral sans-serif;
 - no oversized decorative shield;
 - complete Malaysian/JAKIM standards registry;
-- manufacturer, laboratory, audit, production, logistics, ports, GCC, verification, finance/Takaful and Command Center;
+- manufacturer, laboratory, audit, production, logistics, ports, dedicated GCC importer, distributor/3PL, retailer/marketplace, verification, finance/Takaful and Command Center;
 - concise institutional language suitable for China-mission meetings.
 
 ## Internal release validation

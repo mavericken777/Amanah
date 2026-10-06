@@ -5,7 +5,7 @@
 ## 1. Canonical system story
 AMANAH connects origin, manufacturer, assurance, laboratory, audit, production, logistics, border, destination and verification as one evidence-linked lifecycle.
 
-`Origin / Manufacturer -> Organisation -> Identity/KYC -> Facility -> Product -> SKU -> Supplier -> Ingredient/Raw Material -> Documentation -> AI Review -> Human Governance -> Laboratory -> Audit -> CAPA -> Authority/Credential -> Production -> IoT -> Batch -> Warehouse -> Logistics -> Digital Custody -> Port -> Authority Connectivity -> Cross-Border -> GCC Destination -> Distribution/Retail -> Verification -> Command Centre -> Continuous Assurance`
+`Origin / Manufacturer -> Organisation -> Identity/KYC -> Facility -> Product -> SKU -> Supplier -> Ingredient/Raw Material -> Documentation -> AI Review -> Human Governance -> Laboratory -> Audit -> CAPA -> Authority/Credential -> Production -> IoT -> Batch -> Warehouse -> Sinotrans Logistics -> Digital Custody -> Origin Port/Customs -> Authority Connectivity -> Cross-Border -> GCC Port/Customs -> GCC Importer -> Importer Receiving/Warehouse -> Distributor/3PL -> Retailer/Marketplace/E-commerce -> Buyer/Authority/Retailer/Consumer Verification -> Command Centre -> Continuous Assurance`
 
 ## 2. Authority boundary
 `AHTE <-> Direct JAKIM API <-> JAKIM`
@@ -24,7 +24,10 @@ AHTE provides orchestration, applicability mapping, controls, evidence, AI assis
 | Production | devices/sensors/telemetry/batches | manufacturer operations | AHTE + factory SOR | telemetry evidence | buffer/alert |
 | Logistics | shipment/vehicle/driver/custody/seal | logistics operator | AHTE + operator SOR | handover/telemetry | hold/store-forward |
 | Border | pre-arrival/inspection/release | port/customs authority | authority SOR | inspection/decision | hold/refer |
-| Destination | importer/warehouse/retail/verification | destination operator/authority | destination SOR | receiving/market evidence | hold/refer |
+| GCC Importer | pre-arrival/receiving/quarantine/inventory eligibility | importer | importer ERP/WMS + AHTE refs | receiving/discrepancy evidence | accept/quarantine/refer |
+| Distributor / 3PL | storage/transfers/custody/delivery/returns/recall | distributor/3PL | WMS/TMS + AHTE refs | transfer/POD/condition evidence | hold/refer/recall |
+| Retail / Marketplace | listing/receiving/sale eligibility/withdrawal/recall | retailer/marketplace | ERP/POS/catalog/order SOR + AHTE refs | listing/receiving/verification evidence | block/quarantine/withdraw |
+| Verification | buyer/authority/retailer/consumer disclosure | disclosure issuer + policy owner | verification event store | scoped disclosure event | deny/limited disclosure |
 | Intelligence | extraction/anomaly/prediction | AHTE intelligence | provenance/prediction | model/source refs | escalate/D4 hold |
 | Integration | APIs/events/adapters/webhooks | integration engineering | connector state + external SOR | receipt/mapping | retry/circuit-break |
 | Experience | role-specific interfaces | product teams | web/mobile/partner channels | user audit | safe empty/offline |
@@ -52,17 +55,29 @@ Manufacturer: `Organisation -> KYC -> Facility -> ProductionLine -> Product -> S
 
 Laboratory: `Requirement -> Sample -> ChainOfCustody -> Method/QC -> TestResult -> Review/Signature -> Evidence -> Audit/Case`. **NOT DETECTED != HALAL**.
 
-Logistics: `Batch/Lot -> Package -> Pallet -> Container -> Seal -> Shipment -> Vehicle/Driver -> Route/Custody -> Port -> Destination -> Verification`.
+Logistics: `Batch/Lot -> Package -> Pallet -> Container -> Seal -> Shipment -> Vehicle/Driver -> Route/Custody -> Origin Port -> GCC Port -> Importer Receiving -> Distributor/3PL -> Retailer/Marketplace -> Verification`.
 
 Trust: `Source -> Requirement -> Control -> Evidence -> AuditTest -> Finding -> CAPA -> Reverification -> AuthorityGate -> TrustState -> OperationalRelease`.
 
-## 8. Resilience and sovereignty
+## 8. Destination-market operating graph
+
+Importer: `PreArrivalDossier -> PortReleaseReference -> ReceivingAppointment -> Container/SealReconciliation -> SKU/Batch/Quantity/Condition -> CredentialCheck -> Accept/Discrepancy/Quarantine -> WarehousePlacement -> InventoryLot -> DistributionEligibility`.
+
+Distributor/3PL: `InboundAcceptance -> Storage -> Lot/BatchReconciliation -> TransferOrder -> Vehicle/Custody -> Delivery -> Returns -> RecallExecution`.
+
+Retail/Marketplace: `ApprovedImporter/Supplier -> ListingEligibility -> PO/ASN -> SKU/BatchReceiving -> Storage/Shelf/Fulfilment -> SaleAvailability -> Verification -> Withdrawal/Recall`.
+
+Recall propagation: `Product/SKU -> Batch/Lot -> ImportShipment -> ImporterInventory -> DistributorTransfers -> RetailDC/Store/Order -> Verification/CustomerContact`.
+
+These are first-class experiences. They do not collapse destination operational acceptance into Halal certification or sovereign customs release.
+
+## 9. Resilience and sovereignty
 Field workflows support store-and-forward. No outage is converted into synthetic success. Granular source records remain in their legally appropriate sovereign/enterprise systems; federation exposes minimum-necessary assertions, proofs, statuses and references.
 
-## 9. Release principle
+## 10. Release principle
 Operational release is a technical transition subject to configured hard gates and human/authority evidence. It is not Halal certification.
 
-## 10. Current implementation binding
-AHTE implementation includes control/evidence/trust, laboratory, audit, logistics/custody, digital twins, telemetry, Command Centre target objects, finance-evidence objects, connector contracts and public verification. The 2026-10-02 normalized domain migration adds first-class ProductionLine, SKU, CertificationScope, Vehicle, Driver, Warehouse, Pallet, Package, Container, Seal, RouteEvent and VerificationEvent objects and typed Sensor/Gateway profiles.
+## 11. Current implementation binding
+AHTE implementation includes control/evidence/trust, laboratory, audit, logistics/custody, digital twins, telemetry, first-class GCC importer and retail/market experiences, Command Centre target objects, finance-evidence objects, connector contracts and public verification. The 2026-10-02 normalized domain migration adds first-class ProductionLine, SKU, CertificationScope, Vehicle, Driver, Warehouse, Pallet, Package, Container, Seal, RouteEvent and VerificationEvent objects and typed Sensor/Gateway profiles.
 
 External production systems remain separately gated by contracts, credentials, permissions and UAT.

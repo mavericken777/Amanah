@@ -17,21 +17,21 @@ The generated audio assets are retained in the connected media workspace. Reposi
 
 Global Halal trade crosses many systems, organisations and jurisdictions. Trust must travel with the product.
 
-Global Halal Supply Chain Limited and AMANAH connect origin, manufacturers, suppliers, laboratories, audits, production, logistics and destination receiving through one evidence-led operating model.
+Global Halal Supply Chain Limited and AMANAH connect origin, manufacturers, suppliers, laboratories, audits, production, logistics, ports, GCC importers, distributors, retailers and verification through one evidence-led operating model.
 
 At the core, AHTE links requirements to controls, evidence and accountable review. Artificial intelligence assists with detection and assessment. Authorised humans and competent authorities make the reserved decisions.
 
-Laboratory results remain scientific evidence. Smart audit links observations to findings, corrective action and re-verification. Production and logistics connect batches, containers, seals, telemetry and custody.
+Laboratory results remain scientific evidence. Smart audit links observations to findings, corrective action and re-verification. Production and logistics connect batches, containers, seals, telemetry and custody. At destination, the GCC importer reconciles the shipment and receiving evidence; distributors preserve onward custody; retailers and marketplaces verify listing, receiving and recall status against the same product and batch lineage.
 
 The default physical corridor is China to the GCC, direct. Authority connectivity follows one clear topology: AHTE, Direct JAKIM API, JAKIM.
 
-Across the corridor, the twenty-four-seven Command Center monitors evidence integrity, exceptions, predictive risk and recall exposure.
+Across the corridor, the twenty-four-seven Command Center monitors evidence integrity, exceptions, predictive risk and recall exposure from origin through importer inventory, distribution, retail locations and affected orders.
 
 Evidence before trust. Trust before operational release.
 
 ## Website / short-cut script
 
-Trust starts at source. AMANAH connects products, suppliers, laboratories, audits, production and logistics through evidence that travels with the physical object. AHTE links controls to provenance and accountable review. AI assists. Authorised humans and competent authorities decide. China to GCC, direct. Evidence before trust. Trust before operational release.
+Trust starts at source. AMANAH connects products, suppliers, laboratories, audits, production, logistics, GCC importer receiving, distribution, retail and verification through evidence that travels with the physical object. AHTE links controls to provenance and accountable review. AI assists. Authorised humans and competent authorities decide. China to GCC, direct. Evidence before trust. Trust before operational release.
 
 ## Performance control
 

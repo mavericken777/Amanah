@@ -133,7 +133,9 @@ AMANAH is the operational workspace through which stakeholders coordinate onboar
 - Production and IoT monitoring.
 - Warehouse, logistics, container, seal and custody events.
 - Port/customs adapters.
-- GCC receiving, distribution and retail handoff.
+- GCC importer pre-arrival, receiving, discrepancy/quarantine and destination inventory.
+- Distributor/3PL transfer, custody and proof of delivery.
+- Retailer/marketplace listing, receiving, sale eligibility, verification and recall propagation.
 - Product/batch/shipment verification.
 - Command Center alerts and exception ownership.
 - Finance/Takaful evidence interfaces.
@@ -314,7 +316,7 @@ Malaysia is the governance, assurance and authority-connectivity plane unless a 
 
 ### Corridor sequence
 
-China origin → manufacturer → laboratory → Sinotrans warehouse → origin port/customs → international transit → GCC port/customs → importer / receiving → destination warehouse → distribution / retail → verification.
+China origin → manufacturer → laboratory → Sinotrans warehouse → origin port/customs → international transit → GCC port/customs → importer pre-arrival/receiving/quarantine → destination warehouse/inventory → distributor/3PL custody → retailer/marketplace listing/receiving → buyer/authority/retailer/consumer verification.
 
 **[PILOT: Shipment 001 — NOT-INSTANTIATED]**
 
@@ -333,7 +335,9 @@ The 24/7 GHSCL + JAKIM Command Center operating model monitors:
 - Audit findings and CAPA.
 - Custody, seal, route and telemetry events.
 - Port/customs status.
-- GCC receiving and destination exceptions.
+- GCC importer pre-arrival/receiving and destination exceptions.
+- Distributor/3PL custody and delivery exceptions.
+- Retailer/marketplace listing, receiving, withdrawal and recall exposure.
 - Predictive risk.
 - Preemptive Strategy.
 - Re-verification.
@@ -342,6 +346,19 @@ The 24/7 GHSCL + JAKIM Command Center operating model monitors:
 The Command Center supports descriptive, diagnostic, predictive and preemptive workflows while preserving external decision ownership.
 
 ---
+
+## 15A. GCC importer, distribution and retail
+
+### Importer
+Pre-arrival dossier → port release reference → receiving appointment → container/seal/SKU/batch/condition reconciliation → credential/document check → accept/discrepancy/quarantine → warehouse placement → inventory lot → distribution eligibility.
+
+### Distributor / 3PL
+Inbound acceptance → storage → batch/lot reconciliation → transfer → custody/vehicle/route → delivery → returns → recall execution.
+
+### Retail / marketplace
+Approved supplier/importer → listing eligibility → PO/ASN → SKU/batch receiving → storage/shelf/fulfilment → sale availability → verification → withdrawal/recall.
+
+This destination layer preserves the same product, batch, custody and authority context created upstream.
 
 ## 16. Product, batch and shipment verification
 

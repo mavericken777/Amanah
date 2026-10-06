@@ -3,6 +3,8 @@
 **Date:** 7 October 2026  
 **Purpose:** Produce the complete, presentation-ready AMANAH / Global Halal Digital Trust package for meetings, demonstrations, partner engagement, technical discussions, MOA review and executive presentation during the China trip.
 
+**Controlling platform prompt:** [AMANAH — 100% END-TO-END MASTER EXECUTION PROMPT](AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md). This China-trip brief is the mission-specific delivery layer and must remain consistent with the controlling end-to-end platform prompt.
+
 ---
 
 # EXECUTION INSTRUCTION
@@ -683,15 +685,22 @@ External schemas should map into the AMANAH canonical model through adapters.
 
 ---
 
-# 15. GCC DESTINATION / RETAIL / VERIFICATION
+# 15. GCC DESTINATION / IMPORTER / DISTRIBUTOR / RETAIL / VERIFICATION
 
 Show:
 
-- GCC importer;
+- GCC importer onboarding / KYC / authorised users;
+- pre-arrival dossier / PO / manifest / product-SKU-batch / credential status;
 - destination port;
-- receiving;
-- warehouse;
-- distribution;
+- receiving appointment;
+- container / seal / quantity / condition reconciliation;
+- discrepancy / quarantine;
+- importer warehouse / inventory lot;
+- distributor / 3PL transfer and custody;
+- retailer / DC / store receiving;
+- retail listing eligibility;
+- retail stock / expiry / cold-chain where relevant;
+- withdrawal / recall propagation;
 - retail;
 - marketplace / e-commerce where applicable;
 - buyer verification;
@@ -907,6 +916,9 @@ Produce:
 - Sinotrans deck;
 - laboratory deck;
 - authority/institutional deck;
+- GCC importer deck;
+- distributor/3PL deck;
+- retailer/marketplace deck;
 - GCC buyer/retailer deck.
 
 ## C. Corporate Profile
