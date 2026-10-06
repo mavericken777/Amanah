@@ -1,6 +1,6 @@
 # Amanah repository index
 
-| Domain | Controlling artifact / implementation |
+| Domain | Current artifact / implementation |
 | --- | --- |
 | Current state | [STATUS](docs/operations/STATUS.md) |
 | External gates | [PENDING](docs/operations/PENDING.md) |
@@ -9,7 +9,9 @@
 | Canonical mirrors | [checksum manifest](config/canonical-mirror-manifest.json) |
 | Protected application | `app/(protected)/`, `lib/`, `proxy.ts` |
 | Website | [website source](ghscl-website/ecosystem.en.json), [provenance](ghscl-website/source-manifest.json) |
-| Controlling website brief | [5 October design and interaction delivery](docs/operations/WEBSITE_BRIEF_2026-10-05.md); `ghscl-website/journey.js` and `scripts/build-trust-journey.mjs` |
+| Website delivery brief | [5 October design and interaction delivery](docs/operations/WEBSITE_BRIEF_2026-10-05.md); `ghscl-website/journey.js` and `scripts/build-trust-journey.mjs` |
+| China-trip Platinum master | [complete finished-deliverables prompt](docs/mission/CHINA_TRIP_PLATINUM_MASTER_PROMPT_2026-10-07.md) |
+| China-trip coverage audit | [platform / deliverable completeness analysis](docs/mission/CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md) |
 | Database | `supabase/migrations/` (applied history), `lib/database.types.ts` (base) + `lib/database.current.types.ts` (forward extensions) + `lib/database.target.types.ts` (application view) |
 | Integration | [internal contracts](lib/integrations/contracts.ts); canonical runtime mirrors under `reference-runtime/` |
 | CI / delivery | [.github/workflows/ci.yml](.github/workflows/ci.yml), [.github/workflows/ghscl-pages.yml](.github/workflows/ghscl-pages.yml) |
@@ -76,7 +78,7 @@ AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. Shipment 001 remains 
 - [Final operating test](docs/operations/FINAL_OPERATING_TEST_2026-10-03.md)
 - [69-item final closure record](docs/operations/AMANAH_69_FINAL_CLOSURE_2026-10-03.md)
 
-**Programme state:** 69/69 complete to project-controlled scope. Final exact-head CI and merge are verified; current Vercel deployment contexts are green. External authority/partner/transaction/UAT gates remain controlled in PENDING.
+**Programme state:** the 69-section internal operating programme is implemented. China-trip presentation work now uses the 7 October Platinum-Tier master prompt so outward-facing deliverables are complete, stakeholder-ready and not reduced to engineering notes.
 
 ## 3 October final refinement
 
