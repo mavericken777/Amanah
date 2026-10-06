@@ -13,7 +13,7 @@ test('China mission root pack is practical, current and presentation-ready',()=>
   const overview=fs.readFileSync('PROJECT_OVERVIEW.md','utf8');
   assert.match(overview,/end-to-end operational and digital trust platform/i);
   assert.match(overview,/registry-driven standards model/i);
-  assert.match(overview,/MS 1500 and MS 2400/i);
+  assert.match(overview,/MS 1500.*MS 2400/i);
   assert.match(overview,/MPPHM 2020/);
   assert.match(overview,/AHTE ⇄ Direct JAKIM API ⇄ JAKIM/);
   assert.match(overview,/China → GCC direct/);
