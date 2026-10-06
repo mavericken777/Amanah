@@ -218,3 +218,18 @@ body::after{
 .hero-terminal .circuit-map circle{fill:#f0d88f;opacity:.72}
 .hero-terminal .terminal-head,.hero-terminal .shield-orbit,.hero-terminal>dl{position:relative;z-index:1}
 @media(max-width:760px){.hero-terminal .circuit-map{height:14rem;top:3.6rem;opacity:.3}}
+
+/* Complete Malaysian/JAKIM standards operating set */
+.standards-catalog{margin-top:1.5rem;padding:1.5rem;border:1px solid rgba(215,178,94,.2);background:#0a0908;border-radius:.55rem}
+.standards-catalog-head{display:flex;justify-content:space-between;gap:1.5rem;align-items:flex-start;margin-bottom:1rem}
+.standards-catalog-head h3{margin:.35rem 0 .5rem;color:#f5eedf;font:600 clamp(1.35rem,2vw,2rem)/1.15 Arial,Helvetica,sans-serif}
+.standards-catalog-head p{max-width:58rem;color:#b9ae99}
+.standards-catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem}
+.standard-card{padding:.85rem .9rem;border:1px solid rgba(215,178,94,.14);background:#0d0c0a;border-radius:.4rem;display:grid;gap:.35rem}
+.standard-card strong{color:#e8cf8a;font:700 .78rem Arial,Helvetica,sans-serif}
+.standard-card span{color:#b9ae99;font:400 .75rem/1.45 Arial,Helvetica,sans-serif}
+.standards-framework-note{margin-top:.85rem;padding:.9rem;border-left:2px solid #d7b25e;background:rgba(215,178,94,.045);display:grid;gap:.3rem}
+.standards-framework-note strong{color:#f0d88f;font:700 .75rem Arial,Helvetica,sans-serif}
+.standards-framework-note span{color:#b9ae99;font:400 .75rem/1.5 Arial,Helvetica,sans-serif}
+@media(max-width:900px){.standards-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.standards-catalog-head{display:grid}}
+@media(max-width:560px){.standards-catalog{padding:1rem}.standards-catalog-grid{grid-template-columns:1fr}}

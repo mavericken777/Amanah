@@ -77,6 +77,26 @@ const corridor = demoJourneyStages;
 
 const standardsTopics = ["Supplier and material scope", "Facility and product controls", "Sample and laboratory evidence", "Audit and human assessment", "Controlled production", "Warehouse dispatch", "Warehouse receiving and storage", "Transport custody", "Export handoff", "Import and release", "Destination distribution", "Consumer disclosure"];
 
+const msStandards = [
+  ["MS 1500:2019", "Halal food — General requirements"],
+  ["MS 2400-1:2019", "Halal supply chain management system — Transportation"],
+  ["MS 2400-2:2019", "Halal supply chain management system — Warehousing"],
+  ["MS 2400-3:2019", "Halal supply chain management system — Retailing"],
+  ["MS 2424:2019", "Halal pharmaceuticals — General requirements"],
+  ["MS 2634:2019", "Halal cosmetics — General requirements"],
+  ["MS 2636:2019", "Halal medical device — General requirements"],
+  ["MS 2738:2023", "Halal consumable goods — General requirements"],
+  ["MS 2803:2025", "Usage of animal bone, skin and hair"],
+  ["MS 2393:2023", "Islamic terminology"],
+  ["MS 2627:2017", "Detection of porcine DNA — Food"],
+  ["MS 2627-2:2025", "Detection of porcine DNA — Cosmetics"],
+  ["MS 1900:2025", "Shariah-based quality management system"],
+  ["MS 2691:2021", "Halal profession competency standard"],
+  ["MS 2610:2015", "Muslim-friendly hospitality services"],
+  ["MS 2809:2025", "Authentication using chemometric techniques"],
+  ["MS 2810:2025", "Identification of pig skin and hair"],
+] as const;
+
 const pathways = [
   ["Manufacturer", "Onboard enterprise, facility, products, suppliers and evidence."],
   ["Laboratory", "Bind scientific evidence to exact samples, methods and signed results."],
@@ -88,7 +108,7 @@ const pathways = [
 const labStages = [
   ["Sample registered", "Give the sample a unique ID and bind it to the exact product, SKU and batch. Record collector, time, seal and sampling basis before analysis."],
   ["Custody accepted", "The receiving analyst confirms identity, seal condition and handover. Each custodian, timestamp and condition is linked to the same sample record."],
-  ["Method & quality controls", "The selected laboratory records method, scope, instrument context, controls and QC. Applicable requirements map to controlled MS 1500:2019 references; the method and laboratory scope must be confirmed for each test."],
+  ["Method & quality controls", "The selected laboratory records method, scope, instrument context, controls and QC. Applicable requirements are resolved from the complete controlled Malaysian/JAKIM standards and certification framework, including relevant laboratory test-method standards; method and laboratory scope are confirmed for each test."],
   ["Technical review & signature", "An authorised reviewer checks the result against the method, QC and sample chain, then signs the report. The report becomes scientific evidence for the relevant product and control review."],
   ["Evidence bound to product", "AHTE attaches the signed report to the relevant product, batch and control with provenance. A test finding is considered alongside ingredients, process, handling and the applicable authority review."],
 ];
@@ -437,7 +457,28 @@ export default function App() {
               <div className="passport-scrubber-labels"><span>Origin</span><span>Audit</span><span>Warehouse</span><span>Port</span><span>GCC consumer</span></div>
             </div>
           </section>
-          <div className="standards-note standards-map"><strong>Standards in the operating model</strong><span>Food and manufacturing controls: MS 1500:2019. Transport: MS 2400-1:2019. Warehousing: MS 2400-2:2019. Retailing: MS 2400-3:2019. The platform maps licensed, controlled requirements to evidence; an operator’s conformity is established through scope, records and competent review.</span><a href="https://www.jsm.gov.my/announcement/781-kelulusan-malaysian-standards-ms-bil-5-2024" target="_blank" rel="noreferrer">View Standards Malaysia revision notice ↗</a></div>
+          <section className="standards-catalog" aria-labelledby="ms-catalog-title">
+            <div className="standards-catalog-head">
+              <div>
+                <p className="eyebrow">COMPLETE MALAYSIAN / JAKIM MS OPERATING SET</p>
+                <h3 id="ms-catalog-title">All 17 controlled Malaysian Standards are first-class applicability candidates.</h3>
+                <p>The platform does not reduce Halal assurance to MS 1500 and MS 2400. AHTE resolves the applicable standard or instrument by product, service, facility, process, logistics activity, destination and evidence context.</p>
+              </div>
+              <span className="state-chip">17 MS STANDARDS</span>
+            </div>
+            <div className="standards-catalog-grid">
+              {msStandards.map(([code, title]) => (
+                <article className="standard-card" key={code}>
+                  <strong>{code}</strong>
+                  <span>{title}</span>
+                </article>
+              ))}
+            </div>
+            <div className="standards-framework-note">
+              <strong>Certification framework layer</strong>
+              <span>MPPHM 2020 · MHMS 2020 · HAS · IHCS · protocols · circulars · authority instructions · destination rules · laboratory methods.</span>
+            </div>
+          </section>
         </section>
 
         <section className="section assurance-section" id="assurance">
@@ -473,7 +514,7 @@ export default function App() {
                 <h3>{labStages[activeLab][0]}</h3>
                 <p>{labStages[activeLab][1]}</p>
               </div>
-              <div className="standards-note"><strong>Standards mapping</strong><span>MS 1500:2019 · Halal food — general requirements. The applicable requirement links to its control and evidence through a licensed, controlled source; normative clauses are not reproduced here.</span>
+              <div className="standards-note"><strong>Standards mapping</strong><span>Laboratory evidence is mapped against the applicable controlled requirements across the complete 17-standard MS operating set, including relevant product-sector and analytical-method standards. The exact requirement, method and authority instrument are resolved by applicability before assessment.</span>
               </div>
             </article>
 
