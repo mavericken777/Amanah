@@ -21,9 +21,13 @@ try {
   await page.locator('#warehouseZones button').filter({hasText:'Quarantine'}).click();assert.match(await page.locator('#warehouseDetail').textContent(),/Quarantine/);
   for(const id of ['custodyRibbon','portNodes','actorButtons','architectureButtons'])await page.locator(`#${id} button`).last().click();
   for(const view of ['Map','Timeline','Custody','Evidence','Exceptions'])await page.locator('#monitorViews button').filter({hasText:new RegExp(`^${view}$`)}).click();
-  await page.locator('#exceptionButtons button').first().click();assert.match(await page.locator('#exceptionState').textContent(),/HOLD/);
+  await page.locator('#monitorViews button').filter({hasText:/^Custody$/}).click();
+  await page.locator('#stageNav button').first().click();
+  assert.match(await page.locator('#monitorPanel').textContent(),/Manufacturer/);
+  await page.locator('#monitorViews button').filter({hasText:/^Exceptions$/}).click();
+  await page.locator('#exceptionButtons button').first().click();assert.match(await page.locator('#exceptionState').textContent(),/HOLD/);assert.match(await page.locator('#monitorPanel').textContent(),/Temperature excursion/);
   await page.locator('#passportTabs button').filter({hasText:'Overview'}).click();assert.match(await page.locator('#passportBody').textContent(),/HOLD/);
-  await page.locator('#resetException').click();assert.doesNotMatch(await page.locator('#passportBody').textContent(),/HOLD/);
+  await page.locator('#resetException').click();assert.doesNotMatch(await page.locator('#passportBody').textContent(),/HOLD/);assert.match(await page.locator('#monitorPanel').textContent(),/Select an exception scenario/);
   await page.locator('#consumerScan').click();assert.match(await page.locator('#consumerRecord').textContent(),/CN-DEMO-24001/);
   await page.locator('#scrubber').focus();await page.keyboard.press('Home');assert.match(await page.locator('#stageTitle').textContent(),/Origin/);
   if(process.env.AXE_PATH){await page.addScriptTag({path:process.env.AXE_PATH});const results=await page.evaluate(async()=>await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa']}}));fs.writeFileSync(`browser-results/journey-axe-${width}.json`,JSON.stringify(results,null,2));assert.deepEqual(results.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})),[]);}

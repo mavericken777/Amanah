@@ -21,8 +21,8 @@ body::before{opacity:.045;background-size:92px 92px;mask-image:radial-gradient(e
 .hero-principle{max-width:38rem;color:#e7d3a5;font-size:clamp(1.2rem,1.7vw,1.65rem);line-height:1.35}
 .hero-lede{max-width:43rem;color:#c5beaf;font-size:1.02rem;line-height:1.85}
 .hero-terminal{position:relative;isolation:isolate;min-height:33rem;padding:1.25rem;border:1px solid rgba(202,165,94,.53);border-radius:1.7rem;background-image:linear-gradient(180deg,rgba(8,8,7,.45),rgba(8,8,7,.7));box-shadow:0 2rem 5rem rgba(0,0,0,.42),inset 0 0 3rem rgba(211,174,103,.07)}
-.brand-world-art{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.44;border-radius:inherit;mix-blend-mode:screen;mask-image:linear-gradient(180deg,black 55%,transparent 100%)}.terminal-head,.shield-orbit,.hero-terminal>dl{position:relative;z-index:1}.hero-terminal::after{content:"";position:absolute;inset:.55rem;border:1px solid rgba(241,220,167,.16);border-radius:1.25rem;pointer-events:none;z-index:-1}
-.terminal-head{color:#eee1c2}.shield-orbit{margin-block:2rem 1.3rem}
+.brand-world-art{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.44;border-radius:inherit;mix-blend-mode:screen;mask-image:linear-gradient(180deg,black 55%,transparent 100%)}.terminal-head,.hero-terminal>dl{position:relative;z-index:1}.hero-terminal::after{content:"";position:absolute;inset:.55rem;border:1px solid rgba(241,220,167,.16);border-radius:1.25rem;pointer-events:none;z-index:-1}
+.terminal-head{color:#eee1c2}
 .hero-terminal dl>div,.terminal-card,.capability-card,.institution-card,.engagement-card,.corridor-detail,.passport-detail{border-color:rgba(199,162,100,.2);background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(14,13,11,.74))}
 .button-primary{background:linear-gradient(130deg,#f3dda0,#bd9146);color:#141109;box-shadow:0 7px 25px rgba(189,145,70,.19)}
 .button-secondary{border-color:rgba(213,179,108,.4);background:rgba(14,13,11,.46)}
@@ -223,12 +223,12 @@ body::before{display:none!important}
 .hero-terminal::after{display:none}
 .hero-terminal .terminal-head{display:flex;justify-content:space-between;gap:1rem;padding-bottom:.9rem;border-bottom:1px solid rgba(215,184,112,.32);color:#cfb777;font-size:.62rem;letter-spacing:.12em}
 .shield-orbit{position:relative;display:grid;place-items:center;width:min(100%,26rem);aspect-ratio:1;margin:2rem auto 1rem;border:1px solid rgba(215,184,112,.32);border-radius:50%;background:radial-gradient(circle,rgba(184,147,73,.12),transparent 63%);box-shadow:0 0 0 1.2rem rgba(215,184,112,.035),0 0 0 2.4rem rgba(215,184,112,.02)}
-.shield-orbit::before,.shield-orbit::after{content:"";position:absolute;inset:9%;border:1px solid rgba(215,184,112,.19);transform:rotate(45deg);pointer-events:none}
-.shield-orbit::after{inset:20%;transform:rotate(22.5deg)}
-.hero-terminal .halal-shield-stage{position:relative;z-index:1;display:grid;justify-items:center;gap:.8rem;width:74%;text-align:center}
-.hero-terminal .static-shield{display:grid;place-items:center;width:100%;aspect-ratio:1;border:0;background:transparent;cursor:pointer}
-.hero-terminal .static-shield img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 1rem 1.8rem rgba(0,0,0,.5))}
-.hero-terminal .static-shield:focus-visible{outline:2px solid #e9d28e;outline-offset:.5rem;border-radius:50%}
+
+
+
+
+
+
 .shield-caption{max-width:23rem;margin:0;color:#b9ad92;font-size:.78rem;line-height:1.55}
 .hero-terminal dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 1.4rem;margin:2rem 0 0}
 .hero-terminal dl>div{padding:1rem 0;border:0;border-top:1px solid rgba(215,184,112,.28);border-radius:0;background:transparent}
@@ -266,7 +266,4 @@ body::before{display:none!important}
 
 @media(min-width:1280px){.hero h1{max-width:none;font-size:clamp(3.25rem,5vw,4.8rem)}}
 
-/* Keep the crest explanatory text below the clickable shield. */
-.hero-terminal .halal-shield-stage{aspect-ratio:auto}
-.hero-terminal .static-shield{position:relative;z-index:2;clip-path:none;box-shadow:none}
-.hero-terminal .shield-caption{position:static;bottom:auto;z-index:2}
+
