@@ -18,7 +18,8 @@ test('complete Malaysian/JAKIM standards catalogue is first-class in the China-t
 
 test('master deliverable index points to the China-trip package',()=>{
   const idx=JSON.parse(fs.readFileSync('docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-02.json','utf8'));
-  assert.equal(idx.platform.standards_count,17);
+  assert.equal(idx.platform.current_primary_standards_count,17);
+  assert.equal(idx.platform.registry_mode,'extensible_applicability_registry');
   assert.equal(idx.platform.authority_topology,'AHTE ⇄ Direct JAKIM API ⇄ JAKIM');
   assert.equal(idx.platform.corridor,'China → GCC direct');
   assert.ok(idx.deliverables.some(x=>x.path==='docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md'));
