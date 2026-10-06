@@ -14,7 +14,7 @@ test('current presentation state is China-trip focused and free of stale program
   assert.match(readme,/China Trip master delivery prompt/);
   assert.match(readme,/AHTE ⇄ Direct JAKIM API ⇄ JAKIM/);
   assert.match(readme,/China → GCC direct/);
-  assert.match(status,/complete Malaysian\/JAKIM standards applicability/i);
+  assert.match(status,/standards architecture is registry-driven/i);
   assert.match(status,/17-standard operating catalogue/i);
   assert.match(pending,/external activation/i);
   assert.doesNotMatch(readme,/69\/69 COMPLETE|execution register|batch 56|batch 61/i);
