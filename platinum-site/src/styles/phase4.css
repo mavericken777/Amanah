@@ -1,4 +1,4 @@
-/* Phase 4 tasks 26–30: motion, 3D trust shield, interactive terminal, verification journey, micro-interaction polish */
+/* Phase 4 tasks 26–30: motion, interactive terminal, verification journey, micro-interaction polish */
 .platinum-scroll-progress{
   position:fixed;inset:0 0 auto;z-index:9999;height:2px;transform-origin:0 50%;
   background:linear-gradient(90deg,var(--gold-primary),var(--gold-bright),var(--gold-primary));
@@ -15,21 +15,13 @@
 }
 .circuit-map circle{fill:var(--gold-primary);opacity:.42}
 
-.halal-shield-stage{position:relative;width:min(24rem,100%);aspect-ratio:1;display:grid;place-items:center;margin:auto}
-.halal-shield-stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important;z-index:2}
-.static-shield{
-  position:absolute;z-index:1;width:46%;aspect-ratio:.88;border:1px solid oklch(0.78 0.13 85 / .64);
-  clip-path:polygon(50% 0,94% 19%,87% 74%,50% 100%,13% 74%,6% 19%);
-  display:grid;place-items:center;background:
-  radial-gradient(circle at 50% 36%,oklch(0.32 .05 85 / .88),oklch(0.13 .005 260 / .94) 60%),
-  var(--obsidian-raised);box-shadow:inset 0 0 0 .35rem oklch(0.78 .13 85 / .06),0 1.6rem 5rem oklch(0 0 0 / .55)
-}
-.static-shield-ring{position:absolute;width:58%;aspect-ratio:1;border:1px solid var(--gold-bright);border-radius:50%;
-  box-shadow:0 0 2rem oklch(0.88 .15 88 / .16)}
-.static-shield strong{position:relative;z-index:2;color:var(--gold-bright);font-family:Arial, Helvetica, sans-serif;font-size:clamp(2rem,5vw,4rem);font-weight:700}
-.halal-shield-stage[data-interactive="true"] .static-shield{opacity:.16}
-.shield-caption{position:absolute;bottom:.65rem;z-index:3;color:var(--text-muted);font-family:Arial, Helvetica, sans-serif;font-size:.56rem;letter-spacing:.12em}
-.shield-orbit{min-height:26rem}
+
+
+
+
+
+
+
 
 .terminal-section,.journey-section{border-top:1px solid oklch(0.78 .13 85 / .12)}
 .terminal-bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1rem}
@@ -141,7 +133,7 @@ button,.button-primary,.button-secondary,.header-cta,.engagement-card{min-height
   .journey-visual{min-height:20rem}
 }
 @media(max-width:720px){
-  .shield-orbit{min-height:20rem}.halal-shield-stage{width:min(19rem,100%)}
+
   .terminal-card{padding:.95rem}.terminal-card-head{align-items:flex-start;flex-direction:column}
   .logistics-map{min-height:14rem}
   .journey-stage-inner{padding:1rem}.journey-visual{min-height:17rem}
