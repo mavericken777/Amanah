@@ -80,20 +80,31 @@ for (const width of viewports) {
   assert.match(await page.locator(".verify-result").textContent() ?? "", /Batch CN-DEMO-24001/, "public sample batch must match the journey passport");
 
   const phaseTwo = await page.evaluate(() => ({
+    standards: Boolean(document.querySelector("#standards")),
+    standardsCatalogCount: document.querySelectorAll("#standards .standard-card").length,
+    completeStandardsSet: [
+      "MS 1500:2019","MS 2400-1:2019","MS 2400-2:2019","MS 2400-3:2019",
+      "MS 2424:2019","MS 2634:2019","MS 2636:2019","MS 2738:2023",
+      "MS 2803:2025","MS 2393:2023","MS 2627:2017","MS 2627-2:2025",
+      "MS 1900:2025","MS 2691:2021","MS 2610:2015","MS 2809:2025","MS 2810:2025"
+    ].every(code => document.body.textContent?.includes(code) ?? false),
+    certificationLayer: ["MPPHM 2020","MHMS 2020","HAS","IHCS"].every(code => document.body.textContent?.includes(code) ?? false),
     assurance: Boolean(document.querySelector("#assurance")),
     laboratory: Boolean(document.querySelector("#laboratory")),
     smartAudit: Boolean(document.querySelector("#smart-audit")),
     labEvidence: document.body.textContent?.includes("LABORATORY EVIDENCE") ?? false,
-    standardsMap: document.body.textContent?.includes("MS 2400-2:2019") ?? false,
     command: Boolean(document.querySelector("#command")),
     verify: Boolean(document.querySelector("#verify")),
     directJakim: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false
   }));
   assert.ok(
-    phaseTwo.assurance && phaseTwo.laboratory && phaseTwo.smartAudit && phaseTwo.labEvidence && phaseTwo.standardsMap && phaseTwo.command && phaseTwo.verify,
+    phaseTwo.standards && phaseTwo.assurance && phaseTwo.laboratory && phaseTwo.smartAudit && phaseTwo.labEvidence && phaseTwo.command && phaseTwo.verify,
     `phase 2 structure incomplete at ${width}px: ${JSON.stringify(phaseTwo)}`
   );
-  assert.ok(phaseTwo.labEvidence && phaseTwo.standardsMap, "laboratory evidence workflow and current standards mapping missing");
+  assert.equal(phaseTwo.standardsCatalogCount, 17, "public platform must expose all 17 standards in the controlled Malaysian/JAKIM operating catalogue");
+  assert.ok(phaseTwo.completeStandardsSet, "one or more standards from the complete 17-standard operating set are missing");
+  assert.ok(phaseTwo.certificationLayer, "MPPHM/MHMS/HAS/IHCS governance layer must be visible alongside the MS standards");
+  assert.ok(phaseTwo.labEvidence, "laboratory evidence workflow missing");
 
   const labButtons = page.locator("#laboratory .stepper button");
   assert.equal(await labButtons.count(), 5, "laboratory chain must expose five stages");
