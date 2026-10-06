@@ -1,282 +1,147 @@
 {
-  "artifact": "AMANAH Master Deliverable Index",
-  "version": "1.5.0",
-  "control_date": "2026-10-03",
-  "owner": "AMANAH / GHSCL programme office",
-  "source_priority": [
-    "GlobalHalalDigitalTrust verified package",
-    "GlobalHalalDigitalTrust main",
-    "Amanah main",
-    "registered live authority sources"
-  ],
+  "artifact": "AMANAH China Trip Master Deliverable Index",
+  "version": "2.0.0",
+  "date": "2026-10-07",
+  "purpose": "Presentation-ready executive, partner, technical and operating package for the China trip",
   "deliverables": [
     {
       "id": "D01",
-      "name": "Canonical architecture",
-      "path": "docs/architecture/PLATFORM_ARCHITECTURE.md",
-      "owner": "AHTE",
-      "status": "CONTROLLING"
+      "name": "China Trip master delivery prompt",
+      "path": "docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md",
+      "status": "CURRENT"
     },
     {
       "id": "D02",
-      "name": "Canonical data model",
-      "path": "docs/architecture/DATA_MODEL.md",
-      "owner": "AHTE",
-      "status": "CONTROLLING"
+      "name": "Complete Malaysian/JAKIM operating set",
+      "path": "docs/ahte/MS_OPERATING_SET.json",
+      "status": "CURRENT"
     },
     {
       "id": "D03",
-      "name": "Decision rights",
-      "path": "docs/architecture/COMPONENT_OWNERSHIP_AND_DECISION_RIGHTS_2026-10-02.md",
-      "owner": "Governance",
-      "status": "CONTROLLING"
+      "name": "Public standards experience",
+      "path": "ghscl-website/standards.html",
+      "status": "CURRENT"
     },
     {
       "id": "D04",
-      "name": "Manufacturer onboarding",
-      "path": "app/(protected)/onboarding/page.tsx",
-      "owner": "Manufacturer platform",
-      "status": "IMPLEMENTED"
+      "name": "Platform architecture",
+      "path": "docs/architecture/PLATFORM_ARCHITECTURE.md",
+      "status": "CURRENT"
     },
     {
       "id": "D05",
-      "name": "Canonical API",
-      "path": "docs/api/AMANAH_CANONICAL_API_CONTRACT_2026-10-02.yaml",
-      "owner": "Integration engineering",
-      "status": "INTERNAL CONTRACT"
+      "name": "Corporate website",
+      "path": "ghscl-website/index.html",
+      "status": "CURRENT"
     },
     {
       "id": "D06",
-      "name": "API UAT pack",
-      "path": "docs/api/AMANAH_API_UAT_PACK_2026-10-02.md",
-      "owner": "Integration QA",
-      "status": "READY"
+      "name": "Corporate profile",
+      "path": "docs/corporate/GHSCL_CORPORATE_PROFILE_2026.md",
+      "status": "DELIVERY"
     },
     {
       "id": "D07",
-      "name": "Platinum hardware BOM",
-      "path": "docs/hardware/PLATINUM_HARDWARE_MASTER_BOM_2026-10-02.json",
-      "owner": "Procurement",
-      "status": "RFQ READY"
+      "name": "China Mission executive pack",
+      "path": "docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md",
+      "status": "DELIVERY"
     },
     {
       "id": "D08",
-      "name": "Sinotrans A-Z",
-      "path": "docs/sinotrans/SINOTRANS_A_TO_Z_PLAYBOOK_2026-10-02.md",
-      "owner": "Logistics",
-      "status": "PARTNER VALIDATION"
+      "name": "China Mission meeting briefs",
+      "path": "docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md",
+      "status": "DELIVERY"
     },
     {
       "id": "D09",
-      "name": "CODA financing",
-      "path": "docs/coda/CODA_HARDWARE_FINANCING_EXECUTIVE_PACK_2026-10-02.md",
-      "owner": "Commercial",
-      "status": "PROPOSAL"
+      "name": "Sinotrans A-Z playbook",
+      "path": "docs/sinotrans/SINOTRANS_A_TO_Z_PLAYBOOK_2026-10-02.md",
+      "status": "DELIVERY"
     },
     {
       "id": "D10",
-      "name": "Corporate profile",
-      "path": "docs/corporate/GHSCL_CORPORATE_PROFILE_2026.md",
-      "owner": "Corporate",
-      "status": "BOARDROOM READY + PUBLIC PAGE"
+      "name": "CODA financing executive pack",
+      "path": "docs/coda/CODA_HARDWARE_FINANCING_EXECUTIVE_PACK_2026-10-02.md",
+      "status": "DELIVERY"
     },
     {
       "id": "D11",
-      "name": "Infographic suite",
-      "path": "docs/media/MASTER_INFOGRAPHIC_SUITE_2026.md",
-      "owner": "Corporate design",
-      "status": "8 SVG MASTERS + PUBLIC GALLERY"
+      "name": "Platinum hardware BOM",
+      "path": "docs/hardware/PLATINUM_HARDWARE_MASTER_BOM_2026-10-02.json",
+      "status": "DELIVERY"
     },
     {
       "id": "D12",
-      "name": "69-section execution register",
-      "path": "docs/operations/AMANAH_69_EXECUTION_REGISTER_2026-10-02.md",
-      "owner": "Programme office",
-      "status": "CONTROLLING"
+      "name": "API / integration pack",
+      "path": "docs/api/AMANAH_API_UAT_PACK_2026-10-02.md",
+      "status": "DELIVERY"
     },
     {
       "id": "D13",
-      "name": "Truth baseline",
-      "path": "docs/operations/REFRESHED_TRUTH_BASELINE_2026-10-02.md",
-      "owner": "Programme office",
-      "status": "CONTROLLING"
+      "name": "SOP library",
+      "path": "docs/sop/AMANAH_SOP_LIBRARY_MASTER_2026-10-03.md",
+      "status": "DELIVERY"
     },
     {
       "id": "D14",
-      "name": "Cross-consistency matrix",
-      "path": "docs/operations/CROSS_CONSISTENCY_MATRIX_2026-10-02.md",
-      "owner": "QA",
-      "status": "CONTROLLING ASSERTION MATRIX"
+      "name": "Training academy",
+      "path": "docs/training/AMANAH_TRAINING_ACADEMY_2026-10-03.md",
+      "status": "DELIVERY"
     },
     {
       "id": "D15",
-      "name": "Red-team register",
-      "path": "docs/operations/RED_TEAM_REGISTER_2026-10-02.md",
-      "owner": "Assurance",
-      "status": "SUPERSEDED BY D29 / HISTORICAL SUMMARY"
+      "name": "Infographic suite",
+      "path": "docs/media/MASTER_INFOGRAPHIC_SUITE_2026.md",
+      "status": "DELIVERY"
     },
     {
       "id": "D16",
-      "name": "Corporate website",
-      "path": "ghscl-website/index.html",
-      "owner": "Corporate / Product",
-      "status": "IMPLEMENTED + CI CONTROLLED"
+      "name": "Master cinematic video",
+      "path": "docs/media/MASTER_CINEMATIC_VIDEO_2026.md",
+      "status": "DELIVERY"
     },
     {
       "id": "D17",
-      "name": "Master cinematic video",
-      "path": "docs/media/MASTER_CINEMATIC_VIDEO_2026.md",
-      "owner": "Corporate media",
-      "status": "WEB MASTER VERIFIED + CAPTION/NARRATIVE CONTROL COMPLETE"
+      "name": "Mandarin adaptation",
+      "path": "docs/localization/MANDARIN_MASTER_ADAPTATION_2026-10-03.md",
+      "status": "DELIVERY"
     },
     {
       "id": "D18",
-      "name": "Master voiceover",
-      "path": "docs/media/MASTER_VOICEOVER_EN_2026.md",
-      "owner": "Corporate media",
-      "status": "GENERATED / VERIFIED WORKSPACE ASSETS"
+      "name": "Master legal / contractual pack",
+      "path": "docs/legal/AMANAH_MASTER_LEGAL_CONTRACTUAL_PACK_2026-10-03.md",
+      "status": "DELIVERY"
     },
     {
       "id": "D19",
-      "name": "Mandarin master adaptation",
-      "path": "docs/localization/MANDARIN_MASTER_ADAPTATION_2026-10-03.md",
-      "owner": "Corporate / China mission",
-      "status": "CONTROLLED + PUBLIC LANDING"
+      "name": "Commercial model",
+      "path": "docs/commercial/AMANAH_COMMERCIAL_MODEL_UNIT_ECONOMICS_2026-10-03.md",
+      "status": "DELIVERY"
     },
     {
       "id": "D20",
-      "name": "Master legal/contractual pack",
-      "path": "docs/legal/AMANAH_MASTER_LEGAL_CONTRACTUAL_PACK_2026-10-03.md",
-      "owner": "Legal / Commercial",
-      "status": "LEGAL WORKING DRAFT"
-    },
-    {
-      "id": "D21",
-      "name": "Commercial model & unit economics",
-      "path": "docs/commercial/AMANAH_COMMERCIAL_MODEL_UNIT_ECONOMICS_2026-10-03.md",
-      "owner": "Commercial",
-      "status": "COMMERCIAL PROPOSAL"
-    },
-    {
-      "id": "D22",
-      "name": "KPI/SLA framework",
-      "path": "docs/operations/AMANAH_KPI_SLA_FRAMEWORK_2026-10-03.md",
-      "owner": "Operations",
-      "status": "CONTROLLED FRAMEWORK"
-    },
-    {
-      "id": "D23",
-      "name": "Training academy",
-      "path": "docs/training/AMANAH_TRAINING_ACADEMY_2026-10-03.md",
-      "owner": "Academy / Governance",
-      "status": "PROJECT-DEFINED CURRICULUM"
-    },
-    {
-      "id": "D24",
-      "name": "SOP library",
-      "path": "docs/sop/AMANAH_SOP_LIBRARY_MASTER_2026-10-03.md",
-      "owner": "Operations / Governance",
-      "status": "PROJECT-CONTROLLED"
-    },
-    {
-      "id": "D25",
-      "name": "China Mission executive pack",
-      "path": "docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md",
-      "owner": "GHSCL programme office",
-      "status": "MISSION READY / CONFIRMATIONS EVIDENCE-BOUND"
-    },
-    {
-      "id": "D26",
-      "name": "China Mission meeting brief book",
-      "path": "docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md",
-      "owner": "Mission / Stakeholder engagement",
-      "status": "PROJECT-CONTROLLED"
-    },
-    {
-      "id": "D27",
-      "name": "Objection-handling book",
-      "path": "docs/mission/OBJECTION_HANDLING_BOOK_2026-10-03.md",
-      "owner": "Executive / Commercial / Technical",
-      "status": "PROJECT-CONTROLLED"
-    },
-    {
-      "id": "D28",
       "name": "Cross-consistency QA",
       "path": "docs/operations/CROSS_CONSISTENCY_QA_2026-10-03.md",
-      "owner": "QA / Programme office",
-      "status": "CONTROLLED BASELINE"
-    },
-    {
-      "id": "D29",
-      "name": "Programme red-team review",
-      "path": "docs/operations/RED_TEAM_REVIEW_2026-10-03.md",
-      "owner": "Assurance",
-      "status": "CONTROLLED"
-    },
-    {
-      "id": "D30",
-      "name": "Visual QC report",
-      "path": "docs/operations/VISUAL_QC_REPORT_2026-10-03.md",
-      "owner": "Corporate design / QA",
-      "status": "CONTROLLED"
-    },
-    {
-      "id": "D31",
-      "name": "Document QC report",
-      "path": "docs/operations/DOCUMENT_QC_REPORT_2026-10-03.md",
-      "owner": "Programme office / QA",
-      "status": "CONTROLLED"
-    },
-    {
-      "id": "D32",
-      "name": "Claim verification register",
-      "path": "docs/operations/CLAIM_VERIFICATION_REGISTER_2026-10-03.md",
-      "owner": "QA / Governance",
-      "status": "CONTROLLING CLAIM REGISTER"
-    },
-    {
-      "id": "D33",
-      "name": "Human-readable master deliverable index",
-      "path": "docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md",
-      "owner": "Programme office",
-      "status": "CONTROLLING DIRECTORY"
-    },
-    {
-      "id": "D34",
-      "name": "Definition of Done",
-      "path": "docs/operations/DEFINITION_OF_DONE_2026-10-03.md",
-      "owner": "Programme office / QA",
-      "status": "CONTROLLING"
-    },
-    {
-      "id": "D35",
-      "name": "Execution priority and sequence",
-      "path": "docs/operations/EXECUTION_PRIORITY_SEQUENCE_2026-10-03.md",
-      "owner": "Programme office",
-      "status": "CONTROLLING"
-    },
-    {
-      "id": "D36",
-      "name": "Standing execution instruction",
-      "path": "docs/operations/STANDING_EXECUTION_INSTRUCTION_2026-10-03.md",
-      "owner": "Programme office / Governance",
-      "status": "CONTROLLING"
-    },
-    {
-      "id": "D37",
-      "name": "Final operating test",
-      "path": "docs/operations/FINAL_OPERATING_TEST_2026-10-03.md",
-      "owner": "QA / Programme office",
-      "status": "FINAL QUALITY GATE"
-    },
-    {
-      "id": "D38",
-      "name": "69-item final closure record",
-      "path": "docs/operations/AMANAH_69_FINAL_CLOSURE_2026-10-03.md",
-      "owner": "Programme office",
-      "status": "FINAL CLOSURE RECORD"
+      "status": "QUALITY"
     }
   ],
-  "hard_freeze": "master-standards-stack/verified-2026-09-17/",
-  "programme_status": "69/69 COMPLETE TO PROJECT-CONTROLLED SCOPE / FINAL EXACT-HEAD CI + MERGE VERIFIED"
+  "platform": {
+    "authority_topology": "AHTE ⇄ Direct JAKIM API ⇄ JAKIM",
+    "corridor": "China → GCC direct",
+    "standards_count": 17,
+    "standards_layer": [
+      "MPPHM 2020",
+      "MHMS 2020",
+      "HAS",
+      "IHCS",
+      "protocols",
+      "circulars",
+      "authority instructions",
+      "destination requirements",
+      "laboratory methods"
+    ],
+    "supplemental": [
+      "MS 2683:2017"
+    ]
+  }
 }
