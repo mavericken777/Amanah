@@ -1,73 +1,33 @@
-# AMANAH / Global Halal Digital Trust — Canonical Source Map
+# AMANAH / Global Halal Digital Trust — Source Map
 
-**Version:** 1.0.0 | **Control date:** 2026-10-02 | **Status:** CONTROLLING POST-FREEZE SOURCE MAP
+## Current presentation sources
 
-## Purpose
+| Domain | Current source |
+|---|---|
+| China Trip master delivery | `docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md` |
+| Complete Malaysian/JAKIM standards set | `docs/ahte/MS_OPERATING_SET.json` |
+| Machine standards catalogue | `config/ahte-standards-catalog.json` |
+| Public standards experience | `ghscl-website/standards.html` |
+| Platform architecture | `docs/architecture/PLATFORM_ARCHITECTURE.md` |
+| Data model | `docs/architecture/DATA_MODEL.md` |
+| Manufacturer onboarding | `app/(protected)/onboarding/page.tsx` |
+| China Mission workspace | `app/(protected)/china-trip/` |
+| Sinotrans | `docs/sinotrans/SINOTRANS_A_TO_Z_PLAYBOOK_2026-10-02.md` |
+| Hardware | `docs/hardware/PLATINUM_HARDWARE_MASTER_BOM_2026-10-02.json` |
+| CODA financing | `docs/coda/CODA_HARDWARE_FINANCING_EXECUTIVE_PACK_2026-10-02.md` |
+| API / integration | `docs/api/AMANAH_API_UAT_PACK_2026-10-02.md` |
+| Corporate profile | `docs/corporate/GHSCL_CORPORATE_PROFILE_2026.md` |
+| China Mission executive pack | `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md` |
+| Legal / agreements | `docs/legal/AMANAH_MASTER_LEGAL_CONTRACTUAL_PACK_2026-10-03.md` |
+| Media | `docs/media/` |
+| Mandarin adaptation | `docs/localization/MANDARIN_MASTER_ADAPTATION_2026-10-03.md` |
 
-This is the single source-routing map for the 69-section programme. It prevents historical branches, stale SHAs and duplicated specifications from silently becoming current truth.
+## Platform identity
 
-## Authority hierarchy
+**AHTE ⇄ Direct JAKIM API ⇄ JAKIM**
 
-1. Project files / verified package.
-2. Current main of mavericken777/GlobalHalalDigitalTrust.
-3. Current main of mavericken777/Amanah for implementation.
-4. Live authority/partner sources only where required and registered.
+**China → GCC direct**
 
-Frozen standards boundary: master-standards-stack/verified-2026-09-17/
+The standards experience represents the complete current project-verified 17-standard Malaysian/JAKIM operating catalogue, applicable supplemental technical/product standards, and the applicable MPPHM / MHMS / HAS / IHCS / protocol / circular / authority / destination / laboratory layer.
 
-## Current repository heads
-
-- GlobalHalalDigitalTrust main: ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5
-- Amanah main: 11ac9ae7b4cd37cee63337ce180372da0ffbe9d6
-
-## Canonical domain map
-
-| Domain | Controlling source | Classification |
-|---|---|---|
-| Doctrine | GlobalHalalDigitalTrust / IQ300_DOCTRINE | Project governance / source-controlled |
-| Frozen standards | GlobalHalalDigitalTrust / verified-2026-09-17 | Immutable normative snapshot |
-| Target architecture | GlobalHalalDigitalTrust / CURRENT_TARGET_ARCHITECTURE + registry | Post-freeze project architecture |
-| Requirements traceability | GlobalHalalDigitalTrust / PLATFORM_REQUIREMENTS_TRACEABILITY | Project control |
-| AHTE implementation architecture | Amanah / docs/architecture/PLATFORM_ARCHITECTURE.md | Repository-implemented |
-| Domain model | Amanah / docs/architecture/DATA_MODEL.md | Repository-implemented |
-| Operational status | Amanah / docs/operations/STATUS.md | Current repository state |
-| External gates | Amanah / docs/operations/PENDING.md | Current open gates |
-| Website content | Amanah / ghscl-website/ecosystem.en.json | Public target content |
-| Website provenance | Amanah / ghscl-website/source-manifest.json | Target snapshot binding |
-| Database | Amanah / supabase/migrations + current/target types | Repository implementation |
-| Security | Amanah / docs/operations/SECURITY_MODEL.md | Repository control |
-| CI | Amanah / .github/workflows/ci.yml | Validation authority |
-| Public verification | Amanah / public-verify service + verification schema | Repository implementation |
-| Hardware | Amanah / docs/hardware/PLATINUM_HARDWARE_MASTER_BOM_2026-10-02.json | RFQ-ready reference; current RFQ required |
-| 69 programme | Amanah / docs/operations/AMANAH_69_EXECUTION_REGISTER_2026-10-02.md | Programme control |
-
-## Source-state vocabulary
-
-- VERIFIED CURRENT FACT — directly observed in current source/runtime.
-- REPOSITORY-IMPLEMENTED CAPABILITY — code/schema/control exists in repository.
-- PROJECT-DEFINED CAPABILITY — architecture/specification exists but is not necessarily production-connected.
-- PLANNED EXTERNAL INTEGRATION — interface/workflow defined; external activation pending.
-- COMMERCIAL PROPOSAL — proposed economics/terms, not executed.
-- ASSUMPTION REQUIRING VALIDATION — not promoted to fact.
-
-## Drift controls
-
-A stale SHA may be retained for historical provenance, but it cannot be described as current.
-
-A development/sandbox connector may exercise a complete workflow, but it cannot generate real authority, partner, laboratory, customs, finance, Takaful or Shipment 001 evidence.
-
-A hash proves integrity, not truth.
-
-A laboratory result is evidence, not certification.
-
-Operational release is not Halal certification.
-
-## Known discrepancies at control date
-
-| ID | Finding | State | Required treatment |
-|---|---|---|---|
-| SRC-001 | Global 69-binding references Amanah e18fca1221; current Amanah main is 11ac9ae7b4 | RECONCILED | Current main controls; historical binding retained |
-| SRC-002 | Amanah refreshed baseline references 8fe86c0db558 rather than current 11ac9ae7b4 | OPEN CORRECTION | Refresh baseline on current main |
-| WEB-001 | Website says application is deployed while Vercel status is build-rate-limited | OPEN CORRECTION | Separate capability/source from confirmed production deployment |
-| WEB-002 | Public static source manifest pins 14456e99937d as target snapshot | CONTROLLED | Retain with explicit target-snapshot label |
-| STD-001 | Frozen 17 Sep standards package | PASS | Do not modify without explicit post-freeze authorization |
+Internal engineering history remains available through Git history; current trip-facing work should use the sources above.
