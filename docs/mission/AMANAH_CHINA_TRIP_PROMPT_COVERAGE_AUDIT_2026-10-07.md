@@ -98,3 +98,16 @@ The wider framework includes MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circul
 External China-trip materials show the **finished platform, operating model, partnership proposition and evidence architecture**.
 
 Internal engineering, branch history, CI mechanics, migrations, source-state labels and backlog language stay out of the main presentation package.
+
+
+## China-trip usability additions
+
+The final prompt also closes three practical trip-use gaps that were not explicit enough in the original 69-item mandate:
+
+| Addition | Why it matters | Status |
+| --- | --- | --- |
+| Counterparty signing / meeting suite | Turns the platform story into counterpart-specific proposals, agreements, annexes, decisions sought and follow-up actions | Closed |
+| Offline / printed mission binder | Ensures the complete package is usable in meetings without depending on connectivity or ad-hoc file hunting | Closed |
+| Manufacturer / product opportunity pack | Connects GCC market demand to China manufacturer qualification, AMANAH onboarding, assurance and Sinotrans/GCC execution | Closed |
+
+Counterparty categories explicitly covered now include CODA, Lulu/GCC buyer engagement, Sinotrans Hong Kong/Beijing/Shanghai, laboratory / food-safety / agricultural research counterparts, BORONEX / Blue Diamond, Macau/Hengqin institutional engagement, and additional confirmed mission partners.
