@@ -14,12 +14,12 @@
 
 ## Malaysian / JAKIM framework
 
-- Complete 17-standard operating set — `docs/ahte/MS_OPERATING_SET.json`
+- Complete Malaysian/JAKIM standards registry — `docs/ahte/MS_OPERATING_SET.json`
 - Machine standards catalogue — `config/ahte-standards-catalog.json`
 - Public standards experience — `ghscl-website/standards.html`
 - AHTE source / standards workspace — `app/(protected)/ahte/source/`
 
-The standards model includes all 17 current project-verified first-class Malaysian/JAKIM operating standards and separately applicable technical/product standards such as MS 2683:2017. It operates together with MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination requirements and laboratory methods.
+The standards model is registry-driven. Its current verified primary catalogue contains 17 Malaysian Standards, while applicable product/technical standards such as MS 2683:2017 are added by scope. It operates together with MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination requirements and laboratory methods.
 
 ## Manufacturer / audit / laboratory
 
