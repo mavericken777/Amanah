@@ -1373,7 +1373,7 @@
         }
       ],
       "sources": [
-        "docs/laboratory/LABORATORY_INTEGRATION_PROFILE.md",
+        "docs/integration/PARTNER_INTEGRATION_KIT_2026-10-02.md",
         "docs/ahte/AHTE_PLATFORM_ARCHITECTURE.md"
       ],
       "related": [
@@ -1436,7 +1436,7 @@
         }
       ],
       "sources": [
-        "docs/hardware/PLATINUM_HARDWARE_ARCHITECTURE.md",
+        "docs/hardware/PLATINUM_REFERENCE_ARCHITECTURE_2026-10-02.md",
         "docs/architecture/PLATFORM_ARCHITECTURE.md"
       ],
       "related": [
@@ -1610,7 +1610,7 @@
         }
       ],
       "sources": [
-        "docs/security/SECURITY.md",
+        "docs/security/AMANAH_CYBERSECURITY_CONTROL_PLANE_2026-10-02.md",
         "docs/architecture/PLATFORM_ARCHITECTURE.md"
       ],
       "related": [
