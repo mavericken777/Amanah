@@ -70,7 +70,7 @@
     },
     {
       "code": "MS 2691:2021",
-      "title": "Halal profession competency standard",
+      "title": "Halal profession — General requirements",
       "source_status": "public_structure_verified"
     },
     {
@@ -93,6 +93,17 @@
   "control_date": "2026-09-17",
   "catalog_count": 17,
   "scope_rule": "The platform must evaluate the complete applicable Malaysian/JAKIM Halal framework. MS 1500 and MS 2400 are not treated as the entire standards universe.",
+  "post_freeze_control_date": "2026-10-06",
+  "supplemental_applicability": [
+    {
+      "code": "MS 2683:2017",
+      "title": "Kelulut (Stingless bee) honey — Specification",
+      "classification": "supplemental_product_specification",
+      "source_status": "primary_supplied_standard",
+      "applicability": "Kelulut honey product scope",
+      "operating_set_effect": "Supplemental technical/product instrument; not an 18th member of the controlled 17-standard Halal operating set."
+    }
+  ],
   "certification_layer": [
     "MPPHM 2020",
     "MHMS 2020",
