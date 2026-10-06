@@ -93,7 +93,7 @@ AI assists. Authorised humans and competent authorities decide.
 
 Do not reduce the platform to MS 1500 and MS 2400.
 
-The complete current project-verified Malaysian/JAKIM Halal operating catalogue must be represented and available for applicability mapping:
+The platform must use a registry-driven Malaysian/JAKIM standards model. The current verified primary catalogue contains the standards below, and every additional verified product, technical or scheme-relevant Malaysian Standard must be added and evaluated by applicability without redesign:
 
 1. **MS 1500:2019** — Halal food — General requirements  
 2. **MS 2400-1:2019** — Halal supply chain management system — Transportation  
@@ -113,7 +113,7 @@ The complete current project-verified Malaysian/JAKIM Halal operating catalogue 
 16. **MS 2809:2025** — Authentication of products using chemometric techniques  
 17. **MS 2810:2025** — Consumable goods — Test method — Identification of pig skin and hair  
 
-Also support separately applicable technical/product standards where relevant, including:
+Also evaluate additional applicable technical/product standards by scope, including:
 
 - **MS 2683:2017** — Kelulut (Stingless bee) honey — Specification.
 
@@ -146,7 +146,7 @@ The application model is scope-driven:
 → Trust State  
 → Operational Release**
 
-Do not present any one Malaysian Standard as the entire Halal framework.
+Do not present any one Malaysian Standard, fixed subset or permanently fixed standards count as the entire Halal framework.
 
 ---
 
