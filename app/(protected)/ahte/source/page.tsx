@@ -43,6 +43,18 @@ export default async function AHTESourcePage(){
           <p className="muted">{standard.source_status.replaceAll("_"," ")}</p>
         </article>)}
       </div>
+      <div className="stack">
+        <div>
+          <div className="eyebrow">SUPPLEMENTAL APPLICABILITY</div>
+          <h3>Supplemental standards / technical instruments</h3>
+        </div>
+        {(operatingSet.supplemental_instruments??[]).map((standard)=><article className="card" key={standard.code}>
+          <div className="eyebrow">{standard.code}</div>
+          <h3>{standard.title}</h3>
+          <p>{standard.role}</p>
+          <p className="muted">{standard.catalog_status}</p>
+        </article>)}
+      </div>
     </section>
 
     <section className="card">
