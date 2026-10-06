@@ -4,6 +4,8 @@ AMANAH is the end-to-end operational and digital trust platform for the Global H
 
 It connects manufacturer onboarding, product and material provenance, Malaysian/JAKIM Halal requirements, evidence, laboratories, smart audit, production monitoring, Sinotrans logistics, ports/customs, GCC destination operations, verification and the 24/7 Command Center as one continuous journey.
 
+> **Controlling user mandate:** Read [NOTE TO SELF — Maverick / AMANAH controlling user mandate](docs/NOTE_TO_SELF_CONTROLLING_USER_MANDATE_2026-10-07.md) before every AMANAH task. It locks the complete standards universe, GCC importer/distributor/retailer, Platinum-Tier finished-deliverable standard, website rules, MOA/deck/video expectations, authority boundaries and China → GCC architecture so the user does not have to repeat them.
+
 ## Controlling master execution prompt
 
 The complete platform brief is:
