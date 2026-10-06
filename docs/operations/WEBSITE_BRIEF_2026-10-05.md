@@ -1,42 +1,106 @@
-# Controlling website delivery — 5 October 2026
+# Website delivery brief — 5 October 2026
 
-Controlling source: `Pasted markdown.md`, recovered as the latest attachment from ChatGPT conversation `6abedbf1-4d3c-83ec-aa9e-9c1f0ad2708f`. The 84-section creative/product/interaction brief is read in full. The user's direct corrections supersede its crest and font proposals: no oversized homepage shield or replacement emblem; Arial / Helvetica / sans-serif throughout.
+The public Amanah website presents the platform as one connected China → GCC trust journey.
 
-Source SHA-256: `b2761ba57d142ba56dac7b6143ebdacea2db6ee148aef2bd890898af0ee8d167`.
+The original 84-section creative/product/interaction brief was implemented for the website experience. The user's subsequent corrections remain part of the design direction:
 
-| Domain | Controller |
-| --- | --- |
-| Homepage narrative and chapter hierarchy | `scripts/build-trust-journey.mjs` |
-| Single product identity and interactive state | `ghscl-website/journey.js` |
-| Black/gold design, mobile, focus and reduced motion | `ghscl-website/journey.css` |
-| Other public routes | `ghscl-website/ecosystem.en.json`, generated routes and existing Platinum secondary routes |
-| Neutral typography across public routes | `ghscl-website/neutral-font.css`; neutral application and Platinum CSS |
-| Vercel shared public experience | `scripts/copy-trust-experience.mjs`, generated `public/trust-journey/` |
-| Release | CI → exact-head release verification → Pages promotion → controlling-brief homepage build |
-| Behavioral acceptance | `tests/journey-browser.mjs` at 375 / 768 / 1024 / 1440 pixels |
-| Lighthouse | `lighthouserc.journey.cjs`, `lighthouserc.journey-mobile.cjs` |
+- no oversized homepage shield or replacement decorative emblem;
+- Arial / Helvetica / neutral sans-serif throughout;
+- black / gold institutional visual language;
+- information-bearing diagrams and interactions instead of decorative filler.
 
-## Requirements mapping
+For the complete China-trip presentation programme—including JAKIM framework, decks, corporate profile, MOAs, Sinotrans, CODA, laboratory, hardware, APIs, Mandarin, infographics and video—use the [7 October Platinum-Tier master prompt](../mission/CHINA_TRIP_PLATINUM_MASTER_PROMPT_2026-10-07.md).
 
-| Brief scope | Implemented experience |
-| --- | --- |
-| §§6–11, 42–43, 62–65 | One product, thirteen stages, synchronized passport / event timeline / route / actor / evidence / custody, eight view modes and keyboard-operable scrubber |
-| §§12–16 | Fourteen checkpoints in the smart-glasses audit walkthrough, AI guidance, accountable human review and attributable proof-of-audit fields |
-| §§17–21 | Ten sample / custody / method / review steps; source-bound requirements and Standards mode |
-| §§22–28 | Warehouse zones, custody transfer explorer, Sinotrans reference role, port checkpoints and direct China–GCC route |
-| §§29–35 | Five monitoring views, five exception scenarios, HOLD / corrective action / re-verification path, GCC distribution and retail |
-| §§36–41 | Consumer provenance, twelve actor roles and seven clickable architecture layers tied to the actual operational model |
-| §§44–61 | Documentary chapter hierarchy, informational route hero, progressive disclosure, neutral fonts, semantic controls, mobile layouts, focus and reduced motion |
-| §§66–84 | Existing site / repository / deployment inspection, updated regression assumptions, browser / axe / Lighthouse / repository CI gates |
+## Website scope
 
-## Authority and source constraints
+The website must show one coherent product journey from origin to GCC verification, including:
 
-The immutable `master-standards-stack/verified-2026-09-17/` baseline is unchanged. AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct. AI assists; authorized humans / competent authority decide. Exact normative text remains source-locked when unavailable.
+- manufacturer identity / KYC;
+- facility / product / SKU;
+- suppliers / ingredients / raw materials;
+- complete Malaysian/JAKIM Halal framework;
+- standards applicability;
+- evidence;
+- AI-assisted review;
+- human governance;
+- laboratory;
+- smart-glass audit;
+- findings / CAPA / re-verification;
+- certification / credential workflow;
+- production / IoT / digital twin;
+- warehouse;
+- Sinotrans logistics;
+- container / seal / telemetry / custody;
+- port / customs;
+- GCC destination;
+- retailer / consumer verification;
+- 24/7 GHSCL + JAKIM Command Center;
+- predictive / preemptive intelligence;
+- recall / blast-radius analysis;
+- Shariah finance / Takaful support where applicable.
 
-`DEMO-SHIPMENT-001` / `CN-DEMO-24001` is an explicitly illustrative website record. It is not the real pilot. Shipment 001 remains NOT-INSTANTIATED without real execution evidence. No certification, customs release, financing approval, laboratory result, integrity signature or production API response is fabricated.
+## Complete Halal framework
 
-Named laboratory relationship / accreditation and Sinotrans activation are disclosed at the relevant detail level. External credentials do not remove interface capability. Formal authority, AHTE, operational, customs and finance states remain separate.
+The public standards experience must not reduce the platform to MS 1500 and MS 2400.
 
-## Validation state
+It must expose the complete verified 17-standard operating catalogue, supplemental product/technical MS applicability where relevant, and the certification/authority framework layer:
 
-Implementation and local behavioral validation complete; exact-head CI, Lighthouse and deployment read-back must pass before release completion is asserted. Deployment URLs and merge SHA are reported only after verification.
+- MPPHM 2020;
+- MHMS 2020;
+- HAS;
+- IHCS;
+- protocols;
+- circulars;
+- authority instructions;
+- destination requirements;
+- laboratory methods.
+
+The canonical evidence path is:
+
+`Authority → Standard / Instrument → Requirement → Applicability → Control → HCP / SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → Authority Decision → Trust State → Operational Release`
+
+## Website presentation
+
+Use:
+
+- black / obsidian surfaces;
+- restrained metallic gold;
+- warm ivory / white text;
+- Arial / Helvetica / sans-serif typography;
+- subtle Islamic geometry through spacing, grid, borders and proportion;
+- professional process diagrams;
+- clear route / evidence / authority / trust-state visualisation;
+- responsive layouts for meeting-room laptop, tablet and phone.
+
+Avoid:
+
+- giant decorative shield hero art;
+- cartoon diagrams;
+- decorative AI icon clouds;
+- repeated caveat panels;
+- prototype-style wording;
+- internal repository / CI / engineering language in stakeholder pages.
+
+## Accuracy boundary
+
+Keep the presentation simple and factual:
+
+- AHTE ⇄ Direct JAKIM API ⇄ JAKIM;
+- China → GCC direct;
+- AI assists; authorised humans / competent authorities decide;
+- laboratory results are evidence;
+- sovereign port/customs decisions remain with the competent authority;
+- an external partnership, approval or production connection is shown as executed only when evidence exists.
+
+These points should appear where relevant, not as repeated warning walls across the site.
+
+## Website implementation locations
+
+- homepage / journey: `scripts/build-trust-journey.mjs`
+- interaction state: `ghscl-website/journey.js`
+- black / gold responsive design: `ghscl-website/journey.css`
+- neutral typography: `ghscl-website/neutral-font.css`
+- standards catalogue: `ghscl-website/standards.html`
+- Vercel copy: `scripts/copy-trust-experience.mjs`
+
+The website is one component of the China-trip delivery package; it is not the master definition of the platform.
