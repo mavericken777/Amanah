@@ -1,9 +1,15 @@
 {
-  "artifact": "AMANAH China Trip Master Deliverable Index",
-  "version": "2.0.0",
+  "artifact": "AMANAH / Global Halal Digital Trust Master Deliverable Index",
+  "version": "2.1.0",
   "date": "2026-10-07",
-  "purpose": "Presentation-ready executive, partner, technical and operating package for the China trip",
+  "purpose": "Finished end-to-end platform, China mission, partner, technical and operating delivery package",
   "deliverables": [
+    {
+      "id": "D00",
+      "name": "100% end-to-end master execution prompt",
+      "path": "docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md",
+      "status": "CONTROLLING"
+    },
     {
       "id": "D01",
       "name": "China Trip master delivery prompt",
@@ -123,6 +129,24 @@
       "name": "Cross-consistency QA",
       "path": "docs/operations/CROSS_CONSISTENCY_QA_2026-10-03.md",
       "status": "QUALITY"
+    },
+    {
+      "id": "D21",
+      "name": "GCC importer / distributor / retailer playbook",
+      "path": "docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md",
+      "status": "CURRENT"
+    },
+    {
+      "id": "D22",
+      "name": "GCC importer operational workspace",
+      "path": "app/(protected)/ahte/gcc-importer/page.tsx",
+      "status": "CURRENT"
+    },
+    {
+      "id": "D23",
+      "name": "Retail / marketplace operational workspace",
+      "path": "app/(protected)/ahte/retail-market/page.tsx",
+      "status": "CURRENT"
     }
   ],
   "platform": {
@@ -144,6 +168,15 @@
     ],
     "registry_mode": "extensible_applicability_registry",
     "current_primary_standards_count": 17,
-    "applicability_rule": "Evaluate the full current Malaysian/JAKIM standards registry plus every verified applicable product/technical instrument; do not hard-code the platform to MS 1500/MS 2400 or a fixed count."
+    "applicability_rule": "Evaluate the full current Malaysian/JAKIM standards registry plus every verified applicable product/technical instrument; do not hard-code the platform to MS 1500/MS 2400 or a fixed count.",
+    "destination_chain": [
+      "GCC port/customs",
+      "GCC importer",
+      "importer receiving/warehouse",
+      "distributor/3PL",
+      "retailer/marketplace/e-commerce",
+      "buyer/authority/retailer/consumer verification"
+    ],
+    "standards_count_semantics": "current verified primary catalogue count only; not a platform ceiling"
   }
 }
