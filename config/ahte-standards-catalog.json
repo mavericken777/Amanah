@@ -89,5 +89,18 @@
       "title": "Halal medical device - General requirements",
       "source_status": "source_locked"
     }
-  ]
+  ],
+  "catalog_count": 17,
+  "scope_rule": "All 17 current controlled Halal operating standards are first-class applicability candidates. Supplemental technical or product MS instruments are evaluated separately when applicable. MS 1500 and MS 2400 are not the entire standards universe.",
+  "certification_layer": ["MPPHM 2020","MHMS 2020","HAS","IHCS","protocols","circulars","authority instructions","destination rules","laboratory methods"],
+  "supplemental_standards": [
+    {
+      "code": "MS 2683:2017",
+      "title": "Kelulut (Stingless bee) honey - Specification",
+      "classification": "supplemental_product_specification",
+      "source_status": "source_held",
+      "applicability": "Kelulut honey product scope"
+    }
+  ],
+  "post_freeze_control_date": "2026-10-06"
 }

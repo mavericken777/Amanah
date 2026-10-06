@@ -43,6 +43,18 @@ export default async function AHTESourcePage(){
           <p className="muted">{standard.source_status.replaceAll("_"," ")}</p>
         </article>)}
       </div>
+      {"supplemental_applicability" in operatingSet && Array.isArray(operatingSet.supplemental_applicability) && operatingSet.supplemental_applicability.length>0 ? <div className="stack">
+        <div>
+          <div className="eyebrow">SUPPLEMENTAL MS APPLICABILITY</div>
+          <h3>Additional technical / product standards when scope requires</h3>
+        </div>
+        {operatingSet.supplemental_applicability.map((standard)=><article className="card" key={standard.code}>
+          <div className="eyebrow">{standard.code}</div>
+          <h3>{standard.title}</h3>
+          <p>{standard.applicability}</p>
+          <p className="muted">{standard.operating_set_effect}</p>
+        </article>)}
+      </div> : null}
     </section>
 
     <section className="card">
