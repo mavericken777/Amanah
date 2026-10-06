@@ -27,6 +27,8 @@ test("AHTE exposes the complete 17-standard Malaysian/JAKIM operating set", asyn
   const configSet = JSON.parse(await readFile("config/ahte-standards-catalog.json", "utf8"));
   const migration = await readFile("supabase/migrations/0013_seed_17_standard_reference_catalog.sql", "utf8");
   const publicApp = await readFile("platinum-site/src/App.tsx", "utf8");
+  const publisher = await readFile("scripts/build-trust-journey.mjs", "utf8");
+  const publishedHomepage = await readFile("ghscl-website/index.html", "utf8");
 
   assert.equal(operatingSet.catalog_count, 17);
   assert.deepEqual(operatingSet.standards.map((item) => item.code), expectedCodes);
@@ -34,7 +36,8 @@ test("AHTE exposes the complete 17-standard Malaysian/JAKIM operating set", asyn
 
   for (const code of expectedCodes) {
     assert.ok(migration.includes(code), `database seed is missing ${code}`);
-    assert.ok(publicApp.includes(code), `public website is missing ${code}`);
+    assert.ok(publicApp.includes(code), `platinum source is missing ${code}`);
+    assert.ok(publishedHomepage.includes(code), `published homepage is missing ${code}`);
   }
 
   assert.equal(operatingSet.supplemental_instruments[0].code, "MS 2683:2017");\n  assert.ok(publicApp.includes("MS 2683:2017"));\n\n  for (const instrument of ["MPPHM 2020", "MHMS 2020", "HAS", "IHCS"]) {
@@ -44,4 +47,8 @@ test("AHTE exposes the complete 17-standard Malaysian/JAKIM operating set", asyn
 
   assert.match(operatingSet.scope_rule, /MS 1500 and MS 2400 are not treated as the entire standards universe/);
   assert.match(publicApp, /does not stop at MS 1500 and MS 2400/);
+  assert.match(publisher, /MS_OPERATING_SET\.json/);
+  assert.match(publishedHomepage, /COMPLETE MALAYSIAN \/ JAKIM STANDARDS/);
+  assert.equal((publishedHomepage.match(/class="standard-card"/g) ?? []).length, 17);
+  assert.match(publishedHomepage, /MS 2683:2017/);
 });
