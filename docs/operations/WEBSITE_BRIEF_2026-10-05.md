@@ -38,13 +38,16 @@ The homepage must explain, in this order:
 12. warehouse and Sinotrans logistics;
 13. container / seal / custody;
 14. ports / customs / authority interaction;
-15. GCC importer / warehouse / distribution / retail;
-16. product verification;
-17. 24/7 GHSCL + JAKIM Command Center;
-18. predictive analytics / preemptive strategy;
-19. cybersecurity / interoperability;
-20. Shariah finance / Takaful;
-21. partnership call-to-action.
+15. GCC importer — onboarding, pre-arrival, receiving, quarantine, destination inventory;
+16. distributor / 3PL — warehouse, transfers, custody, proof of delivery;
+17. retailer / marketplace / e-commerce — listing, receiving, sale eligibility, withdrawal/recall;
+18. buyer / authority / retailer / consumer verification;
+19. 24/7 GHSCL + JAKIM Command Center;
+20. predictive analytics / preemptive strategy;
+21. exception / recall / blast radius;
+22. cybersecurity / interoperability;
+23. Shariah finance / Takaful;
+24. partnership call-to-action.
 
 ## Standards presentation
 
@@ -85,7 +88,7 @@ The standards registry operates together with:
 - laboratory methods;
 - scheme-specific and product-specific requirements.
 
-The platform must remain registry-driven so additional applicable Malaysian/JAKIM instruments can be added without redesign.
+The platform must remain registry-driven and must not present 17 as a permanent ceiling. Every verified applicable Malaysian/JAKIM Standard or authority instrument in the controlled source package must be represented without redesign.
 
 ## Platform message
 
@@ -118,9 +121,11 @@ The platform must remain registry-driven so additional applicable Malaysian/JAKI
 → Sinotrans Logistics  
 → Container / Seal / Custody  
 → Port / Customs  
-→ GCC Destination  
-→ Distribution / Retail  
-→ Product Verification  
+→ GCC Port / Customs  
+→ GCC Importer / Receiving / Warehouse  
+→ Distributor / 3PL  
+→ Retailer / Marketplace / E-commerce  
+→ Buyer / Authority / Retailer / Consumer Verification  
 → Command Center  
 → Continuous Assurance**
 
