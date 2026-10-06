@@ -37,7 +37,7 @@ test("AHTE exposes the complete 17-standard Malaysian/JAKIM operating set", asyn
     assert.ok(publicApp.includes(code), `public website is missing ${code}`);
   }
 
-  for (const instrument of ["MPPHM 2020", "MHMS 2020", "HAS", "IHCS"]) {
+  assert.equal(operatingSet.supplemental_instruments[0].code, "MS 2683:2017");\n  assert.ok(publicApp.includes("MS 2683:2017"));\n\n  for (const instrument of ["MPPHM 2020", "MHMS 2020", "HAS", "IHCS"]) {
     assert.ok(operatingSet.certification_layer.includes(instrument), `certification/governance layer is missing ${instrument}`);
     assert.ok(publicApp.includes(instrument), `public website is missing ${instrument}`);
   }
