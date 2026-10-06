@@ -1,59 +1,53 @@
-# AMANAH current status
+# AMANAH current platform summary
 
-## Current presentation direction
+**Updated:** 7 October 2026
 
-The current China-trip delivery package is defined by:
+AMANAH / Global Halal Digital Trust is presented as one end-to-end platform for China-origin Halal trade, assurance, custody and GCC market verification.
 
-- `docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md`
-- `docs/operations/WEBSITE_BRIEF_2026-10-05.md`
-- `docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md`
+## China Mission delivery
 
-The outward-facing story is the complete AMANAH / Global Halal Digital Trust ecosystem, not an engineering status report.
+Primary China-trip brief:
 
-## Platform
+- [Master delivery prompt](../AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md)
+- [Prompt coverage audit](../mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)
+- [Website presentation brief](WEBSITE_BRIEF_2026-10-05.md)
+- [Master deliverable index](MASTER_DELIVERABLE_INDEX_2026-10-03.md)
+
+The trip-facing package prioritises finished decks, corporate profile, MOAs, partner playbooks, hardware/CODA material, API/port material, meeting briefs, Mandarin adaptations, website, infographics and film assets. Repository mechanics and engineering-status material stay outside the presentation package.
+
+## Platform architecture
 
 **AHTE ⇄ Direct JAKIM API ⇄ JAKIM**
 
 **China → GCC direct**
 
-Core platform areas represented in the application and delivery package:
+AI assists. Authorised humans and competent authorities decide.
 
-- organisation / KYC / manufacturer onboarding;
-- facility / product / SKU;
-- supplier / ingredient / raw-material provenance;
-- complete Malaysian/JAKIM standards applicability;
-- evidence / document management;
-- AI-assisted review and accountable human governance;
-- laboratory sample and result chain;
-- smart-glass / tablet audit;
-- CAPA / re-verification;
-- certification / credential workflow;
-- production / IoT / digital twin;
-- warehouse / Sinotrans logistics / custody;
-- ports / customs / GCC destination;
-- verification;
-- Command Center;
-- predictive / preemptive intelligence;
-- cybersecurity / interoperability;
-- Shariah financing / Takaful evidence integration.
+Evidence before trust. Trust before operational release.
 
-## Complete Malaysian / JAKIM framework
+The lifecycle connects manufacturer/KYC, facility, product/SKU, supplier/material provenance, standards applicability, evidence, laboratory, smart audit, CAPA, authority workflow, production/IoT/digital twin, batch, warehouse, Sinotrans logistics, custody, ports/customs, GCC distribution, verification and the 24/7 Command Center.
 
-The platform uses the complete current project-verified 17-standard operating catalogue and does not reduce the framework to MS 1500 / MS 2400.
+## Malaysian / JAKIM framework
 
-The catalogue operates with the applicable MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination requirements and laboratory methods. Applicable supplemental product/technical standards are added by scope.
+The standards architecture is registry-driven and is not limited to MS 1500 or MS 2400.
 
-## Presentation
+The current verified primary standards catalogue contains 17 standards in `docs/ahte/MS_OPERATING_SET.json`, with additional applicable product/technical standards such as MS 2683:2017 evaluated by scope.
 
-Public and trip-facing materials use:
+The wider framework includes MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination rules and laboratory methods.
 
-- black / obsidian;
-- metallic gold;
-- warm ivory;
+Historical/superseded editions remain available for provenance and change impact; they are not silently treated as current requirements.
+
+## Presentation experience
+
+The public website and authenticated application use the same platform story:
+
+- black / obsidian + metallic gold;
 - Arial / Helvetica / neutral sans-serif;
-- information-bearing architecture and process visuals;
 - no oversized decorative shield;
-- no prototype-style engineering panels;
-- no repeated caveat walls.
+- complete Malaysian/JAKIM standards registry;
+- manufacturer, laboratory, audit, production, logistics, ports, GCC, verification, finance/Takaful and Command Center;
+- concise institutional language suitable for China-mission meetings.
 
-Internal implementation and external-activation notes stay in internal operational documents rather than dominating presentation material.
+## Internal release validation
+
+Repository releases still undergo the required automated build, type, test, security-policy, browser and deployment checks. Those mechanics are internal QA and are not part of the China-trip presentation material.
