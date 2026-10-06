@@ -460,7 +460,7 @@ export default function App() {
           <section className="standards-catalog" id="standards" aria-labelledby="ms-catalog-title">
             <div className="standards-catalog-head">
               <div>
-                <p className="eyebrow">COMPLETE MALAYSIAN / JAKIM MS OPERATING SET</p>
+                <p className="eyebrow">COMPLETE MALAYSIAN / JAKIM STANDARDS REGISTRY</p>
                 <h3 id="ms-catalog-title">All 17 controlled Malaysian Standards are first-class applicability candidates.</h3>
                 <p>The platform does not reduce Halal assurance to MS 1500 and MS 2400. AHTE resolves the applicable standard or instrument by product, service, facility, process, logistics activity, destination and evidence context.</p>
               </div>
@@ -518,7 +518,7 @@ export default function App() {
                 <h3>{labStages[activeLab][0]}</h3>
                 <p>{labStages[activeLab][1]}</p>
               </div>
-              <div className="standards-note"><strong>Standards mapping</strong><span>Laboratory evidence is mapped against the applicable controlled requirements across the complete 17-standard MS operating set, including relevant product-sector and analytical-method standards. The exact requirement, method and authority instrument are resolved by applicability before assessment.</span>
+              <div className="standards-note"><strong>Standards mapping</strong><span>Laboratory evidence is mapped against the applicable controlled requirements across the complete applicable Malaysian/JAKIM standards registry, including relevant product-sector and analytical-method standards. The exact requirement, method and authority instrument are resolved by applicability before assessment.</span>
               </div>
             </article>
 
