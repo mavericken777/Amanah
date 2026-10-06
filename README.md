@@ -18,6 +18,10 @@ Finished stakeholder deliverables are the primary outcome; internal implementati
 
 Prompt coverage audit: **[China Trip prompt coverage audit](docs/mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)**.
 
+Permanent execution note: **[NOTE TO SELF — controlling execution](docs/operations/NOTE_TO_SELF_CONTROLLING_EXECUTION_2026-10-07.md)**.
+
+Wholesome completeness audit: **[Platform coverage audit](docs/operations/WHOLESOME_PLATFORM_COVERAGE_AUDIT_2026-10-07.md)**.
+
 ## Platform journey
 
 **Origin / Manufacturer  
