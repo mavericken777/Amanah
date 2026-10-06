@@ -35,7 +35,7 @@ test('trip-facing priority puts finished executive deliverables first',()=>{
 test('master indexes expose current trip delivery sources',()=>{
   const human=fs.readFileSync('docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md','utf8');
   assert.ok(human.includes('China Trip master delivery prompt'));
-  assert.ok(human.includes('Complete 17-standard operating set'));
+  assert.ok(human.includes('Complete Malaysian/JAKIM standards registry'));
   assert.ok(human.includes('Sinotrans A–Z playbook'));
   assert.ok(human.includes('Master legal / contractual pack'));
 });
