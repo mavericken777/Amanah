@@ -4,6 +4,7 @@
 
 ## Executive / presentation
 
+- 100% end-to-end master execution prompt — `docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md`
 - China Trip master delivery prompt — `docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md`
 - Corporate website — `ghscl-website/index.html`
 - Corporate profile — `docs/corporate/GHSCL_CORPORATE_PROFILE_2026.md`
@@ -19,7 +20,7 @@
 - Public standards experience — `ghscl-website/standards.html`
 - AHTE source / standards workspace — `app/(protected)/ahte/source/`
 
-The standards model is registry-driven. Its current verified primary catalogue contains 17 Malaysian Standards, while applicable product/technical standards such as MS 2683:2017 are added by scope. It operates together with MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination requirements and laboratory methods.
+The standards model is registry-driven and is not permanently capped at 17. Its current verified primary catalogue contains 17 Malaysian Standards, while every additional verified applicable product/technical standard or authority instrument—including MS 2683:2017 when in scope—is added through applicability without redesign. It operates together with MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination requirements and laboratory methods.
 
 ## Manufacturer / audit / laboratory
 
@@ -40,6 +41,17 @@ The standards model is registry-driven. Its current verified primary catalogue c
 - Logistics operating model — `docs/logistics/LOGISTICS_OPERATING_MODEL_2026-10-02.md`
 - API UAT pack — `docs/api/AMANAH_API_UAT_PACK_2026-10-02.md`
 - Canonical API contract — `docs/api/AMANAH_CANONICAL_API_CONTRACT_2026-10-02.yaml`
+
+## GCC importer / distributor / retailer
+
+- Destination-market playbook — `docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md`
+- GCC Importer workspace — `app/(protected)/ahte/gcc-importer/page.tsx`
+- Retail / Marketplace workspace — `app/(protected)/ahte/retail-market/page.tsx`
+- GCC Importer public experience — `ghscl-website/gcc-importer.html`
+- Retail / Marketplace public experience — `ghscl-website/retail-market.html`
+- Destination coverage in Command Center — `app/(protected)/ahte/command-center/page.tsx`
+
+The destination operating story is: `GCC port/customs -> importer receiving/quarantine -> destination inventory -> distributor/3PL custody -> retailer/marketplace listing and receiving -> buyer/authority/retailer/consumer verification -> withdrawal/recall propagation`.
 
 ## Corporate media
 
