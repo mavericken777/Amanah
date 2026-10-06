@@ -16,6 +16,7 @@ Mission-specific brief:
 - [Prompt coverage audit](../mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)
 - [Website presentation brief](WEBSITE_BRIEF_2026-10-05.md)
 - [Master deliverable index](MASTER_DELIVERABLE_INDEX_2026-10-03.md)
+- [Wholesome platform coverage audit](WHOLESOME_PLATFORM_COVERAGE_AUDIT_2026-10-07.md)
 
 The trip-facing package prioritises finished decks, corporate profile, MOAs, partner playbooks, hardware/CODA material, API/port material, meeting briefs, Mandarin adaptations, website, infographics and film assets. Repository mechanics and engineering-status material stay outside the presentation package.
 
