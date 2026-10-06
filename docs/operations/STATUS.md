@@ -1,57 +1,59 @@
-# Current Amanah implementation status
+# AMANAH current status
 
-Website presentation controller (5 October 2026): [controlling brief delivery](WEBSITE_BRIEF_2026-10-05.md). The connected journey supersedes the oversized crest homepage; Arial typography applies to public and authenticated surfaces. Release status comes from exact-head CI and hosting read-back.
+## Current presentation direction
 
-Global control source binding: `mavericken777/GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5` (2 Oct 2026). Current mutable Amanah implementation state is repository `main`; exact release eligibility is determined from the commit under review and its CI/deployment evidence, not by a hard-coded mutable SHA in this file. Machine binding: [source-binding.json](../../config/source-binding.json). The 17 September verified freeze remains unchanged.
+The current China-trip delivery package is defined by:
 
-AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct; Malaysia is the governance/assurance/authority-connectivity plane. Shipment 001 is **NOT-INSTANTIATED**. No fixture, architectural illustration or development receipt closes a transaction or authority gate.
+- `docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md`
+- `docs/operations/WEBSITE_BRIEF_2026-10-05.md`
+- `docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md`
 
-## Controlling artifacts
+The outward-facing story is the complete AMANAH / Global Halal Digital Trust ecosystem, not an engineering status report.
 
-| Domain | Current controller |
-| --- | --- |
-| Source provenance | [SOURCE_BINDING](../ahte/SOURCE_BINDING.md) and its machine binding |
-| Target architecture | [AHTE_PLATFORM_ARCHITECTURE](../ahte/AHTE_PLATFORM_ARCHITECTURE.md) |
-| External/source-locked gates | [PENDING](PENDING.md) |
-| Authorization | [SECURITY_MODEL](SECURITY_MODEL.md) |
-| Release validation | [RELEASE_CHECKLIST](RELEASE_CHECKLIST.md) and exact-head GitHub CI |
-| Deployment and recovery | [DEPLOYMENT_RUNBOOK](DEPLOYMENT_RUNBOOK.md) |
-| Website source provenance | [source-manifest.json](../../ghscl-website/source-manifest.json) |
-| Navigation | [REPO_INDEX](../../REPO_INDEX.md) |
+## Platform
 
-## Implementation and validation
+**AHTE ⇄ Direct JAKIM API ⇄ JAKIM**
 
-The protected application, public website, SQL migrations, reference runtimes, OPA policies, internal connector envelopes and authority boundaries are implemented in source. Production connectors require authorised contracts/credentials. The isolated development provider accepts explicitly simulated development events and issues only internal, non-authoritative acknowledgements; it cannot instantiate Shipment 001 or supply external results.
+**China → GCC direct**
 
-Every release must pass TypeScript, Node/schema/migration/RLS tests, Deno Edge Function checks, OPA/reference-runtime checks, Next production build, public link/provenance checks and browser smoke tests at the exact PR head. CI results, not this prose, control release eligibility. Authenticated production UAT requires an authorised deployed workspace and real roles; anonymous browser tests and isolated database policy tests do not replace it.
+Core platform areas represented in the application and delivery package:
 
-2 October execution sync: manufacturer onboarding is implemented at `app/(protected)/onboarding/page.tsx`; the live schema normalization migration is represented in `supabase/migrations/20261002010000_canonical_domain_normalization.sql`; application query-contract validation now uses `lib/database.target.types.ts`, which composes the current generated schema with the controlled target extension tables actually used by the application. No production certification/authority/finance decision is created by onboarding.
+- organisation / KYC / manufacturer onboarding;
+- facility / product / SKU;
+- supplier / ingredient / raw-material provenance;
+- complete Malaysian/JAKIM standards applicability;
+- evidence / document management;
+- AI-assisted review and accountable human governance;
+- laboratory sample and result chain;
+- smart-glass / tablet audit;
+- CAPA / re-verification;
+- certification / credential workflow;
+- production / IoT / digital twin;
+- warehouse / Sinotrans logistics / custody;
+- ports / customs / GCC destination;
+- verification;
+- Command Center;
+- predictive / preemptive intelligence;
+- cybersecurity / interoperability;
+- Shariah financing / Takaful evidence integration.
 
-Live Supabase read-back during this reconciliation: ACTIVE_HEALTHY, PostgreSQL 17.11, 120/120 public tables with RLS, repository migration lineage applied. Four security-definer RPC advisor warnings were reviewed: authentication, tenant membership, elevated role/actor guards and bounded rate limits remain enforced. Low-usage index advisories reflect absent production traffic and do not justify dropping integrity indexes.
+## Complete Malaysian / JAKIM framework
 
-Prior dated reports are [HISTORICAL / SUPERSEDED / NON-CONTROLLING](../archive/README.md). They preserve their original evidence and cannot control current readiness, topology or provenance.
+The platform uses the complete current project-verified 17-standard operating catalogue and does not reduce the framework to MS 1500 / MS 2400.
 
-The retired `ghscl-site` Edge Function redirects to the current public Pages website. `assurance` and `public-verify` remain separate protected/scoped backend services. Live read-back found zero authentication users, shipments and authority decisions; authenticated production UAT therefore remains an external deployment/identity gate.
+The catalogue operates with the applicable MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination requirements and laboratory methods. Applicable supplemental product/technical standards are added by scope.
 
-## External CI/deployment condition
+## Presentation
 
-Exact release/deployment state is commit-specific and must be read from the corresponding CI/deployment checks rather than treated as a durable prose claim. The controlled public GitHub Pages deployment is independently verified by its deployment workflow.
+Public and trip-facing materials use:
 
-2026-10-04 reconciliation: current main `14f4e06bdf8141fe1af5c9a2ecf74db39c1002c5` passed Amanah CI run #440 and GitHub Pages deployment run #57, including exact built-page verification. Both Vercel contexts on that same commit currently report an external account build-rate-limit failure. That Vercel condition does not establish an application-code failure and is not rewritten as a green deployment.
+- black / obsidian;
+- metallic gold;
+- warm ivory;
+- Arial / Helvetica / neutral sans-serif;
+- information-bearing architecture and process visuals;
+- no oversized decorative shield;
+- no prototype-style engineering panels;
+- no repeated caveat walls.
 
-Production hosting remains distinct from authenticated production UAT and external connector activation.
-
-
-## 3 October execution sync — Items 56–60
-
-Repository-controlled SOPs, China mission executive pack, stakeholder meeting briefs, objection-handling book and cross-consistency QA are now controlled artifacts. Mission dates/roster/meeting confirmations remain evidence-bound; no working itinerary or discussion is converted into a confirmed external commitment by this status file.
-
-
-## 3 October execution sync — Items 61–65
-
-Programme-wide red-team, visual QC, document QC and claim verification now have controlling 2026-10-03 reports. The boardroom corporate-profile corrective implementation is merged; the duplicate corrective PR was closed as superseded. The human-readable master deliverable index now provides the stakeholder directory for Items 1–65. External production/authority/partner gates remain in PENDING.md.
-
-
-## 3 October final programme sync — Items 66–69
-
-Definition of Done, execution priority, standing execution instruction and final operating test are now controlled. The 69-item programme is complete to repository/project-controlled scope. Final exact-head CI passed on PR #54, the closure batch merged to main as `62f1fbc025eb8e981e8cb92fcc98ae11be4400a3`, and both Vercel deployment contexts on that main commit are green. This status does not close external activation gates in PENDING and does not instantiate Shipment 001.
+Internal implementation and external-activation notes stay in internal operational documents rather than dominating presentation material.
