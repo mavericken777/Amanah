@@ -30,12 +30,12 @@ export default async function AHTESourcePage(){
     <section className="card stack">
       <div className="row-between">
         <div>
-          <div className="eyebrow">MASTER MS OPERATING SET</div>
-          <h2>Complete 17-standard catalogue</h2>
+          <div className="eyebrow">MALAYSIAN / JAKIM STANDARDS REGISTRY</div>
+          <h2>Complete applicable standards registry</h2>
         </div>
         <span className="status">{operatingSet.catalog_count} standards</span>
       </div>
-      <p className="muted">The applicability engine considers the complete controlled set and layers it with MPPHM, MHMS, HAS, IHCS, protocols, circulars, authority instructions, destination rules and laboratory methods.</p>
+      <p className="muted">The applicability engine evaluates the current primary standards catalogue plus every applicable product/technical instrument, then layers MPPHM, MHMS, HAS, IHCS, protocols, circulars, authority instructions, destination rules and laboratory methods.</p>
       <div className="card-grid">
         {operatingSet.standards.map((standard)=><article className="card" key={standard.code}>
           <div className="eyebrow">{standard.code}</div>
@@ -45,14 +45,14 @@ export default async function AHTESourcePage(){
       </div>
       <div className="stack">
         <div>
-          <div className="eyebrow">SUPPLEMENTAL APPLICABILITY</div>
-          <h3>Supplemental standards / technical instruments</h3>
+          <div className="eyebrow">ADDITIONAL APPLICABLE MS INSTRUMENTS</div>
+          <h3>Product / technical standards</h3>
         </div>
         {(operatingSet.supplemental_instruments??[]).map((standard)=><article className="card" key={standard.code}>
           <div className="eyebrow">{standard.code}</div>
           <h3>{standard.title}</h3>
           <p>{standard.role}</p>
-          <p className="muted">{standard.catalog_status}</p>
+          <p className="muted">{standard.applicability}</p>
         </article>)}
       </div>
     </section>
