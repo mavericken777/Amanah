@@ -39,15 +39,16 @@ const walkFiles = dir => fs.readdirSync(dir,{withFileTypes:true}).flatMap(entry 
   return entry.isDirectory()?walkFiles(full):[full];
 });
 const publicFiles=walkFiles(site);
-const neutralFamily=/(?:Cinzel|Georgia|Inter|Manrope|\"Cormorant Garamond\"|\"Times New Roman\"|\"DM Mono\"|\"Noto Naskh Arabic\"|\"Inter Tight\"|\"Plus Jakarta Sans\"|\"Sora\")(?:\\s*,\\s*(?:\"[^\"]+\"|[\\w-]+))+/g;
+const neutralFamily=/(?:Cinzel|Georgia|Inter|Manrope|"Cormorant Garamond"|"Times New Roman"|"DM Mono"|"Noto Naskh Arabic"|"Inter Tight"|"Plus Jakarta Sans"|"Sora")(?:\s*,\s*(?:"[^"]+"|[\w-]+))+/g;
 for (const file of publicFiles.filter(f=>f.endsWith('.css'))) {
-  let css=fs.readFileSync(file,'utf8').replace(/^@import[^\\n]*fonts\\.googleapis[^\\n]*;/gm,'');
-  css=css.replace(/font-family\\s*:[^;}]+/g,'font-family:Arial, Helvetica, sans-serif');
+  let css=fs.readFileSync(file,'utf8').replace(/^@import[^\n]*fonts\.googleapis[^\n]*;/gm,'');
+  css=css.replace(/font-family\s*:[^;}]+/g,'font-family:Arial, Helvetica, sans-serif');
   css=css.replace(neutralFamily,'Arial, Helvetica, sans-serif');
   fs.writeFileSync(file,css);
 }
 for(const file of publicFiles.filter(f=>f.endsWith('.html'))) {
-  let page=fs.readFileSync(file,'utf8').replace(/<link[^>]+(?:fonts\\.googleapis|fonts\\.gstatic)[^>]*>/g,'');
+  let page=fs.readFileSync(file,'utf8').replace(/<link[^>]+(?:fonts\.googleapis|fonts\.gstatic)[^>]*>/g,'');
+  page=page.replace(/\s+https:\/\/fonts\.googleapis\.com/g,'').replace(/\s+https:\/\/fonts\.gstatic\.com/g,'');
   page=page.replace(neutralFamily,'Arial, Helvetica, sans-serif');
   const neutralHref=path.relative(path.dirname(file),path.join(site,'neutral-font.css')).split(path.sep).join('/');
   if(file!==path.join(site,'index.html')&&!page.includes('neutral-font.css')) page=page.replace('</head>','<link rel="stylesheet" href="'+neutralHref+'"></head>');
