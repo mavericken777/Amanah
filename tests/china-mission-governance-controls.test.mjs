@@ -10,7 +10,11 @@ test('China mission governance root controls are evidence-bound and current',()=
     assert.doesNotMatch(text,/\|\s*TBD\s*\|/);
     assert.doesNotMatch(text,/Project owner:\s*TBD/);
   }
-  assert.match(fs.readFileSync('PROJECT_OVERVIEW.md','utf8'),/69-item project-controlled programme is complete/);
+  const overview=fs.readFileSync('PROJECT_OVERVIEW.md','utf8');
+  assert.match(overview,/complete AMANAH \/ Global Halal Digital Trust ecosystem/);
+  assert.match(overview,/complete current project-verified 17-standard Malaysian\/JAKIM operating catalogue/);
+  assert.match(overview,/AHTE ⇄ Direct JAKIM API ⇄ JAKIM/);
+  assert.match(overview,/China → GCC direct/);
   assert.match(fs.readFileSync('RISK_REGISTER.md','utf8'),/CM-R08/);
   assert.match(fs.readFileSync('BUDGET_AND_EXPENSES.md','utf8'),/NO APPROVED NUMERIC BUDGET/);
   assert.match(fs.readFileSync('DOCUMENTS_AND_COMPLIANCE.md','utf8'),/SOURCE-LOCKED: current immigration\/entry requirements/);
