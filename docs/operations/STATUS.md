@@ -1,14 +1,14 @@
 # Current Amanah implementation status
 
-Website presentation controller (5 October 2026): [controlling brief delivery](WEBSITE_BRIEF_2026-10-05.md). The connected journey supersedes the oversized crest homepage; Arial typography applies to public and authenticated surfaces. Release status comes from exact-head CI and hosting read-back.
+Website presentation brief (5 October 2026): [website delivery](WEBSITE_BRIEF_2026-10-05.md). China-trip stakeholder delivery uses the [7 October Platinum-Tier master prompt](../mission/CHINA_TRIP_PLATINUM_MASTER_PROMPT_2026-10-07.md). The connected journey supersedes the oversized crest homepage; Arial typography applies to public and authenticated surfaces. Release status comes from exact-head CI and hosting read-back.
 
-Global control source binding: `mavericken777/GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5` (2 Oct 2026). Current mutable Amanah implementation state is repository `main`; exact release eligibility is determined from the commit under review and its CI/deployment evidence, not by a hard-coded mutable SHA in this file. Machine binding: [source-binding.json](../../config/source-binding.json). The 17 September verified freeze remains unchanged.
+Global project source binding: `mavericken777/GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5` (2 Oct 2026). Current mutable Amanah implementation state is repository `main`; exact release eligibility is determined from the commit under review and its CI/deployment evidence, not by a hard-coded mutable SHA in this file. Machine binding: [source-binding.json](../../config/source-binding.json). The 17 September verified freeze remains unchanged.
 
 AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct; Malaysia is the governance/assurance/authority-connectivity plane. Shipment 001 is **NOT-INSTANTIATED**. No fixture, architectural illustration or development receipt closes a transaction or authority gate.
 
-## Controlling artifacts
+## Current reference artifacts
 
-| Domain | Current controller |
+| Domain | Current reference |
 | --- | --- |
 | Source provenance | [SOURCE_BINDING](../ahte/SOURCE_BINDING.md) and its machine binding |
 | Target architecture | [AHTE_PLATFORM_ARCHITECTURE](../ahte/AHTE_PLATFORM_ARCHITECTURE.md) |
@@ -49,9 +49,9 @@ Repository-controlled SOPs, China mission executive pack, stakeholder meeting br
 
 ## 3 October execution sync — Items 61–65
 
-Programme-wide red-team, visual QC, document QC and claim verification now have controlling 2026-10-03 reports. The boardroom corporate-profile corrective implementation is merged; the duplicate corrective PR was closed as superseded. The human-readable master deliverable index now provides the stakeholder directory for Items 1–65. External production/authority/partner gates remain in PENDING.md.
+Programme-wide red-team, visual QC, document QC and claim verification now have 2026-10-03 reports. The boardroom corporate-profile corrective implementation is merged; the duplicate corrective PR was closed as superseded. The human-readable master deliverable index now provides the stakeholder directory for Items 1–65. External production/authority/partner gates remain in PENDING.md.
 
 
 ## 3 October final programme sync — Items 66–69
 
-Definition of Done, execution priority, standing execution instruction and final operating test are now controlled. The 69-item programme is complete to repository/project-controlled scope. Final exact-head CI passed on PR #54, the closure batch merged to main as `62f1fbc025eb8e981e8cb92fcc98ae11be4400a3`, and both Vercel deployment contexts on that main commit are green. This status does not close external activation gates in PENDING and does not instantiate Shipment 001.
+Definition of Done, execution priority, standing execution instruction and final operating test are documented. The 69-item programme is complete to repository/project-controlled scope. Final exact-head CI passed on PR #54, the closure batch merged to main as `62f1fbc025eb8e981e8cb92fcc98ae11be4400a3`, and both Vercel deployment contexts on that main commit are green. This status does not close external activation gates in PENDING and does not instantiate Shipment 001.
