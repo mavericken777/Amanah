@@ -11,7 +11,7 @@ test('China mission governance root controls are evidence-bound and current',()=
     assert.doesNotMatch(text,/Project owner:\s*TBD/);
   }
   const overview=fs.readFileSync('PROJECT_OVERVIEW.md','utf8');
-  assert.match(overview,/complete AMANAH \/ Global Halal Digital Trust ecosystem/);
+  assert.match(overview,/end-to-end operational and digital trust platform for the Global Halal Digital Trust ecosystem/);
   assert.match(overview,/complete current project-verified 17-standard Malaysian\/JAKIM operating catalogue/);
   assert.match(overview,/AHTE ⇄ Direct JAKIM API ⇄ JAKIM/);
   assert.match(overview,/China → GCC direct/);
