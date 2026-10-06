@@ -1,30 +1,28 @@
 # China Mission Risk Register
 
-**Status:** CURRENT MISSION HANDOFF / EVIDENCE-BOUND  
-**Controlling mission material:** `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md`
+Use this register during mission preparation and daily close-out. Keep the focus on risks that can affect meetings, signing, technical discovery, travel continuity or the credibility of the AMANAH proposition.
 
-This root register tracks mission-level risks only. Detailed enterprise, platform and corridor risks belong in Amanah and the controlling architecture/QA records.
-
-| ID | Risk | Impact | Likelihood | Mitigation | Accountable role | Status |
+| ID | Risk | Impact | Likelihood | Mitigation | Owner | State |
 |---|---|---|---|---|---|---|
-| CM-R01 | Travel schedule or routing changes | Medium | Medium | Keep booking evidence current; maintain time buffers and alternate routing | Travel owner | OPEN GATE |
-| CM-R02 | External meeting cancellation / participant change | Medium | Medium | Require written confirmation; maintain fallback contacts / remote option | Meeting owner | OPEN GATE |
-| CM-R03 | Connectivity limitations | Medium | Medium | Pre-approve primary and backup connectivity; keep offline meeting materials | Technical / travel owner | OPEN GATE |
-| CM-R04 | Missing traveller documentation | High | Low | Complete secure document-readiness checks before departure | Mission admin + traveller | OPEN GATE |
-| CM-R05 | Counterparty legal identity / signing authority unclear | High | Medium | Verify exact entity and authorised signatory before MOA execution | Legal / meeting owner | ACTIVE CONTROL |
-| CM-R06 | Working discussion misrepresented as commitment | High | Medium | Record proposal/fact/assumption separately; attribute every commitment | Mission PMO | ACTIVE CONTROL |
-| CM-R07 | Architecture presented as live production integration | High | Low | Use connector states and verified evidence; no fabricated JAKIM/lab/logistics response | Technical lead | ACTIVE CONTROL |
-| CM-R08 | Commercial figures treated as approved price | High | Medium | Mark indicative figures as proposals until GHSCL commercial approval | Commercial lead | ACTIVE CONTROL |
+| CM-R01 | Travel schedule or routing changes | Medium | Medium | Maintain time buffers, current bookings and alternate routing | Travel owner | Monitor |
+| CM-R02 | Meeting cancellation or participant change | Medium | Medium | Confirm counterpart attendance and keep a remote/fallback option | Meeting owner | Monitor |
+| CM-R03 | Connectivity limitations | Medium | Medium | Carry offline copies of decks, contracts, API material and video | Technical / travel owner | Mitigate |
+| CM-R04 | Missing traveller documentation | High | Low | Complete document-readiness check before departure | Mission admin + traveller | Confirm |
+| CM-R05 | Counterparty legal identity or signing authority unclear | High | Medium | Verify legal entity and authorised signatory before execution | Legal / meeting owner | Confirm before signing |
+| CM-R06 | Working discussion treated as a binding commitment | High | Medium | Record meeting outcomes, decisions sought and agreed next actions in writing | Mission lead | Mitigate |
+| CM-R07 | Platform capability confused with a live external production connection | High | Low | Present the complete interface and separately confirm production activation details with the counterparty | Technical lead | Mitigate |
+| CM-R08 | Indicative commercial figure treated as an approved price | High | Medium | Use approved commercial schedules for signing and financing discussions | Commercial lead | Confirm before commitment |
 
-## Escalation
+## Daily mission close-out
 
-Escalate immediately when:
-- safety or travel continuity is materially affected;
-- a counterparty changes scope/signing authority;
-- an external claim cannot be evidenced;
-- confidential information may have been exposed;
-- a requested commitment exceeds the authorised mandate.
+At the end of each meeting/day record:
 
-Risk ownership, due dates and evidence references must be recorded in the authenticated Amanah workspace.
+- decision or outcome;
+- accountable owner;
+- due date;
+- required evidence/document;
+- commercial/legal follow-up;
+- integration follow-up;
+- next meeting or milestone.
 
-[SOURCE-LOCKED: final travel, meeting and counterparty confirmations]
+Escalate immediately for safety, material schedule failure, signing-authority changes, confidential-data exposure or any commitment outside the delegation’s authorised mandate.

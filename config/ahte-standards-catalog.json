@@ -81,7 +81,7 @@
     },
     {
       "code": "MS 2610:2015",
-      "title": "Muslim-friendly hospitality services",
+      "title": "Muslim-friendly hospitality services - Requirements",
       "source_status": "source_locked"
     },
     {
@@ -91,16 +91,63 @@
     }
   ],
   "catalog_count": 17,
-  "scope_rule": "All 17 current controlled Halal operating standards are first-class applicability candidates. Supplemental technical or product MS instruments are evaluated separately when applicable. MS 1500 and MS 2400 are not the entire standards universe.",
-  "certification_layer": ["MPPHM 2020","MHMS 2020","HAS","IHCS","protocols","circulars","authority instructions","destination rules","laboratory methods"],
-  "supplemental_standards": [
+  "scope_rule": "The platform evaluates the complete applicable Malaysian/JAKIM Halal framework. MS 1500 and MS 2400 are not the entire standards universe, and the architecture is not hard-coded to a fixed standards count.",
+  "certification_layer": [
+    "MPPHM 2020",
+    "MHMS 2020",
+    "HAS",
+    "IHCS",
+    "protocols",
+    "circulars",
+    "authority instructions",
+    "destination rules",
+    "laboratory methods"
+  ],
+  "supplemental_instruments": [
     {
       "code": "MS 2683:2017",
       "title": "Kelulut (Stingless bee) honey - Specification",
-      "classification": "supplemental_product_specification",
-      "source_status": "source_held",
-      "applicability": "Kelulut honey product scope"
+      "role": "Supplemental product-quality/specification instrument when a Kelulut honey SKU is in scope",
+      "catalog_status": "Applicable technical/product instrument outside the current primary catalogue; evaluated whenever its product or technical scope applies.",
+      "source_status": "source_locked"
     }
   ],
-  "post_freeze_control_date": "2026-10-06"
+  "supersession_note": "Historical/supporting standards remain versioned in provenance and are not silently promoted as current primary halal requirements.",
+  "registry_mode": "extensible_applicability_registry",
+  "rule": "Standards applicability is registry-driven. The current primary Malaysian/JAKIM standards catalogue and every verified applicable product/technical instrument remain first-class applicability candidates. Exact normative text is used only from verified/licensed sources; certification authority remains with the competent authority.",
+  "superseded_context": [
+    {
+      "historical": "MS 1500:2009",
+      "current": "MS 1500:2019"
+    },
+    {
+      "historical": "MS 2400-1/-2/-3:2010",
+      "current": "MS 2400-1/-2/-3:2019"
+    },
+    {
+      "historical": "MS 2424:2012",
+      "current": "MS 2424:2019"
+    },
+    {
+      "historical": "MS 2200-1:2008",
+      "current": "MS 2634:2019"
+    },
+    {
+      "historical": "MS 2565:2014 / MS 2594:2015",
+      "current": "MS 2738:2023",
+      "context": "relevant consumable-goods scheme requirements"
+    },
+    {
+      "historical": "MS 2200-2:2013",
+      "current": "MS 2803:2025"
+    },
+    {
+      "historical": "MS 2393:2013",
+      "current": "MS 2393:2023"
+    },
+    {
+      "historical": "MS 1900:2014",
+      "current": "MS 1900:2025"
+    }
+  ]
 }

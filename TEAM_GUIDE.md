@@ -1,50 +1,44 @@
-# Team Guide
+# AMANAH Team Guide
 
 ## Start here
 
-1. `README.md` — platform purpose and architecture.
-2. `REPO_INDEX.md` — controlling artifact by domain.
-3. `docs/operations/STATUS.md` — current verified project state.
-4. `docs/operations/PENDING.md` — genuine external / source-locked gates.
-5. `docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md` — stakeholder deliverable directory.
+1. `README.md`
+2. `docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md`
+3. `REPO_INDEX.md`
+4. `docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md`
+5. `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md`
 
-## China Mission controls
+## China Mission
 
-- `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md` — mission strategy and discipline.
-- `docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md` — counterparty meeting briefs.
-- `ACTION_ITEMS.md` — evidence-bound action handoff.
-- `ITINERARY.md` — itinerary evidence gates.
-- `MEETINGS.md` — meeting confirmation / close-out rules.
-- `LOGISTICS.md` — travel logistics evidence gates.
-- `ACCOMMODATION.md` — rooming evidence gates.
-- `RISK_REGISTER.md` — mission risk handoff.
-- `DOCUMENTS_AND_COMPLIANCE.md` — document-readiness controls.
-- `TEAM_AND_RESPONSIBILITIES.md` — role-based accountability.
+Use the repository to prepare finished meeting materials:
 
-## Where live operational records belong
+- executive deck;
+- partner-specific decks;
+- MOA / agreement drafts;
+- China meeting briefs;
+- Sinotrans playbook;
+- CODA pack;
+- laboratory integration pack;
+- hardware catalogue;
+- API / integration binder;
+- corporate profile;
+- website;
+- infographics;
+- cinematic video;
+- Mandarin adaptation;
+- stakeholder playbooks;
+- SOP / training material.
 
-Use the authenticated Amanah workspace for:
-- tasks and owners;
-- meeting records;
-- risks;
-- documents/evidence references;
-- decisions;
-- project updates;
-- finance/expenses;
-- approvals and workflows.
+## Platform identity
 
-Use Git for durable architecture, controlled packs, templates, policies and non-sensitive handoffs — not passwords, identity documents, secret credentials, private booking details or mutable personal data.
+**AHTE ⇄ Direct JAKIM API ⇄ JAKIM**
 
-## Editing discipline
+**China → GCC direct**
 
-Before changing a controlling artifact:
-1. identify the controlling source;
-2. distinguish verified fact / repository capability / project-defined capability / external integration / commercial proposal / assumption;
-3. preserve authority boundaries;
-4. update affected dependent artifacts;
-5. run full CI;
-6. merge only after validation.
+**AI assists. Authorised humans and competent authorities decide.**
 
-Canonical topology: **AHTE ⇄ Direct JAKIM API ⇄ JAKIM**.  
-Physical corridor: **China → GCC direct**.  
-AI assists; authorised humans / competent authorities decide.
+## Working principle
+
+Keep trip-facing material clean, direct and presentation-ready.
+
+Internal implementation, credentials, sensitive information and live operational records remain in the appropriate secure systems. Public and partner-facing material should explain the platform capability, workflow and stakeholder value without engineering clutter.

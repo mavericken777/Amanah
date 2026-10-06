@@ -1,57 +1,53 @@
-# Current Amanah implementation status
+# AMANAH current platform summary
 
-Website presentation controller (5 October 2026): [controlling brief delivery](WEBSITE_BRIEF_2026-10-05.md). The connected journey supersedes the oversized crest homepage; Arial typography applies to public and authenticated surfaces. Release status comes from exact-head CI and hosting read-back.
+**Updated:** 7 October 2026
 
-Global control source binding: `mavericken777/GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5` (2 Oct 2026). Current mutable Amanah implementation state is repository `main`; exact release eligibility is determined from the commit under review and its CI/deployment evidence, not by a hard-coded mutable SHA in this file. Machine binding: [source-binding.json](../../config/source-binding.json). The 17 September verified freeze remains unchanged.
+AMANAH / Global Halal Digital Trust is presented as one end-to-end platform for China-origin Halal trade, assurance, custody and GCC market verification.
 
-AHTE ⇄ Direct JAKIM API ⇄ JAKIM. China → GCC direct; Malaysia is the governance/assurance/authority-connectivity plane. Shipment 001 is **NOT-INSTANTIATED**. No fixture, architectural illustration or development receipt closes a transaction or authority gate.
+## China Mission delivery
 
-## Controlling artifacts
+Primary China-trip brief:
 
-| Domain | Current controller |
-| --- | --- |
-| Source provenance | [SOURCE_BINDING](../ahte/SOURCE_BINDING.md) and its machine binding |
-| Target architecture | [AHTE_PLATFORM_ARCHITECTURE](../ahte/AHTE_PLATFORM_ARCHITECTURE.md) |
-| External/source-locked gates | [PENDING](PENDING.md) |
-| Authorization | [SECURITY_MODEL](SECURITY_MODEL.md) |
-| Release validation | [RELEASE_CHECKLIST](RELEASE_CHECKLIST.md) and exact-head GitHub CI |
-| Deployment and recovery | [DEPLOYMENT_RUNBOOK](DEPLOYMENT_RUNBOOK.md) |
-| Website source provenance | [source-manifest.json](../../ghscl-website/source-manifest.json) |
-| Navigation | [REPO_INDEX](../../REPO_INDEX.md) |
+- [Master delivery prompt](../AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md)
+- [Prompt coverage audit](../mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)
+- [Website presentation brief](WEBSITE_BRIEF_2026-10-05.md)
+- [Master deliverable index](MASTER_DELIVERABLE_INDEX_2026-10-03.md)
 
-## Implementation and validation
+The trip-facing package prioritises finished decks, corporate profile, MOAs, partner playbooks, hardware/CODA material, API/port material, meeting briefs, Mandarin adaptations, website, infographics and film assets. Repository mechanics and engineering-status material stay outside the presentation package.
 
-The protected application, public website, SQL migrations, reference runtimes, OPA policies, internal connector envelopes and authority boundaries are implemented in source. Production connectors require authorised contracts/credentials. The isolated development provider accepts explicitly simulated development events and issues only internal, non-authoritative acknowledgements; it cannot instantiate Shipment 001 or supply external results.
+## Platform architecture
 
-Every release must pass TypeScript, Node/schema/migration/RLS tests, Deno Edge Function checks, OPA/reference-runtime checks, Next production build, public link/provenance checks and browser smoke tests at the exact PR head. CI results, not this prose, control release eligibility. Authenticated production UAT requires an authorised deployed workspace and real roles; anonymous browser tests and isolated database policy tests do not replace it.
+**AHTE ⇄ Direct JAKIM API ⇄ JAKIM**
 
-2 October execution sync: manufacturer onboarding is implemented at `app/(protected)/onboarding/page.tsx`; the live schema normalization migration is represented in `supabase/migrations/20261002010000_canonical_domain_normalization.sql`; application query-contract validation now uses `lib/database.target.types.ts`, which composes the current generated schema with the controlled target extension tables actually used by the application. No production certification/authority/finance decision is created by onboarding.
+**China → GCC direct**
 
-Live Supabase read-back during this reconciliation: ACTIVE_HEALTHY, PostgreSQL 17.11, 120/120 public tables with RLS, repository migration lineage applied. Four security-definer RPC advisor warnings were reviewed: authentication, tenant membership, elevated role/actor guards and bounded rate limits remain enforced. Low-usage index advisories reflect absent production traffic and do not justify dropping integrity indexes.
+AI assists. Authorised humans and competent authorities decide.
 
-Prior dated reports are [HISTORICAL / SUPERSEDED / NON-CONTROLLING](../archive/README.md). They preserve their original evidence and cannot control current readiness, topology or provenance.
+Evidence before trust. Trust before operational release.
 
-The retired `ghscl-site` Edge Function redirects to the current public Pages website. `assurance` and `public-verify` remain separate protected/scoped backend services. Live read-back found zero authentication users, shipments and authority decisions; authenticated production UAT therefore remains an external deployment/identity gate.
+The lifecycle connects manufacturer/KYC, facility, product/SKU, supplier/material provenance, standards applicability, evidence, laboratory, smart audit, CAPA, authority workflow, production/IoT/digital twin, batch, warehouse, Sinotrans logistics, custody, ports/customs, GCC distribution, verification and the 24/7 Command Center.
 
-## External CI/deployment condition
+## Malaysian / JAKIM framework
 
-Exact release/deployment state is commit-specific and must be read from the corresponding CI/deployment checks rather than treated as a durable prose claim. The controlled public GitHub Pages deployment is independently verified by its deployment workflow.
+The standards architecture is registry-driven and is not limited to MS 1500 or MS 2400.
 
-2026-10-04 reconciliation: current main `14f4e06bdf8141fe1af5c9a2ecf74db39c1002c5` passed Amanah CI run #440 and GitHub Pages deployment run #57, including exact built-page verification. Both Vercel contexts on that same commit currently report an external account build-rate-limit failure. That Vercel condition does not establish an application-code failure and is not rewritten as a green deployment.
+The current verified primary standards catalogue contains 17 standards in `docs/ahte/MS_OPERATING_SET.json`, with additional applicable product/technical standards such as MS 2683:2017 evaluated by scope.
 
-Production hosting remains distinct from authenticated production UAT and external connector activation.
+The wider framework includes MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination rules and laboratory methods.
 
+Historical/superseded editions remain available for provenance and change impact; they are not silently treated as current requirements.
 
-## 3 October execution sync — Items 56–60
+## Presentation experience
 
-Repository-controlled SOPs, China mission executive pack, stakeholder meeting briefs, objection-handling book and cross-consistency QA are now controlled artifacts. Mission dates/roster/meeting confirmations remain evidence-bound; no working itinerary or discussion is converted into a confirmed external commitment by this status file.
+The public website and authenticated application use the same platform story:
 
+- black / obsidian + metallic gold;
+- Arial / Helvetica / neutral sans-serif;
+- no oversized decorative shield;
+- complete Malaysian/JAKIM standards registry;
+- manufacturer, laboratory, audit, production, logistics, ports, GCC, verification, finance/Takaful and Command Center;
+- concise institutional language suitable for China-mission meetings.
 
-## 3 October execution sync — Items 61–65
+## Internal release validation
 
-Programme-wide red-team, visual QC, document QC and claim verification now have controlling 2026-10-03 reports. The boardroom corporate-profile corrective implementation is merged; the duplicate corrective PR was closed as superseded. The human-readable master deliverable index now provides the stakeholder directory for Items 1–65. External production/authority/partner gates remain in PENDING.md.
-
-
-## 3 October final programme sync — Items 66–69
-
-Definition of Done, execution priority, standing execution instruction and final operating test are now controlled. The 69-item programme is complete to repository/project-controlled scope. Final exact-head CI passed on PR #54, the closure batch merged to main as `62f1fbc025eb8e981e8cb92fcc98ae11be4400a3`, and both Vercel deployment contexts on that main commit are green. This status does not close external activation gates in PENDING and does not instantiate Shipment 001.
+Repository releases still undergo the required automated build, type, test, security-policy, browser and deployment checks. Those mechanics are internal QA and are not part of the China-trip presentation material.

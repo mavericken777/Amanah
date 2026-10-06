@@ -1,45 +1,42 @@
-# Project Overview — Amanah / Global Halal Digital Trust
+# AMANAH / Global Halal Digital Trust — China Mission Overview
 
-**Status:** CURRENT PROJECT HANDOFF  
-**Controlling navigation:** `README.md` → `REPO_INDEX.md` → `docs/operations/STATUS.md`
+AMANAH is the end-to-end operational and digital trust platform for the Global Halal Digital Trust ecosystem.
 
-## Purpose
+For the China mission, present the platform as one connected journey:
 
-Amanah is the operational application layer for the Global Halal Digital Trust Ecosystem. It connects project/workflow management with AHTE standards/applicability, evidence, human governance, laboratory, audit/CAPA, production monitoring, custody/logistics, Command Center, authority-connectivity and verification workflows.
+**Origin / Manufacturer → Organisation / KYC → Facility → Product / SKU → Supplier / Ingredient / Raw Material → Evidence → Standards Applicability → AI-Assisted Review → Human Governance → Laboratory → Smart Audit → CAPA / Re-verification → Certification / Credential Workflow → Production / IoT / Digital Twin → Warehouse → Sinotrans Logistics → Container / Seal / Custody → Port / Customs → Direct JAKIM API → GCC Destination → Distribution / Retail → Product Verification → 24/7 Command Center**
 
-The China Mission is one operational workstream inside Amanah; it is not the definition of the platform.
+## Institutional architecture
 
-## Canonical operating position
+- **PHC** — Perak State Government halal-industry GLC.
+- **GHSCL Hong Kong** — international operating and digital-infrastructure vehicle for China → GCC coordination and 24/7 operations.
+- **AHTE** — standards applicability, evidence, controls, HCP/SCCP, trust, digital twins, AI/ML, predictive analytics, preemptive strategy, CAPA, re-verification and recall.
+- **JAKIM** — competent-authority connectivity through the direct authority interface.
 
-- Authority topology: **AHTE ⇄ Direct JAKIM API ⇄ JAKIM**.
-- Physical corridor: **China → GCC direct**.
-- Malaysia: governance / assurance / authority-connectivity plane unless separately scoped.
-- AI: D0–D2 and configured D4 support; no D5/D6 authority decision.
-- Evidence precedes trust; trust precedes operational release.
-- Shipment 001 remains **NOT-INSTANTIATED** until real transaction evidence exists.
+**AHTE ⇄ Direct JAKIM API ⇄ JAKIM**
 
-## Current programme state
+**China → GCC direct**
 
-The 69-item project-controlled programme is complete and final CI/merge are verified. Genuine external activation gates remain controlled in `docs/operations/PENDING.md`.
+AI assists. Authorised humans and competent authorities decide.
 
-## China Mission objective
+## Malaysian / JAKIM Halal framework
 
-Convert the completed project architecture into real origin-side relationships, integration discovery, manufacturer/laboratory/logistics evidence pathways, commercial inputs and accountable next actions without converting planning assumptions into commitments.
+AMANAH uses a registry-driven standards model. MS 1500 and MS 2400 are important parts of the framework, but they are not the whole Malaysian/JAKIM Halal standards universe.
 
-## Systems of record
+The current verified primary standards catalogue contains 17 Malaysian Standards and is extended by applicable product/technical standards such as MS 2683:2017. Applicability is resolved by product, facility, process, material, logistics activity, certification scope, destination and evidence context.
 
-| Information | System / controller |
-|---|---|
-| Current project truth | `docs/operations/STATUS.md` |
-| External gates | `docs/operations/PENDING.md` |
-| Deliverables | `docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md` |
-| Mission strategy | `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md` |
-| Meeting briefs | `docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md` |
-| Live task / meeting / risk records | authenticated Amanah workspace |
-| Sensitive traveller / booking records | approved secure storage |
+The standards registry operates together with **MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination requirements and laboratory methods**.
 
-## Ownership rule
+## China Mission package
 
-Named individuals and legal signing mandates must be entered only when actually confirmed. Role-based accountability is used until then.
+Use:
 
-[SOURCE-LOCKED: final traveller roster, mission appointments and external commitments]
+- `docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md`
+- `docs/mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md`
+- `docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md`
+- `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md`
+- `docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md`
+- `docs/sinotrans/SINOTRANS_A_TO_Z_PLAYBOOK_2026-10-02.md`
+- `docs/coda/CODA_HARDWARE_FINANCING_EXECUTIVE_PACK_2026-10-02.md`
+
+The mission objective is to present the complete platform, progress partner engagement and convert meetings into concrete implementation, integration, commercial and signing actions.

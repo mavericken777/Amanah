@@ -1,26 +1,25 @@
-# China Mission Documents & Compliance
+# China Mission Documents & Readiness
 
-**Status:** EVIDENCE-BOUND READINESS CONTROL
+Use this checklist before departure and before each signing/technical session.
 
-This file records document categories and handling rules only. It does not hold identity-document copies or claim current immigration/entry requirements without official verification.
+| Item | Owner | Completion point | Record |
+|---|---|---|---|
+| Passport validity | Traveller + mission admin | Before departure | Secure travel file |
+| Visa / entry requirements | Traveller + mission admin | Before departure | Current official requirements + secure record |
+| Flight / rail confirmations | Travel owner | Before movement | Booking record |
+| Accommodation confirmations | Travel owner | Before check-in | Booking record |
+| Travel insurance / corporate cover | Mission admin / finance | Before departure | Secure record |
+| Meeting briefs | Meeting owner | Before each meeting | China Mission brief book |
+| Executive deck / partner deck | Mission lead | Before each meeting | Offline + cloud copy |
+| MOA / legal execution copies | Legal / authorised signatory | Before signing | Legal pack |
+| Technical integration material | Technical lead | Before technical session | API / integration binder |
+| Hardware catalogue | Hardware / commercial lead | Before CODA / manufacturer session | Procurement pack |
+| Mandarin summaries | Mission lead | Before China counterpart session | Localised pack |
+| Decision / follow-up sheet | Mission PMO | Immediately after meeting | Mission record |
 
-| Item | Accountable role | Gate | Evidence location | State |
-|---|---|---|---|---|
-| Passport validity check | Individual traveller + mission admin | before travel | approved secure storage | OPEN GATE |
-| Visa / entry requirements | Mission admin + traveller | before travel | official authority source + secure record | SOURCE-LOCKED |
-| Flight / rail confirmation | Travel owner | before movement | secure booking record | OPEN GATE |
-| Accommodation confirmation | Travel owner | before check-in | secure booking record | OPEN GATE |
-| Travel insurance / corporate cover | Mission admin / finance | before departure | approved secure storage | OPEN GATE |
-| Meeting materials | Meeting owner | before meeting | repository / approved secure storage | ACTIVE |
-| MOA / legal execution copies | Legal / authorised signatory | before signing | controlled legal pack + signed evidence | OPEN GATE |
-| Technical integration material | Technical owner | before exchange | partner kit / approved secure channel | ACTIVE |
+## Information handling
 
-## Handling rule
-
-- No passport/ID images in Git.
-- No passwords, API keys or private access links.
-- No confidential counterparty data in public website files.
-- Current official visa/entry rules must be verified from the relevant authority source at the time of travel.
-- Executed legal documents must retain exact party identity, authority and signature evidence.
-
-[SOURCE-LOCKED: current immigration/entry requirements and traveller-specific compliance evidence]
+- Store identity documents in approved secure storage, not Git.
+- Do not place passwords, API keys or private access links in presentation material.
+- Keep confidential counterparty information out of public website files.
+- Retain signed agreements and meeting records with exact party/signatory identity.

@@ -86,15 +86,15 @@ const msStandards = [
   ["MS 2634:2019", "Halal cosmetics — General requirements"],
   ["MS 2636:2019", "Halal medical device — General requirements"],
   ["MS 2738:2023", "Halal consumable goods — General requirements"],
-  ["MS 2803:2025", "Usage of animal bone, skin and hair"],
-  ["MS 2393:2023", "Islamic terminology"],
-  ["MS 2627:2017", "Detection of porcine DNA — Food"],
-  ["MS 2627-2:2025", "Detection of porcine DNA — Cosmetics"],
-  ["MS 1900:2025", "Shariah-based quality management system"],
-  ["MS 2691:2021", "Halal profession competency standard"],
-  ["MS 2610:2015", "Muslim-friendly hospitality services"],
-  ["MS 2809:2025", "Authentication using chemometric techniques"],
-  ["MS 2810:2025", "Identification of pig skin and hair"],
+  ["MS 2803:2025", "Usage of animal bone, skin and hair — General requirements for halal products"],
+  ["MS 2393:2023", "Islamic and halal terminologies — Definitions and interpretations"],
+  ["MS 2627:2017", "Detection of porcine DNA — Test method — Food and food products"],
+  ["MS 2627-2:2025", "Detection of porcine DNA — Test method — Part 2: Cosmetics"],
+  ["MS 1900:2025", "Shariah-based quality management system — Requirements"],
+  ["MS 2691:2021", "Halal profession — General requirements"],
+  ["MS 2610:2015", "Muslim-friendly hospitality services — Requirements"],
+  ["MS 2809:2025", "Authentication of products using chemometric techniques"],
+  ["MS 2810:2025", "Consumable goods — Test method — Identification of pig skin and hair"],
 ] as const;
 
 const pathways = [
@@ -218,7 +218,7 @@ export default function App() {
         <nav id="primary-nav" aria-label="Primary navigation" className={menuOpen ? "open" : ""}>
           <a href="#trust" onClick={() => setMenuOpen(false)}>Trust model</a>
           <a href="#corridor" onClick={() => setMenuOpen(false)}>Goods journey</a>
-          <a href="#passport-route-gold" onClick={() => setMenuOpen(false)}>Trust passport</a>
+          <a href="#standards" onClick={() => setMenuOpen(false)}>Standards</a>
           <a href="#assurance" onClick={() => setMenuOpen(false)}>Audit &amp; lab</a>
           <a href="#command" onClick={() => setMenuOpen(false)}>Command Center</a>
           <a href="#verify" onClick={() => setMenuOpen(false)}>Verify</a>
@@ -457,10 +457,10 @@ export default function App() {
               <div className="passport-scrubber-labels"><span>Origin</span><span>Audit</span><span>Warehouse</span><span>Port</span><span>GCC consumer</span></div>
             </div>
           </section>
-          <section className="standards-catalog" aria-labelledby="ms-catalog-title">
+          <section className="standards-catalog" id="standards" aria-labelledby="ms-catalog-title">
             <div className="standards-catalog-head">
               <div>
-                <p className="eyebrow">COMPLETE MALAYSIAN / JAKIM MS OPERATING SET</p>
+                <p className="eyebrow">COMPLETE MALAYSIAN / JAKIM STANDARDS REGISTRY</p>
                 <h3 id="ms-catalog-title">All 17 controlled Malaysian Standards are first-class applicability candidates.</h3>
                 <p>The platform does not reduce Halal assurance to MS 1500 and MS 2400. AHTE resolves the applicable standard or instrument by product, service, facility, process, logistics activity, destination and evidence context.</p>
               </div>
@@ -477,6 +477,10 @@ export default function App() {
             <div className="standards-framework-note">
               <strong>Certification framework layer</strong>
               <span>MPPHM 2020 · MHMS 2020 · HAS · IHCS · protocols · circulars · authority instructions · destination rules · laboratory methods.</span>
+            </div>
+            <div className="standards-framework-note">
+              <strong>Supplemental standards / technical instruments</strong>
+              <span>MS 2683:2017 · Kelulut (Stingless bee) honey — Specification is retained as a supplemental product-quality/specification instrument when applicable. It is not treated as an 18th member of the controlled 17-standard halal operating set.</span>
             </div>
           </section>
         </section>
@@ -514,7 +518,7 @@ export default function App() {
                 <h3>{labStages[activeLab][0]}</h3>
                 <p>{labStages[activeLab][1]}</p>
               </div>
-              <div className="standards-note"><strong>Standards mapping</strong><span>Laboratory evidence is mapped against the applicable controlled requirements across the complete 17-standard MS operating set, including relevant product-sector and analytical-method standards. The exact requirement, method and authority instrument are resolved by applicability before assessment.</span>
+              <div className="standards-note"><strong>Standards mapping</strong><span>Laboratory evidence is mapped against the applicable controlled requirements across the complete applicable Malaysian/JAKIM standards registry, including relevant product-sector and analytical-method standards. The exact requirement, method and authority instrument are resolved by applicability before assessment.</span>
               </div>
             </article>
 
