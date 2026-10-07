@@ -65,7 +65,7 @@ for (const width of viewports) {
   assert.equal(await page.locator(".corridor-detail h3").textContent(), "Sinotrans logistics", "Sinotrans handoff interaction did not update");
   await stageButtons.nth(19).click();
   assert.equal(await page.locator(".corridor-detail h3").textContent(), "Consumer verification & response", "consumer endpoint interaction did not update");
-  assert.match(await page.locator(".journey-evidence").textContent() ?? "", /Approved disclosure/, "consumer evidence and handoff detail missing");
+  assert.match(await page.locator(".journey-evidence").textContent() ?? "", /Purpose-bound disclosure/, "consumer evidence and handoff detail missing");
   const perspectiveButtons = page.locator(".journey-perspective-controls button");
   assert.equal(await perspectiveButtons.count(), 4, "journey must expose Journey, Actor, Standards and Evidence & trust views");
   await page.getByRole("button", { name: "Standards", exact: true }).click();
