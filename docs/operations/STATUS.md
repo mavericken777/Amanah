@@ -44,7 +44,7 @@ Historical/superseded editions remain available for provenance and change impact
 
 ## Presentation experience
 
-The public website and authenticated application use the same platform story:
+The public website and authenticated application use the same platform story, including a one-click China Mission Platform Tour and first-class GCC importer, distributor/3PL and retailer/marketplace workspaces:
 
 - black / obsidian + metallic gold;
 - Arial / Helvetica / neutral sans-serif;

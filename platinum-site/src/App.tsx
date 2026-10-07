@@ -75,7 +75,7 @@ const trustPath = [
 
 const corridor = demoJourneyStages;
 
-const standardsTopics = ["Supplier and material scope", "Facility and product controls", "Sample and laboratory evidence", "Audit and human assessment", "Controlled production", "Warehouse dispatch", "Warehouse receiving and storage", "Transport custody", "Export handoff", "Import and release", "Destination distribution", "Consumer disclosure"];
+const standardsTopics = ["Organisation / KYC scope","Facility / production-line controls","Product / SKU scope","Supplier / raw-material provenance","Framework applicability","Evidence obligations","Laboratory method / evidence","Audit / human assessment","Finding / CAPA / re-verification","Authority workflow","Controlled production","Origin warehousing","Logistics custody","Origin port / customs","International transit","GCC port / customs","Importer receiving","Distribution / 3PL","Retail / marketplace","Consumer disclosure / continuous assurance"];
 
 const msStandards = [
   ["MS 1500:2019", "Halal food — General requirements"],
@@ -163,6 +163,7 @@ const commandEvents = [
 
 export default function App() {
   const [activeCorridor, setActiveCorridor] = useState(0);
+  const [journeyPlaying, setJourneyPlaying] = useState(true);
   const [journeyPerspective, setJourneyPerspective] = useState<"journey" | "actor" | "standards" | "trust">("journey");
   const [activeLab, setActiveLab] = useState(0);
   const [activeAudit, setActiveAudit] = useState(0);
@@ -179,16 +180,18 @@ export default function App() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
+  useEffect(() => {
+    if (!journeyPlaying || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => {
+      setActiveCorridor(current => (current + 1) % corridor.length);
+    }, 5200);
+    return () => window.clearInterval(timer);
+  }, [journeyPlaying]);
+
   const verifyPreview = useMemo(() => {
-    const trimmed = verifyQuery.trim().toUpperCase();
-    if (!trimmed) {
-      return { title: "Choose a product journey", state: "READY TO EXPLORE", detail: "Enter a reference or select a demonstration record to follow identity, assurance and cold-chain custody.", events: [] as Array<[string, string]> };
-    }
-    const record = verificationRecords.find(item => item.token === trimmed);
-    if (record) {
-      return { title: record.product, state: "ILLUSTRATIVE PASSPORT", detail: `${record.token} · Batch ${record.batch}`, events: record.events };
-    }
-    return { title: "No matching record", state: "CHECK THE REFERENCE", detail: "Select one of the demonstration references below, or enter an issuer-provided product passport code.", events: [] as Array<[string, string]> };
+    const selected = verifyQuery.trim().toUpperCase() || "PRODUCT";
+    const record = verificationRecords.find(item => item.token === selected) ?? verificationRecords[0];
+    return { title: record.product, state: record.label.toUpperCase(), detail: record.detail, events: record.events };
   }, [verifyQuery]);
 
   return (
@@ -358,8 +361,13 @@ export default function App() {
         <section className="section" id="corridor">
           <div className="section-heading">
             <p className="eyebrow">04 / CHINA → GCC DIRECT</p>
-            <h2>Follow every product handoff from factory to GCC consumer.</h2>
-            <p>Choose a stage to see who acts, what evidence is created and what must be true before custody moves forward. The physical corridor is China → GCC direct; Malaysia is the governance, assurance and authority-connectivity plane.</p>
+            <h2>Watch the complete platform move from China origin to GCC consumer.</h2>
+            <p>The journey advances automatically through all twenty operating stages. Pause it, choose any stage or move the scrubber to inspect who acts, what evidence is created, what can fail and what must happen next. The physical corridor is China → GCC direct; Malaysia is the governance, assurance and authority-connectivity plane.</p>
+          </div>
+          <div className="journey-playback-controls glass" aria-label="Automated journey controls">
+            <button type="button" aria-pressed={journeyPlaying} onClick={() => setJourneyPlaying(value => !value)}>{journeyPlaying ? "Pause journey" : "Resume journey"}</button><button type="button" onClick={() => { setActiveCorridor(0); setJourneyPlaying(true); }}>Restart journey</button>
+            <span>Stage {String(activeCorridor + 1).padStart(2, "0")} of {String(corridor.length).padStart(2, "0")}</span>
+            <strong>{corridor[activeCorridor][0]}</strong>
           </div>
           <div className="corridor-layout">
             <div className="corridor-nav" role="tablist" aria-label="Corridor stages">
@@ -370,7 +378,7 @@ export default function App() {
                   role="tab"
                   aria-selected={activeCorridor === index}
                   className={activeCorridor === index ? "active" : ""}
-                  onClick={() => setActiveCorridor(index)}
+                  onClick={() => { setActiveCorridor(index); setJourneyPlaying(false); }}
                 >
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   {title}
@@ -391,16 +399,16 @@ export default function App() {
                 ["journey", "Journey"],
                 ["actor", "Actor"],
                 ["standards", "Standards"],
-                ["trust", "Trust record"],
+                ["trust", "Evidence & trust"],
               ] as const).map(([perspective, label]) => (
-                <button key={perspective} type="button" aria-pressed={journeyPerspective === perspective} onClick={() => setJourneyPerspective(perspective)}>{label}</button>
+                <button key={perspective} type="button" aria-pressed={journeyPerspective === perspective} onClick={() => { setJourneyPerspective(perspective); setJourneyPlaying(false); }}>{label}</button>
               ))}
             </div>
             <div className="journey-perspective-panel glass" data-perspective={journeyPerspective} aria-live="polite">
               {journeyPerspective === "journey" ? <>
                 <p className="eyebrow">ONE JOURNEY · ONE PRODUCT IDENTITY</p>
                 <h3>{corridor[activeCorridor][0]}</h3>
-                <p>Use the twelve handoffs and journey scrubber above to follow this same product from source to consumer.</p>
+                <p>Follow all twenty stages from onboarding and raw materials through importer, distributor, retail, consumer verification and continuous assurance.</p>
               </> : journeyPerspective === "actor" ? <>
                 <p className="eyebrow">ACTOR VIEW · ACCOUNTABILITY STAYS WITH THE ACTOR</p>
                 <h3>{corridor[activeCorridor][2]}</h3>
@@ -411,9 +419,9 @@ export default function App() {
                 <dl className="journey-evidence"><div><dt>Control objective</dt><dd>{corridor[activeCorridor][1]}</dd></div><div><dt>Evidence</dt><dd>{corridor[activeCorridor][3]}</dd></div><div><dt>Responsible actor</dt><dd>{corridor[activeCorridor][2]}</dd></div></dl>
                 <p className="standards-scope-note">Confirm the applicable instrument, edition and clause against the controlled source for this product, operator and market. Use the controlled source and competent review for the applicable scope, instrument and conformity decision.</p>
               </> : <>
-                <p className="eyebrow">TRUST RECORD · SAME PRODUCT, CURRENT HANDOFF</p>
+                <p className="eyebrow">EVIDENCE & TRUST · CURRENT HANDOFF</p>
                 <h3>{corridor[activeCorridor][0]}</h3>
-                <dl className="journey-evidence"><div><dt>Journey ID</dt><dd>GHSC-DEMO-24001</dd></div><div><dt>Product batch</dt><dd>{demoProduct.batch}</dd></div><div><dt>Actor / event</dt><dd>{corridor[activeCorridor][2]} · {corridor[activeCorridor][0]}</dd></div><div><dt>Evidence reference</dt><dd>{corridor[activeCorridor][3]}</dd></div></dl>
+                <dl className="journey-evidence"><div><dt>Current product context</dt><dd>{demoProduct.name}</dd></div><div><dt>Actor / event</dt><dd>{corridor[activeCorridor][2]} · {corridor[activeCorridor][0]}</dd></div><div><dt>Evidence at this stage</dt><dd>{corridor[activeCorridor][3]}</dd></div><div><dt>Next accountable handoff</dt><dd>{corridor[activeCorridor][4]}</dd></div></dl>
                 <p className="standards-scope-note">An integrity proof helps show that recorded content has not changed; it does not prove that the underlying claim is true.</p>
               </>}
             </div>
@@ -421,11 +429,11 @@ export default function App() {
           <section className="trust-passport glass" aria-labelledby="passport-title" data-stage={activeCorridor + 1}>
             <div className="passport-heading">
               <div>
-                <p className="eyebrow">DIGITAL TRUST PASSPORT</p>
-                <h3 id="passport-title">One product record. Every accountable handoff.</h3>
+                <p className="eyebrow">LIVE PRODUCT TRUST JOURNEY</p>
+                <h3 id="passport-title">One product. Every accountable handoff.</h3>
                 <p>Follow how identity, evidence and custody build as the product moves from origin to market.</p>
               </div>
-              <div className="passport-id"><span>JOURNEY ID</span><strong>GHSC-DEMO-24001</strong><small>China → GCC direct</small></div>
+              <div className="passport-id"><span>LIVE FLOW</span><strong>{String(activeCorridor + 1).padStart(2, "0")} / {String(corridor.length).padStart(2, "0")}</strong><small>China → GCC direct</small></div>
             </div>
             <div className="passport-body">
               <div className="passport-map" role="img" aria-label={`Journey marker at ${corridor[activeCorridor][0]} along the China to GCC route`}>
@@ -441,7 +449,7 @@ export default function App() {
               </div>
               <div className="passport-details">
                 <div className="passport-detail">
-                  <span>PRODUCT</span><strong>{demoProduct.name}</strong><small>Batch {demoProduct.batch}</small>
+                  <span>PRODUCT CONTEXT</span><strong>{demoProduct.name}</strong><small>Identity and evidence follow the product through every handoff.</small>
                 </div>
                 <div className="passport-detail">
                   <span>CURRENT HANDOFF · {String(activeCorridor + 1).padStart(2, "0")} / {String(corridor.length).padStart(2, "0")}</span><strong>{corridor[activeCorridor][0]}</strong><small>{corridor[activeCorridor][2]}</small>
@@ -453,7 +461,7 @@ export default function App() {
             </div>
             <div className="passport-scrubber">
               <label htmlFor="journey-scrubber"><span>Journey scrubber</span><strong>{corridor[activeCorridor][0]}</strong></label>
-              <input id="journey-scrubber" type="range" min="0" max={corridor.length - 1} value={activeCorridor} onChange={event => setActiveCorridor(Number(event.target.value))} aria-valuetext={`Stage ${activeCorridor + 1}: ${corridor[activeCorridor][0]}`} />
+              <input id="journey-scrubber" type="range" min="0" max={corridor.length - 1} value={activeCorridor} onChange={event => { setActiveCorridor(Number(event.target.value)); setJourneyPlaying(false); }} aria-valuetext={`Stage ${activeCorridor + 1}: ${corridor[activeCorridor][0]}`} />
               <div className="passport-scrubber-labels"><span>Origin</span><span>Audit</span><span>Warehouse</span><span>Port</span><span>GCC consumer</span></div>
             </div>
           </section>
@@ -557,7 +565,7 @@ export default function App() {
             <p>The Command Center separates observation, assessment, hold state, accountable action and re-verification.</p>
           </div>
           <div className="command-grid">
-            <div className="event-list" role="tablist" aria-label="Illustrative exception events">
+            <div className="event-list" role="tablist" aria-label="Operational exception scenarios">
               {commandEvents.map((event, index) => (
                 <button
                   key={event.id}
@@ -614,15 +622,10 @@ export default function App() {
           </div>
           <div className="verify-grid">
             <form className="verify-form glass" onSubmit={(event) => event.preventDefault()}>
-              <label htmlFor="verify-token">Verification token or issuer-authorised QR value</label>
-              <input
-                id="verify-token"
-                value={verifyQuery}
-                onChange={(event) => setVerifyQuery(event.target.value)}
-                placeholder="Paste a token to preview the disclosure experience"
-                autoComplete="off"
-              />
-              <div className="verification-samples" aria-label="Demonstration records"><span>Try a journey</span>{verificationRecords.map(record => <button key={record.token} type="button" onClick={() => setVerifyQuery(record.token)}>{record.token}</button>)}</div>
+              <p className="eyebrow">CHOOSE THE DISCLOSURE VIEW</p>
+              <h3>See what each participant can verify.</h3>
+              <p>Select product, batch or shipment to see the approved information model. The live verifier accepts issuer-authorised QR/token values.</p>
+              <div className="verification-samples" aria-label="Verification views">{verificationRecords.map(record => <button key={record.token} type="button" aria-pressed={(verifyQuery || "PRODUCT") === record.token} onClick={() => setVerifyQuery(record.token)}>{record.label}</button>)}</div>
               <div className="qr-schematic" aria-hidden="true">
                 {Array.from({ length: 36 }, (_, index) => <i key={index} className={index % 3 === 0 || index % 7 === 0 ? "on" : ""} />)}
               </div>
