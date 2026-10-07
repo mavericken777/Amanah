@@ -1,5 +1,5 @@
 {
-  "version": "7.6.0",
+  "version": "7.7.0",
   "locale": "en",
   "availableLocales": [
     "en"
@@ -80,6 +80,10 @@
     [
       "china-mission.html",
       "China Mission"
+    ],
+    [
+      "platform-tour.html",
+      "Platform Tour"
     ],
     [
       "partners.html",
@@ -1795,6 +1799,169 @@
         "gcc-importer",
         "distributor",
         "retail-market",
+        "command-center"
+      ]
+    },
+    {
+      "slug": "platform-tour",
+      "label": "Platform Tour",
+      "title": "See the complete AMANAH platform work from China origin to GCC market.",
+      "description": "A single presentation route for China-mission meetings: walk through onboarding, standards, evidence, laboratory, smart audit, production, custody, Sinotrans, ports, GCC importer, distributor, retailer, consumer verification, Command Center, exceptions and recall.",
+      "image": "architecture.webp",
+      "sections": [
+        {
+          "id": "tour-map",
+          "title": "The complete operating journey",
+          "flow": [
+            "China manufacturer / organisation registration",
+            "Identity / KYC / authorised representative",
+            "Facility / production line",
+            "Product / SKU",
+            "Supplier / ingredient / raw-material graph",
+            "Standards / applicability / controls / HCP-SCCP",
+            "Supporting documents / evidence",
+            "AI-assisted review / human governance",
+            "Laboratory sample / custody / method / QC / report",
+            "Smart audit / findings / CAPA / re-verification",
+            "Authority / certification workflow",
+            "Production / IoT / digital twin / batch evidence",
+            "Origin warehouse",
+            "Sinotrans pickup / vehicle / container / seal",
+            "Origin port / customs",
+            "International transit",
+            "GCC port / customs",
+            "GCC importer / receiving / quarantine / acceptance",
+            "Destination warehouse / inventory lot",
+            "Distributor / 3PL / FEFO-FIFO / custody transfer",
+            "Retailer / marketplace / institutional buyer",
+            "Consumer / buyer verification",
+            "24/7 Command Center",
+            "Continuous assurance / exception / recall / blast radius"
+          ],
+          "text": "The default physical corridor is China → GCC direct. Malaysia remains the governance, assurance, standards and authority-connectivity plane unless a specific movement is separately scoped."
+        },
+        {
+          "id": "authority",
+          "title": "Authority and decision boundary",
+          "cards": [
+            [
+              "AHTE",
+              "Standards, evidence, trust, intelligence, digital twins, event fabric, anomaly detection, predictive analytics and configured operational holds."
+            ],
+            [
+              "Direct JAKIM API",
+              "Target authority-connectivity interface for evidence/status exchange subject to official activation and authorization."
+            ],
+            [
+              "JAKIM / competent authority",
+              "Formal Halal certification and authority decisions remain with authorised human decision-makers."
+            ],
+            [
+              "AI boundary",
+              "AI may ingest, assess, recommend and support configured D4 holds. It does not independently certify Halal or execute D5/D6 sovereign/legal decisions."
+            ]
+          ]
+        },
+        {
+          "id": "demo-record",
+          "title": "Use the illustrative journey without fabricating a real shipment",
+          "cards": [
+            [
+              "Illustrative record",
+              "CN-DEMO-24001 / DEMO-SHIPMENT-001 may be used to demonstrate UI and process behaviour as synthetic presentation data."
+            ],
+            [
+              "Real pilot record",
+              "Shipment 001 remains NOT-INSTANTIATED until real product, buyer, batch, custody and destination evidence exists."
+            ],
+            [
+              "Connector states",
+              "UNCONFIGURED / DEVELOPMENT / SANDBOX / PENDING_AUTHORIZATION / PRODUCTION are explicit operating states."
+            ],
+            [
+              "Evidence principle",
+              "ObjectID + EventID + EvidenceID + ActorID + Timestamp + IntegrityProof. A hash proves byte integrity, not truth."
+            ]
+          ]
+        },
+        {
+          "id": "audience",
+          "title": "Switch the story to the stakeholder in the room",
+          "cards": [
+            [
+              "Manufacturer",
+              "Onboarding, facility, products/SKUs, supplier graph, readiness, audit, CAPA, production and renewal."
+            ],
+            [
+              "Laboratory / auditor",
+              "Sample chain, scientific evidence, smart-glass audit, findings, CAPA and signed sessions."
+            ],
+            [
+              "Sinotrans / logistics",
+              "Warehouse, loading, fleet, container/seal, GNSS, condition telemetry, custody and destination handover."
+            ],
+            [
+              "GCC importer / distributor / retailer",
+              "Pre-arrival, receiving, inventory, distribution eligibility, listing, verification, withdrawal and recall."
+            ],
+            [
+              "Regulator / authority",
+              "Source-controlled applicability, evidence chain, authority gates, decision separation and auditability."
+            ],
+            [
+              "Technology / finance",
+              "Canonical APIs, cybersecurity, hardware/device trust and purpose-bound finance/Takaful evidence."
+            ]
+          ]
+        },
+        {
+          "id": "exception",
+          "title": "Show what happens when trust fractures",
+          "flow": [
+            "DETECTED",
+            "CLASSIFIED",
+            "CONTAINED / HOLD",
+            "INVESTIGATING",
+            "CAPA",
+            "RE-VERIFICATION",
+            "CLOSED / ESCALATED / RECALLED"
+          ],
+          "text": "Blast-radius analysis connects affected material, batch, SKU, shipment, container, importer, warehouse, distributor, retailer and public verification state."
+        },
+        {
+          "id": "next",
+          "title": "Continue into the detailed modules",
+          "cards": [
+            [
+              "Standards",
+              "Open the complete applicable Malaysian/JAKIM standards registry and applicability model."
+            ],
+            [
+              "Smart Audit",
+              "Walk through smart-glass/tablet evidence capture and human-owned audit conclusions."
+            ],
+            [
+              "China → GCC",
+              "Follow physical custody, logistics, port and destination handoffs."
+            ],
+            [
+              "Command Center",
+              "See the full corridor monitoring and exception-management model."
+            ]
+          ]
+        }
+      ],
+      "sources": [
+        "docs/architecture/PLATFORM_ARCHITECTURE.md",
+        "docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md",
+        "docs/sinotrans/SINOTRANS_A_TO_Z_PLAYBOOK_2026-10-02.md",
+        "docs/ahte/MS_OPERATING_SET.json"
+      ],
+      "related": [
+        "how-it-works",
+        "digital-trust",
+        "smart-audit",
+        "china-gcc",
         "command-center"
       ]
     }
