@@ -10,6 +10,7 @@
 - Corporate profile — `docs/corporate/GHSCL_CORPORATE_PROFILE_2026.md`
 - China Mission executive pack — `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md`
 - China Mission meeting brief book — `docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md`
+- Final standalone mission deliverables manifest — `docs/mission/FINAL_STANDALONE_DELIVERABLES_2026-10-07.md`
 - Objection-handling book — `docs/mission/OBJECTION_HANDLING_BOOK_2026-10-03.md`
 - Mandarin adaptation — `docs/localization/MANDARIN_MASTER_ADAPTATION_2026-10-03.md`
 
@@ -32,11 +33,13 @@ The standards model is registry-driven and is not permanently capped at 17. Its 
 
 ## Hardware / CODA
 
+- Standalone CODA hardware/deployment/financing pack generated: `AMANAH_CODA_Hardware_Deployment_Financing_Pack_2026-10-07.docx/pdf`
 - Platinum hardware master BOM — `docs/hardware/PLATINUM_HARDWARE_MASTER_BOM_2026-10-02.json`
 - CODA financing executive pack — `docs/coda/CODA_HARDWARE_FINANCING_EXECUTIVE_PACK_2026-10-02.md`
 
 ## Sinotrans / logistics / ports
 
+- Standalone Sinotrans Platinum Operations Playbook generated: `AMANAH_Sinotrans_Platinum_Operations_Playbook_2026-10-07.docx/pdf`
 - Sinotrans A–Z playbook — `docs/sinotrans/SINOTRANS_A_TO_Z_PLAYBOOK_2026-10-02.md`
 - Logistics operating model — `docs/logistics/LOGISTICS_OPERATING_MODEL_2026-10-02.md`
 - API UAT pack — `docs/api/AMANAH_API_UAT_PACK_2026-10-02.md`
@@ -44,6 +47,7 @@ The standards model is registry-driven and is not permanently capped at 17. Its 
 
 ## GCC importer / distributor / retailer
 
+- Standalone GCC Importer / Distributor / Retailer Field Guide generated: `AMANAH_GCC_Importer_Distributor_Retailer_Field_Guide_2026-10-07.docx/pdf`
 - Destination-market playbook — `docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md`
 - GCC Importer workspace — `app/(protected)/ahte/gcc-importer/page.tsx`
 - Retail / Marketplace workspace — `app/(protected)/ahte/retail-market/page.tsx`
@@ -55,6 +59,11 @@ The destination operating story is: `GCC port/customs -> importer receiving/quar
 
 ## Corporate media
 
+- Standalone Master Corporate Profile generated: `GHSCL_AMANAH_Master_Corporate_Profile_2026-10-07.docx/pdf`
+- 5/15/30-minute corporate deck variants generated with speaker notes
+- Cinematic Production Master generated: `AMANAH_Cinematic_Production_Master_2026-10-07.docx/pdf`
+- English 60-second subtitles — `docs/media/AMANAH_60s_EN_2026-10-07.srt`
+- Simplified Chinese 60-second subtitles — `docs/media/AMANAH_60s_zh-Hans_2026-10-07.srt`
 - Master infographic suite — `docs/media/MASTER_INFOGRAPHIC_SUITE_2026.md`
 - Public visual gallery — `ghscl-website/visuals.html`
 - Master cinematic video — `docs/media/MASTER_CINEMATIC_VIDEO_2026.md`
