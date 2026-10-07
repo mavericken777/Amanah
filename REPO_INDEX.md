@@ -10,6 +10,7 @@
 - [Website presentation brief](docs/operations/WEBSITE_BRIEF_2026-10-05.md)
 - [Master deliverable index](docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md)
 - [China Mission executive pack](docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md)
+- [China Mission 12-instrument MOA signing pack](docs/mission/moa-signing-pack-2026-10/00-REGISTER.md)
 - [China Mission meeting brief book](docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md)
 - [Objection-handling book](docs/mission/OBJECTION_HANDLING_BOOK_2026-10-03.md)
 
