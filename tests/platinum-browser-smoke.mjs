@@ -57,7 +57,7 @@ for (const width of viewports) {
 
   const stageButtons = page.locator(".corridor-nav button");
   assert.equal(await stageButtons.count(), 20, "goods journey must expose the complete twenty-stage operating lifecycle");
-  await stageButtons.nth(19).click();
+  await stageButtons.nth(11).click();
   assert.equal(await page.locator(".corridor-detail h3").textContent(), "Sinotrans logistics", "Sinotrans handoff interaction did not update");
   await stageButtons.nth(19).click();
   assert.equal(await page.locator(".corridor-detail h3").textContent(), "Consumer verification & continuous assurance", "consumer endpoint interaction did not update");
@@ -66,17 +66,17 @@ for (const width of viewports) {
   assert.equal(await perspectiveButtons.count(), 4, "journey must expose Journey, Actor, Standards and Evidence chain views");
   await page.getByRole("button", { name: "Standards", exact: true }).click();
   assert.equal(await page.locator(".journey-perspective-panel").getAttribute("data-perspective"), "standards");
-  assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Consumer disclosure/);
-  await stageButtons.nth(7).click();
-  assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Transport custody/, "standards view must follow active handoff");
+  assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Consumer verification and continuous assurance/);
+  await stageButtons.nth(11).click();
+  assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Sinotrans logistics and custody/, "standards view must follow active handoff");
   await page.getByRole("button", { name: "Actor", exact: true }).click();
-  assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Sinotrans transport operations/);
+  assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Sinotrans \/ logistics operator/);
   await page.getByRole("button", { name: "Evidence chain", exact: true }).click();
   assert.doesNotMatch(await page.locator(".journey-perspective-panel").textContent() ?? "", /DEMO|CN-DEMO|GHSC-DEMO/i);
   assert.match(await page.locator(".journey-perspective-panel").textContent() ?? "", /Accountable actor|Evidence created/i);
   await page.getByRole("button", { name: "Journey", exact: true }).click();
   await stageButtons.nth(11).click();
-  await page.getByRole("button", { name: "GHSC-MY-2026-8891" }).click();
+  await page.getByRole("button", { name: "Journey 1" }).click();
   assert.equal(await page.locator(".verify-result h3").textContent(), "Premium Halal food product", "public sample must follow the canonical demo product");
   assert.doesNotMatch(await page.locator(".verify-result").textContent() ?? "", /CN-DEMO|DEMO-SHIPMENT|GHSC-DEMO/i, "public verification must not expose internal fixture identifiers");
 
