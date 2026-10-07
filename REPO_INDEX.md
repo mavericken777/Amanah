@@ -33,7 +33,9 @@
 - [SOP library](docs/sop/AMANAH_SOP_LIBRARY_MASTER_2026-10-03.md)
 - [Training academy](docs/training/AMANAH_TRAINING_ACADEMY_2026-10-03.md)
 - [GCC importer / distributor / retailer playbook](docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md)
+- China Mission protected platform tour: `app/(protected)/ahte/platform-tour/`
 - GCC Importer workspace: `app/(protected)/ahte/gcc-importer/`
+- Distributor / 3PL workspace: `app/(protected)/ahte/distributor/`
 - Retail / Marketplace workspace: `app/(protected)/ahte/retail-market/`
 
 ## Corporate / media / legal
@@ -50,6 +52,11 @@
 
 - Public website: `ghscl-website/`\n- China Mission public showcase: `ghscl-website/china-mission.html`
 - GCC Importer public route: `ghscl-website/gcc-importer.html`
+- Distributor public route: `ghscl-website/distributor.html`
+- Laboratory public route: `ghscl-website/laboratory.html`
+- Hardware public route: `ghscl-website/hardware.html`
+- API / interoperability public route: `ghscl-website/interoperability.html`
+- Cybersecurity public route: `ghscl-website/cybersecurity.html`
 - Retail / Marketplace public route: `ghscl-website/retail-market.html`
 - Platinum site: `platinum-site/`
 - Corporate profile: `ghscl-website/corporate-profile.html`
