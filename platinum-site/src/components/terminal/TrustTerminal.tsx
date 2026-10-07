@@ -10,7 +10,7 @@ const complianceRows = [
   ["Laboratory evidence", "Evidence chain inspectable", "Sample → custody → method/QC → result → review/signature → evidence."],
   ["Alcohol control", "Control evidence required", "A control conclusion depends on the applicable source, method, scope and accountable review."],
   ["Audit trail", "Human assessment preserved", "AI may assist analysis; the human auditor owns findings and corrective-action closure."],
-  ["Authority connectivity", "Authority-controlled", "AHTE preserves the direct authority-connectivity model while formal authority decisions remain independently owned."],
+  ["Authority connectivity", "Governed authority interface", "Authority connectivity is handled through the direct AHTE ⇄ JAKIM integration model; the competent authority owns formal decisions."],
 ];
 
 export function TrustTerminal({ sectionId = "terminal" }: { sectionId?: string }) {
@@ -18,8 +18,8 @@ export function TrustTerminal({ sectionId = "terminal" }: { sectionId?: string }
   const [releaseState, setReleaseState] = useState("EVIDENCE PACKET READY");
   const [expandedCompliance, setExpandedCompliance] = useState<number | null>(null);
 
-  function simulateReleaseRequest() {
-    setReleaseState("EVIDENCE REVIEW REQUEST PREPARED");
+  function prepareEvidencePacket() {
+    setReleaseState("EVIDENCE PACKET PREPARED");
     window.setTimeout(() => setReleaseState("EVIDENCE PACKET READY"), 2200);
   }
 
@@ -28,7 +28,7 @@ export function TrustTerminal({ sectionId = "terminal" }: { sectionId?: string }
       <div className="section-heading">
         <p className="eyebrow">08 / INTERACTIVE TRUST TERMINAL</p>
         <h2 id="terminal-title">Inspect the trust property behind every interaction.</h2>
-        <p>Explore how logistics, scientific evidence, compliance and financing evidence remain connected while each accountable party retains its own decision authority.</p>
+        <p>Explore how logistics, laboratory evidence, compliance review and finance evidence remain connected while each accountable organisation retains its own decision authority.</p>
       </div>
 
       <div className="terminal-bento">
@@ -75,7 +75,7 @@ export function TrustTerminal({ sectionId = "terminal" }: { sectionId?: string }
             <span className="eyebrow">SHARIAH FINANCE / EVIDENCE PACKET</span>
             <span className="state-chip">EXTERNAL DECISION</span>
           </div>
-          <div className="finance-chart" aria-label="Evidence completeness indicators">
+          <div className="finance-chart" aria-label="Evidence completeness bars">
             {[82, 94, 76, 88].map((value, index) => (
               <div className="finance-bar" key={index}>
                 <span style={{ transform: `scaleY(${value / 100})` }} />
@@ -83,9 +83,9 @@ export function TrustTerminal({ sectionId = "terminal" }: { sectionId?: string }
               </div>
             ))}
           </div>
-          <button type="button" className="gold-action" onClick={simulateReleaseRequest}>Prepare evidence review request</button>
+          <button type="button" className="gold-action" onClick={prepareEvidencePacket}>Prepare evidence packet</button>
           <p className="terminal-state" aria-live="polite">{releaseState}</p>
-          <small>AHTE provides purpose-bound evidence; approved providers retain financing, Takaful and legal decisions.</small>
+          <small>AHTE provides evidence to approved finance or Takaful providers; those providers retain their own decisions.</small>
         </article>
 
         <article className="terminal-card terminal-lab glass">
@@ -93,14 +93,14 @@ export function TrustTerminal({ sectionId = "terminal" }: { sectionId?: string }
             <span className="eyebrow">LABORATORY / SCIENTIFIC EVIDENCE</span>
             <span className="state-chip">NOT_DETECTED ≠ HALAL</span>
           </div>
-          <svg className="pcr-graph" viewBox="0 0 520 190" role="img" aria-label="Laboratory evidence visualization">
+          <svg className="pcr-graph" viewBox="0 0 520 190" role="img" aria-label="PCR evidence pattern showing analytical evidence context">
             <path className="pcr-grid" d="M20 30H500M20 70H500M20 110H500M20 150H500M80 20V170M160 20V170M240 20V170M320 20V170M400 20V170M480 20V170" />
             <path className="pcr-line pcr-line-a" d="M25 150 C90 149 130 146 175 141 S250 125 300 90 S365 48 495 36" />
             <path className="pcr-line pcr-line-b" d="M25 150 C120 149 210 148 305 147 S420 145 495 144" />
           </svg>
           <div className="lab-annotation">
-            <strong>Laboratory evidence visualization</strong>
-            <p>Sample identity, method/QC context, technical review and signed evidence remain linked to the product and assurance case.</p>
+            <strong>Analytical evidence context</strong>
+            <p>Laboratory results remain linked to sample identity, method, QC and technical review; laboratory evidence does not independently create Halal certification.</p>
           </div>
         </article>
 
