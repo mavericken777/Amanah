@@ -57,7 +57,7 @@ if(typeof document!=="undefined"){
   let index=0, mode="Process", auditStep=0, labStep=0, exception="", monitorView="Map", autoplay=true, timer=null;
   const intervalMs=5200;
 
-  function pause(){autoplay=false;clearInterval(timer);if($("playPauseJourney")){$("playPauseJourney").textContent="Play journey";$("playPauseJourney").setAttribute("aria-pressed","false");}}
+  function pause(){autoplay=false;clearInterval(timer);if($("playPauseJourney")){$("playPauseJourney").textContent="Resume journey";$("playPauseJourney").setAttribute("aria-pressed","false");}}
   function play(){autoplay=true;clearInterval(timer);if($("playPauseJourney")){$("playPauseJourney").textContent="Pause journey";$("playPauseJourney").setAttribute("aria-pressed","true");}if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)timer=setInterval(()=>{index=(index+1)%journey.stages.length;render();},intervalMs);}
   function select(i,manual=true){index=Math.max(0,Math.min(journey.stages.length-1,i));if(manual)pause();render();}
 
@@ -120,6 +120,7 @@ if(typeof document!=="undefined"){
   $("previousStage")?.addEventListener("click",()=>select(index-1));
   $("nextStage")?.addEventListener("click",()=>select(index===journey.stages.length-1?0:index+1));
   $("playPauseJourney")?.addEventListener("click",()=>autoplay?pause():play());
+  $("restartJourney")?.addEventListener("click",()=>{index=0;render();play();});
 
   function auditRender(){
     if(!$("auditCheckpoint"))return;
