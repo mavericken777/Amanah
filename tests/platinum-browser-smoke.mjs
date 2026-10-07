@@ -211,9 +211,11 @@ assert.equal(await page.locator(".halal-shield-stage canvas").count(), 0, "Reduc
 
 const verifierPage = await browser.newPage({ viewport: { width: 375, height: 812 } });
 await verifierPage.goto("http://127.0.0.1:4173/verify.html", { waitUntil: "networkidle" });
-await verifierPage.locator("#route-token").fill("GHSC-MY-2026-8891");
+const verificationViews = verifierPage.locator(".secondary-path-grid button");
+assert.equal(await verificationViews.count(), 3, "secondary verifier must expose product, batch and shipment views");
+await verificationViews.first().click();
 await verifierPage.locator(".passport-result").waitFor({ state: "visible" });
-assert.equal(await verifierPage.locator(".passport-result h3").textContent(), "Premium Halal food product", "secondary verifier must use the canonical demo product");
+assert.equal(await verifierPage.locator(".passport-result h3").textContent(), "Premium Halal food product", "secondary verifier must render the guided product journey");
 assert.doesNotMatch(await verifierPage.locator(".passport-result").textContent() ?? "", /CN-DEMO|DEMO-SHIPMENT|GHSC-DEMO/i, "secondary verifier must not expose internal fixture identifiers");
 await verifierPage.close();
 
