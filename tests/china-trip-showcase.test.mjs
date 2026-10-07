@@ -20,15 +20,14 @@ test('China trip presentation routes are materialized in the repository',()=>{
   assert.ok(fs.existsSync('app/(protected)/ahte/distributor/page.tsx'));
 });
 
-test('platform tour covers the complete market-side lifecycle and demo boundary',()=>{
+test('platform tour covers the complete market-side lifecycle without internal demo records',()=>{
   const pub=read('ghscl-website/platform-tour.html');
   const app=read('app/(protected)/ahte/platform-tour/page.tsx');
   for(const term of ['China manufacturer','Laboratory','Smart audit','Sinotrans','GCC importer','Distributor','Retail','Consumer','Command Center','Recall']) {
     assert.ok((pub+'\n'+app).toLowerCase().includes(term.toLowerCase()),term);
   }
-  assert.match(app,/CN-DEMO-24001/);
-  assert.match(app,/DEMO-SHIPMENT-001/);
-  assert.match(app,/Shipment 001 remains NOT-INSTANTIATED/);
+  assert.doesNotMatch(pub,/CN-DEMO|DEMO-SHIPMENT|GHSC-DEMO|NOT-INSTANTIATED|UNCONFIGURED|PENDING_AUTHORIZATION/i);
+  assert.doesNotMatch(app,/CN-DEMO|DEMO-SHIPMENT|GHSC-DEMO|NOT-INSTANTIATED|UNCONFIGURED|PENDING_AUTHORIZATION/i);
 });
 
 test('authority boundary does not regress to unsupported PHC certification wording',()=>{
