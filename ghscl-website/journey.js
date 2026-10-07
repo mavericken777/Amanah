@@ -1,152 +1,196 @@
 const journey = {
+  product: 'Premium Halal food product',
   stages: [
-    ["Manufacturer onboarding","Manufacturer","China","Register the organisation, authorised representatives and market scope.","Organisation profile, KYC, roles and onboarding readiness","Establish who is accountable before product assurance begins."],
-    ["Facility & production line","Manufacturer","China facility","Register the facility, production lines, controlled areas and operating scope.","Facility profile, line identity, licences, training and control ownership","Tie every later event to the correct place, line and accountable team."],
-    ["Product & SKU","Product team","Product workspace","Define product, SKU, formulation/BOM, packaging and destination scope.","Product master, SKU, formula/BOM, labels and market scope","Create the exact product object that all evidence will follow."],
-    ["Suppliers & raw materials","Procurement / assurance","Supplier network","Map ingredient, raw material, supplier, supplier facility/origin and supporting credentials.","Supplier graph, material lots, origin, credentials and change history","Expose substitutions, expired evidence and high-risk dependencies before production."],
-    ["Standards & applicability","Assurance team","AHTE standards layer","Resolve the complete applicable Malaysian/JAKIM framework and destination requirements by scope.","Applicable instruments, requirements, controls, HCP/SCCP and source references","Apply the right controls to the right product, process, facility and market."],
-    ["Documents & evidence","Assurance team","Evidence workspace","Collect and bind supporting records to the exact object, actor and event.","Documents, attestations, timestamps, signatures and integrity references","Turn fragmented records into attributable evidence."],
-    ["Laboratory evidence","Laboratory","Laboratory","Create the sample, preserve seal/custody, perform the scoped method/QC and review the result.","Sample identity, custody, method, QC, result, reviewer and signed report","Scientific evidence contributes to assurance; it does not independently certify Halal."],
-    ["Smart audit","Human auditor","China facility","Guide the auditor through scoped controls using smart glasses/tablet and contextual assistance.","Observations, media, notes, object IDs, control references and auditor signature","AI assists; the human auditor owns the audit conclusion."],
-    ["Findings & CAPA","Manufacturer + auditor","Corrective-action workflow","Classify findings, assign actions, attach corrective evidence and re-verify affected controls.","Finding, owner, due date, corrective evidence and re-verification record","Close the evidence gap before the next authority or operational decision."],
-    ["Authority workflow","Competent authority","Authority-connected workflow","Present the complete evidence dossier through the authorised authority-connectivity path.","Evidence/status exchange, authority reference and independently owned decision","AHTE supports the process; authorised humans and competent authorities decide certification."],
-    ["Production & digital twin","Production / quality","Factory","Bind approved inputs, batch genealogy, line state, cleaning, training and monitored process events.","Batch, material consumption, line events, sanitation and digital-twin state","Carry verified context into live production rather than restarting the assurance story."],
-    ["Origin warehouse","Warehouse operator","China warehouse","Receive, segregate, store, pick and prepare the batch for controlled dispatch.","Pallet/package IDs, zone, condition, segregation, stock movement and loading record","Preserve product identity and control state before logistics handover."],
-    ["Sinotrans logistics","Sinotrans operations","China dispatch","Assign vehicle/container/seal, capture custody, GNSS, door and condition events, and manage exceptions.","Vehicle, driver, container, seal, route, telemetry and custody events","Maintain accountable custody from warehouse to port and onward."],
-    ["Origin port & customs","Port / customs","China port","Reconcile shipment identity, container/seal, documentation and inspection before sovereign release.","Pre-arrival data, inspection, authority/customs status and release reference","Border release remains with the competent sovereign authority."],
-    ["International transit","Carrier / Command Center","China → GCC","Monitor route, condition, seal and custody continuity while correlating exceptions.","Transit milestones, telemetry, custody and exception evidence","Keep the same evidence chain intact between jurisdictions."],
-    ["GCC port & customs","Destination authority","GCC port","Process destination pre-arrival, inspection, holds and sovereign release.","Arrival, inspection, customs/authority status and release reference","AHTE never overrides a customs or sovereign hold."],
-    ["GCC importer","Importer","Destination receiving","Verify shipment/product scope, reconcile container/seal and condition, then accept, quarantine or reject.","Receiving inspection, discrepancy, quarantine/acceptance and warehouse placement","Make importer acceptance a first-class evidence-backed decision."],
-    ["Distributor & 3PL","Distributor","GCC distribution","Move inventory lots through warehouses and routes using FEFO/FIFO as applicable and recorded custody transfers.","Inventory lot, allocation, route, transfer, proof of delivery and withdrawal state","Preserve trust through destination distribution, not just at the border."],
-    ["Retail / marketplace","Retailer / buyer","GCC market","Check listing eligibility, receive SKU/batch, manage shelf/fulfilment state and withdrawal/recall.","Listing status, receiving scan, inventory/shelf state and verification event","Carry assurance to the point where products are actually listed, sold or fulfilled."],
-    ["Consumer verification & Command Center","Consumer + GHSCL operations","Market + 24/7 Command Center","Present approved verification fields while the Command Center continuously monitors exceptions, recalls and blast radius.","Approved disclosure, current verification state, alerts, incident/CAPA and recall propagation","Close the loop from origin to consumer while keeping continuous assurance active."]
+    ['Origin & producer','Producer / source owner','China origin','Establish the producer, source location and accountable organisation before materials enter the controlled chain.','Origin record, producer identity, source relationship and material provenance','Start with a known source and accountable owner.','INITIAL','Producer'],
+    ['Organisation & KYC','Manufacturer authorised representative','Manufacturer organisation','Register the organisation, KYC, authorised representatives, licences and operating scope.','Organisation profile, authorised users, licences and jurisdiction','Only recognised organisations and accountable users can create or approve records.','INITIAL','Manufacturer'],
+    ['Facility & production line','Manufacturer quality / Halal team','China facility','Register facilities, production lines, process scope, equipment and relevant operating controls.','Facility profile, line scope, process map, equipment and training records','Bind every later event to the exact place and process where it occurred.','INITIAL','Manufacturer'],
+    ['Product & SKU','Product owner','Product workspace','Create product, SKU, formulation, packaging, destination and change-control relationships.','Product record, SKU, formulation/BOM, packaging and market scope','Keep product identity stable across audit, production, logistics and market receiving.','INITIAL','Manufacturer'],
+    ['Supplier & materials','Procurement / assurance team','Supplier network','Connect ingredients and raw materials to approved suppliers, origin, lots, certificates and supporting evidence.','Supplier graph, ingredient/raw-material links, lot provenance and current evidence','Expose substitutions, expired evidence and high-risk material changes before production.','INITIAL','Supplier network'],
+    ['Standards & applicability','Assurance team','AHTE standards workspace','Resolve the complete applicable Malaysian/JAKIM framework and destination requirements for the actual product, process and market.','Applicable instruments, requirements, controls, HCP/SCCP and evidence obligations','Turn standards into operational controls instead of a generic certificate check.','EVIDENCE-COMPLETE','Assurance team'],
+    ['Laboratory evidence','Laboratory reviewer','Laboratory','Bind sample identity, seal, chain of custody, method, QC, technical review and signed report to the product and batch.','Sample record, custody, method/QC context, reviewed result and signed report','Scientific evidence supports assurance; it does not independently certify Halal status.','EVIDENCE-COMPLETE','Laboratory'],
+    ['Smart audit & CAPA','Human auditor','Manufacturer facility','Guide the assigned auditor through scoped controls, capture attributable evidence, record findings and close CAPA through re-verification.','Audit scope, observations, media, findings, corrective action, re-verification and signed session','AI assists the audit; the human auditor owns findings and conclusions.','ASSESSED','Human auditor'],
+    ['Authority workflow','Authorised competent authority','Authority-connected workflow','Submit the complete evidence context through the authority-connectivity path and retain the independently owned authority decision.','Evidence dossier, authority submission reference and authority-owned status','Authority state remains separate from AHTE trust and operational state.','ASSESSED','Competent authority'],
+    ['Controlled production','Manufacturer production / quality','Production line','Bind approved inputs, line status, cleaning, operator competence, process events and batch genealogy during production.','Material consumption, process events, cleaning evidence, line and batch links','Continuous evidence carries the approved product scope into the actual production run.','ASSESSED','Manufacturer'],
+    ['Origin warehouse','Warehouse operator','China warehouse','Receive, segregate, store, inspect, pick and prepare the finished batch for dispatch.','Receiving, zone, segregation, storage condition, pallet/package and dispatch records','Preserve identity and handling controls between production and logistics.','ASSESSED','Warehouse'],
+    ['Sinotrans logistics','Logistics operator','China dispatch','Assign vehicle, container and seal; record loading, custody transfer, GNSS, door and condition events.','Vehicle/container/seal identity, route, telemetry, handover and exception records','Carry trust context with the physical shipment rather than reconstructing it later.','ASSESSED','Sinotrans / logistics'],
+    ['Origin port & customs','Port / customs authority','China export port','Reconcile shipment identity, authorised documents, container/seal and inspection events before export handoff.','Manifest, document checks, inspection, seal condition and authority response','Sovereign export release remains with the competent border authority.','ASSESSED','Origin authority'],
+    ['International transit','Carrier / Command Center','China → GCC route','Maintain custody, route, seal and environmental continuity while exceptions are monitored across the corridor.','Transit milestones, route, condition, custody and exception events','Continuous monitoring identifies emerging risk before destination receiving.','ASSESSED','Carrier'],
+    ['GCC port & customs','Destination authority','GCC port','Resolve pre-arrival data, inspections, holds and the competent authority-owned import outcome.','Arrival, inspection, authority response, hold/release reference and custody transfer','AHTE provides evidence context; sovereign release remains external.','ASSESSED','Destination authority'],
+    ['GCC importer','Importer receiving team','Destination receiving','Verify product/SKU/batch, container/seal, condition, documents and authority status; accept, record discrepancy or quarantine.','Receiving inspection, discrepancy, quarantine/acceptance, claims and warehouse placement','Make importer acceptance a first-class controlled handoff.','ASSESSED','Importer'],
+    ['Destination warehouse','Warehouse / 3PL','GCC warehouse','Create inventory lots, preserve condition and segregation, and determine onward distribution eligibility.','Inventory lot, location, condition, custody and eligibility records','Keep received goods connected to the original product and shipment evidence.','ASSESSED','Destination warehouse'],
+    ['Distributor / 3PL','Distributor operator','GCC distribution','Allocate stock, apply FEFO/FIFO as appropriate, record route and vehicle custody, and confirm proof of delivery.','Allocation, transfer order, route, custody handoff, delivery and withdrawal records','Preserve accountability between warehouse inventory and retail receiving.','ASSESSED','Distributor'],
+    ['Retail / marketplace','Retail receiving / marketplace team','GCC retail / fulfilment','Check listing eligibility, receive SKU/batch, manage inventory/shelf or fulfilment status, and propagate withdrawals or recalls.','Listing state, receiving scan, inventory, expiry, sale status and recall records','Make downstream market controls visible without exposing unnecessary confidential factory data.','ASSESSED','Retailer / marketplace'],
+    ['Consumer / buyer verification','Authorised verifier','Market / consumer','Present approved product identity, issuing authority, validity, provenance summary, selected custody confirmation and current verification state.','Purpose-bound public disclosure and verification event','Give buyers and consumers understandable evidence without turning QR into certification.','VERIFIED','Consumer / buyer'],
+    ['24/7 Command Center & recall','GHSCL operations / accountable owners','Cross-corridor Command Center','Correlate exceptions, predict risk, assign action, coordinate CAPA/re-verification and calculate recall blast radius across the complete chain.','Alerts, incident ownership, predictive/preemptive recommendations, recall scope and closure evidence','Continuous assurance connects post-market events back to every affected object and owner.','VERIFIED','Command Center']
   ],
-  perspectives: {
-    journey: ["What happens","Why it matters","What moves forward"],
-    actor: ["Responsible party","Action","Next accountable handoff"],
-    evidence: ["Evidence created","Object relationship","Integrity / review"],
-    risk: ["Potential failure","Containment","Recovery / re-verification"]
-  }
+  audit: ['Auditor identity & MFA','Facility / scope confirmation','Applicable controls','Walkthrough plan','Object / QR / NFC identification','Evidence capture','AI-assisted retrieval','Auditor assessment','Finding / CAR','Corrective action','Re-verification','Signed session','Sync / reconciliation'],
+  lab: ['Test requirement','Sample request','Sample identity','Collection','Seal','Chain of custody','Transport','Receipt','Seal verification','Accession','Aliquot','Method & QC','Result','Technical review','Authorised signatory','Report','Evidence binding'],
+  actors: [
+    ['Manufacturer','Creates organisation, facility, product, supplier, process and production evidence; consumes readiness and corrective actions.','Origin and manufacturing accountability'],
+    ['Human auditor','Inspects controls, captures attributable observations and signs findings; consumes requirements and evidence.','Accountable audit judgment'],
+    ['Competent authority','Owns formal certification and other reserved authority decisions.','Independent authority decision'],
+    ['Laboratory','Creates sample custody, method/QC and reviewed result records.','Scientific evidence within applicable scope'],
+    ['Warehouse','Records receiving, segregation, handling, storage and dispatch.','Controlled storage and inventory'],
+    ['Sinotrans / logistics','Records custody transfers, vehicle, container, seal, route and condition.','End-to-end logistics accountability'],
+    ['Port / customs authority','Owns border inspection and sovereign release decisions.','Sovereign border decision'],
+    ['Importer','Owns destination receiving, discrepancy, quarantine and acceptance.','Destination acceptance'],
+    ['Distributor / 3PL','Owns inventory allocation, transfer, route and proof of delivery.','Destination custody continuity'],
+    ['Retailer / marketplace','Owns listing, receiving, inventory, sale status and withdrawal.','Market-side assurance'],
+    ['Consumer / buyer','Consumes approved verification information.','Understandable provenance'],
+    ['Command Center','Correlates corridor state, exceptions, recommendations, incidents and recall scope.','Continuous assurance']
+  ],
+  layers: [
+    ['Amanah experience','Role-based operational workflows and approved public verification.','Every lifecycle stage'],
+    ['Identity & access','Organisation, users, roles, MFA and tenant isolation protect scoped actions.','Accountable access'],
+    ['AHTE standards & controls','Applicability, requirements, controls and HCP/SCCP connect obligations to operations.','Readiness and assurance'],
+    ['Evidence & digital twins','Products, materials, facilities, batches, shipments and custody events remain connected.','End-to-end traceability'],
+    ['Integrity & audit trail','Append-only records, signatures, hashes and supersession preserve lineage.','Every evidence event'],
+    ['AI & preemptive strategy','Gap detection, anomaly assessment, prediction and recommendations support accountable action.','Monitoring and corrective action'],
+    ['Authority connectivity','AHTE ⇄ Direct JAKIM API ⇄ JAKIM target topology preserves independent authority decisions.','Authority workflow'],
+    ['External ecosystem','Ports, customs, finance, Takaful and partner systems connect through governed adapters.','Cross-border and commercial workflows']
+  ]
 };
 
-let currentStage=0;
-let perspective="journey";
-let autoplay=true;
-let timer=null;
-const intervalMs=5200;
+if (typeof document !== 'undefined') {
+  const $ = id => document.getElementById(id);
+  let index = 0, mode = 'Journey', auditStep = 0, labStep = 0, exception = '', passportTab = 'Overview', monitorView = 'Map';
+  let playing = true, playTimer = null;
+  const element = (tag, text, cls) => { const el = document.createElement(tag); el.textContent = text; if (cls) el.className = cls; return el; };
+  const buttons = (host, labels, action) => labels.forEach((label, i) => { const b = element('button', label); b.type = 'button'; b.addEventListener('click', () => action(i, label)); host.append(b); });
+  function fields(host, values) { host.replaceChildren(); const dl = document.createElement('dl'); values.forEach(([key,val]) => { dl.append(element('dt',key),element('dd',val)); }); host.append(dl); }
 
-const $=id=>document.getElementById(id);
-const stageNav=$("stageNav");
-const scrubber=$("scrubber");
-const stageCount=$("stageCount");
-const viewModes=$("viewModes");
-const playPause=$("playPauseJourney");
-const progress=$("journeyProgress");
-
-function perspectiveDetail(stage){
-  const [title,actor,place,story,evidence,why]=stage;
-  if(perspective==="actor") return `<dl><dt>Responsible party</dt><dd>${actor}</dd><dt>Action</dt><dd>${story}</dd><dt>Location / workspace</dt><dd>${place}</dd></dl>`;
-  if(perspective==="evidence") return `<dl><dt>Evidence created or consumed</dt><dd>${evidence}</dd><dt>Object continuity</dt><dd>The evidence remains linked to the relevant product, batch, facility, shipment or market object.</dd><dt>Review principle</dt><dd>Evidence is attributable and reviewable; integrity mechanisms do not replace accountable judgment.</dd></dl>`;
-  if(perspective==="risk") return `<dl><dt>Potential failure</dt><dd>Missing, expired, contradictory, tampered or out-of-range evidence can fracture trust at this stage.</dd><dt>Containment</dt><dd>Scope the affected object and hold or quarantine it when configured controls require containment.</dd><dt>Recovery</dt><dd>Investigate → CAPA → re-verification → accountable release, escalation or recall.</dd></dl>`;
-  return `<dl><dt>What happens</dt><dd>${story}</dd><dt>Why it matters</dt><dd>${why}</dd><dt>What moves forward</dt><dd>${evidence}</dd></dl>`;
-}
-
-function render(){
-  const s=journey.stages[currentStage];
-  if(!s) return;
-  $("stageTitle").textContent=s[0];
-  $("stageStory").textContent=s[3];
-  $("stageWhy").textContent=s[5];
-  $("modeExplanation").textContent=`${s[1]} · ${s[2]}`;
-  $("stageDetail").innerHTML=perspectiveDetail(s);
-  stageCount.textContent=`${String(currentStage+1).padStart(2,"0")} / ${String(journey.stages.length).padStart(2,"0")}`;
-  scrubber.value=String(currentStage);
-  scrubber.max=String(journey.stages.length-1);
-  if(progress) progress.style.setProperty("--journey-progress", `${((currentStage+1)/journey.stages.length)*100}%`);
-  [...stageNav.querySelectorAll("button")].forEach((b,i)=>{
-    b.setAttribute("aria-pressed",String(i===currentStage));
-    b.classList.toggle("reached",i<=currentStage);
-  });
-  const next=currentStage===journey.stages.length-1?0:currentStage+1;
-  $("nextStage").textContent=currentStage===journey.stages.length-1?"Restart journey":"Next stage";
-  $("previousStage").disabled=currentStage===0;
-  const summary=$("journeySummary");
-  if(summary) summary.innerHTML=`<strong>${s[0]}</strong><span>${s[1]}</span><span>${s[4]}</span>`;
-}
-
-function setStage(i,{manual=false}={}){
-  currentStage=Math.max(0,Math.min(journey.stages.length-1,i));
-  if(manual) pauseAutoplay();
-  render();
-}
-
-function startAutoplay(){
-  autoplay=true;
-  if(playPause){playPause.textContent="Pause journey";playPause.setAttribute("aria-pressed","true");}
-  clearInterval(timer);
-  if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
-    timer=setInterval(()=>{currentStage=(currentStage+1)%journey.stages.length;render();},intervalMs);
+  function renderProductRecord() {
+    const s = journey.stages[index];
+    const views = {
+      Overview: [['Product',journey.product],['Route','China → GCC direct'],['Current stage',s[0]],['Accountable owner',s[7]],['Evidence accumulated',String(index+1)+' connected stages'],['AHTE trust state',exception ? 'HOLD' : s[6]],['Authority state','Independently owned'],['Operational state','Managed by accountable operator']],
+      Identity: [['Product',journey.product],['Current object',s[0]],['Origin','China'],['Destination','GCC'],['Accountable owner',s[7]]],
+      Audit: [['Current checkpoint',journey.audit[auditStep]],['Actor','Human auditor'],['Outcome','Auditor assessment and signed evidence'],['Authority decision','Separate competent-authority workflow']],
+      Lab: [['Current step',journey.lab[labStep]],['Product link','Exact product and production batch'],['Method / QC','Applicable laboratory method and quality controls'],['Meaning','Reviewed scientific evidence supports assurance; it does not independently certify Halal']],
+      Custody: [['Current holder',s[7]],['Location',s[2]],['Transfer','Outgoing → incoming accountable actor'],['Evidence','Custody, condition and handoff record']],
+      Logistics: [['Route','China → GCC direct'],['Current location',s[2]],['Evidence','Container / seal / vehicle / route / condition as applicable'],['Exception handling','Scoped hold, investigation, CAPA and re-verification']],
+      Policy: [['Framework','Complete applicable Malaysian/JAKIM framework'],['Destination','Applicable GCC market requirements'],['Control mapping','Requirement → control → HCP/SCCP → evidence → audit test']],
+      Timeline: journey.stages.slice(0,index+1).map((v,i)=>[`Stage ${i+1}`,`${v[0]} · ${v[1]}`]),
+      Provenance: [['Object','Exact product / batch / shipment object'],['Event','Attributable lifecycle event'],['Evidence','Source-bound evidence record'],['Actor','Authenticated accountable actor'],['Timestamp','Recorded event time'],['Integrity','Signature / hash / provenance proof where applicable']]
+    };
+    fields($('passportBody'), views[passportTab]);
+    [...$('passportTabs').children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===passportTab)));
   }
-}
-function pauseAutoplay(){
-  autoplay=false;
-  clearInterval(timer);
-  if(playPause){playPause.textContent="Play journey";playPause.setAttribute("aria-pressed","false");}
-}
-function toggleAutoplay(){ autoplay?pauseAutoplay():startAutoplay(); }
 
-journey.stages.forEach((s,i)=>{
-  const b=document.createElement("button");
-  b.type="button";
-  b.innerHTML=`<span>${String(i+1).padStart(2,"0")}</span>${s[0]}`;
-  b.addEventListener("click",()=>setStage(i,{manual:true}));
-  stageNav?.appendChild(b);
-});
-Object.keys(journey.perspectives).forEach(key=>{
-  const b=document.createElement("button");
-  b.type="button";
-  b.textContent=key==="journey"?"Process":key==="actor"?"People & accountability":key==="evidence"?"Evidence":"Risk & response";
-  b.setAttribute("aria-pressed",String(key===perspective));
-  b.addEventListener("click",()=>{
-    perspective=key;
-    [...viewModes.querySelectorAll("button")].forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
-    pauseAutoplay();
-    render();
+  function renderMonitor() {
+    const s=journey.stages[index];
+    $('monitorPanel').textContent={
+      Map:`China → GCC direct · current stage: ${s[2]}`,
+      Timeline:`${index+1} connected lifecycle stages completed or in view.`,
+      Custody:`Current accountable holder: ${s[7]}`,
+      Evidence:`${s[4]}`,
+      Exceptions:exception||'No exception selected. Choose a scenario to inspect the response path.'
+    }[monitorView];
+    [...$('monitorViews').children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===monitorView)));
+  }
+
+  function render() {
+    const s = journey.stages[index];
+    $('stageTitle').textContent = `${String(index+1).padStart(2,'0')} / ${s[0]}`;
+    $('stageStory').textContent = s[3];
+    $('stageWhy').textContent = s[5];
+    fields($('stageDetail'), mode === 'Standards'
+      ? [['Applicable scope','Malaysian/JAKIM and destination requirements resolved for this stage'],['Control objective',s[5]],['Evidence',s[4]],['Responsible actor',s[1]],['Decision path','Requirement → control → evidence → accountable review']]
+      : [['Accountable actor',s[1]],['Operating location',s[2]],['Evidence created / consumed',s[4]],['Why this stage matters',s[5]],['Next handoff',index < journey.stages.length-1 ? journey.stages[index+1][0] : 'Continuous assurance']]);
+    $('modeExplanation').textContent = {
+      Journey:s[3],
+      Trust:`Physical event → identity → evidence → applicable control → attributable assessment. ${s[5]}`,
+      Actor:`${s[1]} acts at ${s[2]}. ${s[5]}`,
+      Standards:'Applicable requirements become operational controls, evidence obligations and audit tests for this stage.',
+      Custody:`${s[7]} owns the current accountable handoff. Transfers preserve actor, time, location, object and condition context.`,
+      Monitoring:`${s[2]} · continuous monitoring and exception correlation where applicable.`,
+      Consumer:'Approved verification fields make provenance understandable without exposing unrelated confidential records.',
+      Technical:'Identity, event, evidence, actor, timestamp and integrity proof stay bound throughout the lifecycle.'
+    }[mode];
+    $('scrubber').max=String(journey.stages.length-1);
+    $('scrubber').value = String(index);
+    $('stageCount').textContent = `${index+1} / ${journey.stages.length} · ${s[0]}`;
+    $('previousStage').disabled=index===0;
+    $('nextStage').disabled=index===journey.stages.length-1;
+    [...$('stageNav').children].forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));
+    [...$('viewModes').children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===mode)));
+    [...$('routeNodes').children].forEach((b,i)=>{b.classList.toggle('reached',i<=index);b.setAttribute('aria-pressed',String(i===index));});
+    const route=$('journeyRoute');
+    const point=route.getPointAtLength(route.getTotalLength()*index/(journey.stages.length-1));
+    $('routeMarker').setAttribute('cx',String(point.x));
+    $('routeMarker').setAttribute('cy',String(point.y));
+    $('routeLocation').textContent = `${s[2]} · ${s[7]}`;
+    $('timeline').replaceChildren();
+    journey.stages.slice(0,index+1).forEach((v,i)=>{const b=element('button',`${String(i+1).padStart(2,'0')} · ${v[0]} · ${v[1]}`);b.type='button';b.addEventListener('click',()=>{pauseJourney();select(i);});$('timeline').append(b);});
+    $('custodyHolder').textContent=s[7];
+    renderMonitor();
+    renderProductRecord();
+  }
+
+  function select(i) { index=Math.max(0,Math.min(journey.stages.length-1,i)); render(); }
+  function scheduleJourney(){
+    if(playTimer) window.clearInterval(playTimer);
+    if(!playing) return;
+    playTimer=window.setInterval(()=>{
+      if(index >= journey.stages.length-1){ index=0; } else { index+=1; }
+      render();
+    },4200);
+  }
+  function updatePlayback(){
+    const button=$('playJourney');
+    if(button) button.textContent=playing?'Pause journey':'Play journey';
+    if($('playbackStatus')) $('playbackStatus').textContent=playing?'Auto-playing the complete process':'Journey paused — select any stage or resume';
+  }
+  function pauseJourney(){ playing=false; if(playTimer) window.clearInterval(playTimer); playTimer=null; updatePlayback(); }
+  function toggleJourney(){ playing=!playing; updatePlayback(); scheduleJourney(); }
+
+  buttons($('stageNav'),journey.stages.map(s=>s[0]),i=>{pauseJourney();select(i);});
+  buttons($('routeNodes'),journey.stages.map(s=>s[0]),i=>{pauseJourney();select(i);});
+  buttons($('viewModes'),['Journey','Trust','Actor','Standards','Custody','Monitoring','Consumer','Technical'],(_,v)=>{mode=v;render();});
+  buttons($('passportTabs'),['Overview','Identity','Audit','Lab','Custody','Logistics','Policy','Timeline','Provenance'],(_,v)=>{passportTab=v;renderProductRecord();});
+  $('scrubber').addEventListener('input',e=>{pauseJourney();select(Number(e.target.value));});
+  $('previousStage').addEventListener('click',()=>{pauseJourney();select(index-1);});
+  $('nextStage').addEventListener('click',()=>{pauseJourney();select(index+1);});
+  $('playJourney')?.addEventListener('click',toggleJourney);
+  $('restartJourney')?.addEventListener('click',()=>{index=0;playing=true;render();updatePlayback();scheduleJourney();});
+
+  function auditRender() {
+    $('auditCheckpoint').textContent=journey.audit[auditStep];
+    $('auditGuide').textContent=auditStep<8?'Guided workflow: resolve the applicable control, inspect the object and capture attributable evidence.':'Human review: assess the observation, record findings, close corrective action and sign the attributable audit session.';
+    fields($('auditEvidence'),[['Checkpoint',journey.audit[auditStep]],['Actor','Assigned human auditor'],['Evidence','Attributable observation / media / record'],['Decision','Human audit conclusion; competent-authority certification remains separate']]);
+    $('auditPrevious').disabled=auditStep===0;
+    $('auditNext').disabled=auditStep===journey.audit.length-1;
+    renderProductRecord();
+  }
+  $('auditNext').addEventListener('click',()=>{auditStep=Math.min(journey.audit.length-1,auditStep+1);auditRender();});
+  $('auditPrevious').addEventListener('click',()=>{auditStep=Math.max(0,auditStep-1);auditRender();});
+  $('auditReset').addEventListener('click',()=>{auditStep=0;auditRender();});
+
+  buttons($('labSteps'),journey.lab, i=>{
+    labStep=i;
+    $('labCurrent').textContent=journey.lab[i];
+    fields($('labEvidence'),[['Step',journey.lab[i]],['Product link','Exact product and production batch'],['Custody','Collector → courier → laboratory'],['Method / QC','Applicable method and quality controls'],['Review','Authorised technical review and signed evidence']]);
+    renderProductRecord();
+    [...$('labSteps').children].forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));
   });
-  viewModes?.appendChild(b);
-});
-scrubber?.addEventListener("input",e=>setStage(Number(e.target.value),{manual:true}));
-$("nextStage")?.addEventListener("click",()=>setStage(currentStage===journey.stages.length-1?0:currentStage+1,{manual:true}));
-$("previousStage")?.addEventListener("click",()=>setStage(currentStage-1,{manual:true}));
-playPause?.addEventListener("click",toggleAutoplay);
+  buttons($('warehouseZones'),['Receiving','Quarantine','Controlled storage','Segregation','Picking','Dispatch','Cold storage','Inspection'],(_,zone)=>fields($('warehouseDetail'),[['Zone',zone],['Control','Segregation, contamination prevention and accountable handling'],['Condition','Continuous monitoring where applicable'],['Custody','Warehouse operator'],['Evidence','Receiving, zone, inventory and handling records']]));
+  buttons($('custodyRibbon'),['Manufacturer','Sinotrans / logistics','Warehouse','Port','Carrier','Importer','Distributor','Retailer'],(i,actor)=>fields($('custodyDetail'),[['Outgoing',i?$('custodyRibbon').children[i-1].textContent:'Origin'],['Incoming',actor],['Evidence','Attributable transfer, object identity and condition record'],['Control','Custody remains linked to the same product / batch / shipment lineage']]));
+  buttons($('portNodes'),['Pre-arrival','Container / seal','Documents','Inspection','Authority response','Custody transfer'],(_,node)=>fields($('portDetail'),[['Checkpoint',node],['Actor','Port / customs authority'],['Action','Reconcile scoped identity and authorised evidence'],['Result','Authority-owned border decision'],['Trust impact','AHTE, authority and customs states remain separate']]));
+  buttons($('monitorViews'),['Map','Timeline','Custody','Evidence','Exceptions'],(_,view)=>{monitorView=view;renderMonitor();});
+  buttons($('exceptionButtons'),['Temperature excursion','Seal mismatch','Missing custody event','Document mismatch','Route deviation'],(_,v)=>{exception=v;$('exceptionState').textContent=`${v} → alert → policy assessment → HOLD → investigation → corrective action → re-verification → accountable release decision.`;render();});
+  $('resetException').addEventListener('click',()=>{exception='';$('exceptionState').textContent='Scenario reset. Continuous assurance remains active.';render();});
+  buttons($('actorButtons'),journey.actors.map(a=>a[0]),i=>fields($('actorDetail'),[['Role',journey.actors[i][0]],['Creates / consumes',journey.actors[i][1]],['Value and responsibility',journey.actors[i][2]]]));
+  buttons($('architectureButtons'),journey.layers.map(a=>a[0]),i=>fields($('architectureDetail'),[['Layer',journey.layers[i][0]],['Purpose',journey.layers[i][1]],['Journey dependency',journey.layers[i][2]]]));
+  $('consumerScan').addEventListener('click',()=>{pauseJourney();select(18);fields($('consumerRecord'),[['Product',journey.product],['Origin','China'],['Journey','Manufacturer → assurance → logistics → GCC market'],['Authority information','Issuer-authorised status and validity'],['Disclosure','Approved provenance and custody summary']]);});
 
-document.addEventListener("visibilitychange",()=>{ if(document.hidden) clearInterval(timer); else if(autoplay) startAutoplay(); });
-
-render();
-startAutoplay();
-
-// Secondary interactive explainers: simple progressive controls, no internal/demo identifiers.
-const auditSteps=[
-  ["Scope & prepare","Select the facility, line, product and applicable controls."],
-  ["Guided observation","Identify the object and capture attributable observations using smart glasses/tablet."],
-  ["AI assistance","Surface relevant controls, missing evidence and possible contradictions for auditor review."],
-  ["Human assessment","The auditor confirms findings and signs the audit record."],
-  ["CAPA & re-verification","Correct findings, attach evidence and re-verify before the next decision."]
-];
-let ai=0;
-function renderAudit(){const s=auditSteps[ai];if($("auditCheckpoint"))$("auditCheckpoint").textContent=s[0];if($("auditGuide"))$("auditGuide").textContent=s[1];if($("auditEvidence"))$("auditEvidence").innerHTML=`<p><strong>Checkpoint ${ai+1} of ${auditSteps.length}</strong></p><p>${s[1]}</p>`;}
-$("auditNext")?.addEventListener("click",()=>{ai=(ai+1)%auditSteps.length;renderAudit()});
-$("auditPrevious")?.addEventListener("click",()=>{ai=Math.max(0,ai-1);renderAudit()});
-$("auditReset")?.addEventListener("click",()=>{ai=0;renderAudit()});
-renderAudit();
-
-const labSteps=["Sample request","Collection & seal","Transport & receipt","Accession & aliquot","Method & QC","Technical review","Authorised report","Evidence binding"];
-let li=0;
-const labHost=$("labSteps");
-labSteps.forEach((name,i)=>{const b=document.createElement("button");b.type="button";b.textContent=name;b.addEventListener("click",()=>{li=i;renderLab()});labHost?.appendChild(b)});
-function renderLab(){if($("labCurrent"))$("labCurrent").textContent=labSteps[li];if($("labEvidence"))$("labEvidence").innerHTML=`<p><strong>Stage ${li+1} of ${labSteps.length}</strong></p><p>The sample remains linked to identity, custody, method/QC, reviewer and product context.</p>`;[...(labHost?.querySelectorAll("button")||[])].forEach((b,i)=>b.setAttribute("aria-pressed",String(i===li)));}
-renderLab();
-
-$("consumerScan")?.addEventListener("click",()=>{const r=$("consumerRecord");if(r)r.innerHTML="<p><strong>Product verified</strong></p><p>Approved view: product identity, manufacturer, credential state, issuing authority, validity, provenance summary, selected custody confirmation and current verification state.</p>";});
-
-window.addEventListener("beforeunload",()=>clearInterval(timer));
+  render();
+  auditRender();
+  $('labSteps').firstElementChild?.click();
+  $('warehouseZones').firstElementChild?.click();
+  $('custodyRibbon').firstElementChild?.click();
+  $('portNodes').firstElementChild?.click();
+  $('actorButtons').firstElementChild?.click();
+  $('architectureButtons').firstElementChild?.click();
+  updatePlayback();
+  scheduleJourney();
+}
+if (typeof module !== 'undefined') module.exports = journey;
