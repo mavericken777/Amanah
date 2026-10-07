@@ -71,7 +71,8 @@ try {
     await page.locator('#resetException').click();
 
     await page.locator('#consumerScan').click();
-    assert.match(await page.locator('#consumerRecord').textContent() ?? '', /Premium Halal food product/);
+    assert.match(await page.locator('#consumerRecord').textContent() ?? '', /Approved product information/);
+    assert.match(await page.locator('#consumerRecord').textContent() ?? '', /Current issuer\/authority status and validity/);
 
     await page.locator('#scrubber').focus();
     await page.keyboard.press('Home');
