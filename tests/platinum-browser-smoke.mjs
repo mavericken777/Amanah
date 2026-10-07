@@ -55,32 +55,32 @@ for (const width of viewports) {
   assert.equal(await page.locator('.halal-shield-stage,.static-shield').count(),0,'Superseded hero shield must be absent');
   const publicText = await page.locator("body").textContent() ?? "";
   assert.doesNotMatch(publicText, /CN-DEMO|GHSC-DEMO|DEMO-SHIPMENT|DIGITAL TRUST PASSPORT|PROJECT-REPO|SOURCE FOUNDATION/i, "public flagship must not expose internal demo identifiers or engineering provenance chatter");
-  const autoplay = page.getByRole("button", { name: /Pause automatic journey|Play automatic journey/ });
+  const autoplay = page.getByRole("button", { name: /Pause journey|Resume journey/ });
   assert.equal(await autoplay.count(), 1, "automatic journey play/pause control missing");
   assert.ok(phaseOne.verifyLinks >= 1, "public verification entry point missing");
 
   const stageButtons = page.locator(".corridor-nav button");
   assert.equal(await stageButtons.count(), 20, "goods journey must expose the complete twenty-stage lifecycle");
-  await stageButtons.nth(12).click();
+  await stageButtons.nth(11).click();
   assert.equal(await page.locator(".corridor-detail h3").textContent(), "Sinotrans logistics", "Sinotrans handoff interaction did not update");
   await stageButtons.nth(19).click();
-  assert.equal(await page.locator(".corridor-detail h3").textContent(), "Consumer verification & continuous assurance", "consumer endpoint interaction did not update");
+  assert.equal(await page.locator(".corridor-detail h3").textContent(), "Consumer verification & response", "consumer endpoint interaction did not update");
   assert.match(await page.locator(".journey-evidence").textContent() ?? "", /Approved disclosure/, "consumer evidence and handoff detail missing");
   const perspectiveButtons = page.locator(".journey-perspective-controls button");
   assert.equal(await perspectiveButtons.count(), 4, "journey must expose Journey, Actor, Standards and Trust record views");
   await page.getByRole("button", { name: "Standards", exact: true }).click();
   assert.equal(await page.locator(".journey-perspective-panel").getAttribute("data-perspective"), "standards");
   assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Consumer disclosure/);
-  await stageButtons.nth(12).click();
-  assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Logistics custody/, "standards view must follow active handoff");
+  await stageButtons.nth(11).click();
+  assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Transport custody/, "standards view must follow active handoff");
   await page.getByRole("button", { name: "Actor", exact: true }).click();
-  assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Sinotrans operations/);
-  await page.getByRole("button", { name: "Trust record", exact: true }).click();
+  assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Sinotrans/);
+  await page.getByRole("button", { name: "Evidence & trust", exact: true }).click();
   assert.match(await page.locator(".journey-perspective-panel").textContent() ?? "", /Current product context/);
   await page.getByRole("button", { name: "Journey", exact: true }).click();
   await stageButtons.nth(19).click();
-  await page.getByRole("button", { name: "Product view" }).click();
-  assert.equal(await page.locator(".verify-result h3").textContent(), "China-origin Halal product", "public verification preview must use presentation-safe product context");
+  await page.getByRole("button", { name: "Product provenance" }).click();
+  assert.equal(await page.locator(".verify-result h3").textContent(), "Premium Halal food product", "public verification preview must use presentation-safe product context");
   assert.match(await page.locator(".verify-result").textContent() ?? "", /Approved product-level disclosure/, "product disclosure preview missing");
 
   const phaseTwo = await page.evaluate(() => ({
@@ -169,13 +169,13 @@ for (const width of viewports) {
   assert.match(await page.locator(".terminal-detail small").textContent() ?? "", /(governance.*only|not.*physical transit)/i, "Malaysia governance boundary missing");
 
   await page.locator(".terminal-finance .gold-action").click();
-  assert.match(await page.locator(".terminal-state").textContent() ?? "", /DEMO RELEASE REQUEST GENERATED/, "finance interaction must remain a simulation");
+  assert.match(await page.locator(".terminal-state").textContent() ?? "", /EVIDENCE REVIEW REQUEST PREPARED/, "finance interaction must remain a simulation");
 
   const complianceButtons = page.locator(".compliance-list button");
   assert.equal(await complianceButtons.count(), 4, "compliance card must expose four evidence artifacts");
   await complianceButtons.nth(3).click();
   assert.equal(await complianceButtons.nth(3).getAttribute("aria-expanded"), "true", "compliance artifact did not expand");
-  assert.match(await complianceButtons.nth(3).textContent() ?? "", /Pending authorization/i, "Direct JAKIM connector state must not be represented as live");
+  assert.match(await complianceButtons.nth(3).textContent() ?? "", /Authority-controlled/i, "authority-connectivity card must remain authority-controlled");
 
   if (width <= 768) {
     const toggle = page.locator(".mobile-menu-toggle");
@@ -214,7 +214,7 @@ assert.equal(await page.locator(".halal-shield-stage canvas").count(), 0, "Reduc
 
 const verifierPage = await browser.newPage({ viewport: { width: 375, height: 812 } });
 await verifierPage.goto("http://127.0.0.1:4173/verify.html", { waitUntil: "networkidle" });
-await verifierPage.locator("#route-token").fill("PRODUCT");
+await verifierPage.getByRole("button", { name: "Product provenance" }).click();
 await verifierPage.locator(".passport-result").waitFor({ state: "visible" });
 assert.equal(await verifierPage.locator(".passport-result h3").textContent(), "China-origin Halal product", "secondary verifier must use presentation-safe product context");
 assert.doesNotMatch(await verifierPage.locator(".passport-result").textContent() ?? "", /CN-DEMO|GHSC-DEMO|DEMO-SHIPMENT|DIGITAL TRUST PASSPORT/i, "public verifier must not expose internal demo identifiers or passport engineering language");
