@@ -267,3 +267,11 @@ body::before{display:none!important}
 @media(min-width:1280px){.hero h1{max-width:none;font-size:clamp(3.25rem,5vw,4.8rem)}}
 
 
+
+
+.journey-playback-controls{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin:0 0 1rem;padding:.8rem 1rem;border-radius:1rem}
+.journey-playback-controls button{min-height:2.75rem;padding:.6rem .95rem;border:1px solid rgba(215,178,94,.32);border-radius:999px;background:rgba(215,178,94,.08);color:#f0d88f;cursor:pointer}
+.journey-playback-controls button[aria-pressed="true"]{background:linear-gradient(130deg,#f0d88f,#b99455);color:#151109}
+.journey-playback-controls span{color:#a99f8d;font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
+.journey-playback-controls strong{margin-left:auto;color:#f4e4bb;font-size:.86rem}
+@media(max-width:760px){.journey-playback-controls strong{width:100%;margin-left:0}}
