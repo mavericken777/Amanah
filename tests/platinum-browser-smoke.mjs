@@ -67,7 +67,7 @@ for (const width of viewports) {
   assert.equal(await page.locator(".corridor-detail h3").textContent(), "Consumer verification & response", "consumer endpoint interaction did not update");
   assert.match(await page.locator(".journey-evidence").textContent() ?? "", /Approved disclosure/, "consumer evidence and handoff detail missing");
   const perspectiveButtons = page.locator(".journey-perspective-controls button");
-  assert.equal(await perspectiveButtons.count(), 4, "journey must expose Journey, Actor, Standards and Trust record views");
+  assert.equal(await perspectiveButtons.count(), 4, "journey must expose Journey, Actor, Standards and Evidence & trust views");
   await page.getByRole("button", { name: "Standards", exact: true }).click();
   assert.equal(await page.locator(".journey-perspective-panel").getAttribute("data-perspective"), "standards");
   assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Consumer disclosure/);
@@ -216,7 +216,7 @@ const verifierPage = await browser.newPage({ viewport: { width: 375, height: 812
 await verifierPage.goto("http://127.0.0.1:4173/verify.html", { waitUntil: "networkidle" });
 await verifierPage.getByRole("button", { name: "Product provenance" }).click();
 await verifierPage.locator(".passport-result").waitFor({ state: "visible" });
-assert.equal(await verifierPage.locator(".passport-result h3").textContent(), "China-origin Halal product", "secondary verifier must use presentation-safe product context");
+assert.equal(await verifierPage.locator(".passport-result h3").textContent(), "Premium Halal food product", "secondary verifier must use presentation-safe product context");
 assert.doesNotMatch(await verifierPage.locator(".passport-result").textContent() ?? "", /CN-DEMO|GHSC-DEMO|DEMO-SHIPMENT|DIGITAL TRUST PASSPORT/i, "public verifier must not expose internal demo identifiers or passport engineering language");
 await verifierPage.close();
 
