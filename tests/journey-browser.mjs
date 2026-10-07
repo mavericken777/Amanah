@@ -9,26 +9,25 @@ try {
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(process.env.JOURNEY_URL||'http://127.0.0.1:8080/index.html');
   await page.locator('#stageNav button').first().waitFor();
-  assert.equal(await page.locator('#stageNav button').count(),13);
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   assert.match(await page.locator('h1').evaluate(e=>getComputedStyle(e).fontFamily),/Arial/);
   assert.equal(await page.locator('.platinum-shield,canvas,.home-hero-image').count(),0);
   assert.equal(await page.locator('#stageNav button').count(),20);assert.equal(await page.locator('#playJourney').count(),1);assert.equal(await page.locator('#restartJourney').count(),1);for(let i=0;i<20;i++){await page.locator('#stageNav button').nth(i).click();assert.match(await page.locator('#stageTitle').textContent(),new RegExp(`^${String(i+1).padStart(2,'0')}`));assert.ok((await page.locator('#passportBody').textContent()).length>40);}
   for(const view of ['Journey','Trust','Actor','Standards','Custody','Monitoring','Consumer','Technical']){await page.locator('#viewModes button').filter({hasText:new RegExp(`^${view}$`)}).click();assert.ok((await page.locator('#modeExplanation').textContent()).length>20);}
-  for(let i=0;i<13;i++)await page.locator('#auditNext').click();assert.match(await page.locator('#auditCheckpoint').textContent(),/Audit record created/);
+  for(let i=0;i<12;i++)await page.locator('#auditNext').click();assert.match(await page.locator('#auditCheckpoint').textContent(),/Sync \/ reconciliation/);
   await page.locator('#auditReset').click();assert.ok(await page.locator('#auditPrevious').isDisabled());
-  await page.locator('#labSteps button').last().click();assert.match(await page.locator('#labCurrent').textContent(),/updated/);
+  await page.locator('#labSteps button').last().click();assert.match(await page.locator('#labCurrent').textContent(),/Evidence binding/);
   await page.locator('#warehouseZones button').filter({hasText:'Quarantine'}).click();assert.match(await page.locator('#warehouseDetail').textContent(),/Quarantine/);
   for(const id of ['custodyRibbon','portNodes','actorButtons','architectureButtons'])await page.locator(`#${id} button`).last().click();
   for(const view of ['Map','Timeline','Custody','Evidence','Exceptions'])await page.locator('#monitorViews button').filter({hasText:new RegExp(`^${view}$`)}).click();
   await page.locator('#monitorViews button').filter({hasText:/^Custody$/}).click();
   await page.locator('#stageNav button').first().click();
-  assert.match(await page.locator('#monitorPanel').textContent(),/Manufacturer/);
+  assert.match(await page.locator('#monitorPanel').textContent(),/Producer/);
   await page.locator('#monitorViews button').filter({hasText:/^Exceptions$/}).click();
   await page.locator('#exceptionButtons button').first().click();assert.match(await page.locator('#exceptionState').textContent(),/HOLD/);assert.match(await page.locator('#monitorPanel').textContent(),/Temperature excursion/);
   await page.locator('#passportTabs button').filter({hasText:'Overview'}).click();assert.match(await page.locator('#passportBody').textContent(),/HOLD/);
-  await page.locator('#resetException').click();assert.doesNotMatch(await page.locator('#passportBody').textContent(),/HOLD/);assert.match(await page.locator('#monitorPanel').textContent(),/Select an exception scenario/);
-  await page.locator('#consumerScan').click();assert.match(await page.locator('#consumerRecord').textContent(),/CN-DEMO-24001/);
+  await page.locator('#resetException').click();assert.doesNotMatch(await page.locator('#passportBody').textContent(),/HOLD/);assert.match(await page.locator('#monitorPanel').textContent(),/No exception selected/);
+  await page.locator('#consumerScan').click();assert.match(await page.locator('#consumerRecord').textContent(),/Premium Halal food product/);assert.doesNotMatch(await page.locator('#consumerRecord').textContent(),/CN-DEMO|DEMO-SHIPMENT|GHSC-DEMO/i);
   await page.locator('#scrubber').focus();await page.keyboard.press('Home');assert.match(await page.locator('#stageTitle').textContent(),/Origin/);
   if(process.env.AXE_PATH){await page.addScriptTag({path:process.env.AXE_PATH});const results=await page.evaluate(async()=>await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa']}}));fs.writeFileSync(`browser-results/journey-axe-${width}.json`,JSON.stringify(results,null,2));assert.deepEqual(results.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})),[]);}
   assert.deepEqual(errors,[]);await page.screenshot({path:`browser-results/journey-${width}.png`,fullPage:true});await page.close();
