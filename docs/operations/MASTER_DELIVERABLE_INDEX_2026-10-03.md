@@ -62,6 +62,7 @@ The destination operating story is: `GCC port/customs -> importer receiving/quar
 
 ## Legal / commercial
 
+- China Mission 12-instrument MOA signing pack — `docs/mission/moa-signing-pack-2026-10/00-REGISTER.md`
 - Master legal / contractual pack — `docs/legal/AMANAH_MASTER_LEGAL_CONTRACTUAL_PACK_2026-10-03.md`
 - Commercial model / unit economics — `docs/commercial/AMANAH_COMMERCIAL_MODEL_UNIT_ECONOMICS_2026-10-03.md`
 - KPI / SLA framework — `docs/operations/AMANAH_KPI_SLA_FRAMEWORK_2026-10-03.md`
