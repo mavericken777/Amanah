@@ -27,7 +27,7 @@ try {
       'Standards & applicability','Documents & evidence','Laboratory evidence','Smart audit',
       'Findings & CAPA','Authority workflow','Production & digital twin','Origin warehouse',
       'Sinotrans logistics','Origin port & customs','International transit','GCC port & customs',
-      'GCC importer','Distribution / 3PL','Retail / marketplace','Consumer verification & Command Center'
+      'GCC importer','Distributor & 3PL','Retail / marketplace','Consumer verification & Command Center'
     ];
 
     for (let i = 0; i < expectedStages.length; i++) {
