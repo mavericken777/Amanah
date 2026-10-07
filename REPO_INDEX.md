@@ -10,6 +10,7 @@
 - [Website presentation brief](docs/operations/WEBSITE_BRIEF_2026-10-05.md)
 - [Master deliverable index](docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md)
 - [China Mission executive pack](docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md)
+- [China Trip platform demonstration guide](docs/mission/CHINA_TRIP_PLATFORM_DEMONSTRATION_GUIDE_2026-10-07.md)
 - [China Mission 12-instrument MOA signing pack](docs/mission/moa-signing-pack-2026-10/00-REGISTER.md)
 - [China Mission meeting brief book](docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md)
 - [Objection-handling book](docs/mission/OBJECTION_HANDLING_BOOK_2026-10-03.md)
@@ -33,7 +34,9 @@
 - [SOP library](docs/sop/AMANAH_SOP_LIBRARY_MASTER_2026-10-03.md)
 - [Training academy](docs/training/AMANAH_TRAINING_ACADEMY_2026-10-03.md)
 - [GCC importer / distributor / retailer playbook](docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md)
+- China Mission platform tour: `app/(protected)/ahte/platform-tour/`
 - GCC Importer workspace: `app/(protected)/ahte/gcc-importer/`
+- Distributor / 3PL workspace: `app/(protected)/ahte/distributor/`
 - Retail / Marketplace workspace: `app/(protected)/ahte/retail-market/`
 
 ## Corporate / media / legal
@@ -49,7 +52,9 @@
 ## Public experience
 
 - Public website: `ghscl-website/`
+- Platform Tour public route: `ghscl-website/platform-tour.html`
 - GCC Importer public route: `ghscl-website/gcc-importer.html`
+- Distributor public route: `ghscl-website/distributor.html`
 - Retail / Marketplace public route: `ghscl-website/retail-market.html`
 - Platinum site: `platinum-site/`
 - Corporate profile: `ghscl-website/corporate-profile.html`
