@@ -4,7 +4,7 @@ import { demoVerificationRecords } from "../../data/demoJourney";
 const examples = demoVerificationRecords;
 
 export function SecondaryInteractions({ slug }: { slug: string }) {
-  const [token, setToken] = useState("PRODUCT");
+  const [token, setToken] = useState(examples[0]?.token ?? "");
   const [checks, setChecks] = useState<Record<string, boolean>>({});
   const record = useMemo(
     () => examples.find((item) => item.token.toLowerCase() === token.trim().toLowerCase()) ?? examples[0],
