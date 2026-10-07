@@ -36,6 +36,7 @@ export type DemoVerificationRecord = {
   label: string;
   product: string;
   batch: string;
+  detail: string;
   events: Array<[string, string]>;
   stages: string[];
 };
@@ -55,7 +56,7 @@ const sharedStages = [
 ];
 
 export const demoVerificationRecords: DemoVerificationRecord[] = [
-  { token: "AMANAH-PRODUCT", label: "Product provenance", product: demoProduct.name, batch: demoProduct.batch, events: sharedEvents, stages: sharedStages },
-  { token: "AMANAH-CUSTODY", label: "Custody history", product: demoProduct.name, batch: demoProduct.batch, events: sharedEvents, stages: sharedStages },
-  { token: "AMANAH-STATUS", label: "Verification status", product: demoProduct.name, batch: demoProduct.batch, events: sharedEvents, stages: sharedStages },
+  { token: "AMANAH-PRODUCT", label: "Product provenance", product: demoProduct.name, batch: demoProduct.batch, detail: "Approved product-level disclosure", events: sharedEvents, stages: sharedStages },
+  { token: "AMANAH-CUSTODY", label: "Custody history", product: demoProduct.name, batch: demoProduct.batch, detail: "Approved custody and handoff summary", events: sharedEvents, stages: sharedStages },
+  { token: "AMANAH-STATUS", label: "Verification status", product: demoProduct.name, batch: demoProduct.batch, detail: "Current approved verification state", events: sharedEvents, stages: sharedStages },
 ];
