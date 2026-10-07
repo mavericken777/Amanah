@@ -9,6 +9,7 @@
 - Corporate website — `ghscl-website/index.html`
 - Corporate profile — `docs/corporate/GHSCL_CORPORATE_PROFILE_2026.md`
 - China Mission executive pack — `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md`
+- China Trip platform demonstration guide — `docs/mission/CHINA_TRIP_PLATFORM_DEMONSTRATION_GUIDE_2026-10-07.md`
 - China Mission meeting brief book — `docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md`
 - Final standalone mission deliverables manifest — `docs/mission/FINAL_STANDALONE_DELIVERABLES_2026-10-07.md`
 - Objection-handling book — `docs/mission/OBJECTION_HANDLING_BOOK_2026-10-03.md`
@@ -49,9 +50,13 @@ The standards model is registry-driven and is not permanently capped at 17. Its 
 
 - Standalone GCC Importer / Distributor / Retailer Field Guide generated: `AMANAH_GCC_Importer_Distributor_Retailer_Field_Guide_2026-10-07.docx/pdf`
 - Destination-market playbook — `docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md`
+- China Mission platform tour — `app/(protected)/ahte/platform-tour/page.tsx`
 - GCC Importer workspace — `app/(protected)/ahte/gcc-importer/page.tsx`
+- Distributor / 3PL workspace — `app/(protected)/ahte/distributor/page.tsx`
 - Retail / Marketplace workspace — `app/(protected)/ahte/retail-market/page.tsx`
+- Platform Tour public experience — `ghscl-website/platform-tour.html`
 - GCC Importer public experience — `ghscl-website/gcc-importer.html`
+- Distributor public experience — `ghscl-website/distributor.html`
 - Retail / Marketplace public experience — `ghscl-website/retail-market.html`
 - Destination coverage in Command Center — `app/(protected)/ahte/command-center/page.tsx`
 
