@@ -75,7 +75,7 @@ const trustPath = [
 
 const corridor = demoJourneyStages;
 
-const standardsTopics = ["Organisation / KYC scope","Facility / production-line controls","Product / SKU scope","Supplier / raw-material provenance","Framework applicability","Evidence obligations","Laboratory method / evidence","Audit / human assessment","Finding / CAPA / re-verification","Authority workflow","Controlled production","Origin warehousing","Logistics custody","Origin port / customs","International transit","GCC port / customs","Importer receiving","Distribution / 3PL","Retail / marketplace","Consumer disclosure / continuous assurance"];
+const standardsTopics = ["Origin / producer provenance","Organisation / KYC scope","Facility / production-line controls","Product / SKU scope","Supplier / raw-material provenance","Framework applicability","Laboratory method / evidence","Audit / CAPA / human assessment","Authority workflow","Controlled production","Origin warehousing","Logistics custody","Origin port / customs","International transit","GCC port / customs","Importer receiving","Destination warehousing / inventory","Distribution / 3PL","Retail / marketplace","Consumer disclosure / continuous assurance"];
 
 const msStandards = [
   ["MS 1500:2019", "Halal food — General requirements"],
