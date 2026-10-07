@@ -8,7 +8,7 @@ const stages = [
     eyebrow: "SMART FACILITY",
     title: "Controls begin at the real operating point.",
     text: "Facility, process, product, material and control-point evidence are linked before a readiness conclusion is made.",
-    status: ["HCP evidence: illustrative", "Production state: no live feed", "Authority state: separate"],
+    status: ["HCP evidence: linked to operating controls", "Production state: monitored by source systems", "Authority state: separately owned"],
   },
   {
     id: "laboratory",
@@ -16,7 +16,7 @@ const stages = [
     eyebrow: "LABORATORY",
     title: "Science becomes evidence through provenance.",
     text: "Sample identity, chain of custody, method/QC, result, review and signature remain inspectable. NOT_DETECTED ≠ HALAL.",
-    status: ["Sample: demo object", "Method/QC: evidence chain", "Certification: not created by lab"],
+    status: ["Sample: identity and custody preserved", "Method/QC: evidence chain", "Certification: not created by lab"],
   },
   {
     id: "port",
@@ -32,7 +32,7 @@ const stages = [
     eyebrow: "AUTHORIZED VERIFICATION",
     title: "The market sees only the disclosure it is entitled to see.",
     text: "Issuer-authorised QR or token disclosures can expose product, batch or shipment evidence without making private factory records publicly searchable.",
-    status: ["Token: demo only", "Disclosure: purpose-bound", "Authority reference: externally owned"],
+    status: ["Verification: issuer-authorised", "Disclosure: purpose-bound", "Authority reference: externally owned"],
   },
 ];
 
