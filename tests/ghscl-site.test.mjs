@@ -46,7 +46,15 @@ test('interactive controls and accessible responsive rules',()=>{
 });
 
 
-test('public experience includes first-class GCC importer and retail market routes',()=>{
+test('public experience includes first-class China Mission, GCC importer and retail market routes',()=>{
+  assert.ok(fs.existsSync('ghscl-website/china-mission.html'),'china-mission.html');
+  const mission=fs.readFileSync('ghscl-website/china-mission.html','utf8');
+  assert.match(mission,/Walk the complete China → GCC platform/);
+  assert.match(mission,/AHTE ⇄ Direct JAKIM API ⇄ JAKIM/);
+  assert.match(mission,/manufacturer \/ organisation \/ KYC/i);
+  assert.match(mission,/GCC importer/i);
+  assert.match(mission,/Retailer \/ marketplace/i);
+  assert.match(html,/china-mission\.html/);
   assert.ok(fs.existsSync('ghscl-website/gcc-importer.html'),'gcc-importer.html');
   assert.ok(fs.existsSync('ghscl-website/retail-market.html'),'retail-market.html');
   const importer=fs.readFileSync('ghscl-website/gcc-importer.html','utf8');

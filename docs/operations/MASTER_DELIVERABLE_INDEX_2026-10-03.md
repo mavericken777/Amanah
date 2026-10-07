@@ -8,7 +8,7 @@
 - China Trip master delivery prompt — `docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md`
 - Corporate website — `ghscl-website/index.html`
 - Corporate profile — `docs/corporate/GHSCL_CORPORATE_PROFILE_2026.md`
-- China Mission executive pack — `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md`
+- China Mission executive pack — `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md`\n- China Mission public showcase — `ghscl-website/china-mission.html`\n- China Mission public demo runbook — `docs/mission/CHINA_MISSION_PUBLIC_DEMO_RUNBOOK_2026-10-07.md`
 - China Mission meeting brief book — `docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md`
 - Final standalone mission deliverables manifest — `docs/mission/FINAL_STANDALONE_DELIVERABLES_2026-10-07.md`
 - Objection-handling book — `docs/mission/OBJECTION_HANDLING_BOOK_2026-10-03.md`
