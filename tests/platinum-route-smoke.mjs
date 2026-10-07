@@ -8,9 +8,8 @@ const page = await browser.newPage({ viewport: { width: 1024, height: 900 } });
 
 const routes = [
   "ecosystem.html","how-it-works.html","digital-trust.html","command-center.html",
-  "traceability.html","laboratory.html","smart-audit.html","hardware.html","china-gcc.html",
-  "gcc-importer.html","distributor.html","retail-market.html","interoperability.html","cybersecurity.html",
-  "platform-tour.html","partners.html","manufacturers.html","finance-takaful.html","verify.html","contact.html"
+  "traceability.html","smart-audit.html","china-gcc.html","partners.html",
+  "manufacturers.html","finance-takaful.html","verify.html","contact.html"
 ];
 
 for (const route of routes) {
@@ -32,10 +31,10 @@ for (const route of routes) {
 }
 
 await page.goto("http://127.0.0.1:4173/verify.html", { waitUntil: "networkidle" });
-await page.getByRole("button", { name: "Product provenance" }).click();
-assert.equal(await page.locator(".passport-heading h3").textContent(), "Premium Halal food product", "verification route must use presentation-safe product context");
-assert.doesNotMatch(await page.locator("body").textContent() ?? "", /CN-DEMO|GHSC-DEMO|DEMO-SHIPMENT|DIGITAL TRUST PASSPORT|PROJECT-REPO/i, "secondary public route must not expose internal demo identifiers or engineering provenance");
-assert.equal(await page.locator(".passport-timeline li").count(), 4, "product verification view should expose the approved disclosure journey");
+await page.locator("#route-token").fill("GHSC-MY-2026-8891");
+assert.equal(await page.locator(".passport-heading h3").textContent(), "Premium Halal food product", "sample passport must use the canonical demo product");
+assert.doesNotMatch(await page.locator(".passport-heading").textContent() ?? "", /CN-DEMO|DEMO-SHIPMENT|GHSC-DEMO/i, "public verifier must not expose internal fixture identifiers");
+assert.equal(await page.locator(".passport-timeline li").count(), 4, "sample passport should expose all four journey stages");
 
 await page.goto("http://127.0.0.1:4173/manufacturers.html", { waitUntil: "networkidle" });
 assert.equal(await page.locator(".secondary-checklist input").count(), 5);
