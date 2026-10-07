@@ -110,7 +110,7 @@ Capture:
 - Hardware BOM and reference architecture
 - Partner integration kit
 - API contract package
-- Legal/MOA pack
+- China Mission 12-instrument MOA signing pack — `docs/mission/moa-signing-pack-2026-10/00-REGISTER.md`
 - KPI/SLA framework
 - Meeting brief book
 - Objection-handling book
