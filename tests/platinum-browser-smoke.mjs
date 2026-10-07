@@ -72,7 +72,7 @@ for (const width of viewports) {
   assert.equal(await page.locator(".journey-perspective-panel").getAttribute("data-perspective"), "standards");
   assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Consumer disclosure/);
   await stageButtons.nth(11).click();
-  assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Transport custody/, "standards view must follow active handoff");
+  assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Logistics custody/, "standards view must follow active handoff");
   await page.getByRole("button", { name: "Actor", exact: true }).click();
   assert.match(await page.locator(".journey-perspective-panel h3").textContent() ?? "", /Sinotrans/);
   await page.getByRole("button", { name: "Evidence & trust", exact: true }).click();
