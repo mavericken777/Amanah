@@ -267,3 +267,8 @@ body::before{display:none!important}
 @media(min-width:1280px){.hero h1{max-width:none;font-size:clamp(3.25rem,5vw,4.8rem)}}
 
 
+
+.journey-playback{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;margin:.75rem 0 1rem}
+.journey-playback button{min-height:2.65rem;padding:.62rem .95rem;border:1px solid rgba(205,166,91,.32);border-radius:.45rem;background:#11100e;color:#d9d0bd;font:600 .76rem Arial,Helvetica,sans-serif;cursor:pointer}
+.journey-playback button:hover,.journey-playback button:focus-visible{border-color:#e9cf8e;color:#fff0c4}
+.journey-playback span{color:#aaa18f;font-size:.78rem}
