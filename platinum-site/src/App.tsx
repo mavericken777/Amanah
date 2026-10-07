@@ -629,10 +629,10 @@ export default function App() {
                 id="verify-token"
                 value={verifyQuery}
                 onChange={(event) => setVerifyQuery(event.target.value)}
-                placeholder="Paste a token to preview the disclosure experience"
+                placeholder="Paste an issuer-authorised verification reference"
                 autoComplete="off"
               />
-              <div className="verification-samples" aria-label="Demonstration records"><span>Try a journey</span>{verificationRecords.map(record => <button key={record.token} type="button" onClick={() => setVerifyQuery(record.token)}>{record.token}</button>)}</div>
+              <div className="verification-samples" aria-label="Guided product journeys"><span>Explore a product journey</span>{verificationRecords.map((record,index) => <button key={record.token} type="button" onClick={() => setVerifyQuery(record.token)}>Journey {index + 1}</button>)}</div>
               <div className="qr-schematic" aria-hidden="true">
                 {Array.from({ length: 36 }, (_, index) => <i key={index} className={index % 3 === 0 || index % 7 === 0 ? "on" : ""} />)}
               </div>
