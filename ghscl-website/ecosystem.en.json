@@ -1518,7 +1518,7 @@
       "slug": "interoperability",
       "label": "API & interoperability",
       "title": "Connect partner systems without redesigning AMANAH.",
-      "description": "AHTE keeps one canonical internal model while partner systems connect through governed adapters supporting modern APIs, legacy exchange patterns and controlled schema transformation.",
+      "description": "AHTE keeps one consistent internal data model while partner systems connect through governed adapters supporting modern APIs, legacy exchange patterns and controlled schema transformation.",
       "image": "architecture.webp",
       "sections": [
         {
@@ -1541,20 +1541,20 @@
         },
         {
           "id": "security",
-          "title": "Integration security and lifecycle",
+          "title": "Secure integration from discovery to authorised activation",
           "flow": [
-            "UNCONFIGURED",
-            "DEVELOPMENT",
-            "SANDBOX",
-            "PENDING_AUTHORIZATION",
-            "PRODUCTION"
+            "Partner system discovery",
+            "Field and event mapping",
+            "Security / access design",
+            "Sandbox & UAT",
+            "Authorised activation"
           ],
-          "text": "OAuth/OIDC where appropriate, mTLS, PKI, device certificates, rate limits, secrets management, versioning, deprecation, UAT and rollback controls are applied without fabricating partner or authority activation."
+          "text": "OAuth/OIDC where appropriate, mTLS, PKI, device certificates, rate limits, secrets management, versioning, testing and rollback controls protect each integration from design through authorised operation."
         },
         {
           "id": "copilot",
           "title": "AI-assisted schema integration",
-          "text": "The integration copilot can compare partner schemas with the AMANAH canonical model, identify field gaps, propose mappings and test payloads, and run compatibility checks. Compliance-critical transformations require human approval and immutable mapping history."
+          "text": "The integration copilot compares partner schemas with the AMANAH data model, identifies field gaps, proposes mappings and test payloads, and runs compatibility checks. Compliance-critical transformations require human approval and auditable mapping history."
         }
       ],
       "sources": [
@@ -1706,7 +1706,7 @@
             ],
             [
               "Traceability / technology providers",
-              "Serialization, package aggregation, anti-counterfeit/anti-diversion, schema mapping and controlled API integration into the AHTE canonical model."
+              "Serialization, package aggregation, anti-counterfeit/anti-diversion, schema mapping and controlled API integration into the AHTE data model."
             ],
             [
               "GCC importer / distributor / retailer",
@@ -1746,7 +1746,7 @@
           "title": "A meeting-ready demonstration sequence",
           "flow": [
             "Open this China Mission page and establish the corridor / authority model",
-            "Open the interactive Trust Journey and move the reference product from origin to GCC",
+            "Open the interactive Trust Journey and move the product journey from origin to GCC",
             "Show Manufacturer readiness and supplier/material provenance",
             "Show Standards, Laboratory and Smart Audit",
             "Show China → GCC logistics, Sinotrans custody and border handoffs",
@@ -1906,11 +1906,11 @@
             ],
             [
               "Regulator / authority",
-              "Source-controlled applicability, evidence chain, authority gates, decision separation and auditability."
+              "Verified standards applicability, evidence chain, authority gates, decision separation and auditability."
             ],
             [
               "Technology / finance",
-              "Canonical APIs, cybersecurity, hardware/device trust and purpose-bound finance/Takaful evidence."
+              "Interoperable APIs, cybersecurity, hardware/device trust and purpose-bound finance/Takaful evidence."
             ]
           ]
         },
