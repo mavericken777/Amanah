@@ -365,7 +365,7 @@ export default function App() {
             <p>The journey advances automatically through all twenty operating stages. Pause it, choose any stage or move the scrubber to inspect who acts, what evidence is created, what can fail and what must happen next. The physical corridor is China → GCC direct; Malaysia is the governance, assurance and authority-connectivity plane.</p>
           </div>
           <div className="journey-playback-controls glass" aria-label="Automated journey controls">
-            <button type="button" aria-pressed={journeyPlaying} onClick={() => setJourneyPlaying(value => !value)}>{journeyPlaying ? "Pause automatic journey" : "Play automatic journey"}</button>
+            <button type="button" aria-pressed={journeyPlaying} onClick={() => setJourneyPlaying(value => !value)}>{journeyPlaying ? "Pause journey" : "Resume journey"}</button><button type="button" onClick={() => { setActiveCorridor(0); setJourneyPlaying(true); }}>Restart journey</button>
             <span>Stage {String(activeCorridor + 1).padStart(2, "0")} of {String(corridor.length).padStart(2, "0")}</span>
             <strong>{corridor[activeCorridor][0]}</strong>
           </div>
@@ -399,7 +399,7 @@ export default function App() {
                 ["journey", "Journey"],
                 ["actor", "Actor"],
                 ["standards", "Standards"],
-                ["trust", "Trust record"],
+                ["trust", "Evidence & trust"],
               ] as const).map(([perspective, label]) => (
                 <button key={perspective} type="button" aria-pressed={journeyPerspective === perspective} onClick={() => { setJourneyPerspective(perspective); setJourneyPlaying(false); }}>{label}</button>
               ))}
@@ -419,7 +419,7 @@ export default function App() {
                 <dl className="journey-evidence"><div><dt>Control objective</dt><dd>{corridor[activeCorridor][1]}</dd></div><div><dt>Evidence</dt><dd>{corridor[activeCorridor][3]}</dd></div><div><dt>Responsible actor</dt><dd>{corridor[activeCorridor][2]}</dd></div></dl>
                 <p className="standards-scope-note">Confirm the applicable instrument, edition and clause against the controlled source for this product, operator and market. Use the controlled source and competent review for the applicable scope, instrument and conformity decision.</p>
               </> : <>
-                <p className="eyebrow">TRUST RECORD · SAME PRODUCT, CURRENT HANDOFF</p>
+                <p className="eyebrow">EVIDENCE & TRUST · CURRENT HANDOFF</p>
                 <h3>{corridor[activeCorridor][0]}</h3>
                 <dl className="journey-evidence"><div><dt>Current product context</dt><dd>{demoProduct.name}</dd></div><div><dt>Actor / event</dt><dd>{corridor[activeCorridor][2]} · {corridor[activeCorridor][0]}</dd></div><div><dt>Evidence at this stage</dt><dd>{corridor[activeCorridor][3]}</dd></div><div><dt>Next accountable handoff</dt><dd>{corridor[activeCorridor][4]}</dd></div></dl>
                 <p className="standards-scope-note">An integrity proof helps show that recorded content has not changed; it does not prove that the underlying claim is true.</p>
