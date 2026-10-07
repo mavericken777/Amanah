@@ -1543,11 +1543,11 @@
           "id": "security",
           "title": "Integration security and lifecycle",
           "flow": [
-            "UNCONFIGURED",
-            "DEVELOPMENT",
-            "SANDBOX",
-            "PENDING_AUTHORIZATION",
-            "PRODUCTION"
+            "Partner discovery",
+            "Schema mapping",
+            "Integration validation",
+            "Authority / owner activation",
+            "Operational exchange"
           ],
           "text": "OAuth/OIDC where appropriate, mTLS, PKI, device certificates, rate limits, secrets management, versioning, deprecation, UAT and rollback controls are applied without fabricating partner or authority activation."
         },
@@ -1682,7 +1682,7 @@
             "Buyer / authority / consumer verification",
             "Continuous assurance + exception / recall / blast radius"
           ],
-          "text": "Every material handoff remains linked to object identity, event identity, evidence, actor, time and integrity proof. The public journey uses an illustrative reference record so the full mechanics can be demonstrated without presenting a fabricated live shipment.",
+          "text": "Every material handoff remains linked to object identity, event identity, evidence, actor, time and integrity proof. The interactive journey shows how identity, evidence, actors, custody and decisions stay connected from origin through GCC market operations.",
           "link": [
             "index.html#journey",
             "Open the interactive Trust Journey"
