@@ -49,15 +49,9 @@
 11. **Command Center** — cross-corridor exceptions, predictive/preemptive recommendation, incident and recall coordination.
 12. **Verification** — approved disclosure to buyer/retailer/authority/consumer.
 
-## Synthetic presentation record
+## Presentation principle
 
-Use the clearly labelled illustrative identifiers **CN-DEMO-24001 / DEMO-SHIPMENT-001** when a UI walkthrough needs a connected record.
-
-The real pilot remains:
-
-**[PILOT: Shipment 001 — NOT-INSTANTIATED]**
-
-until actual product, PO, manufacturer, batch, importer, container, seal, laboratory, authority, shipment and destination evidence exists.
+Use the interactive platform journey to explain capability, process, evidence and accountability. Keep the visitor experience focused on how AMANAH works rather than internal test records, repository mechanics or integration-development labels.
 
 ## Partner pivots
 
@@ -110,4 +104,4 @@ End with the stakeholder-specific next step:
 - MOA schedule;
 - named owner and decision date.
 
-The platform should be demonstrated as a complete operating architecture with explicit connector states; do not reduce the demonstration to a certificate-checking workflow.
+The platform should be demonstrated as one complete operating architecture and not reduced to a certificate-checking workflow.
