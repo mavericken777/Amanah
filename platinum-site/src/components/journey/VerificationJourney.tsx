@@ -8,7 +8,7 @@ const stages = [
     eyebrow: "SMART FACILITY",
     title: "Controls begin at the real operating point.",
     text: "Facility, process, product, material and control-point evidence are linked before a readiness conclusion is made.",
-    status: ["HCP evidence: linked to operating controls", "Production state: monitored by source systems", "Authority state: separately owned"],
+    status: ["HCP evidence: linked to operating controls", "Production evidence: source-system integration", "Authority decision: separately owned"],
   },
   {
     id: "laboratory",
@@ -24,7 +24,7 @@ const stages = [
     eyebrow: "PORT / CUSTOMS HANDSHAKE",
     title: "The trust packet reaches the sovereign boundary.",
     text: "AHTE can provide authorised shipment trust context. Inspection, hold and release remain with the competent port/customs authority.",
-    status: ["Adapter: contract-ready", "Sovereign release: external", "Direct route: China → GCC"],
+    status: ["Trust context: purpose-bound", "Sovereign release: external", "Direct route: China → GCC"],
   },
   {
     id: "consumer",
