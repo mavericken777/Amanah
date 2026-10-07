@@ -102,11 +102,13 @@ jobs:
         run: npm run quality:budget --prefix platinum-site
       - name: Enforce promotion-readiness structure
         run: npm run quality:promotion --prefix platinum-site
+      - uses: browser-actions/setup-chrome@v1
+        id: setup-chrome
       - name: Install pinned browser and accessibility tooling outside application dependencies
-        run: |
-          npm install --prefix /tmp/platinum-browser --no-audit --no-fund playwright@1.63.0 axe-core@4.10.3
-          /tmp/platinum-browser/node_modules/.bin/playwright install --with-deps chromium
+        run: npm install --prefix /tmp/platinum-browser --no-audit --no-fund playwright@1.63.0 axe-core@4.10.3
       - name: Responsive and accessibility browser validation
+        env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
         run: |
           mkdir -p platinum-site/quality-results
           npm run preview --prefix platinum-site -- --host 127.0.0.1 --port 4173 > /tmp/platinum-preview.log 2>&1 &
@@ -118,8 +120,6 @@ jobs:
           node tests/platinum-browser-smoke.mjs
           node tests/platinum-mobile-smoke.mjs
           node tests/platinum-route-smoke.mjs
-      - uses: browser-actions/setup-chrome@v1
-        id: setup-chrome
       - name: Install pinned Lighthouse CI
         run: npm install --prefix /tmp/platinum-lhci --no-audit --no-fund @lhci/cli@0.14.0
       - name: Capture Lighthouse baseline and enforce thresholds
@@ -168,11 +168,13 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run web:build && npm run build
+      - uses: browser-actions/setup-chrome@v1
+        id: journey-chrome
       - name: Install pinned browser validation tool outside application dependencies
-        run: |
-          npm install --prefix /tmp/amanah-browser --no-audit --no-fund playwright@1.63.0 axe-core@4.10.3
-          /tmp/amanah-browser/node_modules/.bin/playwright install --with-deps chromium
+        run: npm install --prefix /tmp/amanah-browser --no-audit --no-fund playwright@1.63.0 axe-core@4.10.3
       - name: Start isolated fixture servers and exercise website/protected routes
+        env:
+          CHROME_PATH: ${{ steps.journey-chrome.outputs.chrome-path }}
         run: |
           mkdir -p browser-results
           python3 -m http.server 8080 --bind 127.0.0.1 --directory ghscl-website > /tmp/amanah-site.log 2>&1 &
@@ -183,8 +185,6 @@ jobs:
           done
           node tests/browser-smoke.mjs
           AXE_PATH=/tmp/amanah-browser/node_modules/axe-core/axe.min.js node tests/journey-browser.mjs
-      - uses: browser-actions/setup-chrome@v1
-        id: journey-chrome
       - name: Desktop and mobile Lighthouse for controlling journey
         env:
           CHROME_PATH: ${{ steps.journey-chrome.outputs.chrome-path }}
