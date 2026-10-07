@@ -1,5 +1,5 @@
 {
-  "version": "7.5.0",
+  "version": "7.6.0",
   "locale": "en",
   "availableLocales": [
     "en"
@@ -76,6 +76,10 @@
     [
       "retail-market.html",
       "Retail & Marketplace"
+    ],
+    [
+      "china-mission.html",
+      "China Mission"
     ],
     [
       "partners.html",
@@ -1616,6 +1620,181 @@
       "related": [
         "interoperability",
         "digital-trust",
+        "command-center"
+      ]
+    },
+    {
+      "slug": "china-mission",
+      "label": "China Mission",
+      "title": "Walk the complete China → GCC platform in one mission-facing view.",
+      "description": "A shareable AMANAH mission showcase for partners, institutions and operators: manufacturer onboarding, standards, evidence, laboratory, smart audit, authority workflow, production, Sinotrans custody, border handoffs, GCC receiving, distribution, retail verification and continuous assurance.",
+      "image": "corridor.webp",
+      "interactive": "journey",
+      "sections": [
+        {
+          "id": "mission-purpose",
+          "title": "What the China mission is demonstrating",
+          "text": "The mission is not a disconnected technology roadshow. It demonstrates one operating model in which China-origin participants contribute attributable evidence, AHTE carries standards and trust context, Sinotrans preserves custody, and GCC actors receive, distribute, list and verify products while competent authorities retain their decisions.",
+          "cards": [
+            [
+              "China origin",
+              "Manufacturers, suppliers, laboratories, auditors, traceability platforms, warehouses and logistics systems contribute evidence at the point of work."
+            ],
+            [
+              "Malaysia governance plane",
+              "PHC supports halal-industry ecosystem development, assurance coordination and institutional engagement; AHTE provides the standards/evidence/trust layer and direct JAKIM API target."
+            ],
+            [
+              "GCC destination",
+              "Importers, authorities/customs, receiving warehouses, distributors, retailers, marketplaces, institutional buyers and consumers act on destination-specific evidence and status."
+            ],
+            [
+              "24/7 Command Center",
+              "Cross-corridor events, exceptions, CAPA, custody, cybersecurity, receiving and recall are monitored without collapsing authority, operational, customs and finance states."
+            ]
+          ]
+        },
+        {
+          "id": "complete-journey",
+          "title": "The complete operating journey",
+          "flow": [
+            "China manufacturer / organisation / KYC",
+            "Facility + production line",
+            "Product + SKU",
+            "Supplier + ingredient + raw-material graph",
+            "Standards / applicability / controls / HCP-SCCP",
+            "Documents + evidence",
+            "AI-assisted review + human governance",
+            "Laboratory sample chain + analytical evidence",
+            "Smart audit + findings + CAPA + re-verification",
+            "Authority / certification workflow",
+            "Production + IoT + digital twin + batch evidence",
+            "Origin warehouse + Sinotrans custody",
+            "Container + seal + port / customs",
+            "International transit",
+            "GCC importer + destination receiving",
+            "Destination warehouse + distributor / 3PL",
+            "Retailer / marketplace / institutional buyer",
+            "Buyer / authority / consumer verification",
+            "Continuous assurance + exception / recall / blast radius"
+          ],
+          "text": "Every material handoff remains linked to object identity, event identity, evidence, actor, time and integrity proof. The public journey uses an illustrative reference record so the full mechanics can be demonstrated without presenting a fabricated live shipment.",
+          "link": [
+            "index.html#journey",
+            "Open the interactive Trust Journey"
+          ]
+        },
+        {
+          "id": "counterpart-tracks",
+          "title": "What each mission counterparty sees",
+          "cards": [
+            [
+              "CODA / industrial networks",
+              "Manufacturer mobilisation, readiness, facility/product/SKU onboarding, hardware requirements and pilot-candidate pipeline."
+            ],
+            [
+              "Laboratory / scientific partners",
+              "Sample identity, seal, custody, method, QC, result, technical review, authorised signatory and evidence export. NOT_DETECTED ≠ HALAL."
+            ],
+            [
+              "Sinotrans",
+              "Warehouse, segregation, cleaning, vehicle/container/seal identity, telemetry, custody, port movement, handover, exception and audit-readiness workflow."
+            ],
+            [
+              "Traceability / technology providers",
+              "Serialization, package aggregation, anti-counterfeit/anti-diversion, schema mapping and controlled API integration into the AHTE canonical model."
+            ],
+            [
+              "GCC importer / distributor / retailer",
+              "Pre-arrival visibility, receiving, quarantine, inventory eligibility, allocation, listing, verification, withdrawal and recall propagation."
+            ],
+            [
+              "Institutional / authority stakeholders",
+              "Standards applicability, evidence provenance, decision separation, direct authority-connectivity target and controlled disclosure."
+            ]
+          ]
+        },
+        {
+          "id": "authority-boundary",
+          "title": "Authority and decision boundaries remain explicit",
+          "text": "The mission demonstrates digital trust infrastructure without claiming that software, AI, blockchain, laboratories, smart glasses, QR/NFC, sensors or logistics partners create Halal certification. AHTE ⇄ Direct JAKIM API ⇄ JAKIM is the controlling authority-connectivity topology; external production activation depends on authorised credentials and channels.",
+          "cards": [
+            [
+              "D0–D2",
+              "Ingest, encoded controls and machine assessment may be automated."
+            ],
+            [
+              "D3–D4",
+              "Recommendations and configured trust-fracture holds support accountable human operations."
+            ],
+            [
+              "D5–D6",
+              "Authority gates and sovereign/legal decisions remain with authorised humans / competent authority."
+            ],
+            [
+              "State separation",
+              "Authority state, AHTE trust state, operational state, customs/sovereign state and finance state remain separate."
+            ]
+          ]
+        },
+        {
+          "id": "presenter-sequence",
+          "title": "A meeting-ready demonstration sequence",
+          "flow": [
+            "Open this China Mission page and establish the corridor / authority model",
+            "Open the interactive Trust Journey and move the reference product from origin to GCC",
+            "Show Manufacturer readiness and supplier/material provenance",
+            "Show Standards, Laboratory and Smart Audit",
+            "Show China → GCC logistics, Sinotrans custody and border handoffs",
+            "Show GCC Importer, Distributor and Retail / Marketplace",
+            "Show Command Center, exceptions, recall and blast radius",
+            "Close with Verification, API / interoperability, cybersecurity and partnership workstreams"
+          ],
+          "text": "This order is designed for a 10–15 minute boardroom walkthrough. For shorter discussions, use the journey plus the counterparty-specific page most relevant to the room.",
+          "link": [
+            "how-it-works.html",
+            "Open How It Works"
+          ]
+        },
+        {
+          "id": "mission-materials",
+          "title": "Mission materials are aligned to the same architecture",
+          "cards": [
+            [
+              "12-instrument MOA pack",
+              "Counterparty-specific cooperation instruments for CODA, LuLu, laboratory, agricultural institution, Sinotrans logistics/warehouse, traceability, MAF/Carrefour, Tamimi, noon, BORONEX and Macau institutional cooperation."
+            ],
+            [
+              "Partner operating packs",
+              "Sinotrans playbook, CODA hardware/financing pack, GCC destination guide, manufacturer guide, laboratory pack, smart-audit pack and API/UAT material."
+            ],
+            [
+              "Boardroom presentations",
+              "Executive, partner-specific and timed 5/15/30-minute presentations use the same China → GCC direct operating model."
+            ],
+            [
+              "Cinematic package",
+              "English and Mandarin mission media explains the lifecycle using the same authority, evidence and custody boundaries."
+            ]
+          ],
+          "link": [
+            "contact.html#enquiry",
+            "Open partnership engagement"
+          ]
+        }
+      ],
+      "sources": [
+        "docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md",
+        "docs/mission/FINAL_STANDALONE_DELIVERABLES_2026-10-07.md",
+        "docs/architecture/PLATFORM_ARCHITECTURE.md",
+        "docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md"
+      ],
+      "related": [
+        "ecosystem",
+        "china-gcc",
+        "gcc-importer",
+        "distributor",
+        "retail-market",
         "command-center"
       ]
     }
