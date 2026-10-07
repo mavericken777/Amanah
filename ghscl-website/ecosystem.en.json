@@ -1784,10 +1784,10 @@
         }
       ],
       "sources": [
-        "docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md",
-        "docs/mission/FINAL_STANDALONE_DELIVERABLES_2026-10-07.md",
-        "docs/architecture/PLATFORM_ARCHITECTURE.md",
-        "docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md"
+        "CHINA_TRIP_2026/00_READ_THIS_FIRST.md",
+        "CHINA_TRIP_2026/SIGNING_MATRIX.md",
+        "00_EXECUTIVE_COMMAND/OCTOBER_2026_STRATEGIC_IMPLEMENTATION_MISSION.md",
+        "master-standards-stack/CHINA_EXECUTION_PACK/10_MACHINE_READABLE_EXECUTION_PACK.json"
       ],
       "related": [
         "ecosystem",
