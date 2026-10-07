@@ -122,6 +122,7 @@ if (typeof document !== 'undefined') {
     $('timeline').replaceChildren();
     journey.stages.slice(0,index+1).forEach((v,i)=>{const b=element('button',`${String(i+1).padStart(2,'0')} · ${v[0]} · ${v[1]}`);b.type='button';b.addEventListener('click',()=>{pauseJourney();select(i);});$('timeline').append(b);});
     $('custodyHolder').textContent=s[7];
+    if($('journeySummary')) fields($('journeySummary'),[['Current process',s[0]],['Accountable owner',s[7]],['Evidence',s[4]],['Why it matters',s[5]],['Next stage',index<journey.stages.length-1?journey.stages[index+1][0]:'Continuous assurance and recall readiness']]);
     renderMonitor();
     renderProductRecord();
   }
@@ -136,9 +137,9 @@ if (typeof document !== 'undefined') {
     },4200);
   }
   function updatePlayback(){
-    const button=$('playJourney');
-    if(button) button.textContent=playing?'Pause journey':'Play journey';
-    if($('playbackStatus')) $('playbackStatus').textContent=playing?'Auto-playing the complete process':'Journey paused — select any stage or resume';
+    const button=$('playPauseJourney');
+    if(button){button.textContent=playing?'Pause journey':'Resume journey';button.setAttribute('aria-pressed',String(playing));}
+    if($('playbackStatus')) $('playbackStatus').textContent=playing?'Automatic guided walkthrough':'Paused — inspect any stage or resume';
   }
   function pauseJourney(){ playing=false; if(playTimer) window.clearInterval(playTimer); playTimer=null; updatePlayback(); }
   function toggleJourney(){ playing=!playing; updatePlayback(); scheduleJourney(); }
@@ -150,7 +151,7 @@ if (typeof document !== 'undefined') {
   $('scrubber').addEventListener('input',e=>{pauseJourney();select(Number(e.target.value));});
   $('previousStage').addEventListener('click',()=>{pauseJourney();select(index-1);});
   $('nextStage').addEventListener('click',()=>{pauseJourney();select(index+1);});
-  $('playJourney')?.addEventListener('click',toggleJourney);
+  $('playPauseJourney')?.addEventListener('click',toggleJourney);
   $('restartJourney')?.addEventListener('click',()=>{index=0;playing=true;render();updatePlayback();scheduleJourney();});
 
   function auditRender() {
