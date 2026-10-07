@@ -1,64 +1,61 @@
 export const demoProduct = {
-  name: "China-origin Halal product",
-  batch: "Current production batch",
+  name: "Premium Halal food product",
+  batch: "Current product batch",
   origin: "China",
   destination: "GCC",
-  shipment: "China → GCC shipment",
+  shipment: "Current shipment",
 };
 
 export type DemoJourneyStage = [string, string, string, string, string];
 
 export const demoJourneyStages: DemoJourneyStage[] = [
-  ["Manufacturer onboarding","Register the organisation, KYC, authorised representatives and market scope.","Manufacturer","Organisation profile, KYC, roles and readiness","Facility and production scope"],
-  ["Facility & production line","Register facilities, production lines, controlled areas and accountable operating owners.","Manufacturer quality / Halal team","Facility profile, line identity, licences, training and control ownership","Product and SKU setup"],
-  ["Product & SKU","Define product, SKU, formulation/BOM, packaging, intended markets and change-control baseline.","Product / quality team","Product master, SKU, formulation/BOM, packaging and destination scope","Supplier and raw-material graph"],
-  ["Suppliers & raw materials","Map ingredient, raw material, supplier, supplier facility/origin and supporting credentials.","Procurement / assurance","Supplier graph, origin, material lots, credentials and change history","Standards applicability"],
-  ["Standards & applicability","Resolve the complete applicable Malaysian/JAKIM framework and destination requirements by scope.","Assurance team","Applicable instruments, requirements, controls, HCP/SCCP and source references","Evidence readiness"],
-  ["Documents & evidence","Bind supporting records to the exact object, actor, event and control.","Assurance team","Documents, attestations, timestamps, signatures and integrity references","Laboratory and audit"],
-  ["Laboratory evidence","Create sample identity, preserve seal/custody, execute method/QC and complete technical review.","Laboratory","Sample identity, custody, method, QC, result, review and signed report","Smart audit and control assessment"],
-  ["Smart audit","Guide the human auditor through applicable controls using smart glasses/tablet and contextual assistance.","Assigned human auditor","Observations, media, notes, object IDs, control references and signature","Findings / CAPA"],
-  ["Findings & CAPA","Classify findings, assign actions, attach corrective evidence and re-verify affected controls.","Manufacturer + auditor","Finding, owner, due date, corrective evidence and re-verification","Authority workflow"],
-  ["Authority workflow","Present the complete evidence dossier through the authorised authority-connectivity path.","Competent authority","Evidence/status exchange and independently owned authority decision","Controlled production"],
-  ["Production & digital twin","Bind approved inputs, batch genealogy, cleaning, training, line state and monitored process events.","Production / quality","Batch, material consumption, line events, sanitation and digital-twin state","Origin warehouse"],
-  ["Origin warehouse","Receive, segregate, store, pick and prepare the batch for controlled dispatch.","Warehouse operator","Pallet/package IDs, zone, condition, segregation and loading record","Sinotrans custody"],
-  ["Sinotrans logistics","Assign vehicle/container/seal and capture custody, GNSS, door and condition events.","Sinotrans operations","Vehicle, driver, container, seal, route, telemetry and custody events","Origin port / customs"],
-  ["Origin port & customs","Reconcile shipment identity, documentation, inspection and sovereign release status.","Origin port / customs","Pre-arrival data, inspection, customs status and release reference","International transit"],
-  ["International transit","Monitor route, condition, seal and custody continuity across the international leg.","Carrier / Command Center","Transit milestones, telemetry, custody and exception evidence","GCC port / customs"],
-  ["GCC port & customs","Process destination pre-arrival, inspections, holds and sovereign release.","Destination authority / customs","Arrival, inspection, customs/authority status and release reference","GCC importer"],
-  ["GCC importer","Verify scope, reconcile container/seal/condition and accept, quarantine or reject receiving.","Importer","Receiving inspection, discrepancy, quarantine/acceptance and warehouse placement","Distributor / 3PL"],
-  ["Distributor & 3PL","Manage inventory lots, FEFO/FIFO as applicable, allocation, route and custody transfer.","Distributor / 3PL","Inventory lot, allocation, route, proof of delivery and withdrawal state","Retail / marketplace"],
-  ["Retail / marketplace","Check listing eligibility, receiving, shelf/fulfilment status, verification and withdrawal/recall.","Retailer / marketplace","Listing state, receiving scan, inventory/shelf state and verification event","Consumer / buyer verification"],
-  ["Consumer verification & continuous assurance","Expose approved verification fields while the 24/7 Command Center monitors exceptions, recalls and blast radius.","Consumer / buyer + GHSCL operations","Approved disclosure, current verification state, alerts, CAPA and recall propagation","Continuous monitoring and market feedback"]
+  ["Origin & producer", "Establish the producer, source location and accountable organisation before materials enter the controlled chain.", "Producer / source owner", "Origin record, producer identity, source relationship and material provenance", "Known source → organisation onboarding"],
+  ["Organisation & KYC", "Register the manufacturer, authorised representatives, licences, jurisdiction and accountable users.", "Manufacturer authorised representative", "Organisation profile, KYC, authorised users and licences", "Verified organisation → facility setup"],
+  ["Facility & production line", "Register the facility, production line, process scope, equipment and operating controls.", "Manufacturer quality / Halal team", "Facility profile, line scope, process map, equipment and training records", "Controlled facility → product registration"],
+  ["Product & SKU", "Create product, SKU, formulation, packaging, destination and change-control relationships.", "Product owner", "Product record, SKU, formulation/BOM, packaging and market scope", "Stable product identity → supplier/material mapping"],
+  ["Supplier & materials", "Connect ingredients and raw materials to approved suppliers, origin, lots, certificates and supporting evidence.", "Procurement / assurance team", "Supplier graph, ingredient/raw-material links, lot provenance and current evidence", "Approved material graph → applicability assessment"],
+  ["Standards & controls", "Resolve the complete applicable Malaysian/JAKIM framework and destination requirements for the actual product, process and market.", "Assurance team", "Applicable instruments, requirements, controls, HCP/SCCP and evidence obligations", "Applicable controls → laboratory and audit evidence"],
+  ["Laboratory evidence", "Bind sample identity, seal, chain of custody, method, QC, technical review and signed report to the product and batch.", "Laboratory operator / reviewer", "Sample record, custody, method/QC context, reviewed result and signed report", "Reviewed scientific evidence → assurance case"],
+  ["Smart audit & CAPA", "Guide the assigned auditor through scoped controls, capture attributable evidence, record findings and close CAPA through re-verification.", "Assigned human auditor", "Audit scope, observations, media, findings, corrective action, re-verification and signed session", "Human assessment → authority workflow"],
+  ["Authority workflow", "Present the complete evidence context through the authority-connectivity path while preserving the independently owned authority decision.", "Authorised competent authority", "Evidence dossier, submission reference and authority-owned status", "Authority state → operational readiness"],
+  ["Controlled production", "Bind approved inputs, line status, cleaning, operator competence, process events and batch genealogy during production.", "Manufacturer production / quality", "Material consumption, process events, cleaning evidence, line and batch links", "Batch genealogy → warehouse receiving"],
+  ["Origin warehouse", "Receive, segregate, store, inspect, pick and prepare the finished batch for dispatch.", "Warehouse operator", "Receiving, zone, segregation, storage condition, pallet/package and dispatch records", "Warehouse readiness → logistics pickup"],
+  ["Sinotrans logistics", "Assign vehicle, container and seal; record loading, custody transfer, GNSS, door and condition events.", "Sinotrans / logistics operator", "Vehicle/container/seal identity, route, telemetry, handover and exception records", "Transport custody → origin port"],
+  ["Origin port & customs", "Reconcile shipment identity, authorised documents, container/seal and inspection events before export handoff.", "Origin port / customs authority", "Manifest, document checks, inspection, seal condition and authority response", "Sovereign export decision → international transit"],
+  ["International transit", "Maintain custody, route, seal and environmental continuity while exceptions are monitored across the corridor.", "Carrier / Command Center", "Transit milestones, route, condition, custody and exception events", "Transit continuity → GCC port"],
+  ["GCC port & customs", "Resolve pre-arrival data, inspections, holds and the competent authority-owned import outcome.", "Destination authority", "Arrival, inspection, authority response, hold/release reference and custody transfer", "Sovereign import outcome → importer receiving"],
+  ["GCC importer", "Verify product/SKU/batch, container/seal, condition, documents and authority status; accept, record discrepancy or quarantine.", "Importer receiving team", "Receiving inspection, discrepancy, quarantine/acceptance, claims and warehouse placement", "Importer acceptance → destination inventory"],
+  ["Destination warehouse", "Create inventory lots, preserve condition and segregation, and determine onward distribution eligibility.", "Warehouse / 3PL", "Inventory lot, location, condition, custody and eligibility records", "Eligible inventory → distributor allocation"],
+  ["Distributor / 3PL", "Allocate stock, apply FEFO/FIFO as appropriate, record route and vehicle custody, and confirm proof of delivery.", "Distributor operator", "Allocation, transfer order, route, custody handoff, delivery and withdrawal records", "Distributor handoff → retail receiving"],
+  ["Retail / marketplace", "Check listing eligibility, receive SKU/batch, manage inventory/shelf or fulfilment status, and propagate withdrawals or recalls.", "Retail receiving / marketplace team", "Listing state, receiving scan, inventory, expiry, sale status and recall records", "Retail state → buyer verification"],
+  ["Consumer verification & response", "Present approved identity, issuing authority, validity, provenance summary and selected custody confirmation; propagate post-market exceptions and recall when required.", "Issuer, authorised buyer and responsible operator", "Purpose-bound disclosure, current verification state, event history and recall links", "Post-market signal → continuous assurance"],
 ];
 
 export type DemoVerificationRecord = {
   token: string;
   label: string;
   product: string;
-  detail: string;
+  batch: string;
   events: Array<[string, string]>;
+  stages: string[];
 };
 
-const productEvents: Array<[string, string]> = [
-  ["Product identity","Manufacturer, product/SKU and current credential state are shown within the approved disclosure scope."],
-  ["Provenance summary","Selected supplier/origin and production context is presented without exposing confidential factory data."],
-  ["Current verification","The latest approved verification state is shown with validity and issuing-authority context."]
+const sharedEvents: Array<[string, string]> = [
+  ["01 / Product identity", "China-origin product identity, source and batch are linked."],
+  ["02 / Assurance evidence", "Laboratory and audit evidence are associated with the same product and production context."],
+  ["03 / Custody", "Warehouse, seal, condition and China-to-GCC handoffs remain connected."],
+  ["04 / Market verification", "Approved disclosure presents the relevant product journey and current verification state."],
 ];
 
-const batchEvents: Array<[string, string]> = [
-  ["Batch lineage","The selected batch is linked to product, production and applicable evidence."],
-  ["Assurance evidence","Relevant laboratory, audit and corrective-action context is presented within disclosure permissions."],
-  ["Custody summary","Selected warehouse/logistics handoffs are shown where authorised."]
-];
-
-const shipmentEvents: Array<[string, string]> = [
-  ["Shipment identity","Product/SKU/batch scope is tied to the relevant shipment context."],
-  ["Custody continuity","Selected container/seal, receiving and handoff information is shown."],
-  ["Destination state","Importer/market verification and any active withdrawal/recall state is reflected."]
+const sharedStages = [
+  "Product identity and China origin linked",
+  "Laboratory and audit evidence assembled",
+  "Warehouse, seal and condition events recorded",
+  "GCC market verification available",
 ];
 
 export const demoVerificationRecords: DemoVerificationRecord[] = [
-  { token:"PRODUCT", label:"Product view", product:demoProduct.name, detail:"Approved product-level disclosure", events:productEvents },
-  { token:"BATCH", label:"Batch view", product:demoProduct.name, detail:"Approved batch-level disclosure", events:batchEvents },
-  { token:"SHIPMENT", label:"Shipment view", product:demoProduct.name, detail:"Approved shipment-level disclosure", events:shipmentEvents }
+  { token: "AMANAH-PRODUCT", label: "Product provenance", product: demoProduct.name, batch: demoProduct.batch, events: sharedEvents, stages: sharedStages },
+  { token: "AMANAH-CUSTODY", label: "Custody history", product: demoProduct.name, batch: demoProduct.batch, events: sharedEvents, stages: sharedStages },
+  { token: "AMANAH-STATUS", label: "Verification status", product: demoProduct.name, batch: demoProduct.batch, events: sharedEvents, stages: sharedStages },
 ];
