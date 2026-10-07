@@ -3,3 +3,22 @@
 .site-menu{margin:0;padding:0;border:0}.site-menu summary{min-height:44px}
 
 .standard-catalog{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:28px 0}.standard-card{display:grid;gap:7px;align-content:start;min-height:118px;padding:18px;border:1px solid var(--line);background:#14130f}.standard-card strong{color:var(--gold);font-size:12px;letter-spacing:.04em}.standard-card span{color:var(--text);font-size:14px;line-height:1.45}.standard-card small{color:var(--muted);font-size:11px;line-height:1.5}.standard-card.supplemental{border-style:dashed;background:#11100d}.standard-layer{margin-top:28px;padding:22px 0;border-top:1px solid var(--line)}.standard-layer h3{margin-top:0;color:var(--text)}.standard-layer-items{display:flex;flex-wrap:wrap;gap:8px}.standard-layer-items span{padding:8px 11px;border:1px solid var(--line);color:var(--gold);font-size:12px;background:#11100e}@media(max-width:900px){.standard-catalog{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.standard-catalog{grid-template-columns:1fr}.standard-card{min-height:0}}
+
+
+.journey-progress{height:4px;background:linear-gradient(90deg,var(--gold) 0 var(--journey-progress,5%),#2b2923 var(--journey-progress,5%) 100%);transition:background .45s ease}
+.journey-playback{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:18px 24px;border-bottom:1px solid var(--line)}
+.journey-playback span{color:var(--muted);font-size:13px;letter-spacing:.03em}
+.journey-playback output{margin-left:auto;color:var(--gold);font-variant-numeric:tabular-nums}
+.stage-nav button{display:flex;align-items:center;gap:8px}
+.stage-nav button span{font-size:10px;color:var(--muted)}
+.journey-summary{border-left:1px solid var(--line);padding-left:28px;display:flex;flex-direction:column;justify-content:center;min-height:360px}
+.journey-summary #journeySummary{display:grid;gap:14px;margin:16px 0 24px}
+.journey-summary #journeySummary span{display:block;padding:12px 0;border-bottom:1px solid var(--line);color:var(--muted)}
+.journey-summary #journeySummary strong{font-size:1.45rem;color:var(--text)}
+.stage details[open]{background:#0c0c0b55;padding:16px;border:1px solid var(--line)}
+.stage dl{margin:0}
+@media(max-width:860px){
+  .journey-summary{border-left:0;border-top:1px solid var(--line);padding:24px 0 0;min-height:0}
+  .journey-playback output{width:100%;margin-left:0}
+  .stage-nav{top:70px}
+}

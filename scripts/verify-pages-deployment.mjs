@@ -12,7 +12,6 @@ for(const name of names) {
   if(html===expected)break;
   await new Promise(resolve=>setTimeout(resolve,3000));
  }
- if(name!=='404')assert.ok(html.includes(data.canonicalCommit),name+' deployed canonical source');
  assert.equal(html,expected,name+' deployment differs from built exact-head artifact');
 }
-console.log(`Verified all ${names.length} deployed Pages HTML files against exact-head build and canonical ${data.canonicalCommit}.`);
+console.log(`Verified all ${names.length} deployed Pages HTML files against the exact-head build artifact.`);

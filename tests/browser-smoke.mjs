@@ -61,7 +61,7 @@ try {
     assert.match(await page.locator('#readinessSummary').textContent(),/^1 of /);
    }
    if(name==='index') {
-    assert.equal(await page.locator('#stageNav button').count(),13);
+    assert.equal(await page.locator('#stageNav button').count(),20);
     await page.locator('#stageNav button').last().click();
     assert.match(await page.locator('#stageTitle').textContent(),/Consumer/);
    }
