@@ -9,7 +9,9 @@
 - [Prompt coverage audit](docs/mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)
 - [Website presentation brief](docs/operations/WEBSITE_BRIEF_2026-10-05.md)
 - [Master deliverable index](docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md)
-- [China Mission executive pack](docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md)\n- [China Mission public demo runbook](docs/mission/CHINA_MISSION_PUBLIC_DEMO_RUNBOOK_2026-10-07.md)
+- [China Mission executive pack](docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md)
+- [China Trip platform demonstration guide](docs/mission/CHINA_TRIP_PLATFORM_DEMONSTRATION_GUIDE_2026-10-07.md)
+- [China Mission presenter runbook](docs/mission/CHINA_MISSION_PRESENTER_RUNBOOK_2026-10-07.md)
 - [China Mission 12-instrument MOA signing pack](docs/mission/moa-signing-pack-2026-10/00-REGISTER.md)
 - [China Mission meeting brief book](docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md)
 - [Objection-handling book](docs/mission/OBJECTION_HANDLING_BOOK_2026-10-03.md)
@@ -22,6 +24,8 @@
 - [Machine standards catalogue](config/ahte-standards-catalog.json)
 - Manufacturer onboarding: `app/(protected)/onboarding/page.tsx`
 - AHTE workspace: `app/(protected)/ahte/`
+- China Mission platform tour: `app/(protected)/ahte/platform-tour/`
+- Distributor / 3PL workspace: `app/(protected)/ahte/distributor/`
 - China Mission workspace: `app/(protected)/china-trip/`
 
 ## Partner / operational packs
@@ -48,8 +52,11 @@
 
 ## Public experience
 
-- Public website: `ghscl-website/`\n- China Mission public showcase: `ghscl-website/china-mission.html`
+- Public website: `ghscl-website/`
+- Platform Tour: `ghscl-website/platform-tour.html`
+- China Mission public showcase: `ghscl-website/china-mission.html`
 - GCC Importer public route: `ghscl-website/gcc-importer.html`
+- GCC Distributor public route: `ghscl-website/distributor.html`
 - Retail / Marketplace public route: `ghscl-website/retail-market.html`
 - Platinum site: `platinum-site/`
 - Corporate profile: `ghscl-website/corporate-profile.html`
