@@ -1,5 +1,5 @@
 {
-  "version": "7.6.0",
+  "version": "7.7.0",
   "locale": "en",
   "availableLocales": [
     "en"
@@ -16,6 +16,10 @@
     [
       "index.html",
       "Home"
+    ],
+    [
+      "platform-tour.html",
+      "Platform Tour"
     ],
     [
       "ecosystem.html",
@@ -350,7 +354,7 @@
           "flow": [
             "Complete evidence dossier",
             "Direct JAKIM API",
-            "PHC + JAKIM Mufti / scholars / authorised Halal officers human review",
+            "Authorised competent-authority human review",
             "Formal authority status",
             "AHTE trust-state propagation"
           ],
@@ -1296,7 +1300,7 @@
             ],
             [
               "Verification",
-              "Expose the issuer-authorised Digital Trust Passport without leaking confidential business data."
+              "Expose the approved verification view without leaking confidential business data."
             ],
             [
               "Withdrawal / recall",
@@ -1678,7 +1682,7 @@
             "Buyer / authority / consumer verification",
             "Continuous assurance + exception / recall / blast radius"
           ],
-          "text": "Every material handoff remains linked to object identity, event identity, evidence, actor, time and integrity proof. The public journey uses an illustrative reference record so the full mechanics can be demonstrated without presenting a fabricated live shipment.",
+          "text": "Every material handoff remains linked to object identity, event identity, evidence, actor, time and integrity proof. Viewers can follow the full mechanics stage by stage without interrupting the operating story.",
           "link": [
             "index.html#journey",
             "Open the interactive Trust Journey"
@@ -1717,7 +1721,7 @@
         {
           "id": "authority-boundary",
           "title": "Authority and decision boundaries remain explicit",
-          "text": "The mission demonstrates digital trust infrastructure without claiming that software, AI, blockchain, laboratories, smart glasses, QR/NFC, sensors or logistics partners create Halal certification. AHTE ⇄ Direct JAKIM API ⇄ JAKIM is the controlling authority-connectivity topology; external production activation depends on authorised credentials and channels.",
+          "text": "Software, AI, blockchain, laboratories, smart glasses, QR/NFC, sensors and logistics systems contribute evidence and operational control; they do not create Halal certification. AHTE ⇄ Direct JAKIM API ⇄ JAKIM is the controlling authority-connectivity topology, and authorised humans / competent authorities retain formal decisions.",
           "cards": [
             [
               "D0–D2",
@@ -1795,6 +1799,169 @@
         "gcc-importer",
         "distributor",
         "retail-market",
+        "command-center"
+      ]
+    },
+    {
+      "slug": "platform-tour",
+      "label": "Platform Tour",
+      "title": "See the complete AMANAH platform work from China origin to GCC market.",
+      "description": "A single presentation route for China-mission meetings: walk through onboarding, standards, evidence, laboratory, smart audit, production, custody, Sinotrans, ports, GCC importer, distributor, retailer, consumer verification, Command Center, exceptions and recall.",
+      "image": "architecture.webp",
+      "sections": [
+        {
+          "id": "tour-map",
+          "title": "The complete operating journey",
+          "flow": [
+            "China manufacturer / organisation registration",
+            "Identity / KYC / authorised representative",
+            "Facility / production line",
+            "Product / SKU",
+            "Supplier / ingredient / raw-material graph",
+            "Standards / applicability / controls / HCP-SCCP",
+            "Supporting documents / evidence",
+            "AI-assisted review / human governance",
+            "Laboratory sample / custody / method / QC / report",
+            "Smart audit / findings / CAPA / re-verification",
+            "Authority / certification workflow",
+            "Production / IoT / digital twin / batch evidence",
+            "Origin warehouse",
+            "Sinotrans pickup / vehicle / container / seal",
+            "Origin port / customs",
+            "International transit",
+            "GCC port / customs",
+            "GCC importer / receiving / quarantine / acceptance",
+            "Destination warehouse / inventory lot",
+            "Distributor / 3PL / FEFO-FIFO / custody transfer",
+            "Retailer / marketplace / institutional buyer",
+            "Consumer / buyer verification",
+            "24/7 Command Center",
+            "Continuous assurance / exception / recall / blast radius"
+          ],
+          "text": "The default physical corridor is China → GCC direct. Malaysia remains the governance, assurance, standards and authority-connectivity plane unless a specific movement is separately scoped."
+        },
+        {
+          "id": "authority",
+          "title": "Authority and decision boundary",
+          "cards": [
+            [
+              "AHTE",
+              "Standards, evidence, trust, intelligence, digital twins, event fabric, anomaly detection, predictive analytics and configured operational holds."
+            ],
+            [
+              "Direct JAKIM API",
+              "Target authority-connectivity interface for evidence/status exchange subject to official activation and authorization."
+            ],
+            [
+              "JAKIM / competent authority",
+              "Formal Halal certification and authority decisions remain with authorised human decision-makers."
+            ],
+            [
+              "AI boundary",
+              "AI may ingest, assess, recommend and support configured D4 holds. It does not independently certify Halal or execute D5/D6 sovereign/legal decisions."
+            ]
+          ]
+        },
+        {
+          "id": "operating-principles",
+          "title": "The platform carries context forward without blurring decision ownership",
+          "cards": [
+            [
+              "Product continuity",
+              "The same product, SKU, batch and shipment context follows the journey from origin through destination operations."
+            ],
+            [
+              "Authority separation",
+              "AHTE trust state, authority state, operational state, customs state and finance state remain distinct."
+            ],
+            [
+              "Evidence integrity",
+              "Each material event is attributable to the relevant object, actor and time; cryptographic integrity supports review but does not replace truth assessment."
+            ],
+            [
+              "Exception handling",
+              "Detected issues propagate into containment, investigation, corrective action, re-verification and recall where required."
+            ]
+          ]
+        },
+        {
+          "id": "audience",
+          "title": "Switch the story to the stakeholder in the room",
+          "cards": [
+            [
+              "Manufacturer",
+              "Onboarding, facility, products/SKUs, supplier graph, readiness, audit, CAPA, production and renewal."
+            ],
+            [
+              "Laboratory / auditor",
+              "Sample chain, scientific evidence, smart-glass audit, findings, CAPA and signed sessions."
+            ],
+            [
+              "Sinotrans / logistics",
+              "Warehouse, loading, fleet, container/seal, GNSS, condition telemetry, custody and destination handover."
+            ],
+            [
+              "GCC importer / distributor / retailer",
+              "Pre-arrival, receiving, inventory, distribution eligibility, listing, verification, withdrawal and recall."
+            ],
+            [
+              "Regulator / authority",
+              "Source-controlled applicability, evidence chain, authority gates, decision separation and auditability."
+            ],
+            [
+              "Technology / finance",
+              "Canonical APIs, cybersecurity, hardware/device trust and purpose-bound finance/Takaful evidence."
+            ]
+          ]
+        },
+        {
+          "id": "exception",
+          "title": "Show what happens when trust fractures",
+          "flow": [
+            "DETECTED",
+            "CLASSIFIED",
+            "CONTAINED / HOLD",
+            "INVESTIGATING",
+            "CAPA",
+            "RE-VERIFICATION",
+            "CLOSED / ESCALATED / RECALLED"
+          ],
+          "text": "Blast-radius analysis connects affected material, batch, SKU, shipment, container, importer, warehouse, distributor, retailer and public verification state."
+        },
+        {
+          "id": "next",
+          "title": "Continue into the detailed modules",
+          "cards": [
+            [
+              "Standards",
+              "Open the complete applicable Malaysian/JAKIM standards registry and applicability model."
+            ],
+            [
+              "Smart Audit",
+              "Walk through smart-glass/tablet evidence capture and human-owned audit conclusions."
+            ],
+            [
+              "China → GCC",
+              "Follow physical custody, logistics, port and destination handoffs."
+            ],
+            [
+              "Command Center",
+              "See the full corridor monitoring and exception-management model."
+            ]
+          ]
+        }
+      ],
+      "sources": [
+        "docs/architecture/PLATFORM_ARCHITECTURE.md",
+        "docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md",
+        "docs/sinotrans/SINOTRANS_A_TO_Z_PLAYBOOK_2026-10-02.md",
+        "docs/ahte/MS_OPERATING_SET.json"
+      ],
+      "related": [
+        "how-it-works",
+        "digital-trust",
+        "smart-audit",
+        "china-gcc",
         "command-center"
       ]
     }
