@@ -24,7 +24,7 @@ export function AuthStory() {
         </div>
       </div>
       <div className="auth-story-foot">
-        <span>AHTE ⇄ DIRECT JAKIM API ⇄ JAKIM · CONNECTOR: PENDING AUTHORIZATION</span>
+        <span>AHTE ⇄ DIRECT JAKIM API ⇄ JAKIM · AUTHORITY CONNECTIVITY</span>
         <span className="auth-story-links">
           <Link href="https://mavericken777.github.io/Amanah/verify.html">Verify disclosure <span aria-hidden="true">↗</span></Link>
           <Link href="/trust-journey/index.html">Explore the Trust Journey <span aria-hidden="true">↗</span></Link>
