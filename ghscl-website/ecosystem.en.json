@@ -350,7 +350,7 @@
           "flow": [
             "Complete evidence dossier",
             "Direct JAKIM API",
-            "PHC + JAKIM Mufti / scholars / authorised Halal officers human review",
+            "Authorised competent-authority human review",
             "Formal authority status",
             "AHTE trust-state propagation"
           ],
