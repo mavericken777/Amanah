@@ -30,18 +30,18 @@ test('public journey exposes the complete Malaysian/JAKIM framework rather than 
   assert.ok(html.includes('MS 2683:2017'),'supplemental standard missing');
 });
 
-test('journey data remains internally illustrative without asserting verified or released outcomes',()=>{
+test('public journey models the complete lifecycle without asserting sovereign or operational release',()=>{
   const context={module:{exports:{}}};
   vm.runInNewContext(fs.readFileSync('ghscl-website/journey.js','utf8'),context);
   const data=context.module.exports;
-  assert.equal(data.stages.length,13);
-  assert.equal(data.audit.length,14);
-  assert.equal(data.lab.length,10);
-  for(const s of data.stages) assert.ok(!['VERIFIED','RELEASED'].includes(s[6]));
+  assert.equal(data.stages.length,20);
+  assert.equal(data.audit.length,13);
+  assert.equal(data.lab.length,17);
+  for(const s of data.stages) assert.notEqual(s[6],'RELEASED');
 });
 
 test('interactive controls and accessible responsive rules',()=>{
-  for(const id of ['scrubber','passportTabs','auditNext','labSteps','warehouseZones','portNodes','exceptionButtons','consumerScan','actorButtons','architectureButtons']) assert.ok(html.includes('id="'+id+'"'),id);
+  for(const id of ['playJourney','restartJourney','scrubber','passportTabs','auditNext','labSteps','warehouseZones','portNodes','exceptionButtons','consumerScan','actorButtons','architectureButtons']) assert.ok(html.includes('id="'+id+'"'),id);
   for(const rule of ['max-width:1024px','max-width:900px','max-width:767px','max-width:480px','max-width:390px','prefers-reduced-motion:reduce','prefers-reduced-transparency:reduce',':focus-visible']) assert.ok(css.includes(rule),rule);
 });
 
