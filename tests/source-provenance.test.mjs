@@ -21,12 +21,13 @@ test('current implementation provenance is coherent and the public site is expli
   assert.equal(manifest.canonical_commit,publicCommit);
   for(const source of manifest.sources) assert.equal(source.url,`https://github.com/${binding.repository}/blob/${publicCommit}/${source.path}`);
   const site=json('ghscl-website/ecosystem.en.json');
-  // The homepage is a marketing overview; source-bound technical evidence lives on the deeper pages.
+  // Public pages keep source provenance in machine-readable metadata; engineering source paths are not shown in the visitor experience.
   for(const name of site.pages.map(p=>p.slug)) {
     const html=fs.readFileSync(`ghscl-website/${name}.html`,'utf8');
-    const urls=[...html.matchAll(/GlobalHalalDigitalTrust\/(?:blob|tree)\/([a-f0-9]{40})/g)];
-    assert.ok(urls.length,name+' needs source provenance');
-    for(const [,sha] of urls) assert.equal(sha,publicCommit,name);
+    const match=html.match(/<meta name="ghdt-source-commit" content="([a-f0-9]{40})">/);
+    assert.ok(match,name+' needs hidden source provenance');
+    assert.equal(match[1],publicCommit,name);
+    assert.doesNotMatch(html,/PROJECT-REPO ·/,'public page must not expose repository engineering metadata');
   }
 });
 test('mirror blob IDs verify exact canonical bytes, not just renamed provenance',()=>{
