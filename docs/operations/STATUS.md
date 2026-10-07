@@ -44,7 +44,7 @@ Historical/superseded editions remain available for provenance and change impact
 
 ## Presentation experience
 
-The public website and authenticated application use the same platform story:
+The public website and authenticated application use the same platform story, including an automated, interactive end-to-end journey and first-class manufacturer, importer, distributor/3PL and retailer workspaces:
 
 - black / obsidian + metallic gold;
 - Arial / Helvetica / neutral sans-serif;
