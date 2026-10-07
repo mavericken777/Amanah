@@ -31,10 +31,12 @@ for (const route of routes) {
 }
 
 await page.goto("http://127.0.0.1:4173/verify.html", { waitUntil: "networkidle" });
-await page.locator("#route-token").fill("GHSC-MY-2026-8891");
-assert.equal(await page.locator(".passport-heading h3").textContent(), "Premium Halal food product", "sample passport must use the canonical demo product");
+const verificationViews = page.locator(".secondary-path-grid button");
+assert.equal(await verificationViews.count(), 3, "public verifier must expose product, batch and shipment views");
+await verificationViews.first().click();
+assert.equal(await page.locator(".passport-heading h3").textContent(), "Premium Halal food product", "guided product view must render the product journey");
 assert.doesNotMatch(await page.locator(".passport-heading").textContent() ?? "", /CN-DEMO|DEMO-SHIPMENT|GHSC-DEMO/i, "public verifier must not expose internal fixture identifiers");
-assert.equal(await page.locator(".passport-timeline li").count(), 4, "sample passport should expose all four journey stages");
+assert.equal(await page.locator(".passport-timeline li").count(), 4, "product view should expose the four lifecycle evidence groups");
 
 await page.goto("http://127.0.0.1:4173/manufacturers.html", { waitUntil: "networkidle" });
 assert.equal(await page.locator(".secondary-checklist input").count(), 5);
