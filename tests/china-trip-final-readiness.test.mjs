@@ -13,10 +13,16 @@ const publicRoutes=[
   'ghscl-website/cybersecurity.html'
 ];
 
-test('China Mission public runbook routes are materialized in the repository',()=>{
-  for(const p of publicRoutes) assert.ok(fs.existsSync(p),p);
+test('China Mission public runbook routes are backed by generator source definitions',()=>{
   const runbook=read('docs/mission/CHINA_MISSION_PUBLIC_DEMO_RUNBOOK_2026-10-07.md');
-  for(const p of publicRoutes) assert.ok(runbook.includes(p.replace('ghscl-website/','')),p);
+  const source=JSON.parse(read('ghscl-website/ecosystem.en.json'));
+  const slugs=new Set(source.pages.map(p=>p.slug));
+  for(const p of publicRoutes){
+    const file=p.replace('ghscl-website/','');
+    const slug=file.replace(/\.html$/,'');
+    assert.ok(runbook.includes(file),p);
+    assert.ok(slugs.has(slug),slug);
+  }
 });
 
 test('protected application exposes one-click tour and first-class distributor',()=>{
