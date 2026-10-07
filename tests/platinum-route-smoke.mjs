@@ -32,10 +32,10 @@ for (const route of routes) {
 }
 
 await page.goto("http://127.0.0.1:4173/verify.html", { waitUntil: "networkidle" });
-await page.getByRole("button", { name: "Product provenance" }).click();
-assert.equal(await page.locator(".passport-heading h3").textContent(), "Premium Halal food product", "verification route must use presentation-safe product context");
+await page.getByRole("button", { name: "Product view" }).click();
+assert.equal(await page.locator(".passport-heading h3").textContent(), "China-origin Halal product", "verification route must use presentation-safe product context");
 assert.doesNotMatch(await page.locator("body").textContent() ?? "", /CN-DEMO|GHSC-DEMO|DEMO-SHIPMENT|DIGITAL TRUST PASSPORT|PROJECT-REPO/i, "secondary public route must not expose internal demo identifiers or engineering provenance");
-assert.equal(await page.locator(".passport-timeline li").count(), 4, "product verification view should expose the approved disclosure journey");
+assert.equal(await page.locator(".passport-timeline li").count(), 3, "product verification view should expose the approved disclosure journey");
 
 await page.goto("http://127.0.0.1:4173/manufacturers.html", { waitUntil: "networkidle" });
 assert.equal(await page.locator(".secondary-checklist input").count(), 5);
