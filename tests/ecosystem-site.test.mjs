@@ -64,7 +64,9 @@ test('demo architecture never fabricates real records or authority receipts',()=
   assert.equal(fixture.environment,'demo');assert.equal(fixture.simulated,true);
   assert.equal(fixture.chains.length,4);
   for(const n of fixture.nodes)assert.ok(n.evidence&&n.relations&&n.state);
-  assert.match(fixture.audit.at(-1).proof,/No live upload or authority receipt/);
+  assert.match(fixture.audit.at(-1).proof,/Signed session, synchronization status and authority-workflow handoff remain attributable/);
+  assert.match(fixture.audit.at(-1).text,/authorized human authority workflow/);
+  assert.doesNotMatch(JSON.stringify(fixture),/fabricated authority receipt|live authority decision|production JAKIM response/i);
   const js=fs.readFileSync(path.join(base,'ecosystem.js'),'utf8');
   assert.doesNotThrow(()=>new vm.Script(js));
   assert.doesNotMatch(js,/innerHTML|localStorage|sessionStorage/);

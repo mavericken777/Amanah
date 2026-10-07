@@ -811,7 +811,7 @@
         {
           "id": "pilot",
           "title": "A focused first corridor for real execution",
-          "text": "Architecture and simulations do not instantiate a shipment. Real entity, product, buyer/importer, batch, authority, lab, logistics and destination evidence are required."
+          "text": "A corridor moves into execution when the relevant entity, product, buyer/importer, batch, authority, laboratory, logistics and destination evidence are connected and accountable."
         }
       ],
       "sources": [
