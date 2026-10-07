@@ -30,29 +30,28 @@ test('public journey exposes the complete Malaysian/JAKIM framework rather than 
   assert.ok(html.includes('MS 2683:2017'),'supplemental standard missing');
 });
 
-test('journey data exposes the complete operating lifecycle without public demo identifiers',()=>{
+test('public journey models the complete lifecycle without asserting sovereign or operational release',()=>{
   const context={module:{exports:{}}};
-  const source=fs.readFileSync('ghscl-website/journey.js','utf8');
-  vm.runInNewContext(source,context);
+  vm.runInNewContext(fs.readFileSync('ghscl-website/journey.js','utf8'),context);
   const data=context.module.exports;
   assert.equal(data.stages.length,20);
-  assert.equal(data.audit.length,14);
-  assert.equal(data.lab.length,12);
-  for(const title of ['Manufacturer onboarding','Laboratory evidence','Smart audit','Authority workflow','Sinotrans logistics','GCC importer','Distributor & 3PL','Retail / marketplace','Consumer verification & Command Center']) {
-    assert.ok(data.stages.some(s=>s[0]===title),title);
-  }
-  assert.doesNotMatch(source,/CN-DEMO|DEMO-SHIPMENT|EVENT-DEMO|EVIDENCE-DEMO|PROJECT-REPO/i);
+  assert.equal(data.audit.length,13);
+  assert.equal(data.lab.length,17);
+  for(const s of data.stages) assert.notEqual(s[6],'RELEASED');
 });
 
-test('public presentation contains no internal demo or engineering metadata',()=>{
-  assert.doesNotMatch(html,/CN-DEMO|GHSC-DEMO|DEMO-SHIPMENT|DIGITAL TRUST PASSPORT|PROJECT-REPO|Source foundation|PENDING_AUTHORIZATION|DEMO TOPOLOGY/i);
-  assert.match(html,/Automatic guided walkthrough/);
-  assert.match(html,/COMPLETE END-TO-END PLATFORM/);
-  assert.match(html,/max="19"/);
+test('public homepage contains no engineering/demo presentation leakage and auto-plays all 20 stages',()=>{
+  for(const term of ['CN-DEMO-24001','DEMO-SHIPMENT-001','DIGITAL TRUST PASSPORT','DEMO RELEASE REQUEST GENERATED','DEMO TOPOLOGY','PROJECT-REPO','Source foundation:','illustrative','simulation','prototype']) assert.ok(!html.toLowerCase().includes(term.toLowerCase()),term);
+  assert.match(html,/id="playJourney"/);
+  assert.match(html,/id="restartJourney"/);
+  const context={module:{exports:{}}};
+  vm.runInNewContext(fs.readFileSync('ghscl-website/journey.js','utf8'),context);
+  assert.equal(context.module.exports.stages.length,20);
+  assert.match(fs.readFileSync('platinum-site/src/App.tsx','utf8'),/journeyPlaying/);
 });
 
 test('interactive controls and accessible responsive rules',()=>{
-  for(const id of ['playPauseJourney','restartJourney','journeySummary','scrubber','auditNext','labSteps','warehouseZones','portNodes','exceptionButtons','consumerScan','actorButtons','architectureButtons']) assert.ok(html.includes('id="'+id+'"'),id);
+  for(const id of ['playJourney','restartJourney','scrubber','passportTabs','auditNext','labSteps','warehouseZones','portNodes','exceptionButtons','consumerScan','actorButtons','architectureButtons']) assert.ok(html.includes('id="'+id+'"'),id);
   for(const rule of ['max-width:1024px','max-width:900px','max-width:767px','max-width:480px','max-width:390px','prefers-reduced-motion:reduce','prefers-reduced-transparency:reduce',':focus-visible']) assert.ok(css.includes(rule),rule);
 });
 
