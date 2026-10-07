@@ -49,9 +49,16 @@ The standards model is registry-driven and is not permanently capped at 17. Its 
 
 - Standalone GCC Importer / Distributor / Retailer Field Guide generated: `AMANAH_GCC_Importer_Distributor_Retailer_Field_Guide_2026-10-07.docx/pdf`
 - Destination-market playbook — `docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md`
+- China Mission protected platform tour — `app/(protected)/ahte/platform-tour/page.tsx`
 - GCC Importer workspace — `app/(protected)/ahte/gcc-importer/page.tsx`
+- Distributor / 3PL workspace — `app/(protected)/ahte/distributor/page.tsx`
 - Retail / Marketplace workspace — `app/(protected)/ahte/retail-market/page.tsx`
 - GCC Importer public experience — `ghscl-website/gcc-importer.html`
+- Distributor public experience — `ghscl-website/distributor.html`
+- Laboratory public experience — `ghscl-website/laboratory.html`
+- Hardware public experience — `ghscl-website/hardware.html`
+- API / Interoperability public experience — `ghscl-website/interoperability.html`
+- Cybersecurity public experience — `ghscl-website/cybersecurity.html`
 - Retail / Marketplace public experience — `ghscl-website/retail-market.html`
 - Destination coverage in Command Center — `app/(protected)/ahte/command-center/page.tsx`
 
