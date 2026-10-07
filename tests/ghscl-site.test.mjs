@@ -35,14 +35,14 @@ test('journey data exposes the complete operating lifecycle without public demo 
   vm.runInNewContext(fs.readFileSync('ghscl-website/journey.js','utf8'),context);
   const data=context.module.exports;
   assert.equal(data.stages.length,20);
-  assert.equal(data.audit.length,13);
-  assert.equal(data.lab.length,17);
+  assert.equal(data.audit.length,14);
+  assert.equal(data.lab.length,12);
   for(const s of data.stages) assert.notEqual(s[6],'RELEASED');
   assert.doesNotMatch(fs.readFileSync('ghscl-website/journey.js','utf8'),/CN-DEMO|DEMO-SHIPMENT|EVENT-DEMO|EVIDENCE-DEMO|PROJECT-REPO/i);
 });
 
 test('interactive controls and accessible responsive rules',()=>{
-  for(const id of ['playPauseJourney','restartJourney','journeySummary','scrubber','passportTabs','auditNext','labSteps','warehouseZones','portNodes','exceptionButtons','consumerScan','actorButtons','architectureButtons']) assert.ok(html.includes('id="'+id+'"'),id);
+  for(const id of ['playPauseJourney','journeySummary','scrubber','auditNext','labSteps','warehouseZones','portNodes','exceptionButtons','consumerScan','actorButtons','architectureButtons']) assert.ok(html.includes('id="'+id+'"'),id);
   for(const rule of ['max-width:1024px','max-width:900px','max-width:767px','max-width:480px','max-width:390px','prefers-reduced-motion:reduce','prefers-reduced-transparency:reduce',':focus-visible']) assert.ok(css.includes(rule),rule);
 });
 
@@ -77,4 +77,14 @@ test('nested public routes retain local Arial typography and recursive normaliza
   const builder=fs.readFileSync('scripts/build-trust-journey.mjs','utf8');
   assert.match(builder,/walkFiles/);
   assert.match(builder,/path\.relative\(path\.dirname\(file\),path\.join\(site,'neutral-font\.css'\)\)/);
+});
+
+test('public HTML contains no internal demo IDs or engineering provenance chatter',()=>{
+  const files=fs.readdirSync('ghscl-website').filter(name=>name.endsWith('.html'));
+  for(const name of files){
+    const page=fs.readFileSync('ghscl-website/'+name,'utf8');
+    assert.doesNotMatch(page,/CN-DEMO|GHSC-DEMO|DEMO-SHIPMENT|DIGITAL TRUST PASSPORT|PROJECT-REPO|Source foundation|site-provenance/i,name);
+  }
+  assert.match(html,/Automatic guided walkthrough/);
+  assert.match(html,/COMPLETE END-TO-END PLATFORM/);
 });
