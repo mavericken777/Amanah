@@ -472,7 +472,7 @@ export default function App() {
                 <h3 id="ms-catalog-title">The complete applicable Malaysian/JAKIM framework is resolved by scope — never by a fixed standards count.</h3>
                 <p>The platform does not reduce Halal assurance to MS 1500 and MS 2400, or to any fixed catalogue size. AHTE resolves applicable Malaysian Standards together with MPPHM, MHMS, HAS, IHCS, protocols, circulars, authority instructions, destination requirements, laboratory methods and other verified instruments by product, service, facility, process, logistics activity and evidence context.</p>
               </div>
-              <span className="state-chip">17 MS STANDARDS</span>
+              <span className="state-chip">CURRENT VERIFIED MS CATALOGUE</span>
             </div>
             <div className="standards-catalog-grid">
               {msStandards.map(([code, title]) => (
@@ -488,7 +488,7 @@ export default function App() {
             </div>
             <div className="standards-framework-note">
               <strong>Supplemental standards / technical instruments</strong>
-              <span>MS 2683:2017 · Kelulut (Stingless bee) honey — Specification is retained as a supplemental product-quality/specification instrument when applicable. It is not treated as an 18th member of the controlled 17-standard halal operating set.</span>
+              <span>MS 2683:2017 · Kelulut (Stingless bee) honey — Applied as a supplemental product-quality/specification instrument whenever the relevant scope requires it.</span>
             </div>
           </section>
         </section>
