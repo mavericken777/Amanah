@@ -33,6 +33,8 @@ export const demoJourneyStages: DemoJourneyStage[] = [
 
 export type DemoVerificationRecord = {
   token: string;
+  label: string;
+  detail: string;
   product: string;
   batch: string;
   events: Array<[string, string]>;
@@ -54,7 +56,7 @@ const sharedStages = [
 ];
 
 export const demoVerificationRecords: DemoVerificationRecord[] = [
-  { token: "GHSC-MY-2026-8891", product: demoProduct.name, batch: demoProduct.batch, events: sharedEvents, stages: sharedStages },
-  { token: "JAKIM-AMANAH-0921", product: demoProduct.name, batch: demoProduct.batch, events: sharedEvents, stages: sharedStages },
-  { token: "HK-GHSC-2026-1188", product: demoProduct.name, batch: demoProduct.batch, events: sharedEvents, stages: sharedStages },
+  { token: "GHSC-MY-2026-8891", label: "Product view", detail: "Approved product identity, origin, assurance and custody summary.", product: demoProduct.name, batch: demoProduct.batch, events: sharedEvents, stages: sharedStages },
+  { token: "JAKIM-AMANAH-0921", label: "Batch view", detail: "Batch-specific assurance, custody and market verification timeline.", product: demoProduct.name, batch: demoProduct.batch, events: sharedEvents, stages: sharedStages },
+  { token: "HK-GHSC-2026-1188", label: "Shipment view", detail: "Shipment-level custody, condition and destination handoff summary.", product: demoProduct.name, batch: demoProduct.batch, events: sharedEvents, stages: sharedStages },
 ];
