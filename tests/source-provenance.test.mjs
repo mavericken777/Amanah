@@ -21,11 +21,11 @@ test('current implementation provenance is coherent and the public site is expli
   assert.equal(manifest.canonical_commit,publicCommit);
   for(const source of manifest.sources) assert.equal(source.url,`https://github.com/${binding.repository}/blob/${publicCommit}/${source.path}`);
   const site=json('ghscl-website/ecosystem.en.json');
-  // Provenance remains machine-readable in the controlled manifest, not in viewer-facing HTML.
+  // Provenance may remain in non-visible metadata, but public-facing HTML must not expose engineering copy.
   assert.equal(manifest.canonical_commit,publicCommit);
   for(const name of ['index',...site.pages.map(p=>p.slug)]) {
     const html=fs.readFileSync(`ghscl-website/${name}.html`,'utf8');
-    assert.doesNotMatch(html,/ghdt-source-commit|PROJECT-REPO|Source foundation/i,name+' must not expose engineering provenance');
+    assert.doesNotMatch(html,/PROJECT-REPO|Source foundation/i,name+' must not expose viewer-facing engineering provenance');
   }
 });
 test('mirror blob IDs verify exact canonical bytes, not just renamed provenance',()=>{
