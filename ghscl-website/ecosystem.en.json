@@ -130,7 +130,7 @@
     "onboard": "Secure portal access",
     "boundary": "AI supports the people responsible for every decision. Competent authorities decide on certification and border release; approved providers own financing and Takaful decisions.",
     "architecture": "Connected assurance. From origin to market.",
-    "source": "Explore the platform foundations",
+    "source": "How this capability connects",
     "principle": "Data stays where it belongs. Trust travels.",
     "technical": "Inside the platform",
     "related": "Continue exploring",
@@ -1296,7 +1296,7 @@
             ],
             [
               "Verification",
-              "Expose the issuer-authorised Digital Trust Passport without leaking confidential business data."
+              "Expose the issuer-authorised Product Trust Record without leaking confidential business data."
             ],
             [
               "Withdrawal / recall",
