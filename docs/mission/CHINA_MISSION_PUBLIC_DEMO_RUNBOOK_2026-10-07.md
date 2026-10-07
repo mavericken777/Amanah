@@ -16,6 +16,7 @@
 - Standards: https://mavericken777.github.io/Amanah/standards.html
 - Laboratory: https://mavericken777.github.io/Amanah/laboratory.html
 - Smart Audit: https://mavericken777.github.io/Amanah/smart-audit.html
+- Hardware: https://mavericken777.github.io/Amanah/hardware.html
 - API & Interoperability: https://mavericken777.github.io/Amanah/interoperability.html
 - Cybersecurity: https://mavericken777.github.io/Amanah/cybersecurity.html
 - Public Verification: https://mavericken777.github.io/Amanah/verify.html
