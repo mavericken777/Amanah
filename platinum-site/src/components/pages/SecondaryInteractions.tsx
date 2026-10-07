@@ -9,8 +9,8 @@ export function SecondaryInteractions({ slug }: { slug: string }) {
   const [checks, setChecks] = useState<Record<string, boolean>>({});
   const record = useMemo(() => examples.find((item) => item.token.toLowerCase() === submitted.trim().toLowerCase()), [submitted]);
   if (slug === "verify") return <section className="secondary-special glass">
-    <p className="eyebrow">PRODUCT PASSPORT</p><h2>Follow the evidence through the journey.</h2>
-    <p>Enter a sample reference to explore how origin, assessment, custody and market disclosure connect.</p>
+    <p className="eyebrow">PRODUCT VERIFICATION</p><h2>Follow the evidence through the journey.</h2>
+    <p>Enter an authorised verification reference to explore how origin, assessment, custody and market disclosure connect.</p>
     <form className="secondary-inline-form" onSubmit={(event) => { event.preventDefault(); setSubmitted(token); }}>
       <label className="sr-only" htmlFor="route-token">Sample reference</label><input id="route-token" value={token} onChange={(event) => { setToken(event.target.value); setSubmitted(event.target.value); }} placeholder="Try GHSC-MY-2026-8891" />
       <button type="submit">View passport</button>
