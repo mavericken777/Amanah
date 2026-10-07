@@ -13,7 +13,7 @@ try {
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   assert.match(await page.locator('h1').evaluate(e=>getComputedStyle(e).fontFamily),/Arial/);
   assert.equal(await page.locator('.platinum-shield,canvas,.home-hero-image').count(),0);
-  for(let i=0;i<13;i++){await page.locator('#stageNav button').nth(i).click();assert.match(await page.locator('#stageTitle').textContent(),new RegExp(`^${String(i+1).padStart(2,'0')}`));assert.ok((await page.locator('#passportBody').textContent()).includes('CN-DEMO-24001'));}
+  assert.equal(await page.locator('#stageNav button').count(),20);assert.equal(await page.locator('#playJourney').count(),1);assert.equal(await page.locator('#restartJourney').count(),1);for(let i=0;i<20;i++){await page.locator('#stageNav button').nth(i).click();assert.match(await page.locator('#stageTitle').textContent(),new RegExp(`^${String(i+1).padStart(2,'0')}`));assert.ok((await page.locator('#passportBody').textContent()).length>40);}
   for(const view of ['Journey','Trust','Actor','Standards','Custody','Monitoring','Consumer','Technical']){await page.locator('#viewModes button').filter({hasText:new RegExp(`^${view}$`)}).click();assert.ok((await page.locator('#modeExplanation').textContent()).length>20);}
   for(let i=0;i<13;i++)await page.locator('#auditNext').click();assert.match(await page.locator('#auditCheckpoint').textContent(),/Audit record created/);
   await page.locator('#auditReset').click();assert.ok(await page.locator('#auditPrevious').isDisabled());
