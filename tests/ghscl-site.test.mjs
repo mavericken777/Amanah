@@ -40,6 +40,16 @@ test('public journey models the complete lifecycle without asserting sovereign o
   for(const s of data.stages) assert.notEqual(s[6],'RELEASED');
 });
 
+test('public homepage contains no engineering/demo presentation leakage and auto-plays all 20 stages',()=>{
+  for(const term of ['CN-DEMO-24001','DEMO-SHIPMENT-001','DIGITAL TRUST PASSPORT','DEMO RELEASE REQUEST GENERATED','DEMO TOPOLOGY','PROJECT-REPO','Source foundation:','illustrative','simulation','prototype']) assert.ok(!html.toLowerCase().includes(term.toLowerCase()),term);
+  assert.match(html,/id="playJourney"/);
+  assert.match(html,/id="restartJourney"/);
+  const context={module:{exports:{}}};
+  vm.runInNewContext(fs.readFileSync('ghscl-website/journey.js','utf8'),context);
+  assert.equal(context.module.exports.stages.length,20);
+  assert.match(fs.readFileSync('platinum-site/src/App.tsx','utf8'),/journeyPlaying/);
+});
+
 test('interactive controls and accessible responsive rules',()=>{
   for(const id of ['playJourney','restartJourney','scrubber','passportTabs','auditNext','labSteps','warehouseZones','portNodes','exceptionButtons','consumerScan','actorButtons','architectureButtons']) assert.ok(html.includes('id="'+id+'"'),id);
   for(const rule of ['max-width:1024px','max-width:900px','max-width:767px','max-width:480px','max-width:390px','prefers-reduced-motion:reduce','prefers-reduced-transparency:reduce',':focus-visible']) assert.ok(css.includes(rule),rule);
