@@ -1296,7 +1296,7 @@
             ],
             [
               "Verification",
-              "Expose the issuer-authorised Digital Trust Passport without leaking confidential business data."
+              "Expose the approved verification view without leaking confidential business data."
             ],
             [
               "Withdrawal / recall",
@@ -1684,24 +1684,24 @@
           ]
         },
         {
-          "id": "demo-record",
-          "title": "Use the illustrative journey without fabricating a real shipment",
+          "id": "operating-principles",
+          "title": "The platform carries context forward without blurring decision ownership",
           "cards": [
             [
-              "Illustrative record",
-              "CN-DEMO-24001 / DEMO-SHIPMENT-001 may be used to demonstrate UI and process behaviour as synthetic presentation data."
+              "Product continuity",
+              "The same product, SKU, batch and shipment context follows the journey from origin through destination operations."
             ],
             [
-              "Real pilot record",
-              "Shipment 001 remains NOT-INSTANTIATED until real product, buyer, batch, custody and destination evidence exists."
+              "Authority separation",
+              "AHTE trust state, authority state, operational state, customs state and finance state remain distinct."
             ],
             [
-              "Connector states",
-              "UNCONFIGURED / DEVELOPMENT / SANDBOX / PENDING_AUTHORIZATION / PRODUCTION are explicit operating states."
+              "Evidence integrity",
+              "Each material event is attributable to the relevant object, actor and time; cryptographic integrity supports review but does not replace truth assessment."
             ],
             [
-              "Evidence principle",
-              "ObjectID + EventID + EvidenceID + ActorID + Timestamp + IntegrityProof. A hash proves byte integrity, not truth."
+              "Exception handling",
+              "Detected issues propagate into containment, investigation, corrective action, re-verification and recall where required."
             ]
           ]
         },
