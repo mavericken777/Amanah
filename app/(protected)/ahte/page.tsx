@@ -4,11 +4,15 @@ import { requireUser } from "@/lib/auth";
 import { getPrimaryWorkspace } from "@/lib/workspace";
 
 const modules = [
+  ["/ahte/platform-tour","China Mission platform tour","One-click manufacturer → GCC market demonstration across the complete lifecycle."],
   ["/ahte/source","Source & authority","Authorities, instruments, requirements, applicability and direct-JAKIM target boundary."],
   ["/ahte/controls","Controls & audit","Controls, HCP/SCCP, evidence, tests, findings, CAPA and re-verification."],
   ["/ahte/hitm","HITM decision plane","AI advisory assessments, human review cases and reserved authority decisions."],
   ["/ahte/trust","Trust plane","Trust state, trust vector, fracture events, holds and operational release."],
   ["/ahte/shipments","Trade & custody","China → GCC direct corridor, identity, certificate, Sinotrans custody and port events."],
+  ["/ahte/gcc-importer","GCC importer","Pre-arrival, port release reference, receiving, quarantine, inventory and onward-distribution eligibility."],
+  ["/ahte/distributor","Distributor / 3PL","Destination inventory, FEFO/FIFO, allocation, custody transfer, delivery and recall readiness."],
+  ["/ahte/retail-market","Retail / marketplace","Listing, receiving, sale eligibility, verification and withdrawal/recall propagation."],
   ["/ahte/packets","Trust packets","Structured identity, certificate, evidence, custody, audit and authority-gate objects."],
   ["/ahte/laboratory","Laboratory","Sample, seal, custody, accession, method, result and report evidence."],
   ["/ahte/monitoring","Platinum monitoring","Devices, telemetry, trust fractures, blast radius and predictive inputs."],
