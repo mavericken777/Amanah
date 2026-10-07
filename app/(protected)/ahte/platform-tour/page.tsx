@@ -26,7 +26,7 @@ const stages=[
 export default function PlatformTourPage(){
   return <div className="page stack-xl">
     <header className="page-header">
-      <div><div className="eyebrow">CHINA MISSION / ONE-CLICK DEMONSTRATION</div><h1>AMANAH end-to-end platform tour</h1><p className="lead">Use this page in meetings to explain the complete China → GCC operating model without jumping between modules.</p></div>
+      <div><div className="eyebrow">CHINA MISSION / PLATFORM TOUR</div><h1>AMANAH end-to-end platform tour</h1><p className="lead">Use this page in meetings to explain the complete China → GCC operating model without jumping between modules.</p></div>
       <Link className="button" href="/ahte">Open AHTE</Link>
     </header>
 
@@ -36,7 +36,7 @@ export default function PlatformTourPage(){
       <p><strong>China → GCC direct.</strong> Malaysia is the governance, assurance, standards and authority-connectivity plane unless a specific physical movement is separately scoped. AI assists; authorised humans and competent authorities decide.</p>
     </section>
 
-    <section className="card"><h2>Presentation record</h2><p><strong>Illustrative:</strong> CN-DEMO-24001 / DEMO-SHIPMENT-001 may demonstrate workflow behaviour. <strong>Real pilot:</strong> Shipment 001 remains NOT-INSTANTIATED until real evidence exists.</p></section>
+    <section className="card"><h2>Guided platform walkthrough</h2><p>Use the connected platform stages below to explain the operating model, responsibilities, evidence flow and decision boundaries. Operational records can be populated with authorised project data when available.</p></section>
 
     <section className="card-grid">{stages.map(([n,title,body])=><article className="card" key={n}><div className="eyebrow">STAGE {n}</div><h2>{title}</h2><p className="muted">{body}</p></article>)}</section>
 
