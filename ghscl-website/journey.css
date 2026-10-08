@@ -34,3 +34,8 @@
 .journey-playback progress{width:min(180px,30vw);height:10px;accent-color:var(--gold)}
 #journeyTimerLabel{min-width:130px;font-variant-numeric:tabular-nums}
 @media(max-width:560px){.journey-playback progress{width:100%;order:5}.playback-speed{order:4}}
+
+.recall-tree{padding:14px 0 14px 24px;color:var(--text)}
+.recall-tree>li{font-weight:700;color:var(--gold)}
+.recall-tree ul{display:grid;gap:8px;padding:10px 0 0 24px}
+.recall-tree ul li{font-weight:400;color:var(--text)}
