@@ -4,7 +4,7 @@
 
 | Exception | Default severity | Automated response | Human escalation | Closure evidence |
 |---|---|---|---|---|
-| Expired certificate | high | block affected verification/release path | compliance/authority as required | valid replacement + gate |
+| Expired certificate | high | place affected verification/release path on hold | compliance/authority as required | valid replacement evidence + authorised disposition |
 | Supplier invalid/expired | high | hold material/product dependency | QA | verified supplier evidence |
 | Temperature breach | high | alert + hold affected custody scope | logistics/QA | excursion review + disposition |
 | Seal tamper | critical | quarantine affected container/shipment scope | authority/operator | inspection + decision |

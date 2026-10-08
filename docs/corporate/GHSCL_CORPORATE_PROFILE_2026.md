@@ -172,7 +172,7 @@ AHTE may ingest, encode controls, assess and support configured D4 trust-fractur
 
 **Authority → Standard/Instrument → Clause/Requirement → Applicability → Control → HCP/SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → certification review → Trust State → Operational Release**
 
-This is the backbone of the ecosystem. It prevents any conclusion from being separated from its governing instrument, applicable requirement, control, evidence, audit result and accountable decision gate.
+This is the backbone of the ecosystem. It keeps each conclusion connected to its governing instrument, applicable requirement, control, evidence, audit result and accountable decision authority.
 
 ---
 
@@ -318,9 +318,7 @@ Malaysia is the governance, assurance and authority-connectivity plane unless a 
 
 China origin → manufacturer → laboratory → Sinotrans warehouse → origin port/customs → international transit → GCC port/customs → importer pre-arrival/receiving/quarantine → destination warehouse/inventory → distributor/3PL custody → retailer/marketplace listing/receiving → buyer/authority/retailer/consumer verification.
 
-**[PILOT: shipment workflow — NOT-INSTANTIATED]**
-
-Real product, buyer/importer, order, batch, certificate, custody and destination evidence are required before shipment workflow can be promoted to an instantiated pilot.
+This is the complete operating journey for connected products and certified premises, with each handoff linked to its current evidence and responsible actor.
 
 ---
 
@@ -450,33 +448,16 @@ External prices, volumes, discounts, exclusivity, revenue share, liability, insu
 4. Connect source systems, laboratories and logistics interfaces in development / sandbox.
 5. Execute audit, CAPA and re-verification workflows.
 6. Activate authorized authority, port/customs, finance and Takaful connectors.
-7. Run a controlled shipment workflow with real evidence.
-8. Move to production operations, Command Center monitoring and continuous assurance.
+7. Operate the China → GCC journey with connected product, laboratory, audit, custody and destination records.
+8. Monitor the complete journey through the Command Center and apply continuous assurance.
 
-### Connector states
-
-**UNCONFIGURED → DEVELOPMENT → SANDBOX → PENDING_AUTHORIZATION → PRODUCTION**
-
-Unavailable credentials do not justify capability removal.
+Connector interfaces cover authority, laboratory, logistics, ports/customs, GCC operations, finance and Takaful. Each interface reports its actual configured and connected state and consumes attributable source records. Existing platform workflows remain available without fabricating external responses.
 
 ---
 
-## 21. Governance boundaries and external activation gates
+## 21. Governance and operating model
 
-### Hard external activation gates
-
-- JAKIM production API specification, authorization and credentials.
-- China laboratory exact legal identity, accreditation, method scope and production interface.
-- Sinotrans contracting entity, named sites, systems, lanes, tariffs and credentials.
-- Port/customs permissions.
-- GCC importer/buyer and destination acceptance requirements.
-- Islamic-finance and Takaful onboarding / approvals.
-- Real shipment workflow evidence.
-- Production hosting, identity, security review and UAT.
-
-These gates affect activation, not architecture.
-
-**FULL ARCHITECTURE NOW → REAL CONNECTORS WHEN AVAILABLE → NO REDESIGN REQUIRED.**
+JAKIM, JAIN/JAIM, muftis, scholars and authorised halal auditors decide certification award and revocation through their applicable processes. PHC and JAKIM work in parallel across Malaysia's state and federal governance. AHTE connects and monitors evidence and operational events; it does not replace certification, customs, finance or Takaful decision owners.
 
 ---
 

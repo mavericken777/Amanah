@@ -25,6 +25,6 @@ Seal record fields: seal type, issuer/operator, serial/identifier, applied_by, a
 
 ## Response
 
-`Detect → D4 HOLD → preserve original event/media → identify blast radius → assign human owner → inspect/reconcile → CAPA where required → apply replacement seal if authorized → re-verification → release gate`.
+`Detect → D4 HOLD → preserve original event/media → identify blast radius → assign human owner → inspect/reconcile → CAPA where required → apply replacement seal if authorized → re-verification → authorised operational disposition`.
 
 Digital seal evidence does not itself prove Halal status and does not override customs/authority decisions.

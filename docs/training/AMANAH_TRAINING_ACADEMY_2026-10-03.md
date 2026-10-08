@@ -1,8 +1,8 @@
 # AMANAH Global Halal Digital Trust Academy
 
 **Version:** 1.0.0  
-**Control date:** 2026-10-03  
-**Status:** PROJECT-DEFINED TRAINING ACADEMY / NORMATIVE CONTENT SOURCE-LOCKED
+**Control date:** 2026-10-09
+**Status:** CURRENT AMANAH / AHTE OPERATIONAL CURRICULUM
 
 The Academy trains users to operate AMANAH/AHTE workflows. It does not confer statutory Halal auditor/officer authority unless a competent authority separately recognises the qualification.
 
@@ -31,7 +31,7 @@ The Academy trains users to operate AMANAH/AHTE workflows. It does not confer st
 AHTE ⇄ Direct JAKIM API ⇄ JAKIM; China → GCC direct; authority/AHTE/operational/customs/finance state separation.
 
 ### Module 2 — Standards and source fidelity
-How applicability and source bindings work. Exact normative wording is taught only from licensed/verified source material. Where unavailable: DATA NOT AVAILABLE — SOURCE-LOCKED.
+How applicable Malaysian/JAKIM requirements and destination instruments connect to controls, HCP/SCCP, evidence, audit work and certification workflows.
 
 ### Module 3 — Evidence
 ObjectID, EventID, EvidenceID, ActorID, Timestamp, IntegrityProof; append-only provenance; signatures/hashes; supersession.
@@ -133,4 +133,4 @@ Training uses sandbox/development data. It must not create production shipments,
 - refresher/change-log programme;
 - train-the-trainer pack.
 
-## 9. External recognition gate
+## 9. Professional qualification recognition

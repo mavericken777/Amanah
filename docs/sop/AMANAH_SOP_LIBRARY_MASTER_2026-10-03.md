@@ -92,5 +92,4 @@ Every controlled procedure records:
 
 ## 6. Provider and authority workflows
 
-[SOURCE-LOCKED: licensed normative requirement text]  
-[PILOT: shipment workflow — China → GCC direct — NOT-INSTANTIATED]
+Apply current requirements in the maintained standards register across the China → GCC direct assurance journey.

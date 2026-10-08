@@ -11,6 +11,6 @@
 | 06 | 25s | lab sample + chain of custody + signed report | controlled macro | NOT DETECTED != HALAL | lab ambience |
 | 07 | 30s | factory/batch/pallet digital twin | split-screen physical/digital | Digital Audit Twin | low mechanical layer |
 | 08 | 30s | sensors, seal, geofence, telemetry and alert | fast tracking + HUD | Platinum Monitoring | alert pulse |
-| 09 | 30s | China → port → GCC flow | aerial map-to-ground | shipment workflow | music resolves upward |
+| 09 | 30s | China → port → GCC flow | aerial map-to-ground | end-to-end product journey | music resolves upward |
 | 10 | 25s | real-time monitoring connects certification status, evidence and custody | close-up dashboard | Certification decisions are recorded and monitored | measured system pulse |
 | 11 | 20s | stakeholder dashboard with certification workflow labels | calm dolly out | Operational release != certification | final chord |

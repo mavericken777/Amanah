@@ -11,7 +11,7 @@
 | Audit day | identity/scope confirmation; walkthrough; object scans; observations/evidence; findings; immediate containment where needed |
 | Post-audit 0–2 days | signed record, finding register, evidence manifest, owners/dates |
 | CAPA period | root cause, action, objective evidence, controlled re-verification |
-| Closure | verified CAPA + applicable authority/operational gates; audit closure does not itself certify |
+| Closure | verified CAPA + applicable authority/operational decisions; audit closure does not itself certify |
 
 ## Minimum evidence pack
 site plan/zones; segregation; cleaning/sertu procedure ownership where applicable; inbound/outbound records; batch/location genealogy; vehicle/container/seal records; temperature/condition data; staff competence/training; equipment calibration/maintenance; incident/CAPA records; system export/API evidence.

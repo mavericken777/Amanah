@@ -44,9 +44,9 @@ Narration: "The Digital Audit Twin links the physical world to a controlled digi
 Visual: sensors, telemetry, geofence, seal, event stream and alert.
 Narration: "At the Platinum layer, device identity and telemetry can contribute continuous evidence: temperature, humidity, seal status, location, custody and exception events. A trust fracture can place an entity on hold rather than silently allowing release."
 
-### 03:45-04:15 — China → GCC pilot
+### 03:45-04:15 — China → GCC journey
 Visual: China origin → factory → laboratory → container → port → GCC destination → receiving.
-Narration: "The first controlled transaction is the China to GCC direct corridor pilot. shipment workflow is not a fictional certification. It is a transaction model whose real closure depends on real SKU, manufacturer, importer, documents, evidence, custody and destination release."
+Narration: "The China to GCC direct journey connects the manufacturer, certified laboratory, audit, warehouse, logistics, ports, importer and destination operations. Every handoff is linked to the relevant product, evidence and responsible decision maker."
 
 ### 04:15-04:40 — Trust state and release
 Visual: certification decision records connect to trust status and continuous monitoring.
@@ -62,4 +62,4 @@ Narration: "AHTE is built to make evidence easier to trust, decisions easier to 
 - "Certification decisions are monitored across every connected handoff."
 - "NOT DETECTED != HALAL"
 - "Operational release != certification"
-- "[PILOT: shipment workflow — China → GCC direct]"
+- "China → GCC direct. One connected assurance journey."

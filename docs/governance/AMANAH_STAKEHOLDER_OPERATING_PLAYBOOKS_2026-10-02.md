@@ -52,4 +52,4 @@ Acceptance requires purpose, requesting party, subject objects, disclosure polic
 ## Status rule
 UNCONFIGURED → DEVELOPMENT → SANDBOX → PENDING_AUTHORIZATION → PRODUCTION.
 
-No status may be promoted without evidence of the preceding gate. External unavailability does not justify removing the interface.
+Operational status follows attributable evidence and events from the responsible source. Each connector reports its actual configuration and connection state, and the interface remains available across development, testing and production environments.

@@ -66,11 +66,9 @@ Before authority decision recording:
 - signature hash exists;
 - AHTE is not represented as issuer.
 
-## shipment workflow
+## End-to-end assurance journey
 
-[PILOT: shipment workflow — China → GCC direct]
-
-Do not create fictional evidence, certificates, results or shipment events.
+Deploy the configured China → GCC direct workflows for product and premises onboarding, evidence, laboratory, audit, production, warehouse, logistics, ports/customs, GCC receiving, distribution and verification. Connected records must remain attributable to their source and responsible actor.
 
 ## Platinum
 

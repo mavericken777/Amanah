@@ -68,6 +68,6 @@ Passwords, API keys, tokens, recovery codes, passport/identity scans, payment-ca
 
 Business-critical changes record actor, operation, entity, before/after values and timestamp.
 
-## Higher-assurance release gates
+## Release protections
 
 MFA policy, SSO where required, secrets management, dependency scanning, penetration testing, backup restore drills, audit retention and incident response.

@@ -81,5 +81,5 @@
     "AHTE can release sovereign customs hold",
     "simulated event is production evidence"
   ],
-  "external_gate": "Only competent authorities may recognize statutory/regulated professional qualifications."
+  "qualification_recognition": "Only competent authorities recognize statutory or regulated professional qualifications."
 }
