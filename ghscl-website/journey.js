@@ -53,7 +53,7 @@ const journey = {
 if (typeof document !== 'undefined') {
   const $ = id => document.getElementById(id);
   let index = 0, mode = 'Journey', auditStep = 0, labStep = 0, exception = null, lastExceptionResolution = '', recordTab = 'Overview', monitorView = 'Map';
-  let playing = true, timer = null;
+  let playing = true, timer = null, countdownTimer = null, playbackSpeed = 1, stageStartedAt = 0;
   const element = (tag, text, cls) => { const el = document.createElement(tag); el.textContent = text; if (cls) el.className = cls; return el; };
   const buttons = (host, labels, action) => labels.forEach((label, i) => { const b = element('button', label); b.type = 'button'; b.addEventListener('click', () => action(i, label)); host.append(b); });
   function fields(host, values) { host.replaceChildren(); const dl = document.createElement('dl'); values.forEach(([key,val]) => { dl.append(element('dt',key),element('dd',val)); }); host.append(dl); }
@@ -185,8 +185,24 @@ if (typeof document !== 'undefined') {
 
   function select(i){ index=Math.max(0,Math.min(journey.stages.length-1,i)); render(); }
   function updatePlayback(){ $('playJourney').textContent=playing?'Pause journey':'Play journey'; $('playbackStatus').textContent=playing?'Automatically advancing through the complete platform process':'Journey paused for inspection'; }
-  function schedule(){ if(timer) clearInterval(timer); if(!playing)return; timer=setInterval(()=>{index=index>=journey.stages.length-1?0:index+1;render();},4200); }
-  function pause(){playing=false;if(timer)clearInterval(timer);timer=null;updatePlayback();}
+  function schedule(){
+    if(timer)clearTimeout(timer);
+    if(countdownTimer)clearInterval(countdownTimer);
+    timer=null;countdownTimer=null;
+    if(!playing||exception)return;
+    const duration=4200/playbackSpeed;
+    stageStartedAt=Date.now();
+    const progress=$('journeyTimer'),label=$('journeyTimerLabel');
+    if(progress){progress.max=String(duration);progress.value='0';}
+    if(label)label.textContent='Next stage in '+(duration/1000).toFixed(1)+' seconds';
+    timer=setTimeout(()=>{index=index>=journey.stages.length-1?0:index+1;render();schedule();},duration);
+    countdownTimer=setInterval(()=>{
+      const elapsed=Date.now()-stageStartedAt;
+      if(progress)progress.value=String(Math.min(duration,elapsed));
+      if(label)label.textContent='Next stage in '+Math.max(0,(duration-elapsed)/1000).toFixed(1)+' seconds';
+    },100);
+  }
+  function pause(){playing=false;if(timer)clearTimeout(timer);if(countdownTimer)clearInterval(countdownTimer);timer=null;countdownTimer=null;updatePlayback();}
   function toggle(){playing=!playing;updatePlayback();schedule();}
 
   buttons($('stageNav'),journey.stages.map(s=>s[0]),i=>{pause();select(i);});
@@ -197,6 +213,13 @@ if (typeof document !== 'undefined') {
   $('previousStage').addEventListener('click',()=>{pause();select(index-1);});
   $('nextStage').addEventListener('click',()=>{pause();select(index+1);});
   $('playJourney').addEventListener('click',toggle);
+  $('playbackSpeed').addEventListener('click',e=>{
+    const button=e.target.closest('button[data-speed]');
+    if(!button)return;
+    playbackSpeed=Number(button.dataset.speed);
+    [...$('playbackSpeed').children].forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+    schedule();
+  });
   $('restartJourney').addEventListener('click',()=>{index=0;playing=true;render();updatePlayback();schedule();});
 
   function auditRender(){ $('auditCheckpoint').textContent=journey.audit[auditStep]; $('auditGuide').textContent=auditStep<8?'Guided workflow: resolve the applicable control, inspect the object and capture attributable evidence.':'Human review: assess the observation, record findings, close corrective action and sign the attributable audit session.'; fields($('auditEvidence'),[['Checkpoint',journey.audit[auditStep]],['Actor','Assigned human auditor'],['Evidence','Attributable observation / media / record'],['Decision','Human audit conclusion; competent-authority certification remains separate']]); $('auditPrevious').disabled=auditStep===0; $('auditNext').disabled=auditStep===journey.audit.length-1; renderRecord(); }
