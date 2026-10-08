@@ -10,7 +10,7 @@
     "ms",
     "ar"
   ],
-  "canonicalCommit": "14456e99937d6f11d63bd041dcffdb903d12594f",
+  "canonicalCommit": "70246a361ca799d092d12d968a301c87c71ca2d7",
   "baseUrl": "https://mavericken777.github.io/Amanah/",
   "navigation": [
     [
@@ -817,7 +817,7 @@
       "sources": [
         "00_EXECUTIVE_COMMAND/corridor-registry.json",
         "deliverables/07_SINOTRANS_PLAYBOOK.md",
-        "master-standards-stack/CHINA_EXECUTION_PACK/08_CHINA_PILOT_SHIPMENT_001_GCC_RELEASE_PLAYBOOK.md"
+        "master-standards-stack/CHINA_EXECUTION_PACK/08_CHINA_PILOT_shipment_workflow_GCC_RELEASE_PLAYBOOK.md"
       ],
       "related": [
         "traceability",
@@ -1793,10 +1793,8 @@
         }
       ],
       "sources": [
-        "CHINA_TRIP_2026/00_READ_THIS_FIRST.md",
-        "CHINA_TRIP_2026/SIGNING_MATRIX.md",
-        "00_EXECUTIVE_COMMAND/OCTOBER_2026_STRATEGIC_IMPLEMENTATION_MISSION.md",
-        "master-standards-stack/CHINA_EXECUTION_PACK/10_MACHINE_READABLE_EXECUTION_PACK.json"
+        "docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md",
+        "docs/ahte/AHTE_PLATFORM_ARCHITECTURE.md"
       ],
       "related": [
         "ecosystem",
@@ -1970,6 +1968,5 @@
         "command-center"
       ]
     }
-  ],
-  "operationalStatus": "Shipment 001 remains a pilot requiring real execution evidence."
+  ]
 }

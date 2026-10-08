@@ -1,15 +1,9 @@
-# AMANAH operations and delivery
-
-## China Trip
-
-- [Master delivery prompt](../AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md)
-- [Website presentation brief](WEBSITE_BRIEF_2026-10-05.md)
-- [Master deliverable index](MASTER_DELIVERABLE_INDEX_2026-10-03.md)
-- [China Mission executive pack](../mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md)
-- [China Mission meeting brief book](../mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md)
+# Operations and delivery references
 
 ## Platform operations
 
+- [Current platform overview](STATUS.md)
+- [Engineering backlog](PENDING.md)
 - [Business continuity](AMANAH_BUSINESS_CONTINUITY_2026-10-02.md)
 - [Exception engine](AMANAH_EXCEPTION_ENGINE_2026-10-02.md)
 - [Global Command Center](AMANAH_GLOBAL_COMMAND_CENTRE_2026-10-02.md)
@@ -18,9 +12,8 @@
 - [Release checklist](RELEASE_CHECKLIST.md)
 - [Deployment runbook](DEPLOYMENT_RUNBOOK.md)
 
-## Quality
+## Quality and validation
 
-- [Cross-consistency QA](CROSS_CONSISTENCY_QA_2026-10-03.md)
 - [Red-team review](RED_TEAM_REVIEW_2026-10-03.md)
 - [Visual QC](VISUAL_QC_REPORT_2026-10-03.md)
 - [Document QC](DOCUMENT_QC_REPORT_2026-10-03.md)

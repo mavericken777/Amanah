@@ -17,9 +17,9 @@ Canonical PR [#20](https://github.com/mavericken777/GlobalHalalDigitalTrust/pull
 | Canonical file | Correction |
 | --- | --- |
 | `05_PLATINUM_REAL_TIME_MONITORING/PLATINUM_FULL_STACK_ARCHITECTURE.md` | Direct JAKIM API diagram; internal adapter distinguished from an external intermediary; existing security controls preserved. |
-| `master-standards-stack/IQ300_AHTE_PLATFORM_README.md` | China → GCC direct; Malaysian governance/assurance plane; Shipment 001 NOT-INSTANTIATED. |
+| `master-standards-stack/IQ300_AHTE_PLATFORM_README.md` | China → GCC direct; Malaysian governance/assurance plane; shipment workflow NOT-INSTANTIATED. |
 | `master-standards-stack/CHINA_EXECUTION_PACK/02_RULE_PRECEDENCE_ENGINE.md` | Jurisdiction precedence distinguished from physical transit legs. |
-| `master-standards-stack/CHINA_EXECUTION_PACK/03_SHIPMENT_001_EVENT_CATALOGUE.md` | Explicit internal Direct JAKIM API adapter and mandate-scoped authority interfaces. |
+| `master-standards-stack/CHINA_EXECUTION_PACK/03_shipment_workflow_EVENT_CATALOGUE.md` | Explicit internal Direct JAKIM API adapter and mandate-scoped authority interfaces. |
 
 Amanah and public provenance bind to that canonical main. All 43 mirror file byte sequences were verified against that commit, together with stored SHA-256/Git blob hashes. No frozen path changed. Remaining NurAI/gateway/old-route mentions in canonical current sources prohibit or supersede the old architecture; historical/frozen integrity evidence remains preserved.
 
@@ -44,7 +44,7 @@ The release remains subject to **all eight exact-head CI jobs**, unresolved-thre
 
 ## External and product scope
 
-[STATUS](STATUS.md), [PENDING](PENDING.md), [RELEASE_CHECKLIST](RELEASE_CHECKLIST.md) and [external operations runbook](EXTERNAL_GATES_RUNBOOK_2026-10-01.md) control current evidence and deployment gates. Real authority/partner/lab/customs/GCC/finance credentials, contracts and decisions remain external/source-locked. Production authenticated UAT, hosting authorization and branch protection remain account gates. Shipment 001 remains NOT-INSTANTIATED.
+[STATUS](STATUS.md), [PENDING](PENDING.md), [RELEASE_CHECKLIST](RELEASE_CHECKLIST.md) and [external operations runbook](EXTERNAL_GATES_RUNBOOK_2026-10-01.md) control current evidence and deployment gates. Real authority/partner/lab/customs/GCC/finance credentials, contracts and decisions remain external/source-locked. Production authenticated UAT, hosting authorization and branch protection remain account gates. shipment workflow remains NOT-INSTANTIATED.
 
 This housekeeping record closes the listed source/provenance/review defects; it does not promote reference code into production, certify external operations, or claim every optional future product enhancement is complete. Original requirements and acceptance scopes remain preserved in delivery/requirements documentation.
 

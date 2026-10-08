@@ -318,9 +318,9 @@ Malaysia is the governance, assurance and authority-connectivity plane unless a 
 
 China origin → manufacturer → laboratory → Sinotrans warehouse → origin port/customs → international transit → GCC port/customs → importer pre-arrival/receiving/quarantine → destination warehouse/inventory → distributor/3PL custody → retailer/marketplace listing/receiving → buyer/authority/retailer/consumer verification.
 
-**[PILOT: Shipment 001 — NOT-INSTANTIATED]**
+**[PILOT: shipment workflow — NOT-INSTANTIATED]**
 
-Real product, buyer/importer, order, batch, certificate, custody and destination evidence are required before Shipment 001 can be promoted to an instantiated pilot.
+Real product, buyer/importer, order, batch, certificate, custody and destination evidence are required before shipment workflow can be promoted to an instantiated pilot.
 
 ---
 
@@ -450,7 +450,7 @@ External prices, volumes, discounts, exclusivity, revenue share, liability, insu
 4. Connect source systems, laboratories and logistics interfaces in development / sandbox.
 5. Execute audit, CAPA and re-verification workflows.
 6. Activate authorized authority, port/customs, finance and Takaful connectors.
-7. Run a controlled pilot shipment with real evidence.
+7. Run a controlled shipment workflow with real evidence.
 8. Move to production operations, Command Center monitoring and continuous assurance.
 
 ### Connector states
@@ -471,7 +471,7 @@ Unavailable credentials do not justify capability removal.
 - Port/customs permissions.
 - GCC importer/buyer and destination acceptance requirements.
 - Islamic-finance and Takaful onboarding / approvals.
-- Real Shipment 001 evidence.
+- Real shipment workflow evidence.
 - Production hosting, identity, security review and UAT.
 
 These gates affect activation, not architecture.

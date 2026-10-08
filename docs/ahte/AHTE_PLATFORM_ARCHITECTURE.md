@@ -68,7 +68,7 @@ VERIFIED CHINA RAW-MATERIAL ORIGIN
 
 Default corridor: **China → GCC direct**. Malaysia is the governance/assurance/authority-connectivity plane unless separately scoped as a physical hop.
 
-[PILOT: Shipment 001 — China → GCC direct; NOT-INSTANTIATED until transaction-native evidence exists]
+[PILOT: shipment workflow — China → GCC direct; NOT-INSTANTIATED until transaction-native evidence exists]
 
 ## Platform planes
 

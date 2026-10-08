@@ -1,13 +1,13 @@
 {
   "repository": "mavericken777/GlobalHalalDigitalTrust",
   "branch": "main",
-  "commit": "e9690ce8656b36d6db5bbcab773d883a2ba9b62f",
-  "verified_at": "2026-10-08",
+  "commit": "70246a361ca799d092d12d968a301c87c71ca2d7",
+  "verified_at": "2026-10-09",
   "freeze": "master-standards-stack/verified-2026-09-17/",
   "authority_effect": "none",
   "classification": "current implementation provenance",
-  "public_site_commit": "14456e99937d6f11d63bd041dcffdb903d12594f",
-  "public_site_provenance_note": "The public GHSCL site remains pinned to target-architecture snapshot 14456e99937d6f11d63bd041dcffdb903d12594f. Current GlobalHalalDigitalTrust main e9690ce8656b36d6db5bbcab773d883a2ba9b62f was verified on 2026-10-08 for control updates and the China laboratory identity. The dynamic standards registry is the active control; the prior dated package is retained only as historical provenance.",
+  "public_site_commit": "70246a361ca799d092d12d968a301c87c71ca2d7",
+  "public_site_provenance_note": "The public GHSCL site source metadata is bound to GlobalHalalDigitalTrust main 70246a361ca799d092d12d968a301c87c71ca2d7, verified on 2026-10-09. The repository contains the current platform architecture and integration interfaces; private trip and transaction records are managed outside it.",
   "standards_control": "master-standards-stack/iq300-all-jakim-ms/01_MASTER_STANDARDS_REGISTER.md",
   "historical_standards_snapshot": "master-standards-stack/verified-2026-09-17/ (retired from GlobalHalalDigitalTrust main on 2026-10-08)"
 }

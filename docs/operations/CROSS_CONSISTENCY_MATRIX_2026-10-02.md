@@ -11,7 +11,7 @@
 | Trust binding | ObjectID + EventID + EvidenceID + ActorID + Timestamp + IntegrityProof | LOCKED |
 | Trust lifecycle | INITIAL → EVIDENCE-COMPLETE → ASSESSED → VERIFIED → RELEASED | LOCKED |
 | Finance/Takaful | External decision plane | LOCKED |
-| Shipment 001 | NOT-INSTANTIATED without real evidence | LOCKED |
+| shipment workflow | NOT-INSTANTIATED without real evidence | LOCKED |
 | Standards | Complete applicable Malaysian/JAKIM framework; frozen stack remains controlling | LOCKED |
 | Partner commitments | Draft/proposal until documentary execution evidence exists | LOCKED |
 | Public messaging | Full platform story without false external activation claim | LOCKED |

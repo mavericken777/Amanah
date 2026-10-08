@@ -26,7 +26,7 @@ External activation gates remain open where real authority/partner/transaction e
 | RT-05 | Historical NurAI hop reappears publicly | Topology drift | Public site scan contains no NurAI authority hop; archive retained as superseded history | CLOSED IN REPO |
 | RT-06 | China→Malaysia physical route reappears as default | Corridor drift | Public/canonical controls use China→GCC direct; Malaysia governance plane | CLOSED IN REPO |
 | RT-07 | Sandbox response shown as production authority response | False external state | connector lifecycle + environment labels + no fabricated receipts | CLOSED IN REPO |
-| RT-08 | Shipment 001 inferred from architecture/demo | Transaction fabrication | NOT-INSTANTIATED state enforced | CLOSED IN REPO |
+| RT-08 | shipment workflow inferred from architecture/demo | Transaction fabrication | NOT-INSTANTIATED state enforced | CLOSED IN REPO |
 | RT-09 | One aggregate trust score masks critical failure | Safety/assurance failure | hard gates and separate state domains; non-compensatory critical controls | CLOSED IN REPO |
 | RT-10 | Evidence is overwritten after finding | Audit tampering | append-only evidence + supersession | CLOSED IN REPO |
 | RT-11 | Compromised account accesses another tenant | Data breach | tenant RLS + membership/role checks; production identity UAT remains required | CONTROLLED / UAT GATE |
@@ -51,7 +51,7 @@ A release is blocked if any current controlling artifact:
 - claims software/AI/lab/blockchain creates Halal certification;
 - inserts an intermediary into AHTE ⇄ Direct JAKIM API ⇄ JAKIM;
 - changes default physical corridor away from China → GCC direct;
-- fabricates external response, partner commitment or Shipment 001 evidence;
+- fabricates external response, partner commitment or shipment workflow evidence;
 - merges authority/trust/customs/finance state;
 - removes an external gate because credentials/evidence are unavailable.
 
@@ -64,6 +64,6 @@ A release is blocked if any current controlling artifact:
 [OPEN GATE: port/customs authorization]  
 [OPEN GATE: GCC destination acceptance]  
 [OPEN GATE: finance/Takaful counterparties]  
-[OPEN GATE: real Shipment 001 evidence]
+[OPEN GATE: real shipment workflow evidence]
 
 **Closure:** Item 61 complete to project control.

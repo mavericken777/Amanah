@@ -67,9 +67,9 @@ Before authority decision recording:
 - signature hash exists;
 - AHTE is not represented as issuer.
 
-## Shipment 001
+## shipment workflow
 
-[PILOT: Shipment 001 — China → GCC direct]
+[PILOT: shipment workflow — China → GCC direct]
 
 Do not create fictional evidence, certificates, results or shipment events.
 

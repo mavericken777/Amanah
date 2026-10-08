@@ -51,7 +51,7 @@ A deliverable is **DONE TO PROJECT CONTROL** only when all applicable conditions
 
 A project-controlled deliverable can be complete while an external activation gate remains open **only if** the complete interface/control/operating package is built and the missing external input is explicitly identified with owner and promotion evidence.
 
-Examples: Direct JAKIM production credentials, laboratory accreditation/API, Sinotrans production site/system credentials, port/customs authorization, GCC importer acceptance, finance/Takaful decision, real Shipment 001 evidence.
+Examples: Direct JAKIM production credentials, laboratory accreditation/API, Sinotrans production site/system credentials, port/customs authorization, GCC importer acceptance, finance/Takaful decision, real shipment workflow evidence.
 
 ## Closure test
 

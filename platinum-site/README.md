@@ -51,7 +51,7 @@ The site presents the controlling topology:
 
 AI assists; authorised humans and competent authorities decide. Laboratory output is evidence, not certification. Hashes prove integrity, not truth. Ports/customs and finance/Takaful states remain externally owned.
 
-Direct JAKIM production connectivity and other real external connectors are activated only when the relevant authority/partner supplies authorised production inputs. Shipment 001 remains NOT-INSTANTIATED until real evidence exists.
+Direct JAKIM production connectivity and other real external connectors are activated only when the relevant authority/partner supplies authorised production inputs. shipment workflow remains NOT-INSTANTIATED until real evidence exists.
 
 ## Local commands
 
@@ -81,7 +81,7 @@ A passing build is not deployment. Promotion into the public website is performe
 - four-stage GSAP verification journey with desktop pinning and mobile/reduced-motion static degradation
 - keyboard/accessibility, 44px target and reduced-transparency safeguards
 
-The Phase 4 implementation is source-adapted to the controlling architecture: China → GCC direct, AHTE ⇄ Direct JAKIM API ⇄ JAKIM, laboratory evidence is not certification, external finance/Takaful/customs decisions remain externally owned, and Shipment 001 remains NOT-INSTANTIATED.
+The Phase 4 implementation is source-adapted to the controlling architecture: China → GCC direct, AHTE ⇄ Direct JAKIM API ⇄ JAKIM, laboratory evidence is not certification, external finance/Takaful/customs decisions remain externally owned, and shipment workflow remains NOT-INSTANTIATED.
 
 
 ### Phase 5 — Tasks 31–35

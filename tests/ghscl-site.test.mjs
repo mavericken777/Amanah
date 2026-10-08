@@ -64,7 +64,7 @@ test('public journey models the complete lifecycle without asserting sovereign o
 });
 
 test('public homepage contains no engineering/demo presentation leakage and auto-plays all 20 stages',()=>{
-  for(const term of ['CN-DEMO-24001','DEMO-SHIPMENT-001','DIGITAL TRUST PASSPORT','DEMO RELEASE REQUEST GENERATED','DEMO TOPOLOGY','PROJECT-REPO','Source foundation:','illustrative','simulation','prototype']) assert.ok(!html.toLowerCase().includes(term.toLowerCase()),term);
+  for(const term of ['CN-DEMO-24001','DEMO-shipment-workflow','DIGITAL TRUST PASSPORT','DEMO RELEASE REQUEST GENERATED','DEMO TOPOLOGY','PROJECT-REPO','Source foundation:','illustrative','simulation','prototype']) assert.ok(!html.toLowerCase().includes(term.toLowerCase()),term);
   assert.match(html,/id="playJourney"/);
   assert.match(html,/id="restartJourney"/);
   assert.match(html,/GLOBAL HALAL SUPPLY CHAIN LIMITED/,'legal company name must appear in the primary brand');

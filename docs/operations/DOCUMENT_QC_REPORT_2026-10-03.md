@@ -38,7 +38,7 @@ A controlled document must have:
 - External gates belong in `docs/operations/PENDING.md`.
 - Master navigation belongs in `REPO_INDEX.md`.
 - Final human-readable directory belongs in `docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md`.
-- Machine-readable index remains `docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-02.json` until a later explicit versioned replacement.
+- The current project deliverable index is `docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md`.
 
 ## Document families checked
 

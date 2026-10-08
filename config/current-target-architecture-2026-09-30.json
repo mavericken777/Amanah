@@ -35,7 +35,7 @@
     "destination": "GCC",
     "physical_route": "China -> GCC direct",
     "malaysia_role": "governance / assurance / authority-connectivity plane unless a physical hop is separately scoped",
-    "pilot": "Shipment 001",
+    "pilot": "shipment workflow",
     "pilot_status": "NOT-INSTANTIATED"
   },
   "authority_workflow": {
@@ -360,5 +360,5 @@
       "use": "complete target capability + replaceable sandbox/development provider until real connector is available"
     }
   ],
-  "source_commit": "e9690ce8656b36d6db5bbcab773d883a2ba9b62f"
+  "source_commit": "70246a361ca799d092d12d968a301c87c71ca2d7"
 }

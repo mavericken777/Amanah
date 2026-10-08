@@ -28,7 +28,7 @@ The pre-restructure inventory records file hashes and KEEP/UPDATE dispositions i
 | Event architecture / continuous trust monitoring | `digital-trust.html#monitoring`; retained simulated Platinum console; explicit exception/HOLD/re-verification responses |
 | Four synchronized chains | `traceability.html`; interactive physical, identity/custody, evidence, authority/trust explorer |
 | Logistics / Sinotrans / warehouse / container / seal / port | Traceability/corridor/partners pages and LogisticsConnector/LogisticsGateway ports |
-| China / GCC / importer / receiving / retail | `china-gcc.html`, `traceability.html`; Shipment 001 explicitly pilot-only |
+| China / GCC / importer / receiving / retail | `china-gcc.html`, `traceability.html`; shipment workflow explicitly pilot-only |
 | Verification / selective disclosure | `verify.html`; existing issuer-token public service; loading, unknown/expired, timeout/unavailable and successful authorized-field rendering |
 | Role-based transparency / data sovereignty / security | Role-specific content and federated minimal exchange; existing portal auth/RLS retained; public CSP, no-referrer, safe text rendering and no client secret |
 | Contact / conversion | Manufacturer preparation and local enquiry brief; no fictional delivery endpoint/contact address |
@@ -58,6 +58,6 @@ Manufacturer/contact briefs are local preparation tools. Authenticated applicati
 
 `CLAIMS_AND_GATES_2026-09-30.json` records PHC mandate, laboratory recognition and source state-vocabulary conflicts without resolving them. The canonical `authority_decided` machine state remains without an onward transition. Certification stays with JAKIM/MAIN/JAIN; GCC destination acceptance stays with competent authorities/importers.
 
-[PILOT: Shipment 001 — China → GCC]. The film remains an editorial motion study over AI concept stills. Full animated photoreal production and real-world photography remain external media gates.
+[PILOT: shipment workflow — China → GCC]. The film remains an editorial motion study over AI concept stills. Full animated photoreal production and real-world photography remain external media gates.
 
 Canonical path: Authority → Standard / Instrument → Clause / Requirement → Applicability → Control → HCP / SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → Authority Gate → Trust State → Operational Release.

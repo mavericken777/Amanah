@@ -9,21 +9,16 @@ test('current presentation state is end-to-end stakeholder focused and free of s
   const status=read('docs/operations/STATUS.md');
   const pending=read('docs/operations/PENDING.md');
   const human=read('docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md');
-  const machine=JSON.parse(read('docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-02.json'));
 
   assert.match(readme,/100% End-to-End Master Execution Prompt/);
-  assert.match(readme,/China Trip — Master Delivery Prompt/);
   assert.match(readme,/AHTE ⇄ Direct JAKIM API ⇄ JAKIM/);
   assert.match(readme,/China → GCC direct/);
-  assert.match(status,/registry-driven/i);
-  assert.match(status,/not limited to MS 1500 or MS 2400/i);
-  assert.match(status,/not capped to a permanent count/i);
-  assert.match(pending,/external activation checklist/i);
+  assert.match(status,/complete applicable Malaysian\/JAKIM/i);
+  assert.match(pending,/engineering work areas/i);
   assert.doesNotMatch(readme,/69\/69 COMPLETE|execution register|batch 56|batch 61/i);
   assert.doesNotMatch(status,/69-item|69\/69|exact-head CI/i);
   assert.doesNotMatch(human,/69-item|69\/69|final closure/i);
-  assert.equal(machine.platform.current_primary_standards_count,17);
-  assert.equal(machine.platform.registry_mode,'extensible_applicability_registry');
-  assert.equal(machine.platform.authority_topology,'AHTE ⇄ Direct JAKIM API ⇄ JAKIM');
-  assert.equal(machine.platform.corridor,'China → GCC direct');
+  const operating=JSON.parse(read('docs/ahte/MS_OPERATING_SET.json'));
+  assert.equal(operating.catalog_count,17);
+  assert.match(operating.rule,/registry-driven/i);
 });

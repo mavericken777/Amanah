@@ -76,7 +76,7 @@ Hard non-decision controls include:
 - project `lqvyyylrydcpjochknag` remains `ACTIVE_HEALTHY`;
 - PostgreSQL verified at `17.11`;
 - new target-extension foreign-key indexes applied;
-- no real Shipment 001 transaction records fabricated.
+- no real shipment workflow transaction records fabricated.
 
 ### Public website
 
@@ -89,7 +89,7 @@ Hard non-decision controls include:
 ### Governance
 
 - Historical `3d5cc29...` and `ae3f662...` reconciliation records remain historical and were not rewritten to claim later review.
-- Shipment 001 remains `[PILOT]` and uninstantiated until real transaction-native evidence exists.
+- shipment workflow remains `[PILOT]` and uninstantiated until real transaction-native evidence exists.
 - No live JAKIM, laboratory, Sinotrans, port/GCC, financing, Takaful or tokenomics connection is fabricated by this release.
 - Supabase managed PostgreSQL maintenance gate is closed for this synchronization after live 17.11 verification; normal future maintenance remains operational work.
 

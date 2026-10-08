@@ -40,7 +40,7 @@ The current project baseline records four Supabase SECURITY DEFINER proxy-wrappe
 
 ## External activation gates
 
-JAKIM specification/scopes/credentials; China lab identity/scope; Sinotrans exact contracting entity/sites/system contracts; port/customs permissions; GCC importer/destination acceptance; financial/Takaful/regulatory onboarding; real Shipment 001 evidence; production hosting/identity UAT.
+JAKIM specification/scopes/credentials; China lab identity/scope; Sinotrans exact contracting entity/sites/system contracts; port/customs permissions; GCC importer/destination acceptance; financial/Takaful/regulatory onboarding; real shipment workflow evidence; production hosting/identity UAT.
 
 ## Batch QA rule
 
