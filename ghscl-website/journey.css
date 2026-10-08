@@ -27,3 +27,10 @@
 .governance-level.active{border-color:#e5c778;background:#2a2418;box-shadow:inset 0 0 0 1px #e5c778}
 @media(max-width:760px){.governance-levels{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:390px){.governance-levels{grid-template-columns:1fr}.exception-response-path{display:grid}}
+
+.journey-playback{gap:.75rem}
+.playback-speed{display:flex;gap:4px}
+.playback-speed button{min-width:44px;padding:8px 10px}
+.journey-playback progress{width:min(180px,30vw);height:10px;accent-color:var(--gold)}
+#journeyTimerLabel{min-width:130px;font-variant-numeric:tabular-nums}
+@media(max-width:560px){.journey-playback progress{width:100%;order:5}.playback-speed{order:4}}
