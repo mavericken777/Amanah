@@ -30,6 +30,10 @@ test('public journey exposes the complete Malaysian/JAKIM framework rather than 
   assert.ok(html.includes('MS 2683:2017'),'supplemental standard missing');
 });
 
+test('published journey assets are versioned with the release commit',()=>{
+  for(const asset of ['journey.css','journey.js','home-menu.js']) assert.ok(html.includes(asset+'?v=ab52eccb4ed5b0d033b07a5054008bf2aa03008a'),'missing cache-versioned '+asset);
+});
+
 test('public journey models the complete lifecycle without asserting sovereign or operational release',()=>{
   const context={module:{exports:{}}};
   vm.runInNewContext(fs.readFileSync('ghscl-website/journey.js','utf8'),context);
