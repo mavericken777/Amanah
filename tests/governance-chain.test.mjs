@@ -21,8 +21,8 @@ test("AI review has assessment/provenance primitives and cannot execute D5/D6", 
   assert.match(roles,/ahte_ai_provenance/);
   assert.match(assurance,/decisionClass === "D5" \|\| decisionClass === "D6"/);
   assert.match(assurance,/authority_gate_reserved/);
-  assert.match(architecture,/"d5_bypass":false/);
-  assert.match(architecture,/"d6_bypass":false/);
+  assert.match(architecture,/"d5_bypass"\s*:\s*false/);
+  assert.match(architecture,/"d6_bypass"\s*:\s*false/);
 });
 
 test("human governance keeps HITM and signed authority proof explicit", () => {
