@@ -44,6 +44,8 @@ test('public homepage contains no engineering/demo presentation leakage and auto
   for(const term of ['CN-DEMO-24001','DEMO-SHIPMENT-001','DIGITAL TRUST PASSPORT','DEMO RELEASE REQUEST GENERATED','DEMO TOPOLOGY','PROJECT-REPO','Source foundation:','illustrative','simulation','prototype']) assert.ok(!html.toLowerCase().includes(term.toLowerCase()),term);
   assert.match(html,/id="playJourney"/);
   assert.match(html,/id="restartJourney"/);
+  assert.match(html,/National Food Safety \(Hengqin\) Innovation Center under the Chinese Academy of Agricultural Sciences, China/);
+  assert.doesNotMatch(html,/China Food Security and Innovation Laboratory/);
   const context={module:{exports:{}}};
   vm.runInNewContext(fs.readFileSync('ghscl-website/journey.js','utf8'),context);
   assert.equal(context.module.exports.stages.length,20);
@@ -79,7 +81,10 @@ test('public experience includes first-class China Mission, GCC importer and ret
   for (const route of ['laboratory.html','hardware.html','distributor.html','interoperability.html','cybersecurity.html']) {
     assert.ok(fs.existsSync('ghscl-website/' + route), route);
   }
-  assert.match(fs.readFileSync('ghscl-website/laboratory.html','utf8'),/NOT_DETECTED ≠ HALAL/);
+  const laboratory=fs.readFileSync('ghscl-website/laboratory.html','utf8');
+  assert.match(laboratory,/NOT_DETECTED ≠ HALAL/);
+  assert.match(laboratory,/National Food Safety \(Hengqin\) Innovation Center/);
+  assert.match(laboratory,/Chinese Academy of Agricultural Sciences, China/);
   assert.match(fs.readFileSync('ghscl-website/hardware.html','utf8'),/Device trust and offline continuity/);
   assert.match(fs.readFileSync('ghscl-website/distributor.html','utf8'),/Distributor \/ 3PL operating flow/);
   assert.match(fs.readFileSync('ghscl-website/interoperability.html','utf8'),/REST, SOAP and XML/);
