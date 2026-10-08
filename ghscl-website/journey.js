@@ -116,8 +116,12 @@ if (typeof document !== 'undefined') {
       });
       host.append(path);
       const title=element('h3','Potential recall trace scope');
-      radius.append(title,element('p','Trace linked product and batch identity through shipment and custody events, importer inventory, distributor transfers, retail stock and affected orders.'));
-      radius.append(element('p','Exact lots, quantities and recipients must come from linked records; this walkthrough does not invent identifiers or affected counts.'));
+      const tree=element('ul','', 'recall-tree');
+      const root=element('li','Current product and batch identity');
+      const branches=element('ul');
+      ['Shipment and custody events','Importer inventory and destination warehouse','Distributor transfers and deliveries','Retail stock and affected orders'].forEach(label=>branches.append(element('li',label)));
+      root.append(branches);tree.append(root);
+      radius.append(title,tree,element('p','Exact lots, quantities and recipients must come from linked records; this walkthrough does not invent identifiers or affected counts.'));
       const phases=['HOLD','INVESTIGATION','CORRECTIVE-ACTION','RE-VERIFICATION'];
       const labels=['Record investigation','Record corrective action','Complete re-verification','Finish response walkthrough'];
       const at=phases.indexOf(exception.phase);
