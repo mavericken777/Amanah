@@ -1,6 +1,6 @@
 # Private external activation checklist
 
-**Updated:** 7 October 2026  
+**Updated:** 8 October 2026  
 **Use:** internal pre-signature / production-activation follow-up only. This is not a China-trip presentation page.
 
 The platform architecture and presentation materials are complete independently of production credentials. The following items require the relevant external party before a real production transaction can be activated.
