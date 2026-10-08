@@ -4,6 +4,8 @@
 
 Record the mission-ready standalone artifacts generated from the controlling AMANAH / Global Halal Digital Trust architecture after website deployment and the 12-instrument MOA package.
 
+**Availability check (8 October 2026):** The DOCX/PDF/PPTX files listed below are not present in this repository or its workspace `output/` directory. This manifest records the reported generation, but it is not a download location; those binary files cannot be opened or accessibility-checked from this checkout. The Markdown source packs and MOA drafts linked from the master index are present.
+
 ## Standalone operating artifacts
 
 - `AMANAH_Sinotrans_Platinum_Operations_Playbook_2026-10-07.docx/pdf`

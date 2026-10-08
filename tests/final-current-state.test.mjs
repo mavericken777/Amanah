@@ -9,6 +9,7 @@ test('current presentation state is end-to-end stakeholder focused and free of s
   const status=read('docs/operations/STATUS.md');
   const pending=read('docs/operations/PENDING.md');
   const human=read('docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md');
+  const repoIndex=read('REPO_INDEX.md');
   const machine=JSON.parse(read('docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-02.json'));
 
   assert.match(readme,/100% End-to-End Master Execution Prompt/);
@@ -22,6 +23,10 @@ test('current presentation state is end-to-end stakeholder focused and free of s
   assert.doesNotMatch(readme,/69\/69 COMPLETE|execution register|batch 56|batch 61/i);
   assert.doesNotMatch(status,/69-item|69\/69|exact-head CI/i);
   assert.doesNotMatch(human,/69-item|69\/69|final closure/i);
+  assert.equal(human.includes('\\n'),false,'human index must not contain literal newline escapes');
+  assert.equal(repoIndex.includes('\\n'),false,'repository index must not contain literal newline escapes');
+  assert.match(human,/China Mission public showcase/);
+  assert.match(repoIndex,/China Mission public demo runbook/);
   assert.equal(machine.platform.current_primary_standards_count,17);
   assert.equal(machine.platform.registry_mode,'extensible_applicability_registry');
   assert.equal(machine.platform.authority_topology,'AHTE ⇄ Direct JAKIM API ⇄ JAKIM');

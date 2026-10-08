@@ -10,7 +10,8 @@
 - [Website presentation brief](docs/operations/WEBSITE_BRIEF_2026-10-05.md)
 - [Master deliverable index](docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md)
 - [China Mission executive pack](docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md)
-- [China Trip platform demonstration guide](docs/mission/CHINA_TRIP_PLATFORM_DEMONSTRATION_GUIDE_2026-10-07.md)\n- [China Mission public demo runbook](docs/mission/CHINA_MISSION_PUBLIC_DEMO_RUNBOOK_2026-10-07.md)
+- [China Trip platform demonstration guide](docs/mission/CHINA_TRIP_PLATFORM_DEMONSTRATION_GUIDE_2026-10-07.md)
+- [China Mission public demo runbook](docs/mission/CHINA_MISSION_PUBLIC_DEMO_RUNBOOK_2026-10-07.md)
 - [China Mission 12-instrument MOA signing pack](docs/mission/moa-signing-pack-2026-10/00-REGISTER.md)
 - [China Mission meeting brief book](docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md)
 - [Objection-handling book](docs/mission/OBJECTION_HANDLING_BOOK_2026-10-03.md)
@@ -53,7 +54,8 @@
 
 - Public website: `ghscl-website/`
 - Platform Tour public route: `ghscl-website/platform-tour.html`
-- Distributor public route: `ghscl-website/distributor.html`\n- China Mission public showcase: `ghscl-website/china-mission.html`
+- Distributor public route: `ghscl-website/distributor.html`
+- China Mission public showcase: `ghscl-website/china-mission.html`
 - GCC Importer public route: `ghscl-website/gcc-importer.html`
 - Retail / Marketplace public route: `ghscl-website/retail-market.html`
 - Platinum site: `platinum-site/`
