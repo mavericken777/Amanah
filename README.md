@@ -2,14 +2,14 @@
 
 **Global Halal Supply Chain Limited** operates the international digital-infrastructure layer for the Amanah / Global Halal Digital Trust ecosystem.
 
-Amanah connects and continuously monitors the complete product assurance journey: manufacturer and facility onboarding; product, SKU, supplier and material records; applicable requirements and controls; JAKIM-recognised laboratory and premises workflows; halal audit and certification records; production and batch events; certified warehouse and logistics custody; ports; GCC receiving and distribution; and consumer verification. The system maintains a real-time operational view across evidence, custody, exceptions, risk and corrective action.
+Amanah connects and continuously monitors the complete product assurance journey: manufacturer and facility onboarding; product, SKU, supplier and material records; applicable requirements and controls; JAKIM-certified laboratories, premises, logistics providers and warehouses; halal audit and certification records; production and batch events; ports; GCC receiving and distribution; and consumer verification. The system maintains a real-time operational view across evidence, custody, exceptions, risk and corrective action.
 
 AI/ML supports evidence review, anomaly detection, predictive analytics, impact analysis and preemptive strategy recommendations. JAKIM, JAIN/JAIM, muftis, scholars and authorised halal auditors make certification award and revocation decisions through their applicable governance and certification processes. The platform records and propagates those decisions throughout the connected SKU, premises and supply-chain journey. PHC and JAKIM work in parallel across Perak/state and federal governance within Malaysia’s shared Islamic-law framework.
 
 ## Product journey
 
 ```text
-China producer and origin → organisation, premises, product and SKU → suppliers, ingredients and source records → applicable requirements and controls → certified laboratory sampling, custody, method and result → halal audit and certification review → corrective action and re-verification → production and batch → certified warehouse and logistics custody → ports and customs → GCC receiving, distribution, retail and verification → real-time monitoring, prediction and recall support
+China producer and origin → organisation, premises, product and SKU → suppliers, ingredients and source records → applicable requirements and controls → JAKIM-certified laboratory sampling, custody, method and result → halal audit and certification review → corrective action and re-verification → production and batch → JAKIM-certified warehouse and logistics custody → ports and customs → GCC receiving, distribution, retail and verification → real-time monitoring, prediction and recall support
 ```
 
 Laboratory findings remain linked to sample, method, scope, review and signature; NOT DETECTED ≠ HALAL. The public website presents **Global Halal Supply Chain Limited** and an animated, interactive end-to-end product journey. The project architecture connects AHTE ⇄ Direct JAKIM API ⇄ JAKIM across the China → GCC direct corridor.
@@ -22,4 +22,3 @@ Laboratory findings remain linked to sample, method, scope, review and signature
 - [Application and operations index](REPO_INDEX.md)
 - [Setup](SETUP.md)
 
-Private trip administration, agreements, counterparty signatures, personal identifiers, and transaction-specific records are maintained outside the public repositories.

@@ -503,12 +503,12 @@ create table if not exists public.ahte_source_records (
   source_url text,
   retrieved_at timestamp with time zone,
   hash12 text,
-  source_status text default 'source_locked'::text not null,
+  source_status text default 'catalogued_reference'::text not null,
   supersedes_id uuid,
   created_at timestamp with time zone default now() not null,
   constraint ahte_source_records_organization_id_fkey FOREIGN KEY (organization_id) REFERENCES organizations(id) ON DELETE CASCADE,
   constraint ahte_source_records_pkey PRIMARY KEY (id),
-  constraint ahte_source_records_source_status_check CHECK ((source_status = ANY (ARRAY['source_verified'::text, 'source_locked'::text, 'expired'::text, 'superseded'::text, 'conflicted'::text]))),
+  constraint ahte_source_records_source_status_check CHECK ((source_status = ANY (ARRAY['source_verified'::text, 'catalogued_reference'::text, 'expired'::text, 'superseded'::text, 'conflicted'::text]))),
   constraint ahte_source_records_supersedes_id_fkey FOREIGN KEY (supersedes_id) REFERENCES ahte_source_records(id) ON DELETE SET NULL
 );
 alter table public.ahte_source_records enable row level security;

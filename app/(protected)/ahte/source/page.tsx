@@ -40,7 +40,7 @@ export default async function AHTESourcePage(){
         {operatingSet.standards.map((standard)=><article className="card" key={standard.code}>
           <div className="eyebrow">{standard.code}</div>
           <h3>{standard.title}</h3>
-          <p className="muted">{standard.source_status.replaceAll("_"," ")}</p>
+          <p className="muted">Included in the current Malaysian/JAKIM applicability register</p>
         </article>)}
       </div>
       <div className="stack">

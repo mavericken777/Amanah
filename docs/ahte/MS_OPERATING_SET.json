@@ -1,96 +1,78 @@
 {
   "source_repository": "mavericken777/GlobalHalalDigitalTrust",
   "source_artifact": "master-standards-stack/iq300-all-jakim-ms/01_MASTER_STANDARDS_REGISTER.md",
-  "status": "verified Malaysian/JAKIM standards registry with 17 current primary standards plus applicable technical/product instruments",
+  "status": "Current Malaysian/JAKIM applicability registry with applicable technical and product standards.",
   "standards": [
     {
       "code": "MS 1500:2019",
-      "title": "Halal food — General requirements",
-      "source_status": "public_structure_verified"
+      "title": "Halal food — General requirements"
     },
     {
       "code": "MS 2400-1:2019",
-      "title": "Halal supply chain management system — Transportation",
-      "source_status": "source_verified_numbered_objects"
+      "title": "Halal supply chain management system — Transportation"
     },
     {
       "code": "MS 2400-2:2019",
-      "title": "Halal supply chain management system — Warehousing",
-      "source_status": "source_verified_numbered_objects"
+      "title": "Halal supply chain management system — Warehousing"
     },
     {
       "code": "MS 2400-3:2019",
-      "title": "Halal supply chain management system — Retailing",
-      "source_status": "source_verified_numbered_objects"
+      "title": "Halal supply chain management system — Retailing"
     },
     {
       "code": "MS 2424:2019",
-      "title": "Halal pharmaceuticals — General requirements",
-      "source_status": "public_structure_verified"
+      "title": "Halal pharmaceuticals — General requirements"
     },
     {
       "code": "MS 2634:2019",
-      "title": "Halal cosmetics — General requirements",
-      "source_status": "public_structure_verified"
+      "title": "Halal cosmetics — General requirements"
     },
     {
       "code": "MS 2636:2019",
-      "title": "Halal medical device — General requirements",
-      "source_status": "public_structure_verified"
+      "title": "Halal medical device — General requirements"
     },
     {
       "code": "MS 2738:2023",
-      "title": "Halal consumable goods — General requirements",
-      "source_status": "public_structure_verified"
+      "title": "Halal consumable goods — General requirements"
     },
     {
       "code": "MS 2803:2025",
-      "title": "Usage of animal bone, skin and hair — General requirements for halal products",
-      "source_status": "detailed_normative_source_locked"
+      "title": "Usage of animal bone, skin and hair — General requirements for halal products"
     },
     {
       "code": "MS 2393:2023",
-      "title": "Islamic and halal terminologies — Definitions and interpretations",
-      "source_status": "public_structure_verified"
+      "title": "Islamic and halal terminologies — Definitions and interpretations"
     },
     {
       "code": "MS 2627:2017",
-      "title": "Detection of porcine DNA — Test method — Food and food products",
-      "source_status": "public_structure_verified"
+      "title": "Detection of porcine DNA — Test method — Food and food products"
     },
     {
       "code": "MS 2627-2:2025",
-      "title": "Detection of porcine DNA — Test method — Part 2: Cosmetics",
-      "source_status": "detailed_normative_source_locked"
+      "title": "Detection of porcine DNA — Test method — Part 2: Cosmetics"
     },
     {
       "code": "MS 1900:2025",
-      "title": "Shariah-based quality management system — Requirements",
-      "source_status": "detailed_normative_source_locked"
+      "title": "Shariah-based quality management system — Requirements"
     },
     {
       "code": "MS 2691:2021",
-      "title": "Halal profession — General requirements",
-      "source_status": "public_structure_verified"
+      "title": "Halal profession — General requirements"
     },
     {
       "code": "MS 2610:2015",
-      "title": "Muslim-friendly hospitality services — Requirements",
-      "source_status": "public_structure_verified"
+      "title": "Muslim-friendly hospitality services — Requirements"
     },
     {
       "code": "MS 2809:2025",
-      "title": "Authentication of products using chemometric techniques",
-      "source_status": "detailed_normative_source_locked"
+      "title": "Authentication of products using chemometric techniques"
     },
     {
       "code": "MS 2810:2025",
-      "title": "Consumable goods — Test method — Identification of pig skin and hair",
-      "source_status": "detailed_normative_source_locked"
+      "title": "Consumable goods — Test method — Identification of pig skin and hair"
     }
   ],
   "rule": "Standards applicability is registry-driven. The current primary Malaysian/JAKIM standards catalogue and every verified applicable product/technical instrument remain first-class applicability candidates. Exact normative text is used only from verified/licensed sources; certification authority remains with the competent authority.",
-  "control_date": "2026-09-17",
   "catalog_count": 17,
   "scope_rule": "The platform evaluates the complete applicable Malaysian/JAKIM Halal framework. MS 1500 and MS 2400 are not the entire standards universe, and the architecture is not hard-coded to a fixed standards count.",
   "certification_layer": [
@@ -109,45 +91,8 @@
       "code": "MS 2683:2017",
       "title": "Kelulut (Stingless bee) honey — Specification",
       "role": "Supplemental product-quality/specification instrument when a Kelulut honey SKU is in scope",
-      "catalog_status": "Applicable technical/product instrument outside the current primary catalogue; evaluated whenever its product or technical scope applies.",
-      "source_status": "primary_supplied_supplemental_standard"
+      "catalog_status": "Applicable technical/product instrument outside the current primary catalogue; evaluated whenever its product or technical scope applies."
     }
   ],
-  "supersession_note": "Historical/supporting standards remain versioned in provenance and are not silently promoted as current primary halal requirements.",
-  "registry_mode": "extensible_applicability_registry",
-  "superseded_context": [
-    {
-      "historical": "MS 1500:2009",
-      "current": "MS 1500:2019"
-    },
-    {
-      "historical": "MS 2400-1/-2/-3:2010",
-      "current": "MS 2400-1/-2/-3:2019"
-    },
-    {
-      "historical": "MS 2424:2012",
-      "current": "MS 2424:2019"
-    },
-    {
-      "historical": "MS 2200-1:2008",
-      "current": "MS 2634:2019"
-    },
-    {
-      "historical": "MS 2565:2014 / MS 2594:2015",
-      "current": "MS 2738:2023",
-      "context": "relevant consumable-goods scheme requirements"
-    },
-    {
-      "historical": "MS 2200-2:2013",
-      "current": "MS 2803:2025"
-    },
-    {
-      "historical": "MS 2393:2013",
-      "current": "MS 2393:2023"
-    },
-    {
-      "historical": "MS 1900:2014",
-      "current": "MS 1900:2025"
-    }
-  ]
+  "registry_mode": "extensible_applicability_registry"
 }

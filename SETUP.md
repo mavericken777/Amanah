@@ -2,7 +2,7 @@
 
 ## What Amanah is
 
-Amanah is the AHTE operational platform for Global Halal Supply Chain Ltd HK. It uses the GlobalHalalDigitalTrust repository as the canonical project architecture/reference source and Supabase as the live application data plane.
+Amanah is the AHTE operational platform operated by Global Halal Supply Chain Limited. It uses the GlobalHalalDigitalTrust repository for shared project architecture and Supabase as the application data plane.
 
 ## Local development
 
@@ -43,8 +43,4 @@ The live backend contains the current AHTE schema, RLS, storage, lifecycle trigg
 
 ## Important certification workflow
 
-Amanah does not issue sovereign halal certification. AI is advisory. authorised certification decision workflow decisions are reserved. Operational release is not certification.
-
-## Source-lock boundary
-
-Exact normative standards text is not invented or reconstructed. Use the licensed/approved controlling source when exact clause wording is required.
+Amanah monitors the assurance journey for certified products/SKUs, premises, suppliers, laboratories, production, warehouses and logistics. PHC and JAKIM work in parallel across Perak/state and federal governance. JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors make certification award and revocation decisions through their applicable processes. AI/ML supports real-time monitoring, predictive analytics and preemptive strategies; it does not make certification decisions. Authority connectivity follows **AHTE ⇄ Direct JAKIM API ⇄ JAKIM**. The physical corridor is **China → GCC direct**.

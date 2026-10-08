@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { pathToFileURL } from "node:url";
 
 const { chromium } = await import(pathToFileURL(process.env.PLAYWRIGHT_MODULE).href);
+const previewUrl = (process.env.PREVIEW_URL ?? "http://127.0.0.1:4173").replace(/\/$/, "");
 const browser = await chromium.launch({ headless: true, ...(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {}) });
 
 const transparencyPage = await browser.newPage({ viewport: { width: 375, height: 812 } });
@@ -9,7 +10,7 @@ const transparencyCdp = await transparencyPage.context().newCDPSession(transpare
 await transparencyCdp.send("Emulation.setEmulatedMedia", {
   features: [{ name: "prefers-reduced-transparency", value: "reduce" }]
 });
-await transparencyPage.goto("http://127.0.0.1:4173/", { waitUntil: "domcontentloaded" });
+await transparencyPage.goto(previewUrl + "/", { waitUntil: "domcontentloaded" });
 const transparency = await transparencyPage.evaluate(() => ({
   supported: matchMedia("(prefers-reduced-transparency: reduce)").matches,
   glass: document.querySelector(".glass")
@@ -40,7 +41,7 @@ await mobileCdp.send("Network.emulateNetworkConditions", {
 const pageErrors = [];
 mobilePage.on("pageerror", error => pageErrors.push(String(error)));
 const started = Date.now();
-await mobilePage.goto("http://127.0.0.1:4173/", {
+await mobilePage.goto(previewUrl + "/", {
   waitUntil: "domcontentloaded",
   timeout: 60000
 });

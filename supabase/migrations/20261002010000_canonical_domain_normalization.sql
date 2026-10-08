@@ -1,5 +1,5 @@
--- Post-freeze AMANAH domain normalization: control date 2026-10-02.
--- Frozen standards are unchanged. This migration only normalizes first-class operational objects.
+-- AMANAH domain normalization: control date 2026-10-02.
+-- Normalizes first-class operational objects.
 
 alter table public.ahte_materials add column if not exists material_role text not null default 'raw_material';
 alter table public.ahte_materials drop constraint if exists ahte_materials_material_role_check;

@@ -1,4 +1,4 @@
--- Post-freeze target architecture persistence derived from GlobalHalalDigitalTrust@ae3f662f7467.
+-- Target architecture persistence derived from GlobalHalalDigitalTrust project architecture.
 -- These objects are operational/evidence records. They do not create certification, sovereign release,
 -- financing approval, Takaful underwriting decisions or legal title.
 

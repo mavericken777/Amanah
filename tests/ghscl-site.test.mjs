@@ -40,11 +40,11 @@ test('published journey assets use release-versioned URLs',()=>{
   }
 });
 
-test('generated public pages omit internal source and freeze metadata from visible footers',()=>{
+test('generated public pages omit internal source metadata from visible footers',()=>{
   const pages=['china-gcc','china-mission','command-center','contact','cybersecurity','digital-trust','distributor','ecosystem','finance-takaful','gcc-importer','hardware','how-it-works','interoperability','laboratory','manufacturers','partners','platform-tour','retail-market','smart-audit','traceability','verify'];
   for(const page of pages) {
     const html=fs.readFileSync(`ghscl-website/${page}.html`,'utf8');
-    assert.doesNotMatch(html,/<p class="site-provenance">|Platform foundations\s*·\s*Canonical|Freeze:\s*verified-2026-09-17/i,page);
+    assert.doesNotMatch(html,/<p class="site-provenance">|Platform foundations\s*·\s*Canonical/i,page);
     assert.match(html,/<h2>How this capability connects<\/h2>/,`${page} should explain its platform connection in stakeholder language`);
   }
 });
@@ -72,8 +72,7 @@ test('public homepage contains no engineering/demo presentation leakage and auto
   assert.match(html,/class="hero-scene"/,'hero needs an informative animated route visual');
   assert.match(html,/id="platformCargo"/,'journey cargo must move with the selected stage');
   assert.match(html,/id="sceneEvidence"/,'stage animation must explain its evidence');
-  assert.match(html,/National Food Safety \(Hengqin\) Innovation Center under the Chinese Academy of Agricultural Sciences, China/);
-  assert.doesNotMatch(html,/China Food Security and Innovation Laboratory/);
+  assert.match(html,/JAKIM-certified laborat/);
   const context={module:{exports:{}}};
   vm.runInNewContext(fs.readFileSync('ghscl-website/journey.js','utf8'),context);
   assert.equal(context.module.exports.stages.length,20);
@@ -135,8 +134,7 @@ test('public experience includes first-class China Mission, GCC importer and ret
   }
   const laboratory=fs.readFileSync('ghscl-website/laboratory.html','utf8');
   assert.match(laboratory,/NOT_DETECTED ≠ HALAL/);
-  assert.match(laboratory,/National Food Safety \(Hengqin\) Innovation Center/);
-  assert.match(laboratory,/Chinese Academy of Agricultural Sciences, China/);
+  assert.match(laboratory,/JAKIM-certified laborat/);
   assert.match(fs.readFileSync('ghscl-website/hardware.html','utf8'),/Device trust and offline continuity/);
   assert.match(fs.readFileSync('ghscl-website/distributor.html','utf8'),/Distributor \/ 3PL operating flow/);
   assert.match(fs.readFileSync('ghscl-website/interoperability.html','utf8'),/REST, SOAP and XML/);

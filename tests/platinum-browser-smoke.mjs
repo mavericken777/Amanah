@@ -3,6 +3,7 @@ import { pathToFileURL } from "node:url";
 
 const mod = await import(pathToFileURL(process.env.PLAYWRIGHT_MODULE).href);
 const { chromium } = mod;
+const previewUrl = (process.env.PREVIEW_URL ?? "http://127.0.0.1:4173").replace(/\/$/, "");
 const browser = await chromium.launch({ headless: true, ...(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {}) });
 const page = await browser.newPage();
 const axePath = process.env.AXE_PATH;
@@ -12,7 +13,7 @@ for (const width of viewports) {
   await page.setViewportSize({ width, height: 900 });
   const errors = [];
   page.on("pageerror", error => errors.push(String(error)));
-  await page.goto("http://127.0.0.1:4173/", { waitUntil: "networkidle" });
+  await page.goto(previewUrl + "/", { waitUntil: "networkidle" });
   await page.evaluate(() => {
     document.documentElement.style.scrollBehavior = "auto";
     window.scrollTo(0, window.innerHeight);
@@ -201,7 +202,7 @@ for (const width of viewports) {
 
 await page.emulateMedia({ reducedMotion: "reduce" });
 await page.setViewportSize({ width: 375, height: 900 });
-await page.goto("http://127.0.0.1:4173/", { waitUntil: "networkidle" });
+await page.goto(previewUrl + "/", { waitUntil: "networkidle" });
 assert.equal(await page.evaluate(() => document.documentElement.classList.contains("platinum-smooth-scroll")), false, "Reduced motion must disable Lenis");
 await page.locator("#verification-journey").scrollIntoViewIfNeeded();
 await page.locator(".journey-stage").first().waitFor({ state: "attached" });
@@ -210,7 +211,7 @@ assert.equal(await page.locator(".static-shield").count(), 0, "Superseded hero s
 assert.equal(await page.locator(".halal-shield-stage canvas").count(), 0, "Reduced-motion Phase 4 fallback must not require WebGL");
 
 const verifierPage = await browser.newPage({ viewport: { width: 375, height: 812 } });
-await verifierPage.goto("http://127.0.0.1:4173/verify.html", { waitUntil: "networkidle" });
+await verifierPage.goto(previewUrl + "/verify.html", { waitUntil: "networkidle" });
 const verificationViews = verifierPage.locator(".secondary-path-grid button");
 assert.equal(await verificationViews.count(), 3, "secondary verifier must expose product, batch and shipment views");
 await verificationViews.first().click();
