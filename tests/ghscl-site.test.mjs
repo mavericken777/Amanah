@@ -84,6 +84,8 @@ test('journey stage changes preserve page position and prevent document-level si
   const script=fs.readFileSync('ghscl-website/journey.js','utf8');
   assert.match(motion,/overflow-x:clip/);
   assert.match(motion,/grid-template-columns:minmax\(0,1\.2fr\) minmax\(0,1fr\)/);
+  assert.match(motion,/\.content-section\{grid-template-columns:minmax\(0,1fr\) minmax\(0,1\.8fr\)!important\}/);
+  assert.match(motion,/\.content-section\{grid-template-columns:minmax\(0,1fr\)!important\}/);
   assert.doesNotMatch(script,/scrollIntoView\(/,'stage navigation must not jump the page away from the hero');
   assert.match(script,/nav\.scrollTo\(/,'keep stage focus inside its horizontal timeline');
 });
