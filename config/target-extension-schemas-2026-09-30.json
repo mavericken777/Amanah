@@ -3,7 +3,7 @@
   "artifact": "target-extension-schemas-2026-09-30.json",
   "version": "0.2.0",
   "control_date": "2026-09-30",
-  "classification": "post-freeze proposal schema extension",
+  "classification": "active platform schema extension",
   "authority_effect": "none",
   "description": "Target-state schemas for connector state, command-center alerts, machine prediction, preemptive strategy, Shariah-finance evidence packets, financing cases, Takaful cases and tokenized-asset references. Schema conformance does not create authority, credit, underwriting, token legal status, Shariah approval or certification status.",
   "$defs": {

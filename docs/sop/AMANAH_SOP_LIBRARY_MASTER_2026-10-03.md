@@ -16,7 +16,7 @@ AI may assist D0–D2 and configured D4 holds. authorised certification decision
 
 ## 2. SOP control format
 
-Each SOP must identify: trigger; accountable owner; authorised actors; required inputs; system of record; minimum evidence; validation tests; exception path; escalation; output; retention/audit log; and external gates.
+Each SOP must identify: trigger; accountable owner; authorised actors; required inputs; system of record; minimum evidence; validation tests; exception path; escalation; output; retention/audit log; and connected provider and authority workflows.
 
 ## 3. Master SOP set
 
@@ -90,7 +90,7 @@ Production requires: named counterparty; legal/technical authorization; producti
 Every controlled procedure records:
 `ObjectID + EventID + EvidenceID + ActorID + Timestamp + IntegrityProof`, plus decision actor, source system, state before/after, exception reason, approval/override reason where applicable, and supersession reference.
 
-## 6. External gates
+## 6. Provider and authority workflows
 
 [SOURCE-LOCKED: licensed normative requirement text]  
 [PILOT: shipment workflow — China → GCC direct — NOT-INSTANTIATED]

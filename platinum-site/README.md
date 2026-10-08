@@ -92,4 +92,4 @@ The Phase 4 implementation is source-adapted to the controlling architecture: Ch
 - secure Amanah login visual parity with the public trust-terminal identity
 - full-site GitHub Pages promotion and route-level CI verification
 
-Phase 5 consumes the existing `ghscl-website/ecosystem.en.json` content source so the platinum renderer does not create a second architecture narrative. The frozen standards baseline is not modified.
+Phase 5 consumes the existing `ghscl-website/ecosystem.en.json` content source so the platinum renderer does not create a second architecture narrative. The current standards register is maintained as the active standards source.

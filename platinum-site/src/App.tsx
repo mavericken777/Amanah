@@ -68,7 +68,7 @@ const trustPath = [
   "Finding",
   "Corrective Action",
   "Re-verification",
-  "Authority Gate",
+  "Certification Decision",
   "Trust State",
   "Operational Release",
 ];
