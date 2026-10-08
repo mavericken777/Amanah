@@ -52,8 +52,8 @@ const journey = {
 
 if (typeof document !== 'undefined') {
   const $ = id => document.getElementById(id);
-  let index = 0, mode = 'Journey', auditStep = 0, labStep = 0, exception = '', recordTab = 'Overview', monitorView = 'Map';
-  let playing = true, timer = null;
+  let index = 0, mode = 'Journey', auditStep = 0, labStep = 0, exception = null, lastExceptionResolution = '', recordTab = 'Overview', monitorView = 'Map';
+  let playing = true, timer = null, countdownTimer = null, playbackSpeed = 1, stageStartedAt = 0;
   const element = (tag, text, cls) => { const el = document.createElement(tag); el.textContent = text; if (cls) el.className = cls; return el; };
   const buttons = (host, labels, action) => labels.forEach((label, i) => { const b = element('button', label); b.type = 'button'; b.addEventListener('click', () => action(i, label)); host.append(b); });
   function fields(host, values) { host.replaceChildren(); const dl = document.createElement('dl'); values.forEach(([key,val]) => { dl.append(element('dt',key),element('dd',val)); }); host.append(dl); }
@@ -75,6 +75,75 @@ if (typeof document !== 'undefined') {
     [...$('passportTabs').children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===recordTab)));
   }
 
+  function renderGovernanceMatrix() {
+    const host=$('governanceMatrix');
+    if(!host)return;
+    const levels=[
+      ['D0','Automated observation and deterministic checks','System'],
+      ['D1','Structured rule and requirement validation','Rules'],
+      ['D2','AI-assisted matching and checklist support','AI assists'],
+      ['D3','Recommendation for accountable human review','Human review'],
+      ['D4','Configured operational hold when a control is breached','Hold'],
+      ['D5','Formal Halal certification decision by authorised humans / competent authority','Authority'],
+      ['D6','Sovereign customs, port or other reserved release decision','Authority']
+    ];
+    host.replaceChildren();
+    const heading=element('h3','Decision boundaries');
+    const grid=element('div','', 'governance-levels');
+    levels.forEach(([level,description,owner])=>{
+      const card=element('article','', 'governance-level');
+      if(exception&&level==='D4')card.classList.add('active');
+      card.append(element('strong',level),element('span',description),element('small',owner));
+      if(exception&&level==='D4')card.setAttribute('aria-current','step');
+      grid.append(card);
+    });
+    host.append(heading,grid,element('p','AI assists. Humans and competent authorities decide. A D4 hold does not certify a product or execute a sovereign release.'));
+  }
+
+  function renderExceptionState() {
+    const host=$('exceptionState'), actions=$('exceptionActions'), radius=$('exceptionBlastRadius'), clear=$('resetException');
+    if(!host||!actions||!radius||!clear)return;
+    host.replaceChildren(); actions.replaceChildren(); radius.replaceChildren();
+    $('playJourney').disabled=Boolean(exception);
+    $('restartJourney').disabled=Boolean(exception);
+    [...$('exceptionButtons').children].forEach(button=>{button.disabled=Boolean(exception);});
+    if(exception){
+      host.append(element('strong','D4 operational hold · '+exception.type));
+      host.append(element('p','Journey progression is paused at stage '+String(exception.stage+1)+'. The configured hold remains active while the evidence is investigated.'));
+      host.append(element('p','The walkthrough records a response path only; it does not certify Halal status or make an authority release decision.'));
+      const path=element('ol','', 'exception-response-path');
+      [['HOLD','Configured hold'],['INVESTIGATION','Investigation'],['CORRECTIVE-ACTION','Corrective action'],['RE-VERIFICATION','Re-verification']].forEach(([phase,label])=>{
+        const item=element('li',label);
+        if(exception.phase===phase)item.setAttribute('aria-current','step');
+        path.append(item);
+      });
+      host.append(path);
+      const title=element('h3','Potential recall trace scope');
+      const tree=element('ul','', 'recall-tree');
+      const root=element('li','Current product and batch identity');
+      const branches=element('ul');
+      ['Shipment and custody events','Importer inventory and destination warehouse','Distributor transfers and deliveries','Retail stock and affected orders'].forEach(label=>branches.append(element('li',label)));
+      root.append(branches);tree.append(root);
+      radius.append(title,tree,element('p','Exact lots, quantities and recipients must come from linked records; this walkthrough does not invent identifiers or affected counts.'));
+      const phases=['HOLD','INVESTIGATION','CORRECTIVE-ACTION','RE-VERIFICATION'];
+      const labels=['Record investigation','Record corrective action','Complete re-verification','Finish response walkthrough'];
+      const at=phases.indexOf(exception.phase);
+      const action=element('button',labels[Math.max(0,at)]);
+      action.type='button';
+      action.addEventListener('click',()=>{
+        if(at<3){exception.phase=phases[at+1];renderExceptionState();render();return;}
+        lastExceptionResolution='Re-verification recorded in the walkthrough. Any operational release remains with the accountable operator and competent authority.';
+        exception=null;renderExceptionState();render();updatePlayback();
+      });
+      actions.append(action);
+      clear.disabled=true;
+    }else{
+      host.textContent=lastExceptionResolution||'Select a scenario to inspect the hold and review path.';
+      clear.disabled=!lastExceptionResolution;
+    }
+    renderGovernanceMatrix();
+  }
+
   function renderMonitor() {
     const s=journey.stages[index];
     $('monitorPanel').textContent={
@@ -82,7 +151,7 @@ if (typeof document !== 'undefined') {
       Timeline:(index+1)+' connected lifecycle stages completed or in view.',
       Custody:'Current accountable holder: '+s[7],
       Evidence:s[4],
-      Exceptions:exception||'No exception selected. Choose a scenario to inspect the response path.'
+      Exceptions:exception ? exception.type+' · '+exception.phase : (lastExceptionResolution||'No exception selected. Choose a scenario to inspect the response path.')
     }[monitorView];
     [...$('monitorViews').children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===monitorView)));
   }
@@ -123,8 +192,24 @@ if (typeof document !== 'undefined') {
 
   function select(i){ index=Math.max(0,Math.min(journey.stages.length-1,i)); render(); }
   function updatePlayback(){ $('playJourney').textContent=playing?'Pause journey':'Play journey'; $('playbackStatus').textContent=playing?'Automatically advancing through the complete platform process':'Journey paused for inspection'; }
-  function schedule(){ if(timer) clearInterval(timer); if(!playing)return; timer=setInterval(()=>{index=index>=journey.stages.length-1?0:index+1;render();},4200); }
-  function pause(){playing=false;if(timer)clearInterval(timer);timer=null;updatePlayback();}
+  function schedule(){
+    if(timer)clearTimeout(timer);
+    if(countdownTimer)clearInterval(countdownTimer);
+    timer=null;countdownTimer=null;
+    if(!playing||exception)return;
+    const duration=4200/playbackSpeed;
+    stageStartedAt=Date.now();
+    const progress=$('journeyTimer'),label=$('journeyTimerLabel');
+    if(progress){progress.max=String(duration);progress.value='0';}
+    if(label)label.textContent='Next stage in '+(duration/1000).toFixed(1)+' seconds';
+    timer=setTimeout(()=>{index=index>=journey.stages.length-1?0:index+1;render();schedule();},duration);
+    countdownTimer=setInterval(()=>{
+      const elapsed=Date.now()-stageStartedAt;
+      if(progress)progress.value=String(Math.min(duration,elapsed));
+      if(label)label.textContent='Next stage in '+Math.max(0,(duration-elapsed)/1000).toFixed(1)+' seconds';
+    },100);
+  }
+  function pause(){playing=false;if(timer)clearTimeout(timer);if(countdownTimer)clearInterval(countdownTimer);timer=null;countdownTimer=null;updatePlayback();}
   function toggle(){playing=!playing;updatePlayback();schedule();}
 
   buttons($('stageNav'),journey.stages.map(s=>s[0]),i=>{pause();select(i);});
@@ -135,6 +220,13 @@ if (typeof document !== 'undefined') {
   $('previousStage').addEventListener('click',()=>{pause();select(index-1);});
   $('nextStage').addEventListener('click',()=>{pause();select(index+1);});
   $('playJourney').addEventListener('click',toggle);
+  $('playbackSpeed').addEventListener('click',e=>{
+    const button=e.target.closest('button[data-speed]');
+    if(!button)return;
+    playbackSpeed=Number(button.dataset.speed);
+    [...$('playbackSpeed').children].forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+    schedule();
+  });
   $('restartJourney').addEventListener('click',()=>{index=0;playing=true;render();updatePlayback();schedule();});
 
   function auditRender(){ $('auditCheckpoint').textContent=journey.audit[auditStep]; $('auditGuide').textContent=auditStep<8?'Guided workflow: resolve the applicable control, inspect the object and capture attributable evidence.':'Human review: assess the observation, record findings, close corrective action and sign the attributable audit session.'; fields($('auditEvidence'),[['Checkpoint',journey.audit[auditStep]],['Actor','Assigned human auditor'],['Evidence','Attributable observation / media / record'],['Decision','Human audit conclusion; competent-authority certification remains separate']]); $('auditPrevious').disabled=auditStep===0; $('auditNext').disabled=auditStep===journey.audit.length-1; renderRecord(); }
@@ -147,12 +239,12 @@ if (typeof document !== 'undefined') {
   buttons($('custodyRibbon'),['Manufacturer','Sinotrans / logistics','Warehouse','Port','Carrier','Importer','Distributor','Retailer'],(i,actor)=>fields($('custodyDetail'),[['Outgoing',i?$('custodyRibbon').children[i-1].textContent:'Origin'],['Incoming',actor],['Evidence','Attributable transfer, object identity and condition record'],['Control','Custody remains linked to the same product / batch / shipment lineage']]));
   buttons($('portNodes'),['Pre-arrival','Container / seal','Documents','Inspection','Authority response','Custody transfer'],(_,node)=>fields($('portDetail'),[['Checkpoint',node],['Actor','Port / customs authority'],['Action','Reconcile scoped identity and authorised evidence'],['Result','Authority-owned border decision'],['Trust impact','Trust, authority and customs states remain separate']]));
   buttons($('monitorViews'),['Map','Timeline','Custody','Evidence','Exceptions'],(_,view)=>{monitorView=view;renderMonitor();});
-  buttons($('exceptionButtons'),['Temperature excursion','Seal mismatch','Missing custody event','Document mismatch','Route deviation'],(_,v)=>{exception=v;$('exceptionState').textContent=v+' → alert → policy assessment → HOLD → investigation → corrective action → re-verification → accountable release decision.';render();});
-  $('resetException').addEventListener('click',()=>{exception='';$('exceptionState').textContent='Scenario reset. Continuous assurance remains active.';render();});
+  buttons($('exceptionButtons'),['Temperature excursion','Seal tamper','Laboratory evidence discrepancy','Missing custody event','Document mismatch','Route deviation'],(_,v)=>{pause();exception={type:v,phase:'HOLD',stage:index};lastExceptionResolution='';renderExceptionState();render();});
+  $('resetException').addEventListener('click',()=>{if(exception)return;lastExceptionResolution='';renderExceptionState();render();});
   buttons($('actorButtons'),journey.actors.map(a=>a[0]),i=>fields($('actorDetail'),[['Role',journey.actors[i][0]],['Creates / consumes',journey.actors[i][1]],['Value and responsibility',journey.actors[i][2]]]));
   buttons($('architectureButtons'),journey.layers.map(a=>a[0]),i=>fields($('architectureDetail'),[['Layer',journey.layers[i][0]],['Purpose',journey.layers[i][1]],['Journey dependency',journey.layers[i][2]]]));
   $('consumerScan').addEventListener('click',()=>{pause();select(19);fields($('consumerRecord'),[['Product',journey.product],['Origin','China'],['Journey','Manufacturer → assurance → logistics → GCC market'],['Authority information','Issuer-authorised status and validity'],['Disclosure','Approved provenance and custody summary']]);});
 
-  render(); auditRender(); $('labSteps').firstElementChild?.click(); $('warehouseZones').firstElementChild?.click(); $('custodyRibbon').firstElementChild?.click(); $('portNodes').firstElementChild?.click(); $('actorButtons').firstElementChild?.click(); $('architectureButtons').firstElementChild?.click(); updatePlayback(); schedule();
+  renderExceptionState(); render(); auditRender(); $('labSteps').firstElementChild?.click(); $('warehouseZones').firstElementChild?.click(); $('custodyRibbon').firstElementChild?.click(); $('portNodes').firstElementChild?.click(); $('actorButtons').firstElementChild?.click(); $('architectureButtons').firstElementChild?.click(); updatePlayback(); schedule();
 }
 if (typeof module !== 'undefined') module.exports = journey;
