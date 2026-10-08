@@ -4,11 +4,11 @@
 
 `mavericken777/GlobalHalalDigitalTrust` — branch `main`.
 
-[PROJECT-REPO: https://github.com/mavericken777/GlobalHalalDigitalTrust/tree/ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5 — ccc10ca476b — 2026-10-02 — current project target snapshot]
+[PROJECT-REPO: https://github.com/mavericken777/GlobalHalalDigitalTrust/tree/e9690ce8656b36d6db5bbcab773d883a2ba9b62f — e9690ce8656b — 2026-10-08 — current verified main]
 
-Current project-level target binding: `ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5`.
+Current project-level source binding: `e9690ce8656b36d6db5bbcab773d883a2ba9b62f` (verified signed `main` head on 2026-10-08).
 
-The verified standards freeze remains `master-standards-stack/verified-2026-09-17/`. Post-freeze project architecture does not substitute for authority text or silently alter the frozen package.
+The `verified-2026-09-17` package is retained as historical provenance; GlobalHalalDigitalTrust main records its retirement from the current tree on 2026-10-08. The active standards control is `master-standards-stack/iq300-all-jakim-ms/01_MASTER_STANDARDS_REGISTER.md`, used with current JSM/JAKIM source verification. Exact normative text remains source-locked where authoritative text is unavailable.
 
 Historical reconciliation artifacts that cite `3d5cc29...` or `ae3f662...` remain historical evidence of those reviews. They are not rewritten to pretend they reviewed the later project-repo state.
 
