@@ -16,6 +16,8 @@ try {
    const paused=await page.locator('#stageTitle').textContent();
    await page.waitForTimeout(4500);
    assert.equal(await page.locator('#stageTitle').textContent(),paused,'pause stops automatic progression');
+   await page.locator('#playbackSpeed button[data-speed="2"]').click();assert.equal(await page.locator('#playbackSpeed button[data-speed="2"]').getAttribute('aria-pressed'),'true');
+   await page.locator('#playbackSpeed button[data-speed="1"]').click();assert.equal(await page.locator('#playbackSpeed button[data-speed="1"]').getAttribute('aria-pressed'),'true');
    await page.locator('#restartJourney').click();
    assert.match(await page.locator('#stageTitle').textContent(),/^01/,'restart returns to origin');
   }
@@ -24,7 +26,7 @@ try {
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   assert.match(await page.locator('h1').evaluate(e=>getComputedStyle(e).fontFamily),/Arial/);
   assert.equal(await page.locator('.platinum-shield,canvas,.home-hero-image').count(),0);
-  assert.equal(await page.locator('#stageNav button').count(),20);assert.equal(await page.locator('#playJourney').count(),1);assert.equal(await page.locator('#restartJourney').count(),1);for(let i=0;i<20;i++){await page.locator('#stageNav button').nth(i).click();assert.match(await page.locator('#stageTitle').textContent(),new RegExp(`^${String(i+1).padStart(2,'0')}`));assert.ok((await page.locator('#passportBody').textContent()).length>40);}
+  assert.equal(await page.locator('#stageNav button').count(),20);assert.equal(await page.locator('#playJourney').count(),1);assert.equal(await page.locator('#restartJourney').count(),1);assert.equal(await page.locator('#playbackSpeed button').count(),3);assert.equal(await page.locator('#journeyTimer').count(),1);for(let i=0;i<20;i++){await page.locator('#stageNav button').nth(i).click();assert.match(await page.locator('#stageTitle').textContent(),new RegExp(`^${String(i+1).padStart(2,'0')}`));assert.ok((await page.locator('#passportBody').textContent()).length>40);}
   for(const stage of ['GCC importer','Destination warehouse','Distributor / 3PL','Retail / marketplace','Consumer verification & continuous assurance']){
    await page.locator('#stageNav button').filter({hasText:stage}).click();
    assert.ok((await page.locator('#stageTitle').textContent()).toLowerCase().includes(stage.toLowerCase()));
