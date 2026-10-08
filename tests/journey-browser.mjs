@@ -44,7 +44,7 @@ try {
   await page.locator('#monitorViews button').filter({hasText:/^Exceptions$/}).click();
   await page.locator('#exceptionButtons button').first().click();assert.match(await page.locator('#exceptionState').textContent(),/D4 operational hold/);assert.match(await page.locator('#monitorPanel').textContent(),/Temperature excursion/);
   const heldStage=await page.locator('#stageTitle').textContent();await page.waitForTimeout(4500);assert.equal(await page.locator('#stageTitle').textContent(),heldStage,'an exception hold pauses autoplay');
-  assert.match(await page.locator('#exceptionBlastRadius').textContent(),/importer inventory.*distributor transfers.*retail stock/i);
+  assert.match(await page.locator('#exceptionBlastRadius').textContent(),/importer inventory.*distributor transfers.*retail stock/i);assert.equal(await page.locator('#exceptionBlastRadius ul li').count(),5,'recall scope branches from the affected product identity');
   assert.match(await page.locator('#governanceMatrix').textContent(),/D0.*D1.*D2.*D3.*D4.*D5.*D6/s);
   await page.locator('#passportTabs button').filter({hasText:'Overview'}).click();assert.match(await page.locator('#passportBody').textContent(),/HOLD/);
   for(const action of ['Record investigation','Record corrective action','Complete re-verification','Finish response walkthrough'])await page.locator('#exceptionActions button').filter({hasText:action}).click();
