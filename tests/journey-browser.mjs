@@ -9,10 +9,26 @@ try {
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(process.env.JOURNEY_URL||'http://127.0.0.1:8080/index.html');
   await page.locator('#stageNav button').first().waitFor();
+  if(width===375){
+   await page.waitForTimeout(5000);
+   assert.match(await page.locator('#stageTitle').textContent(),/^02/,'journey auto-advances');
+   await page.locator('#playJourney').click();
+   const paused=await page.locator('#stageTitle').textContent();
+   await page.waitForTimeout(4500);
+   assert.equal(await page.locator('#stageTitle').textContent(),paused,'pause stops automatic progression');
+   await page.locator('#restartJourney').click();
+   assert.match(await page.locator('#stageTitle').textContent(),/^01/,'restart returns to origin');
+  }
+  const publicMarkup=await page.locator('body').textContent();
+  assert.doesNotMatch(publicMarkup,/CN-DEMO|DEMO-SHIPMENT|GHSC-DEMO|DIGITAL TRUST PASSPORT|DEMO RELEASE|DEMO TOPOLOGY|PROJECT-REPO|Source foundation|Relationship and activation|UNCONFIGURED|PENDING_AUTHORIZATION/i);
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
   assert.match(await page.locator('h1').evaluate(e=>getComputedStyle(e).fontFamily),/Arial/);
   assert.equal(await page.locator('.platinum-shield,canvas,.home-hero-image').count(),0);
   assert.equal(await page.locator('#stageNav button').count(),20);assert.equal(await page.locator('#playJourney').count(),1);assert.equal(await page.locator('#restartJourney').count(),1);for(let i=0;i<20;i++){await page.locator('#stageNav button').nth(i).click();assert.match(await page.locator('#stageTitle').textContent(),new RegExp(`^${String(i+1).padStart(2,'0')}`));assert.ok((await page.locator('#passportBody').textContent()).length>40);}
+  for(const stage of ['GCC importer','Destination warehouse','Distributor / 3PL','Retail / marketplace','Consumer verification & continuous assurance']){
+   await page.locator('#stageNav button').filter({hasText:stage}).click();
+   assert.ok((await page.locator('#stageTitle').textContent()).toLowerCase().includes(stage.toLowerCase()));
+  }
   for(const view of ['Journey','Trust','Actor','Standards','Custody','Monitoring','Consumer','Technical']){await page.locator('#viewModes button').filter({hasText:new RegExp(`^${view}$`)}).click();assert.ok((await page.locator('#modeExplanation').textContent()).length>20);}
   for(let i=0;i<12;i++)await page.locator('#auditNext').click();assert.match(await page.locator('#auditCheckpoint').textContent(),/Sync \/ reconciliation/);
   await page.locator('#auditReset').click();assert.ok(await page.locator('#auditPrevious').isDisabled());
