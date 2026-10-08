@@ -106,6 +106,7 @@ if (typeof document !== 'undefined') {
     host.replaceChildren(); actions.replaceChildren(); radius.replaceChildren();
     $('playJourney').disabled=Boolean(exception);
     $('restartJourney').disabled=Boolean(exception);
+    [...$('exceptionButtons').children].forEach(button=>{button.disabled=Boolean(exception);});
     if(exception){
       host.append(element('strong','D4 operational hold · '+exception.type));
       host.append(element('p','Journey progression is paused at stage '+String(exception.stage+1)+'. The configured hold remains active while the evidence is investigated.'));
