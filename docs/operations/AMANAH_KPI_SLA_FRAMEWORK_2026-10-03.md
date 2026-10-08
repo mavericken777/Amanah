@@ -37,7 +37,7 @@ KPIs measure performance. SLAs create commitments only when executed in a contra
 
 ## 4. Manufacturer KPIs
 
-- onboarding gate completion;
+- onboarding milestone completion;
 - missing-evidence count;
 - supplier/material provenance completeness;
 - training competence completion;
@@ -127,4 +127,4 @@ Each SLA row must contain:
 - missing data flagged, not silently treated as success;
 - authority decision time kept separate from platform processing time;
 - partner downtime distinguished from AHTE downtime;
-- simulated/pilot data cannot be merged into production KPI without explicit labeling.
+- simulation data cannot be merged into production KPI without explicit labeling.

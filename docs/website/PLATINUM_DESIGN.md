@@ -1,25 +1,21 @@
-# Platinum homepage design notes
+# Current public website design
 
-## Implementation choice
+## Brand and presentation
 
-Amanah is already a Next.js application with a source-generated static ecosystem site. GitHub Pages is built from `scripts/build-ecosystem-site.mjs`; Vite is not the source of the published site. The redesign keeps the existing generator and application build intact instead of adding a parallel bundler or a second animation runtime.
+- Identify the company as **Global Halal Supply Chain Limited** and the platform as Amanah / Global Halal Digital Trust.
+- Use the black-and-gold premium palette with Arial, Helvetica or a close neutral sans-serif system font throughout.
+- Keep the homepage free of an oversized shield or decorative centerpiece. Show the actual process and the information carried between stages.
+- Use restrained motion to explain the end-to-end journey. Each stage must identify its actor, object, evidence and next handoff. Provide pause, restart, keyboard access and reduced-motion behavior.
+- Keep diagrams, labels and motion focused on onboarding, applicable requirements, certified premises and SKUs, laboratory evidence, audit, production, custody, destination operations, verification and continuous monitoring.
 
-## Audit decisions\n\n- **Keep:** the existing visitor headline, trust journey, participant pathways, Amanah/AHTE explanation, global corridor and deeper technical links. These already give the homepage a coherent product story.\n- **Improve:** unify the homepage under an obsidian and warm-gold system, bring the Amanah trust mark into the hero, and add a visible, explorable explanation of how product identity, evidence, review and handoff connect.\n- **Rewrite:** keep the story in stakeholder language and make the boundary between platform coordination and official decisions explicit in the architecture explanation.\n- **Remove:** avoid release-gate language, unsupported metrics, fictitious activations and customer or authority claims.\n\n## Experience
+## Current operating model
 
-The homepage uses an obsidian and warm-gold palette, the existing GHSCL brand assets, an inline geometric Amanah shield motif, and the current visitor story. A four-card trust terminal uses native `<details>` disclosures to explain source identity, evidence context, accountable review and custody handoff. Each card works with keyboard and without JavaScript.
+The public narrative presents China → GCC direct and AHTE ⇄ Direct JAKIM API ⇄ JAKIM. It explains that the platform continuously monitors evidence, certification status, custody and operational events across the connected journey. AI/ML assists monitoring, prediction, impact analysis and preemptive strategy; JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors decide certification award or revocation. PHC and JAKIM work in parallel across Malaysian state and federal governance.
 
-The interaction is an illustrative architecture view, not operational status. No laboratory result, live shipment, customer, authority integration, certification, or release outcome is invented. Authority boundaries remain in the plain-language story and deeper architecture pages.
+The interface uses source records for external decisions and integrations. It does not present a demonstration event as a real transaction or replace certification, customs, finance or Takaful decision owners.
 
-## Motion and performance
+## Implementation and quality
 
-The page uses CSS composition and native HTML. No Three.js, GSAP, Lenis, D3, or Motion runtime is added. This keeps the static homepage light and avoids a second animation system; reduced-motion and reduced-transparency preferences are covered in `platinum.css`. The design uses no tracking script or runtime API.
+The published site is generated from `ghscl-website/ecosystem.en.json` by `scripts/build-ecosystem-site.mjs`. The Vite experience in `platinum-site/` supplies the public homepage and journey. The Next.js application at the repository root remains the authenticated Amanah workspace.
 
-## Validation checklist
-
-- `npm run web:build`
-- `npm run web:lint`
-- `npm test`
-- CI browser smoke: public routes and auth surfaces at 375, 768, 1024 and 1440 CSS pixels; navigation keyboard behavior; horizontal overflow; JavaScript errors; trust-terminal disclosure.
-- Capture and inspect Lighthouse output; manually review visual quality, keyboard focus, contrast and motion before any Pages deployment.
-
-A passing CI build does not prove 60fps on a physical mobile device or a Lighthouse score. Those measurements remain empirical checks, not design claims.
+Website changes are checked with `npm run web:build`, `npm run web:lint`, `npm test`, typecheck, production build, browser journeys, accessibility and Lighthouse CI.

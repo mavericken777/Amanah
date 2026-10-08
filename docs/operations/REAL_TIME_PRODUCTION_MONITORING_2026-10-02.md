@@ -24,7 +24,7 @@ Minimum event binding: `ObjectID + EventID + ActorID/DeviceID + Timestamp + Inte
 
 ## Decision path
 
-`Observe → correlate → detect → assess → HOLD where configured → assign owner → human review → corrective action → re-verification → operational release only when all required gates pass`.
+`Observe → correlate → detect → assess → HOLD where configured → assign owner → human review → corrective action → re-verification → operational disposition from current evidence and authorised decisions`.
 
 AI may predict and prioritize; it may not execute authorised certification decision workflow or silently remove a hold reserved to humans/authorities.
 

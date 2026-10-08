@@ -25,7 +25,7 @@
           buttons.forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));
           const panel=$('#graphDetail');panel.replaceChildren(node('h3',n.name),node('p',n.relations));
           const dl=node('dl');
-          for(const [key,value] of [['Identity','Architecture node; production ID not issued'],['Evidence obligations',n.evidence],['Designed state / gate',n.state],['Integrity','Source, signature and hash checks required; no proof fabricated'],['Last update','No production event timestamp']]) dl.append(node('dt',key),node('dd',value));
+          for(const [key,value] of [['Journey stage',n.name],['Evidence and records',n.evidence],['Operating state',n.state],['Record integrity','Source, signature and integrity information remain attached'],['Monitoring','Connected events and evidence are followed through the journey']]) dl.append(node('dt',key),node('dd',value));
           panel.append(dl);
         }
         data.nodes.forEach((n,i)=>{const b=node('button',n.name);b.type='button';b.addEventListener('click',()=>select(n,i));buttons.push(b);$('#graphNodes').append(b);});

@@ -132,4 +132,4 @@ Every commercial quote must identify:
 - payment milestones;
 - acceptance criteria.
 
-## 9. Financial control gate
+## 9. Financial controls

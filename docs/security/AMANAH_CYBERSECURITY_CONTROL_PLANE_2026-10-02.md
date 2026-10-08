@@ -15,6 +15,6 @@ D0-D2 machine operations and configured D4 holds are separable from certificatio
 | Evidence | signature/hash/provenance | integrity verification | HOLD + supersession; never overwrite |
 | IoT | device identity, signed telemetry | sequence/tamper anomaly | quarantine device/evidence |
 | Data | RLS/tenant boundaries | access audit | contain/export evidence |
-| Supply chain | dependency pinning/CI | SCA/test gates | patch/rebuild/re-verify |
+| Supply chain | dependency pinning/CI | SCA and test checks | patch/rebuild/re-verify |
 
 Security events bind ActorID, EventID, ObjectID where applicable, Timestamp and IntegrityProof. Hash proves integrity, not truth.

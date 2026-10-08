@@ -1,10 +1,10 @@
 {
   "artifact": "current-target-architecture-2026-09-30.json",
   "version": "1.2.0",
-  "control_date": "2026-09-30",
+  "control_date": "2026-10-09",
   "classification": "current target architecture",
   "standards_control": "master-standards-stack/iq300-all-jakim-ms/01_MASTER_STANDARDS_REGISTER.md",
-  "standards_source_rule": "Current JSM/JAKIM verification; exact normative text source-locked",
+  "standards_source_rule": "Apply the current Malaysian/JAKIM framework and destination requirements through the maintained standards register.",
   "authority_effect": "none",
   "requirements_traceability": "00_EXECUTIVE_COMMAND/PLATFORM_REQUIREMENTS_TRACEABILITY_2026-09-30.md",
   "implementation_principle": {
@@ -330,7 +330,7 @@
   ],
   "canonical_china_pack": "master-standards-stack/CHINA_EXECUTION_PACK/",
   "retired_lineage": "master-standards-stack/china-execution-pack/",
-  "source_commit": "79f8d85b30c778fdbf37d96e72acf075e46251bf",
+  "source_commit": "d5166fe7f1af262516f218e0cb444930c4bf6143",
   "monitoring_model": "End-to-end real-time monitoring across certified product/SKU, premises, suppliers, laboratory, audit, production, warehouse, logistics, port, GCC receiving and distribution records.",
   "ai_ml_model": "Monitoring, predictive analytics and preemptive strategies assist authorised operational and certification decision workflows."
 }

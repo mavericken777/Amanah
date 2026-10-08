@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0 | **Control date:** 2026-10-02
 
-## UAT gates
+## Integration verification scenarios
 
 | Test | Expected |
 |---|---|

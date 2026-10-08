@@ -1,29 +1,20 @@
-# Decision Log
+# Current project model
 
-**Status:** CURRENT PROJECT DECISION HANDOFF  
-**Controlling architecture:** `docs/architecture/PLATFORM_ARCHITECTURE.md`  
-**Current state:** `docs/operations/STATUS.md`
+Global Halal Supply Chain Limited operates the international digital-infrastructure layer for the Amanah / Global Halal Digital Trust ecosystem.
 
-| ID | Date | Decision | Reason / context | Owner / authority | Affected areas |
-|---|---|---|---|---|---|
-| D-001 | 2026-09-29 | Amanah is the central operational project source of truth | Keep operational records together and auditable | Programme governance | All |
-| D-002 | 2026-09-30 | Authority topology is AHTE ⇄ Direct JAKIM API ⇄ JAKIM | Preserve direct authority connectivity and decision ownership | Project architecture | Authority / API / website |
-| D-003 | 2026-09-30 | Default physical corridor is China → GCC direct | Remove stale China→Malaysia physical-routing assumptions | Project architecture | Logistics / mission / website |
-| D-004 | 2026-09-30 | AI does not execute authorised certification decision workflow | Preserve competent-authority / authorised-human decision rights | AI governance | AI / HITM / release |
-| D-005 | 2026-09-30 | Laboratory evidence does not itself create Halal status | Scientific evidence must remain distinct from certification | Assurance governance | Laboratory / audit / verification |
-| D-006 | 2026-10-03 | Items 1–69 are complete to project-controlled scope | Final exact-head CI and merge verified; external activation remains gated | Programme governance | Entire programme |
+## Assurance journey
 
-## Decision-recording rule
+Amanah connects and continuously monitors the complete assurance journey for JAKIM-certified premises and SKUs: onboarding, suppliers and materials, applicable requirements, certified laboratory evidence, halal audits, certification records, production, certified warehouse and logistics custody, ports and customs, GCC receiving, distribution, retail and verification.
 
-New decisions must record:
-- Decision ID and date;
-- exact decision;
-- evidence / reason;
-- decision owner and mandate;
-- affected domains;
-- superseded decision, if any;
-- implementation / follow-up reference.
+AI/ML supports real-time monitoring, evidence analysis, anomaly and risk prediction, impact analysis, and preemptive strategy recommendations. JAKIM, JAIN/JAIM, muftis, scholars and authorised halal auditors make certification award and revocation decisions. PHC and JAKIM work in parallel across Perak/state and federal governance in Malaysia.
 
-Operational decisions should be entered in the authenticated Amanah workspace. Authority, customs, finance/Takaful and counterparty decisions remain externally owned and require attributable evidence.
+## Operating model
 
-[SOURCE-LOCKED: external competent-authority / counterparty decisions]
+- Authority connectivity: `AHTE ⇄ Direct JAKIM API ⇄ JAKIM`.
+- Physical corridor: `China → GCC direct`.
+- AI assists; authorised people and competent authorities decide.
+- Evidence remains attributable to its object, event, actor and time; monitoring follows it throughout the journey.
+- Certification, platform assurance, logistics custody, customs disposition and finance decisions retain their respective owners and records.
+- Private trip administration, agreements, signatories, personal identifiers and transaction-specific records stay outside the public repositories.
+
+This document records the current project model. Operational workflows and interfaces are maintained in the application and linked from [REPO_INDEX.md](REPO_INDEX.md).

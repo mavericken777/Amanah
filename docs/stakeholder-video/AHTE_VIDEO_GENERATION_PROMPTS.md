@@ -34,11 +34,11 @@ No government seals, no fake certificates, no invented JAKIM approval, no fabric
 ### Shot 08 — Platinum monitoring
 "Cargo container and pallet with serialized identity, seal and realistic sensors, live telemetry for temperature, humidity and location, geofence exception triggers a controlled hold alert, documentary realism."
 
-### Shot 09 — China to GCC pilot
+### Shot 09 — China to GCC assurance journey
 "Map and physical logistics montage: Chinese manufacturing origin, laboratory, container loading, port custody, ocean freight and GCC destination receiving, clear China to GCC direct route, no fictional port or authority logos."
 
 ### Shot 10 — Human certification decision
-"Trust dashboard with hard-gate checks, one failed gate turns the operational state to HOLD, descriptive score remains visible but cannot override the failed gate, precise enterprise dashboard motion."
+"Trust dashboard follows evidence, certification status and custody across the product journey. A detected evidence anomaly is highlighted, the affected operational scope is held for accountable review, and the human certification decision remains visible with its source, precise enterprise dashboard motion."
 
 ### Shot 11 — Stakeholder close
 "Boardroom and operations centre with government, laboratory, manufacturer, logistics and importer stakeholder archetypes reviewing an evidence-rich Amanah dashboard, calm credible documentary tone, final emphasis on authority boundaries and auditability."

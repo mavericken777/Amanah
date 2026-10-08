@@ -20,7 +20,7 @@ Malaysia remains the governance/assurance/authority-connectivity plane unless a 
 | GCC port/customs | destination inspection/customs release | independent |
 | Importer/receiver | commercial/receiving acceptance and downstream custody | no substitution for authority decision |
 
-## Minimum pre-dispatch gate
+## Pre-dispatch checks
 
 - product/SKU/batch identity;
 - applicable authority/certification evidence where required;

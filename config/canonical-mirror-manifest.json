@@ -1,5 +1,5 @@
 {
-  "canonical_commit": "79f8d85b30c778fdbf37d96e72acf075e46251bf",
+  "canonical_commit": "d5166fe7f1af262516f218e0cb444930c4bf6143",
   "authority_effect": "none",
   "classification": "current project mirror map",
   "mirrors": [
@@ -12,26 +12,26 @@
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/11-trust-fracture-taxonomy.json",
       "amanah_path": "config/ahte-fracture-taxonomy.json",
-      "sha256": "251b704ad7f1fcbe2279ade0d442ac051c91d2475b4ccfc7a04a4ee58182a0bf",
-      "canonical_blob_sha": "c60138c40f5fa0af410d92f39b69c06f0152724c"
+      "sha256": "4e8d083c5420aa5377f3d045261b7501a5916f7bccd8da950350216db9b351f0",
+      "canonical_blob_sha": "617256c366392b8d757f17237b173910677d5174"
     },
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/12-autonomous-state-machine.json",
       "amanah_path": "config/ahte-state-machine.json",
-      "sha256": "248350277ff8db20a7a5c7667885b9994c92c12476a63528a7c355203c0d7788",
-      "canonical_blob_sha": "933445ebe07e72be68d1b553d5e3571a0c439847"
+      "sha256": "afbc117fde6e3c3e80a19972978277e42efa704ce7704833b52193a513047231",
+      "canonical_blob_sha": "6f3007529885a0e1b56232cec0d317ff25758d2d"
     },
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/12-autonomous-state-machine.json",
       "amanah_path": "supabase/functions/assurance/trust-machine.json",
-      "sha256": "248350277ff8db20a7a5c7667885b9994c92c12476a63528a7c355203c0d7788",
-      "canonical_blob_sha": "933445ebe07e72be68d1b553d5e3571a0c439847"
+      "sha256": "afbc117fde6e3c3e80a19972978277e42efa704ce7704833b52193a513047231",
+      "canonical_blob_sha": "6f3007529885a0e1b56232cec0d317ff25758d2d"
     },
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/trust-packet-schemas.json",
       "amanah_path": "supabase/functions/assurance/packet-schemas.json",
-      "sha256": "e76eaeff6dc47f4c364e01e0348586a592a6eef56beb12729b712051d3c67bba",
-      "canonical_blob_sha": "2a8c7485c55ee04b8cd88e3c9020df3b0022526f"
+      "sha256": "e74473bfe9ea131340e94c523259b99bf8bfd397df19f45cc854a3886353b573",
+      "canonical_blob_sha": "deffefffa469af9049b24dfa580d8042a66c3236"
     },
     {
       "canonical_path": "platform/docker-compose.yml",
@@ -66,8 +66,8 @@
     {
       "canonical_path": "platform/README.md",
       "amanah_path": "reference-runtime/platform/README.md",
-      "sha256": "3660640c00a7dc7456fa637863ffd6f28463de2202510abb867c2d5920835496",
-      "canonical_blob_sha": "2a77bed4f1b620c82eb2bf49a0eec96333904c73"
+      "sha256": "9c5e8044ea6ab72e85f23151137877231bfab5642e4eafc86f24fd8f22be411b",
+      "canonical_blob_sha": "9b096b7ed53f05e2a604e6804eff9832c20f1c85"
     },
     {
       "canonical_path": "platform/requirements.txt",
@@ -90,8 +90,8 @@
     {
       "canonical_path": "platform/src/ahte/demo_scenario.py",
       "amanah_path": "reference-runtime/platform/src/ahte/demo_scenario.py",
-      "sha256": "73fddaa68f7156ebcb3d9dc8ffa30383cbdd95401051240f830370127211306a",
-      "canonical_blob_sha": "6ed3fd2ad2997dbf13c950b0b8c0ef2c941897b5"
+      "sha256": "3dc47678e077259f3583df57d942a91083a3ae302a05cc99723db3a9daa29b12",
+      "canonical_blob_sha": "18ffac206e3ad9fd15325dff21f236828dc52fb6"
     },
     {
       "canonical_path": "platform/src/ahte/engine.py",

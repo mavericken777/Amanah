@@ -144,7 +144,7 @@ export function VerificationJourney({ sectionId = "verification-journey" }: { se
                   <div className="port-lock">
                     <span className="container-box">GHSCL / CORRIDOR</span>
                     <span className="digital-lock">⌾</span>
-                    <b>SOVEREIGN GATE</b>
+                    <b>AUTHORITY DECISION</b>
                   </div>
                 )}
                 {stage.id === "consumer" && (
