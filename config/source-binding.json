@@ -1,13 +1,13 @@
 {
   "repository": "mavericken777/GlobalHalalDigitalTrust",
   "branch": "main",
-  "commit": "d5166fe7f1af262516f218e0cb444930c4bf6143",
+  "commit": "e26391dd4274e401f06a9b6d5e0b907c4e2c768e",
   "verified_at": "2026-10-09",
   "current_standards_register": "master-standards-stack/iq300-all-jakim-ms/01_MASTER_STANDARDS_REGISTER.md",
   "authority_effect": "none",
   "classification": "current implementation provenance",
-  "public_site_commit": "d5166fe7f1af262516f218e0cb444930c4bf6143",
-  "public_site_provenance_note": "The public GHSCL site source metadata is bound to GlobalHalalDigitalTrust main d5166fe7f1af262516f218e0cb444930c4bf6143, verified on 2026-10-09. Private trip and transaction records are managed outside this repository.",
+  "public_site_commit": "e26391dd4274e401f06a9b6d5e0b907c4e2c768e",
+  "public_site_provenance_note": "The public GHSCL site metadata is pinned to GlobalHalalDigitalTrust main e26391dd4274e401f06a9b6d5e0b907c4e2c768e.",
   "standards_control": "master-standards-stack/iq300-all-jakim-ms/01_MASTER_STANDARDS_REGISTER.md",
   "historical_standards_snapshot": null
 }
