@@ -132,7 +132,7 @@ if (typeof document !== 'undefined') {
       action.type='button';
       action.addEventListener('click',()=>{
         if(at<3){exception.phase=phases[at+1];renderExceptionState();render();return;}
-        lastExceptionResolution='Re-verification and the resulting operating status are recorded in the walkthrough. Certification decisions remain with authorised human decision makers.';
+        lastExceptionResolution='Re-verification recorded. The resulting operating status is shown; authorised human decision makers retain certification decisions.';
         exception=null;renderExceptionState();render();updatePlayback();
       });
       actions.append(action);
