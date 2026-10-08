@@ -14,7 +14,7 @@ test('narration preserves required institutional and authority language',()=>{
   assert.equal(narration.split(principle).length-1,2);
   assert.ok(narration.includes('AI assists. Humans and competent authorities decide.'));
   assert.ok(narration.includes('AHTE ⇄ Direct JAKIM API ⇄ JAKIM'));
-  assert.ok(narration.includes('It does not replace JAKIM, competent Halal authorities, laboratories, auditors, certification bodies, customs authorities, port authorities or Shariah authorities.'));
+  assert.ok(narration.includes('AMANAH does not replace JAKIM, competent Halal authorities, laboratories, auditors, certification bodies, customs authorities, port authorities or Shariah authorities.'));
   assert.equal(narration.split(/\n/).at(-1),'AMANAH — Global Halal Digital Trust.');
 });
 test('plain narration paragraphs contain two to four spoken sentences',()=>{
