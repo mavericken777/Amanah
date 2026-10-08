@@ -75,7 +75,7 @@ if (initialJsGzip > limits.initialJsGzip) {
 
 const allJsGzip = initialJsGzip + asyncChunks.reduce((sum, chunk) => sum + chunk.gzipBytes, 0);
 if (allJsGzip > limits.initialJsGzip) {
-  console.warn(`Aggregate JS gzip is ${allJsGzip} bytes; reference target is ${limits.initialJsGzip} bytes. Lazy chunks are reported separately and do not count toward the entry budget.`);
+  throw new Error(`Aggregate JS gzip budget exceeded: ${allJsGzip} > ${limits.initialJsGzip} bytes`);
 }
 
 console.log(JSON.stringify({
