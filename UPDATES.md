@@ -7,4 +7,3 @@ The current product model is the complete, continuously monitored halal assuranc
 AI/ML supports monitoring, evidence review, predictive analytics and preemptive strategy recommendations. JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors decide certification award and revocation. PHC and JAKIM work in parallel across Malaysia’s state and federal governance.
 
 System topology: `AHTE ⇄ Direct JAKIM API ⇄ JAKIM`. Physical corridor: `China → GCC direct`.
-
