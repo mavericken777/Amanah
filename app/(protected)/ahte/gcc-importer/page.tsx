@@ -42,7 +42,7 @@ export default async function GccImporterPage() {
 
     <section className="card"><h2>Port / authority events</h2>{(ports.data??[]).length?(ports.data??[]).map((x:any,i:number)=><div className="row-between" key={i}><span>{x.port_code} · {x.event_type}{x.authority_reference?" · "+x.authority_reference:""}</span><span className="status">{x.status}</span></div>):<p className="muted">No port-custody records yet.</p>}</section>
 
-    <section className="card"><h2>Trust / credential state</h2>{(trust.data??[]).length?(trust.data??[]).map((x:any,i:number)=><div className="row-between" key={i}><span>{x.entity_type} · {x.entity_id}</span><span className="status">{x.state} · gate {x.hard_gate_status}</span></div>):<p className="muted">No trust-state records yet.</p>}</section>
+    <section className="card"><h2>Trust / credential state</h2>{(trust.data??[]).length?(trust.data??[]).map((x:any,i:number)=><div className="row-between" key={i}><span>{x.entity_type} · {x.entity_id}</span><span className="status">{x.state} · assurance {x.hard_gate_status}</span></div>):<p className="muted">No trust-state records yet.</p>}</section>
 
     <section className="card"><h2>Custody continuity</h2>{(custody.data??[]).length?(custody.data??[]).map((x:any,i:number)=><div className="row-between" key={i}><span>{x.event_type} · {x.location??"location pending"}</span><span className="muted">{new Date(x.occurred_at).toLocaleString()}</span></div>):<p className="muted">No custody records yet.</p>}</section>
 

@@ -4,7 +4,7 @@ import { requireUser } from "@/lib/auth";
 import { getPrimaryWorkspace } from "@/lib/workspace";
 
 const modules = [
-  ["/ahte/platform-tour","China Mission platform tour","One-click manufacturer → GCC market demonstration across the complete lifecycle."],
+  ["/ahte/platform-tour","China → GCC product journey","Follow product onboarding, assurance, custody and destination operations across the complete lifecycle."],
   ["/ahte/source","Source & authority","Standards, applicability, certification workflow and direct JAKIM connectivity."],
   ["/ahte/controls","Controls & audit","Controls, HCP/SCCP, evidence, tests, findings, CAPA and re-verification."],
   ["/ahte/hitm","HITM decision plane","AI-assisted evidence review and certification decision records."],

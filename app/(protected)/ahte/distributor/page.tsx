@@ -43,7 +43,7 @@ export default async function DistributorPage() {
 
     <section className="card"><h2>Custody transfers</h2>{(custody.data??[]).length?(custody.data??[]).map((x:any,i:number)=><div className="row-between" key={i}><span>{x.event_type} · {x.entity_type} · {x.location??"location pending"}</span><span className="muted">{new Date(x.occurred_at).toLocaleString()}</span></div>):<p className="muted">No custody records yet.</p>}</section>
 
-    <section className="card"><h2>Trust and assurance status</h2>{(trust.data??[]).length?(trust.data??[]).slice(0,50).map((x:any,i:number)=><div className="row-between" key={i}><span>{x.entity_type} · {x.entity_id}</span><span className="status">{x.state} · {x.hard_gate_status}</span></div>):<p className="muted">No trust-state records yet.</p>}</section>
+    <section className="card"><h2>Trust and assurance status</h2>{(trust.data??[]).length?(trust.data??[]).slice(0,50).map((x:any,i:number)=><div className="row-between" key={i}><span>{x.entity_type} · {x.entity_id}</span><span className="status">{x.state} · assurance {x.hard_gate_status}</span></div>):<p className="muted">No trust-state records yet.</p>}</section>
 
     <section className="card"><h2>Destination shipment context</h2>{(shipments.data??[]).length?(shipments.data??[]).slice(0,30).map((x:any)=><div className="row-between" key={x.shipment_code}><span>{x.shipment_code} · {x.importer??"importer pending"} · {x.destination_market??"GCC"}</span><span className="status">{x.status}</span></div>):<p className="muted">No destination shipments yet.</p>}</section>
 
