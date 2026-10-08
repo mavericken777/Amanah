@@ -164,13 +164,13 @@ AHTE is the standards, applicability, control, evidence and trust engine beneath
 - CAPA and re-verification.
 - Recall / blast-radius analysis.
 
-AHTE may ingest, encode controls, assess and support configured D4 trust-fracture holds. It may not execute D5/D6 authority or sovereign/legal decisions.
+AHTE may ingest, encode controls, assess and support configured D4 trust-fracture holds. It may not execute authorised certification decision workflow authority or sovereign/legal decisions.
 
 ---
 
 ## 7. Canonical assurance path
 
-**Authority → Standard/Instrument → Clause/Requirement → Applicability → Control → HCP/SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → Authority Gate → Trust State → Operational Release**
+**Authority → Standard/Instrument → Clause/Requirement → Applicability → Control → HCP/SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → certification review → Trust State → Operational Release**
 
 This is the backbone of the ecosystem. It prevents any conclusion from being separated from its governing instrument, applicable requirement, control, evidence, audit result and accountable decision gate.
 

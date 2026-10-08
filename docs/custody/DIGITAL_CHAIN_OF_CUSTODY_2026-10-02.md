@@ -45,5 +45,3 @@ Exception states:
 ## Offline operation
 
 Device events may be queued locally with sequence number, local timestamp, DeviceID, hash/signature and previous-event reference. Server reconciliation checks duplication, ordering, signature, actor scope and object binding before commit.
-
-[OPEN GATE: production Sinotrans, carrier, port/customs and GCC receiving event contracts/credentials.]

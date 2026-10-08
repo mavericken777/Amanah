@@ -8,7 +8,7 @@ const stages=[
   ["05","Evidence & AI assist","Supporting documents, provenance, gap detection, anomaly assessment and human governance."],
   ["06","Laboratory","Sample request → identity → seal → custody → method/QC → technical review → signed report."],
   ["07","Smart audit","Auditor identity, smart glasses/tablet, evidence capture, findings, CAPA and re-verification."],
-  ["08","Authority workflow","AHTE ⇄ Direct JAKIM API ⇄ JAKIM target topology; authorised humans own certification decisions."],
+  ["08","Authority workflow","AHTE ⇄ Direct JAKIM API ⇄ JAKIM; JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors review and decide certification outcomes."],
   ["09","Production & digital twin","ERP/MES/QMS/WMS/LIMS/IoT evidence, devices, batches, monitoring and exceptions."],
   ["10","Origin warehouse","Receiving, segregation, storage, pallet/package identity, pick/load and sanitation evidence."],
   ["11","Sinotrans","Vehicle, driver, container, seal, GNSS, door/condition telemetry and digital custody."],
@@ -33,17 +33,16 @@ export default function PlatformTourPage(){
     <section className="card">
       <div className="eyebrow">CONTROLLING ARCHITECTURE</div>
       <h2>AHTE ⇄ Direct JAKIM API ⇄ JAKIM</h2>
-      <p><strong>China → GCC direct.</strong> Malaysia is the governance, assurance, standards and authority-connectivity plane unless a specific physical movement is separately scoped. AI assists; authorised humans and competent authorities decide.</p>
+      <p><strong>China → GCC direct.</strong> Malaysia connects state and federal governance, standards and assurance. PHC and JAKIM work in parallel. AI/ML assists with continuous evidence monitoring, predictive analytics and preemptive strategies; certification decisions are made by JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors.</p>
     </section>
 
-    <section className="card"><h2>Guided platform walkthrough</h2><p>Use the connected platform stages below to explain the operating model, responsibilities, evidence flow and decision boundaries. Operational records can be populated with authorised project data when available.</p></section>
+    <section className="card"><h2>Guided platform walkthrough</h2><p>Use the connected platform stages below to explain the operating model, responsibilities, evidence flow and certification workflow. Operational records can be populated with authorised project data when available.</p></section>
 
     <section className="card-grid">{stages.map(([n,title,body])=><article className="card" key={n}><div className="eyebrow">STAGE {n}</div><h2>{title}</h2><p className="muted">{body}</p></article>)}</section>
 
     <section className="card">
-      <h2>Decision classes</h2>
-      <p><strong>D0</strong> ingest · <strong>D1</strong> encoded control · <strong>D2</strong> machine assessment · <strong>D3</strong> recommendation · <strong>D4</strong> configured trust-fracture hold · <strong>D5</strong> authority gate · <strong>D6</strong> sovereign/legal decision.</p>
-      <p className="muted">AI may execute D0–D2 and configured D4 holds. AI does not independently certify Halal, execute D5/D6, release sovereign/customs holds, approve financing/Takaful or establish legal title.</p>
+      <h2>Continuous assurance and decision support</h2>
+      <p>Real-time monitoring connects premises, SKUs, laboratory, audit, production, warehouse, logistics, port and destination events. AI/ML supports evidence review, anomaly detection, predictive risk analysis, impact assessment and preemptive strategy recommendations. Certification outcomes are recorded from the authorised JAKIM/JAIN/JAIM, mufti, scholar and halal auditor workflow.</p>
     </section>
 
     <section className="card">

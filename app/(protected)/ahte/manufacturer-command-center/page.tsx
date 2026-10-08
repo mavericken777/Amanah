@@ -32,7 +32,7 @@ export default async function ManufacturerCommandCenterPage() {
       <article className="card"><div className="eyebrow">Shipments</div><h2>{(shipments.data??[]).length}</h2><p>Organization-scoped shipment records.</p></article>
     </section>
     <section className="card"><h2>Action queue</h2><div className="row-between"><span>Open Command Center alerts</span><span className="status">{openAlerts}</span></div><div className="row-between"><span>Open findings</span><span className="status">{openFindings}</span></div></section>
-    <section className="card"><h2>Workflow</h2><p>Facility/product → supplier/material → evidence → laboratory/audit → CAPA/re-verification → authority gate → trust state → production/custody monitoring.</p><p><Link href="/onboarding">Manufacturer onboarding →</Link> · <Link href="/ahte/monitoring">Production monitoring →</Link> · <Link href="/ahte/command-center">Global Command Center →</Link></p></section>
+    <section className="card"><h2>Workflow</h2><p>Facility/product → supplier/material → evidence → laboratory/audit → CAPA/re-verification → certification decision records → production and custody monitoring.</p><p><Link href="/onboarding">Manufacturer onboarding →</Link> · <Link href="/ahte/monitoring">Production monitoring →</Link> · <Link href="/ahte/command-center">Global Command Center →</Link></p></section>
   </div>;
 }
 function Empty(){return <div className="page"><div className="card"><h1>No workspace</h1></div></div>}

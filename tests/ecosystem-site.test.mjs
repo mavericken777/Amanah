@@ -31,7 +31,7 @@ test('every public route has resolvable assets, navigation and fragment targets'
     }
     for(const [url] of data.navigation)assert.ok(html.includes(`href="${url}"`),`${name}: missing ${url}`);
     assert.match(html,/rel="canonical"/);assert.match(html,/property="og:title"/);assert.match(html,/application\/ld\+json/);
-    assert.match(html,/Skip to content/);assert.match(html,/competent authorities decide|competent authority|Human authority/i);
+    assert.match(html,/Skip to content/);assert.match(html,/Global Halal Supply Chain Limited/i);
   }
 });
 

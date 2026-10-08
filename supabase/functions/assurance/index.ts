@@ -116,7 +116,7 @@ Deno.serve(async (req) => {
       organization_id: organizationId, project_id: typeof body.project_id === "string" ? body.project_id : null,
       packet_type: body.packet_type, schema_version: body.schema_version, identity_object: body.identity_object,
       certificate_object: body.certificate_object ?? null, evidence_object: body.evidence_object, custody_object: body.custody_object ?? null,
-      audit_object: body.audit_object ?? null, authority_gate_object: body.authority_gate_object ?? null,
+      audit_object: body.audit_object ?? null, authority_gate_object: body.certification_decision_object ?? null,
       trust_state_object: body.trust_state_object ?? null, port_custody_object: body.port_custody_object ?? null,
       content_hash: contentHash, status: "draft",
     }).select("id,packet_type,schema_version,status,content_hash").single();
@@ -160,7 +160,7 @@ Deno.serve(async (req) => {
   if (req.method === "POST" && head === "hitm" && parts[1] === "evaluate") {
     const decisionClass = typeof body.decision_class === "string" ? body.decision_class : "";
     if (!["D3","D4","D5","D6"].includes(decisionClass)) return finish({ error: "invalid_decision_class" }, 400);
-    if (decisionClass === "D5" || decisionClass === "D6") return finish({ error: "authority_gate_reserved", default: "deny" }, 403);
+    if (decisionClass === "D5" || decisionClass === "D6") return finish({ error: "human_certification_decision_required", default: "deny" }, 403);
     if (typeof body.question !== "string") return finish({ error: "question_required" }, 400);
     const { data, error } = await supabase.from("ahte_hitm_cases").insert({
       organization_id: organizationId, project_id: typeof body.project_id === "string" ? body.project_id : null,
@@ -541,7 +541,7 @@ Deno.serve(async (req) => {
       (Array.isArray(entry.from) ? entry.from.includes(fromState) : entry.from === fromState) && entry.on === body.event);
     const transition = rule ? { to_state: rule.to, required_decision_class: rule.on === "E5_authority_decision" ? "D5" : null } : null;
     if (!transition) return finish({ error: "undefined_transition", from_state: fromState, event: body.event, default: "remain_or_hold" }, 409);
-    if (["D5","D6"].includes(String(transition.required_decision_class ?? ""))) return finish({ error: "authority_gate_reserved", decision_class: transition.required_decision_class }, 403);
+    if (["D5","D6"].includes(String(transition.required_decision_class ?? ""))) return finish({ error: "human_certification_decision_required", decision_class: transition.required_decision_class }, 403);
 
     if (transition.to_state === "released") {
       const { data: eligibility, error: evalError } = await supabase.rpc("ahte_evaluate_release_proxy", {

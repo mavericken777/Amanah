@@ -49,7 +49,7 @@ export default async function TripRisksPage(){
         {[
           ["Detect", "Evidence gaps, anomalies, deviations and emerging risks are surfaced against the affected object, actor and workflow."],
           ["Assess", "Deterministic controls and AI/ML assistance support prioritisation, blast-radius understanding and recommended preemptive action."],
-          ["Escalate", "Material issues enter the appropriate human, partner or competent-authority gate. Authority, operational, customs and finance states remain separate."],
+          ["Escalate", "Material issues are tracked with accountable owners, evidence, predicted impact and preemptive actions across the connected operating workflow."],
           ["Resolve", "Corrective action, re-verification and supporting evidence close the loop while preserving the full history."],
         ].map(([title,text])=><article className="card" key={title}><h3>{title}</h3><p className="muted">{text}</p></article>)}
       </div>

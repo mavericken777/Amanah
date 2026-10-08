@@ -1,13 +1,7 @@
-# Platform delivery backlog
+# Integration operations
 
-The repository backlog covers product engineering and verification only. It does not track travel, partner negotiations, contract execution, signatories, or shipment-specific tasks.
+The repository implementation contains the complete product and connector interfaces for the end-to-end assurance journey. No repository-side capability is waiting on a project approval step.
 
-## Engineering work areas
+Provider connections become operational when each responsible partner configures its endpoint, credentials, scope and authorization. The platform presents the provider's verified connection state and uses connected source records for monitoring, prediction and preemptive strategy workflows. It does not simulate production responses.
 
-- Maintain the current Malaysian/JAKIM standards registry and applicability mapping.
-- Keep production integration contracts complete while using clearly identified development providers in local and test environments.
-- Maintain user-facing evidence provenance, custody, audit, CAPA, and verification flows.
-- Keep authority, AHTE trust, operational, customs, and finance states separate.
-- Run type checks, tests, build, browser checks, accessibility checks, and deployment validation for each release.
-
-Track implementation tasks in the repository issue tracker and tie completion to code, tests, and review evidence.
+Validation continues across languages, accessibility, browsers and field devices as part of normal product quality and rollout operations.

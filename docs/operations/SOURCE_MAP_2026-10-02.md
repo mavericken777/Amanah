@@ -4,9 +4,7 @@
 
 | Capability | Controlling source | Status |
 |---|---|---|
-| Frozen standards | GlobalHalalDigitalTrust/master-standards-stack/verified-2026-09-17/ | frozen/current baseline |
 | Canonical architecture | Amanah/docs/architecture/PLATFORM_ARCHITECTURE.md | controlling |
-| Canonical data model | Amanah/config/canonical-domain-model-2026-10-02.json | controlling post-freeze target |
 | Operational implementation | Amanah/app + supabase + lib | repository implemented |
 | AHTE API | Amanah/docs/api/AHTE_ASSURANCE_API.md + canonical 2026-10-02 contract | internal contract |
 | Public site | Amanah/ghscl-website | implementation |

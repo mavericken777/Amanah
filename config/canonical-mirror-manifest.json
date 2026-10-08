@@ -1,241 +1,235 @@
 {
-  "canonical_commit": "70246a361ca799d092d12d968a301c87c71ca2d7",
+  "canonical_commit": "79f8d85b30c778fdbf37d96e72acf075e46251bf",
   "authority_effect": "none",
-  "classification": "post-freeze proposal",
+  "classification": "current project mirror map",
   "mirrors": [
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/hitm-decision-class-registry.json",
       "amanah_path": "config/ahte-decision-classes.json",
-      "sha256": "89ce9193c10f027db98712031064a8c706f6a471d1c851d9c5064963ce628cba",
-      "canonical_blob_sha": "63f0bcc8317696aab39ba798ba2a5efba8c7416c"
-    },
-    {
-      "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/09-hard-gate-rules.json",
-      "amanah_path": "config/ahte-hard-gates.json",
-      "sha256": "b7d80222ee229f2e6b6217c8d07494373ebe860b91fc0afb0424c6d51ea469cd",
-      "canonical_blob_sha": "1af3f2536faf1c49ba102ecf00702b1cb716311d"
+      "sha256": "584a78c1cd01a7389a15d8b380d0d4ed74ad213441192cc8b81011db66f16607",
+      "canonical_blob_sha": "664da32ee5214ff3df7e757160281937f86d9b66"
     },
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/11-trust-fracture-taxonomy.json",
       "amanah_path": "config/ahte-fracture-taxonomy.json",
-      "sha256": "de3c6af75c2416c626ce6095aa1052cf2255bd0f41de272a146567e782b2ec00",
-      "canonical_blob_sha": "05285c09746efb2ecd4e8428072d6c5c6f955ae6"
+      "sha256": "d01cc00184e42cee4d71c8b6a951aee65e38ef742f883c87a9c40f4f3086e312",
+      "canonical_blob_sha": "11bb2d6356bac16a62c2765f7f3b7e30b3558fc6"
     },
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/12-autonomous-state-machine.json",
       "amanah_path": "config/ahte-state-machine.json",
-      "sha256": "5e2c6d3f2d52472276991fd58742ba171a946b32513fc7ff5c5ae44b0e633d74",
-      "canonical_blob_sha": "3a4489506241186078a60730ebc09883e9690e71"
+      "sha256": "69f59e4c85505009457729993f7dbceb36b0e99915061690581a68b1e997152d",
+      "canonical_blob_sha": "5a21a2545988848580479e8c21af3a07cc465046"
     },
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/12-autonomous-state-machine.json",
       "amanah_path": "supabase/functions/assurance/trust-machine.json",
-      "sha256": "5e2c6d3f2d52472276991fd58742ba171a946b32513fc7ff5c5ae44b0e633d74",
-      "canonical_blob_sha": "3a4489506241186078a60730ebc09883e9690e71"
+      "sha256": "69f59e4c85505009457729993f7dbceb36b0e99915061690581a68b1e997152d",
+      "canonical_blob_sha": "5a21a2545988848580479e8c21af3a07cc465046"
     },
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/trust-packet-schemas.json",
       "amanah_path": "supabase/functions/assurance/packet-schemas.json",
-      "sha256": "8dc134680a9c043eafc93cba0862d94059c1ce3f20d1c4651bce82b33721a8a6",
-      "canonical_blob_sha": "f07d7bedcd7bd19d82aca1bae045c5bcde6de4da"
+      "sha256": "d1ea8f1128e8c56f6f636a0e880539544c70389275ea83e9493cfab23bb1ad51",
+      "canonical_blob_sha": "a3232f1945d9f6a17cd5551689a4c9cf6f2f567e"
     },
     {
       "canonical_path": "platform/docker-compose.yml",
       "amanah_path": "reference-runtime/platform/docker-compose.yml",
-      "sha256": "c21cedf78bd36b0cbcb7ba387466d3b59201458b004a7398bd45d88b8008594d",
-      "canonical_blob_sha": "24e31c38cba24cf8f18562f31eb3648e94ca364d"
+      "sha256": "d4296c631dc89260f5652b89685308c70a3250f7936785d9c440927254f3b19f",
+      "canonical_blob_sha": "2ae24a3944a9a987f48e42a69c25656c33e90424"
     },
     {
       "canonical_path": "platform/Dockerfile",
       "amanah_path": "reference-runtime/platform/Dockerfile",
-      "sha256": "1e5ad044043f58d5a4541eee2bc83a84160c63d2864417d909b17c383e0abb25",
-      "canonical_blob_sha": "2a3992fba4c85f4690f3e4dccf23461585f912c7"
+      "sha256": "cd115a3530cec2b3d73290468afaadf09eb2a24da8cb763f4efaa646e3ae0b32",
+      "canonical_blob_sha": "955efe0b217b75477b13814c7502d5159db7c197"
     },
     {
       "canonical_path": "platform/policies/hitm-default-deny_test.rego",
       "amanah_path": "reference-runtime/platform/policies/hitm-default-deny_test.rego",
-      "sha256": "8c5a390dd3bdd80ee9e7718accd3ee2b1940954adef7441adc8e1fd685ee8ba4",
-      "canonical_blob_sha": "86955c446dca34525377f086d37b8242d5ef9700"
+      "sha256": "50e984da9bb16cb2f9bb776b3e3e35c78f10ab2ec14585947d4ed7018b0831ed",
+      "canonical_blob_sha": "56345dc7d65861b737e91524225ab9451bac170e"
     },
     {
       "canonical_path": "platform/policies/hitm-default-deny.rego",
       "amanah_path": "reference-runtime/platform/policies/hitm-default-deny.rego",
-      "sha256": "51c456cb88a2844e3ea00de38dd9ec01c31dceff31dacfd9abbe00cb8dfdcbf3",
-      "canonical_blob_sha": "83703e7d60e86afbb641df10c24b548ba30c7af4"
+      "sha256": "f7d5ee7be5633e62540b051f8a8b2e79902a02ea6c755307fa7d289cbfff66ef",
+      "canonical_blob_sha": "80f50a0b9aa8ff1c3ae4e81119fe999ada547d1f"
     },
     {
       "canonical_path": "platform/pytest.ini",
       "amanah_path": "reference-runtime/platform/pytest.ini",
-      "sha256": "363381771127e3479fe49773659cc2a8dc2b2f727459ebd057ac39e79e98a94e",
-      "canonical_blob_sha": "fcccae1973c6182ffe782c7dd155ad1527aa3c32"
+      "sha256": "c4a076ef0aea4a32eeda4e20fe67102387c3e9458be19ef33026eabf1678e09b",
+      "canonical_blob_sha": "bcefd4f7d7b21c964cd9a405ed38e36f42e2d070"
     },
     {
       "canonical_path": "platform/README.md",
       "amanah_path": "reference-runtime/platform/README.md",
-      "sha256": "8a5a17afd3608321efd426a3b0bc63fecaa2ef8331eb85208b0e5cd2b8f74117",
-      "canonical_blob_sha": "dcbf1250ec2493e90562ffa88e6eb90fb87f9e4e"
+      "sha256": "3660640c00a7dc7456fa637863ffd6f28463de2202510abb867c2d5920835496",
+      "canonical_blob_sha": "2a77bed4f1b620c82eb2bf49a0eec96333904c73"
     },
     {
       "canonical_path": "platform/requirements.txt",
       "amanah_path": "reference-runtime/platform/requirements.txt",
-      "sha256": "053d77afdd076a9006f57cac98e7ddef359b77435a67719dbb1ef11cd60be471",
-      "canonical_blob_sha": "53700c1cd3b2f67671f29b8a7711381969a6eb33"
+      "sha256": "bbff98b6bd46b91d9cb6690e47fe3045960f8e71fb2496e3517b7da1cdb8f20b",
+      "canonical_blob_sha": "ad3987c4d836e53d9d507294a7f61e16c16c23c0"
     },
     {
       "canonical_path": "platform/src/ahte/__init__.py",
       "amanah_path": "reference-runtime/platform/src/ahte/__init__.py",
-      "sha256": "3cf5750a9756fbdc07c967574472fce4cb587bef87b5b899fbf08edb18344ae1",
-      "canonical_blob_sha": "88695a94b02569f9cf1a50e5824d1077fc08e0fc"
+      "sha256": "48fc604cfa5e491a06905ad5ddb769869c1d0a42ef3940c74f4044a04b271720",
+      "canonical_blob_sha": "7be16eb139a304d5724ed4c0cb0fcbfd37830c37"
     },
     {
       "canonical_path": "platform/src/ahte/api.py",
       "amanah_path": "reference-runtime/platform/src/ahte/api.py",
-      "sha256": "d0d77856caf9fd5d19567dbc2e1142cda89c3973d1cc2c21f233eadacb249e9b",
-      "canonical_blob_sha": "76dd22b170a5e4af49a03b966a5c67c259f1dc68"
+      "sha256": "bacfbf9ac8c53cd53a2caa11e8105088c94bff24d77b266b6c4166fcc8aaa99e",
+      "canonical_blob_sha": "453b17df9d302e2d398e6dc857a13bf9af6f11f6"
     },
     {
       "canonical_path": "platform/src/ahte/demo_scenario.py",
       "amanah_path": "reference-runtime/platform/src/ahte/demo_scenario.py",
-      "sha256": "73fddaa68f7156ebcb3d9dc8ffa30383cbdd95401051240f830370127211306a",
-      "canonical_blob_sha": "6ed3fd2ad2997dbf13c950b0b8c0ef2c941897b5"
+      "sha256": "d54d67258392fa1a0f1c4fbf0ba126a2a6d42112085d3a7393d16a035c845332",
+      "canonical_blob_sha": "99b65a68cf5a6b70575071021b98292a5e6972ba"
     },
     {
       "canonical_path": "platform/src/ahte/engine.py",
       "amanah_path": "reference-runtime/platform/src/ahte/engine.py",
-      "sha256": "4b6541657c8f37847627a9dc531d4d6795c3d3147c9984bd1a453c54a25bab3b",
-      "canonical_blob_sha": "54afb9a51776159378fbb048c9e40bcf3712dbbe"
+      "sha256": "fe69a9f727d1a76e132fa484bc23ea464dffdee791f4cb92e4316866ae4ecf7e",
+      "canonical_blob_sha": "d8369187f4259a7273ebdc1f9db6c49dda5ba483"
     },
     {
       "canonical_path": "platform/src/ahte/hitm.py",
       "amanah_path": "reference-runtime/platform/src/ahte/hitm.py",
-      "sha256": "726e6d9cbe7a9af6dd90c8b52795393c6c176d5876d7a261d4b3fdf6c081226a",
-      "canonical_blob_sha": "2fb90d5e5eca644d99b616d3e2175fb78916f3e6"
+      "sha256": "bc4c5eecb5de920d3d89e6840ad642ef111ebd062e3cfd25f3c364f01f1124de",
+      "canonical_blob_sha": "5251fc61fe9b0a1f99dfdc3343f66af9f52955c2"
     },
     {
       "canonical_path": "platform/src/ahte/mock_integrations.py",
       "amanah_path": "reference-runtime/platform/src/ahte/mock_integrations.py",
-      "sha256": "356569be7eefa74db25292638eaeeadc11f1b88965ccd3bf51a757f47c26352d",
-      "canonical_blob_sha": "4f9000f6815ac15c1855670fdc6d00dfa92d4bc1"
+      "sha256": "090757ad7e43d6a9234d1189d13f30c93c2ccacbb3c6c86eedf7b3e80a2289b7",
+      "canonical_blob_sha": "0cc7d7a81e85f8afec233a4de73a5b742143945c"
     },
     {
       "canonical_path": "platform/src/ahte/models.py",
       "amanah_path": "reference-runtime/platform/src/ahte/models.py",
-      "sha256": "717e85ac95e44239cf63a3083c0ca917d1185b4e8b4ecf08a15dc037295a5a03",
-      "canonical_blob_sha": "6e3da80d55681b78ec8dd2e285ac53b021676737"
+      "sha256": "34292e889f574a15f4a777ca1b4f0b4df15093151a9d944a396285b67fd721b4",
+      "canonical_blob_sha": "66bcc6df0a684983ed798413723bbf48e6da5192"
     },
     {
       "canonical_path": "platform/src/ahte/store.py",
       "amanah_path": "reference-runtime/platform/src/ahte/store.py",
-      "sha256": "cf0e9089ce6363a5967454df4835887ca5715a6c762a2e4af13ec3625b8eec01",
-      "canonical_blob_sha": "ce5693e7b5e03d4546fb0a95286b2f4617c470ea"
+      "sha256": "3d57ca99053d85b020ac0a3ddd9804de8c6d3fe8fec735c9f4d4f13ef1df950d",
+      "canonical_blob_sha": "0c78ec6caec9905714a355c14eb9aefd370eef52"
     },
     {
       "canonical_path": "platform/tests/test_decision_classes.py",
       "amanah_path": "reference-runtime/platform/tests/test_decision_classes.py",
-      "sha256": "38153608297cd0b7c205f1e881818346b9854ba36983ac527d80361b90eccb57",
-      "canonical_blob_sha": "6962a926b5b128d8760c1b6008e5dc6aa1cfc74d"
+      "sha256": "74faf865d6507966f15ccd1fffa79b58cbedf6cc951507cf74dc2254b8c40d1d",
+      "canonical_blob_sha": "6054ab834f6bd97f2e5f7f41a73b3b3f7be52998"
     },
     {
       "canonical_path": "platform/tests/test_runtime.py",
       "amanah_path": "reference-runtime/platform/tests/test_runtime.py",
-      "sha256": "e95db04a1491981cea5b3a51d6e16aaca891b28f55eb90dae3ab52756f51b36f",
-      "canonical_blob_sha": "8e9c5ac852c534762866565ce080d03a68ae40f5"
+      "sha256": "b6009372353332f87d05000d9b6232a108b09bd26f2cad62495406ae659f783a",
+      "canonical_blob_sha": "33e592f3f26c870a205d5db4d624e5343234ada2"
     },
     {
       "canonical_path": "runtime/engine/engine.py",
       "amanah_path": "reference-runtime/engine/engine.py",
-      "sha256": "3f8ad2086cb13ade410221bc1ef3325893f99bbc78a9c1ab461ea5914387da85",
-      "canonical_blob_sha": "25097b26a865671db2e43a71cf99121652fdc1ed"
+      "sha256": "3176f5040e83c9ae931f447882c769ffa6efd65df1117fac61a4fa6951a215f0",
+      "canonical_blob_sha": "c6b5a228e16aceab1e7d230e1a6df1ff63c95bbf"
     },
     {
       "canonical_path": "runtime/engine/README.md",
       "amanah_path": "reference-runtime/engine/README.md",
-      "sha256": "ea68b3e1e83a98d1dde9e33b49fd730e7d81a20ff76f21606c51279755f03076",
-      "canonical_blob_sha": "7ca34f48cc179f665e83f18ba6353009e93a9d8f"
+      "sha256": "2071d678a15fad8196e851a2ea01ccd2540ed381575fc2b76ebcdc9f1690499a",
+      "canonical_blob_sha": "0876b81812350367002e16b9fe4559bedad1551b"
     },
     {
       "canonical_path": "runtime/engine/verify_system.py",
       "amanah_path": "reference-runtime/engine/verify_system.py",
-      "sha256": "75706fa3d1468af29e1895aac7e6bb72bcc07459c5ae5151cb666a4bb5ccb701",
-      "canonical_blob_sha": "fdc3539a9b145e9427020344da3f184099411684"
+      "sha256": "2e93b2f58ea4585372870deb901f46416e3dc58bc1bff20981b5dc0fd20773a1",
+      "canonical_blob_sha": "49e04b597aa66a90e499198ab12f7d8c26913702"
     },
     {
       "canonical_path": "runtime/gateway/app.py",
       "amanah_path": "reference-runtime/gateway/app.py",
-      "sha256": "00ce520c5c23a8d7dd8937e9afdef1b73482ee9cf3ec9c141cd60f5d06ffdbb7",
-      "canonical_blob_sha": "fed756ee7d6ce718b91da7f0b814263bfdfeb4a1"
+      "sha256": "bbbf9d0a702571eb1c4ecbd7ad18e9122f00b9b92d0ca97d2afe88227eadb95b",
+      "canonical_blob_sha": "cf787efa02e3788c1e00c361fa8e6ede22be3411"
     },
     {
       "canonical_path": "runtime/gateway/crypto.py",
       "amanah_path": "reference-runtime/gateway/crypto.py",
-      "sha256": "92c77ea08a6804542357f9e9a95f7880665a2eef31468d33d34b3a746457626f",
-      "canonical_blob_sha": "9f2fb2bc340968da0eae6dea461e7ff92b578258"
+      "sha256": "2ddd59076b392cb6de501e76e138fbe61bae4726c7dba1e17d509a5101df390b",
+      "canonical_blob_sha": "158d3e8227ec0e25788634e3e566b9c9f321bb13"
     },
     {
       "canonical_path": "runtime/gateway/Dockerfile",
       "amanah_path": "reference-runtime/gateway/Dockerfile",
-      "sha256": "78c8be4ab47a40dd4167618729e8b9487ce0f4cf255a3214e1a0214fe34b3833",
-      "canonical_blob_sha": "0548cf3c63379c4bb29e0fe48306e728076be043"
+      "sha256": "77152a50af587781e3b317be02df874f19f3e271d5a20624abf04fa7e2fe971f",
+      "canonical_blob_sha": "3f517e56a08e63c634391d2f5e6161f9d310d02e"
     },
     {
       "canonical_path": "runtime/gateway/edge_ingest.py",
       "amanah_path": "reference-runtime/gateway/edge_ingest.py",
-      "sha256": "54844cd54fcccaee5e8d3caba6d948f8e46854d249fb8ba1465917f3281fcc8b",
-      "canonical_blob_sha": "6cec5b4f8aeed85b6f2fbfa9202357150bca0f18"
+      "sha256": "d02c83785ee9b57b8fa066b2ef619bc4bdc89b069321c237ecf6e3c09ac0ecd3",
+      "canonical_blob_sha": "d6736eba0b01393b3cc7221731a9c9dbbe0501f2"
     },
     {
       "canonical_path": "runtime/gateway/fsm.py",
       "amanah_path": "reference-runtime/gateway/fsm.py",
-      "sha256": "b05760cccf81f60c2b3426369da92aebc3318ed7d1773fcef402727b5ba377bb",
-      "canonical_blob_sha": "829d79cc2002f7a50166f831a66c44146e91c0b8"
+      "sha256": "d7ebd5aa5e799f84122daba1a144c28c126dadc116a9e1fdefc0a9c487ed19d6",
+      "canonical_blob_sha": "dcb070a8a3d0dddc8712a5631ceec4c38be1b256"
     },
     {
       "canonical_path": "runtime/gateway/models.py",
       "amanah_path": "reference-runtime/gateway/models.py",
-      "sha256": "cd89b8e3ab7f79ca8908a468f81f9bee20d972696216a3331ea22714f279452e",
-      "canonical_blob_sha": "6ac5f5d5123e3849dafc40de3b9f0d88a870877d"
+      "sha256": "d09aacb9dbc46c9a95e7997241c3c168d2eea33b31fbbfa3248ecf28dc960936",
+      "canonical_blob_sha": "8ee7cf5c71ac11b3dbf19309b6f04b999610911b"
     },
     {
       "canonical_path": "runtime/gateway/requirements.txt",
       "amanah_path": "reference-runtime/gateway/requirements.txt",
-      "sha256": "5c2214b8a0ddd7e579fac6455d748e85596b55459d253ae2af13b3f7c1dc256d",
-      "canonical_blob_sha": "5d4cc542802f9884187177ec3a2a7065a5f55ab2"
+      "sha256": "c0e9fde076406cbbb15a8d1c2bf22f718d76add2f8fc5c941c27830c09947393",
+      "canonical_blob_sha": "b7e9728798a796039bb3139579c92fd4201c4569"
     },
     {
       "canonical_path": "runtime/policies/data.json",
       "amanah_path": "reference-runtime/policies/data.json",
-      "sha256": "7f422560eebe844d8319c4f0dedbbcfe4a5f3864bcb7daeb34f18a317daf1a2e",
-      "canonical_blob_sha": "c2d491d8edd785794831485b2ee0038d9e6ea2ce"
+      "sha256": "3304a3a48ce34c887ff7ec48bbc546d204faa8437591fdb2f78c262a9eb85e7f",
+      "canonical_blob_sha": "b08897eddd266d91daab7f5cf41ac6c1d707af7f"
     },
     {
       "canonical_path": "runtime/policies/halal_gate_test.rego",
       "amanah_path": "reference-runtime/policies/halal_gate_test.rego",
-      "sha256": "26bffd981a86586241fa747bb93397589fdcf875d96ac27e76ab56dda498eb48",
-      "canonical_blob_sha": "e59c1f193dbe7ff5afc66d521ae7e21dd3adbc20"
+      "sha256": "031d4525b0d2d1be2a50cc968f7779aabaf738aa9c2fcc0819358f4b6d8773aa",
+      "canonical_blob_sha": "ce80df3be8c4829939162aeac1af226807ffa505"
     },
     {
       "canonical_path": "runtime/policies/halal_gate.rego",
       "amanah_path": "reference-runtime/policies/halal_gate.rego",
-      "sha256": "03f8f5c4a7f1bc274f8c126c27797f2194ffe05190f15bcbb7c1f4beb4bb116d",
-      "canonical_blob_sha": "7425c7dc641bee17b73dc01bec0d48db645dbe6c"
+      "sha256": "4da7fbcda5f49dff1e5cc5f0f9987b8b613b9ff90de43bd687ecf1e07c5b7aaa",
+      "canonical_blob_sha": "634f6210614eeef6ba6637aa90cff97b37ab01be"
     },
     {
       "canonical_path": "runtime/policies/halal_master_test.rego",
       "amanah_path": "reference-runtime/policies/halal_master_test.rego",
-      "sha256": "a6894007690d170c13d8e37cc3133b200eeed716e337ddcbc7d6867f14625759",
-      "canonical_blob_sha": "488c8788d579039cd13ab62e9f720ff4d1b4fbc3"
+      "sha256": "89ab856a67b8037c6aae2af863ee6bf6a85939b084618afecacef581722a42cb",
+      "canonical_blob_sha": "c5dd89538e6b4429bf95a69b6856fd1f51032846"
     },
     {
       "canonical_path": "runtime/policies/halal_master.rego",
       "amanah_path": "reference-runtime/policies/halal_master.rego",
-      "sha256": "741b85d9045225ac32ffd0c7ec688e5a3f85cc7359a30516c0881e44b57cfc2d",
-      "canonical_blob_sha": "658e6f6080355127fd0ed5f709f699c490e48080"
+      "sha256": "56e446405f61f10db944fa157063250aec5fe4d845f1aa2bd6acf7d64451d00d",
+      "canonical_blob_sha": "5d4a035075c5c7baaa71a448793e80a586d57d39"
     },
     {
       "canonical_path": "runtime/README.md",
       "amanah_path": "reference-runtime/README.md",
-      "sha256": "b7317314b734740523451339500e65c217383eec997cfada8c408ad4a8a411c5",
-      "canonical_blob_sha": "f44052877b1f78f33e76b3f1901d8e7c2504666a"
+      "sha256": "3fbb62bca310ce35216573c281f91de6339023a6ef4c9ba739fb84a7c5c841b3",
+      "canonical_blob_sha": "16234154c7077f426f7767cf87197d4f038ea3be"
     },
     {
       "canonical_path": "tests/__init__.py",
@@ -252,26 +246,26 @@
     {
       "canonical_path": "tests/e2e/test_shipment_pipeline.py",
       "amanah_path": "reference-runtime/tests/e2e/test_shipment_pipeline.py",
-      "sha256": "d26a97d4173f958bc2340514ffc5a82863465902b72094225fdd6121599e87f2",
-      "canonical_blob_sha": "2a0f7f24b1de44f0c432cdfc49fdc1643924e3f5"
+      "sha256": "649aaa0f92ad52368795d56d651c9083f076d920514552b725b7864b564e1849",
+      "canonical_blob_sha": "7a8afed01a80ca4d9dad0c297ac2c766fc60493b"
     },
     {
       "canonical_path": "tests/runtime_path.py",
       "amanah_path": "reference-runtime/tests/runtime_path.py",
-      "sha256": "95f51afc3ae9124ec82593dabdaa880406416323d22c2811899dff152263506d",
-      "canonical_blob_sha": "2af98a24adef9fac99ccdf19166303ad7e47748a"
+      "sha256": "c306bf30e9986ca2c42531957350e6cf51fc636a728b32f7d478b67775ddee6b",
+      "canonical_blob_sha": "9e9190d4e8f21c9d3c92348d03db0447a7558d3b"
     },
     {
       "canonical_path": "tests/test_edge_and_fsm.py",
       "amanah_path": "reference-runtime/tests/test_edge_and_fsm.py",
-      "sha256": "35743b51f54c067fe77b14fd137416ad3941444fd57262e1bfa2aa302fa5dc40",
-      "canonical_blob_sha": "18f25f466bd28e52f760e7fabbc29bb29290302b"
+      "sha256": "f3ebade59be8acb3ac16c90eade44c2ed849f5caa00e6efaa28175769dea3bb3",
+      "canonical_blob_sha": "53944d13bf73b0c79174c3da7a0bda01343e2cca"
     },
     {
       "canonical_path": "tests/test_gateway_guards.py",
       "amanah_path": "reference-runtime/tests/test_gateway_guards.py",
-      "sha256": "6845ff0eeaf777c3fcbf246db3b66aa14d26f6ca4172498f43064f67917b9bc2",
-      "canonical_blob_sha": "7ef1d2611b60f55d1692fa698f1b2a26a12ea598"
+      "sha256": "5f571bb068c13ff55b8ec8013df6444af4b6bebc56ea45239deccfe359017c9d",
+      "canonical_blob_sha": "abd512a3556d2a786ad46a0c7e9e6270f4e30215"
     }
   ]
 }

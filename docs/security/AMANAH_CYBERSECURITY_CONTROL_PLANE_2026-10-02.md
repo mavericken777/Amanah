@@ -5,7 +5,7 @@
 Zero-trust identity, MFA, RBAC/ABAC, tenant isolation, least privilege, mTLS for partner connectors, signed evidence, secrets outside source, encryption in transit/at rest, immutable audit events, incident containment.
 
 ## Decision separation
-D0-D2 machine operations and configured D4 holds are separable from D5 authority gate and D6 sovereign/legal decision. Platform administration cannot impersonate authority.
+D0-D2 machine operations and configured D4 holds are separable from certification review certification review and certification determination sovereign/legal decision. Platform administration cannot impersonate authority.
 
 ## Control matrix
 | Surface | Prevent | Detect | Respond |
@@ -18,5 +18,3 @@ D0-D2 machine operations and configured D4 holds are separable from D5 authority
 | Supply chain | dependency pinning/CI | SCA/test gates | patch/rebuild/re-verify |
 
 Security events bind ActorID, EventID, ObjectID where applicable, Timestamp and IntegrityProof. Hash proves integrity, not truth.
-
-[OPEN GATE: production IdP, SIEM/SOC routing, HSM/KMS tenancy, partner certificates and authority-approved production security profiles.]

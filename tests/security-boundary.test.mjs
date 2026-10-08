@@ -11,9 +11,9 @@ test("assurance API rejects AHTE-issued authority decisions", () => {
   assert.match(assurance, /issued_by_ahte:\s*false/);
 });
 
-test("D5 and D6 remain reserved from machine HITM execution", () => {
+test("AI cannot execute human certification decision classes", () => {
   assert.match(assurance, /decisionClass === "D5" \|\| decisionClass === "D6"/);
-  assert.match(assurance, /authority_gate_reserved/);
+  assert.match(assurance, /human_certification_decision_required/);
 });
 
 test("operational release is explicitly not certification", () => {

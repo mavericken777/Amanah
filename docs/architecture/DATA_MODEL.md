@@ -49,7 +49,7 @@ Every organization-owned domain record carries `organization_id` and is protecte
 | CustodyEvent | ahte_custody_events | object/evidence/actor |
 | RouteEvent | ahte_route_events | shipment/vehicle/geofence |
 | PortEvent | ahte_port_custody_events | shipment/authority ref |
-| AuthorityDecision | ahte_authority_decisions | authority gate |
+| AuthorityDecision | ahte_authority_decisions | certification review |
 | Exception | ahte_fracture_events + findings | hold/CAPA |
 | Alert | ahte_command_center_alerts | prediction/strategy |
 | VerificationEvent | ahte_verification_events | public/buyer/authority/retailer |
@@ -77,8 +77,8 @@ GCC importer, distributor/3PL, retailer and marketplace are first-class particip
 
 This preserves one canonical organisation identity while allowing distinct destination responsibilities, decision rights, evidence and integrations.
 
-## 7. Authority separation
-`ahte_authority_decisions` stores external decisions; `ahte_authority_gates` evaluates prerequisite gates; `ahte_release_decisions` represents operational release. They remain distinct.
+## 7. Certification and operating records
+`ahte_authority_decisions` stores certification outcomes and decision evidence. `ahte_release_decisions` stores the separate operating status. The platform monitors both across product, premise and custody records.
 
 ## 8. Security contract
 New normalized tables use member SELECT/INSERT/UPDATE and owner/admin DELETE unless append-only semantics are stricter. Authority-sensitive operations remain role checked server/database side. Client-supplied organization ID is not trusted as sole authorization.

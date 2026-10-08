@@ -69,7 +69,7 @@ The repository CI validates the isolated platinum experience alongside the exist
 
 ## Promotion rule
 
-A passing build is not deployment. Promotion into the public website is performed by the controlled GitHub Pages workflow after exact-head CI succeeds. The workflow overlays all generated platinum public routes and verifies the promoted artifact against the main commit. The Phase 5 promotion for `3a900d445538777a2d6e96071a11c3a61dd89cf6` succeeded; see `docs/website/PLATINUM_PHASE_6_AUDIT_2026-10-04.md` for the remaining performance and device-validation gates.
+A passing build is not deployment. Promotion into the public website is performed by the controlled GitHub Pages workflow after exact-head CI succeeds. The workflow overlays all generated platinum public routes and verifies the promoted artifact against the main commit. This site shares the current product journey and is built from the current application source.
 
 
 ### Phase 4 — Tasks 26–30

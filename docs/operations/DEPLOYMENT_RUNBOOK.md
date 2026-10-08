@@ -1,6 +1,5 @@
 # Amanah Deployment Runbook
 
-[PROPOSAL: engineering operating procedure]
 
 ## GitHub
 
@@ -56,10 +55,10 @@ After any schema change:
 
 Before operational release:
 - latest trust state exists;
-- hard gates pass;
+- required validation checks pass;
 - no unresolved fracture;
-- no related open D5/D6 case;
-- authority gate is approved where required;
+- no related open authorised certification decision workflow case;
+- certification review is approved where required;
 - release records `is_certification=false`.
 
 Before authority decision recording:
@@ -89,7 +88,7 @@ local -> preview/test -> staging -> production
 
 Never share production credentials with lower environments.
 
-## Deployment gate
+## Deployment validation
 
 CI passes, migrations are reviewed, RLS is reviewed, auth redirects are configured, backups and monitoring are active, health endpoint responds, sensitive document storage is approved and test data is excluded.
 

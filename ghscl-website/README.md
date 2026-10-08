@@ -35,7 +35,7 @@ It presents one continuous platform story:
 
 PHC, GHSCL Hong Kong, AHTE, JAKIM, laboratories, manufacturers, Sinotrans, ports/customs, GCC market participants and finance/Takaful parties are shown according to their actual role in the ecosystem.
 
-AI assists. Authorised humans and competent authorities decide.
+AI supports evidence review, risk analysis and process visibility.
 
 ## Standards
 

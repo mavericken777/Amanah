@@ -1,33 +1,12 @@
-# AHTE source binding
+# Project source binding
 
-## Current project source
+The public platform and website source is developed across these repositories:
 
-`mavericken777/GlobalHalalDigitalTrust` — branch `main`.
+- `mavericken777/GlobalHalalDigitalTrust` — project architecture, current standards register, schemas, and reference services.
+- `mavericken777/Amanah` — application, public website, integration interfaces, and operational workflows.
 
-[PROJECT-REPO: https://github.com/mavericken777/GlobalHalalDigitalTrust/tree/70246a361ca799d092d12d968a301c87c71ca2d7 — 70246a361ca7 — 2026-10-09 — current verified main]
+The current standards register is `master-standards-stack/iq300-all-jakim-ms/01_MASTER_STANDARDS_REGISTER.md`. Historical dated standards snapshots and their audits have been removed. This repository contains project guidance and does not distribute licensed standards text.
 
-The current source describes the platform architecture and integration interfaces. Private trip administration, transaction records, draft instruments and counterparty signatory data are outside the public repositories.
+Amanah provides continuous end-to-end assurance and monitoring across product/SKU, premises, suppliers, laboratory, audit, production, warehouse, logistics, ports, GCC receiving, distribution and verification. The live operating picture combines attributable evidence, custody events, audit and corrective-action progress, certification status, risk signals, predictions and preemptive strategy recommendations. AI/ML supports these activities; JAKIM, JAIN/JAIM, muftis, scholars and authorised halal auditors decide certification award or revocation. PHC and JAKIM operate in parallel across Malaysia’s state and federal governance framework.
 
-## Immutable standards reference
-
-`master-standards-stack/verified-2026-09-17/` remains the dated standards-reference package. Its 2026-10-09 revision note records the owner's removal of transaction-specific identifiers and trip-administration material; the revision does not alter normative standards text or authority status. Use current authoritative sources for normative applicability. Exact normative text remains source-locked when authoritative material is unavailable.
-
-## Architecture controls
-
-- Public authority topology: `AHTE ⇄ Direct JAKIM API ⇄ JAKIM`.
-- Default corridor: `China → GCC direct`.
-- AI assists; authorized humans and competent authorities decide.
-- Evidence precedes trust; trust precedes operational release.
-- Hashes establish integrity, not truth. Laboratory results are evidence, not certification.
-- Authority, AHTE trust, operational, customs and finance states remain separate.
-- No architecture document, test fixture, connector mock or website demonstration creates real authority approval, sovereign release, financing approval, Takaful decision or legal title.
-
-## Canonical path
-
-`Authority → Standard / Instrument → Clause / Requirement → Applicability → Control → HCP / SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → Authority Gate → Trust State → Operational Release`
-
-## Current integration scope
-
-The platform models onboarding, standards applicability, producer and supplier identity, sample custody and laboratory evidence, smart audit, findings and corrective action, authority review, trust-state propagation, production records, Sinotrans warehouse and logistics custody, ports and customs, GCC receiving and distribution, public verification, command-center monitoring, predictive assurance, recall analysis, and appropriately authorized finance and Takaful interfaces.
-
-Machine-readable source and mirror bindings are maintained in `config/source-binding.json` and `config/canonical-mirror-manifest.json`.
+The architecture connects AHTE ⇄ Direct JAKIM API ⇄ JAKIM over a China → GCC direct physical corridor. GHSCL Hong Kong coordinates international digital infrastructure and corridor operations.

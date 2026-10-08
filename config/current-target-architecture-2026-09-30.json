@@ -2,7 +2,7 @@
   "artifact": "current-target-architecture-2026-09-30.json",
   "version": "1.2.0",
   "control_date": "2026-09-30",
-  "classification": "post-freeze proposal architecture registry",
+  "classification": "current target architecture",
   "standards_control": "master-standards-stack/iq300-all-jakim-ms/01_MASTER_STANDARDS_REGISTER.md",
   "standards_source_rule": "Current JSM/JAKIM verification; exact normative text source-locked",
   "authority_effect": "none",
@@ -26,7 +26,7 @@
     "Finding",
     "Corrective Action",
     "Re-verification",
-    "Authority Gate",
+    "Certification Decision",
     "Trust State",
     "Operational Release"
   ],
@@ -34,21 +34,17 @@
     "origin": "China",
     "destination": "GCC",
     "physical_route": "China -> GCC direct",
-    "malaysia_role": "governance / assurance / authority-connectivity plane unless a physical hop is separately scoped",
-    "pilot": "shipment workflow",
-    "pilot_status": "NOT-INSTANTIATED"
+    "malaysia_role": "governance / assurance / authority-connectivity plane unless a physical hop is separately scoped"
   },
   "authority_workflow": {
     "connectivity": "AHTE <-> DIRECT JAKIM API <-> JAKIM",
-    "public_intermediary": null,
-    "nur_ai_platform_hop": false,
-    "project_formal_certification_review": "PHC + JAKIM authorised human workflow",
     "participants": [
-      "PHC authorised project roles",
-      "JAKIM authorised halal officers / decision-makers",
-      "Mufti / scholars as applicable to the implemented authority process"
+      "PHC and JAKIM parallel state and federal governance roles",
+      "JAKIM / JAIN / JAIM certification decision makers",
+      "Muftis, scholars and authorised halal auditors"
     ],
-    "ai_makes_formal_certification_decision": false
+    "ai_makes_formal_certification_decision": false,
+    "certification_decisions": "JAKIM / JAIN / JAIM, muftis, scholars and authorised halal auditors decide award and revocation through their applicable processes"
   },
   "actors": {
     "phc": {
@@ -334,31 +330,7 @@
   ],
   "canonical_china_pack": "master-standards-stack/CHINA_EXECUTION_PACK/",
   "retired_lineage": "master-standards-stack/china-execution-pack/",
-  "supersession_rules": [
-    {
-      "stale": "China -> Malaysia pilot wording",
-      "use": "China -> GCC direct"
-    },
-    {
-      "stale": "China -> Malaysia -> GCC mandatory physical route",
-      "use": "China origin -> GCC destination; Malaysia governance/assurance unless separately scoped"
-    },
-    {
-      "stale": "generic public authority gateway or NurAI hop between AHTE and JAKIM",
-      "use": "direct JAKIM API"
-    },
-    {
-      "stale": "passive command-center analytics",
-      "use": "joint 24/7 GHSCL operational + authorised JAKIM authority-side monitoring with predictive/preemptive escalation"
-    },
-    {
-      "stale": "transport-only Sinotrans scope",
-      "use": "end-to-end warehouse + logistics real-time integration"
-    },
-    {
-      "stale": "development dependency used to disable target capability",
-      "use": "complete target capability + replaceable sandbox/development provider until real connector is available"
-    }
-  ],
-  "source_commit": "70246a361ca799d092d12d968a301c87c71ca2d7"
+  "source_commit": "79f8d85b30c778fdbf37d96e72acf075e46251bf",
+  "monitoring_model": "End-to-end real-time monitoring across certified product/SKU, premises, suppliers, laboratory, audit, production, warehouse, logistics, port, GCC receiving and distribution records.",
+  "ai_ml_model": "Monitoring, predictive analytics and preemptive strategies assist authorised operational and certification decision workflows."
 }

@@ -1,20 +1,17 @@
-# AMANAH Standing Execution Instruction
+# Amanah platform operating model
 
-Version: 1.0.0
-Control date: 2026-10-03
-Item: 68
-Status: CONTROLLING OPERATING INSTRUCTION
+## Current product
 
-For every future AMANAH task, place the task in the canonical assurance path, inspect current main/PRs/CI and controlling status first, preserve the verified freeze, preserve AHTE ⇄ Direct JAKIM API ⇄ JAKIM, preserve China → GCC direct, keep AI within D0–D2 and configured D4, keep D5/D6 with authorised humans/competent authorities, keep NOT_DETECTED ≠ HALAL, and keep hash integrity distinct from truth.
+Global Halal Supply Chain Limited operates the international digital infrastructure for Amanah and AHTE. The platform connects and continuously monitors certified premises and products/SKUs from China origin through GCC distribution and verification, including suppliers, materials, JAKIM-certified laboratories, audits, production, warehouses, logistics, ports and receiving.
 
-Build complete interfaces now even when an external connector is not yet activated. Use connector states UNCONFIGURED / DEVELOPMENT / SANDBOX / PENDING_AUTHORIZATION / PRODUCTION. Do not fabricate production responses.
+PHC and JAKIM work in parallel across Perak/state and federal Malaysian governance. JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors decide certification award and revocation through their applicable processes. AI/ML assists with evidence monitoring, predictive analytics and preemptive strategies.
 
-A change must be reconciled across affected code, schemas, tests, website, corporate/media, SOP, legal/commercial, mission/stakeholder, STATUS/PENDING, indexes and claim/QC controls. Remove stale duplicates but do not remove evidence, authority, auditability, exception handling or state separation.
+Topology: **AHTE ⇄ Direct JAKIM API ⇄ JAKIM**. Physical corridor: **China → GCC direct**. Keep `NOT_DETECTED ≠ HALAL` and integrity proof distinct from factual truth.
 
-Classify claims as VERIFIED CURRENT FACT, REPOSITORY-IMPLEMENTED CAPABILITY, PROJECT-DEFINED CAPABILITY, PLANNED EXTERNAL INTEGRATION, COMMERCIAL PROPOSAL, or ASSUMPTION REQUIRING VALIDATION.
+## Product implementation
 
-Required close-out loop: VERIFY → RECONCILE → EXECUTE → VALIDATE → CROSS-CHECK → AUDIT → CLOSE / OPEN GATE.
+Build complete workflows and connector interfaces for the full journey. Represent provider and environment states accurately; do not invent live integrations, institutional decisions or operating events. Keep current user-facing information aligned across application pages, the GHSCL website, schemas, videos, training and operational guides. Remove superseded project instructions and duplicate status records when their current content is captured in the controlling references.
 
-Every external gate must identify the missing input, owner, blocked path point and promotion evidence. A serious stakeholder must be able to tell what exists, who decides, what remains open and what action comes next.
+## Verification and close-out
 
-Closure: Item 68 complete to project control.
+Inspect the current repositories and open changes first. Implement, validate the relevant tests, builds and browser experience, audit references and repository hygiene, then record the observed result. Do not report a check as complete until it has actually run.

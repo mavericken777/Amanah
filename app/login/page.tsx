@@ -43,7 +43,7 @@ export default function LoginPage() {
           <div className="eyebrow">AMANAH SECURE GATEWAY</div>
           <h1>Enter Amanah.</h1>
           <p className="muted">Secure access to the operational workspace for evidence, controls, audits, approvals, monitoring, logistics and accountable decisions.</p>
-          <div className="auth-security-row" aria-label="Gateway properties"><span>Controlled access</span><span>Audit-aware workflow</span><span>Human authority boundary</span></div>
+          <div className="auth-security-row" aria-label="Gateway properties"><span>Controlled access</span><span>Audit-aware workflow</span><span>Certification decision workflow</span></div>
           <form className="stack" onSubmit={submit}>
             <label>Institutional email<input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" /></label>
             <label>Password<input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" /></label>

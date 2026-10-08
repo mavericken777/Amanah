@@ -23,10 +23,9 @@ The entries below record historical releases and their original reviewed commits
 
 ### Architecture
 
-- Bound current Amanah implementation to `GlobalHalalDigitalTrust@0fab4c64240b569caef947fb2568ccda9d3fa0d3` while preserving the `verified-2026-09-17/` freeze.
 - Adopted current target architecture v1.2.0 and the implementation rule: **FULL ARCHITECTURE NOW → REAL CONNECTORS WHEN AVAILABLE → NO REDESIGN REQUIRED.**
 - Set China → GCC direct as the controlling physical corridor; Malaysia remains governance/assurance/authority-connectivity unless separately scoped as a physical hop.
-- Replaced stale public generic Authority Gateway/NurAI-hop topology with `AHTE ⇄ Direct JAKIM API ⇄ JAKIM`.
+- Replaced stale public generic certification reviewway/NurAI-hop topology with `AHTE ⇄ Direct JAKIM API ⇄ JAKIM`.
 - Recorded PHC + JAKIM authorised human certification review workflow while preserving competent-authority/human decision boundaries.
 - Added joint 24/7 GHSCL operational + authorised JAKIM authority-side Command Center architecture.
 - Added explicit AI/ML Preemptive Strategy Engine alongside predictive/anomaly/fracture/blast-radius functions.
@@ -83,7 +82,7 @@ Hard non-decision controls include:
 - Upgraded V7 public architecture to current direct-JAKIM, Command Center, China traceability/lab, Sinotrans warehouse/logistics, port/customs and finance/Takaful/tokenomics target model.
 - Added Command Center and Finance/Takaful public pages.
 - Made public-site generation idempotent and required build/lint before GitHub Pages deployment.
-- Added regression tests against stale generic Authority Gateway and incorrect physical-corridor topology.
+- Added regression tests against stale generic certification reviewway and incorrect physical-corridor topology.
 - Current source manifest binds to `0fab4c64240b` and canonical uppercase China execution sources.
 
 ### Governance

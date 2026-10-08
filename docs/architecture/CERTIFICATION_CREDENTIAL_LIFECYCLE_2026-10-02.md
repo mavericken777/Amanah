@@ -23,5 +23,3 @@ Reassessment is triggered by material changes to product formulation, supplier/o
 - Operational release cannot substitute for a formal authority decision.
 - Revoked/suspended/expired credentials cannot be promoted by a trust score.
 - Any current-state projection must preserve the original issued record and amendment/revocation history.
-
-[OPEN GATE: formal certification decisions and final official credential payloads remain with the applicable competent authority.]

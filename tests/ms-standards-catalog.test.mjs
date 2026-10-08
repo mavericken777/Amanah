@@ -51,7 +51,7 @@ test("current primary Malaysian/JAKIM standards registry is complete across plat
   assert.ok(homePage.includes("MS 2683:2017"));
   assert.match(publisher, /MS_OPERATING_SET\.json/);
   assert.match(homePage, /complete current Malaysian\/JAKIM standards registry/i);
-  assert.match(homePage, /certification and governance layer/i);
+  assert.match(homePage, /certification and governance workflows/i);
   assert.doesNotMatch(homePage, /complete controlled 17-standard/i);
   assert.doesNotMatch(homePage, /17-standard halal operating set/i);
 });

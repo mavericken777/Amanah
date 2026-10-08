@@ -46,13 +46,13 @@ try {
   await page.locator('#stageNav button').first().click();
   assert.match(await page.locator('#monitorPanel').textContent(),/Producer/);
   await page.locator('#monitorViews button').filter({hasText:/^Exceptions$/}).click();
-  await page.locator('#exceptionButtons button').first().click();assert.match(await page.locator('#exceptionState').textContent(),/D4 operational hold/);assert.match(await page.locator('#monitorPanel').textContent(),/Temperature excursion/);
+  await page.locator('#exceptionButtons button').first().click();assert.match(await page.locator('#exceptionState').textContent(),/Operational response/);assert.match(await page.locator('#monitorPanel').textContent(),/Temperature excursion/);
   assert.equal(await page.locator('#playJourney').isDisabled(),true,'play is locked during an exception hold');assert.equal(await page.locator('#restartJourney').isDisabled(),true,'restart cannot bypass an exception hold');assert.equal(await page.locator('#exceptionButtons button').nth(1).isDisabled(),true,'a new scenario cannot replace an active hold');const heldStage=await page.locator('#stageTitle').textContent();await page.waitForTimeout(4500);assert.equal(await page.locator('#stageTitle').textContent(),heldStage,'an exception hold pauses autoplay');
   assert.match(await page.locator('#exceptionBlastRadius').textContent(),/importer inventory.*distributor transfers.*retail stock/i);assert.equal(await page.locator('#exceptionBlastRadius ul li').count(),5,'recall scope branches from the affected product identity');
-  assert.match(await page.locator('#governanceMatrix').textContent(),/D0.*D1.*D2.*D3.*D4.*D5.*D6/s);
+  assert.match(await page.locator('#governanceMatrix').textContent(),/CONTINUOUS MONITORING.*AI \/ ML ANALYSIS.*PREDICTIVE INSIGHT.*PREEMPTIVE STRATEGY.*HUMAN CERTIFICATION DECISION.*LIVE STATUS UPDATE/s);
   await page.locator('#passportTabs button').filter({hasText:'Overview'}).click();assert.match(await page.locator('#passportBody').textContent(),/HOLD/);
   for(const action of ['Record investigation','Record corrective action','Complete re-verification','Finish response walkthrough'])await page.locator('#exceptionActions button').filter({hasText:action}).click();
-  assert.match(await page.locator('#exceptionState').textContent(),/accountable operator and competent authority/i);
+  assert.match(await page.locator('#exceptionState').textContent(),/authorised human decision makers/i);
   assert.match(await page.locator('#monitorPanel').textContent(),/Re-verification recorded/);
   await page.locator('#resetException').click();assert.match(await page.locator('#monitorPanel').textContent(),/No exception selected/);
   await page.locator('#consumerScan').click();assert.match(await page.locator('#consumerRecord').textContent(),/Premium Halal food product/);assert.doesNotMatch(await page.locator('#consumerRecord').textContent(),/CN-DEMO|DEMO-SHIPMENT|GHSC-DEMO/i);

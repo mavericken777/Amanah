@@ -1,6 +1,5 @@
 # AHTE Stakeholder Explainer Film — Master Script
 
-[PROPOSAL: communications artifact derived from canonical AHTE architecture — not authority text]
 
 ## Audience
 Government stakeholders, competent authorities, certification bodies, laboratories, manufacturers, logistics providers, importers/buyers, technology partners and strategic investors.
@@ -27,11 +26,11 @@ Narration: "The Amanah Halal Trust Ecosystem, operated by Global Halal Supply Ch
 
 ### 01:15-01:50 — Canonical control path
 Visual: animated flow.
-Narration: "The operating path is explicit: Authority, Standard or Instrument, Requirement, Applicability, Control, Halal Control Point or Supplier Control Point, Evidence, Audit Test, Finding, Corrective Action, Re-verification, Authority Gate, Trust State and Operational Release."
+Narration: "The operating path is explicit: Authority, Standard or Instrument, Requirement, Applicability, Control, Halal Control Point or Supplier Control Point, Evidence, Audit Test, Finding, Corrective Action, Re-verification, certification review, Trust State and Operational Release."
 
 ### 01:50-02:20 — AI + HITM
 Visual: AI model proposes assessment; a human decision panel remains visually dominant.
-Narration: "AI can ingest, correlate, assess and recommend. It cannot remove a reserved authority gate. Human-in-the-mandate decisions remain accountable. D5 and D6 authority and sovereign decisions are reserved."
+Narration: "AI can ingest, correlate, assess and recommend. It cannot remove a reserved certification review. Human-in-the-mandate decisions remain accountable. certification review and certification determination authority and sovereign decisions are reserved."
 
 ### 02:20-02:45 — Evidence and laboratory
 Visual: sample collection, chain of custody, laboratory instrument, report hash, evidence object.
@@ -50,17 +49,17 @@ Visual: China origin → factory → laboratory → container → port → GCC d
 Narration: "The first controlled transaction is the China to GCC direct corridor pilot. shipment workflow is not a fictional certification. It is a transaction model whose real closure depends on real SKU, manufacturer, importer, documents, evidence, custody and destination release."
 
 ### 04:15-04:40 — Trust state and release
-Visual: hard gates first, trust vector second, release last.
-Narration: "A hard-gate failure cannot be offset by a high score. Trust scoring is descriptive after eligibility. Operational release is a controlled operational state, not a certification."
+Visual: certification decision records connect to trust status and continuous monitoring.
+Narration: "The Command Center follows certification status, evidence and custody in real time. AI/ML predicts risk and recommends preemptive strategies; authorised decision makers award or revoke certification."
 
 ### 04:40-05:00 — Closing
-Visual: clean stakeholder dashboard, authority boundary labels, secure data flow.
+Visual: clean stakeholder dashboard, certification workflow labels, secure data flow.
 Narration: "AHTE is built to make evidence easier to trust, decisions easier to audit, and physical trade easier to monitor—while preserving the authority of the people and institutions empowered to decide."
 
 ## On-screen phrases
 - "Evidence-led. Source-aware. Authority-bounded."
 - "AI assists. Human authority decides."
-- "Hard gates are non-compensable."
+- "Certification decisions are monitored across every connected handoff."
 - "NOT DETECTED != HALAL"
 - "Operational release != certification"
 - "[PILOT: shipment workflow — China → GCC direct]"

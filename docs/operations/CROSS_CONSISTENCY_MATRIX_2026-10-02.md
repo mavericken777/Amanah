@@ -6,7 +6,7 @@
 |---|---|---|
 | Authority topology | AHTE ⇄ Direct JAKIM API ⇄ JAKIM | LOCKED |
 | Physical corridor | China → GCC direct | LOCKED |
-| AI boundary | D0-D2 + configured D4 holds; no D5/D6 | LOCKED |
+| AI boundary | D0-D2 + configured D4 holds; no authorised certification decision workflow | LOCKED |
 | Laboratory | Evidence only; NOT DETECTED ≠ HALAL | LOCKED |
 | Trust binding | ObjectID + EventID + EvidenceID + ActorID + Timestamp + IntegrityProof | LOCKED |
 | Trust lifecycle | INITIAL → EVIDENCE-COMPLETE → ASSESSED → VERIFIED → RELEASED | LOCKED |

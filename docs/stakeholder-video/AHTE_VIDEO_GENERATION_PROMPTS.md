@@ -1,6 +1,5 @@
 # AHTE AI Video Generation Prompt Pack
 
-[PROPOSAL: generated-media prompt specification]
 [TOOL-SPEC UNVERIFIED: AI video renderer — requires connected video-generation service]
 
 ## Global style

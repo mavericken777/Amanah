@@ -1,75 +1,30 @@
-# GHSCL corporate identity and media control — 2026-10-03
-
-[PROJECT-DEFINED CORPORATE IDENTITY / MEDIA CONTROL]
+# GHSCL website identity and media
 
 ## Identity
 
-Primary corporate identity: **GLOBAL HALAL SUPPLY CHAIN LIMITED**.
+- Company: **GLOBAL HALAL SUPPLY CHAIN LIMITED**.
+- Platform: **AMANAH · GLOBAL HALAL DIGITAL TRUST**.
+- Chinese identity: 全球清真供應鏈有限公司.
+- Arabic identity: سلسلة التوريد العالمية للحلال.
 
-Platform identity: **AMANAH · GLOBAL HALAL DIGITAL TRUST**.
-
-Supporting multilingual identity:
-- 全球清真供應鏈有限公司
-- سلسلة التوريد العالمية للحلال
-
-The corporate shield / Halal circuit mark is an original project brand device. It is not an official authority seal and must not be presented as a certification mark.
+Use the company name in the primary brand. Use the compact route-node mark as the logo. The homepage hero must remain free of an oversized shield or ornamental centerpiece.
 
 ## Visual system
 
-Palette:
-- Obsidian: #050505
-- Imperial gold: #D4AF5F
-- Bright gold: #F2D78D
-- Deep gold: #8E641F
-- Warm ivory: #F6F1E7
-- Muted bronze: #A99D84
+- Obsidian black, metallic gold, and warm ivory.
+- Arial, Helvetica, or a similar neutral sans-serif throughout.
+- Clear hierarchy, restrained surfaces, and diagrams tied to product, evidence, custody, and process information.
+- Process animation advances through the 20-stage journey and responds to user selection. Reduced-motion settings retain readable static information.
+- Sound starts only by user action.
 
-Design language: restrained sovereign-enterprise presentation, metallic shield/circuit geometry, precise institutional typography, black/gold depth, subtle world/evidence-network motifs, strong legibility and minimal decorative motion.
+## Public media
 
-Motion is muted by default. Sound requires user interaction. Reduced-motion users receive readable static content.
+Site assets are concept illustrations unless identified as actual records. Illustrative scenes must not be presented as photographs of real facilities, live authority systems, or current transactions. Do not publish personal or transaction identifiers in media captions or fixtures.
 
-## Website media
+## Product narrative
 
-Controlled public media includes:
-- `media/architecture.webp`
-- `media/corridor.webp`
-- `media/trust-core.webp`
-- `media/control-room.webp`
-- `media/ghscl-hybrid-film.mp4`
-- `media/ghscl-hybrid-film.webm`
-- `media/ghscl-master-film-en.vtt`
-- `media/infographics/*.svg`
+Show the complete China → GCC direct product journey: origin, company and facility onboarding, product and supplier records, standards applicability, laboratory workflow, audit, production, Sinotrans custody and logistics, origin and destination ports, GCC receiving, distribution, retail verification, and Command Center monitoring. Show the direct integration path AHTE ⇄ Direct JAKIM API ⇄ JAKIM.
 
-Concept renders and cinematic media are visualisations unless explicitly bound to real production evidence. They are not photographs of actual authority systems, current shipments, laboratories or government facilities.
+Use plain descriptions of the platform's evidence, workflow, and integration capabilities. Link certification and border status to their issuing records. Do not describe the platform as the issuer of those outcomes.
 
-## Cinematic status
-
-The existing web motion master is present and CI-verified. It remains the active website film.
-
-The controlled 90-second executive master package is defined in `docs/media/MASTER_CINEMATIC_VIDEO_2026.md`, with storyboard, shot prompts, exact authority boundaries, generated master voiceovers and captions.
-
-[OPEN GATE: new AI-generated 4K photoreal executive master — external media-plan activation required; no redesign or narrative work remains.]
-
-## Voiceover status
-
-Generated English masters:
-- executive cut task `752c27b1-9201-4002-b8f7-caf368123abe`
-- website/short cut task `6a5b4450-4c67-4f70-8f9d-11e1f1f1af3d`
-
-The generated audio is retained in the connected media workspace. Repository control uses task identifiers, exact scripts and caption files rather than expiring download URLs.
-
-## Canonical narrative
-
-Global problem → evidence continuity → GHSCL infrastructure → AHTE standards/evidence/trust core → manufacturer and laboratory evidence → smart audit → production monitoring → Sinotrans warehouse/logistics → origin/GCC ports → China → GCC direct corridor → Direct JAKIM API / human authority boundary → Command Center → destination verification → finance/Takaful evidence support → operational release.
-
-## Authority and claim boundary
-
-Public topology: **AHTE ⇄ Direct JAKIM API ⇄ JAKIM**.
-
-Certification remains a competent-authority decision. AI, blockchain, laboratories, QR/NFC, sensors, cryptographic hashes and AHTE trust state do not independently create Halal certification.
-
-Port/customs release remains sovereign. Finance/Takaful decisions remain externally owned. `NOT_DETECTED ≠ HALAL`.
-
-`[PILOT: shipment workflow — China → GCC direct]` remains NOT-INSTANTIATED until real transaction evidence exists.
-
-All public media must distinguish project architecture, simulated signals and real production evidence.
+The corridor visual is illustrative and does not represent a specific transaction. Lab result context includes the statement `NOT_DETECTED ≠ HALAL`.

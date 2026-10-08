@@ -26,10 +26,8 @@ Minimum event binding: `ObjectID + EventID + ActorID/DeviceID + Timestamp + Inte
 
 `Observe → correlate → detect → assess → HOLD where configured → assign owner → human review → corrective action → re-verification → operational release only when all required gates pass`.
 
-AI may predict and prioritize; it may not execute D5/D6 or silently remove a hold reserved to humans/authorities.
+AI may predict and prioritize; it may not execute authorised certification decision workflow or silently remove a hold reserved to humans/authorities.
 
 ## Source systems
 
 ERP / MES / QMS / WMS / LIMS / IoT / DMS remain systems of record where applicable. Amanah ingests normalized references/events and preserves provenance.
-
-[OPEN GATE: real factory credentials, devices, system interfaces and production data are activated per participating manufacturer.]

@@ -31,7 +31,5 @@ This is the controlling Amanah implementation playbook for the proposed Sinotran
 ## Interfaces
 Existing WMS/TMS/Y2T/MIS/EDI/IoT → secure Sinotrans adapter/API → AHTE event fabric → Command Center.
 
-## Authority boundary
+## certification workflow
 Sinotrans executes logistics/custody. It does not issue Halal certification, customs release, financing approval or destination authority acceptance.
-
-[OPEN GATE: exact operating entity, named site/lane, production credentials/security agreement, tariffs/service contract, importer/GCC acceptance.]

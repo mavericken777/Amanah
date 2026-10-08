@@ -12,7 +12,7 @@
 | Laboratory | lab signatory | signed method/result/evidence | evidence only |
 | Audit | authorised auditor | observations/findings | auditor decision rights |
 | CAPA | manufacturer + auditor | remediation/reverification | remains open until closure authority |
-| Certification | competent authority/certifier | certificate/decision status | external authority boundary |
+| Certification | competent authority/certifier | certificate/decision status | external certification workflow |
 | Production | manufacturer operations | telemetry/batch evidence | local buffer on outage |
 | Logistics | Sinotrans/operator | custody/route/seal evidence | no sovereign release |
 | Border | port/customs authority | inspection/release decision | platform cannot override |
@@ -22,4 +22,4 @@
 
 ## Material decision rights
 
-AI may D0-D2 and configured D4 holds. D3 material actions require human review. D5/D6 belong to authorised human/competent authority actors. Financing, Takaful, legal title and token classification remain external decisions.
+AI may D0-D2 and configured D4 holds. D3 material actions require human review. authorised certification decision workflow belong to authorised human/competent authority actors. Financing, Takaful, legal title and token classification remain external decisions.

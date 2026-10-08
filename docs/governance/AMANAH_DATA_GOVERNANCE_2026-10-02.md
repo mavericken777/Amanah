@@ -10,5 +10,3 @@ Data is classified as public, internal, confidential, restricted-authority, or r
 - Cross-border transfers require a registered legal basis and destination control before production activation.
 - Retention/deletion rules must not destroy legally required audit evidence.
 - Source bindings preserve provenance and version.
-
-[OPEN GATE: jurisdiction-specific retention schedules, DPA/controller-processor allocations, China/GCC cross-border transfer approvals and authority data-sharing terms.]

@@ -21,7 +21,7 @@
 | Authority topology is AHTE ⇄ Direct JAKIM API ⇄ JAKIM | PROJECT-DEFINED / CONTROLLING | architecture/source binding | publish |
 | Default physical corridor is China → GCC direct | PROJECT-DEFINED / CONTROLLING | architecture/corridor controls | publish |
 | Malaysia is governance/assurance/authority-connectivity unless separately scoped | PROJECT-DEFINED | architecture | publish |
-| AI does not execute D5/D6 | PROJECT-DEFINED + IMPLEMENTED CONTROL | decision rights / policy/tests | publish |
+| AI does not execute authorised certification decision workflow | PROJECT-DEFINED + IMPLEMENTED CONTROL | decision rights / policy/tests | publish |
 | Evidence is append-only with supersession | PROJECT-DEFINED + IMPLEMENTED CONTROL | evidence model | publish |
 | Hash proves integrity, not truth | CONTROLLING PRINCIPLE | evidence/crypto controls | publish |
 | NOT_DETECTED ≠ HALAL | CONTROLLING PRINCIPLE | lab controls | publish |

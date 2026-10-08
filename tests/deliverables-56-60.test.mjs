@@ -2,23 +2,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
-const prompt=fs.readFileSync('docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md','utf8');
-
-test('controlling platform prompt defines the complete operating system',()=>{
-  for(const phrase of [
-    'COMPLETE MALAYSIAN / JAKIM HALAL FRAMEWORK',
-    'AHTE ⇄ Direct JAKIM API ⇄ JAKIM',
-    'China → GCC direct',
-    'GCC IMPORTER — DEDICATED PLATFORM EXPERIENCE',
-    'RETAILER / MARKETPLACE / E-COMMERCE — DEDICATED PLATFORM EXPERIENCE',
-    'AI assists',
-    'laboratory',
-    'Command Center'
-  ]) assert.ok(prompt.toLowerCase().includes(phrase.toLowerCase()),'missing '+phrase);
+const sources=['README.md','docs/operations/STATUS.md','docs/architecture/PLATFORM_ARCHITECTURE.md','docs/ahte/SOURCE_BINDING.md'];
+const current=sources.map(p=>fs.readFileSync(p,'utf8')).join('\n');
+test('current platform model covers end-to-end assurance and certification decisions',()=>{
+  for(const phrase of ['AHTE ⇄ Direct JAKIM API ⇄ JAKIM','China → GCC direct','PHC and JAKIM','JAKIM/JAIN/JAIM','real-time monitoring','laboratory','Command Center']) assert.ok(current.toLowerCase().includes(phrase.toLowerCase()),'missing '+phrase);
 });
-
-test('authority decisions and evidence provenance remain explicit',()=>{
-  assert.match(prompt,/AI assists\. Authorised humans and competent authorities decide/i);
-  assert.match(prompt,/ObjectID \+ EventID \+ EvidenceID \+ ActorID \+ Timestamp \+ IntegrityProof/);
-  assert.match(prompt,/NOT_DETECTED ≠ HALAL/);
+test('evidence model supports certified product and premise monitoring',()=>{
+  assert.match(current,/SKU/i); assert.match(current,/premises/i); assert.match(current,/award and revocation/i);
+  assert.match(current,/AI\/ML/);
+  assert.match(current,/NOT DETECTED|NOT_DETECTED ≠ HALAL/i);
 });

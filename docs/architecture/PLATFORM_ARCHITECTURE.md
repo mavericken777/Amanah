@@ -1,83 +1,34 @@
-# AMANAH / Global Halal Digital Trust - Canonical Platform Architecture
+# Amanah / AHTE Platform Architecture
 
-**Version:** 2.0.0 | **Control date:** 2026-10-02 | **Status:** CONTROLLING POST-FREEZE ARCHITECTURE
+Amanah continuously monitors and connects the complete assurance journey for certified halal premises and products, including each SKU, supplier, material, laboratory, audit, production line, warehouse, shipment, distributor and retail endpoint.
 
-## 1. Canonical system story
-AMANAH connects origin, manufacturer, assurance, laboratory, audit, production, logistics, border, destination and verification as one evidence-linked lifecycle.
+## Journey
 
-`Origin / Manufacturer -> Organisation -> Identity/KYC -> Facility -> Product -> SKU -> Supplier -> Ingredient/Raw Material -> Documentation -> AI Review -> Human Governance -> Laboratory -> Audit -> CAPA -> Authority/Credential -> Production -> IoT -> Batch -> Warehouse -> Sinotrans Logistics -> Digital Custody -> Origin Port/Customs -> Authority Connectivity -> Cross-Border -> GCC Port/Customs -> GCC Importer -> Importer Receiving/Warehouse -> Distributor/3PL -> Retailer/Marketplace/E-commerce -> Buyer/Authority/Retailer/Consumer Verification -> Command Centre -> Continuous Assurance`
+`China origin → organisation/premises → product/SKU/suppliers/materials → applicable requirements and controls → JAKIM-certified lab evidence → halal audit and certification review → corrective action/re-verification → production and batch → JAKIM-certified warehouse and logistics custody → ports/customs → GCC importer/receiving → distribution/retail → verification, real-time monitoring and recall support`
 
-## 2. Authority boundary
-`AHTE <-> Direct JAKIM API <-> JAKIM`
+## Governance and decisions
 
-AHTE provides orchestration, applicability mapping, controls, evidence, AI assistance, trust state and operational decision support. It does not issue Halal certification, sovereign release, financing approval, Takaful decisions or legal title.
+PHC and JAKIM work in parallel across Perak/state and federal functions within Malaysia’s shared Islamic governance and Shariah framework. JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors decide certification award and revocation through their applicable governance and certification workflows. Amanah/AHTE connects the evidence and records, monitors status across the complete journey, supports decision makers with AI/ML analytics and propagates recorded outcomes to affected premises, products, SKUs and supply-chain events.
 
-## 3. Platform planes
-| Plane | Purpose | Accountable function | System of record | Evidence | Failure behaviour |
-|---|---|---|---|---|---|
-| Identity | organisations/users/roles/KYC refs | IAM | Auth + org tables | identity evidence | deny/escalate |
-| Registration | facility/product/SKU/supplier/material/asset | domain owner | AHTE domain tables | registration refs | draft/information required |
-| Compliance | standards/requirements/applicability/controls/HCP/SCCP | compliance | AHTE control plane | source/evidence | source-lock |
-| Evidence | documents/lab/media/events | evidence steward | evidence + vault | hash/signature/provenance | append/supersede |
-| Human governance | HITM/audit/authority | authorized human roles | HITM/authority stores | signed decision | hold |
-| Trust | states/vectors/fractures/packets | AHTE | trust/event ledger | integrity proofs | hold/quarantine |
-| Production | devices/sensors/telemetry/batches | manufacturer operations | AHTE + factory SOR | telemetry evidence | buffer/alert |
-| Logistics | shipment/vehicle/driver/custody/seal | logistics operator | AHTE + operator SOR | handover/telemetry | hold/store-forward |
-| Border | pre-arrival/inspection/release | port/customs authority | authority SOR | inspection/decision | hold/refer |
-| GCC Importer | pre-arrival/receiving/quarantine/inventory eligibility | importer | importer ERP/WMS + AHTE refs | receiving/discrepancy evidence | accept/quarantine/refer |
-| Distributor / 3PL | storage/transfers/custody/delivery/returns/recall | distributor/3PL | WMS/TMS + AHTE refs | transfer/POD/condition evidence | hold/refer/recall |
-| Retail / Marketplace | listing/receiving/sale eligibility/withdrawal/recall | retailer/marketplace | ERP/POS/catalog/order SOR + AHTE refs | listing/receiving/verification evidence | block/quarantine/withdraw |
-| Verification | buyer/authority/retailer/consumer disclosure | disclosure issuer + policy owner | verification event store | scoped disclosure event | deny/limited disclosure |
-| Intelligence | extraction/anomaly/prediction | AHTE intelligence | provenance/prediction | model/source refs | escalate/D4 hold |
-| Integration | APIs/events/adapters/webhooks | integration engineering | connector state + external SOR | receipt/mapping | retry/circuit-break |
-| Experience | role-specific interfaces | product teams | web/mobile/partner channels | user audit | safe empty/offline |
+**System topology:** `AHTE ⇄ Direct JAKIM API ⇄ JAKIM`
 
-## 4. Component contract
-Every component defines purpose, owner, inputs, outputs, SOR, authority boundary, security boundary, evidence, dependencies and failure behaviour. External systems never become AHTE SOR merely because an adapter exists.
+**Physical corridor:** `China → GCC direct`
 
-## 5. Decision model
-| Class | Meaning | AI | Human/authority |
-|---|---|---|---|
-| D0 | ingest | yes | no |
-| D1 | encoded control | yes | rule-owner approval for rule changes |
-| D2 | machine assessment | yes | review as configured |
-| D3 | recommendation | yes | yes for material action |
-| D4 | trust-fracture hold | configured | yes to resolve/release |
-| D5 | authority gate | no | authorized authority |
-| D6 | sovereign/legal decision | no | competent authority/legal actor |
+## Continuous assurance
 
-## 6. Canonical evidence binding
-`ObjectID + EventID + EvidenceID + ActorID + Timestamp + IntegrityProof`
-A hash demonstrates integrity of recorded bytes; it does not prove the truth of the underlying claim.
+The platform receives attributable records from standards applicability, premises, suppliers, certified laboratories, auditors, production, sensors, warehouse, logistics, ports and GCC participants. Its Command Center correlates certification status, evidence, custody, exception and environmental events in real time. AI/ML supports evidence review, anomaly detection, predictive risk analysis, impact assessment, recall blast-radius mapping and preemptive strategy recommendations.
 
-## 7. Core graphs
-Manufacturer: `Organisation -> KYC -> Facility -> ProductionLine -> Product -> SKU -> Formula -> Material -> Supplier -> Certificate/Evidence -> Audit -> CAPA -> Authority/Credential -> Batch`.
+Laboratory records include sample identity, collection, seal, custody, method, quality control, result, technical review and signed report. Audit records connect observations, evidence, findings, corrective actions and re-verification. Warehouse and logistics records link product/batch identity to vehicle, driver, container, seal, route and condition telemetry.
 
-Laboratory: `Requirement -> Sample -> ChainOfCustody -> Method/QC -> TestResult -> Review/Signature -> Evidence -> Audit/Case`. **NOT DETECTED != HALAL**.
+## Platform domains
 
-Logistics: `Batch/Lot -> Package -> Pallet -> Container -> Seal -> Shipment -> Vehicle/Driver -> Route/Custody -> Origin Port -> GCC Port -> Importer Receiving -> Distributor/3PL -> Retailer/Marketplace -> Verification`.
+- Manufacturer onboarding for organisation, premises, production line, product, SKU, suppliers and materials.
+- Standards applicability for the full Malaysian/JAKIM framework and destination rules.
+- Laboratory integration and audit evidence workflows.
+- Production, digital twins, event fabric, telemetry and real-time monitoring.
+- Warehouse, Sinotrans, custody and China → GCC corridor visibility.
+- Port/customs interfaces, GCC receiving, distribution, retail and consumer verification.
+- Command Center, predictive analytics, preemptive strategies, CAPA and recall.
+- Shariah finance and Takaful evidence/integration workflows.
 
-Trust: `Source -> Requirement -> Control -> Evidence -> AuditTest -> Finding -> CAPA -> Reverification -> AuthorityGate -> TrustState -> OperationalRelease`.
-
-## 8. Destination-market operating graph
-
-Importer: `PreArrivalDossier -> PortReleaseReference -> ReceivingAppointment -> Container/SealReconciliation -> SKU/Batch/Quantity/Condition -> CredentialCheck -> Accept/Discrepancy/Quarantine -> WarehousePlacement -> InventoryLot -> DistributionEligibility`.
-
-Distributor/3PL: `InboundAcceptance -> Storage -> Lot/BatchReconciliation -> TransferOrder -> Vehicle/Custody -> Delivery -> Returns -> RecallExecution`.
-
-Retail/Marketplace: `ApprovedImporter/Supplier -> ListingEligibility -> PO/ASN -> SKU/BatchReceiving -> Storage/Shelf/Fulfilment -> SaleAvailability -> Verification -> Withdrawal/Recall`.
-
-Recall propagation: `Product/SKU -> Batch/Lot -> ImportShipment -> ImporterInventory -> DistributorTransfers -> RetailDC/Store/Order -> Verification/CustomerContact`.
-
-These are first-class experiences. They do not collapse destination operational acceptance into Halal certification or sovereign customs release.
-
-## 9. Resilience and sovereignty
-Field workflows support store-and-forward. No outage is converted into synthetic success. Granular source records remain in their legally appropriate sovereign/enterprise systems; federation exposes minimum-necessary assertions, proofs, statuses and references.
-
-## 10. Release principle
-Operational release is a technical transition subject to configured hard gates and human/authority evidence. It is not Halal certification.
-
-## 11. Current implementation binding
-AHTE implementation includes control/evidence/trust, laboratory, audit, logistics/custody, digital twins, telemetry, first-class GCC importer and retail/market experiences, Command Centre target objects, finance-evidence objects, connector contracts and public verification. The 2026-10-02 normalized domain migration adds first-class ProductionLine, SKU, CertificationScope, Vehicle, Driver, Warehouse, Pallet, Package, Container, Seal, RouteEvent and VerificationEvent objects and typed Sensor/Gateway profiles.
-
-External production systems remain separately gated by contracts, credentials, permissions and UAT.
+External interfaces report only configured and verified provider data; no production response is fabricated.

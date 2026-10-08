@@ -133,5 +133,3 @@ Every commercial quote must identify:
 - acceptance criteria.
 
 ## 9. Financial control gate
-
-[OPEN GATE: numeric pricing, unit cost, partner margin and forecast — owner: GHSCL commercial/finance — closure requires validated cost book and approved price book.]

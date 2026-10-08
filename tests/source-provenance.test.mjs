@@ -11,7 +11,8 @@ test('current implementation provenance is coherent and the public site is expli
   assert.match(publicCommit,/^[a-f0-9]{40}$/);
   assert.equal(binding.repository,'mavericken777/GlobalHalalDigitalTrust');
   assert.equal(binding.branch,'main');
-  assert.equal(binding.freeze,'master-standards-stack/verified-2026-09-17/');
+  assert.equal(binding.current_standards_register,'master-standards-stack/iq300-all-jakim-ms/01_MASTER_STANDARDS_REGISTER.md');
+  assert.equal(binding.historical_standards_snapshot,null);
   assert.equal(binding.authority_effect,'none');
   assert.equal(json('config/current-target-architecture-2026-09-30.json').source_commit,binding.commit);
   assert.equal(json('config/target-extension-schemas-2026-09-30.json').source_commit,binding.commit);

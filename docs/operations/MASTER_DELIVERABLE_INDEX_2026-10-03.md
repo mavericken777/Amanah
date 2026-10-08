@@ -4,7 +4,6 @@ This index points to the current platform, public website, and technical referen
 
 ## Platform and website
 
-- [End-to-end platform execution prompt](../AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md)
 - [Public website source](../../ghscl-website/README.md)
 - [Website design brief](WEBSITE_BRIEF_2026-10-05.md)
 - [Operations status](STATUS.md)

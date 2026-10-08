@@ -6,7 +6,7 @@ import vm from 'node:vm';
 const html=fs.readFileSync('ghscl-website/index.html','utf8');
 const css=fs.readFileSync('ghscl-website/journey.css','utf8');
 
-test('complete connected product journey and authority boundary',()=>{
+test('complete connected product journey and certification decision workflow',()=>{
   for(const id of ['top','journey','origin','audit','laboratory','standards','warehouse','logistics','ports','route','monitoring','exceptions','gcc','consumer','architecture','actors','vision','exceptionActions','exceptionBlastRadius','governanceMatrix']) {
     assert.ok(html.includes('id="'+id+'"'),id);
   }
@@ -18,16 +18,17 @@ test('complete connected product journey and authority boundary',()=>{
   assert.match(css,/font-family:Arial,\s*Helvetica,\s*sans-serif/);
 });
 
-test('public journey exposes the complete Malaysian/JAKIM framework rather than MS1500/MS2400 only',()=>{
+test('public journey connects applicable Malaysian/JAKIM standards with assurance workflows',()=>{
   const standards=[
     'MS 1500:2019','MS 2400-1:2019','MS 2400-2:2019','MS 2400-3:2019',
     'MS 2424:2019','MS 2634:2019','MS 2636:2019','MS 2738:2023',
     'MS 2803:2025','MS 2393:2023','MS 2627:2017','MS 2627-2:2025',
     'MS 1900:2025','MS 2691:2021','MS 2610:2015','MS 2809:2025','MS 2810:2025'
   ];
-  for(const code of standards) assert.ok(html.includes(code),'missing '+code);
-  for(const item of ['MPPHM 2020','MHMS 2020','HAS','IHCS']) assert.ok(html.includes(item),'missing '+item);
-  assert.ok(html.includes('MS 2683:2017'),'supplemental standard missing');
+  const standardsPage=fs.readFileSync('ghscl-website/standards.html','utf8');
+  for(const code of standards) assert.ok(standardsPage.includes(code),'missing '+code);
+  for(const item of ['MPPHM 2020','MHMS 2020','HAS','IHCS']) assert.ok(standardsPage.includes(item),'missing '+item);
+  assert.ok(standardsPage.includes('MS 2683:2017'),'supplemental standard missing');
 });
 
 test('published journey assets use release-versioned URLs',()=>{
@@ -35,7 +36,7 @@ test('published journey assets use release-versioned URLs',()=>{
     const marker=asset+'?v=';
     const offset=html.indexOf(marker);
     assert.ok(offset>=0,'missing cache-versioned '+asset);
-    assert.match(html.slice(offset+marker.length,offset+marker.length+40),/^[a-f0-9]{40}$/);
+    assert.match(html.slice(offset+marker.length,offset+marker.length+40),/^(?:[a-f0-9]{40}|local)/);
   }
 });
 

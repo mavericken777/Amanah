@@ -14,11 +14,11 @@ No oversized decorative shield, generic AI icon cloud, cartoon graphic or meanin
 | ID | Plate | Purpose |
 |---|---|---|
 | 01 | Full AMANAH ecosystem | PHC, GHSCL, AHTE, Direct JAKIM API, JAKIM and all corridor participants |
-| 02 | Canonical assurance path | Authority → instrument → requirement → applicability → control → HCP/SCCP → evidence → audit test → finding → CAPA → re-verification → authority gate → trust state → operational release |
+| 02 | Canonical assurance path | Authority → instrument → requirement → applicability → control → HCP/SCCP → evidence → audit test → finding → CAPA → re-verification → certification review → trust state → operational release |
 | 03 | Complete Malaysian/JAKIM framework | Current verified primary standards registry + all applicable product/technical instruments + MPPHM/MHMS/HAS/IHCS/protocol/circular/authority/destination/lab layers |
 | 04 | Manufacturer onboarding | KYC → facility → product/SKU → supplier/material → evidence → readiness → lab/audit → continuous assurance |
 | 05 | Supplier/material provenance | Product/SKU → ingredient/raw material → supplier → origin → certificate/evidence → lot/batch |
-| 06 | AI + human governance | D0–D6 and human/authority decision boundary |
+| 06 | AI + human governance | D0–certification determination and human/authority decision boundary |
 | 07 | Laboratory evidence chain | Sample → custody → method/QC → result → review/signature → evidence; NOT_DETECTED ≠ HALAL |
 | 08 | Smart audit / CAPA | Smart glass/tablet → observation → evidence → finding → corrective action → re-verification |
 | 09 | Certification / credential lifecycle | Application through renewal/suspension/revocation with external authority ownership |
