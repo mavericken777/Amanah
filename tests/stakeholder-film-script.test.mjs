@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
-const narration=readFileSync(new URL('../docs/stakeholder-video/AHTE_10_MINUTE_INSTITUTIONAL_NARRATION.txt',import.meta.url),'utf8').trim();
+const narration=readFileSync(new URL('../docs/stakeholder-video/AHTE_10_MINUTE_INSTITUTIONAL_NARRATION.txt',import.meta.url),'utf8').replace(/\r\n/g,'\n').trim();
 const words=narration.split(/\s+/);
 
 test('institutional documentary narration stays within the ten-minute word band',()=>{
