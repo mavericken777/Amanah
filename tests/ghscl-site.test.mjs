@@ -31,7 +31,12 @@ test('public journey exposes the complete Malaysian/JAKIM framework rather than 
 });
 
 test('published journey assets use release-versioned URLs',()=>{
-  for(const pattern of [/journey\\.css\\?v=[a-f0-9]{40}/,/journey\\.js\\?v=[a-f0-9]{40}/,/home-menu\\.js\\?v=[a-f0-9]{40}/]) assert.match(html,pattern);
+  for(const asset of ['journey.css','journey.js','home-menu.js']) {
+    const marker=asset+'?v=';
+    const offset=html.indexOf(marker);
+    assert.ok(offset>=0,'missing cache-versioned '+asset);
+    assert.match(html.slice(offset+marker.length,offset+marker.length+40),/^[a-f0-9]{40}$/);
+  }
 });
 
 test('public journey models the complete lifecycle without asserting sovereign or operational release',()=>{
