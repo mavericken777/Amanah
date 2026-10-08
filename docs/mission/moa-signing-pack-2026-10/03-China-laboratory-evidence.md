@@ -7,7 +7,7 @@
 
 ## Parties
 
-GHSCL and the exact legal laboratory entity, accreditation scope and authorised signatory structure to be confirmed before execution.
+GHSCL and the National Food Safety (Hengqin) Innovation Center under the Chinese Academy of Agricultural Sciences, China (the “Laboratory Institution”), acting through its duly confirmed contracting legal entity. The registered contracting entity, accreditation scope and authorised signatory structure must be confirmed before execution.
 
 ## 1. Strategic purpose
 
