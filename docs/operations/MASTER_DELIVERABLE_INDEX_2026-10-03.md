@@ -73,6 +73,7 @@ The destination operating story is: `GCC port/customs -> importer receiving/quar
 - Public visual gallery — `ghscl-website/visuals.html`
 - Master cinematic video — `docs/media/MASTER_CINEMATIC_VIDEO_2026.md`
 - Master voiceover — `docs/media/MASTER_VOICEOVER_EN_2026.md`
+- 10-minute institutional documentary narration (1,414 words) — `docs/stakeholder-video/AHTE_10_MINUTE_INSTITUTIONAL_NARRATION.txt`
 
 ## Legal / commercial
 
