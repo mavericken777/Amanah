@@ -1,6 +1,4 @@
--- Supplemental Malaysian Standards applicability registry.
--- Control date: 2026-10-06
--- Adds applicability metadata to the current operating catalogue.
+-- Supplemental Malaysian standards applicability registry.
 -- Source: GlobalHalalDigitalTrust current main, supplemental technical/product standard register.
 
 create or replace function private.ahte_seed_supplemental_ms_catalog(target_org uuid)
@@ -28,6 +26,7 @@ returns trigger language plpgsql security definer set search_path=public as $$
 begin
   perform private.ahte_seed_operating_rules(new.id);
   perform private.ahte_seed_reference_catalog(new.id);
+  perform private.ahte_seed_ms2400_source_bindings(new.id);
   perform private.ahte_seed_supplemental_ms_catalog(new.id);
   return new;
 end $$;

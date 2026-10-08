@@ -88,6 +88,17 @@ begin
   on conflict do nothing;
 end $$;
 
+create or replace function private.ahte_seed_supplemental_ms_catalog(target_org uuid)
+returns void language plpgsql security definer set search_path=public as $$
+begin
+  insert into public.ahte_instruments(
+    organization_id,authority_id,code,title,instrument_type,version,jurisdiction,source_status,source_reference
+  ) values (
+    target_org,null,'MS 2683:2017','Kelulut (Stingless bee) honey - Specification','supplemental_standard','2017','Malaysia','active',
+    'PROJECT-REPO: GlobalHalalDigitalTrust — current Malaysian/JAKIM standards register'
+  ) on conflict do nothing;
+end $$;
+
 create or replace function private.ahte_seed_ms2400_source_bindings(target_org uuid)
 returns void language plpgsql security definer set search_path=public as $$
 begin
@@ -110,4 +121,15 @@ end $$;
 
 revoke all on function private.ahte_seed_reference_catalog(uuid) from public;
 revoke all on function private.ahte_seed_ms2400_source_bindings(uuid) from public, anon, authenticated;
+revoke all on function private.ahte_seed_supplemental_ms_catalog(uuid) from public;
 revoke all on function private.ahte_seed_on_org_created() from public;
+
+do $$
+declare org record;
+begin
+  for org in select id from public.organizations loop
+    perform private.ahte_seed_reference_catalog(org.id);
+    perform private.ahte_seed_ms2400_source_bindings(org.id);
+    perform private.ahte_seed_supplemental_ms_catalog(org.id);
+  end loop;
+end $$;
