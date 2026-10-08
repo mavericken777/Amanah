@@ -12,6 +12,6 @@
 | 06 | 25s | lab sample + chain of custody + signed report | controlled macro | NOT DETECTED != HALAL | lab ambience |
 | 07 | 30s | factory/batch/pallet digital twin | split-screen physical/digital | Digital Audit Twin | low mechanical layer |
 | 08 | 30s | sensors, seal, geofence, telemetry and alert | fast tracking + HUD | Platinum Monitoring | alert pulse |
-| 09 | 30s | China → port → GCC flow | aerial map-to-ground | Shipment 001 | music resolves upward |
+| 09 | 30s | China → port → GCC flow | aerial map-to-ground | shipment workflow | music resolves upward |
 | 10 | 25s | hard gates block a release; trust score remains secondary | close-up dashboard | Hard gates are non-compensable | hard-stop sound |
 | 11 | 20s | stakeholder dashboard with authority boundary labels | calm dolly out | Operational release != certification | final chord |

@@ -25,6 +25,6 @@
 
 ## Scope boundary
 
-This audit concerns the platinum website performance and interaction gates. Production authentication, real partner integrations, authority acceptance, production UAT and Shipment 001 evidence remain in the private activation checklist and are not satisfied by this site audit.
+This audit concerns the platinum website performance and interaction gates. Production authentication, real partner integrations, authority acceptance, production UAT and shipment workflow evidence remain in the private activation checklist and are not satisfied by this site audit.
 
 **Completion rule:** Keep the device-specific gate open until physical-device evidence is recorded.

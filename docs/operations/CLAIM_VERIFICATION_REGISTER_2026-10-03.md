@@ -25,7 +25,7 @@
 | Evidence is append-only with supersession | PROJECT-DEFINED + IMPLEMENTED CONTROL | evidence model | publish |
 | Hash proves integrity, not truth | CONTROLLING PRINCIPLE | evidence/crypto controls | publish |
 | NOT_DETECTED ≠ HALAL | CONTROLLING PRINCIPLE | lab controls | publish |
-| Shipment 001 is NOT-INSTANTIATED | VERIFIED CURRENT FACT | STATUS/PENDING/register | publish |
+| shipment workflow is NOT-INSTANTIATED | VERIFIED CURRENT FACT | STATUS/PENDING/register | publish |
 | Amanah protected application exists in source | REPOSITORY-IMPLEMENTED CAPABILITY | app/ | publish with deployment distinction |
 | Public website exists in source | REPOSITORY-IMPLEMENTED CAPABILITY | ghscl-website/ | publish with deployment distinction |
 | Manufacturer / authority command-centre views exist | REPOSITORY-IMPLEMENTED CAPABILITY | protected app | publish as implemented capability |
@@ -40,8 +40,8 @@
 | “Laboratory integrated in production” | PLANNED EXTERNAL INTEGRATION | exact lab identity/accreditation/method scope/API/UAT |
 | “Sinotrans is live end-to-end” | PLANNED EXTERNAL INTEGRATION | contracting entity/sites/lanes/systems/credentials/UAT |
 | “Ports/customs connected” | PLANNED EXTERNAL INTEGRATION | sovereign authorization/interface/UAT |
-| “GCC market accepted Shipment 001” | ASSUMPTION REQUIRING VALIDATION | real importer/authority/receiving evidence |
-| “Shipment 001 exists” | FALSE UNTIL PROMOTED | product/batch/shipment/custody/destination evidence |
+| “GCC market accepted shipment workflow” | ASSUMPTION REQUIRING VALIDATION | real importer/authority/receiving evidence |
+| “shipment workflow exists” | FALSE UNTIL PROMOTED | product/batch/shipment/custody/destination evidence |
 | “CODA financing approved” | COMMERCIAL PROPOSAL / external decision | executed financier decision |
 | “Takaful approved” | external decision | underwriting/contract evidence |
 | “GHSCL price is X” | COMMERCIAL PROPOSAL | validated price/cost book / approved schedule |

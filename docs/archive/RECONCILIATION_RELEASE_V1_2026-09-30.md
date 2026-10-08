@@ -46,6 +46,6 @@ The machine proposal defines `authority_decided` without an onward transition. T
 - Review attestations and stored hashes are evidence bindings; independent issuer signatures, instrument authenticity, accredited assay interpretation and destination acceptance remain external evidence gates.
 
 [SOURCE-LOCKED: exact licensed normative wording — required: controlling licensed source when exact clause verification is performed]
-[PILOT: Shipment 001 — no transaction evidence instantiated]
+[PILOT: shipment workflow — no transaction evidence instantiated]
 
 Certification remains with JAKIM/MAIN/JAIN. Destination gates remain with applicable GCC authorities/importers. `NOT DETECTED ≠ HALAL`. Operational release never creates Halal certification.

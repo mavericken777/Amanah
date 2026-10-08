@@ -47,7 +47,7 @@ Narration: "At the Platinum layer, device identity and telemetry can contribute 
 
 ### 03:45-04:15 — China → GCC pilot
 Visual: China origin → factory → laboratory → container → port → GCC destination → receiving.
-Narration: "The first controlled transaction is the China to GCC direct corridor pilot. Shipment 001 is not a fictional certification. It is a transaction model whose real closure depends on real SKU, manufacturer, importer, documents, evidence, custody and destination release."
+Narration: "The first controlled transaction is the China to GCC direct corridor pilot. shipment workflow is not a fictional certification. It is a transaction model whose real closure depends on real SKU, manufacturer, importer, documents, evidence, custody and destination release."
 
 ### 04:15-04:40 — Trust state and release
 Visual: hard gates first, trust vector second, release last.
@@ -63,4 +63,4 @@ Narration: "AHTE is built to make evidence easier to trust, decisions easier to 
 - "Hard gates are non-compensable."
 - "NOT DETECTED != HALAL"
 - "Operational release != certification"
-- "[PILOT: Shipment 001 — China → GCC direct]"
+- "[PILOT: shipment workflow — China → GCC direct]"

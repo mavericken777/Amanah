@@ -2,9 +2,7 @@
 ## 100% END-TO-END MASTER EXECUTION PROMPT
 **Control date:** 7 October 2026  
 **Status:** CONTROLLING PLATFORM DELIVERY PROMPT  
-**Purpose:** Deliver the complete AMANAH / Global Halal Digital Trust ecosystem as finished, stakeholder-usable outputs across platform, website, presentations, operations, agreements, China mission material and destination-market execution.
-
-**Persistent user requirements:** [NOTE TO SELF — Maverick / AMANAH controlling user mandate](NOTE_TO_SELF_CONTROLLING_USER_MANDATE_2026-10-07.md). Read it before executing this prompt; it is the compact anti-regression requirements memory for the repository.
+**Purpose:** Deliver the complete AMANAH / Global Halal Digital Trust ecosystem as a finished operational platform, public website, technical architecture, and destination-market experience.
 
 ---
 
@@ -55,7 +53,7 @@ Required operating chain:
 → Continuous Assurance / Predictive & Preemptive Operations  
 → Recall / Blast-Radius / Post-Market Response**
 
-Every website page, deck, document, infographic, video, MOA, partner playbook and portal experience must clearly identify where it participates in this lifecycle.
+Every website page, stakeholder document, operating playbook and portal experience must clearly identify where it participates in this lifecycle.
 
 Do not present internal engineering status, branches, migrations, CI, repository housekeeping or implementation backlog as the primary story. Those remain internal quality controls.
 
@@ -1021,30 +1019,6 @@ Film must visibly include GCC importer receiving, destination warehouse/distribu
 
 ---
 
-# 30. MOA / LEGAL / PARTNER AGREEMENT PACK
-
-Provide counterparty-specific execution-ready drafts where applicable:
-
-- CODA;
-- Sinotrans logistics;
-- Sinotrans warehouse/CFS;
-- laboratory;
-- traceability provider;
-- Lulu / GCC buyer;
-- Carrefour/MAF where applicable;
-- Tamimi where applicable;
-- Noon where applicable;
-- BORONEX;
-- Macau/Hengqin institutional counterpart;
-- agricultural/research counterpart;
-- importer/distributor/retailer counterpart where applicable.
-
-Each instrument includes parties, recitals, scope, responsibilities, authority firewall, AHTE/API integration, data/evidence, security, confidentiality, IP, governance, KPIs, commercial schedule, implementation milestones, termination, dispute resolution, signatures and technical/data/API annexes.
-
-Use bilingual English/Chinese execution drafts where appropriate.
-
----
-
 # 31. OPERATIONAL PLAYBOOKS / SOP / TRAINING
 
 Required playbooks:
@@ -1078,35 +1052,6 @@ Training academy roles:
 - engineer.
 
 Controlled SOPs must cover onboarding, product, supplier, laboratory sample, audit, smart glasses, sensor install/replacement, credential renewal, warehouse, logistics, cleaning/sertu where applicable, port inspection, importer receiving, distributor transfer, retailer receiving/listing, recall, API incident and cyber incident.
-
----
-
-# 32. CHINA MISSION DELIVERY PACKAGE
-
-Prepare:
-
-- master executive deck;
-- 5/15/30-minute variants;
-- partner-specific decks;
-- corporate profile;
-- standards applicability summary;
-- MOA/signing pack;
-- Sinotrans playbook;
-- CODA pack;
-- laboratory pack;
-- hardware catalogue;
-- API binder;
-- stakeholder briefs;
-- meeting briefs;
-- objection-handling book;
-- infographics;
-- cinematic video;
-- Mandarin versions;
-- demo and offline backup;
-- signing tracker;
-- implementation milestone tracker.
-
-Connect China manufacturers to GCC importer/retailer qualification so the commercial story does not stop at export.
 
 ---
 
@@ -1237,10 +1182,9 @@ If any answer is unclear, the programme is not finished.
 5. Verification + Command Center + exception/recall.
 6. Hardware + CODA + finance/Takaful.
 7. Website + master deck + corporate profile.
-8. MOA/legal/partner packs.
-9. Infographics + cinematic film + Mandarin.
-10. SOP/training/stakeholder playbooks.
-11. Cross-consistency + red-team + final freeze.
+8. Infographics + cinematic film + localization.
+9. SOP/training/stakeholder playbooks.
+10. Cross-consistency + red-team + release validation.
 
 ---
 

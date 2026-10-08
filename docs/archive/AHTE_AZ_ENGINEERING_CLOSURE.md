@@ -6,7 +6,7 @@
 
 [PROJECT-REPO: https://github.com/mavericken777/GlobalHalalDigitalTrust — SHA12 b1c0fc63be72 — 2026-09-30]
 [PROPOSAL: post-freeze engineering implementation derived from canonical project-repo machine specifications]
-[PILOT: Shipment 001 — China → GCC direct]
+[PILOT: shipment workflow — China → GCC direct]
 
 ## Meaning of completion
 
@@ -79,7 +79,7 @@ Authority -> Standard / Instrument -> Clause / Requirement -> Applicability -> C
 - Carrier/warehouse qualification.
 - Device provisioning, calibration and cryptographic workload identity.
 - Buyer/importer, PO and commercial agreements.
-- Real Shipment 001 transaction events.
+- Real shipment workflow transaction events.
 - Penetration testing, production key management and operational security acceptance.
 - Stakeholder and authority UAT.
 

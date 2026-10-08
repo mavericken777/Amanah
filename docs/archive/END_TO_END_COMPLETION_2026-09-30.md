@@ -58,11 +58,11 @@ Closure condition: obtain destination-specific approval/acceptance evidence and 
 
 ## Transaction gates
 
-[PILOT: Shipment 001 — China → GCC direct]
+[PILOT: shipment workflow — China → GCC direct]
 
-[OPEN GATE: Shipment 001 transaction instantiation — owner: commercial/operations team — blocking: Evidence / Custody / Authority Gate / Operational Release]
+[OPEN GATE: shipment workflow transaction instantiation — owner: commercial/operations team — blocking: Evidence / Custody / Authority Gate / Operational Release]
 
-At review time the live database contained zero real auth users, organizations and projects. Shipment 001 therefore remains `NOT-INSTANTIATED` under IQ300 doctrine.
+At review time the live database contained zero real auth users, organizations and projects. shipment workflow therefore remains `NOT-INSTANTIATED` under IQ300 doctrine.
 
 Closure condition: real account/workspace creation followed by real manufacturer/SKU, certificate, importer/buyer, PO, batch, laboratory, logistics, custody, border and receiving evidence. No synthetic transaction records are permitted to satisfy this gate.
 

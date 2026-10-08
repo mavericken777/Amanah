@@ -9,7 +9,7 @@ for(const p of content.pages){if(!p.title||!p.description||!p.sources.length)thr
 const homepage=fs.readFileSync(`${base}index.html`,'utf8');
 const homeCss=fs.readFileSync(`${base}journey.css`,'utf8');
 const platinumCss=fs.readFileSync(`${base}platinum.css`,'utf8');
-for(const phrase of ['Trust, carried from','origin to consumer.','Amanah','AHTE','AHTE ⇄ Direct JAKIM API ⇄ JAKIM','China → GCC direct','Start a conversation']){
+for(const phrase of ['GLOBAL HALAL SUPPLY CHAIN LIMITED','Follow a product from its manufacturer in China','its destination in the GCC.','Amanah','AHTE','AHTE ⇄ Direct JAKIM API ⇄ JAKIM','China → GCC direct','Start a conversation']){
   if(!homepage.includes(phrase))throw new Error(`Homepage is missing required visitor content: ${phrase}`);
 }
 for(const selector of ['id="top"','id="journey"','id="audit"','id="laboratory"','id="monitoring"','id="consumer"','id="architecture"']){

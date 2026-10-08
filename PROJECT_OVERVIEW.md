@@ -1,42 +1,35 @@
-# AMANAH / Global Halal Digital Trust — China Mission Overview
+# AMANAH / Global Halal Digital Trust
 
-AMANAH is the end-to-end operational and digital trust platform for the Global Halal Digital Trust ecosystem.
-
-For the China mission, present the platform as one connected journey:
-
-**Origin / Manufacturer → Organisation / KYC → Facility → Product / SKU → Supplier / Ingredient / Raw Material → Evidence → Standards Applicability → AI-Assisted Review → Human Governance → Laboratory → Smart Audit → CAPA / Re-verification → Certification / Credential Workflow → Production / IoT / Digital Twin → Warehouse → Sinotrans Logistics → Container / Seal / Custody → Port / Customs → Direct JAKIM API → GCC Destination → Distribution / Retail → Product Verification → 24/7 Command Center**
+AMANAH is the operational and digital-trust platform for the Global Halal Digital Trust ecosystem.
 
 ## Institutional architecture
 
 - **PHC** — Perak State Government halal-industry GLC.
-- **GHSCL Hong Kong** — international operating and digital-infrastructure vehicle for China → GCC coordination and 24/7 operations.
-- **AHTE** — standards applicability, evidence, controls, HCP/SCCP, trust, digital twins, AI/ML, predictive analytics, preemptive strategy, CAPA, re-verification and recall.
-- **JAKIM** — competent-authority connectivity through the direct authority interface.
+- **GHSCL Hong Kong** — international operating and digital-infrastructure vehicle for China-to-GCC coordination and the 24/7 Command Center.
+- **AHTE** — standards applicability, controls, evidence, trust, digital twins, event workflows, analytics, CAPA, and re-verification.
+- **JAKIM and other competent authorities** — formal certification and sovereign decisions through authorized interfaces.
 
 **AHTE ⇄ Direct JAKIM API ⇄ JAKIM**
 
 **China → GCC direct**
 
-AI assists. Authorised humans and competent authorities decide.
+AI assists. Authorized humans and competent authorities decide. Evidence precedes trust; trust precedes operational release.
 
-## Malaysian / JAKIM Halal framework
+## Platform lifecycle
 
-AMANAH uses a registry-driven standards model. MS 1500 and MS 2400 are important parts of the framework, but they are not the whole Malaysian/JAKIM Halal standards universe.
+Organization and identity → facility → product/SKU → supplier/material provenance → applicable standards and controls → evidence → laboratory and custody → audit and CAPA → authority workflow → production and batch monitoring → logistics custody → ports/customs → GCC receiving → distribution/retail verification → ongoing monitoring.
 
-The current verified primary standards catalogue contains 17 Malaysian Standards and is extended by applicable product/technical standards such as MS 2683:2017. Applicability is resolved by product, facility, process, material, logistics activity, certification scope, destination and evidence context.
+## Standards
 
-The standards registry operates together with **MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination requirements and laboratory methods**.
+The standards model includes the complete applicable Malaysian/JAKIM framework and destination requirements, including MPPHM, MHMS, HAS, IHCS, protocols, circulars, authority instructions, and applicable laboratory methods. The current source-controlled registry determines applicability.
 
-## China Mission package
+## Project resources
 
-Use:
+- [Platform execution prompt](docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md)
+- [Operations index](docs/operations/INDEX.md)
+- [Public website](ghscl-website/README.md)
+- [Hardware architecture](docs/hardware/PLATINUM_HARDWARE_MASTER_BOM_2026-10-02.json)
+- [API integration reference](docs/api/AMANAH_API_UAT_PACK_2026-10-02.md)
+- [SOP library](docs/sop/AMANAH_SOP_LIBRARY_MASTER_2026-10-03.md)
 
-- `docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md`
-- `docs/mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md`
-- `docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md`
-- `docs/mission/CHINA_MISSION_EXECUTIVE_PACK_2026-10-03.md`
-- `docs/mission/CHINA_MISSION_MEETING_BRIEF_BOOK_2026-10-03.md`
-- `docs/sinotrans/SINOTRANS_A_TO_Z_PLAYBOOK_2026-10-02.md`
-- `docs/coda/CODA_HARDWARE_FINANCING_EXECUTIVE_PACK_2026-10-02.md`
-
-The mission objective is to present the complete platform, progress partner engagement and convert meetings into concrete implementation, integration, commercial and signing actions.
+Trip administration and private commercial instruments are maintained outside this public software repository.

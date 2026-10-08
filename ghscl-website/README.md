@@ -99,8 +99,6 @@ The standards registry operates together with MPPHM 2020, MHMS 2020, HAS, IHCS, 
 
 See:
 
-- [China Mission master delivery prompt](../docs/AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md)
-- [China Mission prompt coverage audit](../docs/mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)
 - [Website presentation brief](../docs/operations/WEBSITE_BRIEF_2026-10-05.md)
 
 ## Core principle

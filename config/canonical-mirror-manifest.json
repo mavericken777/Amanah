@@ -1,5 +1,5 @@
 {
-  "canonical_commit": "e9690ce8656b36d6db5bbcab773d883a2ba9b62f",
+  "canonical_commit": "70246a361ca799d092d12d968a301c87c71ca2d7",
   "authority_effect": "none",
   "classification": "post-freeze proposal",
   "mirrors": [
@@ -18,8 +18,8 @@
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/11-trust-fracture-taxonomy.json",
       "amanah_path": "config/ahte-fracture-taxonomy.json",
-      "sha256": "65fa21d5d5079aad557a794bc6d777246a123f668b67966a31b35043255d6dd4",
-      "canonical_blob_sha": "85c8881f4daa4677113a5967df8f540a34f13292"
+      "sha256": "de3c6af75c2416c626ce6095aa1052cf2255bd0f41de272a146567e782b2ec00",
+      "canonical_blob_sha": "05285c09746efb2ecd4e8428072d6c5c6f955ae6"
     },
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/12-autonomous-state-machine.json",
@@ -72,8 +72,8 @@
     {
       "canonical_path": "platform/README.md",
       "amanah_path": "reference-runtime/platform/README.md",
-      "sha256": "c1aff4b8bff884e776f78ec0257886e62f1a31ff70b156747cfe2d308c38fa48",
-      "canonical_blob_sha": "cf9ba86e0279c11e6ae4f5eda0b20c81ab03a3f9"
+      "sha256": "8a5a17afd3608321efd426a3b0bc63fecaa2ef8331eb85208b0e5cd2b8f74117",
+      "canonical_blob_sha": "dcbf1250ec2493e90562ffa88e6eb90fb87f9e4e"
     },
     {
       "canonical_path": "platform/requirements.txt",
@@ -90,20 +90,20 @@
     {
       "canonical_path": "platform/src/ahte/api.py",
       "amanah_path": "reference-runtime/platform/src/ahte/api.py",
-      "sha256": "114ca5606acd22044f38b0b7acc36d41745b5ac8c1432bb9153f142fc460da9d",
-      "canonical_blob_sha": "63eba2cdef7431ae5d4c34020911c61f4177d862"
+      "sha256": "d0d77856caf9fd5d19567dbc2e1142cda89c3973d1cc2c21f233eadacb249e9b",
+      "canonical_blob_sha": "76dd22b170a5e4af49a03b966a5c67c259f1dc68"
     },
     {
       "canonical_path": "platform/src/ahte/demo_scenario.py",
       "amanah_path": "reference-runtime/platform/src/ahte/demo_scenario.py",
-      "sha256": "584790ecfe6e370df391dffe17e738de230472cb543c73123042b302db7492dc",
-      "canonical_blob_sha": "85bd77b17cc00f5f8f8138376adb62a89335b065"
+      "sha256": "73fddaa68f7156ebcb3d9dc8ffa30383cbdd95401051240f830370127211306a",
+      "canonical_blob_sha": "6ed3fd2ad2997dbf13c950b0b8c0ef2c941897b5"
     },
     {
       "canonical_path": "platform/src/ahte/engine.py",
       "amanah_path": "reference-runtime/platform/src/ahte/engine.py",
-      "sha256": "7f56b4c70604092aac08fb02fa94026fb0cee6ab22d08b1edef15d3fdc7eab4c",
-      "canonical_blob_sha": "657f709e873c60ea9191f74f3faf2c902eef838e"
+      "sha256": "4b6541657c8f37847627a9dc531d4d6795c3d3147c9984bd1a453c54a25bab3b",
+      "canonical_blob_sha": "54afb9a51776159378fbb048c9e40bcf3712dbbe"
     },
     {
       "canonical_path": "platform/src/ahte/hitm.py",

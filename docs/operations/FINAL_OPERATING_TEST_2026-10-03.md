@@ -36,7 +36,7 @@ A serious stakeholder must be able to answer the following questions and locate 
 | 23 | Finance/Takaful approval? | external provider decision; AHTE supplies purpose-bound evidence — finance/legal | PASS |
 | 24 | Partner activation? | connector lifecycle + authorisation/UAT before PRODUCTION — API/partner kit/SOP | PASS |
 | 25 | Direct JAKIM production state? | integration point implemented; exact production activation remains source-locked/pending authorisation unless verified — STATUS/PENDING | PASS |
-| 26 | Shipment 001 real? | No; NOT-INSTANTIATED until transaction-native evidence — STATUS/PENDING | PASS |
+| 26 | shipment workflow real? | No; NOT-INSTANTIATED until transaction-native evidence — STATUS/PENDING | PASS |
 | 27 | Deliverables available? | master deliverable index — index | PASS |
 | 28 | Proposal vs fact? | claim verification register — claim register | PASS |
 | 29 | External dependencies? | JAKIM/lab/Sinotrans/ports/GCC/finance/hosting/real shipment evidence — PENDING | PASS |
@@ -66,6 +66,6 @@ This PASS means repository-controlled architecture, implementation contracts, op
 
 **Items 1–69: COMPLETE TO PROJECT-CONTROLLED SCOPE.** Exact-head final CI passed on PR #54, the closure batch merged to `main`, and current Vercel deployment contexts are green.
 
-Shipment 001 remains NOT-INSTANTIATED.
+shipment workflow remains NOT-INSTANTIATED.
 
 **Closure:** Item 69 complete to project control. Final exact-head CI and merge are verified.

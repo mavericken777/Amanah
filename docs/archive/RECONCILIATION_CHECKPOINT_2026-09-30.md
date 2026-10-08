@@ -46,6 +46,6 @@ BOUNDARY CHECK: derived from the canonical repository at the commit below; freez
 Canonical docs/PLATFORM_PARITY_AUDIT_2026-09-30.md records the older conceptual vocabulary in master-standards-stack/AMANAH_PLATFORM_AZ_MAPPING.md and the post-freeze proposal in 00_EXECUTIVE_COMMAND/machine-spec/12-autonomous-state-machine.json. Mirror restoration binds to the latter as an implementation proposal; it does not resolve or promote the conflict.
 
 [SOURCE-LOCKED: licensed normative wording — required: controlling licensed source for exact clause verification]
-[PILOT: Shipment 001 — no transaction evidence instantiated]
+[PILOT: shipment workflow — no transaction evidence instantiated]
 
 Certification remains with JAKIM/MAIN/JAIN. Destination gates remain with applicable GCC authorities/importers. D5/D6 remain reserved. NOT DETECTED ≠ HALAL. Operational release is not certification.

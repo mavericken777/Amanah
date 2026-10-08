@@ -70,6 +70,6 @@ Certification remains a competent-authority decision. AI, blockchain, laboratori
 
 Port/customs release remains sovereign. Finance/Takaful decisions remain externally owned. `NOT_DETECTED ≠ HALAL`.
 
-`[PILOT: Shipment 001 — China → GCC direct]` remains NOT-INSTANTIATED until real transaction evidence exists.
+`[PILOT: shipment workflow — China → GCC direct]` remains NOT-INSTANTIATED until real transaction evidence exists.
 
 All public media must distinguish project architecture, simulated signals and real production evidence.

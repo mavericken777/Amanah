@@ -36,7 +36,7 @@ Use this checklist for every production merge affecting AHTE/IQ300 behavior.
 ## Operational evidence
 
 - [ ] No synthetic authority decision, certificate, buyer commitment or shipment event used to close a real gate.
-- [ ] Shipment 001 remains `[PILOT]` until promoted under doctrine.
+- [ ] shipment workflow remains `[PILOT]` until promoted under doctrine.
 - [ ] External and transaction gates have named owners and closure evidence.
 
 ## Supply chain

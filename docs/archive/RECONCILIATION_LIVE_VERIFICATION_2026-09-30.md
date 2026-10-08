@@ -65,6 +65,6 @@ The canonical machine proposal still has no onward transition from authority_dec
 [SOURCE-LOCKED: licensed normative wording — required: controlling licensed standards/authority artifacts]
 [OPEN GATE: competent-authority certification — owner: JAKIM/MAIN/JAIN — blocking: Authority Gate]
 [OPEN GATE: destination acceptance — owner: applicable GCC authority/importer — blocking: Operational Release]
-[PILOT: Shipment 001 — China → GCC; no real transaction evidence instantiated]
+[PILOT: shipment workflow — China → GCC; no real transaction evidence instantiated]
 
 `NOT DETECTED ≠ HALAL`. Operational release remains separate from certification.

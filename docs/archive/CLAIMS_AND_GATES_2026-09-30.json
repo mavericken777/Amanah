@@ -68,7 +68,7 @@
         "required": "Verified company contact and authorized delivery configuration; no invented email/address"
       },
       {
-        "item": "Shipment 001",
+        "item": "shipment workflow",
         "status": "PILOT",
         "required": "Transaction-native evidence, authority and destination acceptance; no fabricated completed shipment"
       },

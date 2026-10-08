@@ -19,4 +19,4 @@ Story: stakeholder enters GHSCL → explores eight chapters → inspects the can
 
 AI concept CGI and editorial still-camera movement do not establish real operations or replace a newly animated 3D film. Runway video generation remains unavailable on the connected Free workspace. The visual redesign does not close the remaining repository reconciliation / real-operator UAT gates.
 
-Canonical source: GlobalHalalDigitalTrust@3d5cc29fabf7c3ed0da20cd938219fed83e74830. Freeze unchanged. [PROPOSAL: stakeholder presentation — path point: full canonical path]. [PILOT: Shipment 001 — China → GCC concept].
+Canonical source: GlobalHalalDigitalTrust@3d5cc29fabf7c3ed0da20cd938219fed83e74830. Freeze unchanged. [PROPOSAL: stakeholder presentation — path point: full canonical path]. [PILOT: shipment workflow — China → GCC concept].

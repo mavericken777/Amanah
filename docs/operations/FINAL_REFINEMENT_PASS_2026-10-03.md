@@ -23,7 +23,7 @@ Remove stale mutable-current-state claims after the 69-item programme closure an
 - Source binding remains `mavericken777/GlobalHalalDigitalTrust@ccc10ca476b3ee07e77f11d0d6901e0b2ec744c5`.
 - Authority topology remains `AHTE ⇄ Direct JAKIM API ⇄ JAKIM`.
 - Physical corridor remains China → GCC direct.
-- Shipment 001 remains NOT-INSTANTIATED.
+- shipment workflow remains NOT-INSTANTIATED.
 - External authority/partner/transaction gates remain in `docs/operations/PENDING.md`.
 
 ## Closure rule

@@ -71,7 +71,7 @@ No missing external input justifies removing the implemented integration point.
 
 ## 6. Transaction activation
 
-Shipment 001 remains NOT-INSTANTIATED until transaction-native product, buyer/importer, batch, authority, laboratory, custody/logistics and destination evidence exists.
+shipment workflow remains NOT-INSTANTIATED until transaction-native product, buyer/importer, batch, authority, laboratory, custody/logistics and destination evidence exists.
 
 ## Closure evidence
 

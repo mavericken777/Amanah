@@ -30,7 +30,7 @@
 | Corporate profile page | public page aligned with boardroom master | PASS |
 | Mandarin page | separate controlled public route; no topology drift | PASS |
 | Authority state | no green “connected/live JAKIM” badge without evidence | PASS |
-| Shipment demo | no visual treatment implies Shipment 001 is real | PASS |
+| Shipment demo | no visual treatment implies shipment workflow is real | PASS |
 | Verification | disclosure UI does not display fabricated positive result | PASS |
 | Smart audit | simulated concept labelled and human auditor boundary retained | PASS |
 

@@ -1,58 +1,28 @@
-# AMANAH current platform summary
+# AMANAH platform overview
 
-**Updated:** 7 October 2026
+Updated: 9 October 2026
 
-AMANAH / Global Halal Digital Trust is presented as one end-to-end platform for China-origin Halal trade, assurance, custody and GCC market verification.
+AMANAH is the operational and digital-trust platform for the Global Halal Digital Trust ecosystem. This repository holds the application, public website source, system contracts, schemas, and engineering documentation.
 
-## Controlling delivery prompts
+## Architecture
 
-Primary platform brief:
+- **Authority:** AHTE ⇄ Direct JAKIM API ⇄ JAKIM.
+- **Physical corridor:** China → GCC direct.
+- **Standards:** complete applicable Malaysian/JAKIM instruments and destination requirements, governed through the source-controlled registry.
+- **Trust path:** Authority → Standard / Instrument → Requirement → Applicability → Control → Evidence → Audit → Finding → Corrective Action → Re-verification → Authority Decision → Trust State → Operational Release.
+- **Governance:** AI assists; authorized humans and competent authorities decide.
+- **Evidence:** provenance-linked and integrity-protected. Hashes support integrity checks and do not establish truth.
 
-- [100% end-to-end master execution prompt](../AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md)
+## Platform domains
 
-Mission-specific brief:
+Onboarding and identity, facilities and products, suppliers and materials, standards applicability, laboratory evidence and custody, smart audit and CAPA, production monitoring, logistics custody, ports and customs interfaces, GCC receiving, distribution, retail verification, Command Center monitoring, and finance/Takaful integration contracts.
 
-- [Master delivery prompt](../AMANAH_CHINA_TRIP_MASTER_DELIVERY_PROMPT_2026-10-07.md)
-- [Prompt coverage audit](../mission/AMANAH_CHINA_TRIP_PROMPT_COVERAGE_AUDIT_2026-10-07.md)
-- [Website presentation brief](WEBSITE_BRIEF_2026-10-05.md)
-- [Master deliverable index](MASTER_DELIVERABLE_INDEX_2026-10-03.md)
-- [Wholesome platform coverage audit](WHOLESOME_PLATFORM_COVERAGE_AUDIT_2026-10-07.md)
+## Repository references
 
-The trip-facing package prioritises finished decks, corporate profile, MOAs, partner playbooks, hardware/CODA material, API/port material, meeting briefs, Mandarin adaptations, website, infographics and film assets. Repository mechanics and engineering-status material stay outside the presentation package.
+- [Public website](../../ghscl-website/README.md)
+- [Operations index](INDEX.md)
+- [Project deliverables](MASTER_DELIVERABLE_INDEX_2026-10-03.md)
+- [System architecture](../ahte/AHTE_PLATFORM_ARCHITECTURE.md)
+- [Authority and source bindings](../ahte/SOURCE_BINDING.md)
 
-## Platform architecture
-
-**AHTE ⇄ Direct JAKIM API ⇄ JAKIM**
-
-**China → GCC direct**
-
-AI assists. Authorised humans and competent authorities decide.
-
-Evidence before trust. Trust before operational release.
-
-The lifecycle connects manufacturer/KYC, facility, product/SKU, supplier/material provenance, standards applicability, evidence, laboratory, smart audit, CAPA, authority workflow, production/IoT/digital twin, batch, warehouse, Sinotrans logistics, custody, ports/customs, GCC importer receiving, distributor/3PL custody, retailer/marketplace operations, buyer/authority/consumer verification and the 24/7 Command Center.
-
-## Malaysian / JAKIM framework
-
-The standards architecture is registry-driven and is not limited to MS 1500 or MS 2400.
-
-The registry is not capped to a permanent count. The current verified primary catalogue contains 17 current standards in `docs/ahte/MS_OPERATING_SET.json`; every additional verified applicable product/technical instrument, including MS 2683:2017 when in scope, is evaluated without redesign.
-
-The wider framework includes MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination rules and laboratory methods.
-
-Historical/superseded editions remain available for provenance and change impact; they are not silently treated as current requirements.
-
-## Presentation experience
-
-The public website and authenticated application use the same platform story, including a one-click China Mission Platform Tour and first-class GCC importer, distributor/3PL and retailer/marketplace workspaces:
-
-- black / obsidian + metallic gold;
-- Arial / Helvetica / neutral sans-serif;
-- no oversized decorative shield;
-- complete Malaysian/JAKIM standards registry;
-- manufacturer, laboratory, audit, production, logistics, ports, dedicated GCC importer, distributor/3PL, retailer/marketplace, verification, finance/Takaful and Command Center;
-- concise institutional language suitable for China-mission meetings.
-
-## Internal release validation
-
-Repository releases still undergo the required automated build, type, test, security-policy, browser and deployment checks. Those mechanics are internal QA and are not part of the China-trip presentation material.
+Private trip logistics, draft agreements, signatory records, and commercial negotiation notes are maintained outside this software repository.

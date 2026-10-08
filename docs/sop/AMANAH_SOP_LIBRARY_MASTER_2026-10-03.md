@@ -99,4 +99,4 @@ Every controlled procedure records:
 [OPEN GATE: port/customs authority permissions]  
 [OPEN GATE: GCC importer/authority destination acceptance]  
 [OPEN GATE: finance/Takaful counterparties and approvals]  
-[PILOT: Shipment 001 — China → GCC direct — NOT-INSTANTIATED]
+[PILOT: shipment workflow — China → GCC direct — NOT-INSTANTIATED]

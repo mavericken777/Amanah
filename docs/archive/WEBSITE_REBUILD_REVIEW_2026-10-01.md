@@ -45,7 +45,7 @@ The website must not say or imply that:
 - financing approval follows automatically from Halal/trust state;
 - Takaful decisions are made by AHTE;
 - tokenization itself changes ownership/title/Shariah/regulatory/certification status;
-- Shipment 001 is live merely because architecture/demo state exists.
+- shipment workflow is live merely because architecture/demo state exists.
 
 ## Production boundary
 
@@ -53,4 +53,4 @@ Direct JAKIM API, laboratory, Sinotrans, port/customs, GCC and finance/Takaful/t
 
 **FULL ARCHITECTURE NOW → REAL CONNECTORS WHEN AVAILABLE → NO REDESIGN REQUIRED.**
 
-[PILOT: Shipment 001 — China → GCC direct; NOT-INSTANTIATED]
+[PILOT: shipment workflow — China → GCC direct; NOT-INSTANTIATED]

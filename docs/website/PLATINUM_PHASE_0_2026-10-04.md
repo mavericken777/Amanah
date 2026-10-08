@@ -57,11 +57,11 @@ Existing Amanah typecheck, tests, edge functions, policies, reference runtime/pl
 
 ## Authority and evidence boundaries
 
-This phase creates visual/runtime and quality-assurance infrastructure only. It does not create Halal certification, laboratory truth, JAKIM decisions, Shipment 001 evidence, customs release, finance approval or Takaful approval.
+This phase creates visual/runtime and quality-assurance infrastructure only. It does not create Halal certification, laboratory truth, JAKIM decisions, shipment workflow evidence, customs release, finance approval or Takaful approval.
 
 **AHTE ⇄ Direct JAKIM API ⇄ JAKIM** remains controlling.  
 **China → GCC direct** remains controlling.  
-**Shipment 001 remains NOT-INSTANTIATED.**
+**shipment workflow remains NOT-INSTANTIATED.**
 
 ## Close-out rule
 

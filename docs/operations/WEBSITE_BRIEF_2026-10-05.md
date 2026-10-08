@@ -1,4 +1,6 @@
-# AMANAH Website Presentation Brief — China Mission
+# AMANAH Website Presentation Brief — Current, 8 October 2026
+
+This current revision incorporates the 8 October user direction. It supersedes the earlier 5 October visual treatment while retaining the complete platform architecture and authority boundaries.
 
 **Purpose:** Present AMANAH / Global Halal Digital Trust as a complete institutional platform for China → GCC Halal trade, assurance, custody and verification.
 
@@ -136,3 +138,14 @@ The public site must feel complete and operational.
 Keep implementation mechanics invisible. Present the platform capability, workflow and stakeholder value directly.
 
 Where legal identity, authority wording, accreditation or commercial terms need counterpart confirmation, keep those items in the private pre-signature checklist rather than distributing caveat-heavy public copy.
+
+## Interaction and motion direction — 8 October
+
+- Show the whole process as an explorable, animated sequence so visitors can understand what happens at each step and why.
+- Use a meaningful 3D/isometric treatment of the product, people, facilities, sample, documents, vehicle, container and destination hand-offs. Each movement must communicate a real process relationship or evidence transfer.
+- Provide clear step selection, progress, pause/resume, restart and reduced-motion behavior; retain readable explanations and evidence context for every stage.
+- Animate onboarding, laboratory sample custody and review, smart audit, findings/CAPA, authority workflow, manufacturing, warehouse, logistics, ports/customs, GCC receiving, retail/verification, exceptions and Command Center monitoring.
+- Avoid decorative hero emblems, oversized shields, ornamental centerpieces, generic looping motion and unsupported live-status claims.
+- Keep motion smooth, restrained and accessible. No autoplay when the visitor requests reduced motion; all essential information remains available without animation.
+
+Implementation status and live-release facts are maintained in [`STATUS.md`](STATUS.md).

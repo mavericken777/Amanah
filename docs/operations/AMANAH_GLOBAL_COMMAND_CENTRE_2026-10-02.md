@@ -12,4 +12,4 @@ The command centre displays distinct Authority State, AHTE Trust State, Operatio
 ## Alert contract
 Every alert identifies source, affected objects, evidence, rule/model version, confidence where AI-assisted, owner, deadline and escalation. AI recommendation is visibly distinct from human/authority decision.
 
-[OPEN GATE: production JAKIM/partner credentials, command-centre operator roster, escalation contacts, real Shipment 001 evidence.]
+[OPEN GATE: production JAKIM/partner credentials, command-centre operator roster, escalation contacts, real shipment workflow evidence.]

@@ -38,4 +38,4 @@ Trust starts at source. AMANAH connects products, suppliers, laboratories, audit
 - Voice: authoritative British male institutional narrator.
 - Pace: measured and neutral.
 - No language may imply AI, blockchain, laboratory, QR/NFC, sensors or AHTE create Halal certification.
-- No line may imply an actual Shipment 001, fabricated authority response, sovereign release, financing approval or Takaful approval.
+- No line may imply an actual shipment workflow, fabricated authority response, sovereign release, financing approval or Takaful approval.
