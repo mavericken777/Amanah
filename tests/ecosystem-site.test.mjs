@@ -23,7 +23,8 @@ test('every public route has resolvable assets, navigation and fragment targets'
     assert.equal(new Set(ids).size,ids.length,`${name}: duplicate IDs`);
     for(const match of html.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
       const ref=match[1];if(/^(https:|data:)/.test(ref))continue;
-      const [file,fragment]=ref.split('#');
+      const [pathAndQuery,fragment]=ref.split('#');
+      const [file]=pathAndQuery.split('?');
       const target=path.join(base,file||name);
       assert.ok(fs.existsSync(target),`${name}: missing ${ref}`);
       if(fragment)assert.match(fs.readFileSync(target,'utf8'),new RegExp(`id="${fragment}"`),`${name}: missing #${fragment}`);
