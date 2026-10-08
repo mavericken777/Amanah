@@ -8,4 +8,3 @@ AI/ML supports monitoring, evidence review, predictive analytics and preemptive 
 
 System topology: `AHTE ⇄ Direct JAKIM API ⇄ JAKIM`. Physical corridor: `China → GCC direct`.
 
-Private trip and transaction details are kept outside the public repositories.
