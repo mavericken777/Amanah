@@ -67,12 +67,38 @@ test('public homepage contains no engineering/demo presentation leakage and auto
   for(const term of ['CN-DEMO-24001','DEMO-SHIPMENT-001','DIGITAL TRUST PASSPORT','DEMO RELEASE REQUEST GENERATED','DEMO TOPOLOGY','PROJECT-REPO','Source foundation:','illustrative','simulation','prototype']) assert.ok(!html.toLowerCase().includes(term.toLowerCase()),term);
   assert.match(html,/id="playJourney"/);
   assert.match(html,/id="restartJourney"/);
+  assert.match(html,/GLOBAL HALAL SUPPLY CHAIN LIMITED/,'legal company name must appear in the primary brand');
+  assert.match(html,/class="hero-scene"/,'hero needs an informative animated route visual');
+  assert.match(html,/id="platformCargo"/,'journey cargo must move with the selected stage');
+  assert.match(html,/id="sceneEvidence"/,'stage animation must explain its evidence');
   assert.match(html,/National Food Safety \(Hengqin\) Innovation Center under the Chinese Academy of Agricultural Sciences, China/);
   assert.doesNotMatch(html,/China Food Security and Innovation Laboratory/);
   const context={module:{exports:{}}};
   vm.runInNewContext(fs.readFileSync('ghscl-website/journey.js','utf8'),context);
   assert.equal(context.module.exports.stages.length,20);
   assert.match(fs.readFileSync('platinum-site/src/App.tsx','utf8'),/journeyPlaying/);
+});
+
+test('journey stage changes preserve page position and prevent document-level sideways overflow',()=>{
+  const motion=fs.readFileSync('ghscl-website/motion.css','utf8');
+  const script=fs.readFileSync('ghscl-website/journey.js','utf8');
+  assert.match(motion,/overflow-x:clip/);
+  assert.match(motion,/grid-template-columns:minmax\(0,1\.2fr\) minmax\(0,1fr\)/);
+  assert.doesNotMatch(script,/scrollIntoView\(/,'stage navigation must not jump the page away from the hero');
+  assert.match(script,/nav\.scrollTo\(/,'keep stage focus inside its horizontal timeline');
+});
+
+test('all public pages share the motion system and reduced-motion behavior',()=>{
+  const pages=['index.html','china-mission.html','manufacturers.html','laboratory.html','smart-audit.html','gcc-importer.html','distributor.html','retail-market.html','verify.html','login/index.html'];
+  for(const page of pages){
+    const content=fs.readFileSync('ghscl-website/'+page,'utf8');
+    assert.match(content,/motion\.css/,page+' motion stylesheet');
+    assert.match(content,/motion\.js/,page+' motion behavior');
+  }
+  const css=fs.readFileSync('ghscl-website/motion.css','utf8');
+  assert.match(css,/perspective:/,'3D process presentation');
+  assert.match(css,/prefers-reduced-motion:reduce/,'reduced motion stylesheet');
+  assert.match(fs.readFileSync('ghscl-website/journey.js','utf8'),/prefers-reduced-motion: reduce/,'autoplay must respect reduced-motion preference');
 });
 
 test('interactive controls and accessible responsive rules',()=>{

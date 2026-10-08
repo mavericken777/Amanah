@@ -11,7 +11,11 @@ try {
   await page.locator('#stageNav button').first().waitFor();
   if(width===375){
    await page.waitForTimeout(5000);
-   assert.match(await page.locator('#stageTitle').textContent(),/^02/,'journey auto-advances');
+   assert.match(await page.locator('#stageTitle').textContent(),/^01/,'reduced-motion preference prevents autoplay');
+   assert.equal(await page.locator('#playJourney').textContent(),'Play journey');
+   await page.locator('#playJourney').click();
+   await page.waitForFunction(()=>/^02/.test(document.querySelector('#stageTitle')?.textContent||''),null,{timeout:6000});
+   assert.match(await page.locator('#stageTitle').textContent(),/^02/,'journey advances when explicitly started');
    await page.locator('#playJourney').click();
    const paused=await page.locator('#stageTitle').textContent();
    await page.waitForTimeout(4500);

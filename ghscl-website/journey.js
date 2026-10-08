@@ -53,8 +53,9 @@ const journey = {
 if (typeof document !== 'undefined') {
   const $ = id => document.getElementById(id);
   let index = 0, mode = 'Journey', auditStep = 0, labStep = 0, exception = null, lastExceptionResolution = '', recordTab = 'Overview', monitorView = 'Map';
-  let playing = true, timer = null, countdownTimer = null, playbackSpeed = 1, stageStartedAt = 0;
+  let playing = !window.matchMedia('(prefers-reduced-motion: reduce)').matches, timer = null, countdownTimer = null, playbackSpeed = 1, stageStartedAt = 0;
   const element = (tag, text, cls) => { const el = document.createElement(tag); el.textContent = text; if (cls) el.className = cls; return el; };
+  const pulse = id => { const node=$(id); if(!node)return; node.classList.remove('flow-change'); void node.offsetWidth; node.classList.add('flow-change'); };
   const buttons = (host, labels, action) => labels.forEach((label, i) => { const b = element('button', label); b.type = 'button'; b.addEventListener('click', () => action(i, label)); host.append(b); });
   function fields(host, values) { host.replaceChildren(); const dl = document.createElement('dl'); values.forEach(([key,val]) => { dl.append(element('dt',key),element('dd',val)); }); host.append(dl); }
 
@@ -158,6 +159,20 @@ if (typeof document !== 'undefined') {
 
   function render() {
     const s = journey.stages[index];
+    pulse('stageTitle'); pulse('stageStory'); pulse('stageDetail'); pulse('sceneData');
+    const sceneName=$('sceneStageName');
+    if(sceneName){
+      sceneName.textContent=s[0]; $('sceneStageAction').textContent=s[3]; $('sceneActor').textContent=s[1];
+      $('sceneObject').textContent=s[2]; $('sceneEvidence').textContent=s[4];
+      const progress=index/(journey.stages.length-1)*90;
+      $('platformCargo').style.left=(5+progress)+'%'; $('platformRouteFill').style.width=progress+'%';
+      const checkpoints=[0,5,6,11,14,15,19];
+      document.querySelectorAll('.platform-stop').forEach((node,i)=>{
+        const start=checkpoints[i], end=checkpoints[i+1]??journey.stages.length-1;
+        node.classList.toggle('is-passed',index>end);
+        node.classList.toggle('is-current',index>=start&&index<=end);
+      });
+    }
     $('stageTitle').textContent = String(index+1).padStart(2,'0')+' / '+s[0];
     $('stageStory').textContent = s[3];
     $('stageWhy').textContent = s[5];
@@ -178,7 +193,12 @@ if (typeof document !== 'undefined') {
     $('stageCount').textContent=(index+1)+' / '+journey.stages.length+' · '+s[0];
     $('previousStage').disabled=index===0;
     $('nextStage').disabled=index===journey.stages.length-1;
-    [...$('stageNav').children].forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));
+    [...$('stageNav').children].forEach((b,i)=>{b.setAttribute('aria-pressed',String(i===index));if(i===index)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');});
+    const selectedStop=$('stageNav').children[index];
+    if(selectedStop){
+      const nav=$('stageNav'), target=selectedStop.offsetLeft-nav.clientWidth/2+selectedStop.offsetWidth/2;
+      nav.scrollTo({left:Math.max(0,target),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    }
     [...$('viewModes').children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===mode)));
     [...$('routeNodes').children].forEach((b,i)=>{b.classList.toggle('reached',i<=index);b.setAttribute('aria-pressed',String(i===index));});
     const route=$('journeyRoute'), point=route.getPointAtLength(route.getTotalLength()*index/(journey.stages.length-1));
@@ -212,7 +232,12 @@ if (typeof document !== 'undefined') {
   function pause(){playing=false;if(timer)clearTimeout(timer);if(countdownTimer)clearInterval(countdownTimer);timer=null;countdownTimer=null;updatePlayback();}
   function toggle(){playing=!playing;updatePlayback();schedule();}
 
-  buttons($('stageNav'),journey.stages.map(s=>s[0]),i=>{pause();select(i);});
+  journey.stages.forEach((stage,i)=>{
+    const b=element('button','', 'journey-stop');b.type='button';
+    b.setAttribute('aria-label',String(i+1).padStart(2,'0')+' · '+stage[0]);
+    b.append(element('span',String(i+1).padStart(2,'0'),'journey-stop-number'),element('span',stage[0],'journey-stop-name'));
+    b.addEventListener('click',()=>{pause();select(i);});$('stageNav').append(b);
+  });
   buttons($('routeNodes'),journey.stages.map(s=>s[0]),i=>{pause();select(i);});
   buttons($('viewModes'),['Journey','Trust','Actor','Standards','Custody','Monitoring','Consumer','Technical'],(_,v)=>{mode=v;render();});
   buttons($('passportTabs'),['Overview','Identity','Audit','Lab','Custody','Logistics','Policy','Timeline','Provenance'],(_,v)=>{recordTab=v;renderRecord();});
@@ -229,21 +254,23 @@ if (typeof document !== 'undefined') {
   });
   $('restartJourney').addEventListener('click',()=>{index=0;playing=true;render();updatePlayback();schedule();});
 
-  function auditRender(){ $('auditCheckpoint').textContent=journey.audit[auditStep]; $('auditGuide').textContent=auditStep<8?'Guided workflow: resolve the applicable control, inspect the object and capture attributable evidence.':'Human review: assess the observation, record findings, close corrective action and sign the attributable audit session.'; fields($('auditEvidence'),[['Checkpoint',journey.audit[auditStep]],['Actor','Assigned human auditor'],['Evidence','Attributable observation / media / record'],['Decision','Human audit conclusion; competent-authority certification remains separate']]); $('auditPrevious').disabled=auditStep===0; $('auditNext').disabled=auditStep===journey.audit.length-1; renderRecord(); }
+  function auditRender(){ $('auditCheckpoint').textContent=journey.audit[auditStep]; $('auditGuide').textContent=auditStep<8?'Guided workflow: resolve the applicable control, inspect the object and capture attributable evidence.':'Human review: assess the observation, record findings, close corrective action and sign the attributable audit session.'; fields($('auditEvidence'),[['Checkpoint',journey.audit[auditStep]],['Actor','Assigned human auditor'],['Evidence','Attributable observation / media / record'],['Decision','Human audit conclusion; competent-authority certification remains separate']]);pulse('auditCheckpoint');pulse('auditEvidence');$('auditPrevious').disabled=auditStep===0; $('auditNext').disabled=auditStep===journey.audit.length-1; renderRecord(); }
   $('auditNext').addEventListener('click',()=>{auditStep=Math.min(journey.audit.length-1,auditStep+1);auditRender();});
   $('auditPrevious').addEventListener('click',()=>{auditStep=Math.max(0,auditStep-1);auditRender();});
   $('auditReset').addEventListener('click',()=>{auditStep=0;auditRender();});
 
-  buttons($('labSteps'),journey.lab,i=>{labStep=i;$('labCurrent').textContent=journey.lab[i];fields($('labEvidence'),[['Step',journey.lab[i]],['Product link','Exact product and production batch'],['Custody','Collector → courier → laboratory'],['Method / QC','Applicable method and quality controls'],['Review','Authorised technical review and signed evidence']]);renderRecord();[...$('labSteps').children].forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));});
-  buttons($('warehouseZones'),['Receiving','Quarantine','Controlled storage','Segregation','Picking','Dispatch','Cold storage','Inspection'],(_,zone)=>fields($('warehouseDetail'),[['Zone',zone],['Control','Segregation, contamination prevention and accountable handling'],['Condition','Continuous monitoring where applicable'],['Custody','Warehouse operator'],['Evidence','Receiving, zone, inventory and handling records']]));
-  buttons($('custodyRibbon'),['Manufacturer','Sinotrans / logistics','Warehouse','Port','Carrier','Importer','Distributor','Retailer'],(i,actor)=>fields($('custodyDetail'),[['Outgoing',i?$('custodyRibbon').children[i-1].textContent:'Origin'],['Incoming',actor],['Evidence','Attributable transfer, object identity and condition record'],['Control','Custody remains linked to the same product / batch / shipment lineage']]));
-  buttons($('portNodes'),['Pre-arrival','Container / seal','Documents','Inspection','Authority response','Custody transfer'],(_,node)=>fields($('portDetail'),[['Checkpoint',node],['Actor','Port / customs authority'],['Action','Reconcile scoped identity and authorised evidence'],['Result','Authority-owned border decision'],['Trust impact','Trust, authority and customs states remain separate']]));
+  buttons($('labSteps'),journey.lab,i=>{labStep=i;$('labCurrent').textContent=journey.lab[i];fields($('labEvidence'),[['Step',journey.lab[i]],['Product link','Exact product and production batch'],['Custody','Collector → courier → laboratory'],['Method / QC','Applicable method and quality controls'],['Review','Authorised technical review and signed evidence']]);pulse('labCurrent');pulse('labEvidence');renderRecord();[...$('labSteps').children].forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));});
+  buttons($('warehouseZones'),['Receiving','Quarantine','Controlled storage','Segregation','Picking','Dispatch','Cold storage','Inspection'],(_,zone)=>{fields($('warehouseDetail'),[['Zone',zone],['Control','Segregation, contamination prevention and accountable handling'],['Condition','Continuous monitoring where applicable'],['Custody','Warehouse operator'],['Evidence','Receiving, zone, inventory and handling records']]);pulse('warehouseDetail');});
+  buttons($('custodyRibbon'),['Manufacturer','Sinotrans / logistics','Warehouse','Port','Carrier','Importer','Distributor','Retailer'],(i,actor)=>{fields($('custodyDetail'),[['Outgoing',i?$('custodyRibbon').children[i-1].textContent:'Origin'],['Incoming',actor],['Evidence','Attributable transfer, object identity and condition record'],['Control','Custody remains linked to the same product / batch / shipment lineage']]);pulse('custodyDetail');});
+  buttons($('portNodes'),['Pre-arrival','Container / seal','Documents','Inspection','Authority response','Custody transfer'],(_,node)=>{fields($('portDetail'),[['Checkpoint',node],['Actor','Port / customs authority'],['Action','Reconcile scoped identity and authorised evidence'],['Result','Authority-owned border decision'],['Trust impact','Trust, authority and customs states remain separate']]);pulse('portDetail');});
   buttons($('monitorViews'),['Map','Timeline','Custody','Evidence','Exceptions'],(_,view)=>{monitorView=view;renderMonitor();});
   buttons($('exceptionButtons'),['Temperature excursion','Seal tamper','Laboratory evidence discrepancy','Missing custody event','Document mismatch','Route deviation'],(_,v)=>{pause();exception={type:v,phase:'HOLD',stage:index};lastExceptionResolution='';renderExceptionState();render();});
   $('resetException').addEventListener('click',()=>{if(exception)return;lastExceptionResolution='';renderExceptionState();render();});
   buttons($('actorButtons'),journey.actors.map(a=>a[0]),i=>fields($('actorDetail'),[['Role',journey.actors[i][0]],['Creates / consumes',journey.actors[i][1]],['Value and responsibility',journey.actors[i][2]]]));
   buttons($('architectureButtons'),journey.layers.map(a=>a[0]),i=>fields($('architectureDetail'),[['Layer',journey.layers[i][0]],['Purpose',journey.layers[i][1]],['Journey dependency',journey.layers[i][2]]]));
   $('consumerScan').addEventListener('click',()=>{pause();select(19);fields($('consumerRecord'),[['Product',journey.product],['Origin','China'],['Journey','Manufacturer → assurance → logistics → GCC market'],['Authority information','Issuer-authorised status and validity'],['Disclosure','Approved provenance and custody summary']]);});
+
+  for(const id of ['labSteps','warehouseZones','custodyRibbon','portNodes','monitorViews','viewModes','passportTabs','actorButtons','architectureButtons','exceptionButtons','routeNodes']) $(id)?.classList.add('journey-sequence');
 
   renderExceptionState(); render(); auditRender(); $('labSteps').firstElementChild?.click(); $('warehouseZones').firstElementChild?.click(); $('custodyRibbon').firstElementChild?.click(); $('portNodes').firstElementChild?.click(); $('actorButtons').firstElementChild?.click(); $('architectureButtons').firstElementChild?.click(); updatePlayback(); schedule();
 }
