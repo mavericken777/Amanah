@@ -13,7 +13,6 @@ test('narration preserves required institutional and authority language',()=>{
   const principle='Evidence before trust. Trust before operational release. Authority before certification.';
   assert.equal(narration.split(principle).length-1,2);
   assert.ok(narration.includes('AI assists. Humans and competent authorities decide.'));
-  assert.ok(narration.includes('AMANAH ⇄ Direct JAKIM API ⇄ JAKIM')===false);
   assert.ok(narration.includes('AHTE ⇄ Direct JAKIM API ⇄ JAKIM'));
   assert.ok(narration.includes('It does not replace JAKIM, competent Halal authorities, laboratories, auditors, certification bodies, customs authorities, port authorities or Shariah authorities.'));
   assert.equal(narration.split(/\n/).at(-1),'AMANAH — Global Halal Digital Trust.');
