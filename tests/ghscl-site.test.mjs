@@ -7,7 +7,7 @@ const html=fs.readFileSync('ghscl-website/index.html','utf8');
 const css=fs.readFileSync('ghscl-website/journey.css','utf8');
 
 test('complete connected product journey and authority boundary',()=>{
-  for(const id of ['top','journey','origin','audit','laboratory','standards','warehouse','logistics','ports','route','monitoring','exceptions','gcc','consumer','architecture','actors','vision']) {
+  for(const id of ['top','journey','origin','audit','laboratory','standards','warehouse','logistics','ports','route','monitoring','exceptions','gcc','consumer','architecture','actors','vision','exceptionActions','exceptionBlastRadius','governanceMatrix']) {
     assert.ok(html.includes('id="'+id+'"'),id);
   }
   assert.equal((html.match(/<h1\b/g)||[]).length,1);
