@@ -17,7 +17,7 @@ Assist integration engineers and operations teams with schema mapping, event val
 `recommendation + source references + evidence references + confidence + rationale + conflict flags + model/policy/version + escalation target`.
 
 ## Prohibited
-The copilot cannot execute D5/D6, certify Halal, release sovereign holds, approve financing/Takaful, create legal title, or invent a production response.
+The copilot cannot execute authorised certification decision workflow, certify Halal, release sovereign holds, approve financing/Takaful, create legal title, or invent a production response.
 
 ## Connector workflow
 Discover source contract → map to canonical schema → validate required identifiers → generate sandbox fixture → run contract/UAT tests → surface gaps → human approve mapping → promote connector configuration under change control.

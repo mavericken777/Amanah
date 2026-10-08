@@ -24,7 +24,7 @@ export default async function AHTESourcePage(){
     <section className="card">
       <div className="eyebrow">CURRENT PROJECT TARGET</div>
       <h2>AHTE ⇄ Direct JAKIM API ⇄ JAKIM</h2>
-      <p>Standards applicability, evidence and control logic are handled by AHTE; formal D5/D6 decisions remain with authorised humans and the competent authority.</p>
+      <p>Amanah and AHTE connect standards, evidence and monitoring across the journey. JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors decide certification award and revocation.</p>
     </section>
 
     <section className="card stack">
@@ -35,7 +35,7 @@ export default async function AHTESourcePage(){
         </div>
         <span className="status">{operatingSet.catalog_count} standards</span>
       </div>
-      <p className="muted">The applicability engine evaluates every verified applicable Malaysian/JAKIM Standard and product/technical instrument in the controlled registry. The current primary catalogue is 17 standards, but 17 is not a permanent ceiling. MPPHM, MHMS, HAS, IHCS, protocols, circulars, authority instructions, destination rules and laboratory methods are layered by scope.</p>
+      <p className="muted">The applicability engine evaluates every applicable Malaysian/JAKIM Standard and product/technical instrument in the current standards register. The current primary catalogue is 17 standards, but 17 is not a permanent ceiling. MPPHM, MHMS, HAS, IHCS, protocols, circulars, authority instructions, destination rules and laboratory methods are layered by scope.</p>
       <div className="card-grid">
         {operatingSet.standards.map((standard)=><article className="card" key={standard.code}>
           <div className="eyebrow">{standard.code}</div>

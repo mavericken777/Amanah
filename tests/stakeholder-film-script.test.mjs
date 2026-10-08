@@ -12,9 +12,9 @@ test('narration preserves required institutional and authority language',()=>{
   assert.ok(narration.startsWith('Global Halal Supply Chain Limited, based in Hong Kong'));
   const principle='Evidence before trust. Trust before operational release. Authority before certification.';
   assert.equal(narration.split(principle).length-1,2);
-  assert.ok(narration.includes('AI assists. Humans and competent authorities decide.'));
+  assert.ok(narration.includes('AI/ML assists the people who award or revoke Halal certification.'));
   assert.ok(narration.includes('AHTE ⇄ Direct JAKIM API ⇄ JAKIM'));
-  assert.ok(narration.includes('AMANAH does not replace JAKIM, competent Halal authorities, laboratories, auditors, certification bodies, customs authorities, port authorities or Shariah authorities.'));
+  assert.ok(narration.includes('AMANAH connects evidence and monitoring for JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors, who decide certification award and revocation.'));
   assert.equal(narration.split(/\n/).at(-1),'AMANAH — Global Halal Digital Trust.');
 });
 test('plain narration paragraphs contain two to four spoken sentences',()=>{

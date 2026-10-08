@@ -24,11 +24,11 @@ function canUseMachineDecision(decisionClass) {
   return !["D5", "D6"].includes(decisionClass);
 }
 
-function releaseEligible({ hardGatePassed, unresolvedFractures, reservedCases, requiresAuthority, approvedAuthorityGate }) {
-  return hardGatePassed
+function releaseEligible({ assuranceComplete, unresolvedFractures, pendingDecisions, requiresCertificationDecision, certificationDecisionRecorded }) {
+  return assuranceComplete
     && unresolvedFractures === 0
-    && reservedCases === 0
-    && (!requiresAuthority || approvedAuthorityGate);
+    && pendingDecisions === 0
+    && (!requiresCertificationDecision || certificationDecisionRecorded);
 }
 
 function publicDisclosureSafe(payload) {
@@ -57,13 +57,13 @@ test("D5 and D6 are reserved from machine execution", () => {
   assert.equal(canUseMachineDecision("D6"), false);
 });
 
-test("release eligibility requires hard gates, no fracture and no reserved case", () => {
-  assert.equal(releaseEligible({ hardGatePassed: true, unresolvedFractures: 0, reservedCases: 0, requiresAuthority: false, approvedAuthorityGate: false }), true);
-  assert.equal(releaseEligible({ hardGatePassed: false, unresolvedFractures: 0, reservedCases: 0, requiresAuthority: false, approvedAuthorityGate: false }), false);
-  assert.equal(releaseEligible({ hardGatePassed: true, unresolvedFractures: 1, reservedCases: 0, requiresAuthority: false, approvedAuthorityGate: false }), false);
-  assert.equal(releaseEligible({ hardGatePassed: true, unresolvedFractures: 0, reservedCases: 1, requiresAuthority: false, approvedAuthorityGate: false }), false);
-  assert.equal(releaseEligible({ hardGatePassed: true, unresolvedFractures: 0, reservedCases: 0, requiresAuthority: true, approvedAuthorityGate: false }), false);
-  assert.equal(releaseEligible({ hardGatePassed: true, unresolvedFractures: 0, reservedCases: 0, requiresAuthority: true, approvedAuthorityGate: true }), true);
+test("operational status follows evidence completeness, exceptions and recorded certification decisions", () => {
+  assert.equal(releaseEligible({ assuranceComplete: true, unresolvedFractures: 0, pendingDecisions: 0, requiresCertificationDecision: false, certificationDecisionRecorded: false }), true);
+  assert.equal(releaseEligible({ assuranceComplete: false, unresolvedFractures: 0, pendingDecisions: 0, requiresCertificationDecision: false, certificationDecisionRecorded: false }), false);
+  assert.equal(releaseEligible({ assuranceComplete: true, unresolvedFractures: 1, pendingDecisions: 0, requiresCertificationDecision: false, certificationDecisionRecorded: false }), false);
+  assert.equal(releaseEligible({ assuranceComplete: true, unresolvedFractures: 0, pendingDecisions: 1, requiresCertificationDecision: false, certificationDecisionRecorded: false }), false);
+  assert.equal(releaseEligible({ assuranceComplete: true, unresolvedFractures: 0, pendingDecisions: 0, requiresCertificationDecision: true, certificationDecisionRecorded: false }), false);
+  assert.equal(releaseEligible({ assuranceComplete: true, unresolvedFractures: 0, pendingDecisions: 0, requiresCertificationDecision: true, certificationDecisionRecorded: true }), true);
 });
 
 test("public verification responses must not represent certification", () => {

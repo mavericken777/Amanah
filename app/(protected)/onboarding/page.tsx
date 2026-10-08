@@ -56,7 +56,7 @@ export default async function ManufacturerOnboardingPage() {
   const organization = await getPrimaryWorkspace(supabase, user.id);
   if (!organization) return <div className="page"><div className="card"><h1>Create a workspace first</h1><p className="muted">Amanah uses the workspace as the tenant boundary for operational records.</p></div></div>;
 
-  const [{ count: identityCount }, { count: facilityCount }, { count: productCount }, { count: skuCount }, { count: supplierCount }, { count: materialCount }, { count: documentCount }, { count: labCount }, { count: auditCount }, { count: gateCount }] =
+  const [{ count: identityCount }, { count: facilityCount }, { count: productCount }, { count: skuCount }, { count: supplierCount }, { count: materialCount }, { count: documentCount }, { count: labCount }, { count: auditCount }, { count: decisionCount }] =
     requireQueryResults(await Promise.all([
       supabase.from("ahte_identities").select("id",{count:"exact",head:true}).eq("organization_id",organization.id).eq("entity_type","manufacturer"),
       supabase.from("ahte_facilities").select("id",{count:"exact",head:true}).eq("organization_id",organization.id),
@@ -67,7 +67,7 @@ export default async function ManufacturerOnboardingPage() {
       supabase.from("documents").select("id",{count:"exact",head:true}).eq("organization_id",organization.id),
       supabase.from("ahte_lab_samples").select("id",{count:"exact",head:true}).eq("organization_id",organization.id),
       supabase.from("ahte_audits").select("id",{count:"exact",head:true}).eq("organization_id",organization.id),
-      supabase.from("ahte_authority_gates").select("id",{count:"exact",head:true}).eq("organization_id",organization.id),
+      supabase.from("ahte_authority_decisions").select("id",{count:"exact",head:true}).eq("organization_id",organization.id),
     ] as const));
 
   const stages = [
@@ -76,7 +76,7 @@ export default async function ManufacturerOnboardingPage() {
     ["Product / SKU", Math.min(productCount ?? 0, skuCount ?? 0)],
     ["Supplier / materials", Math.max(supplierCount ?? 0, materialCount ?? 0)],
     ["Evidence / lab / audit", Math.max(documentCount ?? 0, labCount ?? 0, auditCount ?? 0)],
-    ["Authority gate", gateCount ?? 0],
+    ["Certification decision", decisionCount ?? 0],
   ] as const;
   const completed = stages.filter(([, count]) => Number(count) > 0).length;
   const progress = Math.round((completed / stages.length) * 100);
@@ -96,6 +96,6 @@ export default async function ManufacturerOnboardingPage() {
       <label>Material origin country<input name="material_origin" defaultValue="China" /></label><div className="grid-2"><label>Production line code<input name="production_line_code" placeholder="LINE-001" /></label><label>Production line name<input name="production_line_name" /></label></div><div className="grid-2"><label>Facility zone code<input name="zone_code" placeholder="ZONE-RAW-01" /></label><label>Zone type<input name="zone_type" defaultValue="controlled" /></label></div><div className="grid-2"><label>Warehouse code<input name="warehouse_code" placeholder="WH-001" /></label><label>Warehouse name<input name="warehouse_name" /></label></div><label>Warehouse type<input name="warehouse_type" defaultValue="ambient" /></label>
       <button className="button" type="submit">Register controlled origin record</button>
     </form></section>
-    <section className="card"><div className="eyebrow">NEXT CONTROL POINTS</div><h2>After registration</h2><p className="muted">Documents → readiness → applicable requirements → laboratory plan → audit → corrective action → authority gate → trust state → operational release.</p><p className="muted">Evidence, certificate scope and authority status must be independently substantiated. <strong>NOT DETECTED ≠ HALAL.</strong></p></section>
+    <section className="card"><div className="eyebrow">CONTINUOUS ASSURANCE JOURNEY</div><h2>After registration</h2><p className="muted">Documents → readiness → applicable requirements → laboratory plan → audit → corrective action → certification decision workflow → trust state → operational release.</p><p className="muted">Evidence, certificate scope and authority status must be independently substantiated. <strong>NOT DETECTED ≠ HALAL.</strong></p></section>
   </div>;
 }

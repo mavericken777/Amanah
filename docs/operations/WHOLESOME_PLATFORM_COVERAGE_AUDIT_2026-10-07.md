@@ -22,7 +22,6 @@ Any outward-facing deliverable that omits a major segment above is incomplete.
 
 ## Complete Malaysian / JAKIM framework
 
-The platform must use the complete verified registry from the frozen package and must never be reduced to MS 1500 and MS 2400.
 
 Current controlled primary catalogue:
 

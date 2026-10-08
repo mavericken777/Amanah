@@ -1,96 +1,24 @@
-# Amanah release checklist
+# Release verification record
 
-Use this checklist for every production merge affecting AHTE/IQ300 behavior.
+Use these checks to validate a production change. Record observed results and the exact source revision; this document does not represent an external authority, partner or transaction status.
 
-## Source and authority
+## Product and data
 
-- [ ] Freeze/source binding reviewed.
-- [ ] Post-freeze material labelled as implementation guidance/proposal where applicable.
-- [ ] No source-locked normative wording invented.
-- [ ] AI/lab/blockchain/QR/sensor outputs do not claim certification authority.
-- [ ] D5/D6 authority-reserved decisions remain human/competent-authority controlled.
-- [ ] Operational release remains explicitly distinct from certification.
+- Confirm the updated workflow matches the current product journey and source records.
+- Confirm organization scoping, row-level access, audit events and error states.
+- Confirm certification status, platform assurance, logistics custody, customs disposition and finance decisions stay distinct.
+- Confirm AI/ML assistance does not replace the applicable human certification decision process.
+- Confirm public verification does not generate an official certificate or claim a decision that was not provided by its source.
 
-## Database and authorization
+## Engineering
 
-- [ ] New public tables have RLS enabled.
-- [ ] SELECT/INSERT/UPDATE/DELETE policies reviewed independently.
-- [ ] Viewer/member roles cannot mutate authority/trust state unless explicitly designed and approved.
-- [ ] External authority decision records require evidence references.
-- [ ] Destructive operations use elevated roles.
-- [ ] Migration is idempotent where reconciliation requires it.
-- [ ] Supabase migration history matches repository lineage.
-- [ ] Supabase security advisor checked after DDL changes.
+- TypeScript typecheck and relevant automated tests pass.
+- Edge Functions pass their configured checks where changed.
+- Public-site lint/build and Next.js production build pass where affected.
+- Database migrations are reviewed, idempotent where needed, and retain authorization controls.
+- Authentication, organization membership, idempotency and rate limits are verified for changed endpoints.
+- Dependency and lockfile updates are consistent.
 
-## Application / API
+## Release evidence
 
-- [ ] TypeScript typecheck passes.
-- [ ] Node tests pass.
-- [ ] `assurance` Edge Function passes Deno check.
-- [ ] `public-verify` Edge Function passes Deno check.
-- [ ] Next.js production build passes.
-- [ ] Authentication and organization membership are enforced.
-- [ ] Idempotency and rate-limit behavior reviewed for mutation endpoints.
-- [ ] Public disclosure is intentionally scoped and marked `not_certification=true`.
-
-## Operational evidence
-
-- [ ] No synthetic authority decision, certificate, buyer commitment or shipment event used to close a real gate.
-- [ ] shipment workflow remains `[PILOT]` until promoted under doctrine.
-- [ ] External and transaction gates have named owners and closure evidence.
-
-## Supply chain
-
-- [ ] Dependency versions reviewed.
-- [ ] Lockfile is current and committed when npm registry access is available.
-- [ ] CI uses deterministic installation (`npm ci`) once lockfile is present.
-
-## Release record
-
-Record the canonical repository SHA12, Amanah commit/PR, Supabase migration(s), security-advisor result, CI result and any remaining SOURCE-LOCKED / OPEN GATE items in the release notes.
-
-## Functional and operational verification
-
-## Functional
-
-- [ ] Authentication
-- [ ] Workspace
-- [ ] Projects
-- [ ] Tasks
-- [ ] Meetings
-- [ ] Documents
-- [ ] Decisions
-- [ ] Risks
-- [ ] Finance
-- [ ] Updates
-- [ ] Notifications
-- [ ] Search
-- [ ] Approvals/workflows
-- [ ] China Trip
-
-## Security
-
-- [ ] RLS verified
-- [ ] Cross-tenant access tested
-- [ ] No service-role key in browser
-- [ ] Sensitive files outside Git
-- [ ] Redirect targets validated
-- [ ] Audit events verified
-- [ ] Role controls verified
-
-## Quality
-
-- [ ] Typecheck
-- [ ] Tests
-- [ ] Production build
-- [ ] Migration test
-- [ ] Error/loading/empty states
-
-## Operations
-
-- [ ] Backups
-- [ ] Restore plan
-- [ ] Monitoring
-- [ ] Error tracking
-- [ ] Environment variables
-- [ ] Rollback plan
+Record the GlobalHalalDigitalTrust source SHA, Amanah commit/PR, migration identifiers, security results, CI links and deployment verification. State any provider’s actual connector state using observed provider data.

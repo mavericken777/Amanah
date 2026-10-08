@@ -8,12 +8,12 @@ export function requestIdentity(method: string, pathname: string, actor: string,
 
 export function packetError(body: Record<string, unknown>): string | null {
   if (!objectBody(body.identity_object) || !objectBody(body.evidence_object)) return "packet_objects_required";
-  for (const key of ["certificate_object", "custody_object", "audit_object", "authority_gate_object", "trust_state_object", "port_custody_object"]) {
+  for (const key of ["certificate_object", "custody_object", "audit_object", "certification_decision_object", "trust_state_object", "port_custody_object"]) {
     if (body[key] != null && !objectBody(body[key])) return "invalid_packet_object:" + key;
   }
   if (typeof body.packet_type !== "string" || !body.packet_type.trim() || typeof body.schema_version !== "string" || !body.schema_version.trim()) return "packet_type_and_schema_version_required";
   if (body.schema_version !== registry.version) return "unsupported_schema_version";
-  for (const key of ["identity_object", "evidence_object", "certificate_object", "custody_object", "audit_object", "authority_gate_object", "trust_state_object", "port_custody_object"] as const) {
+  for (const key of ["identity_object", "evidence_object", "certificate_object", "custody_object", "audit_object", "certification_decision_object", "trust_state_object", "port_custody_object"] as const) {
     if (body[key] == null) continue;
     const schema = registry.schemas[key];
     const validate = ajv.getSchema(schema.$id);

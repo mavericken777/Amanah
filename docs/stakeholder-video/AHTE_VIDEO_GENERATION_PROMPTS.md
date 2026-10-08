@@ -1,6 +1,5 @@
 # AHTE AI Video Generation Prompt Pack
 
-[PROPOSAL: generated-media prompt specification]
 [TOOL-SPEC UNVERIFIED: AI video renderer — requires connected video-generation service]
 
 ## Global style
@@ -38,7 +37,7 @@ No government seals, no fake certificates, no invented JAKIM approval, no fabric
 ### Shot 09 — China to GCC pilot
 "Map and physical logistics montage: Chinese manufacturing origin, laboratory, container loading, port custody, ocean freight and GCC destination receiving, clear China to GCC direct route, no fictional port or authority logos."
 
-### Shot 10 — Hard gate
+### Shot 10 — Human certification decision
 "Trust dashboard with hard-gate checks, one failed gate turns the operational state to HOLD, descriptive score remains visible but cannot override the failed gate, precise enterprise dashboard motion."
 
 ### Shot 11 — Stakeholder close

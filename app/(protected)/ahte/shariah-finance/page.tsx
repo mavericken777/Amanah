@@ -46,8 +46,8 @@ export default async function ShariahFinancePage() {
 
     <section className="card"><h2>Token / digital-asset references</h2>{(tokens.data ?? []).length ? (tokens.data ?? []).map((t:any)=><div className="row-between" key={t.reference_code}><span>{t.reference_code} · {t.underlying_asset_type}</span><span className="status">legal {t.legal_classification_status} · Shariah {t.shariah_review_status} · regulatory {t.regulatory_status}</span></div>) : <p className="muted">No token/digital-asset references exist in this workspace.</p>}</section>
 
-    <section className="card"><h2>Hard decision boundaries</h2><ul><li>AHTE trust state is not a credit decision.</li><li>Halal certification is not financing approval.</li><li>Takaful underwriting and claims decisions remain with the Takaful operator.</li><li>AHTE is not the legal title registry.</li><li>Tokenization does not itself change title, ownership, Shariah status, regulatory status or certification state.</li></ul></section>
+    <section className="card"><h2>Decision responsibilities</h2><ul><li>AHTE trust state is not a credit decision.</li><li>Halal certification is not financing approval.</li><li>Takaful underwriting and claims decisions remain with the Takaful operator.</li><li>AHTE is not the legal title registry.</li><li>Tokenization does not itself change title, ownership, Shariah status, regulatory status or certification state.</li></ul></section>
 
-    <section className="card"><h2>Activation status</h2><p>[PROPOSAL] Complete target objects and workflows exist. Live counterparties, production API credentials, product structures, Shariah approvals and legal/regulatory treatment remain external gates and are represented through explicit connector state rather than missing capability.</p></section>
+    <section className="card"><h2>Provider connections</h2><p>Finance and Takaful evidence workflows are available in the platform. Connected provider status, operational scope and decision ownership are shown in the connector and case records for each organisation.</p></section>
   </div>;
 }

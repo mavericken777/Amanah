@@ -18,7 +18,7 @@ export default async function LaboratoryPage() {
     <section className="card"><h2>Laboratory partners</h2>{(labs.data ?? []).map((l: any, i: number) => <div className="row-between" key={i}><span>{l.name}</span><span className="status">{l.accreditation_status} · {l.acceptance_status}</span></div>)}</section>
     <section className="card"><h2>Samples</h2>{(samples.data ?? []).map((s: any) => <div className="row-between" key={s.specimen_id}><span>{s.specimen_id} · {s.method_code || "method pending"}</span><span className="status">{s.status}</span></div>)}</section>
     <section className="card"><h2>Results</h2>{(results.data ?? []).map((r: any, i: number) => <div className="row-between" key={i}><span>{r.analyte} · {r.result_value || "—"} {r.unit || ""}</span><span className="status">{r.result_class} · {r.status}</span></div>)}</section>
-    <div className="card"><strong>Authority boundary:</strong> NOT DETECTED is not HALAL. AHTE records analytical evidence and provenance; competent-authority certification remains external.</div>
+    <div className="card"><strong>Certification workflow:</strong> NOT DETECTED is not HALAL. AHTE records analytical evidence and provenance; competent-authority certification remains external.</div>
   </div>;
 }
 

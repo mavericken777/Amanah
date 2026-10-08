@@ -61,5 +61,3 @@ Multiply the factor by financed principal / 1,000. Actual Islamic-finance pricin
 ## Executive decision requested from CODA
 
 [PROPOSAL] Establish a joint enterprise-enablement workstream to identify eligible manufacturers, define the first hardware cohort, nominate financing institutions/programmes for diligence, and agree a controlled introduction/data process.
-
-[OPEN GATE: CODA programme mandate, participating financier(s), Shariah structure, pricing, currency, credit policy and executed commercial agreements.]

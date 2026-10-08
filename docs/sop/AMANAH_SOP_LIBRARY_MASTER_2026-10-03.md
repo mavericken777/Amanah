@@ -10,13 +10,13 @@
 
 Every SOP follows the canonical assurance path:
 
-Authority → Standard/Instrument → Requirement → Applicability → Control → HCP/SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → Authority Gate → Trust State → Operational Release.
+Authority → Standard/Instrument → Requirement → Applicability → Control → HCP/SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → certification review → Trust State → Operational Release.
 
-AI may assist D0–D2 and configured D4 holds. D5/D6 authority and sovereign decisions remain with authorised humans / competent authorities. Laboratory results, cryptographic proofs, sensors, QR/NFC, smart glasses, blockchain or platform states do not independently create Halal certification.
+AI may assist D0–D2 and configured D4 holds. authorised certification decision workflow authority and sovereign decisions remain with authorised humans / competent authorities. Laboratory results, cryptographic proofs, sensors, QR/NFC, smart glasses, blockchain or platform states do not independently create Halal certification.
 
 ## 2. SOP control format
 
-Each SOP must identify: trigger; accountable owner; authorised actors; required inputs; system of record; minimum evidence; validation tests; exception path; escalation; output; retention/audit log; and external gates.
+Each SOP must identify: trigger; accountable owner; authorised actors; required inputs; system of record; minimum evidence; validation tests; exception path; escalation; output; retention/audit log; and connected provider and authority workflows.
 
 ## 3. Master SOP set
 
@@ -73,7 +73,7 @@ Auditor + DeviceID + MFA → assigned audit → facility/scope → requirement/H
 The platform may assemble evidence, validate completeness and transmit through the Direct JAKIM API integration point when authorised. It may not invent official endpoints, fabricate receipts, or convert an internal assessment into a formal authority decision.
 
 ### SOP-17 — Trust fracture / exception
-Detect → classify → configured D4 HOLD where allowed → determine blast radius → assign owner → collect evidence → human review → CAPA / re-verification → authority gate if required → operational disposition. A D4 HOLD cannot be silently machine-released where human/authority review is reserved.
+Detect → classify → configured D4 HOLD where allowed → determine blast radius → assign owner → collect evidence → human review → CAPA / re-verification → certification review if required → operational disposition. A D4 HOLD cannot be silently machine-released where human/authority review is reserved.
 
 ### SOP-19 — GCC destination
 Pre-arrival dossier → port release reference → importer receiving → container/seal/SKU/batch/condition reconciliation → credential/document check → accept/discrepancy/quarantine → destination inventory → distributor/3PL transfer → retailer/marketplace listing/receiving → verification. All destination events preserve upstream lineage.
@@ -90,13 +90,7 @@ Production requires: named counterparty; legal/technical authorization; producti
 Every controlled procedure records:
 `ObjectID + EventID + EvidenceID + ActorID + Timestamp + IntegrityProof`, plus decision actor, source system, state before/after, exception reason, approval/override reason where applicable, and supersession reference.
 
-## 6. External gates
+## 6. Provider and authority workflows
 
 [SOURCE-LOCKED: licensed normative requirement text]  
-[OPEN GATE: Direct JAKIM production technical specification / authorization]  
-[OPEN GATE: laboratory production identity/accreditation/method scope/API]  
-[OPEN GATE: Sinotrans production systems/sites/lanes/credentials]  
-[OPEN GATE: port/customs authority permissions]  
-[OPEN GATE: GCC importer/authority destination acceptance]  
-[OPEN GATE: finance/Takaful counterparties and approvals]  
 [PILOT: shipment workflow — China → GCC direct — NOT-INSTANTIATED]

@@ -22,7 +22,7 @@ The Academy trains users to operate AMANAH/AHTE workflows. It does not confer st
 | A6C Retail / Marketplace | buyers, DC/store/fulfilment and e-commerce teams | listing, receiving, sale eligibility, verification and recall propagation |
 | A7 Command Center | 24/7 operators | alert triage, HOLD, escalation, prediction, recall |
 | A8 Integration | engineers / security | API, event contracts, identity, mTLS/OIDC, retries/UAT |
-| A9 Governance | admins, reviewers, authority-side roles | D0–D6, segregation of duties, audit history |
+| A9 Governance | admins, reviewers, authority-side roles | D0–certification determination, segregation of duties, audit history |
 | A10 Commercial | sales/partners/finance | proposal classification, scope, SLA, unit economics, no overclaim |
 
 ## 2. Core curriculum
@@ -55,7 +55,7 @@ Warehouse, container, seal, telemetry, custody and ports/customs.
 Pre-arrival dossier, importer receiving, discrepancy/quarantine, destination inventory, distributor/3PL custody, retail/marketplace listing and receiving, buyer/retailer verification, withdrawal and recall propagation.
 
 ### Module 9 — AI governance
-D0–D6; AI may support D0–D2 and configured D4; D5/D6 reserved.
+D0–certification determination; AI may support D0–D2 and configured D4; authorised certification decision workflow reserved.
 
 ### Module 10 — Command Center
 Alert severity, assignment, escalation, predictive risk, preemptive strategy, recall/blast radius and evidence preservation.
@@ -134,5 +134,3 @@ Training uses sandbox/development data. It must not create production shipments,
 - train-the-trainer pack.
 
 ## 9. External recognition gate
-
-[OPEN GATE: statutory/authority recognition of any Academy qualification — only the competent authority may grant or recognise regulated professional authority.]

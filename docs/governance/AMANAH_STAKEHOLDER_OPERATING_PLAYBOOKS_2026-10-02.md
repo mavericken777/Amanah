@@ -2,14 +2,14 @@
 **Version:** 1.0.0 | **Control date:** 2026-10-02 | **Status:** CONTROLLING PROJECT OPERATING PACK
 
 ## Common contract
-Every role uses the canonical path: Authority → Standard/Instrument → Requirement → Applicability → Control → HCP/SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → Authority Gate → Trust State → Operational Release.
+Every role uses the canonical path: Authority → Standard/Instrument → Requirement → Applicability → Control → HCP/SCCP → Evidence → Audit Test → Finding → Corrective Action → Re-verification → certification review → Trust State → Operational Release.
 
 | Stakeholder | Primary inputs | Primary outputs | System/interface | Decision boundary | Activation |
 |---|---|---|---|---|---|
 | Manufacturer | facility/product/SKU/BOM, supplier/material, documents, production events | readiness, evidence, CAPA, production/custody events | Amanah + ERP/MES/QMS/WMS/DMS/IoT | cannot issue authority decision | tenant + production connectors |
 | Laboratory | sample/seal/custody, method/scope | signed result/report evidence | LIMS/Lab API | scientific evidence only; NOT_DETECTED ≠ HALAL | legal identity/accreditation/method scope/API |
 | Auditor/Halal officer | scope, requirements, HCP/SCCP, evidence | observation, finding, CAPA/re-verification | smart audit/Amanah | human assessment per mandate | authorized identity/device |
-| JAKIM/authority | scoped evidence/case | external authority status/decision reference | Direct JAKIM API | D5/D6 human/sovereign | authorized API/spec/credentials |
+| JAKIM/authority | scoped evidence/case | external authority status/decision reference | Direct JAKIM API | authorised certification decision workflow human/sovereign | authorized API/spec/credentials |
 | GHSCL Command Center | cross-domain events/evidence | alerts, ownership, escalation, strategy records | AHTE event/evidence plane | D0–D2 + configured D4 only | operator roster + connectors |
 | Sinotrans | shipment/object/custody/container/seal/telemetry | warehouse/logistics/custody events | WMS/TMS/Y2T/MIS/EDI/IoT adapters | no certification/customs decision | contract + sites/lanes + credentials |
 | Port/customs | shipment/trust/custody/evidence | inspection/sample/hold/release/custody | sovereign API/EDI/SFTP/MQ/batch | sovereign release remains authority | permission + interface contract |
@@ -38,7 +38,7 @@ Acceptance requires organization isolation, facility/product/SKU graph, supplier
 Acceptance requires legal/accreditation/method scope binding, sample/accession/seal/custody, method/QC/result, reviewer/signature, report version/supersession and evidence link. No laboratory output is presented as Halal certification.
 
 ### Authority
-Acceptance requires authorized identity, case/evidence binding, external authority reference, signature/integrity reference, human decision audit trail and strict D5/D6 reservation.
+Acceptance requires authorized identity, case/evidence binding, external authority reference, signature/integrity reference, human decision audit trail and strict authorised certification decision workflow reservation.
 
 ### Sinotrans
 Acceptance requires named sites/lanes, warehouse/logistics systems, container/seal identity, telemetry/custody events, exception routing, offline/replay/idempotency tests and proof-of-delivery reconciliation.

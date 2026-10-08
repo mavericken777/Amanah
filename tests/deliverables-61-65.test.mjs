@@ -3,15 +3,15 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const prompt=fs.readFileSync('docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md','utf8');
+const prompt=fs.readFileSync('docs/architecture/PLATFORM_ARCHITECTURE.md','utf8');
 const operating=JSON.parse(fs.readFileSync('docs/ahte/MS_OPERATING_SET.json','utf8'));
 
-test('the complete Malaysian/JAKIM standards catalogue is first-class in the platform prompt',()=>{
+test('the current Malaysian/JAKIM standards register is connected to the platform',()=>{
   assert.equal(operating.catalog_count,17);
   assert.equal(operating.standards.length,17);
-  for(const item of operating.standards) assert.ok(prompt.includes(item.code),'prompt missing '+item.code);
-  for(const item of ['MPPHM 2020','MHMS 2020','HAS','IHCS','protocols','circulars','authority instructions','destination requirements','laboratory methods']) {
-    assert.ok(prompt.toLowerCase().includes(item.toLowerCase()),'framework layer missing '+item);
+  for(const item of operating.standards) assert.ok(fs.readFileSync('ghscl-website/standards.html','utf8').includes(item.code),'public standards page missing '+item.code);
+  for(const item of ['MPPHM 2020','MHMS 2020','HAS','IHCS','protocols','circulars','authority instructions','destination rules','laboratory methods']) {
+    assert.ok(fs.readFileSync('docs/ahte/MS_OPERATING_SET.json','utf8').toLowerCase().includes(item.toLowerCase()),'framework layer missing '+item);
   }
 });
 

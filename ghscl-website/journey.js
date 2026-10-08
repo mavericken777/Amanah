@@ -9,14 +9,14 @@ const journey = {
     ['Standards & applicability','Assurance team','Standards workspace','Resolve the complete applicable Malaysian/JAKIM framework and destination requirements for the actual product, process and market.','Applicable instruments, controls, HCP/SCCP and evidence obligations','Turn standards into operational controls instead of a generic certificate check.','EVIDENCE-COMPLETE','Assurance team'],
     ['Laboratory evidence','Laboratory reviewer','Laboratory','Bind sample identity, seal, chain of custody, method, QC, technical review and signed report to the product and batch.','Sample record, custody, method/QC context, reviewed result and signed report','Scientific evidence supports assurance; it does not independently certify Halal status.','EVIDENCE-COMPLETE','Laboratory'],
     ['Smart audit & CAPA','Human auditor','Manufacturer facility','Guide the assigned auditor through scoped controls, capture attributable evidence, record findings and close CAPA through re-verification.','Audit scope, observations, media, findings, corrective action, re-verification and signed session','AI assists the audit; the human auditor owns findings and conclusions.','ASSESSED','Human auditor'],
-    ['Authority workflow','Authorised competent authority','Authority-connected workflow','Present the complete evidence context through the authority-connectivity path and retain the independently owned authority decision.','Evidence dossier, authority submission reference and authority-owned status','Authority state remains separate from trust and operational state.','ASSESSED','Competent authority'],
+    ['JAKIM interface','JAKIM integration','Authority-connected workflow','Present the complete evidence context through the authority-connectivity path and retain the independently owned issuer record.','Evidence dossier, authority submission reference and issuer status','Product, evidence and operating information remain visible in the journey record.','ASSESSED','Issuing organisation'],
     ['Controlled production','Manufacturer production / quality','Production line','Bind approved inputs, line status, cleaning, operator competence, process events and batch genealogy during production.','Material consumption, process events, cleaning evidence, line and batch links','Continuous evidence carries the approved product scope into the actual production run.','ASSESSED','Manufacturer'],
     ['Origin warehouse','Warehouse operator','China warehouse','Receive, segregate, store, inspect, pick and prepare the finished batch for dispatch.','Receiving, zone, segregation, storage condition, pallet/package and dispatch records','Preserve identity and handling controls between production and logistics.','ASSESSED','Warehouse'],
     ['Sinotrans logistics','Logistics operator','China dispatch','Assign vehicle, container and seal; record loading, custody transfer, GNSS, door and condition events.','Vehicle/container/seal identity, route, telemetry, handover and exception records','Carry trust context with the physical shipment rather than reconstructing it later.','ASSESSED','Sinotrans / logistics'],
-    ['Origin port & customs','Port / customs authority','China export port','Reconcile shipment identity, authorised documents, container/seal and inspection events before export handoff.','Manifest, document checks, inspection, seal condition and authority response','Sovereign export release remains with the competent border authority.','ASSESSED','Origin authority'],
+    ['Origin port & customs','Port / customs authority','China export port','Reconcile shipment identity, authorised documents, container/seal and inspection events before export handoff.','Manifest, document checks, inspection, seal condition and authority response','Border-system export release remains with the competent border authority.','ASSESSED','Origin authority'],
     ['International transit','Carrier / Command Center','China → GCC route','Maintain custody, route, seal and environmental continuity while exceptions are monitored across the corridor.','Transit milestones, route, condition, custody and exception events','Continuous monitoring identifies emerging risk before destination receiving.','ASSESSED','Carrier'],
-    ['GCC port & customs','Destination authority','GCC port','Resolve pre-arrival data, inspections, holds and the competent authority-owned import outcome.','Arrival, inspection, authority response, hold/release reference and custody transfer','Evidence context supports the process; sovereign release remains external.','ASSESSED','Destination authority'],
-    ['GCC importer','Importer receiving team','Destination receiving','Verify product/SKU/batch, container/seal, condition, documents and authority status; accept, record discrepancy or quarantine.','Receiving inspection, discrepancy, quarantine/acceptance, claims and warehouse placement','Make importer acceptance a first-class controlled handoff.','ASSESSED','Importer'],
+    ['GCC port & customs','Destination authority','GCC port','Resolve pre-arrival data, inspections, holds and the import outcome recorded by the connected system.','Arrival, inspection, authority response, hold/release reference and custody transfer','Evidence context supports the process; customs status is displayed from connected border systems.','ASSESSED','Destination authority'],
+    ['GCC importer','Importer receiving team','Destination receiving','Verify product/SKU/batch, container/seal, condition, documents and issuer status; accept, record discrepancy or quarantine.','Receiving inspection, discrepancy, quarantine/acceptance, claims and warehouse placement','Make importer acceptance a first-class controlled handoff.','ASSESSED','Importer'],
     ['Destination warehouse','Warehouse / 3PL','GCC warehouse','Create inventory lots, preserve condition and segregation, and determine onward distribution eligibility.','Inventory lot, location, condition, custody and eligibility records','Keep received goods connected to original product and shipment evidence.','ASSESSED','Destination warehouse'],
     ['Distributor / 3PL','Distributor operator','GCC distribution','Allocate stock, apply FEFO/FIFO as appropriate, record route and vehicle custody, and confirm proof of delivery.','Allocation, transfer order, route, custody handoff, delivery and withdrawal records','Preserve accountability between warehouse inventory and retail receiving.','ASSESSED','Distributor'],
     ['Retail / marketplace','Retail receiving / marketplace team','GCC retail / fulfilment','Check listing eligibility, receive SKU/batch, manage inventory/shelf or fulfilment status, and propagate withdrawals or recalls.','Listing state, receiving scan, inventory, expiry, sale status and recall records','Make downstream market controls visible without exposing unnecessary confidential factory data.','ASSESSED','Retailer / marketplace'],
@@ -27,11 +27,11 @@ const journey = {
   actors: [
     ['Manufacturer','Creates organisation, facility, product, supplier, process and production evidence.','Origin and manufacturing accountability'],
     ['Human auditor','Inspects controls, captures attributable observations and signs findings.','Accountable audit judgment'],
-    ['Competent authority','Owns formal certification and other reserved authority decisions.','Independent authority decision'],
+    ['Issuing organisation','Owns formal certification and other reserved issuer records.','Independent issuer record'],
     ['Laboratory','Creates sample custody, method/QC and reviewed result records.','Scientific evidence'],
     ['Warehouse','Records receiving, segregation, handling, storage and dispatch.','Controlled storage and inventory'],
     ['Sinotrans / logistics','Records custody transfers, vehicle, container, seal, route and condition.','End-to-end logistics accountability'],
-    ['Port / customs authority','Owns border inspection and sovereign release decisions.','Sovereign border decision'],
+    ['Port / customs authority','Owns border inspection and border-system release decisions.','Border-system border decision'],
     ['Importer','Owns destination receiving, discrepancy, quarantine and acceptance.','Destination acceptance'],
     ['Distributor / 3PL','Owns inventory allocation, transfer, route and proof of delivery.','Destination custody continuity'],
     ['Retailer / marketplace','Owns listing, receiving, inventory, sale status and withdrawal.','Market-side assurance'],
@@ -45,7 +45,7 @@ const journey = {
     ['Evidence & digital twins','Products, materials, facilities, batches, shipments and custody events remain connected.','End-to-end traceability'],
     ['Integrity & audit trail','Append-only records, signatures, hashes and supersession preserve lineage.','Every evidence event'],
     ['AI & preemptive strategy','Gap detection, anomaly assessment, prediction and recommendations support accountable action.','Monitoring and corrective action'],
-    ['Authority connectivity','AHTE ⇄ Direct JAKIM API ⇄ JAKIM preserves independent authority decisions.','Authority workflow'],
+    ['Authority connectivity','AHTE ⇄ Direct JAKIM API ⇄ JAKIM preserves independent issuer records.','JAKIM interface'],
     ['External ecosystem','Ports, customs, finance, Takaful and partner systems connect through governed adapters.','Cross-border and commercial workflows']
   ]
 };
@@ -80,25 +80,24 @@ if (typeof document !== 'undefined') {
     const host=$('governanceMatrix');
     if(!host)return;
     const levels=[
-      ['D0','Automated observation and deterministic checks','System'],
-      ['D1','Structured rule and requirement validation','Rules'],
-      ['D2','AI-assisted matching and checklist support','AI assists'],
-      ['D3','Recommendation for accountable human review','Human review'],
-      ['D4','Configured operational hold when a control is breached','Hold'],
-      ['D5','Formal Halal certification decision by authorised humans / competent authority','Authority'],
-      ['D6','Sovereign customs, port or other reserved release decision','Authority']
+      ['CONTINUOUS MONITORING','Connect live product, premises, laboratory, production and custody records','AHTE'],
+      ['AI / ML ANALYSIS','Detect anomalies and assess changing evidence across the journey','AHTE intelligence'],
+      ['PREDICTIVE INSIGHT','Forecast risk, impact and affected product or shipment scope','Predictive analytics'],
+      ['PREEMPTIVE STRATEGY','Recommend timely actions for accountable operators and reviewers','Decision support'],
+      ['HUMAN CERTIFICATION DECISION','JAKIM / JAIN / JAIM, muftis, scholars and authorised halal auditors award or revoke certification','Authorised decision makers'],
+      ['LIVE STATUS UPDATE','Record the decision and update connected monitoring and assurance records','End-to-end assurance']
     ];
     host.replaceChildren();
-    const heading=element('h3','Decision boundaries');
+    const heading=element('h3','Continuous assurance and certification workflow');
     const grid=element('div','', 'governance-levels');
     levels.forEach(([level,description,owner])=>{
       const card=element('article','', 'governance-level');
-      if(exception&&level==='D4')card.classList.add('active');
+      if(exception&&level==='PREEMPTIVE STRATEGY')card.classList.add('active');
       card.append(element('strong',level),element('span',description),element('small',owner));
-      if(exception&&level==='D4')card.setAttribute('aria-current','step');
+      if(exception&&level==='PREEMPTIVE STRATEGY')card.setAttribute('aria-current','step');
       grid.append(card);
     });
-    host.append(heading,grid,element('p','AI assists. Humans and competent authorities decide. A D4 hold does not certify a product or execute a sovereign release.'));
+    host.append(heading,grid,element('p','AI/ML continuously supports monitoring, prediction and preemptive strategies. Certification is awarded or revoked by JAKIM / JAIN / JAIM, muftis, scholars and authorised halal auditors.'));
   }
 
   function renderExceptionState() {
@@ -109,9 +108,9 @@ if (typeof document !== 'undefined') {
     $('restartJourney').disabled=Boolean(exception);
     [...$('exceptionButtons').children].forEach(button=>{button.disabled=Boolean(exception);});
     if(exception){
-      host.append(element('strong','D4 operational hold · '+exception.type));
-      host.append(element('p','Journey progression is paused at stage '+String(exception.stage+1)+'. The configured hold remains active while the evidence is investigated.'));
-      host.append(element('p','The walkthrough records a response path only; it does not certify Halal status or make an authority release decision.'));
+      host.append(element('strong','Operational response · '+exception.type));
+      host.append(element('p','Monitoring has flagged an exception at stage '+String(exception.stage+1)+'. The accountable team reviews evidence, resolves the issue and records the outcome.'));
+      host.append(element('p','The walkthrough shows how a detected issue moves through investigation, corrective action and re-verification while the certification decision remains with authorised human decision makers.'));
       const path=element('ol','', 'exception-response-path');
       [['HOLD','Configured hold'],['INVESTIGATION','Investigation'],['CORRECTIVE-ACTION','Corrective action'],['RE-VERIFICATION','Re-verification']].forEach(([phase,label])=>{
         const item=element('li',label);
@@ -133,13 +132,13 @@ if (typeof document !== 'undefined') {
       action.type='button';
       action.addEventListener('click',()=>{
         if(at<3){exception.phase=phases[at+1];renderExceptionState();render();return;}
-        lastExceptionResolution='Re-verification recorded in the walkthrough. Any operational release remains with the accountable operator and competent authority.';
+        lastExceptionResolution='Re-verification recorded. The resulting operating status is shown; authorised human decision makers retain certification decisions.';
         exception=null;renderExceptionState();render();updatePlayback();
       });
       actions.append(action);
       clear.disabled=true;
     }else{
-      host.textContent=lastExceptionResolution||'Select a scenario to inspect the hold and review path.';
+      host.textContent=lastExceptionResolution||'Select a scenario to follow live monitoring, investigation and corrective action.';
       clear.disabled=!lastExceptionResolution;
     }
     renderGovernanceMatrix();

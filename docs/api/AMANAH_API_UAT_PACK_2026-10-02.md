@@ -11,7 +11,7 @@
 | Idempotency replay | no duplicate side effect |
 | Evidence missing provenance | rejected |
 | AI assessment | D2 advisory only |
-| D5/D6 machine decision | rejected |
+| authorised certification decision workflow machine decision | rejected |
 | Lab result | linked to sample/batch/evidence; no certification inference |
 | Shipment event | custody/provenance only |
 | Port hold | hold + exception; no automatic release |

@@ -1,24 +1,17 @@
-# Repository guide
-
-This repository contains the AMANAH application and public website for the Global Halal Digital Trust ecosystem.
+# Amanah repository guide
 
 | Area | Location |
 |---|---|
-| Project overview and setup | [README](README.md), [setup](SETUP.md), [contributing](CONTRIBUTING.md) |
+| Project overview | [README](README.md) |
 | Public website | [`ghscl-website/`](ghscl-website/README.md) |
-| Application routes and workflows | [`app/`](app/) |
-| Authority, trust, and evidence architecture | [`docs/ahte/`](docs/ahte/) |
-| Data contracts and integration boundaries | [`lib/integrations/`](lib/integrations/) |
-| Standards catalogue | [`docs/ahte/MS_OPERATING_SET.json`](docs/ahte/MS_OPERATING_SET.json) |
-| Operations and release guidance | [`docs/operations/`](docs/operations/INDEX.md) |
-| Project deliverables | [`docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md`](docs/operations/MASTER_DELIVERABLE_INDEX_2026-10-03.md) |
+| Application routes | [`app/`](app/) |
+| AHTE integration and source binding | [`docs/ahte/`](docs/ahte/) |
+| Standards operating set | [`docs/ahte/MS_OPERATING_SET.json`](docs/ahte/MS_OPERATING_SET.json) |
+| Integrations | [`lib/integrations/`](lib/integrations/) |
+| Operations | [`docs/operations/`](docs/operations/INDEX.md) |
+| Product journey | [`ghscl-website/index.html`](ghscl-website/index.html) and [`ghscl-website/journey.js`](ghscl-website/journey.js) |
+| Setup | [`SETUP.md`](SETUP.md) |
 
-## Core system path
+The product journey models China origin through GCC distribution and verification, including manufacturer onboarding, laboratories, audit, logistics custody, border events, and Command Center monitoring. The application includes a configurable travel module, but private itinerary and transaction records do not belong in Git.
 
-**AHTE ⇄ Direct JAKIM API ⇄ JAKIM**
-
-**China → GCC direct**
-
-AI assists; authorized humans and competent authorities decide. Evidence remains provenance-linked, and integrity hashes do not prove the truth of a claim.
-
-This public software repository documents platform architecture and implementation. Trip records, draft agreements, signatory records, and private commercial negotiations are maintained outside it.
+The public website and app show connected issuer records and integration status. They do not create official certificates or live provider responses.

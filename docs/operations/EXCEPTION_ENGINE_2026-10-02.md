@@ -15,4 +15,4 @@
 | Ingredient substitution | high | open change case; hold affected product | QA/auditor | approved change/reassessment |
 | Cyber/device failure | high | isolate/revoke device; buffer events | security/ops | incident closure + integrity check |
 
-No exception auto-closes a D5/D6 authority decision. Every exception creates an auditable state transition and preserves evidence.
+No exception auto-closes a authorised certification decision workflow authority decision. Every exception creates an auditable state transition and preserves evidence.

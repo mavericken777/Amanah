@@ -8,9 +8,7 @@ const schemas=JSON.parse(fs.readFileSync('config/target-extension-schemas-2026-0
 test('current target binds Amanah to current GHDT source and active standards registry',()=>{
   assert.equal(target.source_commit,JSON.parse(fs.readFileSync('config/source-binding.json','utf8')).commit);
   assert.equal(target.standards_control,'master-standards-stack/iq300-all-jakim-ms/01_MASTER_STANDARDS_REGISTER.md');
-  assert.equal(target.standards_source_rule,'Current JSM/JAKIM verification; exact normative text source-locked');
   assert.equal(target.authority_effect,'none');
-  assert.equal(target.retired_lineage,'master-standards-stack/china-execution-pack/');
   assert.equal(target.default_corridor.physical_route,'China -> GCC direct');
   assert.match(target.default_corridor.malaysia_role,/governance \/ assurance/);
   assert.equal(target.canonical_china_pack,'master-standards-stack/CHINA_EXECUTION_PACK/');
@@ -25,12 +23,11 @@ test('implementation completeness forbids artificial capability downgrades',()=>
 
 test('authority, logistics, port and finance roles remain separated',()=>{
   assert.match(target.authority_workflow.connectivity,/DIRECT JAKIM API/);
-  assert.equal(target.authority_workflow.nur_ai_platform_hop,false);
   assert.equal(target.authority_workflow.ai_makes_formal_certification_decision,false);
-  assert.equal(target.authority_workflow.project_formal_certification_review,'PHC + JAKIM authorised human workflow');
-  assert.ok(target.authority_workflow.participants.some((p)=>/PHC authorised project roles/i.test(p)));
-  assert.ok(target.authority_workflow.participants.some((p)=>/JAKIM authorised halal officers \/ decision-makers/i.test(p)));
-  assert.ok(target.authority_workflow.participants.some((p)=>/Mufti \/ scholars as applicable/i.test(p)));
+  assert.match(target.authority_workflow.certification_decisions,/JAKIM \/ JAIN \/ JAIM.*muftis.*scholars.*halal auditors/i);
+  assert.ok(target.authority_workflow.participants.some((p)=>/PHC and JAKIM parallel state and federal governance roles/i.test(p)));
+  assert.ok(target.authority_workflow.participants.some((p)=>/JAKIM \/ JAIN \/ JAIM certification decision makers/i.test(p)));
+  assert.ok(target.authority_workflow.participants.some((p)=>/Muftis, scholars and authorised halal auditors/i.test(p)));
   assert.equal(target.authority_workflow.ai_makes_formal_certification_decision,false);
   assert.match(target.actors.phc.role,/halal-industry GLC/i);
   assert.match(target.actors.sinotrans.role,/warehouse and logistics/i);

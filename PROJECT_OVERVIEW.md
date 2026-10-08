@@ -13,11 +13,11 @@ AMANAH is the operational and digital-trust platform for the Global Halal Digita
 
 **China → GCC direct**
 
-AI assists. Authorized humans and competent authorities decide. Evidence precedes trust; trust precedes operational release.
+AI/ML assists with evidence review, predictive analytics and preemptive strategies. PHC and JAKIM work in parallel across state and federal governance.
 
 ## Platform lifecycle
 
-Organization and identity → facility → product/SKU → supplier/material provenance → applicable standards and controls → evidence → laboratory and custody → audit and CAPA → authority workflow → production and batch monitoring → logistics custody → ports/customs → GCC receiving → distribution/retail verification → ongoing monitoring.
+Organization and identity → facility → product/SKU → supplier/material provenance → applicable standards and controls → evidence → laboratory and custody → audit and CAPA → certification decision workflow → production and batch monitoring → logistics custody → ports/customs → GCC receiving → distribution/retail verification → ongoing monitoring.
 
 ## Standards
 
@@ -25,7 +25,6 @@ The standards model includes the complete applicable Malaysian/JAKIM framework a
 
 ## Project resources
 
-- [Platform execution prompt](docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md)
 - [Operations index](docs/operations/INDEX.md)
 - [Public website](ghscl-website/README.md)
 - [Hardware architecture](docs/hardware/PLATINUM_HARDWARE_MASTER_BOM_2026-10-02.json)

@@ -31,10 +31,10 @@ Black/obsidian, restrained metallic gold and warm ivory. Arial/Helvetica/neutral
 | 02. China origin | Manufacturer, KYC, facility, product/SKU | Organisation/facility/product identity |
 | 03. Provenance | Supplier, ingredient, raw material, lot | Product/SKU → material → supplier → origin/evidence |
 | 04. Complete framework | Standards/applicability | Complete registry-driven Malaysian/JAKIM framework; not MS1500/MS2400 only |
-| 05. AI + humans | Document review and escalation | D0–D6 boundary; AI assists, accountable humans decide |
+| 05. AI + humans | Document review and escalation | D0–certification determination boundary; AI assists, accountable humans decide |
 | 06. Laboratory | Sample through signed evidence | NOT_DETECTED ≠ HALAL |
 | 07. Smart audit | Auditor, smart glasses/tablet, CAPA | Observation → evidence → finding → corrective action → re-verification |
-| 08. Credential workflow | Dossier and authority gate | AHTE ⇄ Direct JAKIM API ⇄ JAKIM; authority state remains externally owned |
+| 08. Credential workflow | Dossier and certification review | AHTE ⇄ Direct JAKIM API ⇄ JAKIM; authority state remains externally owned |
 | 09. Production | Line, IoT, digital twin, batch | Sensor/event evidence attached to exact objects |
 | 10. Warehouse | Segregation, condition, dispatch | Physical state and evidence continuity |
 | 11. Sinotrans | Vehicle/container/seal/telemetry | Digital chain of custody |

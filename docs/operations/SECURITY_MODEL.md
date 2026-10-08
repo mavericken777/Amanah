@@ -20,7 +20,7 @@ Organization membership grants workspace visibility. It does not by itself grant
 
 ### Source / authority registry
 
-Tables such as authorities, instruments, requirements, mappings, certificates, authority gates and authority decisions use elevated mutation roles (`owner`, `admin`, `executive`). This is application authorization only; these roles do not confer sovereign certification authority.
+Tables such as authorities, instruments, requirements, mappings, certificates, certification review and authority decisions use elevated mutation roles (`owner`, `admin`, `executive`). This is application authorization only; these roles do not confer sovereign certification authority.
 
 ### Trust / release state
 
@@ -40,7 +40,7 @@ Deletion on the hardened original AHTE control-plane set is restricted to `owner
 
 ## Defense in depth
 
-RLS is the database enforcement boundary. API route checks supplement but do not replace RLS. The assurance Edge Function also enforces organization membership, mutation rate limiting, idempotency, D5/D6 reservation and specific elevated-role checks for release and authority-decision recording.
+RLS is the database enforcement boundary. API route checks supplement but do not replace RLS. The assurance Edge Function also enforces organization membership, mutation rate limiting, idempotency, authorised certification decision workflow reservation and specific elevated-role checks for release and authority-decision recording.
 
 ## Authority evidence
 

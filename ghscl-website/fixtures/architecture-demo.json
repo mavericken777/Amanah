@@ -23,7 +23,7 @@
     {"name":"Physical","steps":["Raw material","Factory","Warehouse","Logistics","Port","GCC","Retail"],"meaning":"Where the material or product moves. Each movement remains linked to its governed digital objects."},
     {"name":"Identity / custody","steps":["Actor","Facility","Material","Batch","Sample","Lot","Pallet","Container","Seal","Custody transfer"],"meaning":"Who handled which object and when. A broken custody link requires explicit review."},
     {"name":"Evidence","steps":["Origin documents","Lab","Controls","Audit","Findings","Corrective action","Re-verification","Logistics evidence"],"meaning":"What supports the observed control state, with source, actor and integrity references."},
-    {"name":"Authority / trust","steps":["Authority connectivity","Authority gate","Trust state","Operational release","Continuous surveillance"],"meaning":"Authority decisions remain external; internal release is separately gated. This conceptual chain does not add a machine transition to authority_decided."}
+    {"name":"Issuer / trust record","steps":["Authority connectivity","Issuer review","Trust state","Operational release","Continuous surveillance"],"meaning":"Authority decisions remain external; internal release is separately gated. This conceptual chain does not add a machine transition to authority_decided."}
   ],
   "audit": [
     {"title":"Assigned session","hud":"Authenticate auditor + device","text":"Verify MFA, role, assigned scope and facility. A device alone cannot authorize an audit.","proof":"No captured evidence; assignment and credential checks required."},

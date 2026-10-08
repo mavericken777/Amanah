@@ -40,5 +40,3 @@ identity mismatch; seal/tamper; temperature/condition; route delay/deviation; cu
 
 Every material exception receives:
 `AlertID → affected ObjectIDs → evidence → severity → owner → due time → action → re-verification/outcome`.
-
-[OPEN GATE: named lane/site, actual carrier bookings, tariffs, customs interfaces, importer acceptance and real shipment evidence.]

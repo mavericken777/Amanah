@@ -1,43 +1,37 @@
 {
-  "canonical_commit": "70246a361ca799d092d12d968a301c87c71ca2d7",
+  "canonical_commit": "79f8d85b30c778fdbf37d96e72acf075e46251bf",
   "authority_effect": "none",
-  "classification": "post-freeze proposal",
+  "classification": "current project mirror map",
   "mirrors": [
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/hitm-decision-class-registry.json",
       "amanah_path": "config/ahte-decision-classes.json",
-      "sha256": "89ce9193c10f027db98712031064a8c706f6a471d1c851d9c5064963ce628cba",
-      "canonical_blob_sha": "63f0bcc8317696aab39ba798ba2a5efba8c7416c"
-    },
-    {
-      "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/09-hard-gate-rules.json",
-      "amanah_path": "config/ahte-hard-gates.json",
-      "sha256": "b7d80222ee229f2e6b6217c8d07494373ebe860b91fc0afb0424c6d51ea469cd",
-      "canonical_blob_sha": "1af3f2536faf1c49ba102ecf00702b1cb716311d"
+      "sha256": "4faa081b3855b91bab87d6dc020497cfbfc1e53bd461da77c05776f42397fa1c",
+      "canonical_blob_sha": "f6e531e229b38419182491de8b044f18a16ba5e9"
     },
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/11-trust-fracture-taxonomy.json",
       "amanah_path": "config/ahte-fracture-taxonomy.json",
-      "sha256": "de3c6af75c2416c626ce6095aa1052cf2255bd0f41de272a146567e782b2ec00",
-      "canonical_blob_sha": "05285c09746efb2ecd4e8428072d6c5c6f955ae6"
+      "sha256": "251b704ad7f1fcbe2279ade0d442ac051c91d2475b4ccfc7a04a4ee58182a0bf",
+      "canonical_blob_sha": "c60138c40f5fa0af410d92f39b69c06f0152724c"
     },
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/12-autonomous-state-machine.json",
       "amanah_path": "config/ahte-state-machine.json",
-      "sha256": "5e2c6d3f2d52472276991fd58742ba171a946b32513fc7ff5c5ae44b0e633d74",
-      "canonical_blob_sha": "3a4489506241186078a60730ebc09883e9690e71"
+      "sha256": "248350277ff8db20a7a5c7667885b9994c92c12476a63528a7c355203c0d7788",
+      "canonical_blob_sha": "933445ebe07e72be68d1b553d5e3571a0c439847"
     },
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/machine-spec/12-autonomous-state-machine.json",
       "amanah_path": "supabase/functions/assurance/trust-machine.json",
-      "sha256": "5e2c6d3f2d52472276991fd58742ba171a946b32513fc7ff5c5ae44b0e633d74",
-      "canonical_blob_sha": "3a4489506241186078a60730ebc09883e9690e71"
+      "sha256": "248350277ff8db20a7a5c7667885b9994c92c12476a63528a7c355203c0d7788",
+      "canonical_blob_sha": "933445ebe07e72be68d1b553d5e3571a0c439847"
     },
     {
       "canonical_path": "00_EXECUTIVE_COMMAND/trust-packet-schemas.json",
       "amanah_path": "supabase/functions/assurance/packet-schemas.json",
-      "sha256": "8dc134680a9c043eafc93cba0862d94059c1ce3f20d1c4651bce82b33721a8a6",
-      "canonical_blob_sha": "f07d7bedcd7bd19d82aca1bae045c5bcde6de4da"
+      "sha256": "e76eaeff6dc47f4c364e01e0348586a592a6eef56beb12729b712051d3c67bba",
+      "canonical_blob_sha": "2a8c7485c55ee04b8cd88e3c9020df3b0022526f"
     },
     {
       "canonical_path": "platform/docker-compose.yml",
@@ -72,8 +66,8 @@
     {
       "canonical_path": "platform/README.md",
       "amanah_path": "reference-runtime/platform/README.md",
-      "sha256": "8a5a17afd3608321efd426a3b0bc63fecaa2ef8331eb85208b0e5cd2b8f74117",
-      "canonical_blob_sha": "dcbf1250ec2493e90562ffa88e6eb90fb87f9e4e"
+      "sha256": "3660640c00a7dc7456fa637863ffd6f28463de2202510abb867c2d5920835496",
+      "canonical_blob_sha": "2a77bed4f1b620c82eb2bf49a0eec96333904c73"
     },
     {
       "canonical_path": "platform/requirements.txt",
@@ -102,8 +96,8 @@
     {
       "canonical_path": "platform/src/ahte/engine.py",
       "amanah_path": "reference-runtime/platform/src/ahte/engine.py",
-      "sha256": "4b6541657c8f37847627a9dc531d4d6795c3d3147c9984bd1a453c54a25bab3b",
-      "canonical_blob_sha": "54afb9a51776159378fbb048c9e40bcf3712dbbe"
+      "sha256": "b6561eccb77aa22b59a23dfbc608980ea20ceedb928cd3ea8574ebd3549a08d2",
+      "canonical_blob_sha": "a547cd056568ae0f53f0da3e2ff4c42181456c55"
     },
     {
       "canonical_path": "platform/src/ahte/hitm.py",
@@ -120,8 +114,8 @@
     {
       "canonical_path": "platform/src/ahte/models.py",
       "amanah_path": "reference-runtime/platform/src/ahte/models.py",
-      "sha256": "717e85ac95e44239cf63a3083c0ca917d1185b4e8b4ecf08a15dc037295a5a03",
-      "canonical_blob_sha": "6e3da80d55681b78ec8dd2e285ac53b021676737"
+      "sha256": "f56f6c0fc91e1cdef420f00b345dd78b336ff0b47dc3377b999a44cf31646ab5",
+      "canonical_blob_sha": "b61fc796cca30ff11c7bf8d2aedc2c894cf2332d"
     },
     {
       "canonical_path": "platform/src/ahte/store.py",

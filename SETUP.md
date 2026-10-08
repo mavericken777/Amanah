@@ -41,9 +41,9 @@ Supabase project reference: `lqvyyylrydcpjochknag`
 
 The live backend contains the current AHTE schema, RLS, storage, lifecycle triggers, event ledger, rate limiting, realtime publication and assurance/public-verification Edge Functions.
 
-## Important authority boundary
+## Important certification workflow
 
-Amanah does not issue sovereign halal certification. AI is advisory. D5/D6 decisions are reserved. Operational release is not certification.
+Amanah does not issue sovereign halal certification. AI is advisory. authorised certification decision workflow decisions are reserved. Operational release is not certification.
 
 ## Source-lock boundary
 

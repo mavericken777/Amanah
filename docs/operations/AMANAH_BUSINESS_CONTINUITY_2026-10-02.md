@@ -9,6 +9,4 @@
 | T2 | onboarding/document workflows | degrade to read-only/queued submission |
 | T3 | public content | cached/static continuity |
 
-Recovery uses immutable backups, restore drills, connector replay, idempotency keys, evidence sequence checks and post-recovery reconciliation. An outage cannot convert HOLD to RELEASED or create D5/D6 decisions.
-
-[OPEN GATE: production RTO/RPO approval, cloud region/account selection, backup tenancy and external connector recovery SLAs.]
+Recovery uses immutable backups, restore drills, connector replay, idempotency keys, evidence sequence checks and post-recovery reconciliation. An outage cannot convert HOLD to RELEASED or create authorised certification decision workflow decisions.

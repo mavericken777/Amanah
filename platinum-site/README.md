@@ -69,7 +69,7 @@ The repository CI validates the isolated platinum experience alongside the exist
 
 ## Promotion rule
 
-A passing build is not deployment. Promotion into the public website is performed by the controlled GitHub Pages workflow after exact-head CI succeeds. The workflow overlays all generated platinum public routes and verifies the promoted artifact against the main commit. The Phase 5 promotion for `3a900d445538777a2d6e96071a11c3a61dd89cf6` succeeded; see `docs/website/PLATINUM_PHASE_6_AUDIT_2026-10-04.md` for the remaining performance and device-validation gates.
+A passing build is not deployment. Promotion into the public website is performed by the controlled GitHub Pages workflow after exact-head CI succeeds. The workflow overlays all generated platinum public routes and verifies the promoted artifact against the main commit. This site shares the current product journey and is built from the current application source.
 
 
 ### Phase 4 — Tasks 26–30
@@ -92,4 +92,4 @@ The Phase 4 implementation is source-adapted to the controlling architecture: Ch
 - secure Amanah login visual parity with the public trust-terminal identity
 - full-site GitHub Pages promotion and route-level CI verification
 
-Phase 5 consumes the existing `ghscl-website/ecosystem.en.json` content source so the platinum renderer does not create a second architecture narrative. The frozen standards baseline is not modified.
+Phase 5 consumes the existing `ghscl-website/ecosystem.en.json` content source so the platinum renderer does not create a second architecture narrative. The current standards register is maintained as the active standards source.

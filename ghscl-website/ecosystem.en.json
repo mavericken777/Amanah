@@ -10,7 +10,7 @@
     "ms",
     "ar"
   ],
-  "canonicalCommit": "70246a361ca799d092d12d968a301c87c71ca2d7",
+  "canonicalCommit": "79f8d85b30c778fdbf37d96e72acf075e46251bf",
   "baseUrl": "https://mavericken777.github.io/Amanah/",
   "navigation": [
     [
@@ -132,7 +132,7 @@
     "menu": "Explore the ecosystem",
     "skip": "Skip to content",
     "onboard": "Secure portal access",
-    "boundary": "AI supports the people responsible for every decision. Competent authorities decide on certification and border release; approved providers own financing and Takaful decisions.",
+    "boundary": "Amanah continuously monitors certified premises, products, laboratories, warehouses, logistics and custody. AI/ML supports real-time assessment, predictive analytics and preemptive strategies; JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors decide certification award or revocation.",
     "architecture": "Connected assurance. From origin to market.",
     "source": "Explore the platform foundations",
     "principle": "Data stays where it belongs. Trust travels.",
@@ -201,7 +201,7 @@
             ],
             [
               "Authority connectivity",
-              "AHTE ⇄ Direct JAKIM API ⇄ JAKIM: evidence and status exchange subject to official activation; competent-authority decisions remain independently owned."
+              "AHTE ⇄ Direct JAKIM API ⇄ JAKIM: evidence and status exchange subject to official activation; competent-issuer records remain independently owned."
             ],
             [
               "Trade finance and Takaful",
@@ -252,7 +252,7 @@
             ],
             [
               "JAKIM",
-              "Competent-authority system connected through the direct JAKIM API target. Formal decisions remain human/competent-authority decisions."
+              "Competent-authority system connected through the direct JAKIM API target. Review outcomes are recorded with their issuing organisation and supporting evidence."
             ],
             [
               "China origin ecosystem",
@@ -355,10 +355,10 @@
             "Complete evidence dossier",
             "Direct JAKIM API",
             "Authorised competent-authority human review",
-            "Formal authority status",
+            "Formal issuer status",
             "AHTE trust-state propagation"
           ],
-          "text": "Authority status and AHTE trust state remain separate records. Teams can see operational readiness alongside independently issued authority status. Competent authorities decide on Halal certification, and border authorities decide on release."
+          "text": "Issuer status and AHTE trust state remain separate records. Teams can see operational readiness alongside independently issued issuer status. Issuing organisations decide on Halal certification, and border authorities decide on release."
         },
         {
           "id": "market",
@@ -470,8 +470,8 @@
           "title": "The right status for the right decision",
           "cards": [
             [
-              "Formal certification state",
-              "Externally owned competent-authority decision."
+              "Certification record",
+              "Issuer, scope, and status recorded with supporting product evidence."
             ],
             [
               "AHTE trust state",
@@ -483,7 +483,7 @@
             ],
             [
               "Port/customs release",
-              "Sovereign border state."
+              "Border inspection and release status."
             ],
             [
               "Finance / Takaful state",
@@ -513,7 +513,7 @@
             ],
             [
               "Port/customs API",
-              "Authorised trust lookup plus sovereign inspection/hold/release event return."
+              "Authorised trust lookup plus border-system inspection/hold/release event return."
             ]
           ]
         },
@@ -611,7 +611,7 @@
         {
           "id": "decision",
           "title": "Insight that supports accountable action",
-          "text": "AI/ML can assess, prioritize and support configured D4 holds. It cannot bypass D5/D6 authority decisions or silently release a human-reserved hold."
+          "text": "AI/ML can assess, prioritize and support configured D4 holds. It cannot bypass formal review and status records or silently release a human-reserved hold."
         }
       ],
       "sources": [
@@ -738,9 +738,9 @@
             "Re-verification",
             "Sign",
             "Sync / reconcile",
-            "Authority workflow"
+            "JAKIM interface"
           ],
-          "text": "AI assists. The auditor owns the finding. Formal certification remains with the competent authority workflow."
+          "text": "AI assists. The auditor owns the finding. Certification records are associated with their issuing organisation and product scope."
         },
         {
           "id": "offline",
@@ -806,18 +806,18 @@
         {
           "id": "ports",
           "title": "Give border and receiving teams the relevant evidence",
-          "text": "The interface supports minimum-necessary shipment trust resolution and sovereign inspection/sampling/hold/release event return. AHTE does not override port/customs authority."
+          "text": "The interface supports minimum-necessary shipment trust resolution and inspection, sampling, hold, and release event updates. AHTE displays port and customs status from connected records."
         },
         {
-          "id": "pilot",
-          "title": "A focused first corridor for real execution",
-          "text": "A corridor moves into execution when the relevant entity, product, buyer/importer, batch, authority, laboratory, logistics and destination evidence are connected and accountable."
+          "id": "activation",
+          "title": "Connected corridor operations",
+          "text": "Product identity, certification status, laboratory evidence, logistics custody and destination events are connected to continuous monitoring, predictive analytics and preemptive strategies."
         }
       ],
       "sources": [
         "00_EXECUTIVE_COMMAND/corridor-registry.json",
         "deliverables/07_SINOTRANS_PLAYBOOK.md",
-        "master-standards-stack/CHINA_EXECUTION_PACK/08_CHINA_PILOT_shipment_workflow_GCC_RELEASE_PLAYBOOK.md"
+        "master-standards-stack/CHINA_EXECUTION_PACK/08_CHINA_CORRIDOR_RELEASE_PLAYBOOK.md"
       ],
       "related": [
         "traceability",
@@ -872,7 +872,7 @@
             ],
             [
               "Port/customs authorities",
-              "Sovereign inspection and release."
+              "Port inspection and release-event records."
             ],
             [
               "GCC destination actors",
@@ -924,7 +924,7 @@
           ]
         },
         {
-          "id": "gates",
+          "id": "journey",
           "title": "End-to-end onboarding",
           "flow": [
             "Manufacturer identified",
@@ -938,7 +938,7 @@
             "Digital twin",
             "Applicability",
             "HCP / SCCP",
-            "Evidence gap",
+            "Evidence linked to applicable controls",
             "Remediation / training",
             "Lab / sample plan",
             "Smart audit",
@@ -1064,7 +1064,7 @@
             ],
             [
               "Clear disclosure scope",
-              "See what a token covers and distinguish evidence integrity from authority status."
+              "See what a token covers and distinguish evidence integrity from issuer status."
             ],
             [
               "Protected business information",
@@ -1079,7 +1079,7 @@
         },
         {
           "id": "integrity",
-          "title": "Inspect evidence, provenance and relevant authority status",
+          "title": "Inspect evidence, provenance and relevant issuer status",
           "text": "Verification also depends on trusted issuer identity, signature/key validity, evidence provenance, authority references and scope."
         }
       ],
@@ -1137,7 +1137,7 @@
             ],
             [
               "Port/customs",
-              "Authorised trust-resolution and sovereign event interface."
+              "Port and customs status-event interface."
             ],
             [
               "Institutional / JAKIM",
@@ -1235,8 +1235,7 @@
         }
       ],
       "sources": [
-        "docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md",
-        "docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md"
+        "docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md"
       ],
       "related": [
         "china-gcc",
@@ -1315,8 +1314,7 @@
         }
       ],
       "sources": [
-        "docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md",
-        "docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md"
+        "docs/gcc/GCC_IMPORTER_DISTRIBUTOR_RETAILER_PLAYBOOK_2026-10-07.md"
       ],
       "related": [
         "gcc-importer",
@@ -1362,8 +1360,8 @@
           "text": "Every analytical result remains bound to the sample, product/batch context, method, reviewer and provenance needed for accountable assessment."
         },
         {
-          "id": "boundary",
-          "title": "Laboratory evidence is not certification",
+          "id": "certification-decision",
+          "title": "Continuous monitoring and certification decisions",
           "cards": [
             [
               "Scientific result",
@@ -1375,7 +1373,7 @@
             ],
             [
               "Authority decision",
-              "NOT_DETECTED ≠ HALAL. Certification remains with authorised humans and the competent authority."
+              "NOT_DETECTED ≠ HALAL. Certification records include their issuing organisation, scope and supporting evidence."
             ]
           ]
         },
@@ -1618,7 +1616,7 @@
         },
         {
           "id": "governance",
-          "title": "Security preserves authority boundaries",
+          "title": "Security preserves accountable roles",
           "text": "Security and cryptographic integrity protect evidence and access; they do not create Halal certification, customs release, financing approval, Takaful approval or legal title."
         }
       ],
@@ -1643,7 +1641,7 @@
         {
           "id": "mission-purpose",
           "title": "What the China mission is demonstrating",
-          "text": "The mission is not a disconnected technology roadshow. It demonstrates one operating model in which China-origin participants contribute attributable evidence, AHTE carries standards and trust context, Sinotrans preserves custody, and GCC actors receive, distribute, list and verify products while competent authorities retain their decisions.",
+          "text": "The mission is not a disconnected technology roadshow. It demonstrates one operating model in which China-origin participants contribute attributable evidence, AHTE carries standards and trust context, Sinotrans preserves custody, and GCC actors receive, distribute, list and verify products while issuing organisations retain their decisions.",
           "cards": [
             [
               "China origin",
@@ -1724,25 +1722,25 @@
           ]
         },
         {
-          "id": "authority-boundary",
-          "title": "Authority and decision boundaries remain explicit",
-          "text": "The mission demonstrates digital trust infrastructure without claiming that software, AI, blockchain, laboratories, smart glasses, QR/NFC, sensors or logistics partners create Halal certification. AHTE ⇄ Direct JAKIM API ⇄ JAKIM is the controlling authority-connectivity topology; external production activation depends on authorised credentials and channels.",
+          "id": "certification-workflow",
+          "title": "Continuous assurance and certification decisions",
+          "text": "Amanah continuously monitors certified premises, products, laboratories, warehouses and logistics across the China → GCC journey. AHTE ⇄ Direct JAKIM API ⇄ JAKIM connects the complete evidence and monitoring context. AI/ML provides real-time assessment, prediction and preemptive strategy support. JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors decide certification award and revocation.",
           "cards": [
             [
-              "D0–D2",
-              "Ingest, encoded controls and machine assessment may be automated."
+              "Continuous monitoring",
+              "Connect certification status, premises, products, SKUs, laboratory evidence, audits, production and custody."
             ],
             [
-              "D3–D4",
-              "Recommendations and configured trust-fracture holds support accountable human operations."
+              "AI / ML insight",
+              "Assess live evidence, identify patterns, predict emerging risk and recommend preemptive strategies."
             ],
             [
-              "D5–D6",
-              "Authority gates and sovereign/legal decisions remain with authorised humans / competent authority."
+              "Human certification decisions",
+              "JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors award or revoke certification."
             ],
             [
-              "State separation",
-              "Authority state, AHTE trust state, operational state, customs/sovereign state and finance state remain separate."
+              "Connected assurance",
+              "AHTE updates end-to-end monitoring, evidence, custody and operational context."
             ]
           ]
         },
@@ -1793,7 +1791,6 @@
         }
       ],
       "sources": [
-        "docs/AMANAH_100_PERCENT_END_TO_END_MASTER_EXECUTION_PROMPT_2026-10-07.md",
         "docs/ahte/AHTE_PLATFORM_ARCHITECTURE.md"
       ],
       "related": [
@@ -1845,7 +1842,7 @@
         },
         {
           "id": "authority",
-          "title": "Authority and decision boundary",
+          "title": "Authority connectivity",
           "cards": [
             [
               "AHTE",
@@ -1856,18 +1853,18 @@
               "Target authority-connectivity interface for evidence/status exchange subject to official activation and authorization."
             ],
             [
-              "JAKIM / competent authority",
-              "Formal Halal certification and authority decisions remain with authorised human decision-makers."
+              "JAKIM / issuing organisation",
+              "Certification records and their scope are linked to the relevant organisation."
             ],
             [
-              "AI boundary",
-              "AI may ingest, assess, recommend and support configured D4 holds. It does not independently certify Halal or execute D5/D6 sovereign/legal decisions."
+              "AI / ML support",
+              "AI/ML continuously monitors connected evidence, identifies anomalies, predicts risk and recommends preemptive strategies. Certification award and revocation are decided by JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors."
             ]
           ]
         },
         {
           "id": "operating-principles",
-          "title": "The platform carries context forward without blurring decision ownership",
+          "title": "Connected product records keep evidence and operating context together",
           "cards": [
             [
               "Product continuity",
@@ -1909,7 +1906,7 @@
             ],
             [
               "Regulator / authority",
-              "Source-controlled applicability, evidence chain, authority gates, decision separation and auditability."
+              "Source-controlled applicability, evidence chain, issuer reviews, decision separation and auditability."
             ],
             [
               "Technology / finance",
