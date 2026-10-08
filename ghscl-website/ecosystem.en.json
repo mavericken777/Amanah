@@ -1328,13 +1328,13 @@
       "slug": "laboratory",
       "label": "Laboratory",
       "title": "Analytical evidence with an unbroken sample chain.",
-      "description": "National Food Safety (Hengqin) Innovation Center under the Chinese Academy of Agricultural Sciences, China. AMANAH binds test requirements, sample identity, collection, sealing, custody, receipt, method, QC, technical review, authorised sign-off and reports into the wider assurance case without treating a laboratory result as Halal certification.",
+      "description": "The named institution for the China laboratory workstream is National Food Safety (Hengqin) Innovation Center under the Chinese Academy of Agricultural Sciences, China. AMANAH binds test requirements, sample identity, collection, sealing, custody, receipt, method, QC, technical review, authorised sign-off and reports into the wider assurance case without treating a laboratory result as Halal certification.",
       "image": "architecture.webp",
       "sections": [
         {
           "id": "institution",
           "title": "National Food Safety (Hengqin) Innovation Center",
-          "text": "Under the Chinese Academy of Agricultural Sciences, China."
+          "text": "Named institution for the China laboratory workstream. The confirmed contracting entity and accredited method scope determine the accountable operator and signatory."
         },
         {
           "id": "lifecycle",
