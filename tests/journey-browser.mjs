@@ -27,7 +27,7 @@ try {
   assert.equal(await page.locator('#stageNav button').count(),20);assert.equal(await page.locator('#playJourney').count(),1);assert.equal(await page.locator('#restartJourney').count(),1);for(let i=0;i<20;i++){await page.locator('#stageNav button').nth(i).click();assert.match(await page.locator('#stageTitle').textContent(),new RegExp(`^${String(i+1).padStart(2,'0')}`));assert.ok((await page.locator('#passportBody').textContent()).length>40);}
   for(const stage of ['GCC importer','Destination warehouse','Distributor / 3PL','Retail / marketplace','Consumer verification & continuous assurance']){
    await page.locator('#stageNav button').filter({hasText:stage}).click();
-   assert.match(await page.locator('#stageTitle').textContent(),new RegExp(stage.replace(/[.*+?^${}()|[\\]\\]/g,'\\  for(const view of ['Journey','Trust','Actor','Standards','Custody','Monitoring','Consumer','Technical'])'),'i'));
+   assert.ok((await page.locator('#stageTitle').textContent()).toLowerCase().includes(stage.toLowerCase()));
   }
   for(const view of ['Journey','Trust','Actor','Standards','Custody','Monitoring','Consumer','Technical']){await page.locator('#viewModes button').filter({hasText:new RegExp(`^${view}$`)}).click();assert.ok((await page.locator('#modeExplanation').textContent()).length>20);}
   for(let i=0;i<12;i++)await page.locator('#auditNext').click();assert.match(await page.locator('#auditCheckpoint').textContent(),/Sync \/ reconciliation/);
