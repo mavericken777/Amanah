@@ -1,11 +1,11 @@
-# Private external activation checklist
+# External activation checklist — implementation remains unblocked
 
 **Updated:** 8 October 2026  
 **Use:** internal pre-signature / production-activation follow-up only. This is not a China-trip presentation page.
 
-The platform architecture and presentation materials are complete independently of production credentials. The following items require the relevant external party before a real production transaction can be activated.
+These are production connection facts, not blockers to designing, building, testing or presenting the full platform. Implement the complete interface with clearly identified development providers now; connect a production provider when its authorised interface and evidence are available. Never fabricate a real authority, partner or transaction response.
 
-| Area | What must be obtained / confirmed |
+| Area | Production connection information |
 | --- | --- |
 | JAKIM integration | authorised production API endpoints, authentication, scopes, permissions and payload contract |
 | Authority decisions | competent-authority users, mandate and formal decision evidence |
@@ -18,12 +18,4 @@ The platform architecture and presentation materials are complete independently 
 | Production UAT | authorised identities/roles and stakeholder acceptance |
 | Commercial execution | exact counterparties, governing law, pricing, liability, service levels and authorised signatures |
 
-## Working rule
-
-Do not remove platform capability because a production credential is not yet issued. Build and present the complete interface; activate it when the authorised external connection is available.
-
-Do not fabricate an external decision, accreditation, commitment, transaction or production response.
-
-## China Mission use
-
-Externally shared material should present the complete operating model and the proposed/available integration cleanly. Counterparty-specific facts that require confirmation are handled in the private meeting brief, due-diligence sheet or pre-signature checklist rather than repeated as caveats across the public website and deck.
+Shipment 001 remains a pilot and is not instantiated until its actual product, purchase, certification, batch, custody, port and destination evidence is recorded.

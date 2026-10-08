@@ -1,6 +1,6 @@
 # AMANAH current platform summary
 
-**Updated:** 7 October 2026
+**Updated:** 8 October 2026
 
 AMANAH / Global Halal Digital Trust is presented as one end-to-end platform for China-origin Halal trade, assurance, custody and GCC market verification.
 
@@ -52,6 +52,12 @@ The public website and authenticated application use the same platform story, in
 - complete Malaysian/JAKIM standards registry;
 - manufacturer, laboratory, audit, production, logistics, ports, dedicated GCC importer, distributor/3PL, retailer/marketplace, verification, finance/Takaful and Command Center;
 - concise institutional language suitable for China-mission meetings.
+
+## Current public-site delivery
+
+The animated end-to-end redesign is in [PR #130](https://github.com/mavericken777/Amanah/pull/130), commit `91a19decf3ff429dee7cfaec7f6a6a5b24aab764`. It includes an informative 20-stage process journey, neutral sans-serif typography, the full company name and no oversized front-page shield. The steps cover onboarding, standards, evidence, lab testing, smart audit, CAPA/re-verification, authority workflow, production, warehouse, Sinotrans custody, ports/customs, GCC receiving, distributor/retailer handling, verification and monitoring.
+
+GitHub CI for the PR passes the code, build, tests, browser smoke and quality checks. The two Vercel preview checks currently report a provider build-rate limit. The PR remains open, and [GitHub Pages](https://mavericken777.github.io/Amanah/) still serves the previous release. The work is ready for review; the preview/deployment condition does not block continued implementation.
 
 ## Internal release validation
 

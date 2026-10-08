@@ -4,32 +4,10 @@
 
 For current implementation truth use `docs/operations/STATUS.md`; for external gates use `docs/operations/PENDING.md`.
 
-## 2026-10-03 — Programme closure and refinement
+## Current implementation — 8 October 2026
 
-Overall status: **69/69 COMPLETE TO PROJECT-CONTROLLED SCOPE**
+The platform and website continue to evolve; the 3 October “69/69” closeout is no longer the current overall status. The latest public-site redesign is in [Amanah PR #130](https://github.com/mavericken777/Amanah/pull/130), head `91a19decf3ff429dee7cfaec7f6a6a5b24aab764`. The redesign adds a professional animated, step-by-step product process, removes the oversized shield, applies neutral sans-serif typography and uses the full company name **Global Halal Supply Chain Limited**.
 
-Completed:
-- Canonical architecture, source binding and data model.
-- Manufacturer, facility, product/SKU, supplier/material and evidence lifecycle controls.
-- AI-assisted review, human governance, laboratory, audit/CAPA, certification lifecycle and production monitoring.
-- Hardware/BOM, custody/logistics, Sinotrans, port/customs adapter and API packages.
-- Cybersecurity, governance, continuity, exception and Command Center controls.
-- Website, corporate profile, infographic suite, cinematic/voiceover controls and Mandarin adaptation.
-- Legal, commercial, KPI/SLA, academy, SOP, China Mission and QA packs.
-- Definition of Done, final operating test and final programme closure.
-- Post-closure current-state and China Mission root-file reconciliation.
+GitHub CI passes the code, build, test, browser and quality checks for that PR. The Vercel preview checks currently report an account build-rate limit, so the PR is open and the production website has not yet been updated. This affects deployment status only; it does not pause implementation work.
 
-External / source-locked:
-- JAKIM production API specification/authorization/credentials.
-- real laboratory production identity/scope/interface.
-- Sinotrans production systems/sites/lanes.
-- port/customs permissions.
-- GCC destination acceptance.
-- finance/Takaful/regulatory counterparties.
-- authenticated production UAT identities/roles and stakeholder acceptance.
-- real Shipment 001 evidence.
-- final legal/counterparty execution and validated commercial inputs.
-
-Shipment 001 remains **NOT-INSTANTIATED**.
-
-The repository must not convert any external gate into a completed fact without evidence.
+For current delivery truth see [`docs/operations/STATUS.md`](docs/operations/STATUS.md). Shipment 001 remains **NOT-INSTANTIATED** until real transaction evidence exists. The system must not fabricate external authority, laboratory, logistics, customs or finance decisions.
