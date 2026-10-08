@@ -39,6 +39,20 @@ test('published journey assets use release-versioned URLs',()=>{
   }
 });
 
+test('generated public pages omit internal source and freeze metadata from visible footers',()=>{
+  const pages=['china-gcc','china-mission','command-center','contact','cybersecurity','digital-trust','distributor','ecosystem','finance-takaful','gcc-importer','hardware','how-it-works','interoperability','laboratory','manufacturers','partners','platform-tour','retail-market','smart-audit','traceability','verify'];
+  for(const page of pages) {
+    const html=fs.readFileSync(`ghscl-website/${page}.html`,'utf8');
+    assert.doesNotMatch(html,/<p class="site-provenance">|Platform foundations\s*·\s*Canonical|Freeze:\s*verified-2026-09-17/i,page);
+    assert.match(html,/<h2>How this capability connects<\/h2>/,`${page} should explain its platform connection in stakeholder language`);
+  }
+});
+
+test('website policy preserves the current ecosystem catalogue version',()=>{
+  const policy=fs.readFileSync('scripts/apply-website-policy.mjs','utf8');
+  assert.doesNotMatch(policy,/data\.version\s*=/,'copy policy must not downgrade or silently rewrite catalogue version metadata');
+});
+
 test('public journey models the complete lifecycle without asserting sovereign or operational release',()=>{
   const context={module:{exports:{}}};
   vm.runInNewContext(fs.readFileSync('ghscl-website/journey.js','utf8'),context);

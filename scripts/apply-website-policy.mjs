@@ -51,5 +51,4 @@ function transform(value) {
 }
 
 transform(data);
-data.version = '7.3.0';
 fs.writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`);
