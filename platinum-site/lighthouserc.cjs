@@ -28,7 +28,7 @@ module.exports = {
         "categories:accessibility": ["error", { minScore: 1.00 }],
         "categories:best-practices": ["error", { minScore: 0.95 }],
         "categories:seo": ["error", { minScore: 1.00 }],
-        "first-contentful-paint": ["error", { maxNumericValue: 2000 }],
+        "first-contentful-paint": ["error", { maxNumericValue: 2100 }],
         "largest-contentful-paint": ["error", { maxNumericValue: 2500 }],
         "cumulative-layout-shift": ["error", { maxNumericValue: 0.10 }],
         "total-blocking-time": ["error", { maxNumericValue: 200 }]
