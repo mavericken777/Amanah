@@ -19,7 +19,7 @@
 |---|---|---|---|
 | M01 | CODA — Strategic Cooperation and Manufacturer Mobilisation | [01-CODA-strategic-cooperation.md](01-CODA-strategic-cooperation.md) | Exact legal entity, signer mandate, Annex A/B, controlling language |
 | M02 | LuLu — GCC Procurement and Receiving Cooperation | [02-LULU-procurement-cooperation.md](02-LULU-procurement-cooperation.md) | Exact legal entity, signer mandate, Annex A/B, controlling language |
-| M03 | China Laboratory — Analytical Evidence Cooperation | [03-China-laboratory-evidence.md](03-China-laboratory-evidence.md) | Exact legal entity, signer mandate, Annex A/B, controlling language |
+| M03 | National Food Safety (Hengqin) Innovation Center under Chinese Academy of Agricultural Sciences, China — Analytical Evidence Cooperation | [03-China-laboratory-evidence.md](03-China-laboratory-evidence.md) | Contracting legal entity, accreditation/method scope, signer mandate, Annex A/B, controlling language |
 | M04 | Agricultural Institution — Development, Origin and Testing Cooperation | [04-agricultural-development.md](04-agricultural-development.md) | Exact legal entity, signer mandate, Annex A/B, controlling language |
 | M05 | Sinotrans — End-to-End Logistics Cooperation | [05-SINOTRANS-logistics.md](05-SINOTRANS-logistics.md) | Exact legal entity, signer mandate, Annex A/B, controlling language |
 | M06 | Sinotrans — Warehouse / CFS Cooperation | [06-SINOTRANS-warehouse.md](06-SINOTRANS-warehouse.md) | Exact legal entity, signer mandate, Annex A/B, controlling language |
