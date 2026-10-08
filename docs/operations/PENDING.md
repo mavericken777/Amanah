@@ -9,7 +9,7 @@ The platform architecture and presentation materials are complete independently 
 | --- | --- |
 | JAKIM integration | authorised production API endpoints, authentication, scopes, permissions and payload contract |
 | Authority decisions | competent-authority users, mandate and formal decision evidence |
-| China laboratory | exact legal entity, accreditation, accredited method scope, production interface and authorised signatories |
+| China laboratory | National Food Safety (Hengqin) Innovation Center under Chinese Academy of Agricultural Sciences, China; confirm contracting legal entity, accreditation/method scope, production interface and authorised signatories |
 | Sinotrans | exact contracting entity/sites, production WMS/TMS/EDI/IoT interface and lane/security agreement |
 | Ports/customs | authorised origin and GCC production interfaces and permissions |
 | GCC destination | importer/authority acceptance, receiving and market-release workflow |
