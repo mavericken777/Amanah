@@ -1,4 +1,4 @@
--- Harden post-freeze target extension records before transaction data exists.
+-- Harden target extension records before transaction data exists.
 -- These constraints ensure prediction/strategy provenance and disclosure-policy completeness.
 
 alter table public.ahte_command_center_alerts

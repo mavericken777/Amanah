@@ -36,6 +36,11 @@ test("current primary Malaysian/JAKIM standards registry is complete across plat
   assert.equal(config.standards.length, currentPrimary.length);
   assert.equal(operatingSet.registry_mode, "extensible_applicability_registry");
   assert.equal(config.registry_mode, "extensible_applicability_registry");
+  assert.equal(operatingSet.superseded_context, undefined);
+  assert.equal(config.superseded_context, undefined);
+  for (const item of [...operatingSet.standards, ...operatingSet.supplemental_instruments, ...config.standards, ...config.supplemental_instruments]) {
+    assert.equal(item.source_status, undefined, `${item.code} must not carry retired source-status labels`);
+  }
 
   for (const code of currentPrimary) {
     assert.ok(operatingSet.standards.some((s) => s.code === code), "operating registry missing " + code);
@@ -63,10 +68,6 @@ test("complete JAKIM framework remains layered above the extensible MS registry"
   }
   assert.match(operatingSet.scope_rule, /MS 1500 and MS 2400 are not the entire standards universe/);
   assert.match(operatingSet.scope_rule, /not hard-coded to a fixed standards count/);
-
-  const historical = operatingSet.superseded_context ?? [];
-  assert.ok(historical.some((x) => x.historical.includes("MS 2594:2015") && x.current === "MS 2738:2023"));
-  assert.ok(historical.some((x) => x.historical === "MS 2200-2:2013" && x.current === "MS 2803:2025"));
 
   const flagship = fs.readFileSync("platinum-site/src/App.tsx", "utf8");
   assert.match(flagship, /complete applicable Malaysian\/JAKIM framework/i);

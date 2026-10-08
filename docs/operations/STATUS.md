@@ -17,4 +17,3 @@ Physical corridor: `China → GCC direct`
 - Public website: interactive twenty-stage process journey, responsive black-and-gold system, neutral Arial-family typography, shield-free home page and ecosystem service pages.
 - Application: manufacturer onboarding, evidence, laboratory, audit/CAPA, production monitoring, custody, destination operations, Command Center, analytics and integration interfaces.
 - Project reference: current applicable Malaysian/JAKIM standards and destination instruments in the maintained source register.
-- Private trip administration, agreement drafts, signatories, personal identifiers and transaction-specific records remain outside the public repositories.

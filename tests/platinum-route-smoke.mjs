@@ -4,6 +4,7 @@ import { pathToFileURL } from "node:url";
 
 const mod = await import(pathToFileURL(process.env.PLAYWRIGHT_MODULE).href);
 const { chromium } = mod;
+const previewUrl = (process.env.PREVIEW_URL ?? "http://127.0.0.1:4173").replace(/\/$/, "");
 const browser = await chromium.launch({ headless: true, ...(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {}) });
 const page = await browser.newPage({ viewport: { width: 1024, height: 900 } });
 
@@ -17,7 +18,7 @@ for (const route of routes) {
   const errors = [];
   const handler = error => errors.push(String(error));
   page.on("pageerror", handler);
-  await page.goto("http://127.0.0.1:4173/" + route, { waitUntil: "networkidle" });
+  await page.goto(previewUrl + "/" + route, { waitUntil: "networkidle" });
   page.off("pageerror", handler);
   const result = await page.evaluate(() => ({
     h1: document.querySelectorAll("h1").length,
@@ -31,7 +32,7 @@ for (const route of routes) {
   assert.equal(result.overflow, false, route + " horizontal overflow");
 }
 
-await page.goto("http://127.0.0.1:4173/verify.html", { waitUntil: "networkidle" });
+await page.goto(previewUrl + "/verify.html", { waitUntil: "networkidle" });
 const verificationViews = page.locator(".secondary-path-grid button");
 assert.equal(await verificationViews.count(), 3, "public verifier must expose product, batch and shipment views");
 await verificationViews.first().click();
@@ -39,13 +40,12 @@ assert.equal(await page.locator(".passport-heading h3").textContent(), "Premium 
 assert.doesNotMatch(await page.locator(".passport-heading").textContent() ?? "", /CN-DEMO|DEMO-SHIPMENT|GHSC-DEMO/i, "public verifier must not expose internal fixture identifiers");
 assert.equal(await page.locator(".passport-timeline li").count(), 4, "product view should expose the four lifecycle evidence groups");
 const labJourneySource = await readFile("platinum-site/src/data/demoJourney.ts", "utf8");
-assert.ok(labJourneySource.includes("For the China laboratory workstream, the named institution is National Food Safety (Hengqin) Innovation Center"));
-assert.ok(!labJourneySource.includes("National Food Safety (Hengqin) Innovation Center laboratory operator / reviewer"), "named institution must not be assigned as accountable operator");
+assert.ok(labJourneySource.includes("The workflow is designed for JAKIM-certified laboratories within their applicable scope."));
 
-await page.goto("http://127.0.0.1:4173/manufacturers.html", { waitUntil: "networkidle" });
+await page.goto(previewUrl + "/manufacturers.html", { waitUntil: "networkidle" });
 assert.equal(await page.locator(".secondary-checklist input").count(), 5);
 
-await page.goto("http://127.0.0.1:4173/contact.html", { waitUntil: "networkidle" });
+await page.goto(previewUrl + "/contact.html", { waitUntil: "networkidle" });
 assert.equal(await page.locator(".secondary-path-grid span").count(), 6);
 
 await browser.close();

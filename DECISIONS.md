@@ -15,6 +15,5 @@ AI/ML supports real-time monitoring, evidence analysis, anomaly and risk predict
 - AI assists; authorised people and competent authorities decide.
 - Evidence remains attributable to its object, event, actor and time; monitoring follows it throughout the journey.
 - Certification, platform assurance, logistics custody, customs disposition and finance decisions retain their respective owners and records.
-- Private trip administration, agreements, signatories, personal identifiers and transaction-specific records stay outside the public repositories.
 
 This document records the current project model. Operational workflows and interfaces are maintained in the application and linked from [REPO_INDEX.md](REPO_INDEX.md).

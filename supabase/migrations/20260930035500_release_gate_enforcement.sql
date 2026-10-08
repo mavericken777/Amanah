@@ -1,4 +1,4 @@
--- [PROPOSAL] Post-freeze operational controls; no certification authority.
+-- Operational release controls; certification decisions remain with competent authorities.
 -- Canonical binding: GlobalHalalDigitalTrust@3d5cc29fabf7c3ed0da20cd938219fed83e74830.
 create table public.ahte_gate_results (
  id uuid primary key default gen_random_uuid(),

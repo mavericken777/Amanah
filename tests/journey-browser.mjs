@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'playwright');
+import { pathToFileURL } from 'node:url';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE ? pathToFileURL(process.env.PLAYWRIGHT_MODULE).href : 'playwright');
 const browser=await chromium.launch({headless:true, ...(process.env.CHROME_PATH ? {executablePath:process.env.CHROME_PATH} : {})});
 fs.mkdirSync('browser-results',{recursive:true});
 try {

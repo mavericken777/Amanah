@@ -12,6 +12,6 @@
 | Product journey | [`ghscl-website/index.html`](ghscl-website/index.html) and [`ghscl-website/journey.js`](ghscl-website/journey.js) |
 | Setup | [`SETUP.md`](SETUP.md) |
 
-The product journey models China origin through GCC distribution and verification, including manufacturer onboarding, laboratories, audit, logistics custody, border events, and Command Center monitoring. The application includes a configurable travel module, but private itinerary and transaction records do not belong in Git.
+The product journey models China origin through GCC distribution and verification, including manufacturer onboarding, laboratories, audit, logistics custody, border events, and Command Center monitoring. The application includes a configurable travel workspace alongside its assurance and operations modules.
 
 The public website and app show connected issuer records and integration status. They do not create official certificates or live provider responses.

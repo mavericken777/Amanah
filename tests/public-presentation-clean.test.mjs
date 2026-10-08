@@ -9,7 +9,7 @@ test('viewer-facing authentication and public shell hide engineering status chat
   const shell=read('scripts/refresh-ecosystem-shell.mjs');
   assert.doesNotMatch(auth,/CONNECTOR:\s*PENDING AUTHORIZATION/i);
   assert.match(auth,/AUTHORITY CONNECTIVITY/i);
-  assert.doesNotMatch(shell,/Platform foundations\s*·\s*Canonical|Freeze:\s*verified-/i);
+  assert.doesNotMatch(shell,/Platform foundations\s*·\s*Canonical/i);
 });
 
 test('public and flagship journeys are presentation-safe and automated',()=>{

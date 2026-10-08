@@ -100,7 +100,7 @@
     ],
     "extended_aggregation": "unit -> box -> carton -> pallet -> logistic unit -> container -> shipment -> GCC destination inventory",
     "hard_rule": "NOT_DETECTED != HALAL",
-    "current_profile": "partners/china-food-security-lab/AHTE_CHINA_LAB_TRACEABILITY_INTEGRATION_PROFILE_2026-09-30.md"
+    "current_profile": "partners/README.md"
   },
   "manufacturer_onboarding": [
     "manufacturer identified",
@@ -330,7 +330,7 @@
   ],
   "canonical_china_pack": "master-standards-stack/CHINA_EXECUTION_PACK/",
   "retired_lineage": "master-standards-stack/china-execution-pack/",
-  "source_commit": "d5166fe7f1af262516f218e0cb444930c4bf6143",
+  "source_commit": "e26391dd4274e401f06a9b6d5e0b907c4e2c768e",
   "monitoring_model": "End-to-end real-time monitoring across certified product/SKU, premises, suppliers, laboratory, audit, production, warehouse, logistics, port, GCC receiving and distribution records.",
   "ai_ml_model": "Monitoring, predictive analytics and preemptive strategies assist authorised operational and certification decision workflows."
 }

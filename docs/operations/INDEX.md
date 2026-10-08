@@ -1,7 +1,7 @@
 # Amanah operations
 
 - [Current platform status](STATUS.md)
-- [Integration operations](PENDING.md)
+- [Integration operations](INTEGRATION_OPERATIONS.md)
 - [Business continuity](AMANAH_BUSINESS_CONTINUITY_2026-10-02.md)
 - [Exception and incident workflows](AMANAH_EXCEPTION_ENGINE_2026-10-02.md)
 - [Global Command Center](AMANAH_GLOBAL_COMMAND_CENTRE_2026-10-02.md)

@@ -31,4 +31,3 @@ The standards model includes the complete applicable Malaysian/JAKIM framework a
 - [API integration reference](docs/api/AMANAH_API_UAT_PACK_2026-10-02.md)
 - [SOP library](docs/sop/AMANAH_SOP_LIBRARY_MASTER_2026-10-03.md)
 
-Trip administration and private commercial instruments are maintained outside this public software repository.

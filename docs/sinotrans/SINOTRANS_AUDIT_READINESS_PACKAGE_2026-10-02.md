@@ -7,7 +7,7 @@
 | T-30 days | legal/site/lane identity; process map; zones; SOP inventory; system/interface map; staff owners; equipment/calibration inventory; prior findings |
 | T-14 days | evidence sample; segregation/cleaning records; training; custody/seal workflow; WMS/TMS event export; exception/CAPA rehearsal |
 | T-7 days | open-gap burn-down; named audit participants; device/accounts; route/sample objects; offline/backup plan |
-| T-48 hours | evidence freeze reference; current staff/shift; facility condition check; device sync/calibration status; outstanding exceptions explicitly listed |
+| T-48 hours | current evidence snapshot; staff/shift; facility condition check; device sync/calibration status; outstanding exceptions listed |
 | Audit day | identity/scope confirmation; walkthrough; object scans; observations/evidence; findings; immediate containment where needed |
 | Post-audit 0–2 days | signed record, finding register, evidence manifest, owners/dates |
 | CAPA period | root cause, action, objective evidence, controlled re-verification |

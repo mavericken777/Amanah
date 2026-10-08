@@ -10,7 +10,7 @@
     "ms",
     "ar"
   ],
-  "canonicalCommit": "d5166fe7f1af262516f218e0cb444930c4bf6143",
+  "canonicalCommit": "e26391dd4274e401f06a9b6d5e0b907c4e2c768e",
   "baseUrl": "https://mavericken777.github.io/Amanah/",
   "navigation": [
     [
@@ -800,7 +800,7 @@
         {
           "id": "sinotrans",
           "title": "Connect warehousing and the complete logistics journey",
-          "text": "Integration scope covers WMS/TMS/Y2T/MIS/EDI/IoT, booking, pickup, warehouse receipt/dispatch, segregation/storage, pallet/lot, container/seal, telemetry, route/geofence, custody, port transfer and proof of delivery."
+          "text": "Integration scope connects JAKIM certification and applicable scope for logistics providers and warehouses with WMS/TMS/Y2T/MIS/EDI/IoT, booking, pickup, receipt/dispatch, segregation/storage, pallet/lot, container/seal, telemetry, route/geofence, custody, port transfer and proof of delivery."
         },
         {
           "id": "ports",
@@ -1324,13 +1324,13 @@
       "slug": "laboratory",
       "label": "Laboratory",
       "title": "Analytical evidence with an unbroken sample chain.",
-      "description": "The named institution for the China laboratory workstream is National Food Safety (Hengqin) Innovation Center under the Chinese Academy of Agricultural Sciences, China. AMANAH binds test requirements, sample identity, collection, sealing, custody, receipt, method, QC, technical review, authorised sign-off and reports into the wider assurance case without treating a laboratory result as Halal certification.",
+      "description": "The laboratory workflow is designed for JAKIM-certified laboratories and their applicable scope. It binds test requirements, sample identity, collection, sealing, custody, receipt, method, QC, technical review, authorised sign-off and reports to the wider product and premises assurance case. A laboratory result is evidence; it is not halal certification.",
       "image": "architecture.webp",
       "sections": [
         {
           "id": "institution",
-          "title": "National Food Safety (Hengqin) Innovation Center",
-          "text": "Named institution for the China laboratory workstream. The confirmed contracting entity and accredited method scope determine the accountable operator and signatory."
+          "title": "Certified laboratory workflow",
+          "text": "The laboratory workflow is designed for laboratories certified by JAKIM for their applicable scope. The platform links each authorised laboratory, operator, method and signatory record to the product and premises assurance journey."
         },
         {
           "id": "lifecycle",
@@ -1755,7 +1755,7 @@
             "Show Command Center, exceptions, recall and blast radius",
             "Close with Verification, API / interoperability, cybersecurity and partnership workstreams"
           ],
-          "text": "This order is designed for a 10–15 minute boardroom walkthrough. For shorter discussions, use the journey plus the counterparty-specific page most relevant to the room.",
+          "text": "This sequence follows the complete product journey from manufacturer onboarding to GCC destination operations. Each step opens the corresponding platform workflow.",
           "link": [
             "how-it-works.html",
             "Open How It Works"
@@ -1763,23 +1763,23 @@
         },
         {
           "id": "mission-materials",
-          "title": "Mission materials are aligned to the same architecture",
+          "title": "Explore the platform by operating workflow",
           "cards": [
             [
-              "12-instrument MOA pack",
-              "Counterparty-specific cooperation instruments for CODA, LuLu, laboratory, agricultural institution, Sinotrans logistics/warehouse, traceability, MAF/Carrefour, Tamimi, noon, BORONEX and Macau institutional cooperation."
+              "Product and premises assurance",
+              "Follow onboarding, SKU and supplier records, applicable controls, laboratory evidence, audits, certification decisions and continuous monitoring."
             ],
             [
-              "Partner operating packs",
-              "Sinotrans playbook, CODA hardware/financing pack, GCC destination guide, manufacturer guide, laboratory pack, smart-audit pack and API/UAT material."
+              "Logistics and destination operations",
+              "Explore JAKIM-certified warehouse and logistics workflows, Sinotrans custody, ports/customs, GCC receiving, distribution and retail."
             ],
             [
-              "Boardroom presentations",
-              "Executive, partner-specific and timed 5/15/30-minute presentations use the same China → GCC direct operating model."
+              "Command Center and analytics",
+              "Connect real-time evidence, custody, exceptions, predictive analytics, preemptive strategies and recall visibility."
             ],
             [
-              "Cinematic package",
-              "English and Mandarin mission media explains the lifecycle using the same authority, evidence and custody boundaries."
+              "Integration and verification",
+              "Review the direct JAKIM API topology, provider interfaces, product verification and evidence-linked trust journey."
             ]
           ],
           "link": [

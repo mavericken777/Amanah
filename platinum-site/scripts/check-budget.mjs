@@ -1,8 +1,9 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import { basename, extname, join, relative } from "node:path";
+import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
 
-const root = new URL("../dist/", import.meta.url);
+const distPath = fileURLToPath(new URL("../dist/", import.meta.url));
 const limits = {
   initialJsGzip: 200 * 1024,
   asyncJsGzipPerChunk: 200 * 1024,
@@ -21,7 +22,6 @@ async function walk(dir) {
   return files;
 }
 
-const distPath = root.pathname;
 const files = await walk(distPath);
 let total = 0;
 let cssBytes = 0;

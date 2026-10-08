@@ -1,5 +1,5 @@
 -- AMANAH manufacturer onboarding transaction boundary.
--- Control date: 2026-10-02. Post-freeze; frozen standards are untouched.
+-- Control date: 2026-10-02. Manufacturer onboarding lifecycle transaction.
 -- SECURITY INVOKER preserves existing RLS tenant controls and makes the workflow atomic.
 
 create or replace function public.ahte_register_manufacturer_onboarding(

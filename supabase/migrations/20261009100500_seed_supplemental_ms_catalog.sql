@@ -1,6 +1,4 @@
--- Post-freeze supplemental MS applicability registry.
--- Control date: 2026-10-06
--- Does not alter master-standards-stack/verified-2026-09-17/.
+-- Supplemental Malaysian standards applicability registry.
 -- Source: GlobalHalalDigitalTrust current main, supplemental technical/product standard register.
 
 create or replace function private.ahte_seed_supplemental_ms_catalog(target_org uuid)
@@ -17,7 +15,7 @@ begin
     'supplemental_standard',
     '2017',
     'Malaysia',
-    'source_locked',
+    'active',
     'PROJECT-REPO: GlobalHalalDigitalTrust — master-standards-stack/03_SECTOR_STANDARDS_CONTROL_MAP.md'
   )
   on conflict do nothing;
@@ -28,6 +26,7 @@ returns trigger language plpgsql security definer set search_path=public as $$
 begin
   perform private.ahte_seed_operating_rules(new.id);
   perform private.ahte_seed_reference_catalog(new.id);
+  perform private.ahte_seed_ms2400_source_bindings(new.id);
   perform private.ahte_seed_supplemental_ms_catalog(new.id);
   return new;
 end $$;
