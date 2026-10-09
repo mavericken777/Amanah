@@ -1,5 +1,14 @@
 import { useEffect, useRef } from "react";
 
+const SCENE_SLOT_AVAILABLE = "amanah-process-scene-slot-available";
+let activeSceneHost: HTMLElement | null = null;
+
+function releaseSceneSlot(host: HTMLElement) {
+  if (activeSceneHost !== host) return;
+  activeSceneHost = null;
+  window.dispatchEvent(new Event(SCENE_SLOT_AVAILABLE));
+}
+
 export function ProcessScene3D({
   mode = "corridor",
   stage = "China to GCC product journey",
@@ -21,14 +30,22 @@ export function ProcessScene3D({
     let mountTimer = 0;
     let idleHandle = 0;
     let cancelIdle: (() => void) | undefined;
+    let sceneVisible = false;
+    const onSceneSlotAvailable = () => { if (sceneVisible && !scene && !mounting) scheduleMount(); };
     const mount = async () => {
       if (scene || mounting) return;
+      if (activeSceneHost && activeSceneHost !== host) return;
+      activeSceneHost = host;
       mounting = true;
       try {
         const runtime = await import("./processSceneRuntime");
-        if (host.isConnected && host.dataset.sceneVisible === "true") scene = runtime.mountProcessSceneOnElement(host);
+        if (host.isConnected && host.dataset.sceneVisible === "true" && activeSceneHost === host) {
+          scene = runtime.mountProcessSceneOnElement(host);
+          if (!scene) releaseSceneSlot(host);
+        } else releaseSceneSlot(host);
       } catch {
         host.dataset.sceneFallback = "true";
+        releaseSceneSlot(host);
       } finally {
         mounting = false;
       }
@@ -44,15 +61,32 @@ export function ProcessScene3D({
         } else void mount();
       }, 1600);
     };
+    window.addEventListener(SCENE_SLOT_AVAILABLE, onSceneSlotAvailable);
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        host.dataset.sceneVisible = String(entry.isIntersecting);
-        if (entry.isIntersecting) scheduleMount();
-        else { window.clearTimeout(mountTimer); cancelIdle?.(); if (scene) { scene.dispose(); scene = null; } }
+        sceneVisible = entry.isIntersecting;
+        host.dataset.sceneVisible = String(sceneVisible);
+        if (sceneVisible) scheduleMount();
+        else {
+          window.clearTimeout(mountTimer);
+          cancelIdle?.();
+          if (scene) { scene.dispose(); scene = null; }
+          releaseSceneSlot(host);
+        }
       });
     }, { rootMargin: "0px" });
     observer.observe(host);
-    return () => { window.clearTimeout(mountTimer); cancelIdle?.(); observer.disconnect(); scene?.dispose(); delete host.dataset.sceneVisible; };
+    return () => {
+      window.clearTimeout(mountTimer);
+      cancelIdle?.();
+      window.removeEventListener(SCENE_SLOT_AVAILABLE, onSceneSlotAvailable);
+      observer.disconnect();
+      scene?.dispose();
+      scene = null;
+      sceneVisible = false;
+      releaseSceneSlot(host);
+      delete host.dataset.sceneVisible;
+    };
   }, []);
 
   return <div

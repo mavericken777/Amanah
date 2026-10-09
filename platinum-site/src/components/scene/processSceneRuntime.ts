@@ -435,14 +435,26 @@ export function mountProcessSceneOnElement(container: HTMLElement): ProcessScene
 
 export function mountVisibleProcessScenes(root: ParentNode = document) {
   const mounted = new Map<HTMLElement, ProcessSceneHandle>();
-  const reveal = (element: HTMLElement) => { const scene = mountProcessSceneOnElement(element); if (scene) mounted.set(element, scene); };
+  const visible = new Set<HTMLElement>();
+  const revealNext = () => {
+    if (mounted.size > 0) return;
+    const element = visible.values().next().value as HTMLElement | undefined;
+    if (!element) return;
+    const scene = mountProcessSceneOnElement(element);
+    if (scene) mounted.set(element, scene);
+  };
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const element = entry.target as HTMLElement;
-      if (entry.isIntersecting) reveal(element);
-      else { mounted.get(element)?.dispose(); mounted.delete(element); }
+      if (entry.isIntersecting) visible.add(element);
+      else {
+        visible.delete(element);
+        mounted.get(element)?.dispose();
+        mounted.delete(element);
+      }
     });
+    revealNext();
   }, { rootMargin: "0px" });
   root.querySelectorAll<HTMLElement>("[data-process-scene]").forEach(element => observer.observe(element));
-  return () => { observer.disconnect(); mounted.forEach(scene => scene.dispose()); mounted.clear(); };
+  return () => { observer.disconnect(); visible.clear(); mounted.forEach(scene => scene.dispose()); mounted.clear(); };
 }
