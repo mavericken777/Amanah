@@ -8,7 +8,7 @@ export const inferKind = (label: string): ProcessKind => {
   if (/audit|capa|inspection|finding/.test(value)) return "audit";
   if (/warehouse|storage|segregation|inventory/.test(value)) return "warehouse";
   if (/sinotrans|logistic|custody|transit|carrier|vehicle/.test(value)) return "transport";
-  if (/port|custom|border|export|import|arrival/.test(value)) return "port";
+  if (/\b(?:port|customs?|border|export|import|arrival)\b/.test(value)) return "port";
   if (/gcc|market|retail|distribut|consumer/.test(value)) return /consumer|verify|disclosure/.test(value) ? "verification" : "market";
   if (/authority|jakim|standard|requirement|certification/.test(value)) return "authority";
   if (/verify|disclosure|passport/.test(value)) return "verification";
@@ -34,8 +34,7 @@ export const sceneImage = (kind: ProcessKind): string => ({
   monitoring: "scene-command-center.webp",
 })[kind];
 
-export function sceneAssetUrl(kind: ProcessKind): string {
-  const path = typeof window === "undefined" ? "" : window.location.pathname;
-  const match = path.match(/^(.*?\/Amanah)(?:\/|$)/i);
+export function sceneAssetUrl(kind: ProcessKind, pathname = typeof window === "undefined" ? "/" : window.location.pathname): string {
+  const match = pathname.match(/^(.*?\/(?:Amanah|trust-journey))(?:\/|$)/i);
   return `${match ? match[1] : ""}/assets/${sceneImage(kind)}`;
 }

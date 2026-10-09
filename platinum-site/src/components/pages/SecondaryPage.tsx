@@ -3,7 +3,7 @@ import { SecondaryInteractions } from "./SecondaryInteractions";
 import extraPagesSource from "../../../data/extra-pages.json";
 import { ProcessFlow3D } from "../scene/ProcessFlow3D";
 import { ProcessScene3D } from "../scene/ProcessScene3D";
-import companyLogo from "../../../../ghscl-website/media/company-logo.webp";
+const companyLogo = "assets/company-logo.webp";
 
 type Card=[string,string];
 type LinkPair=[string,string];
@@ -13,14 +13,14 @@ type Site={messages:{brand:string;operator:string;boundary:string;principle:stri
 const site=source as unknown as Site;
 const extraPages=extraPagesSource as unknown as Page[];
 
-function slugFromLocation(){
-  const file=window.location.pathname.split("/").filter(Boolean).pop()||"index.html";
+function slugFromLocation(pathname: string){
+  const file=pathname.split("/").filter(Boolean).pop()||"index.html";
   const route=file.replace(/\.html$/i,"");
   return route==="zh-Hans"?"zh-Hant":route;
 }
 
-export function SecondaryPage(){
-  const slug=slugFromLocation();
+export function SecondaryPage({ pathname = window.location.pathname }: { pathname?: string }){
+  const slug=slugFromLocation(pathname);
   const page=[...site.pages,...extraPages].find(item=>item.slug===slug);
   if(!page)return <main className="secondary-not-found"><p className="eyebrow">AMANAH / PUBLIC SITE</p><h1>Page not found.</h1><a className="button-primary" href="index.html">Return home</a></main>;
   return <div className="secondary-shell" data-route={slug} lang={slug==="ar"?"ar":slug==="zh-Hant"?"zh-Hant":"en"} dir={slug==="ar"?"rtl":"ltr"}>

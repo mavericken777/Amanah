@@ -49,9 +49,10 @@ if (!reducedTransparencyFallback) throw new Error("Built CSS is missing the opaq
 if (total > limits.total) throw new Error(`Total bundle budget exceeded: ${total} > ${limits.total} bytes`);
 
 const indexHtml = await readFile(join(distPath, "index.html"), "utf8");
-const entryNames = new Set(
-  [...indexHtml.matchAll(/<script[^>]+src=["']([^"']+\.js)["']/g)].map(match => basename(match[1]))
-);
+const entryNames = new Set([
+  ...[...indexHtml.matchAll(/<script[^>]+src=["']([^"']+\.js)["']/g)].map(match => basename(match[1])),
+  ...[...indexHtml.matchAll(/<link[^>]+rel="modulepreload"[^>]+href="([^"]+\.js)"/g)].map(match => basename(match[1])),
+]);
 if (!entryNames.size) throw new Error("No production JavaScript entry found in dist/index.html");
 
 let initialJsGzip = 0;

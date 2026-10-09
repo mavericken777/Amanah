@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import { SecondaryPage } from "./components/pages/SecondaryPage";
 
 import "./styles/tokens.css";
 import "./styles/motion.css";
@@ -12,6 +12,6 @@ import "./styles/flagship.css";
 import "./styles/platinum-final.css";
 import "./styles/process-3d.css";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode><App /></React.StrictMode>,
+ReactDOM.hydrateRoot(document.getElementById("root")!,
+  <React.StrictMode><SecondaryPage /></React.StrictMode>,
 );

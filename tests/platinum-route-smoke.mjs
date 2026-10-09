@@ -52,5 +52,10 @@ assert.equal(await page.locator(".secondary-checklist input").count(), 5);
 await page.goto(previewUrl + "/contact.html", { waitUntil: "networkidle" });
 assert.equal(await page.locator(".secondary-path-grid span").count(), 6);
 
+const staticPage = await browser.newPage({ javaScriptEnabled: false });
+await staticPage.goto(previewUrl + "/how-it-works.html");
+assert.equal(await staticPage.locator("h1").count(), 1, "service pages must contain their heading before JavaScript runs");
+assert.ok(await staticPage.locator(".secondary-hero p").first().isVisible(), "service content must be readable without JavaScript");
+await staticPage.close();
 await browser.close();
 console.log("Platinum secondary-route smoke passed for all public pages.");

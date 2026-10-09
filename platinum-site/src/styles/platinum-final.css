@@ -227,3 +227,13 @@ body::after{
 .standards-framework-note span{color:#b9ae99;font:400 .75rem/1.5 Arial,Helvetica,sans-serif}
 @media(max-width:900px){.standards-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.standards-catalog-head{display:grid}}
 @media(max-width:560px){.standards-catalog{padding:1rem}.standards-catalog-grid{grid-template-columns:1fr}}
+
+/* Reserve distinct mobile columns for brand, page menu and section menu. */
+@media(max-width:760px){
+ .platinum-header{grid-template-columns:minmax(0,1fr) auto auto;column-gap:.4rem}
+ .platinum-header>.identity{grid-column:1;grid-row:1;gap:.55rem}
+ .platinum-header>.identity .identity-copy strong{max-width:100%;font-size:.58rem;line-height:1.35;letter-spacing:.045em}
+ .platinum-header>.site-nav-menu{position:static;transform:none;grid-column:2;grid-row:1}
+ .platinum-header>.site-nav-menu>summary{padding:.4rem;font-size:.68rem}
+ .platinum-header>.mobile-menu-toggle{grid-column:3;grid-row:1}
+}

@@ -1,15 +1,20 @@
 import fs from "node:fs";
 import path from "node:path";
+import { createServer } from "vite";
+import { inferKind, sceneImage } from "../src/components/scene/sceneImages.ts";
 
 const root = process.cwd();
 const repoRoot = path.resolve(root, "..");
 const data = JSON.parse(fs.readFileSync(path.join(repoRoot, "ghscl-website", "ecosystem.en.json"), "utf8"));
-const template = fs.readFileSync(path.join(root, "dist", "index.html"), "utf8");
+const template = fs.readFileSync(path.join(root, "dist", "secondary.html"), "utf8");
 const extraPages = JSON.parse(fs.readFileSync(path.join(root, "data", "extra-pages.json"), "utf8"));
 
 function escapeHtml(value) {
   return String(value).replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 }
+
+const renderer = await createServer({ server: { middlewareMode: true }, appType: "custom" });
+const { renderPage } = await renderer.ssrLoadModule("/src/prerender.tsx");
 
 for (const page of [...data.pages, ...extraPages]) {
   const title = `${page.label} | Global Halal Supply Chain Ltd`;
@@ -17,9 +22,14 @@ for (const page of [...data.pages, ...extraPages]) {
     .replace(/<title>.*?<\/title>/s, `<title>${escapeHtml(title)}</title>`)
     .replace(/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${escapeHtml(page.description)}" />`);
   const locale = page.slug === "ar" ? "ar" : page.slug === "zh-Hant" ? "zh-Hant" : "en";
+  html = html.replace("assets/journey-panorama.webp", "assets/" + sceneImage(inferKind(page.slug)));
   html = html.replace(/<html[^>]*>/, '<html lang="' + locale + '"' + (locale === "ar" ? ' dir="rtl"' : "") + '>');
+  html = html.replace('<div id="root"></div>', '<div id="root">' + renderPage(page.slug) + '</div>');
   fs.writeFileSync(path.join(root, "dist", `${page.slug}.html`), html);
 }
+
+await renderer.close();
+fs.unlinkSync(path.join(root, "dist", "secondary.html"));
 
 const legacyChinese = path.join(root, "dist", "zh-Hans.html");
 const traditionalChinese = path.join(root, "dist", "zh-Hant.html");
