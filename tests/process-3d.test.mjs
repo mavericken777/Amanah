@@ -22,6 +22,11 @@ test("public landing and route process flows use shared 3D scene components",()=
   assert.match(runtime,/const initialLabel = container\.dataset\.stageLabel/);
   assert.match(runtime,/if \(kind === "laboratory"\)/,"only the selected station's detailed model should be built");
   assert.match(runtime,/groups\[kind\]\.children\.length > 0 \? kind : "corridor"/,"unbuilt stations must remain explorable through the continuous corridor model");
+  assert.match(runtime,/new THREE\.WebGLRenderer\(\{ alpha: true, antialias: false/);
+  assert.match(runtime,/new THREE\.TubeGeometry\(route, 32/);
+  assert.doesNotMatch(runtime,/new THREE\.GridHelper/);
+  const sceneComponent=fs.readFileSync("platinum-site/src/components/scene/ProcessScene3D.tsx","utf8");
+  assert.match(sceneComponent,/rootMargin: "0px"/,"offscreen canvases must not compete with the visible process scene");
 });
 
 test("static landing stages drive their 3D scenes and retain semantic process details",()=>{

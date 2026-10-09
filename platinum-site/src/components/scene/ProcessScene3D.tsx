@@ -50,7 +50,7 @@ export function ProcessScene3D({
         if (entry.isIntersecting) scheduleMount();
         else { window.clearTimeout(mountTimer); cancelIdle?.(); if (scene) { scene.dispose(); scene = null; } }
       });
-    }, { rootMargin: "160px" });
+    }, { rootMargin: "0px" });
     observer.observe(host);
     return () => { window.clearTimeout(mountTimer); cancelIdle?.(); observer.disconnect(); scene?.dispose(); delete host.dataset.sceneVisible; };
   }, []);
