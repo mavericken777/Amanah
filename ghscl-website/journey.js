@@ -164,6 +164,12 @@ if (typeof document !== 'undefined') {
       journeyScene.dataset.stageIndex = String(index);
       journeyScene.setAttribute('aria-label', 'Animated 3D supply chain journey: ' + s[0]);
     }
+    const routeScene = $('routeScene3d');
+    if (routeScene) {
+      routeScene.dataset.stageLabel = 'corridor · ' + s[0];
+      routeScene.dataset.stageIndex = String(index);
+      routeScene.setAttribute('aria-label', 'Three-dimensional direct China to GCC journey: ' + s[0]);
+    }
     pulse('stageTitle'); pulse('stageStory'); pulse('stageDetail'); pulse('sceneData');
     const sceneName=$('sceneStageName');
     if(sceneName){
@@ -198,8 +204,6 @@ if (typeof document !== 'undefined') {
     }
     [...$('viewModes').children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===mode)));
     [...$('routeNodes').children].forEach((b,i)=>{b.classList.toggle('reached',i<=index);b.setAttribute('aria-pressed',String(i===index));});
-    const route=$('journeyRoute'), point=route.getPointAtLength(route.getTotalLength()*index/(journey.stages.length-1));
-    $('routeMarker').setAttribute('cx',String(point.x)); $('routeMarker').setAttribute('cy',String(point.y));
     $('routeLocation').textContent=s[2]+' · '+s[7];
     $('timeline').replaceChildren();
     journey.stages.slice(0,index+1).forEach((v,i)=>{const b=element('button',String(i+1).padStart(2,'0')+' · '+v[0]+' · '+v[1]);b.type='button';b.addEventListener('click',()=>{pause();select(i);});$('timeline').append(b);});

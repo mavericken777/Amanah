@@ -29,5 +29,7 @@ test("static landing stages drive their 3D scenes and retain semantic process de
   assert.match(html,/id="stageDetail"/);
   assert.match(script,/journeyScene\.dataset\.stageIndex\s*=\s*String\(index\)/);
   assert.match(script,/journeyScene\.dataset\.stageLabel\s*=\s*s\[0\]/);
+  assert.match(script,/routeScene\.dataset\.stageIndex\s*=\s*String\(index\)/);
+  assert.doesNotMatch(script,/journeyRoute|getPointAtLength|routeMarker/);
   assert.doesNotMatch(html,/class="journey-world"|id="platformCargo"/);
 });
