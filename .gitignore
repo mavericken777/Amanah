@@ -28,3 +28,8 @@ supabase/.temp/
 # Browser verification evidence is uploaded by CI
 browser-results/
 public/trust-journey/
+platinum-site/dist/
+platinum-site/lighthouse-results/
+.lighthouseci/
+ghscl-website/assets/
+ghscl-website/process-3d.css

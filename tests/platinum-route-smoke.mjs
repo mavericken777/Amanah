@@ -24,11 +24,15 @@ for (const route of routes) {
     h1: document.querySelectorAll("h1").length,
     header: Boolean(document.querySelector(".secondary-header")),
     topology: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false,
+    processFlows: document.querySelectorAll(".process-flow-experience").length,
+    processScenes: document.querySelectorAll(".process-scene-3d").length,
     overflow: document.documentElement.scrollWidth > innerWidth + 1,
   }));
   assert.equal(errors.length, 0, route + " page errors: " + errors.join(" | "));
   assert.equal(result.h1, 1, route + " must expose exactly one h1");
   assert.ok(result.header && result.topology, route + " platinum shell/topology missing");
+  assert.ok(result.processScenes >= 1, route + " must include its 3D scene");
+  assert.equal(result.processScenes, result.processFlows + 1, route + " each process flow must have a corresponding 3D scene plus its page hero");
   assert.equal(result.overflow, false, route + " horizontal overflow");
 }
 

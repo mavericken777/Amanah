@@ -32,17 +32,6 @@
 .terminal-card-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.8rem}
 .terminal-card-head .eyebrow{margin:0}
 
-.logistics-map{width:100%;height:auto;min-height:18rem;background:
- radial-gradient(circle at 24% 35%,oklch(0.75 .15 230 / .07),transparent 28%),
- linear-gradient(180deg,oklch(.16 .005 260 / .78),oklch(.12 .005 260 / .5));
- border:1px solid oklch(0.78 .13 85 / .12);border-radius:.9rem;touch-action:none}
-.logistics-map .route-line{fill:none;stroke-width:2;vector-effect:non-scaling-stroke}
-.logistics-map .route-line-direct{stroke:var(--gold-primary);stroke-dasharray:8 6;animation:routeFlow 5s linear infinite}
-.logistics-map .route-line-governance{stroke:oklch(0.75 .15 230 / .65);stroke-dasharray:3 8}
-.logistics-map .route-node{cursor:pointer;outline:none}
-.logistics-map .route-node circle{fill:var(--obsidian-raised);stroke:var(--gold-primary);stroke-width:2;transition:transform .2s ease,fill .2s ease}
-.logistics-map .route-node text{fill:var(--text-primary);font-family:Arial, Helvetica, sans-serif;font-size:11px}
-.logistics-map .route-node:hover circle,.logistics-map .route-node:focus circle,.logistics-map .route-node.active circle{fill:var(--gold-primary);transform:scale(1.25)}
 .terminal-detail{display:grid;gap:.3rem;margin-top:.75rem}
 .terminal-detail strong{color:var(--gold-bright);font-family:Arial, Helvetica, sans-serif;font-size:1.2rem}
 .terminal-detail p,.terminal-detail small,.terminal-card>small{margin:0;color:var(--text-muted);line-height:1.55}
@@ -135,12 +124,11 @@ button,.button-primary,.button-secondary,.header-cta,.engagement-card{min-height
 @media(max-width:720px){
 
   .terminal-card{padding:.95rem}.terminal-card-head{align-items:flex-start;flex-direction:column}
-  .logistics-map{min-height:14rem}
   .journey-stage-inner{padding:1rem}.journey-visual{min-height:17rem}
   .facility-schematic,.gel-schematic,.port-lock{width:100%}.phone-verify{width:min(14rem,78%)}
 }
 @media(prefers-reduced-motion:reduce){
-  .circuit-map .circuit-traces path,.logistics-map .route-line-direct,.pcr-line,.phone-screen svg path{animation:none!important}
+  .circuit-map .circuit-traces path,.pcr-line,.phone-screen svg path{animation:none!important}
   .pcr-line,.phone-screen svg path{stroke-dashoffset:0}
   .capability-card,.institution-card,.engagement-card,.terminal-card,.journey-stage-inner,.gold-action{transition:none!important}
 }

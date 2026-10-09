@@ -1,0 +1,31 @@
+import { useEffect, useState } from "react";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
+import { ProcessScene3D } from "./ProcessScene3D";
+
+export function ProcessFlow3D({ title, steps, mode = "corridor", id }: { title: string; steps: string[]; mode?: string; id?: string }) {
+  const [active, setActive] = useState(0);
+  const [playing, setPlaying] = useState(true);
+  const reducedMotion = useReducedMotion();
+  const selected = steps[Math.min(active, Math.max(0, steps.length - 1))] || title;
+
+  useEffect(() => {
+    if (!playing || reducedMotion || steps.length < 2) return;
+    const timer = window.setInterval(() => setActive(current => (current + 1) % steps.length), 5200);
+    return () => window.clearInterval(timer);
+  }, [playing, reducedMotion, steps.length]);
+
+  return <div className="process-flow-experience" id={id} aria-label={`${title} animated 3D process flow`}>
+    <div className="process-flow-heading"><span>LIVE 3D PROCESS MODEL</span><strong>{String(active + 1).padStart(2, "0")} / {String(steps.length).padStart(2, "0")}</strong></div>
+    <ProcessScene3D mode={mode} stage={`${title} · ${selected}`} index={active} className="process-flow-scene" />
+    <div className="process-flow-controls">
+      <button type="button" aria-label="Previous process step" onClick={() => setActive(current => (current - 1 + steps.length) % steps.length)}>Previous</button>
+      <button type="button" onClick={() => setPlaying(value => !value)}>{playing && !reducedMotion ? "Pause animation" : "Play animation"}</button>
+      <button type="button" aria-label="Next process step" onClick={() => setActive(current => (current + 1) % steps.length)}>Next</button>
+    </div>
+    <p className="process-flow-current" aria-live="polite">{selected}</p>
+    <nav className="process-flow-steps" aria-label={`${title} steps`}>
+      {steps.map((step, index) => <button key={`${step}-${index}`} type="button" aria-current={active === index ? "step" : undefined} aria-label={`Show step ${index + 1}: ${step}`} onClick={() => { setActive(index); setPlaying(false); }}><span>{String(index + 1).padStart(2, "0")}</span><span>{step}</span></button>)}
+    </nav>
+    {reducedMotion ? <p className="process-flow-note">Automatic movement is paused by your reduced-motion preference. Use the step controls to inspect the 3D sequence.</p> : null}
+  </div>;
+}

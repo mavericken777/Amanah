@@ -158,19 +158,23 @@ if (typeof document !== 'undefined') {
 
   function render() {
     const s = journey.stages[index];
+    const journeyScene = $('journeyScene');
+    if (journeyScene) {
+      journeyScene.dataset.stageLabel = s[0];
+      journeyScene.dataset.stageIndex = String(index);
+      journeyScene.setAttribute('aria-label', 'Animated 3D supply chain journey: ' + s[0]);
+    }
+    const routeScene = $('routeScene3d');
+    if (routeScene) {
+      routeScene.dataset.stageLabel = 'corridor · ' + s[0];
+      routeScene.dataset.stageIndex = String(index);
+      routeScene.setAttribute('aria-label', 'Three-dimensional direct China to GCC journey: ' + s[0]);
+    }
     pulse('stageTitle'); pulse('stageStory'); pulse('stageDetail'); pulse('sceneData');
     const sceneName=$('sceneStageName');
     if(sceneName){
       sceneName.textContent=s[0]; $('sceneStageAction').textContent=s[3]; $('sceneActor').textContent=s[1];
       $('sceneObject').textContent=s[2]; $('sceneEvidence').textContent=s[4];
-      const progress=index/(journey.stages.length-1)*90;
-      $('platformCargo').style.left=(5+progress)+'%'; $('platformRouteFill').style.width=progress+'%';
-      const checkpoints=[0,5,6,11,14,15,19];
-      document.querySelectorAll('.platform-stop').forEach((node,i)=>{
-        const start=checkpoints[i], end=checkpoints[i+1]??journey.stages.length-1;
-        node.classList.toggle('is-passed',index>end);
-        node.classList.toggle('is-current',index>=start&&index<=end);
-      });
     }
     $('stageTitle').textContent = String(index+1).padStart(2,'0')+' / '+s[0];
     $('stageStory').textContent = s[3];
@@ -200,8 +204,6 @@ if (typeof document !== 'undefined') {
     }
     [...$('viewModes').children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===mode)));
     [...$('routeNodes').children].forEach((b,i)=>{b.classList.toggle('reached',i<=index);b.setAttribute('aria-pressed',String(i===index));});
-    const route=$('journeyRoute'), point=route.getPointAtLength(route.getTotalLength()*index/(journey.stages.length-1));
-    $('routeMarker').setAttribute('cx',String(point.x)); $('routeMarker').setAttribute('cy',String(point.y));
     $('routeLocation').textContent=s[2]+' · '+s[7];
     $('timeline').replaceChildren();
     journey.stages.slice(0,index+1).forEach((v,i)=>{const b=element('button',String(i+1).padStart(2,'0')+' · '+v[0]+' · '+v[1]);b.type='button';b.addEventListener('click',()=>{pause();select(i);});$('timeline').append(b);});

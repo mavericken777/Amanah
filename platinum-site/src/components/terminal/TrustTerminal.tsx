@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ProcessScene3D } from "../scene/ProcessScene3D";
 
 const logisticsNodes = [
   { id: "cn", label: "China Origin", x: 90, y: 145, detail: "Manufacturer / laboratory / origin evidence" },
@@ -37,32 +38,10 @@ export function TrustTerminal({ sectionId = "terminal" }: { sectionId?: string }
             <span className="eyebrow">ORIGIN → GCC / DIRECT CORRIDOR</span>
             <span className="state-chip">DIRECT CORRIDOR</span>
           </div>
-          <svg className="logistics-map" viewBox="0 0 650 300" role="group" aria-label="Interactive China to GCC corridor schematic">
-            <path className="route-line route-line-direct" d="M90 145 C210 70 420 72 560 135" />
-            <path className="route-line route-line-governance" d="M320 235 C320 170 410 105 430 83" />
-            {logisticsNodes.map(node => (
-              <g
-                className={`route-node${logisticsNode.id === node.id ? " active" : ""}`}
-                key={node.id}
-                transform={`translate(${node.x},${node.y})`}
-                role="button"
-                tabIndex={0}
-                aria-label={`${node.label}: ${node.detail}`}
-                aria-pressed={logisticsNode.id === node.id}
-                onClick={() => setLogisticsNode(node)}
-                onKeyDown={event => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    setLogisticsNode(node);
-                  }
-                }}
-              >
-                <rect x="-66" y="-42" width="132" height="84" fill="transparent" aria-hidden="true" />
-                <circle r="8" />
-                <text y="-16" textAnchor="middle">{node.label}</text>
-              </g>
-            ))}
-          </svg>
+          <ProcessScene3D mode={logisticsNode.id === "my" ? "authority" : "port"} stage={logisticsNode.label} className="terminal-route-scene" />
+          <div className="terminal-route-controls" role="group" aria-label="Choose corridor responsibility">
+            {logisticsNodes.map(node => <button key={node.id} type="button" aria-pressed={logisticsNode.id === node.id} onClick={() => setLogisticsNode(node)}>{node.label}</button>)}
+          </div>
           <div className="terminal-detail" aria-live="polite">
             <strong>{logisticsNode.label}</strong>
             <p>{logisticsNode.detail}</p>

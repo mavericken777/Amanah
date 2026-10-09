@@ -146,25 +146,26 @@ for (const width of viewports) {
   await page.locator("#terminal").scrollIntoViewIfNeeded();
   await page.locator(".terminal-card").first().waitFor({ state: "attached" });
   await page.locator("#verification-journey").scrollIntoViewIfNeeded();
-  await page.locator(".journey-stage").first().waitFor({ state: "attached" });
+  await page.locator(".journey-3d-stage-list button").first().waitFor({ state: "attached" });
 
   const phaseFour = await page.evaluate(() => ({
     terminal: Boolean(document.querySelector("#terminal")),
     journey: Boolean(document.querySelector("#verification-journey")),
     terminalCards: document.querySelectorAll(".terminal-card").length,
-    journeyStages: document.querySelectorAll(".journey-stage").length,
+    journeyStages: document.querySelectorAll(".journey-3d-stage-list button").length,
   }));
   assert.ok(phaseFour.terminal && phaseFour.journey, `phase 4 structure incomplete at ${width}px: ${JSON.stringify(phaseFour)}`);
   assert.equal(phaseFour.terminalCards, 4, "trust terminal must expose four interactive cards");
-  assert.equal(phaseFour.journeyStages, 4, "verification journey must expose four stages");
+  assert.equal(phaseFour.journeyStages, 20, "3D verification journey must expose all twenty operating stages");
 
   await page.locator("#terminal").scrollIntoViewIfNeeded();
-  const logisticsNodes = page.locator(".logistics-map .route-node");
-  await logisticsNodes.first().waitFor({ state: "attached" });
-  assert.equal(await logisticsNodes.count(), 3, "D3 logistics schematic must expose origin, GCC destination and Malaysia governance nodes");
-  await logisticsNodes.nth(2).click();
-  assert.match(await page.locator(".terminal-detail strong").textContent() ?? "", /Malaysia Governance/, "governance node did not update logistics detail");
+  const corridorControls = page.locator(".terminal-route-controls button");
+  await corridorControls.first().waitFor({ state: "attached" });
+  assert.equal(await corridorControls.count(), 3, "corridor scene must expose China, GCC and Malaysia governance responsibilities");
+  await corridorControls.nth(2).click();
+  assert.match(await page.locator(".terminal-detail strong").textContent() ?? "", /Malaysia Governance/, "governance selection did not update corridor detail");
   assert.match(await page.locator(".terminal-detail small").textContent() ?? "", /(governance.*only|not.*physical transit)/i, "Malaysia governance boundary missing");
+  assert.match(await page.locator(".terminal-route-scene").getAttribute("data-stage-label") ?? "", /Malaysia Governance/, "3D corridor scene did not follow selected responsibility");
 
   await page.locator(".terminal-finance .gold-action").click();
   assert.match(await page.locator(".terminal-state").textContent() ?? "", /EVIDENCE PACKET PREPARED|EVIDENCE PACKET READY/, "finance interaction must prepare an evidence packet without demo engineering copy");
@@ -205,10 +206,11 @@ await page.setViewportSize({ width: 375, height: 900 });
 await page.goto(previewUrl + "/", { waitUntil: "networkidle" });
 assert.equal(await page.evaluate(() => document.documentElement.classList.contains("platinum-smooth-scroll")), false, "Reduced motion must disable Lenis");
 await page.locator("#verification-journey").scrollIntoViewIfNeeded();
-await page.locator(".journey-stage").first().waitFor({ state: "attached" });
-assert.equal(await page.locator(".journey-stage").count(), 4, "Reduced-motion Phase 4 fallback must preserve all journey stages");
+await page.locator(".journey-3d-stage-list button").first().waitFor({ state: "attached" });
+assert.equal(await page.locator(".journey-3d-stage-list button").count(), 20, "Reduced-motion view must preserve all twenty selectable process stages");
+assert.match(await page.locator(".process-flow-note").first().textContent() ?? "", /reduced-motion preference/i, "reduced-motion guidance missing");
 assert.equal(await page.locator(".static-shield").count(), 0, "Superseded hero shield must be absent");
-assert.equal(await page.locator(".halal-shield-stage canvas").count(), 0, "Reduced-motion Phase 4 fallback must not require WebGL");
+assert.equal(await page.locator(".halal-shield-stage canvas").count(), 0, "Hero must not render an oversized shield centerpiece");
 
 const verifierPage = await browser.newPage({ viewport: { width: 375, height: 812 } });
 await verifierPage.goto(previewUrl + "/verify.html", { waitUntil: "networkidle" });

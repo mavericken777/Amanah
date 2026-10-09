@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@types/d3": "latest",
+    "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "@types/three": "latest",

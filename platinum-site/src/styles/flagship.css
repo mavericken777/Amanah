@@ -47,11 +47,6 @@ body::before{opacity:.045;background-size:92px 92px;mask-image:radial-gradient(e
 .passport-id strong{font:600 1rem Arial, Helvetica, sans-serif;color:#f1e7cd}.passport-id small{color:#aaa18f}
 .passport-body{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:1.1rem;align-items:stretch}
 .passport-map{min-height:15rem;display:grid;align-items:center;padding:1rem;border-radius:1rem;border:1px solid rgba(200,162,93,.23);position:relative;overflow:hidden;background:rgba(8,8,7,.64)}
-.passport-map-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;opacity:.45}.passport-map svg{position:relative;z-index:1;width:100%;height:auto;overflow:visible}.passport-map path{fill:none;stroke-linecap:round}
-.passport-route-base{stroke:rgba(235,218,178,.28);stroke-width:2;stroke-dasharray:4 8}
-.passport-route-progress{stroke:url(#passport-route-gold);stroke-width:3;filter:drop-shadow(0 0 5px rgba(231,196,119,.45))}
-.passport-node{fill:#ead7a6;stroke:#17130b;stroke-width:4}.passport-governance{fill:#bb9652;stroke:#17130b;stroke-width:4}.passport-current{fill:#fff0bc;stroke:#9f7934;stroke-width:4;filter:drop-shadow(0 0 9px #dfbd70)}
-.passport-map text{fill:#f0e2c2;font:500 9px Arial, Helvetica, sans-serif;letter-spacing:1.3px}
 .passport-details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
 .passport-detail{display:grid;align-content:start;gap:.45rem;padding:1rem;border:1px solid rgba(205,166,91,.18);border-radius:.9rem}
 .passport-detail strong{font-size:.91rem;line-height:1.45;color:#ece4d5}.passport-detail small{font-size:.77rem;line-height:1.5;color:#a9a18f}
@@ -238,14 +233,6 @@ body::before{display:none!important}
 .hero-terminal.glass{background:transparent!important}
 .capability-card,.institution-card,.engagement-card,.corridor-detail,.passport-detail,.terminal-card{border-radius:.3rem!important;background:#13120f!important;box-shadow:none!important}
 .button-primary,.button-secondary,.gold-action{border-radius:.2rem!important;box-shadow:none!important}
-.logistics-map{display:block;width:100%;height:auto;min-height:14rem;overflow:visible}
-.logistics-map .route-line{fill:none;stroke:#b99653;stroke-width:2.5;pointer-events:none}
-.logistics-map .route-line-governance{stroke-dasharray:7 7;opacity:.65}
-.logistics-map .route-node{cursor:pointer;outline:none}
-.logistics-map .route-node circle{fill:#12100b;stroke:#d0ad62;stroke-width:2.5}
-.logistics-map .route-node.active circle,.logistics-map .route-node:focus circle{fill:#d0ad62;stroke:#f3dfad}
-.logistics-map .route-node text{fill:#e2d4b0;font-size:13px;font-family:Arial, Helvetica, sans-serif}
-.logistics-map .route-node:focus-visible circle{stroke:#fff1c6;stroke-width:4}
 @media(max-width:760px){
  .hero-phase4 .hero-grid{width:min(100%,calc(100% - 2rem));min-height:0;grid-template-columns:1fr;gap:2rem;padding-block:3.2rem 2rem}
  .hero h1{font-size:clamp(3.2rem,12vw,5.4rem)}

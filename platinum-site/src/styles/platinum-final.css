@@ -150,7 +150,6 @@ body::after{
 .passport-id,.passport-map,.passport-detail{
   border-radius:.35rem!important;background:rgba(6,6,5,.68)!important;border-color:rgba(215,178,94,.18)!important
 }
-.passport-route-progress{filter:drop-shadow(0 0 6px rgba(215,178,94,.45))!important}
 .state-chip,.severity{border-radius:999px!important}
 .standards-note{border-left:2px solid #b58b40!important;background:linear-gradient(90deg,rgba(215,178,94,.06),transparent)!important}
 .assurance-panel{padding:clamp(1.25rem,2vw,2rem)!important}
@@ -173,12 +172,7 @@ body::after{
 }
 .secondary-hero{padding-top:clamp(4rem,7vw,6rem)!important}
 .secondary-hero h1{color:#ead394!important}
-.secondary-crest{
-  border-radius:.6rem!important;border-color:rgba(215,178,94,.29)!important;
-  background:#070706!important;box-shadow:0 30px 80px rgba(0,0,0,.42)!important
-}
 .secondary-brand-art{opacity:.9!important;filter:saturate(.82) contrast(1.05)!important}
-.secondary-crest>small{border-radius:.35rem!important;color:#dbc47e!important}
 .secondary-index a{border-radius:.35rem!important;border-color:rgba(215,178,94,.18)!important;background:#0c0b09!important}
 .secondary-route-panel a,.secondary-mobile-panel a{border-radius:.3rem!important}
 .secondary-boundary,.secondary-source-note{display:none!important}
@@ -200,7 +194,6 @@ body::after{
 @media(max-width:480px){
   .hero h1{font-size:clamp(2.8rem,14vw,4rem)!important}
   .hero-principle{font-size:1.34rem!important}
-  .static-shield{width:11rem!important}
   .hero-terminal{padding:1rem!important}
 }
 @media(prefers-reduced-transparency:reduce){

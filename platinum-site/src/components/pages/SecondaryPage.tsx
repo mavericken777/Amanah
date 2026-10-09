@@ -1,6 +1,10 @@
 import source from "../../../../ghscl-website/ecosystem.en.json";
 import { SecondaryInteractions } from "./SecondaryInteractions";
 import extraPagesSource from "../../../data/extra-pages.json";
+import { ProcessFlow3D } from "../scene/ProcessFlow3D";
+import { ProcessScene3D } from "../scene/ProcessScene3D";
+import brandMark from "../../../../ghscl-website/media/ghscl-favicon.png";
+import brandLockup from "../../../../ghscl-website/media/ghscl-multilingual.webp";
 
 type Card=[string,string];
 type LinkPair=[string,string];
@@ -23,7 +27,7 @@ export function SecondaryPage(){
   return <div className="secondary-shell" data-route={slug} lang={slug==="ar"?"ar":slug==="zh-Hant"?"zh-Hant":"en"} dir={slug==="ar"?"rtl":"ltr"}>
     <a className="skip-link" href="#secondary-main">Skip to content</a>
     <header className="platinum-header glass secondary-header">
-      <a className="identity" href="index.html"><span className="identity-mark" aria-hidden="true"><img src="media/ghscl-favicon.png" alt="" /></span><span className="identity-copy"><strong>{site.messages.brand}</strong><small>{site.messages.operator}</small></span></a>
+      <a className="identity" href="index.html"><span className="identity-mark" aria-hidden="true"><img src={brandMark} alt="" /></span><span className="identity-copy"><strong>{site.messages.brand}</strong><small>{site.messages.operator}</small></span></a>
       <nav aria-label="Primary navigation" className="secondary-nav">
         {site.navigation.slice(0,4).map(([href,label])=><a key={href} href={href} aria-current={href===slug+".html"?"page":undefined}>{label}</a>)}
         <details className="secondary-route-menu"><summary>Explore</summary><div className="secondary-route-panel">{site.navigation.slice(4).map(([href,label])=><a key={href} href={href} aria-current={href===slug+".html"?"page":undefined}>{label}</a>)}</div></details>
@@ -37,7 +41,7 @@ export function SecondaryPage(){
           <div className="hero-actions"><a className="button-primary" href="https://amanah-yq9x.vercel.app/login">Open Amanah ↗</a><a className="button-secondary" href="contact.html">Plan your rollout</a></div>
           <div className="secondary-topology">AHTE ⇄ Direct JAKIM API ⇄ JAKIM <span>·</span> China → GCC direct</div>
         </div>
-        <aside className="secondary-crest glass"><span className="secondary-orbit" aria-hidden="true"/><div className="secondary-shield"><img src="media/ghscl-favicon.png" alt="" /></div><small>EVIDENCE → ASSESSMENT → HUMAN AUTHORITY → RELEASE</small></aside>
+        <div className="secondary-hero-scene"><ProcessScene3D mode={slug} stage={`${page.label} · China origin to GCC destination`} className="secondary-page-scene" /></div>
       </section>
       <nav className="secondary-index" aria-label="On this page">{page.sections.map(section=><a key={section.id} href={"#"+section.id}>{section.title}</a>)}</nav>
       {page.sections.map((section,index)=><section className="secondary-section" id={section.id} key={section.id}>
@@ -45,13 +49,13 @@ export function SecondaryPage(){
         <div className="secondary-section-body">
           {section.text?<p className="secondary-lede">{section.text}</p>:null}
           {section.cards?<div className="secondary-card-grid">{section.cards.map(([title,text])=><article className="secondary-card glass" key={title}><h3>{title}</h3><p>{text}</p></article>)}</div>:null}
-          {section.flow?<ol className="secondary-flow">{section.flow.map((item,i)=><li key={item}><span>{String(i+1).padStart(2,"0")}</span><strong>{item}</strong></li>)}</ol>:null}
+          {section.flow?.length?<><ProcessFlow3D title={section.title} steps={section.flow} mode={slug} id={`${slug}-${section.id}-process`} /><ol className="secondary-flow">{section.flow.map((item,i)=><li key={item}><span>{String(i+1).padStart(2,"0")}</span><strong>{item}</strong></li>)}</ol></>:null}
           {section.link?<a className="button-secondary" href={section.link[0]}>{section.link[1]} ↗</a>:null}
         </div>
       </section>)}
       <SecondaryInteractions slug={slug} />
 
     </main>
-    <footer className="secondary-footer"><div><img className="footer-lockup" src="media/ghscl-multilingual.webp" alt="Global Halal Supply Chain Limited in English, Traditional Chinese and Arabic" /><strong>{site.messages.brand}</strong><p>{site.messages.principle}</p></div><nav aria-label="Footer">{site.navigation.map(([href,label])=><a href={href} key={href}>{label}</a>)}</nav><nav className="language-links" aria-label="Language"><a href="index.html">English</a><a href="zh-Hant.html" lang="zh-Hant">繁體中文</a><a href="ar.html" lang="ar" dir="rtl">العربية</a></nav></footer>
+    <footer className="secondary-footer"><div><img className="footer-lockup" src={brandLockup} alt="Global Halal Supply Chain Limited in English, Traditional Chinese and Arabic" /><strong>{site.messages.brand}</strong><p>{site.messages.principle}</p></div><nav aria-label="Footer">{site.navigation.map(([href,label])=><a href={href} key={href}>{label}</a>)}</nav><nav className="language-links" aria-label="Language"><a href="index.html">English</a><a href="zh-Hant.html" lang="zh-Hant">繁體中文</a><a href="ar.html" lang="ar" dir="rtl">العربية</a></nav></footer>
   </div>;
 }

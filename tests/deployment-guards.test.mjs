@@ -22,14 +22,15 @@ test('deployed artifact verification compares 404 content, including HTTP 404 re
   import fs from 'node:fs';
   const visited=[];
   globalThis.fetch=async url=>{
-   const name=new URL(url).pathname.split('/').at(-1);
+   const assetPath=new URL(url).pathname.replace(/^\\/Amanah\\//,'');
+   const name=assetPath.split('/').at(-1);
    visited.push(name);
-   return {ok:name!=='404.html',status:name==='404.html'?404:200,text:async()=>fs.readFileSync('ghscl-website/'+name,'utf8')};
+   return {ok:name!=='404.html',status:name==='404.html'?404:200,text:async()=>fs.readFileSync('ghscl-website/'+assetPath,'utf8')};
   };
   await import('./scripts/verify-pages-deployment.mjs');
   if(!visited.includes('404.html'))throw new Error('Missing 404 verification');
  `;
  execFileSync(process.execPath,['--input-type=module','-e',script],{stdio:'pipe'});
- const corrupted=script.replace("fs.readFileSync('ghscl-website/'+name,'utf8')","name==='404.html'?'wrong deployed error page':fs.readFileSync('ghscl-website/'+name,'utf8')").replace('const visited=[];','const visited=[]; globalThis.setTimeout=fn=>fn();');
+ const corrupted=script.replace("fs.readFileSync('ghscl-website/'+assetPath,'utf8')","name==='404.html'?'wrong deployed error page':fs.readFileSync('ghscl-website/'+assetPath,'utf8')").replace('const visited=[];','const visited=[]; globalThis.setTimeout=fn=>fn();');
  assert.throws(()=>execFileSync(process.execPath,['--input-type=module','-e',corrupted],{stdio:'pipe'}),/404 deployment differs/);
 });
