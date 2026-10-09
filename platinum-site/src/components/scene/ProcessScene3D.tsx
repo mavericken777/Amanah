@@ -60,7 +60,7 @@ export function ProcessScene3D({
           idleHandle = idleWindow.requestIdleCallback(() => { void mount(); }, { timeout: 1200 });
           cancelIdle = () => idleWindow.cancelIdleCallback?.(idleHandle);
         } else void mount();
-      }, 1600);
+      }, 6000);
     };
     window.addEventListener(SCENE_SLOT_AVAILABLE, onSceneSlotAvailable);
     const observer = new IntersectionObserver(entries => {
