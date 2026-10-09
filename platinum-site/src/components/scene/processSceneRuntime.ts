@@ -29,17 +29,11 @@ function mountPerson(parent: THREE.Group, x: number, z: number, accent: THREE.Ma
   const person = new THREE.Group();
   person.position.set(x, 0, z);
   person.scale.setScalar(scale);
-  const coat = new THREE.Mesh(box(.25, .62, .18), accent);
-  coat.position.y = .92;
-  const head = new THREE.Mesh(new THREE.SphereGeometry(.13, 12, 10), new THREE.MeshStandardMaterial({ color: 0xc99f73, roughness: .76 }));
-  head.position.y = 1.34;
-  const legMaterial = new THREE.MeshStandardMaterial({ color: 0x202329, metalness: .28, roughness: .72 });
-  for (const side of [-1, 1]) {
-    const leg = new THREE.Mesh(box(.085, .48, .09), legMaterial);
-    leg.position.set(side * .07, .35, 0);
-    person.add(leg);
-  }
-  person.add(coat, head);
+  const body = new THREE.Mesh(box(.3, .95, .2), accent);
+  body.position.y = .58;
+  const head = new THREE.Mesh(new THREE.SphereGeometry(.13, 8, 6), new THREE.MeshStandardMaterial({ color: 0xc99f73, roughness: .76 }));
+  head.position.y = 1.17;
+  person.add(body, head);
   parent.add(person);
   return person;
 }
@@ -49,7 +43,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   const camera = new THREE.PerspectiveCamera(36, 1, .1, 80);
   camera.position.set(7.6, 6.4, 9.5);
   camera.lookAt(0, 1.1, 0);
-  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "low-power" });
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false, powerPreference: "low-power" });
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 760 ? 1 : 1.5));
   renderer.setSize(container.clientWidth || 640, container.clientHeight || 360, false);
@@ -77,13 +71,9 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   floor.position.y = -.04;
   scene.add(floor);
 
-  const grid = new THREE.GridHelper(16, 32, 0x5b4a2a, 0x252729);
-  grid.position.y = -.02;
-  scene.add(grid);
-
   const routePoints = [new THREE.Vector3(-6, .12, 2.4), new THREE.Vector3(-3.6, .12, .2), new THREE.Vector3(-1.1, .12, 1.4), new THREE.Vector3(1.8, .12, -.9), new THREE.Vector3(4, .12, .9), new THREE.Vector3(6, .12, -1.4)];
   const route = new THREE.CatmullRomCurve3(routePoints);
-  const routeLine = new THREE.Mesh(new THREE.TubeGeometry(route, 80, .025, 6, false), goldLight);
+  const routeLine = new THREE.Mesh(new THREE.TubeGeometry(route, 32, .025, 5, false), goldLight);
   scene.add(routeLine);
   const routeDot = new THREE.Mesh(new THREE.SphereGeometry(.105, 16, 12), new THREE.MeshStandardMaterial({ color: 0xffe5a4, emissive: 0xad761a, emissiveIntensity: 1.8 }));
   scene.add(routeDot);
@@ -104,7 +94,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   ] as ProcessKind[]).map(kind => [kind, new THREE.Group()])) as Record<ProcessKind, THREE.Group>;
   Object.values(groups).forEach(group => scene.add(group));
 
-  const initialLabel = container.dataset.stageLabel || container.dataset.scene || "corridor";
+  const initialLabel = container.dataset.overviewOnly === "true" ? "corridor" : container.dataset.stageLabel || container.dataset.scene || "corridor";
   let kind: ProcessKind = inferKind(initialLabel);
   const cartons: THREE.Mesh[] = [];
   let factoryPerson: THREE.Group | null = null;
@@ -393,7 +383,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
 
   function setStage(label: string, index = stageIndex) {
     stageIndex = Math.max(0, index);
-    kind = inferKind(label);
+    kind = container.dataset.overviewOnly === "true" ? "corridor" : inferKind(label);
     container.dataset.sceneKind = kind;
     render(0);
   }
@@ -445,14 +435,26 @@ export function mountProcessSceneOnElement(container: HTMLElement): ProcessScene
 
 export function mountVisibleProcessScenes(root: ParentNode = document) {
   const mounted = new Map<HTMLElement, ProcessSceneHandle>();
-  const reveal = (element: HTMLElement) => { const scene = mountProcessSceneOnElement(element); if (scene) mounted.set(element, scene); };
+  const visible = new Set<HTMLElement>();
+  const revealNext = () => {
+    if (mounted.size > 0) return;
+    const element = visible.values().next().value as HTMLElement | undefined;
+    if (!element) return;
+    const scene = mountProcessSceneOnElement(element);
+    if (scene) mounted.set(element, scene);
+  };
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const element = entry.target as HTMLElement;
-      if (entry.isIntersecting) reveal(element);
-      else { mounted.get(element)?.dispose(); mounted.delete(element); }
+      if (entry.isIntersecting) visible.add(element);
+      else {
+        visible.delete(element);
+        mounted.get(element)?.dispose();
+        mounted.delete(element);
+      }
     });
-  }, { rootMargin: "160px" });
+    revealNext();
+  }, { rootMargin: "0px" });
   root.querySelectorAll<HTMLElement>("[data-process-scene]").forEach(element => observer.observe(element));
-  return () => { observer.disconnect(); mounted.forEach(scene => scene.dispose()); mounted.clear(); };
+  return () => { observer.disconnect(); visible.clear(); mounted.forEach(scene => scene.dispose()); mounted.clear(); };
 }
