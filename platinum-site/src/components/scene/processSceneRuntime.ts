@@ -94,7 +94,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   ] as ProcessKind[]).map(kind => [kind, new THREE.Group()])) as Record<ProcessKind, THREE.Group>;
   Object.values(groups).forEach(group => scene.add(group));
 
-  const initialLabel = container.dataset.stageLabel || container.dataset.scene || "corridor";
+  const initialLabel = container.dataset.overviewOnly === "true" ? "corridor" : container.dataset.stageLabel || container.dataset.scene || "corridor";
   let kind: ProcessKind = inferKind(initialLabel);
   const cartons: THREE.Mesh[] = [];
   let factoryPerson: THREE.Group | null = null;
@@ -383,7 +383,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
 
   function setStage(label: string, index = stageIndex) {
     stageIndex = Math.max(0, index);
-    kind = inferKind(label);
+    kind = container.dataset.overviewOnly === "true" ? "corridor" : inferKind(label);
     container.dataset.sceneKind = kind;
     render(0);
   }

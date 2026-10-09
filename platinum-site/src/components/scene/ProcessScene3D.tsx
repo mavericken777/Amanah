@@ -14,7 +14,8 @@ export function ProcessScene3D({
   stage = "China to GCC product journey",
   index = 0,
   className = "",
-}: { mode?: string; stage?: string; index?: number; className?: string }) {
+  overviewOnly = false,
+}: { mode?: string; stage?: string; index?: number; className?: string; overviewOnly?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -94,6 +95,7 @@ export function ProcessScene3D({
     className={`process-scene-3d ${className}`.trim()}
     data-process-scene="true"
     data-scene={mode}
+    data-overview-only={overviewOnly ? "true" : undefined}
     data-stage-label={`${mode} · ${stage}`}
     data-stage-index={index}
     role="img"
