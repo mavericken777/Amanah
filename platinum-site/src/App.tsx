@@ -3,6 +3,10 @@ import { SmoothScroll } from "./components/motion/SmoothScroll";
 
 
 import { demoProduct, demoVerificationRecords, demoJourneyStages } from "./data/demoJourney";
+import { ProcessScene3D } from "./components/scene/ProcessScene3D";
+import { ProcessFlow3D } from "./components/scene/ProcessFlow3D";
+import brandMark from "../../ghscl-website/media/ghscl-favicon.png";
+import brandLockup from "../../ghscl-website/media/ghscl-multilingual.webp";
 const ScrollProgress = lazy(() => import("./components/motion/ScrollProgress").then(module => ({ default: module.ScrollProgress })));
 const TrustTerminal = lazy(() => import("./components/terminal/TrustTerminal").then(module => ({ default: module.TrustTerminal })));
 const VerificationJourney = lazy(() => import("./components/journey/VerificationJourney").then(module => ({ default: module.VerificationJourney })));
@@ -208,7 +212,7 @@ export default function App() {
 
       <header className="platinum-header glass">
         <a className="identity" href="#top" aria-label="Global Halal Supply Chain Limited home">
-          <span className="identity-mark" aria-hidden="true"><img src="media/ghscl-favicon.png" alt="" /></span>
+          <span className="identity-mark" aria-hidden="true"><img src={brandMark} alt="" /></span>
           <span className="identity-copy">
             <strong>GLOBAL HALAL SUPPLY CHAIN LIMITED</strong>
             <small>AMANAH · GLOBAL HALAL DIGITAL TRUST · HONG KONG</small>
@@ -273,6 +277,8 @@ export default function App() {
             </div>
 
             <aside className="hero-terminal" aria-label="Amanah trust principles">
+
+              <ProcessScene3D mode="corridor" stage="Real product journey · China origin to GCC receiving" className="home-hero-process-scene" />
 
               <div className="terminal-head">
                 <span>AMANAH / DIGITAL TRUST</span>
@@ -357,6 +363,7 @@ export default function App() {
               </li>
             ))}
           </ol>
+          <ProcessFlow3D title="Canonical trust path" steps={trustPath} mode="authority" id="canonical-trust-3d" />
           <div className="trust-note glass">
             <strong>Minimum evidence binding</strong>
             <code>ObjectID + EventID + EvidenceID + ActorID + Timestamp + IntegrityProof</code>
@@ -388,6 +395,7 @@ export default function App() {
               ))}
             </div>
             <article className="corridor-detail glass" role="tabpanel" aria-live="polite">
+              <ProcessScene3D mode="corridor" stage={corridor[activeCorridor][0]} index={activeCorridor} className="corridor-process-scene" />
               <p className="eyebrow">CURRENT HANDOFF · {String(activeCorridor + 1).padStart(2, "0")} / {String(corridor.length).padStart(2, "0")}</p>
               <h3>{corridor[activeCorridor][0]}</h3>
               <p>{corridor[activeCorridor][1]}</p>
@@ -438,17 +446,7 @@ export default function App() {
               <div className="passport-id"><span>CONNECTED JOURNEY</span><strong>China → GCC direct</strong><small>Origin · assurance · custody · market</small></div>
             </div>
             <div className="passport-body">
-              <div className="passport-map" role="img" aria-label={`Journey marker at ${corridor[activeCorridor][0]} along the China to GCC route`}>
-                <svg viewBox="0 0 700 190" aria-hidden="true">
-                  <defs><linearGradient id="passport-route-gold" x1="0" x2="1"><stop stopColor="#8e682c"/><stop offset=".52" stopColor="#e9cb85"/><stop offset="1" stopColor="#b58a43"/></linearGradient></defs>
-                  <path className="passport-route-base" d="M54 132 C198 22 492 22 646 132"/>
-                  <path className="passport-route-progress" d="M54 132 C198 22 492 22 646 132" pathLength="100" style={{ strokeDasharray: "100", strokeDashoffset: `${100 - ((activeCorridor + 1) / corridor.length) * 100}` }} />
-                  <circle className="passport-node" cx="54" cy="132" r="6"/><circle className="passport-node" cx="646" cy="132" r="6"/>
-                  <circle className="passport-governance" cx="396" cy="71" r="5"/>
-                  <circle className="passport-current" cx={54 + activeCorridor * (592 / (corridor.length - 1))} cy={132 - 60 * Math.sin(Math.PI * activeCorridor / (corridor.length - 1))} r="9"/>
-                  <text x="42" y="165">CHINA · ORIGIN</text><text x="538" y="165">GCC · MARKET</text><text x="342" y="48">MALAYSIA · ASSURANCE</text>
-                </svg>
-              </div>
+              <ProcessScene3D mode="corridor" stage={corridor[activeCorridor][0]} index={activeCorridor} className="passport-map journey-passport-scene" />
               <div className="passport-details">
                 <div className="passport-detail">
                   <span>PRODUCT</span><strong>{demoProduct.name}</strong><small>Identity and evidence remain connected across every handoff</small>
@@ -524,6 +522,7 @@ export default function App() {
                 ))}
               </div>
               <div className="step-detail" role="tabpanel" aria-live="polite">
+                <ProcessScene3D mode="laboratory" stage={labStages[activeLab][0]} index={activeLab} className="panel-process-scene" />
                 <small>LAB EVIDENCE · STAGE {String(activeLab + 1).padStart(2, "0")}</small>
                 <h3>{labStages[activeLab][0]}</h3>
                 <p>{labStages[activeLab][1]}</p>
@@ -552,6 +551,7 @@ export default function App() {
                 ))}
               </div>
               <div className="step-detail" role="tabpanel" aria-live="polite">
+                <ProcessScene3D mode="audit" stage={auditStages[activeAudit][0]} index={activeAudit} className="panel-process-scene" />
                 <small>SMART-GLASSES AUDIT · STAGE {String(activeAudit + 1).padStart(2, "0")}</small>
                 <h3>{auditStages[activeAudit][0]}</h3>
                 <p>{auditStages[activeAudit][1]}</p>
@@ -584,6 +584,7 @@ export default function App() {
               ))}
             </div>
             <article className="command-detail glass" role="tabpanel" aria-live="polite">
+              <ProcessScene3D mode="authority" stage={commandEvents[activeEvent].title} index={activeEvent} className="panel-process-scene" />
               <div className="command-head">
                 <span>{commandEvents[activeEvent].id}</span>
                 <span className="state-chip">{commandEvents[activeEvent].state}</span>
@@ -608,6 +609,7 @@ export default function App() {
               {monitorStages.map(([title], index) => <button key={title} type="button" role="tab" aria-selected={activeMonitor === index} className={activeMonitor === index ? "active" : ""} onClick={() => setActiveMonitor(index)}><span>{String(index + 1).padStart(2, "0")}</span>{title}</button>)}
             </div>
             <article className="monitoring-detail glass" role="tabpanel" aria-live="polite">
+              <ProcessScene3D mode="transport" stage={monitorStages[activeMonitor][0]} index={activeMonitor} className="panel-process-scene" />
               <p className="eyebrow">MONITORING LAYER {String(activeMonitor + 1).padStart(2, "0")} / {String(monitorStages.length).padStart(2, "0")}</p>
               <h3>{monitorStages[activeMonitor][0]}</h3>
               <p>{monitorStages[activeMonitor][1]}</p>
@@ -741,7 +743,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="platinum-footer"><img className="footer-lockup" src="media/ghscl-multilingual.webp" alt="Global Halal Supply Chain Limited in English, Traditional Chinese and Arabic" />
+      <footer className="platinum-footer"><img className="footer-lockup" src={brandLockup} alt="Global Halal Supply Chain Limited in English, Traditional Chinese and Arabic" />
         <div>
           <strong>GLOBAL HALAL SUPPLY CHAIN LIMITED</strong>
           <span>全球清真供應鏈有限公司 · سلسلة التوريد العالمية للحلال</span>

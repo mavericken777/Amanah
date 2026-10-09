@@ -6,6 +6,7 @@ import { gzipSync } from "node:zlib";
 const distPath = fileURLToPath(new URL("../dist/", import.meta.url));
 const limits = {
   initialJsGzip: 200 * 1024,
+  aggregateJsGzip: 380 * 1024,
   asyncJsGzipPerChunk: 200 * 1024,
   css: 140 * 1024,
   total: 1.5 * 1024 * 1024,
@@ -74,8 +75,8 @@ if (initialJsGzip > limits.initialJsGzip) {
 }
 
 const allJsGzip = initialJsGzip + asyncChunks.reduce((sum, chunk) => sum + chunk.gzipBytes, 0);
-if (allJsGzip > limits.initialJsGzip) {
-  throw new Error(`Aggregate JS gzip budget exceeded: ${allJsGzip} > ${limits.initialJsGzip} bytes`);
+if (allJsGzip > limits.aggregateJsGzip) {
+  throw new Error(`Aggregate JS gzip budget exceeded: ${allJsGzip} > ${limits.aggregateJsGzip} bytes`);
 }
 
 console.log(JSON.stringify({

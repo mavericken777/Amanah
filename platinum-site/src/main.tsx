@@ -10,6 +10,7 @@ import "./styles/phase4.css";
 import "./styles/secondary.css";
 import "./styles/flagship.css";
 import "./styles/platinum-final.css";
+import "./styles/process-3d.css";
 
 const file = window.location.pathname.split("/").filter(Boolean).pop() ?? "index.html";
 const isHome = file === "index.html" || !file.includes(".");

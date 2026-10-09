@@ -70,8 +70,11 @@ test('public homepage contains no engineering/demo presentation leakage and auto
   assert.match(html,/id="restartJourney"/);
   assert.match(html,/GLOBAL HALAL SUPPLY CHAIN LIMITED/,'legal company name must appear in the primary brand');
   assert.match(html,/class="hero-scene"/,'hero needs an informative animated route visual');
-  assert.match(html,/id="platformCargo"/,'journey cargo must move with the selected stage');
-  assert.match(html,/id="sceneEvidence"/,'stage animation must explain its evidence');
+  assert.match(html,/id="journeyScene"[^>]+data-process-scene="true"/,'the complete journey must use the animated 3D scene');
+  assert.match(html,/process-scene-3d process-scene-hero/,'the landing hero must use an informative 3D scene');
+  assert.doesNotMatch(html,/<svg[^>]+class="journey-world"|id="platformCargo"/,'retired ornamental / 2D journey artwork must not return');
+  assert.match(html,/data-stage-label="corridor · full China to GCC journey"/,'the 3D hero must identify the live process it represents');
+  assert.match(html,/id="stageDetail"/,'selected process stages must retain inspectable actor and evidence detail');
   assert.match(html,/JAKIM-certified laborat/);
   const context={module:{exports:{}}};
   vm.runInNewContext(fs.readFileSync('ghscl-website/journey.js','utf8'),context);
