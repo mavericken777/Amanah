@@ -16,21 +16,18 @@ test("public landing and route process flows use shared 3D scene components",()=
   assert.match(runtime,/new THREE\.WebGLRenderer/);
   assert.match(runtime,/prefers-reduced-motion/);
   assert.match(runtime,/sceneFallback/);
+  assert.match(runtime,/Math\.round\(\(stageIndex \/ 19\) \* \(nodes\.length - 1\)\)/);
+  assert.match(runtime,/routeDot\.position\.copy\(point\)/);
+  assert.match(runtime,/const animatedPeople = \[factoryPerson, materialPerson, analyst, \.\.\.corridorPeople\]/);
 });
 
 test("static landing stages drive their 3D scenes and retain semantic process details",()=>{
   const html=fs.readFileSync("ghscl-website/index.html","utf8");
   const script=fs.readFileSync("ghscl-website/journey.js","utf8");
-  for(const id of ["journeyScene","auditScene3d","labScene3d","warehouseScene3d","logisticsScene3d","portsScene3d","routeScene3d","monitorScene3d","exceptionScene3d","gccScene3d","consumerScene3d"])assert.ok(html.includes(`id="${id}"`),`missing 3D view ${id}`);
+  assert.ok(html.includes('id="journeyScene" data-process-scene="true"'),'missing the synchronized 3D product journey');
   assert.match(html,/class="process-scene-3d process-scene-hero"/);
   assert.match(html,/id="stageDetail"/);
-  assert.match(script,/journeyScene\.dataset\.stageIndex=String\(index\)/);
-  assert.match(script,/auditScene3d/);
-  assert.match(script,/labScene3d/);
-  assert.match(script,/warehouseScene3d/);
-  assert.match(script,/logisticsScene3d/);
-  assert.match(script,/portsScene3d/);
-  assert.match(script,/routeScene3d/);
-  assert.match(script,/monitorScene3d/);
+  assert.match(script,/journeyScene\.dataset\.stageIndex\s*=\s*String\(index\)/);
+  assert.match(script,/journeyScene\.dataset\.stageLabel\s*=\s*s\[0\]/);
   assert.doesNotMatch(html,/class="journey-world"|id="platformCargo"/);
 });

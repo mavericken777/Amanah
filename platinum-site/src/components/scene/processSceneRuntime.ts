@@ -47,7 +47,7 @@ function mountPerson(parent: THREE.Group, x: number, z: number, accent: THREE.Ma
 function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(36, 1, .1, 80);
-  camera.position.set(9.2, 7.3, 11.2);
+  camera.position.set(7.6, 6.4, 9.5);
   camera.lookAt(0, 1.1, 0);
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "low-power" });
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -219,6 +219,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
 
   // The overview places all accountable physical handoffs in one continuous corridor.
   const overview = groups.corridor;
+  const corridorPeople: THREE.Group[] = [];
   const detail = (w: number, h: number, d: number, material: THREE.Material, x: number, y: number, z: number, parent = overview) => {
     const mesh = new THREE.Mesh(box(w, h, d), material);
     mesh.position.set(x, y, z);
@@ -237,7 +238,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   detail(.34, .48, .09, darkSteel, -5.7, .32, .235);
   for (const x of [-6.18, -5.86]) detail(.065, .7, .065, steel, x, 1.4, .42);
   for (const x of [-6.2, -5.72]) detail(.34, .22, .3, pack, x, .27, 1.05);
-  mountPerson(overview, -5.05, 1.45, green, .55);
+  corridorPeople.push(mountPerson(overview, -5.05, 1.45, green, .55));
 
   // Manufacturer review desk: people, document station and evidence display.
   platform(-3.25, -.7);
@@ -245,8 +246,8 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   detail(.96, .52, .04, glass, -3.25, .73, -.23);
   detail(1.02, .08, .46, steel, -3.25, .66, -.1);
   detail(.74, .035, .32, gold, -3.25, .715, -.1);
-  mountPerson(overview, -3.92, -.15, green, .56);
-  mountPerson(overview, -2.55, -.05, gold, .56);
+  corridorPeople.push(mountPerson(overview, -3.92, -.15, green, .56));
+  corridorPeople.push(mountPerson(overview, -2.55, -.05, gold, .56));
 
   // Laboratory: bench-mounted analyser, extraction hood, sample rack and glass vials.
   platform(-.7, .75);
@@ -255,7 +256,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   detail(.38, .27, .06, new THREE.MeshStandardMaterial({ color: 0x315f57, emissive: 0x174238, emissiveIntensity: .45 }), -.95, 1.08, .48);
   detail(.58, .78, .38, glass, -.15, .48, .98);
   for (let i = 0; i < 4; i++) { const vial = new THREE.Mesh(new THREE.CylinderGeometry(.045, .055, .34, 12), glass); vial.position.set(-1.12 + i * .19, .94, .52); overview.add(vial); }
-  mountPerson(overview, .15, 1.2, green, .54);
+  corridorPeople.push(mountPerson(overview, .15, 1.2, green, .54));
 
   // Certified storage: selective pallet rack, loaded shelves and a working lift truck.
   platform(1.9, -.75);
@@ -292,14 +293,14 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
     detail(.86, .055, .36, gold, 6.28, y, -1.02);
     for (let i = 0; i < 3; i++) detail(.18, .2, .2, i % 2 ? green : pack, 5.98 + i * .3, y + .12, -1.02);
   }
-  mountPerson(overview, 6.95, -.55, green, .55);
+  corridorPeople.push(mountPerson(overview, 6.95, -.55, green, .55));
   void overviewForks;
   const cargo = new THREE.Group();
   const cargoBody = new THREE.Mesh(box(.72, .45, .55), goldLight); cargo.add(cargoBody);
   const cargoWheels = [-.24, .24].map(x => { const wheel = new THREE.Mesh(new THREE.CylinderGeometry(.1, .1, .09, 12), darkSteel); wheel.rotation.x = Math.PI / 2; wheel.position.set(x, -.28, .22); cargo.add(wheel); return wheel; });
   scene.add(cargo);
 
-  const animatedPeople = [factoryPerson, materialPerson, analyst];
+  const animatedPeople = [factoryPerson, materialPerson, analyst, ...corridorPeople];
   let kind: ProcessKind = "corridor";
   let stageIndex = 0;
   let frame = 0;
@@ -324,8 +325,10 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
       Object.entries(groups).forEach(([name, group]) => { group.visible = name === "corridor"; });
       const point = route.getPointAt(((time * .00004 + stageIndex / 20) % 1 + 1) % 1);
       cargo.position.copy(point); cargo.position.y = .45;
+      routeDot.position.copy(point); routeDot.position.y = .18;
       cargo.rotation.y = Math.atan2(route.getTangentAt(stageIndex / 20).x, route.getTangentAt(stageIndex / 20).z);
-      nodes.forEach((node, index) => { node.material = index <= stageIndex % nodes.length ? goldLight : darkSteel; });
+      const activeNode = Math.round((stageIndex / 19) * (nodes.length - 1));
+      nodes.forEach((node, index) => { node.material = index <= activeNode ? goldLight : darkSteel; });
     } else {
       Object.entries(groups).forEach(([name, group]) => { group.visible = name === kind; });
       cargo.position.set(5, -.3, 0);
@@ -387,10 +390,11 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
 
 export function mountProcessSceneOnElement(container: HTMLElement): ProcessSceneHandle | null {
   if (container.dataset.sceneMounted === "true") return null;
-  container.dataset.sceneMounted = "true";
+  container.dataset.sceneMounted = "loading";
   try {
     const scene = mountProcessScene(container);
     scene.setStage(container.dataset.stageLabel || container.dataset.scene || "corridor", Number(container.dataset.stageIndex || 0));
+    container.dataset.sceneMounted = "true";
     container.querySelector(".process-scene-loading")?.remove();
     const observer = new MutationObserver(() => scene.setStage(container.dataset.stageLabel || container.dataset.scene || "corridor", Number(container.dataset.stageIndex || 0)));
     observer.observe(container, { attributes: true, attributeFilter: ["data-stage-label", "data-stage-index", "data-scene"] });
@@ -398,6 +402,7 @@ export function mountProcessSceneOnElement(container: HTMLElement): ProcessScene
     scene.dispose = () => { observer.disconnect(); originalDispose(); delete container.dataset.sceneMounted; };
     return scene;
   } catch (error) {
+    delete container.dataset.sceneMounted;
     container.dataset.sceneFallback = "true";
     container.querySelector(".process-scene-loading")?.remove();
     container.setAttribute("role", "img");

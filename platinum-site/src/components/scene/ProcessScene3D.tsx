@@ -36,13 +36,13 @@ export function ProcessScene3D({
     const scheduleMount = () => {
       window.clearTimeout(mountTimer);
       cancelIdle?.();
-      const idleWindow = window as Window & { requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number; cancelIdleCallback?: (handle: number) => void };
-      if (idleWindow.requestIdleCallback) {
-        idleHandle = idleWindow.requestIdleCallback(() => { void mount(); }, { timeout: 1100 });
-        cancelIdle = () => idleWindow.cancelIdleCallback?.(idleHandle);
-      } else {
-        mountTimer = window.setTimeout(() => { void mount(); }, 420);
-      }
+      mountTimer = window.setTimeout(() => {
+        const idleWindow = window as Window & { requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number; cancelIdleCallback?: (handle: number) => void };
+        if (idleWindow.requestIdleCallback) {
+          idleHandle = idleWindow.requestIdleCallback(() => { void mount(); }, { timeout: 1200 });
+          cancelIdle = () => idleWindow.cancelIdleCallback?.(idleHandle);
+        } else void mount();
+      }, 1600);
     };
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
