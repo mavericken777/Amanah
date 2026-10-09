@@ -1,4 +1,4 @@
-# Global Halal Supply Chain Limited public website
+# Global Halal Supply Chain Ltd public website
 
 The public site presents the company and Amanah / AHTE platform as a continuous end-to-end assurance and real-time monitoring system. Its generated pages cover manufacturer and premises onboarding, applicable standards, suppliers and materials, laboratory evidence, smart audit, certification workflow, production, digital twins, warehouse/logistics custody, ports/customs, GCC receiving and distribution, verification, finance/Takaful and the Command Center.
 

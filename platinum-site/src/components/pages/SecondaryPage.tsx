@@ -3,8 +3,7 @@ import { SecondaryInteractions } from "./SecondaryInteractions";
 import extraPagesSource from "../../../data/extra-pages.json";
 import { ProcessFlow3D } from "../scene/ProcessFlow3D";
 import { ProcessScene3D } from "../scene/ProcessScene3D";
-import brandMark from "../../../../ghscl-website/media/ghscl-favicon.png";
-import brandLockup from "../../../../ghscl-website/media/ghscl-multilingual.webp";
+import companyLogo from "../../../../ghscl-website/media/company-logo.webp";
 
 type Card=[string,string];
 type LinkPair=[string,string];
@@ -27,7 +26,7 @@ export function SecondaryPage(){
   return <div className="secondary-shell" data-route={slug} lang={slug==="ar"?"ar":slug==="zh-Hant"?"zh-Hant":"en"} dir={slug==="ar"?"rtl":"ltr"}>
     <a className="skip-link" href="#secondary-main">Skip to content</a>
     <header className="platinum-header glass secondary-header">
-      <a className="identity" href="index.html"><span className="identity-mark" aria-hidden="true"><img src={brandMark} alt="" /></span><span className="identity-copy"><strong>{site.messages.brand}</strong><small>{site.messages.operator}</small></span></a>
+      <a className="identity" href="index.html"><span className="identity-mark" aria-hidden="true"><img src={companyLogo} alt="" /></span><span className="identity-copy"><strong>{site.messages.brand}</strong><small>{site.messages.operator}</small></span></a>
       <nav aria-label="Primary navigation" className="secondary-nav">
         {site.navigation.slice(0,4).map(([href,label])=><a key={href} href={href} aria-current={href===slug+".html"?"page":undefined}>{label}</a>)}
         <details className="secondary-route-menu"><summary>Explore</summary><div className="secondary-route-panel">{site.navigation.slice(4).map(([href,label])=><a key={href} href={href} aria-current={href===slug+".html"?"page":undefined}>{label}</a>)}</div></details>
@@ -56,6 +55,6 @@ export function SecondaryPage(){
       <SecondaryInteractions slug={slug} />
 
     </main>
-    <footer className="secondary-footer"><div><img className="footer-lockup" src={brandLockup} alt="Global Halal Supply Chain Limited in English, Traditional Chinese and Arabic" /><strong>{site.messages.brand}</strong><p>{site.messages.principle}</p></div><nav aria-label="Footer">{site.navigation.map(([href,label])=><a href={href} key={href}>{label}</a>)}</nav><nav className="language-links" aria-label="Language"><a href="index.html">English</a><a href="zh-Hant.html" lang="zh-Hant">繁體中文</a><a href="ar.html" lang="ar" dir="rtl">العربية</a></nav></footer>
+    <footer className="secondary-footer"><div><img className="footer-lockup" src={companyLogo} alt="Global Halal Supply Chain Ltd company logo" /><strong>{site.messages.brand}</strong><p>{site.messages.principle}</p></div><nav aria-label="Footer">{site.navigation.map(([href,label])=><a href={href} key={href}>{label}</a>)}</nav><nav className="language-links" aria-label="Language"><a href="index.html">English</a><a href="zh-Hant.html" lang="zh-Hant">繁體中文</a><a href="ar.html" lang="ar" dir="rtl">العربية</a></nav></footer>
   </div>;
 }

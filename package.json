@@ -5,7 +5,7 @@
   "description": "Amanah operational application layer for the Amanah Halal Trust Ecosystem (AHTE).",
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run web:build && node scripts/copy-trust-experience.mjs",
+    "prebuild": "npm install --prefix platinum-site --package-lock=false --no-audit --no-fund && npm run build --prefix platinum-site && node scripts/promote-trust-assets.mjs && npm run web:build && node scripts/copy-trust-experience.mjs",
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",

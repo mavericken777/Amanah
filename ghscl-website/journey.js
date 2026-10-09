@@ -156,19 +156,29 @@ if (typeof document !== 'undefined') {
     [...$('monitorViews').children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===monitorView)));
   }
 
+  const stageImages = [
+    'scene-origin.webp','scene-onboarding.webp','scene-origin.webp','scene-onboarding.webp','scene-onboarding.webp',
+    'scene-assurance.webp','scene-lab.webp','scene-assurance.webp','scene-assurance.webp','scene-origin.webp',
+    'scene-warehouse.webp','scene-logistics.webp','scene-logistics.webp','scene-logistics.webp','scene-logistics.webp',
+    'scene-market.webp','scene-warehouse.webp','scene-market.webp','scene-market.webp','scene-market.webp'
+  ];
+
   function render() {
     const s = journey.stages[index];
     const journeyScene = $('journeyScene');
     if (journeyScene) {
       journeyScene.dataset.stageLabel = s[0];
       journeyScene.dataset.stageIndex = String(index);
-      journeyScene.setAttribute('aria-label', 'Animated 3D supply chain journey: ' + s[0]);
+      const photograph = journeyScene.querySelector('.process-scene-photograph');
+      const nextPhoto = 'assets/' + stageImages[index];
+      if (photograph && !photograph.getAttribute('src')?.endsWith(nextPhoto)) photograph.setAttribute('src', nextPhoto);
+      journeyScene.setAttribute('aria-label', 'Cinematic animated supply chain journey: ' + s[0]);
     }
     const routeScene = $('routeScene3d');
     if (routeScene) {
       routeScene.dataset.stageLabel = 'corridor · ' + s[0];
       routeScene.dataset.stageIndex = String(index);
-      routeScene.setAttribute('aria-label', 'Three-dimensional direct China to GCC journey: ' + s[0]);
+      routeScene.setAttribute('aria-label', 'Cinematic direct China to GCC journey: ' + s[0]);
     }
     pulse('stageTitle'); pulse('stageStory'); pulse('stageDetail'); pulse('sceneData');
     const sceneName=$('sceneStageName');

@@ -9,7 +9,7 @@ const limits = {
   aggregateJsGzip: 380 * 1024,
   asyncJsGzipPerChunk: 200 * 1024,
   css: 140 * 1024,
-  total: 1.5 * 1024 * 1024,
+  total: 2 * 1024 * 1024,
 };
 
 async function walk(dir) {

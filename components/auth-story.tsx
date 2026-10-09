@@ -3,10 +3,10 @@ import Link from "next/link";
 export function AuthStory() {
   return (
     <aside className="auth-story">
-      <Link href="/login" className="brand" aria-label="Global Halal Supply Chain Limited — Amanah">
-        <img className="auth-brand-crest" src="/ghscl-crest.svg" alt="" />
+      <Link href="/login" className="brand" aria-label="Global Halal Supply Chain Ltd — Amanah">
+        <img className="auth-brand-crest" src="/company-logo.webp" alt="" />
         <span className="auth-brand-copy">
-          <strong>GLOBAL HALAL SUPPLY CHAIN LIMITED</strong>
+          <strong>GLOBAL HALAL SUPPLY CHAIN LTD</strong>
           <span>AMANAH · GLOBAL HALAL DIGITAL TRUST</span>
           <span className="auth-brand-multilingual">
             <b lang="zh-Hant">全球清真供應鏈有限公司</b>

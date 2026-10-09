@@ -1,6 +1,6 @@
 # Current project model
 
-Global Halal Supply Chain Limited operates the international digital-infrastructure layer for the Amanah / Global Halal Digital Trust ecosystem.
+Global Halal Supply Chain Ltd operates the international digital-infrastructure layer for the Amanah / Global Halal Digital Trust ecosystem.
 
 ## Assurance journey
 

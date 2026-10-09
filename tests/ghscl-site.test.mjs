@@ -68,7 +68,7 @@ test('public homepage contains no engineering/demo presentation leakage and auto
   for(const term of ['CN-DEMO-24001','DEMO-shipment-workflow','DIGITAL TRUST PASSPORT','DEMO RELEASE REQUEST GENERATED','DEMO TOPOLOGY','PROJECT-REPO','Source foundation:','illustrative','simulation','prototype']) assert.ok(!html.toLowerCase().includes(term.toLowerCase()),term);
   assert.match(html,/id="playJourney"/);
   assert.match(html,/id="restartJourney"/);
-  assert.match(html,/GLOBAL HALAL SUPPLY CHAIN LIMITED/,'legal company name must appear in the primary brand');
+  assert.match(html,/GLOBAL HALAL SUPPLY CHAIN LTD/,'legal company name must appear in the primary brand');
   assert.match(html,/class="hero-scene"/,'hero needs an informative animated route visual');
   assert.match(html,/id="journeyScene"[^>]+data-process-scene="true"/,'the complete journey must use the animated 3D scene');
   assert.match(html,/process-scene-3d process-scene-hero/,'the landing hero must use an informative 3D scene');

@@ -15,7 +15,7 @@ export function ProcessFlow3D({ title, steps, mode = "corridor", id }: { title: 
   }, [playing, reducedMotion, steps.length]);
 
   return <div className="process-flow-experience" id={id} aria-label={`${title} animated 3D process flow`}>
-    <div className="process-flow-heading"><span>LIVE 3D PROCESS MODEL</span><strong>{String(active + 1).padStart(2, "0")} / {String(steps.length).padStart(2, "0")}</strong></div>
+    <div className="process-flow-heading"><span>ANIMATED OPERATING VIEW</span><strong>{String(active + 1).padStart(2, "0")} / {String(steps.length).padStart(2, "0")}</strong></div>
     <ProcessScene3D mode={mode} stage={`${title} · ${selected}`} index={active} className="process-flow-scene" />
     <div className="process-flow-controls">
       <button type="button" aria-label="Previous process step" onClick={() => setActive(current => (current - 1 + steps.length) % steps.length)}>Previous</button>

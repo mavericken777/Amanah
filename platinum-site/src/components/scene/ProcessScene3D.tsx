@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { inferKind, sceneAssetUrl } from "./sceneImages";
 
 const SCENE_SLOT_AVAILABLE = "amanah-process-scene-slot-available";
 let activeSceneHost: HTMLElement | null = null;
@@ -99,6 +100,6 @@ export function ProcessScene3D({
     data-stage-label={`${mode} · ${stage}`}
     data-stage-index={index}
     role="img"
-    aria-label={`Three-dimensional animated view: ${stage}`}
-  ><span className="process-scene-loading" role="status">Loading animated 3D scene…</span><span className="process-scene-caption" aria-hidden="true">{stage}</span><span className="process-scene-orbit" aria-hidden="true" /></div>;
+    aria-label={`Cinematic animated process view: ${stage}`}
+  ><img className="process-scene-photograph" src={sceneAssetUrl(inferKind(overviewOnly ? mode : `${mode} · ${stage}`))} alt="" aria-hidden="true" decoding="async" /><span className="process-scene-loading" role="status">Loading animated operating scene…</span><span className="process-scene-caption" aria-hidden="true">{stage}</span><span className="process-scene-orbit" aria-hidden="true" /></div>;
 }

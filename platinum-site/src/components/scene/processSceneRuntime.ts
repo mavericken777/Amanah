@@ -1,26 +1,10 @@
 import * as THREE from "three";
+import { inferKind, sceneAssetUrl, type ProcessKind } from "./sceneImages";
 
 export type ProcessSceneHandle = {
-  setStage: (label: string, index?: number) => void;
+  setStage: (label: string, index?: number) => boolean;
   resize: () => void;
   dispose: () => void;
-};
-
-type ProcessKind = "corridor" | "facility" | "laboratory" | "audit" | "warehouse" | "transport" | "port" | "market" | "authority" | "verification";
-
-const inferKind = (label: string): ProcessKind => {
-  const value = label.toLowerCase();
-  if (/real product journey|full (?:china to gcc )?journey|complete corridor/.test(value)) return "corridor";
-  if (/lab|sample|method|qc|science/.test(value)) return "laboratory";
-  if (/audit|capa|inspection|finding/.test(value)) return "audit";
-  if (/warehouse|storage|segregation|inventory/.test(value)) return "warehouse";
-  if (/sinotrans|logistic|custody|transit|carrier|vehicle/.test(value)) return "transport";
-  if (/port|custom|border|export|import|arrival/.test(value)) return "port";
-  if (/gcc|market|retail|distribut|consumer/.test(value)) return /consumer|verify|disclosure/.test(value) ? "verification" : "market";
-  if (/authority|jakim|standard|requirement|certification/.test(value)) return "authority";
-  if (/verify|disclosure|passport/.test(value)) return "verification";
-  if (/facility|production|manufactur|product|sku|supplier|origin|producer/.test(value)) return "facility";
-  return "corridor";
 };
 
 const box = (w: number, h: number, d: number) => new THREE.BoxGeometry(w, h, d);
@@ -29,72 +13,156 @@ function mountPerson(parent: THREE.Group, x: number, z: number, accent: THREE.Ma
   const person = new THREE.Group();
   person.position.set(x, 0, z);
   person.scale.setScalar(scale);
-  const body = new THREE.Mesh(box(.3, .95, .2), accent);
-  body.position.y = .58;
-  const head = new THREE.Mesh(new THREE.SphereGeometry(.13, 8, 6), new THREE.MeshStandardMaterial({ color: 0xc99f73, roughness: .76 }));
-  head.position.y = 1.17;
-  person.add(body, head);
+  // Rounded, proportioned figures replace the square torsos and low-resolution
+  // heads that made the old process model read like a toy game.
+  const uniform = new THREE.MeshPhysicalMaterial({ color: 0x26343b, roughness: .84, clearcoat: .04 });
+  const trim = new THREE.MeshStandardMaterial({ color: 0x8b8064, roughness: .78 });
+  const skin = new THREE.MeshStandardMaterial({ color: 0xa97858, roughness: .82 });
+  const hair = new THREE.MeshStandardMaterial({ color: 0x242321, roughness: .92 });
+  const sole = new THREE.MeshStandardMaterial({ color: 0x171a1b, roughness: .86 });
+  const segment = (radius: number, length: number, material: THREE.Material) => new THREE.Mesh(new THREE.CapsuleGeometry(radius, length, 5, 12), material);
+  const torso = segment(.175, .43, uniform);
+  torso.position.y = .93;
+  person.add(torso);
+  const collar = new THREE.Mesh(new THREE.CylinderGeometry(.085, .11, .08, 16), trim);
+  collar.position.y = 1.19;
+  person.add(collar);
+  const neck = segment(.052, .06, skin);
+  neck.position.y = 1.24;
+  person.add(neck);
+  const head = new THREE.Mesh(new THREE.SphereGeometry(.115, 24, 18), skin);
+  head.scale.set(.82, 1.12, .9);
+  head.position.set(0, 1.39, .005);
+  person.add(head);
+  const hairCap = new THREE.Mesh(new THREE.SphereGeometry(.118, 20, 12, 0, Math.PI * 2, 0, Math.PI * .56), hair);
+  hairCap.scale.set(.85, .9, .95);
+  hairCap.position.set(0, 1.43, -.008);
+  person.add(hairCap);
+  for (const side of [-1, 1]) {
+    const ear = new THREE.Mesh(new THREE.SphereGeometry(.026, 12, 10), skin);
+    ear.position.set(side * .092, 1.38, 0);
+    person.add(ear);
+    const leg = segment(.07, .34, uniform);
+    leg.position.set(side * .09, .39, 0);
+    person.add(leg);
+    const boot = new THREE.Mesh(new THREE.CapsuleGeometry(.055, .13, 3, 8), sole);
+    boot.rotation.x = Math.PI / 2;
+    boot.position.set(side * .09, .105, .045);
+    person.add(boot);
+  }
+  const arms: THREE.Mesh[] = [];
+  for (const side of [-1, 1]) {
+    const upperArm = segment(.062, .27, uniform);
+    upperArm.position.set(side * .235, 1.01, 0);
+    upperArm.rotation.z = side * -.12;
+    person.add(upperArm);
+    const elbow = new THREE.Mesh(new THREE.SphereGeometry(.06, 14, 12), uniform);
+    elbow.position.set(side * .255, .8, 0);
+    person.add(elbow);
+    const forearm = segment(.05, .24, uniform);
+    forearm.position.set(side * .27, .65, .012);
+    forearm.rotation.z = side * .08;
+    person.add(forearm);
+    const hand = new THREE.Mesh(new THREE.SphereGeometry(.045, 12, 10), skin);
+    hand.position.set(side * .275, .49, .018);
+    person.add(hand);
+    arms.push(upperArm, forearm);
+  }
+  // The role accent is a small shoulder marker, never a full metallic uniform.
+  const roleMark = new THREE.Mesh(new THREE.SphereGeometry(.038, 12, 10), accent);
+  roleMark.scale.set(1, .58, .72);
+  roleMark.position.set(.176, 1.1, .025);
+  person.add(roleMark);
+  person.userData.arms = arms;
   parent.add(person);
   return person;
 }
 
 function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
+  const cinematic = container.querySelector<HTMLImageElement>(".process-scene-photograph") || document.createElement("img");
+  cinematic.className = "process-scene-photograph";
+  cinematic.alt = "";
+  cinematic.setAttribute("aria-hidden", "true");
+  cinematic.decoding = "async";
+  cinematic.src = sceneAssetUrl(inferKind(container.dataset.stageLabel || container.dataset.scene || "corridor"));
+  if (!cinematic.isConnected) container.prepend(cinematic);
+  const dataflow = document.createElement("div");
+  dataflow.className = "process-scene-dataflow";
+  dataflow.setAttribute("aria-hidden", "true");
+  dataflow.innerHTML = '<svg viewBox="0 0 1200 600" preserveAspectRatio="none"><defs><linearGradient id="amanahTrace" x1="0" x2="1"><stop stop-color="#f4d58c" stop-opacity="0"/><stop offset=".48" stop-color="#f4d58c" stop-opacity=".95"/><stop offset="1" stop-color="#c99d4a" stop-opacity=".1"/></linearGradient></defs><path class="trace-under" d="M-20 402 C180 360 180 470 360 410 S560 255 710 335 895 450 1030 300 1155 210 1230 242"/><path class="trace-line" d="M-20 402 C180 360 180 470 360 410 S560 255 710 335 895 450 1030 300 1155 210 1230 242"/><circle class="trace-node node-origin" cx="120" cy="387" r="9"/><circle class="trace-node node-lab" cx="600" cy="293" r="9"/><circle class="trace-node node-destination" cx="1080" cy="275" r="9"/></svg>';
+  container.append(dataflow);
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(36, 1, .1, 80);
-  camera.position.set(7.6, 6.4, 9.5);
-  camera.lookAt(0, 1.1, 0);
-  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false, powerPreference: "low-power" });
+  camera.position.set(0, 5.2, 12.6);
+  camera.lookAt(0, .82, 0);
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "low-power" });
   renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.12;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 760 ? 1 : 1.5));
   renderer.setSize(container.clientWidth || 640, container.clientHeight || 360, false);
   renderer.domElement.setAttribute("aria-hidden", "true");
   renderer.domElement.className = "process-scene-canvas";
   container.appendChild(renderer.domElement);
 
-  scene.add(new THREE.HemisphereLight(0xd9e6f2, 0x10100e, 2.1));
-  const key = new THREE.DirectionalLight(0xffd983, 3.1);
+  scene.add(new THREE.HemisphereLight(0xcbd5df, 0x151719, 2.1));
+  const key = new THREE.DirectionalLight(0xfff0d3, 3.35);
   key.position.set(5, 9, 6);
+  key.castShadow = true;
+  key.shadow.mapSize.set(1024, 1024);
+  key.shadow.camera.left = -9;
+  key.shadow.camera.right = 9;
+  key.shadow.camera.top = 8;
+  key.shadow.camera.bottom = -8;
+  key.shadow.bias = -.00025;
   scene.add(key);
-  const rim = new THREE.PointLight(0x4d8795, 8, 24);
+  const rim = new THREE.PointLight(0x91aeb4, 5.4, 24);
   rim.position.set(-6, 4, -5);
   scene.add(rim);
 
-  const gold = new THREE.MeshStandardMaterial({ color: 0xd2ac60, metalness: .72, roughness: .3 });
-  const goldLight = new THREE.MeshStandardMaterial({ color: 0xf1d998, emissive: 0x63481b, emissiveIntensity: .7, metalness: .38, roughness: .34 });
-  const steel = new THREE.MeshStandardMaterial({ color: 0x59636b, metalness: .72, roughness: .34 });
-  const darkSteel = new THREE.MeshStandardMaterial({ color: 0x20262b, metalness: .66, roughness: .39 });
-  const glass = new THREE.MeshStandardMaterial({ color: 0x7395a0, metalness: .2, roughness: .26, transparent: true, opacity: .38 });
-  const pack = new THREE.MeshStandardMaterial({ color: 0xb7955d, metalness: .16, roughness: .7 });
-  const green = new THREE.MeshStandardMaterial({ color: 0x526c58, metalness: .1, roughness: .8 });
-  const floor = new THREE.Mesh(new THREE.PlaneGeometry(16, 11), new THREE.MeshStandardMaterial({ color: 0x101315, metalness: .28, roughness: .64 }));
+  const gold = new THREE.MeshStandardMaterial({ color: 0x9d8350, metalness: .56, roughness: .48 });
+  const goldLight = new THREE.MeshStandardMaterial({ color: 0xd4b36d, emissive: 0x60471c, emissiveIntensity: .34, metalness: .32, roughness: .46 });
+  const steel = new THREE.MeshStandardMaterial({ color: 0x69747a, metalness: .58, roughness: .52 });
+  const darkSteel = new THREE.MeshStandardMaterial({ color: 0x252b2e, metalness: .48, roughness: .58 });
+  const glass = new THREE.MeshPhysicalMaterial({ color: 0x84999d, metalness: .08, roughness: .18, transmission: .32, transparent: true, opacity: .46, thickness: .2 });
+  const pack = new THREE.MeshStandardMaterial({ color: 0x8d7955, metalness: .02, roughness: .92 });
+  const green = new THREE.MeshStandardMaterial({ color: 0x495e55, metalness: .03, roughness: .9 });
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(16, 11), new THREE.MeshStandardMaterial({ color: 0x24292a, metalness: .08, roughness: .9 }));
   floor.rotation.x = -Math.PI / 2;
   floor.position.y = -.04;
+  floor.receiveShadow = true;
   scene.add(floor);
 
   const routePoints = [new THREE.Vector3(-6, .12, 2.4), new THREE.Vector3(-3.6, .12, .2), new THREE.Vector3(-1.1, .12, 1.4), new THREE.Vector3(1.8, .12, -.9), new THREE.Vector3(4, .12, .9), new THREE.Vector3(6, .12, -1.4)];
   const route = new THREE.CatmullRomCurve3(routePoints);
   const routeLine = new THREE.Mesh(new THREE.TubeGeometry(route, 32, .025, 5, false), goldLight);
   scene.add(routeLine);
-  const routeDot = new THREE.Mesh(new THREE.SphereGeometry(.105, 16, 12), new THREE.MeshStandardMaterial({ color: 0xffe5a4, emissive: 0xad761a, emissiveIntensity: 1.8 }));
+  const routeDot = new THREE.Mesh(new THREE.TorusGeometry(.15, .018, 8, 28), new THREE.MeshStandardMaterial({ color: 0xffe5a4, emissive: 0x76531f, emissiveIntensity: .72, metalness: .36, roughness: .4 }));
+  routeDot.rotation.x = Math.PI / 2;
   scene.add(routeDot);
+  const routeBases: THREE.Mesh[] = [];
   const nodes = routePoints.map((point, index) => {
-    const node = new THREE.Mesh(new THREE.CylinderGeometry(.16, .2, .08, 20), index < 2 ? gold : steel);
+    const node = new THREE.Mesh(new THREE.CylinderGeometry(.2, .22, .08, 28), darkSteel);
     node.position.copy(point);
-    node.position.y = .03;
+    node.position.y = -.01;
     scene.add(node);
-    const marker = new THREE.Mesh(new THREE.SphereGeometry(.12, 12, 8), index === 0 ? goldLight : darkSteel);
+    routeBases.push(node);
+    const marker = new THREE.Mesh(new THREE.TorusGeometry(.135, .023, 8, 24), index === 0 ? goldLight : steel);
     marker.position.copy(point);
-    marker.position.y = .19;
+    marker.position.y = .045;
+    marker.rotation.x = Math.PI / 2;
     scene.add(marker);
     return marker;
   });
 
   const groups: Record<ProcessKind, THREE.Group> = Object.fromEntries(([
-    "corridor", "facility", "laboratory", "audit", "warehouse", "transport", "port", "market", "authority", "verification",
+    "corridor", "onboarding", "materials", "facility", "laboratory", "audit", "warehouse", "transport", "port", "market", "authority", "verification", "monitoring",
   ] as ProcessKind[]).map(kind => [kind, new THREE.Group()])) as Record<ProcessKind, THREE.Group>;
   Object.values(groups).forEach(group => scene.add(group));
 
-  const initialLabel = container.dataset.overviewOnly === "true" ? "corridor" : container.dataset.stageLabel || container.dataset.scene || "corridor";
+  const initialLabel = container.dataset.overviewOnly === "true" ? container.dataset.scene || "corridor" : container.dataset.stageLabel || container.dataset.scene || "corridor";
   let kind: ProcessKind = inferKind(initialLabel);
   const cartons: THREE.Mesh[] = [];
   let factoryPerson: THREE.Group | null = null;
@@ -107,6 +175,41 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   let spreader: THREE.Mesh | null = null;
   let phone: THREE.Group | null = null;
   let scanBeam: THREE.Mesh | null = null;
+
+  if (kind === "onboarding") {
+    // Manufacturer registration: an accountable operator reviews a scoped
+    // organisation profile and identity records in a working office setting.
+    const office = groups.onboarding;
+    const desk = new THREE.Mesh(box(3.4, .14, 1.35), steel); desk.position.set(0, .93, .3); office.add(desk);
+    for (const x of [-1.42, 1.42]) { const leg = new THREE.Mesh(box(.1, .9, .1), darkSteel); leg.position.set(x, .45, .3); office.add(leg); }
+    const displayFrame = new THREE.Mesh(box(1.48, 1.05, .1), darkSteel); displayFrame.position.set(-.18, 1.65, -.42); office.add(displayFrame);
+    const identityScreen = new THREE.Mesh(box(1.28, .84, .035), new THREE.MeshStandardMaterial({ color: 0x526d70, emissive: 0x193b3a, emissiveIntensity: .32, roughness: .52 })); identityScreen.position.set(-.18, 1.65, -.485); office.add(identityScreen);
+    for (let i = 0; i < 4; i++) { const recordLine = new THREE.Mesh(box(.68 + (i % 2) * .25, .035, .02), goldLight); recordLine.position.set(-.38 + (i % 2) * .1, 1.88 - i * .16, -.51); office.add(recordLine); }
+    const document = new THREE.Mesh(box(.72, .045, .54), pack); document.position.set(1.02, 1.03, .34); document.rotation.y = -.12; office.add(document);
+    const profileCard = new THREE.Mesh(box(.46, .08, .32), new THREE.MeshStandardMaterial({ color: 0xd8d0bf, roughness: .84 })); profileCard.position.set(-1.05, 1.04, .33); office.add(profileCard);
+    mountPerson(office, 1.75, .72, green, 1.02);
+  }
+
+  if (kind === "materials") {
+    // Supplier and SKU review links tangible material lots to product identity.
+    const source = groups.materials;
+    const table = new THREE.Mesh(box(4.2, .13, 1.42), steel); table.position.set(0, .9, .15); source.add(table);
+    for (const x of [-1.82, 1.82]) { const foot = new THREE.Mesh(box(.1, .86, .1), darkSteel); foot.position.set(x, .44, .15); source.add(foot); }
+    const materials = [
+      { x: -1.1, z: -.05, color: 0x8b7955, radius: .38, height: .62 },
+      { x: -.12, z: .02, color: 0x556b60, radius: .3, height: .7 },
+      { x: .92, z: -.03, color: 0x9d8350, radius: .32, height: .74 },
+    ];
+    for (const material of materials) {
+      const lot = new THREE.Mesh(new THREE.CylinderGeometry(material.radius * .84, material.radius, material.height, 28), new THREE.MeshStandardMaterial({ color: material.color, roughness: .84, metalness: .04 }));
+      lot.position.set(material.x, 1.02 + material.height * .5, material.z); source.add(lot);
+      const batchBand = new THREE.Mesh(new THREE.CylinderGeometry(material.radius * .86, material.radius * .86, .1, 28), goldLight);
+      batchBand.position.set(material.x, lot.position.y, material.z); source.add(batchBand);
+    }
+    const recordBoard = new THREE.Mesh(box(1.1, .62, .08), darkSteel); recordBoard.position.set(2.35, 1.5, -.38); source.add(recordBoard);
+    const recordFace = new THREE.Mesh(box(.93, .45, .025), new THREE.MeshStandardMaterial({ color: 0x58766d, emissive: 0x143d35, emissiveIntensity: .24 })); recordFace.position.set(2.35, 1.5, -.435); source.add(recordFace);
+    for (let i = 0; i < 3; i++) { const link = new THREE.Mesh(box(.54, .035, .018), goldLight); link.position.set(2.22, 1.6 - i * .12, -.455); source.add(link); }
+  }
 
   if (kind === "facility") {
   // Origin production hall: frame, conveyor, cartons and a working inspection team.
@@ -241,89 +344,63 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
 
   // The overview places all accountable physical handoffs in one continuous corridor.
   const overview = groups.corridor;
-  const corridorPeople: THREE.Group[] = [];
-  const detail = (w: number, h: number, d: number, material: THREE.Material, x: number, y: number, z: number, parent = overview) => {
-    const mesh = new THREE.Mesh(box(w, h, d), material);
-    mesh.position.set(x, y, z);
-    parent.add(mesh);
-    return mesh;
-  };
-  const platform = (x: number, z: number) => detail(1.85, .13, 1.45, darkSteel, x, .08, z);
-
-  // Origin factory: loading bays, translucent clerestory, vent stacks and material pallets.
-  platform(-5.7, .72);
-  detail(1.36, .83, .92, steel, -5.7, .57, .72);
-  detail(1.46, .1, 1.02, darkSteel, -5.7, 1.04, .72);
-  detail(.24, .38, .05, glass, -5.33, .55, .235);
-  detail(.24, .38, .05, glass, -5.7, .55, .235);
-  detail(.24, .38, .05, glass, -6.07, .55, .235);
-  detail(.34, .48, .09, darkSteel, -5.7, .32, .235);
-  for (const x of [-6.18, -5.86]) detail(.065, .7, .065, steel, x, 1.4, .42);
-  for (const x of [-6.2, -5.72]) detail(.34, .22, .3, pack, x, .27, 1.05);
-  corridorPeople.push(mountPerson(overview, -5.05, 1.45, green, .55));
-
-  // Manufacturer review desk: people, document station and evidence display.
-  platform(-3.25, -.7);
-  detail(1.32, .88, .92, darkSteel, -3.25, .58, -.7);
-  detail(.96, .52, .04, glass, -3.25, .73, -.23);
-  detail(1.02, .08, .46, steel, -3.25, .66, -.1);
-  detail(.74, .035, .32, gold, -3.25, .715, -.1);
-  corridorPeople.push(mountPerson(overview, -3.92, -.15, green, .56));
-  corridorPeople.push(mountPerson(overview, -2.55, -.05, gold, .56));
-
-  // Laboratory: bench-mounted analyser, extraction hood, sample rack and glass vials.
-  platform(-.7, .75);
-  detail(1.48, .08, .68, steel, -.7, .7, .75);
-  detail(.62, .62, .5, darkSteel, -.95, 1.04, .75);
-  detail(.38, .27, .06, new THREE.MeshStandardMaterial({ color: 0x315f57, emissive: 0x174238, emissiveIntensity: .45 }), -.95, 1.08, .48);
-  detail(.58, .78, .38, glass, -.15, .48, .98);
-  for (let i = 0; i < 4; i++) { const vial = new THREE.Mesh(new THREE.CylinderGeometry(.045, .055, .34, 12), glass); vial.position.set(-1.12 + i * .19, .94, .52); overview.add(vial); }
-  corridorPeople.push(mountPerson(overview, .15, 1.2, green, .54));
-
-  // Certified storage: selective pallet rack, loaded shelves and a working lift truck.
-  platform(1.9, -.75);
-  for (const x of [1.3, 2.47]) {
-    detail(.09, 1.38, .09, steel, x, .82, -.9);
-    detail(.09, 1.38, .09, steel, x, .82, -.36);
-    for (const z of [-.9, -.36]) for (const y of [.5, 1.13]) detail(1.22, .075, .08, gold, 1.89, y, z);
-  }
-  for (const x of [1.52, 1.95, 2.22]) for (const y of [.73, 1.35]) detail(.32, .38, .34, x === 1.95 ? green : pack, x, y, -.63);
-  const overviewFork = new THREE.Group();
-  const overviewLiftBody = new THREE.Mesh(box(.47, .34, .38), gold); overviewLiftBody.position.y = .36; overviewFork.add(overviewLiftBody);
-  const overviewMast = new THREE.Mesh(box(.08, .82, .08), steel); overviewMast.position.set(.22, .75, -.06); overviewFork.add(overviewMast);
-  const overviewForks = detail(.42, .035, .09, goldLight, 0, .36, -.25, overviewFork);
-  overviewFork.position.set(2.75, 0, .2); overview.add(overviewFork);
-
-  // Origin and destination ports: quay, stacked freight, gantry crane and ship hull.
-  platform(4.42, .72);
-  for (let row = 0; row < 2; row++) for (let col = 0; col < 2; col++) detail(.66, .4, .52, (row + col) % 2 ? pack : green, 3.92 + col * .72, .37 + row * .42, .88);
-  detail(.1, 1.75, .1, steel, 4.9, .95, .3);
-  detail(.1, 1.75, .1, steel, 5.54, .95, .3);
-  detail(.8, .12, .12, gold, 5.22, 1.78, .3);
-  detail(.08, .7, .08, gold, 5.22, 1.42, .3);
-  detail(1.08, .22, .38, darkSteel, 4.98, .18, -.04);
-  detail(.92, .14, .42, steel, 4.98, .27, -.04);
-  detail(.34, .21, .27, glass, 5.22, .47, -.04);
-
-  // GCC receiving and retail: storefront, shelving, products and a receiving operator.
-  platform(6.28, -1.28);
-  detail(1.46, .87, .92, darkSteel, 6.28, .55, -1.28);
-  detail(1.36, .48, .04, glass, 6.28, .68, -.79);
-  detail(.12, .64, .06, gold, 5.8, .55, -.76);
-  detail(.12, .64, .06, gold, 6.75, .55, -.76);
-  for (const y of [.42, .73, 1.04]) {
-    detail(.86, .055, .36, gold, 6.28, y, -1.02);
-    for (let i = 0; i < 3; i++) detail(.18, .2, .2, i % 2 ? green : pack, 5.98 + i * .3, y + .12, -1.02);
-  }
-  corridorPeople.push(mountPerson(overview, 6.95, -.55, green, .55));
-  void overviewForks;
+  // The overview is an animated custody corridor, not a miniature playset.
+  // Operational detail appears in the focused facility/lab/audit/port scenes.
+  overview.visible = false;
   const cargo = new THREE.Group();
-  const cargoBody = new THREE.Mesh(box(.72, .45, .55), goldLight); cargo.add(cargoBody);
-  const cargoWheels = [-.24, .24].map(x => { const wheel = new THREE.Mesh(new THREE.CylinderGeometry(.1, .1, .09, 12), darkSteel); wheel.rotation.x = Math.PI / 2; wheel.position.set(x, -.28, .22); cargo.add(wheel); return wheel; });
+  const freightMaterial = new THREE.MeshStandardMaterial({ color: 0x58666c, metalness: .34, roughness: .7 });
+  const cargoBody = new THREE.Mesh(box(2, .55, .52), freightMaterial); cargoBody.position.y = .44; cargo.add(cargoBody);
+  for (const side of [-1, 1]) for (let i = 0; i < 14; i++) {
+    const rib = new THREE.Mesh(box(.026, .51, .018), steel);
+    rib.position.set(-.94 + i * .145, .44, side * .268);
+    cargo.add(rib);
+  }
+  for (const x of [-.96, .96]) for (const z of [-.27, .27]) {
+    const corner = new THREE.Mesh(box(.055, .58, .055), darkSteel);
+    corner.position.set(x, .44, z);
+    cargo.add(corner);
+  }
+  const rearDoors = new THREE.Mesh(box(.42, .49, .018), steel);
+  rearDoors.position.set(1.01, .44, 0);
+  cargo.add(rearDoors);
+  const doorSeam = new THREE.Mesh(box(.012, .47, .022), darkSteel);
+  doorSeam.position.set(1.02, .44, -.002);
+  cargo.add(doorSeam);
+  const cargoLabel = new THREE.Mesh(box(.22, .12, .018), new THREE.MeshStandardMaterial({ color: 0xe5dfcf, roughness: .88 }));
+  cargoLabel.position.set(-.55, .48, -.268);
+  cargo.add(cargoLabel);
+  const trailerDeck = new THREE.Mesh(box(2.16, .12, .62), new THREE.MeshStandardMaterial({ color: 0x343b3e, metalness: .42, roughness: .68 }));
+  trailerDeck.position.y = .11;
+  cargo.add(trailerDeck);
+  const axleGroups = [-.58, .12, .65].map(x => {
+    const axle = new THREE.Group();
+    for (const z of [-.36, .36]) {
+      const tire = new THREE.Mesh(new THREE.CylinderGeometry(.15, .15, .09, 20), new THREE.MeshStandardMaterial({ color: 0x17191a, roughness: .9 }));
+      tire.rotation.x = Math.PI / 2;
+      tire.position.set(x, -.045, z);
+      axle.add(tire);
+      const hub = new THREE.Mesh(new THREE.CylinderGeometry(.065, .065, .094, 16), steel);
+      hub.rotation.x = Math.PI / 2;
+      hub.position.set(x, -.045, z * 1.08);
+      axle.add(hub);
+    }
+    cargo.add(axle);
+    return axle;
+  });
   scene.add(cargo);
 
-  const animatedPeople = [factoryPerson, materialPerson, analyst, ...corridorPeople].filter((person): person is THREE.Group => person !== null);
+  // One focused key light gives the scene a grounded studio/industrial finish.
+  // Only the visible model is rendered, so shadow cost stays bounded.
+  scene.traverse(object => {
+    if (object instanceof THREE.Mesh && object !== floor) {
+      object.castShadow = true;
+      object.receiveShadow = true;
+    }
+  });
+
+  const animatedPeople = [factoryPerson, materialPerson, analyst].filter((person): person is THREE.Group => person !== null);
   let stageIndex = 0;
+  let cameraKind: ProcessKind | null = null;
   let frame = 0;
   let active = true;
   let animationFrame = 0;
@@ -343,26 +420,45 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
 
   function render(time: number) {
     const visibleKind = groups[kind].children.length > 0 ? kind : "corridor";
+    const isCorridor = visibleKind === "corridor";
+    if (cameraKind !== visibleKind) {
+      if (isCorridor) {
+        camera.position.set(0, 5.2, 12.6);
+        camera.lookAt(0, .82, 0);
+      } else {
+        camera.position.set(3.6, 4.7, 8.8);
+        camera.lookAt(0, 1.05, 0);
+      }
+      cameraKind = visibleKind;
+    }
+    floor.visible = false;
+    routeLine.visible = true;
+    routeDot.visible = true;
+    cargo.visible = false;
+    routeBases.forEach(node => { node.visible = false; });
+    nodes.forEach(node => { node.visible = false; });
+    Object.values(groups).forEach(group => { group.visible = false; });
     if (visibleKind === "corridor") {
-      Object.entries(groups).forEach(([name, group]) => { group.visible = name === "corridor"; });
       const point = route.getPointAt(((time * .00004 + stageIndex / 20) % 1 + 1) % 1);
-      cargo.position.copy(point); cargo.position.y = .45;
-      routeDot.position.copy(point); routeDot.position.y = .18;
-      cargo.rotation.y = Math.atan2(route.getTangentAt(stageIndex / 20).x, route.getTangentAt(stageIndex / 20).z);
-      const activeNode = Math.round((stageIndex / 19) * (nodes.length - 1));
-      nodes.forEach((node, index) => { node.material = index <= activeNode ? goldLight : darkSteel; });
+      routeDot.position.copy(point); routeDot.position.y = .035;
     } else {
-      Object.entries(groups).forEach(([name, group]) => { group.visible = name === visibleKind; });
       cargo.position.set(5, -.3, 0);
+      routeDot.position.copy(route.getPointAt(((time * .00004 + stageIndex / 20) % 1 + 1) % 1));
     }
     const seconds = time * .001;
     if (truck) { truck.position.z = visibleKind === "transport" ? Math.sin(seconds * 1.1) * .14 : -.1; truck.rotation.y = visibleKind === "transport" ? Math.sin(seconds * .45) * .035 : 0; }
     wheels.forEach(wheel => { wheel.rotation.z = visibleKind === "transport" ? seconds * 1.7 : 0; });
+    axleGroups.forEach(axle => axle.rotation.z = visibleKind === "corridor" ? seconds * 1.35 : 0);
     if (forklift) forklift.position.x = visibleKind === "warehouse" ? Math.sin(seconds * .52) * 1.2 : -.2;
     if (craneCable) craneCable.position.y = 3.15 + (visibleKind === "port" ? Math.sin(seconds * .8) * .22 : 0);
     if (spreader) spreader.position.y = 2.47 + (visibleKind === "port" ? Math.sin(seconds * .8) * .22 : 0);
     cartons.forEach((item, index) => { item.position.x = -3.65 + ((index * .78 + seconds * .32) % 3.9); });
-    animatedPeople.forEach((person, index) => { person.rotation.y = Math.sin(seconds * .65 + index) * .12; person.position.y = Math.abs(Math.sin(seconds * 1.1 + index)) * .025; });
+    animatedPeople.forEach((person, index) => {
+      person.rotation.y = Math.sin(seconds * .38 + index) * .035;
+      person.position.y = 0;
+      const arms = person.userData.arms as THREE.Mesh[] | undefined;
+      arms?.forEach((arm, armIndex) => { arm.rotation.z = Math.sin(seconds * .48 + index + armIndex * .35) * .035; });
+    });
     if (analyst) analyst.rotation.y = visibleKind === "laboratory" ? Math.sin(seconds * .7) * .11 : 0;
     if (phone) phone.rotation.y = visibleKind === "verification" ? Math.sin(seconds * .8) * .12 : -.1;
     if (scanBeam) scanBeam.position.y = visibleKind === "market" ? .55 + Math.abs(Math.sin(seconds * 1.2)) * .48 : .78;
@@ -383,9 +479,19 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
 
   function setStage(label: string, index = stageIndex) {
     stageIndex = Math.max(0, index);
-    kind = container.dataset.overviewOnly === "true" ? "corridor" : inferKind(label);
+    kind = inferKind(container.dataset.overviewOnly === "true" ? container.dataset.scene || "corridor" : label);
     container.dataset.sceneKind = kind;
+    const nextImage = sceneAssetUrl(kind);
+    if (!cinematic.src.endsWith(nextImage)) {
+      cinematic.classList.add("is-transitioning");
+      window.setTimeout(() => {
+        if (!cinematic.isConnected) return;
+        cinematic.onload = () => requestAnimationFrame(() => cinematic.classList.remove("is-transitioning"));
+        cinematic.src = nextImage;
+      }, 220);
+    }
     render(0);
+    return true;
   }
   const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
   motionPreference.addEventListener?.("change", onReducedMotionChange);
@@ -405,6 +511,8 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
       });
       renderer.dispose();
       renderer.domElement.remove();
+      cinematic.remove();
+      dataflow.remove();
     },
   };
 }
@@ -413,15 +521,31 @@ export function mountProcessSceneOnElement(container: HTMLElement): ProcessScene
   if (container.dataset.sceneMounted === "true") return null;
   container.dataset.sceneMounted = "loading";
   try {
-    const scene = mountProcessScene(container);
-    scene.setStage(container.dataset.stageLabel || container.dataset.scene || "corridor", Number(container.dataset.stageIndex || 0));
+    let scene = mountProcessScene(container);
+    const currentLabel = () => container.dataset.stageLabel || container.dataset.scene || "corridor";
+    const currentIndex = () => Number(container.dataset.stageIndex || 0);
+    scene.setStage(currentLabel(), currentIndex());
     container.dataset.sceneMounted = "true";
     container.querySelector(".process-scene-loading")?.remove();
-    const observer = new MutationObserver(() => scene.setStage(container.dataset.stageLabel || container.dataset.scene || "corridor", Number(container.dataset.stageIndex || 0)));
+    const observer = new MutationObserver(() => {
+      const label = currentLabel();
+      const index = currentIndex();
+      if (scene.setStage(label, index)) return;
+      // Construct only the selected process station. Rebuild on a semantic
+      // stage change so a lab step shows the lab, an audit step shows the audit,
+      // and so on without keeping every heavy geometry in memory.
+      const nextScene = mountProcessScene(container);
+      nextScene.setStage(label, index);
+      const previousScene = scene;
+      scene = nextScene;
+      previousScene.dispose();
+    });
     observer.observe(container, { attributes: true, attributeFilter: ["data-stage-label", "data-stage-index", "data-scene"] });
-    const originalDispose = scene.dispose;
-    scene.dispose = () => { observer.disconnect(); originalDispose(); delete container.dataset.sceneMounted; };
-    return scene;
+    return {
+      setStage: (label, index) => scene.setStage(label, index),
+      resize: () => scene.resize(),
+      dispose: () => { observer.disconnect(); scene.dispose(); delete container.dataset.sceneMounted; },
+    };
   } catch (error) {
     delete container.dataset.sceneMounted;
     container.dataset.sceneFallback = "true";

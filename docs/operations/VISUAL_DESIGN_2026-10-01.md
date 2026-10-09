@@ -6,6 +6,6 @@ The homepage opens with a concise company and platform statement and an animated
 
 The animated journey explains organisation and premises onboarding; product/SKU, suppliers and materials; applicable requirements; laboratory sampling and evidence; smart audit; certification review and corrective action; production; warehouse and logistics custody; ports/customs; GCC receiving, distribution and retail; verification; and continuous monitoring. Motion remains keyboard-operable, readable at mobile widths and responsive to reduced-motion preferences.
 
-The public narrative names Global Halal Supply Chain Limited and uses the current architecture: **AHTE ⇄ Direct JAKIM API ⇄ JAKIM**, **China → GCC direct**, PHC/JAKIM parallel governance, and AI/ML assistance with certification decisions made by JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors.
+The public narrative names Global Halal Supply Chain Ltd and uses the current architecture: **AHTE ⇄ Direct JAKIM API ⇄ JAKIM**, **China → GCC direct**, PHC/JAKIM parallel governance, and AI/ML assistance with certification decisions made by JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors.
 
 The source is `ghscl-website/ecosystem.en.json`; scripts under `scripts/` generate and verify the pages. The build must preserve the design and process content across all generated pages.

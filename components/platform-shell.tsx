@@ -30,10 +30,10 @@ export function PlatformShell({ name, groups, children }: { name: string; groups
   }
 
   const identity = <Link href="/dashboard" className="brand" aria-label="Amanah — Global Halal Digital Trust">
-    <img className="brand-crest" src="/ghscl-crest.svg" alt="" />
+    <img className="brand-crest" src="/company-logo.webp" alt="" />
     <span className="brand-copy">
       <strong>Amanah · Global Halal Digital Trust</strong>
-      <span>Global Halal Supply Chain Limited</span>
+      <span>Global Halal Supply Chain Ltd</span>
       <span className="brand-micro">AHTE · Evidence · Trust · Trade</span>
     </span>
   </Link>;

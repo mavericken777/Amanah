@@ -2,7 +2,7 @@
 
 ## What Amanah is
 
-Amanah is the AHTE operational platform operated by Global Halal Supply Chain Limited. It uses the GlobalHalalDigitalTrust repository for shared project architecture and Supabase as the application data plane.
+Amanah is the AHTE operational platform operated by Global Halal Supply Chain Ltd. It uses the GlobalHalalDigitalTrust repository for shared project architecture and Supabase as the application data plane.
 
 ## Local development
 

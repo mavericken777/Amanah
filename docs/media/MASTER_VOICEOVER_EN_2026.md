@@ -17,7 +17,7 @@ The generated audio assets are retained in the connected media workspace. Reposi
 
 Global Halal trade crosses many systems, organisations and jurisdictions. Trust must travel with the product.
 
-Global Halal Supply Chain Limited and AMANAH connect origin, manufacturers, suppliers, laboratories, audits, production, logistics, ports, GCC importers, distributors, retailers and verification through one evidence-led operating model.
+Global Halal Supply Chain Ltd and AMANAH connect origin, manufacturers, suppliers, laboratories, audits, production, logistics, ports, GCC importers, distributors, retailers and verification through one evidence-led operating model.
 
 At the core, AHTE links requirements to controls, evidence and accountable review. Artificial intelligence assists with detection and assessment. Authorised humans and competent authorities make the reserved decisions.
 

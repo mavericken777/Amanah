@@ -12,7 +12,7 @@ function escapeHtml(value) {
 }
 
 for (const page of [...data.pages, ...extraPages]) {
-  const title = `${page.label} | Global Halal Supply Chain Limited`;
+  const title = `${page.label} | Global Halal Supply Chain Ltd`;
   let html = template
     .replace(/<title>.*?<\/title>/s, `<title>${escapeHtml(title)}</title>`)
     .replace(/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${escapeHtml(page.description)}" />`);

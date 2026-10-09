@@ -2,7 +2,7 @@
 
 ## Brand and presentation
 
-- Identify the company as **Global Halal Supply Chain Limited** and the platform as Amanah / Global Halal Digital Trust.
+- Identify the company as **Global Halal Supply Chain Ltd** and the platform as Amanah / Global Halal Digital Trust.
 - Use the black-and-gold premium palette with Arial, Helvetica or a close neutral sans-serif system font throughout.
 - Keep the homepage free of an oversized shield or decorative centerpiece. Show the actual process and the information carried between stages.
 - Use restrained motion to explain the end-to-end journey. Each stage must identify its actor, object, evidence and next handoff. Provide pause, restart, keyboard access and reduced-motion behavior.

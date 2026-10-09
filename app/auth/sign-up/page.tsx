@@ -48,7 +48,7 @@ export default function SignUpPage() {
     <main className="auth-page">
       <AuthStory />
       <div className="auth-panel"><div className="auth-card">
-        <img className="auth-crest" src="/ghscl-crest.svg" alt="Global Halal Supply Chain Limited crest" />
+        <img className="auth-crest" src="/company-logo.webp" alt="Global Halal Supply Chain Ltd company logo" />
         <div className="eyebrow">AMANAH SECURE ONBOARDING</div>
         <h1>Create your Amanah account.</h1>
         <p className="muted">Join the controlled workspace used for evidence, standards, audit, laboratory, custody, monitoring and accountable decisions.</p>
