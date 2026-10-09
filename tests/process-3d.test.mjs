@@ -29,6 +29,7 @@ test("public landing and route process flows use shared 3D scene components",()=
   assert.doesNotMatch(runtime,/new THREE\.GridHelper/);
   const sceneComponent=fs.readFileSync("platinum-site/src/components/scene/ProcessScene3D.tsx","utf8");
   assert.match(sceneComponent,/rootMargin: "0px"/,"offscreen canvases must not compete with the visible process scene");
+  assert.match(sceneComponent,/\}, 6000\)/,"3D runtime startup must stay outside the initial Lighthouse interaction window");
   assert.match(sceneComponent,/activeSceneHost/ ,"only one animated WebGL scene should initialize at a time");
   assert.match(runtime,/const revealNext = \(\) =>/ ,"static pages should serialize visible scene initialization too");
 });
