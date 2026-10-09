@@ -19,6 +19,9 @@ test("public landing and route process flows use shared 3D scene components",()=
   assert.match(runtime,/Math\.round\(\(stageIndex \/ 19\) \* \(nodes\.length - 1\)\)/);
   assert.match(runtime,/routeDot\.position\.copy\(point\)/);
   assert.match(runtime,/const animatedPeople = \[factoryPerson, materialPerson, analyst, \.\.\.corridorPeople\]/);
+  assert.match(runtime,/const initialLabel = container\.dataset\.stageLabel/);
+  assert.match(runtime,/if \(kind === "laboratory"\)/,"only the selected station's detailed model should be built");
+  assert.match(runtime,/groups\[kind\]\.children\.length > 0 \? kind : "corridor"/,"unbuilt stations must remain explorable through the continuous corridor model");
 });
 
 test("static landing stages drive their 3D scenes and retain semantic process details",()=>{

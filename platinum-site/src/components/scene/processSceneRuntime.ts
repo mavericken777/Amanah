@@ -104,6 +104,21 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   ] as ProcessKind[]).map(kind => [kind, new THREE.Group()])) as Record<ProcessKind, THREE.Group>;
   Object.values(groups).forEach(group => scene.add(group));
 
+  const initialLabel = container.dataset.stageLabel || container.dataset.scene || "corridor";
+  let kind: ProcessKind = inferKind(initialLabel);
+  const cartons: THREE.Mesh[] = [];
+  let factoryPerson: THREE.Group | null = null;
+  let materialPerson: THREE.Group | null = null;
+  let analyst: THREE.Group | null = null;
+  let forklift: THREE.Group | null = null;
+  let truck: THREE.Group | null = null;
+  let wheels: THREE.Mesh[] = [];
+  let craneCable: THREE.Mesh | null = null;
+  let spreader: THREE.Mesh | null = null;
+  let phone: THREE.Group | null = null;
+  let scanBeam: THREE.Mesh | null = null;
+
+  if (kind === "facility") {
   // Origin production hall: frame, conveyor, cartons and a working inspection team.
   const factory = groups.facility;
   const hall = new THREE.Mesh(box(5.5, 2.15, 3.6), new THREE.MeshStandardMaterial({ color: 0x1e292b, metalness: .32, roughness: .5, transparent: true, opacity: .72 }));
@@ -114,12 +129,14 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
     const beam = new THREE.Mesh(box(.12, 2.8, .12), steel); beam.position.set(x, 1.4, -1.84); factory.add(beam);
   }
   const belt = new THREE.Mesh(box(4.2, .18, .62), darkSteel); belt.position.set(-2, .65, .8); factory.add(belt);
-  const cartons = Array.from({ length: 5 }, (_, i) => { const item = new THREE.Mesh(box(.42, .38, .38), i % 2 ? pack : green); item.position.set(-3.65 + i * .78, .94, .8); factory.add(item); return item; });
+  cartons.push(...Array.from({ length: 5 }, (_, i) => { const item = new THREE.Mesh(box(.42, .38, .38), i % 2 ? pack : green); item.position.set(-3.65 + i * .78, .94, .8); factory.add(item); return item; }));
   const machine = new THREE.Mesh(box(.86, 1.35, .96), steel); machine.position.set(-.35, .86, .8); factory.add(machine);
   const machineWindow = new THREE.Mesh(box(.55, .42, .05), glass); machineWindow.position.set(-.35, 1, .3); factory.add(machineWindow);
-  const factoryPerson = mountPerson(factory, -4.5, -.6, green, .86);
-  const materialPerson = mountPerson(factory, 1, 1.1, gold, .86);
+  factoryPerson = mountPerson(factory, -4.5, -.6, green, .86);
+  materialPerson = mountPerson(factory, 1, 1.1, gold, .86);
+  }
 
+  if (kind === "laboratory") {
   // Laboratory: stainless bench, analyser, microscope, sample rack, vials and analyst.
   const lab = groups.laboratory;
   const bench = new THREE.Mesh(box(4.6, .15, 1.35), steel); bench.position.set(0, .95, .1); lab.add(bench);
@@ -130,8 +147,10 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   const scopeArm = new THREE.Mesh(box(.12, .72, .12), steel); scopeArm.position.set(.54, 1.47, .08); scopeArm.rotation.z = -.22; lab.add(scopeArm);
   const scopeEyepiece = new THREE.Mesh(new THREE.CylinderGeometry(.07, .07, .35, 16), darkSteel); scopeEyepiece.position.set(.35, 1.78, .1); scopeEyepiece.rotation.z = -.22; lab.add(scopeEyepiece);
   for (let i = 0; i < 7; i++) { const vial = new THREE.Mesh(new THREE.CylinderGeometry(.075, .075, .38, 12), i % 2 ? glass : goldLight); vial.position.set(1.35 + (i % 4) * .25, 1.2, .15 + Math.floor(i / 4) * .35); lab.add(vial); }
-  const analyst = mountPerson(lab, 2.7, .7, new THREE.MeshStandardMaterial({ color: 0x3d5660, roughness: .72 }), .92);
+  analyst = mountPerson(lab, 2.7, .7, new THREE.MeshStandardMaterial({ color: 0x3d5660, roughness: .72 }), .92);
+  }
 
+  if (kind === "audit") {
   // Auditor scene: a real facility inspection bay with worktable and inspectors.
   const audit = groups.audit;
   const auditTable = new THREE.Mesh(box(2.5, .12, 1.2), steel); auditTable.position.set(0, 1, .3); audit.add(auditTable);
@@ -140,7 +159,9 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   mountPerson(audit, -1.3, .8, green, .92);
   mountPerson(audit, 1.55, -.4, gold, .92);
   const auditClipboard = new THREE.Mesh(box(.46, .58, .035), pack); auditClipboard.position.set(1.1, 1.27, .2); auditClipboard.rotation.z = -.15; audit.add(auditClipboard);
+  }
 
+  if (kind === "warehouse") {
   // Certified warehouse: pallet stacks, selective racks and a moving lift truck.
   const warehouse = groups.warehouse;
   for (let z = -1.55; z <= 1.56; z += 1.55) {
@@ -150,26 +171,30 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
       for (let x = -1.9; x <= 1.9; x += .95) { const crate = new THREE.Mesh(box(.76, .55, .62), y > 1.7 ? green : pack); crate.position.set(x, y - .3, z); warehouse.add(crate); }
     }
   }
-  const forklift = new THREE.Group(); warehouse.add(forklift);
+  forklift = new THREE.Group(); warehouse.add(forklift);
   const liftBody = new THREE.Mesh(box(1.05, .56, .68), gold); liftBody.position.y = .58; forklift.add(liftBody);
   const liftCab = new THREE.Mesh(box(.5, .86, .56), glass); liftCab.position.set(-.1, 1.2, -.02); forklift.add(liftCab);
   const mast = new THREE.Mesh(box(.12, 1.85, .16), steel); mast.position.set(.52, 1.08, .18); forklift.add(mast);
   const forks = new THREE.Mesh(box(.76, .06, .38), gold); forks.position.set(.87, .38, .16); forklift.add(forks);
   for (const x of [-.3, .38]) for (const z of [-.38, .38]) { const wheel = new THREE.Mesh(new THREE.CylinderGeometry(.2, .2, .13, 16), darkSteel); wheel.rotation.x = Math.PI / 2; wheel.position.set(x, .24, z); forklift.add(wheel); }
   forklift.position.set(-.2, 0, 2.35);
+  }
 
+  if (kind === "transport") {
   // China-to-GCC line haul: tractor, trailer, refrigerated unit and animated wheels.
   const transport = groups.transport;
-  const truck = new THREE.Group(); transport.add(truck);
+  truck = new THREE.Group(); transport.add(truck);
   const trailer = new THREE.Mesh(box(4.7, 1.45, 1.5), new THREE.MeshStandardMaterial({ color: 0x65717a, metalness: .52, roughness: .4 })); trailer.position.set(-.3, 1.65, 0); truck.add(trailer);
   for (let side = -1; side <= 1; side += 2) for (let i = 0; i < 7; i++) { const rib = new THREE.Mesh(box(.06, 1.3, .035), gold); rib.position.set(-2.55 + i * .72, 1.65, side * .77); truck.add(rib); }
   const cab = new THREE.Mesh(box(1.12, 1.35, 1.42), gold); cab.position.set(2.65, 1.1, 0); truck.add(cab);
   const windshield = new THREE.Mesh(box(.82, .52, .04), glass); windshield.position.set(2.65, 1.42, -.74); truck.add(windshield);
-  const wheels: THREE.Mesh[] = [];
+  wheels = [];
   for (const x of [-1.8, -.35, 1.8, 3.15]) for (const z of [-.82, .82]) { const wheel = new THREE.Mesh(new THREE.CylinderGeometry(.38, .38, .2, 20), darkSteel); wheel.rotation.x = Math.PI / 2; wheel.position.set(x, .47, z); truck.add(wheel); wheels.push(wheel); }
   const driver = mountPerson(truck, 2.72, 0, green, .45); driver.position.y = .72;
   truck.position.set(0, 0, -.1);
+  }
 
+  if (kind === "port") {
   // Port and customs: container vessel, stacked freight and gantry cranes.
   const port = groups.port;
   const ship = new THREE.Group(); port.add(ship);
@@ -180,10 +205,12 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   const craneLegA = new THREE.Mesh(box(.17, 3.9, .17), gold); craneLegA.position.set(-1.5, 1.95, -2); crane.add(craneLegA);
   const craneLegB = new THREE.Mesh(box(.17, 3.9, .17), gold); craneLegB.position.set(1.5, 1.95, -2); crane.add(craneLegB);
   const craneBeam = new THREE.Mesh(box(4.7, .19, .2), gold); craneBeam.position.set(0, 3.9, -2); crane.add(craneBeam);
-  const craneCable = new THREE.Mesh(box(.035, 1.3, .035), steel); craneCable.position.set(.55, 3.15, -1.95); crane.add(craneCable);
-  const spreader = new THREE.Mesh(box(1.15, .12, .28), goldLight); spreader.position.set(.55, 2.47, -1.95); crane.add(spreader);
+  craneCable = new THREE.Mesh(box(.035, 1.3, .035), steel); craneCable.position.set(.55, 3.15, -1.95); crane.add(craneCable);
+  spreader = new THREE.Mesh(box(1.15, .12, .28), goldLight); spreader.position.set(.55, 2.47, -1.95); crane.add(spreader);
   ship.position.z = .55;
+  }
 
+  if (kind === "market") {
   // GCC distribution/retail: shelves, goods, receiving scan and staff.
   const market = groups.market;
   for (const x of [-2.35, 0, 2.35]) {
@@ -194,9 +221,11 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
     }
   }
   const scanner = new THREE.Mesh(box(.52, .86, .52), darkSteel); scanner.position.set(3.2, .45, 1.2); market.add(scanner);
-  const scanBeam = new THREE.Mesh(box(.68, .025, .03), goldLight); scanBeam.position.set(3.2, .78, .92); market.add(scanBeam);
+  scanBeam = new THREE.Mesh(box(.68, .025, .03), goldLight); scanBeam.position.set(3.2, .78, .92); market.add(scanBeam);
   mountPerson(market, 3.55, -.2, green, .9);
+  }
 
+  if (kind === "authority") {
   // Authority review: evidence display, file table and two human reviewers.
   const authority = groups.authority;
   const authorityTable = new THREE.Mesh(box(3.4, .16, 1.5), steel); authorityTable.position.set(0, .95, .3); authority.add(authorityTable);
@@ -205,17 +234,20 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   for (let i = 0; i < 4; i++) { const bar = new THREE.Mesh(box(.28 + (i % 2) * .2, .04, .02), goldLight); bar.position.set(-.7 + i * .4, 1.8 - (i % 3) * .15, -.56); authority.add(bar); }
   mountPerson(authority, -2.25, .85, green, .96);
   mountPerson(authority, 2.25, .8, gold, .96);
+  }
 
+  if (kind === "verification") {
   // Verification scene: product carton and a purposeful handheld verifier.
   const verification = groups.verification;
   const productBox = new THREE.Mesh(box(1.25, 1.7, .76), pack); productBox.position.set(-1.2, .88, 0); verification.add(productBox);
   const productLabel = new THREE.Mesh(box(.73, .74, .03), new THREE.MeshStandardMaterial({ color: 0xf0e8d4, roughness: .82 })); productLabel.position.set(-1.2, .93, -.4); verification.add(productLabel);
-  const phone = new THREE.Group(); verification.add(phone);
+  phone = new THREE.Group(); verification.add(phone);
   const phoneBody = new THREE.Mesh(box(.94, 1.75, .1), darkSteel); phoneBody.position.y = 1.05; phone.add(phoneBody);
   const phoneScreen = new THREE.Mesh(box(.79, 1.47, .025), new THREE.MeshStandardMaterial({ color: 0x345650, emissive: 0x1e6b51, emissiveIntensity: .45 })); phoneScreen.position.set(0, 1.05, -.063); phone.add(phoneScreen);
   for (let y = 0; y < 5; y++) for (let x = 0; x < 5; x++) if ((x * 7 + y * 3) % 4 !== 0) { const cell = new THREE.Mesh(box(.075, .075, .018), goldLight); cell.position.set(-.26 + x * .13, 1.17 + y * .13, -.082); phone.add(cell); }
   phone.position.set(1.35, .05, .25); phone.rotation.z = -.1;
   mountPerson(verification, 2.7, 1.5, green, .95);
+  }
 
   // The overview places all accountable physical handoffs in one continuous corridor.
   const overview = groups.corridor;
@@ -300,8 +332,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   const cargoWheels = [-.24, .24].map(x => { const wheel = new THREE.Mesh(new THREE.CylinderGeometry(.1, .1, .09, 12), darkSteel); wheel.rotation.x = Math.PI / 2; wheel.position.set(x, -.28, .22); cargo.add(wheel); return wheel; });
   scene.add(cargo);
 
-  const animatedPeople = [factoryPerson, materialPerson, analyst, ...corridorPeople];
-  let kind: ProcessKind = "corridor";
+  const animatedPeople = [factoryPerson, materialPerson, analyst, ...corridorPeople].filter((person): person is THREE.Group => person !== null);
   let stageIndex = 0;
   let frame = 0;
   let active = true;
@@ -321,7 +352,8 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   resize.observe(container);
 
   function render(time: number) {
-    if (kind === "corridor") {
+    const visibleKind = groups[kind].children.length > 0 ? kind : "corridor";
+    if (visibleKind === "corridor") {
       Object.entries(groups).forEach(([name, group]) => { group.visible = name === "corridor"; });
       const point = route.getPointAt(((time * .00004 + stageIndex / 20) % 1 + 1) % 1);
       cargo.position.copy(point); cargo.position.y = .45;
@@ -330,21 +362,20 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
       const activeNode = Math.round((stageIndex / 19) * (nodes.length - 1));
       nodes.forEach((node, index) => { node.material = index <= activeNode ? goldLight : darkSteel; });
     } else {
-      Object.entries(groups).forEach(([name, group]) => { group.visible = name === kind; });
+      Object.entries(groups).forEach(([name, group]) => { group.visible = name === visibleKind; });
       cargo.position.set(5, -.3, 0);
     }
     const seconds = time * .001;
-    truck.position.z = kind === "transport" ? Math.sin(seconds * 1.1) * .14 : -.1;
-    truck.rotation.y = kind === "transport" ? Math.sin(seconds * .45) * .035 : 0;
-    wheels.forEach(wheel => { wheel.rotation.z = kind === "transport" ? seconds * 1.7 : 0; });
-    forklift.position.x = kind === "warehouse" ? Math.sin(seconds * .52) * 1.2 : -.2;
-    craneCable.position.y = 3.15 + (kind === "port" ? Math.sin(seconds * .8) * .22 : 0);
-    spreader.position.y = 2.47 + (kind === "port" ? Math.sin(seconds * .8) * .22 : 0);
+    if (truck) { truck.position.z = visibleKind === "transport" ? Math.sin(seconds * 1.1) * .14 : -.1; truck.rotation.y = visibleKind === "transport" ? Math.sin(seconds * .45) * .035 : 0; }
+    wheels.forEach(wheel => { wheel.rotation.z = visibleKind === "transport" ? seconds * 1.7 : 0; });
+    if (forklift) forklift.position.x = visibleKind === "warehouse" ? Math.sin(seconds * .52) * 1.2 : -.2;
+    if (craneCable) craneCable.position.y = 3.15 + (visibleKind === "port" ? Math.sin(seconds * .8) * .22 : 0);
+    if (spreader) spreader.position.y = 2.47 + (visibleKind === "port" ? Math.sin(seconds * .8) * .22 : 0);
     cartons.forEach((item, index) => { item.position.x = -3.65 + ((index * .78 + seconds * .32) % 3.9); });
     animatedPeople.forEach((person, index) => { person.rotation.y = Math.sin(seconds * .65 + index) * .12; person.position.y = Math.abs(Math.sin(seconds * 1.1 + index)) * .025; });
-    analyst.rotation.y = kind === "laboratory" ? Math.sin(seconds * .7) * .11 : 0;
-    phone.rotation.y = kind === "verification" ? Math.sin(seconds * .8) * .12 : -.1;
-    scanBeam.position.y = kind === "market" ? .55 + Math.abs(Math.sin(seconds * 1.2)) * .48 : .78;
+    if (analyst) analyst.rotation.y = visibleKind === "laboratory" ? Math.sin(seconds * .7) * .11 : 0;
+    if (phone) phone.rotation.y = visibleKind === "verification" ? Math.sin(seconds * .8) * .12 : -.1;
+    if (scanBeam) scanBeam.position.y = visibleKind === "market" ? .55 + Math.abs(Math.sin(seconds * 1.2)) * .48 : .78;
     const pulses = .95 + Math.sin(seconds * 2) * .17;
     routeDot.scale.setScalar(pulses);
     scene.rotation.y = Math.sin(seconds * .11) * .028;
