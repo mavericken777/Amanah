@@ -9,11 +9,13 @@ export default defineConfig({
   plugins: [react()],
   base: "./",
   build: {
+    emptyOutDir: true,
     target: "es2022",
     sourcemap: false,
     rollupOptions: {
       input: {
         main: resolve(projectRoot, "index.html"),
+        secondary: resolve(projectRoot, "secondary.html"),
         "process-scene": resolve(projectRoot, "src/process-scene-entry.ts"),
       },
       output: {

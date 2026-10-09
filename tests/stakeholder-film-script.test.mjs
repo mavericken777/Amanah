@@ -9,7 +9,7 @@ test('institutional documentary narration stays within the ten-minute word band'
   assert.ok(words.length>=1380 && words.length<=1420, `word count: ${words.length}`);
 });
 test('narration preserves required institutional and authority language',()=>{
-  assert.ok(narration.startsWith('Global Halal Supply Chain Limited, based in Hong Kong'));
+  assert.ok(narration.startsWith('Global Halal Supply Chain Ltd, based in Hong Kong'));
   const principle='Evidence before trust. Trust before operational release. Authority before certification.';
   assert.equal(narration.split(principle).length-1,2);
   assert.ok(narration.includes('AI/ML assists the people who award or revoke Halal certification.'));

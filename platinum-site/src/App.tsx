@@ -5,8 +5,7 @@ import { SmoothScroll } from "./components/motion/SmoothScroll";
 import { demoProduct, demoVerificationRecords, demoJourneyStages } from "./data/demoJourney";
 import { ProcessScene3D } from "./components/scene/ProcessScene3D";
 import { ProcessFlow3D } from "./components/scene/ProcessFlow3D";
-import brandMark from "../../ghscl-website/media/ghscl-favicon.png";
-import brandLockup from "../../ghscl-website/media/ghscl-multilingual.webp";
+import brandMark from "../../ghscl-website/media/company-logo.webp";
 const ScrollProgress = lazy(() => import("./components/motion/ScrollProgress").then(module => ({ default: module.ScrollProgress })));
 const TrustTerminal = lazy(() => import("./components/terminal/TrustTerminal").then(module => ({ default: module.TrustTerminal })));
 const VerificationJourney = lazy(() => import("./components/journey/VerificationJourney").then(module => ({ default: module.VerificationJourney })));
@@ -211,10 +210,10 @@ export default function App() {
       <a className="skip-link" href="#main">Skip to content</a>
 
       <header className="platinum-header glass">
-        <a className="identity" href="#top" aria-label="Global Halal Supply Chain Limited home">
+        <a className="identity" href="#top" aria-label="Global Halal Supply Chain Ltd home">
           <span className="identity-mark" aria-hidden="true"><img src={brandMark} alt="" /></span>
           <span className="identity-copy">
-            <strong>GLOBAL HALAL SUPPLY CHAIN LIMITED</strong>
+            <strong>GLOBAL HALAL SUPPLY CHAIN LTD</strong>
             <small>AMANAH · GLOBAL HALAL DIGITAL TRUST · HONG KONG</small>
           </span>
         </a>
@@ -333,7 +332,7 @@ export default function App() {
             </article>
             <article className="institution-card glass">
               <span>GHSCL HK</span>
-              <h3>Global Halal Supply Chain Limited</h3>
+              <h3>Global Halal Supply Chain Ltd</h3>
               <p>International operating and digital-infrastructure vehicle for China → GCC coordination and 24/7 Command Center operations.</p>
             </article>
             <article className="institution-card glass">
@@ -743,9 +742,9 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="platinum-footer"><img className="footer-lockup" src={brandLockup} alt="Global Halal Supply Chain Limited in English, Traditional Chinese and Arabic" />
+      <footer className="platinum-footer"><img className="footer-lockup" src={brandMark} alt="Global Halal Supply Chain Ltd company logo" />
         <div>
-          <strong>GLOBAL HALAL SUPPLY CHAIN LIMITED</strong>
+          <strong>GLOBAL HALAL SUPPLY CHAIN LTD</strong>
           <span>全球清真供應鏈有限公司 · سلسلة التوريد العالمية للحلال</span>
         </div>
       </footer>

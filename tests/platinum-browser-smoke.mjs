@@ -132,7 +132,7 @@ for (const width of viewports) {
     partners: Boolean(document.querySelector("#partners")),
     engage: Boolean(document.querySelector("#engage")),
     phc: document.body.textContent?.includes("Perak Halal Corporation") ?? false,
-    ghscl: document.body.textContent?.includes("Global Halal Supply Chain Limited") ?? false,
+    ghscl: document.body.textContent?.includes("Global Halal Supply Chain Ltd") ?? false,
     authorityTopology: document.body.textContent?.includes("AHTE ⇄ Direct JAKIM API ⇄ JAKIM") ?? false,
     finance: document.body.textContent?.includes("Islamic finance / Takaful") ?? false,
     corporateProfile: [...document.querySelectorAll('a[href*="corporate-profile.html"]')].length

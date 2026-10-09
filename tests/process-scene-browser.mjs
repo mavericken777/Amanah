@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import { pathToFileURL } from 'node:url';
+const { chromium } = await import(pathToFileURL(process.env.PLAYWRIGHT_MODULE).href);
+const browser = await chromium.launch({ headless: true, ...(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {}) });
+try {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto(process.env.PREVIEW_URL || 'http://127.0.0.1:4173/');
+  const scene = page.locator('.home-hero-process-scene');
+  await scene.locator('.process-scene-story').waitFor();
+  await scene.locator('img').evaluate(img => img.decode());
+  const photograph = await scene.locator('img').getAttribute('src');
+  assert.equal(await scene.getAttribute('data-scene-paused'), 'true');
+  const first = await scene.locator('.process-story-action').textContent();
+  await scene.locator('button').click();
+  await page.waitForFunction(() => document.querySelector('.home-hero-process-scene .process-scene-story')?.dataset.phase === '1');
+  assert.notEqual(await scene.locator('.process-story-action').textContent(), first);
+  await scene.locator('button').click();
+  const paused = await scene.locator('.process-story-action').textContent();
+  await page.locator('footer').scrollIntoViewIfNeeded();
+  assert.equal(await scene.locator('img').getAttribute('src'), photograph, 'scrolling away must preserve the photograph');
+  await scene.scrollIntoViewIfNeeded();
+  await scene.locator('.process-scene-story').waitFor();
+  assert.equal(await scene.locator('.process-story-action').textContent(), paused, 'scrolling must preserve the paused explanation');
+  assert.equal(await scene.locator('button').count(), 1, 'scroll return must not duplicate playback controls');
+  assert.equal(await scene.locator('img').evaluate(img => img.complete && img.naturalWidth > 0), true);
+  assert.deepEqual(errors, []);
+  console.log('Process scene playback, reduced motion and scroll lifecycle passed.');
+} finally { await browser.close(); }

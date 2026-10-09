@@ -2,7 +2,7 @@
 
 ## Current product
 
-Global Halal Supply Chain Limited operates the international digital infrastructure for Amanah and AHTE. The platform connects and continuously monitors certified premises and products/SKUs from China origin through GCC distribution and verification, including suppliers, materials, JAKIM-certified laboratories, audits, production, warehouses, logistics, ports and receiving.
+Global Halal Supply Chain Ltd operates the international digital infrastructure for Amanah and AHTE. The platform connects and continuously monitors certified premises and products/SKUs from China origin through GCC distribution and verification, including suppliers, materials, JAKIM-certified laboratories, audits, production, warehouses, logistics, ports and receiving.
 
 PHC and JAKIM work in parallel across Perak/state and federal Malaysian governance. JAKIM/JAIN/JAIM, muftis, scholars and authorised halal auditors decide certification award and revocation through their applicable processes. AI/ML assists with evidence monitoring, predictive analytics and preemptive strategies.
 

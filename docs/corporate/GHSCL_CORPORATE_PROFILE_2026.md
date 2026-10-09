@@ -1,11 +1,11 @@
-# Global Halal Supply Chain Limited — Master Corporate Profile 2026
+# Global Halal Supply Chain Ltd — Master Corporate Profile 2026
 
-**Status:** CONTROLLING CORPORATE PROFILE SOURCE  
-**Identity:** Global Halal Supply Chain Limited (GHSCL Hong Kong)  
-**Platform:** AMANAH — Global Halal Digital Trust  
-**Assurance engine:** AHTE — Amanah Halal Trust Engine  
-**Default corridor:** China → GCC direct  
-**Authority topology:** AHTE ⇄ Direct JAKIM API ⇄ JAKIM  
+**Status:** CONTROLLING CORPORATE PROFILE SOURCE
+**Identity:** Global Halal Supply Chain Ltd (GHSCL Hong Kong)
+**Platform:** AMANAH — Global Halal Digital Trust
+**Assurance engine:** AHTE — Amanah Halal Trust Engine
+**Default corridor:** China → GCC direct
+**Authority topology:** AHTE ⇄ Direct JAKIM API ⇄ JAKIM
 **Operating principle:** Evidence before trust. Trust before operational release.
 
 > This source controls the boardroom-grade corporate profile. It is not a technical summary. It is structured for external institutional, government, partner, investor, manufacturer, logistics and GCC-market engagement.
@@ -14,7 +14,7 @@
 
 ## 1. Executive profile
 
-Global Halal Supply Chain Limited (GHSCL Hong Kong) is the international operating and digital-infrastructure vehicle within the Global Halal Digital Trust Ecosystem.
+Global Halal Supply Chain Ltd (GHSCL Hong Kong) is the international operating and digital-infrastructure vehicle within the Global Halal Digital Trust Ecosystem.
 
 GHSCL coordinates the China-to-GCC operating corridor and connects manufacturers, suppliers, laboratories, logistics operators, ports/customs, importers, distribution and retail through the AMANAH platform and the AHTE trust and assurance engine.
 
@@ -24,7 +24,7 @@ GHSCL is designed as an operating layer for evidence continuity, cross-border as
 
 | Domain | Position |
 |---|---|
-| Identity | Global Halal Supply Chain Limited (GHSCL Hong Kong) |
+| Identity | Global Halal Supply Chain Ltd (GHSCL Hong Kong) |
 | Platform | AMANAH — Global Halal Digital Trust |
 | Assurance engine | AHTE — Amanah Halal Trust Engine |
 | Default corridor | China → GCC direct |
@@ -465,7 +465,7 @@ JAKIM, JAIN/JAIM, muftis, scholars and authorised halal auditors decide certific
 
 Amanah connects the evidence. GHSCL connects the ecosystem.
 
-Global Halal Supply Chain Limited is positioned as the international operating and digital-infrastructure vehicle for an end-to-end Halal digital trust ecosystem. Its strategic value lies in connecting institutions and commercial actors around one evidence model while keeping formal authority, sovereign release, scientific evidence, logistics execution and financial decisions in their proper domains.
+Global Halal Supply Chain Ltd is positioned as the international operating and digital-infrastructure vehicle for an end-to-end Halal digital trust ecosystem. Its strategic value lies in connecting institutions and commercial actors around one evidence model while keeping formal authority, sovereign release, scientific evidence, logistics execution and financial decisions in their proper domains.
 
 The result is a platform and operating model designed to make cross-border Halal trade more inspectable, coordinated and responsive — from China-origin manufacturer readiness to GCC receiving, distribution and verification.
 

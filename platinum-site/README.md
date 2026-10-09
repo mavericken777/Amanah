@@ -1,6 +1,6 @@
 # Amanah public website
 
-This Vite + TypeScript application builds the public Global Halal Supply Chain Limited website and its connected platform-tour pages. The protected Amanah application remains at the repository root.
+This Vite + TypeScript application builds the public Global Halal Supply Chain Ltd website and its connected platform-tour pages. The protected Amanah application remains at the repository root.
 
 ## Current experience
 

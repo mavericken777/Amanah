@@ -2,12 +2,12 @@
 
 ## Identity
 
-- Company: **GLOBAL HALAL SUPPLY CHAIN LIMITED**.
+- Company: **GLOBAL HALAL SUPPLY CHAIN LTD**.
 - Platform: **AMANAH · GLOBAL HALAL DIGITAL TRUST**.
 - Chinese identity: 全球清真供應鏈有限公司.
 - Arabic identity: سلسلة التوريد العالمية للحلال.
 
-Use the company name in the primary brand. Use the compact route-node mark as the logo. The homepage hero must remain free of an oversized shield or ornamental centerpiece.
+Use the supplied gold-and-black shield artwork as the company logo in a restrained brand-lockup size. Pair it with the exact company name. Keep the homepage hero focused on the information-bearing supply-chain scene; do not place an oversized shield or ornamental centerpiece.
 
 ## Visual system
 
@@ -20,6 +20,26 @@ Use the company name in the primary brand. Use the compact route-node mark as th
 ## Public media
 
 Site assets are concept illustrations unless identified as actual records. Illustrative scenes must not be presented as photographs of real facilities, live authority systems, or current transactions. Do not publish personal or transaction identifiers in media captions or fixtures.
+
+### Cinematic process sequence
+
+The public journey uses nine optimized photographic scenes. The supplied `scene-origin`, `scene-market`, `pic1` panorama, `scene-assurance`, and `scene-logistics` references are retained. Four additional scenes were generated to carry missing operating chapters. All images live in `platinum-site/public/assets/`; the production build promotes them into the public site and Vercel trust journey.
+
+| Scene | Source | Journey use |
+| --- | --- | --- |
+| `scene-origin.webp` | Supplied | Producer, facility, production |
+| `scene-onboarding.webp` | Generated | Organisation, product/SKU, suppliers and materials |
+| `scene-assurance.webp` | Supplied | Applicable requirements, human audit/CAPA, authority interface |
+| `scene-lab.webp` | Generated | Sample, laboratory method/QC, signed evidence |
+| `scene-warehouse.webp` | Generated | Origin and destination controlled storage |
+| `scene-logistics.webp` | Supplied | Sinotrans custody, vehicle/container, ports and transit |
+| `scene-market.webp` | Supplied | GCC receiving, distribution, retail and consumer verification |
+| `scene-command-center.webp` | Generated | Continuous monitoring, exceptions and response |
+| `journey-panorama.webp` | Supplied `pic1` | Corridor overview and landing hero |
+
+The generated-scene creative brief is photorealistic 16:9 documentary imagery: human-scale workplaces, dark steel and warm practical light, restrained gold evidence lines, and legible actions at each handoff. Onboarding shows Chinese food-factory managers reviewing product and supplier records. Laboratory shows technical sample handling and a human reviewer. Warehouse shows accountable receiving, segregated pallets and inventory handling. Command Center shows operators reviewing a left-to-right evidence chain and exception signals. The prompts exclude readable invented data, company or authority seals, and claims of live system connections.
+
+The website animates these still scenes with restrained camera drift, stage-synchronized crossfades and an evidence trace. The full 20-stage journey advances automatically or by the visitor's controls; selecting a stage changes its photograph immediately. Reduced-motion preferences stop decorative motion. These are animated concept scenes, not footage of real people or transactions.
 
 ## Product narrative
 

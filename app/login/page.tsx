@@ -39,7 +39,7 @@ export default function LoginPage() {
       <AuthStory />
       <div className="auth-panel">
         <div className="auth-card">
-          <img className="auth-crest" src="/ghscl-crest.svg" alt="Global Halal Supply Chain Limited crest" />
+          <img className="auth-crest" src="/company-logo.webp" alt="Global Halal Supply Chain Ltd company logo" />
           <div className="eyebrow">AMANAH WORKSPACE ACCESS</div>
           <h1>Enter Amanah.</h1>
           <p className="muted">Secure access to the operational workspace for evidence, controls, audits, approvals, monitoring, logistics and accountable decisions.</p>

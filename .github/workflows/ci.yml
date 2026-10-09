@@ -73,7 +73,7 @@ jobs:
         with:
           node-version: 22
       - name: Install platinum foundation dependencies
-        run: npm install --prefix platinum-site --package-lock=false --no-audit --no-fund
+        run: npm ci --prefix platinum-site --include=dev --no-audit --no-fund
       - name: Build platinum Vite foundation
         run: npm run build --prefix platinum-site
       - name: Validate Phase 0 CSS safeguards
@@ -97,7 +97,7 @@ jobs:
         with:
           node-version: 22
       - name: Install platinum dependencies
-        run: npm install --prefix platinum-site --package-lock=false --no-audit --no-fund
+        run: npm ci --prefix platinum-site --include=dev --no-audit --no-fund
       - name: Build platinum site
         run: npm run build --prefix platinum-site
       - name: Enforce bundle and asset budgets
@@ -122,6 +122,7 @@ jobs:
           node tests/platinum-browser-smoke.mjs
           node tests/platinum-mobile-smoke.mjs
           node tests/platinum-route-smoke.mjs
+          node tests/process-scene-browser.mjs
       - name: Install pinned Lighthouse CI
         run: npm install --prefix /tmp/platinum-lhci --no-audit --no-fund @lhci/cli@0.14.0
       - name: Capture Lighthouse baseline and enforce thresholds
