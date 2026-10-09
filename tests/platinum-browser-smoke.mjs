@@ -208,7 +208,7 @@ assert.equal(await page.evaluate(() => document.documentElement.classList.contai
 await page.locator("#verification-journey").scrollIntoViewIfNeeded();
 await page.locator(".journey-3d-stage-list button").first().waitFor({ state: "attached" });
 assert.equal(await page.locator(".journey-3d-stage-list button").count(), 20, "Reduced-motion view must preserve all twenty selectable process stages");
-assert.match(await page.locator(".process-flow-note").textContent() ?? "", /reduced-motion preference/i, "reduced-motion guidance missing");
+assert.match(await page.locator(".process-flow-note").first().textContent() ?? "", /reduced-motion preference/i, "reduced-motion guidance missing");
 assert.equal(await page.locator(".static-shield").count(), 0, "Superseded hero shield must be absent");
 assert.equal(await page.locator(".halal-shield-stage canvas").count(), 0, "Hero must not render an oversized shield centerpiece");
 
