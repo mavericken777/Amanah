@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 
 const readinessAreas = [
   { id: "facility", number: "01", title: "Facility & scope", description: "Site identity, production lines, product scope and accountable contacts.", tasks: ["Confirm legal entity and site", "List production lines and SKUs", "Assign responsible owners"] },
@@ -93,7 +93,7 @@ export function ManufacturerWorkspace() {
         <div className="manufacturer-checker-layout">
           <aside className="manufacturer-readiness-score" aria-live="polite">
             <span className="manufacturer-score-label">CHECKLIST COMPLETION</span>
-            <div className="manufacturer-score-ring" style={{ "--completion": percent + "%" } as React.CSSProperties}><div><strong>{percent}<small>%</small></strong><span>{completed} / {totalTasks} items</span></div></div>
+            <div className="manufacturer-score-ring" style={{ "--completion": percent + "%" } as CSSProperties}><div><strong>{percent}<small>%</small></strong><span>{completed} / {totalTasks} items</span></div></div>
             <p>{percent === 100 ? "All checklist items have been marked. Review the underlying evidence before sharing." : "Mark an item only when the supporting record has been located and reviewed."}</p>
             <button type="button" className="manufacturer-reset" onClick={() => setChecked([])} disabled={completed === 0}>Reset checklist</button>
             <small className="manufacturer-local-note">Your selections stay in this page session and are not saved to your account.</small>
