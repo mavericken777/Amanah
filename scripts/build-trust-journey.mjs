@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 const site='ghscl-website';
-const assetVersion=process.env.RELEASE_HEAD||process.env.GITHUB_SHA||'local';
+const assetVersion=process.env.RELEASE_HEAD||process.env.GITHUB_SHA||process.env.VERCEL_GIT_COMMIT_SHA||'local';
 const data=JSON.parse(fs.readFileSync(`${site}/ecosystem.en.json`,'utf8'));
 const operatingSet=JSON.parse(fs.readFileSync('docs/ahte/MS_OPERATING_SET.json','utf8'));
 const escapeHtml=s=>String(s).replace(/[&<>\"]/g,ch=>({ '&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;' }[ch]));
