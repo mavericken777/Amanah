@@ -17,7 +17,7 @@ test('Pages privileged job only accepts this repository main push or main manual
  assert.equal(allowed(context('workflow_dispatch',run,'refs/heads/feature')),false);
 });
 
-test('deployed artifact verification compares 404 content, including HTTP 404 responses',()=>{
+test('deployed artifact verification covers supplemental routes and compares HTTP 404 content',()=>{
  const script=`
   import fs from 'node:fs';
   const visited=[];
@@ -28,7 +28,7 @@ test('deployed artifact verification compares 404 content, including HTTP 404 re
    return {ok:name!=='404.html',status:name==='404.html'?404:200,text:async()=>fs.readFileSync('ghscl-website/'+assetPath,'utf8')};
   };
   await import('./scripts/verify-pages-deployment.mjs');
-  if(!visited.includes('404.html'))throw new Error('Missing 404 verification');
+  for(const name of ['404.html','standards.html','ar.html','zh-Hant.html','zh-Hans.html','corporate-profile.html','visuals.html'])if(!visited.includes(name))throw new Error('Missing route verification: '+name);
  `;
  execFileSync(process.execPath,['--input-type=module','-e',script],{stdio:'pipe'});
  const corrupted=script.replace("fs.readFileSync('ghscl-website/'+assetPath,'utf8')","name==='404.html'?'wrong deployed error page':fs.readFileSync('ghscl-website/'+assetPath,'utf8')").replace('const visited=[];','const visited=[]; globalThis.setTimeout=fn=>fn();');

@@ -3,7 +3,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 const data=JSON.parse(fs.readFileSync('ghscl-website/ecosystem.en.json','utf8'));
 const root=new URL((process.env.PAGES_URL||data.baseUrl).replace(/\/?$/,'/'));
-const names=['index',...data.pages.map(p=>p.slug),'404'];
+const extraPages=JSON.parse(fs.readFileSync('platinum-site/data/extra-pages.json','utf8'));
+const names=[...new Set(['index',...data.pages.map(p=>p.slug),...extraPages.map(p=>p.slug),'zh-Hans','login/index','404'])];
 const release=process.env.RELEASE_HEAD||process.env.GITHUB_SHA||data.canonicalCommit;
 for(const name of names) {
  const expected=fs.readFileSync(`ghscl-website/${name}.html`,'utf8');
