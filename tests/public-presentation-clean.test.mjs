@@ -6,7 +6,7 @@ const read=p=>fs.readFileSync(p,'utf8');
 
 test('viewer-facing authentication and public shell hide engineering status chatter',()=>{
   const auth=read('components/auth-story.tsx');
-  const shell=read('scripts/refresh-ecosystem-shell.mjs');
+  const shell=read('scripts/build-ecosystem-site.mjs');
   assert.doesNotMatch(auth,/CONNECTOR:\s*PENDING AUTHORIZATION/i);
   assert.match(auth,/AUTHORITY CONNECTIVITY/i);
   assert.doesNotMatch(shell,/Platform foundations\s*·\s*Canonical/i);

@@ -24,7 +24,10 @@ for (const page of [...data.pages, ...extraPages]) {
   const locale = page.slug === "ar" ? "ar" : page.slug === "zh-Hant" ? "zh-Hant" : "en";
   html = html.replace("assets/journey-panorama.webp", "assets/" + sceneImage(inferKind(page.slug)));
   html = html.replace(/<html[^>]*>/, '<html lang="' + locale + '"' + (locale === "ar" ? ' dir="rtl"' : "") + '>');
-  html = html.replace('<div id="root"></div>', '<div id="root">' + renderPage(page.slug) + '</div>');
+  const canonical=data.baseUrl+page.slug+'.html';
+  const metadata='<link rel="canonical" href="'+canonical+'"><meta property="og:title" content="'+escapeHtml(title)+'"><meta property="og:url" content="'+canonical+'"><script type="application/ld+json">'+JSON.stringify({'@context':'https://schema.org','@type':'WebPage',name:title,url:canonical,inLanguage:locale}).replaceAll('<','\\u003c')+'</script>';
+  html=html.replace('</head>',metadata+'</head>');
+  html = html.replace('<div id="root"></div>' , '<div id="root">' + renderPage(page.slug) + '</div>');
   fs.writeFileSync(path.join(root, "dist", `${page.slug}.html`), html);
 }
 

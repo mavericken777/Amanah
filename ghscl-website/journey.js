@@ -7,7 +7,7 @@ const journey = {
     ['Product & SKU','Product owner','Product workspace','Create product, SKU, formulation, packaging, destination and change-control relationships.','Product record, SKU, formulation/BOM, packaging and market scope','Keep product identity stable across audit, production, logistics and market receiving.','INITIAL','Manufacturer'],
     ['Supplier & materials','Procurement / assurance team','Supplier network','Connect ingredients and raw materials to approved suppliers, origin, lots, certificates and supporting evidence.','Supplier graph, ingredient/raw-material links, lot provenance and current evidence','Expose substitutions, expired evidence and high-risk material changes before production.','INITIAL','Supplier network'],
     ['Standards & applicability','Assurance team','Standards workspace','Resolve the complete applicable Malaysian/JAKIM framework and destination requirements for the actual product, process and market.','Applicable instruments, controls, HCP/SCCP and evidence obligations','Turn standards into operational controls instead of a generic certificate check.','EVIDENCE-COMPLETE','Assurance team'],
-    ['Laboratory evidence','Laboratory reviewer','Laboratory','Bind sample identity, seal, chain of custody, method, QC, technical review and signed report to the product and batch.','Sample record, custody, method/QC context, reviewed result and signed report','Scientific evidence supports assurance; it does not independently certify Halal status.','EVIDENCE-COMPLETE','Laboratory'],
+    ['Laboratory evidence','Laboratory reviewer','National Food Safety (Hengqin) Innovation Center under Chinese Academy of Agricultural Sciences, China.','Bind sample identity, seal, chain of custody, method, QC, technical review and signed report to the product and batch.','Sample record, custody, method/QC context, reviewed result and signed report','Scientific evidence supports assurance; it does not independently certify Halal status.','EVIDENCE-COMPLETE','Laboratory'],
     ['Smart audit & CAPA','Human auditor','Manufacturer facility','Guide the assigned auditor through scoped controls, capture attributable evidence, record findings and close CAPA through re-verification.','Audit scope, observations, media, findings, corrective action, re-verification and signed session','AI assists the audit; the human auditor owns findings and conclusions.','ASSESSED','Human auditor'],
     ['JAKIM interface','JAKIM integration','Authority-connected workflow','Present the complete evidence context through the authority-connectivity path and retain the independently owned issuer record.','Evidence dossier, authority submission reference and issuer status','Product, evidence and operating information remain visible in the journey record.','ASSESSED','Issuing organisation'],
     ['Controlled production','Manufacturer production / quality','Production line','Bind approved inputs, line status, cleaning, operator competence, process events and batch genealogy during production.','Material consumption, process events, cleaning evidence, line and batch links','Continuous evidence carries the approved product scope into the actual production run.','ASSESSED','Manufacturer'],
@@ -52,6 +52,9 @@ const journey = {
 
 if (typeof document !== 'undefined') {
   const $ = id => document.getElementById(id);
+  const incidentEvents=[];
+  let incidentSequence=0;
+  const logIncident=(action)=>{incidentEvents.push({action,time:new Date().toLocaleTimeString(),sequence:++incidentSequence});};
   let index = 0, mode = 'Journey', auditStep = 0, labStep = 0, exception = null, lastExceptionResolution = '', recordTab = 'Overview', monitorView = 'Map';
   let playing = !window.matchMedia('(prefers-reduced-motion: reduce)').matches, timer = null, countdownTimer = null, playbackSpeed = 1, stageStartedAt = 0;
   const element = (tag, text, cls) => { const el = document.createElement(tag); el.textContent = text; if (cls) el.className = cls; return el; };
@@ -62,7 +65,7 @@ if (typeof document !== 'undefined') {
   function renderRecord() {
     const s = journey.stages[index];
     const views = {
-      Overview: [['Product',journey.product],['Route','China → GCC direct'],['Current stage',s[0]],['Accountable owner',s[7]],['Connected stages',String(index+1)+' of '+journey.stages.length],['Trust state',exception ? 'HOLD' : s[6]],['Authority state','Independently owned'],['Operational state','Managed by accountable operator']],
+      Overview: [['Product',journey.product],['Route','China → GCC direct'],['Current stage',s[0]],['Accountable owner',s[7]],['Connected stages',String(index+1)+' of '+journey.stages.length],['Incident events',String(incidentEvents.length)],['Exception state',exception?exception.phase:(lastExceptionResolution?'RE-VERIFIED':'CLEAR')],['Trust state',exception ? 'HOLD' : (lastExceptionResolution?'RE-VERIFIED':s[6])],['Authority state','Independently owned'],['Operational state',exception?'QUARANTINED · onward release blocked':'Managed by accountable operator']],
       Identity: [['Product',journey.product],['Current object',s[0]],['Origin','China'],['Destination','GCC'],['Accountable owner',s[7]]],
       Audit: [['Current checkpoint',journey.audit[auditStep]],['Actor','Human auditor'],['Outcome','Auditor assessment and signed evidence'],['Authority decision','Separate competent-authority workflow']],
       Lab: [['Current step',journey.lab[labStep]],['Product link','Exact product and production batch'],['Method / QC','Applicable laboratory method and quality controls'],['Meaning','Reviewed scientific evidence supports assurance; it does not independently certify Halal']],
@@ -88,7 +91,7 @@ if (typeof document !== 'undefined') {
       ['LIVE STATUS UPDATE','Record the decision and update connected monitoring and assurance records','End-to-end assurance']
     ];
     host.replaceChildren();
-    const heading=element('h3','Continuous assurance and certification workflow');
+    const heading=element('h3','D0–D6 · Continuous assurance and certification workflow');
     const grid=element('div','', 'governance-levels');
     levels.forEach(([level,description,owner])=>{
       const card=element('article','', 'governance-level');
@@ -97,7 +100,11 @@ if (typeof document !== 'undefined') {
       if(exception&&level==='PREEMPTIVE STRATEGY')card.setAttribute('aria-current','step');
       grid.append(card);
     });
-    host.append(heading,grid,element('p','AI/ML continuously supports monitoring, prediction and preemptive strategies. Certification is awarded or revoked by JAKIM / JAIN / JAIM, muftis, scholars and authorised halal auditors.'));
+    const decisions=element('div','', 'governance-levels');
+    const decisionLevels=[['D0','Event ingestion','Automated systems'],['D1','Validate applicable rules','Rules engine'],['D2','Check evidence and visual observations','AI assistance'],['D3','Recommend actions for review','Human review'],['D4','Apply configured protective hold','Configured control'],['D5','Certification award or revocation','Competent authority'],['D6','Customs disposition and legal release','Sovereign / authorised human']];
+    decisionLevels.forEach(([level,purpose,owner])=>{const card=element('article','', 'governance-level');card.append(element('strong',level),element('span',purpose),element('small',owner));if(exception&&level==='D4')card.classList.add('active');decisions.append(card);});
+    host.append(heading,grid,decisions,element('p','AI assists. Humans and competent authorities decide. Certification is awarded or revoked by JAKIM / JAIN / JAIM, muftis, scholars and authorised halal auditors.'));
+
   }
 
   function renderExceptionState() {
@@ -107,10 +114,12 @@ if (typeof document !== 'undefined') {
     $('playJourney').disabled=Boolean(exception);
     $('restartJourney').disabled=Boolean(exception);
     [...$('exceptionButtons').children].forEach(button=>{button.disabled=Boolean(exception);});
+    const ledger=$('incidentLedger');
+    if(ledger){ledger.replaceChildren();incidentEvents.forEach(event=>ledger.append(element('p',String(event.sequence).padStart(2,'0')+' · '+event.time+' · '+event.action)));}
     if(exception){
       host.append(element('strong','Operational response · '+exception.type));
       host.append(element('p','Monitoring has flagged an exception at stage '+String(exception.stage+1)+'. The accountable team reviews evidence, resolves the issue and records the outcome.'));
-      host.append(element('p','The walkthrough shows how a detected issue moves through investigation, corrective action and re-verification while the certification decision remains with authorised human decision makers.'));
+      host.append(element('p','Containment prevents onward allocation. Investigation follows source evidence, corrective action resolves the cause, and reviewed re-verification establishes the next operating status.'));
       const path=element('ol','', 'exception-response-path');
       [['HOLD','Configured hold'],['INVESTIGATION','Investigation'],['CORRECTIVE-ACTION','Corrective action'],['RE-VERIFICATION','Re-verification']].forEach(([phase,label])=>{
         const item=element('li',label);
@@ -122,20 +131,27 @@ if (typeof document !== 'undefined') {
       const tree=element('ul','', 'recall-tree');
       const root=element('li','Current product and batch identity');
       const branches=element('ul');
-      ['Shipment and custody events','Importer inventory and destination warehouse','Distributor transfers and deliveries','Retail stock and affected orders'].forEach(label=>branches.append(element('li',label)));
+      ['Shipment and custody events · container / seal lineage','Importer inventory and destination warehouse · receiving lots','Distributor transfers and deliveries · allocation lineage','Retail stock and affected orders · store / order lineage'].forEach(label=>branches.append(element('li',label)));
       root.append(branches);tree.append(root);
-      radius.append(title,tree,element('p','Exact lots, quantities and recipients must come from linked records; this walkthrough does not invent identifiers or affected counts.'));
+      radius.append(title,tree,element('p','The source batch links shipment, receiving lot, distributor allocation and retail order. Affected stock stays quarantined until its disposition is recorded; unaffected inventory retains its own status.'));
       const phases=['HOLD','INVESTIGATION','CORRECTIVE-ACTION','RE-VERIFICATION'];
       const labels=['Record investigation','Record corrective action','Complete re-verification','Finish response walkthrough'];
       const at=phases.indexOf(exception.phase);
       const action=element('button',labels[Math.max(0,at)]);
       action.type='button';
       action.addEventListener('click',()=>{
-        if(at<3){exception.phase=phases[at+1];renderExceptionState();render();return;}
+        if(at<3){exception.phase=phases[at+1];logIncident(exception.type+' · '+exception.phase);renderExceptionState();render();return;}
         lastExceptionResolution='Re-verification recorded. The resulting operating status is shown; authorised human decision makers retain certification decisions.';
+        logIncident('Reviewed re-verification recorded · operational hold closed · certification decision retained by authority');
         exception=null;renderExceptionState();render();updatePlayback();
       });
-      actions.append(action);
+      if(exception.phase==='RE-VERIFICATION'){
+        const label=element('label','');const check=document.createElement('input');check.type='checkbox';
+        label.append(check,element('span','Confirm corrective evidence, repeat checks and accountable reviewer record'));
+        action.disabled=true;check.addEventListener('change',()=>{action.disabled=!check.checked;});actions.append(label);
+      }
+      const recall=element('button','Trace recall to source');recall.type='button';recall.addEventListener('click',()=>{logIncident('Recall · source batch → shipment → importer lot → distributor allocations → retail stock and orders');radius.append(element('p','Recall propagation recorded. Source, transit and destination owners receive the same affected-lot lineage.'));recall.disabled=true;renderRecord();const ledger=$('incidentLedger');if(ledger){ledger.replaceChildren();incidentEvents.forEach(event=>ledger.append(element('p',event.sequence+' · '+event.time+' · '+event.action)));}});
+      actions.append(action,recall);
       clear.disabled=true;
     }else{
       host.textContent=lastExceptionResolution||'Select a scenario to follow live monitoring, investigation and corrective action.';
@@ -275,7 +291,7 @@ if (typeof document !== 'undefined') {
   buttons($('custodyRibbon'),['Manufacturer','Sinotrans / logistics','Warehouse','Port','Carrier','Importer','Distributor','Retailer'],(i,actor)=>{fields($('custodyDetail'),[['Outgoing',i?$('custodyRibbon').children[i-1].textContent:'Origin'],['Incoming',actor],['Evidence','Attributable transfer, object identity and condition record'],['Control','Custody remains linked to the same product / batch / shipment lineage']]);pulse('custodyDetail');});
   buttons($('portNodes'),['Pre-arrival','Container / seal','Documents','Inspection','Authority response','Custody transfer'],(_,node)=>{fields($('portDetail'),[['Checkpoint',node],['Actor','Port / customs authority'],['Action','Reconcile scoped identity and authorised evidence'],['Result','Authority-owned border decision'],['Trust impact','Trust, authority and customs states remain separate']]);pulse('portDetail');});
   buttons($('monitorViews'),['Map','Timeline','Custody','Evidence','Exceptions'],(_,view)=>{monitorView=view;renderMonitor();});
-  buttons($('exceptionButtons'),['Temperature excursion','Seal tamper','Laboratory evidence discrepancy','Missing custody event','Document mismatch','Route deviation'],(_,v)=>{pause();exception={type:v,phase:'HOLD',stage:index};lastExceptionResolution='';renderExceptionState();render();});
+  buttons($('exceptionButtons'),['Temperature excursion','Seal tamper','Laboratory evidence discrepancy','Missing custody event','Document mismatch','Route deviation'],(_,v)=>{pause();exception={type:v,phase:'HOLD',stage:index};logIncident(v+' · D4 configured hold · onward movement quarantined');lastExceptionResolution='';renderExceptionState();render();});
   $('resetException').addEventListener('click',()=>{if(exception)return;lastExceptionResolution='';renderExceptionState();render();});
   buttons($('actorButtons'),journey.actors.map(a=>a[0]),i=>fields($('actorDetail'),[['Role',journey.actors[i][0]],['Creates / consumes',journey.actors[i][1]],['Value and responsibility',journey.actors[i][2]]]));
   buttons($('architectureButtons'),journey.layers.map(a=>a[0]),i=>fields($('architectureDetail'),[['Layer',journey.layers[i][0]],['Purpose',journey.layers[i][1]],['Journey dependency',journey.layers[i][2]]]));

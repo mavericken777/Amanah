@@ -73,3 +73,12 @@ linear-gradient(180deg,var(--obsidian-base),oklch(.08 .004 260));color:var(--tex
 
 .secondary-footer nav{gap:.45rem .7rem}
 .secondary-footer nav a{display:inline-flex;align-items:center;min-height:28px;padding:.35rem .3rem}
+
+.secondary-shell[dir=rtl] .process-scene-story,.secondary-shell[dir=rtl] .process-flow-steps button{text-align:right}
+.secondary-shell[dir=rtl] .secondary-topology{direction:ltr;justify-content:flex-end}
+.secondary-shell[dir=rtl] .secondary-hero h1{max-width:20ch;line-height:1.25;letter-spacing:normal}
+.secondary-shell[lang=zh-Hant] .secondary-hero h1{max-width:16ch;line-height:1.3;letter-spacing:normal}
+.secondary-technical{margin:20px 0;border-top:1px solid #625334;padding-top:16px;line-height:1.7}.secondary-technical summary{cursor:pointer;color:#edcf87}
+.secondary-shell[dir=rtl] .secondary-route-panel{right:auto;left:0}
+
+.issuer-verification{display:grid;gap:12px;margin:24px 0}.issuer-verification input{width:100%;min-height:48px;padding:12px;background:#121310;color:#fff2d9;border:1px solid #b99a5b;border-radius:4px;font:inherit}.issuer-verification button{justify-self:start}.issuer-verification label{font-weight:700}

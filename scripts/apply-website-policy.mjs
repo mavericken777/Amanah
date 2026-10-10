@@ -25,7 +25,7 @@ const replacements = new Map([
   ],
   [
     'The Amanah application is deployed and available through its sign-in page. Full operating scope brings together the modules described here.',
-    'The Amanah application entry point is published for the operational workspace. Full operating scope brings together the modules described here; actual production activation depends on the relevant deployment, credentials and partner/authority authorizations.'
+    'Amanah brings product identity, evidence, custody and accountable operating workflows into one connected workspace.'
   ],
   [
     'Start with the deployed workspace. Connect your operating environment.',

@@ -58,7 +58,7 @@ try {
   assert.match(await page.locator('#exceptionBlastRadius').textContent(),/importer inventory.*distributor transfers.*retail stock/i);assert.equal(await page.locator('#exceptionBlastRadius ul li').count(),5,'recall scope branches from the affected product identity');
   assert.match(await page.locator('#governanceMatrix').textContent(),/CONTINUOUS MONITORING.*AI \/ ML ANALYSIS.*PREDICTIVE INSIGHT.*PREEMPTIVE STRATEGY.*HUMAN CERTIFICATION DECISION.*LIVE STATUS UPDATE/s);
   await page.locator('#passportTabs button').filter({hasText:'Overview'}).click();assert.match(await page.locator('#passportBody').textContent(),/HOLD/);
-  for(const action of ['Record investigation','Record corrective action','Complete re-verification','Finish response walkthrough'])await page.locator('#exceptionActions button').filter({hasText:action}).click();
+  for(const action of ['Record investigation','Record corrective action','Complete re-verification','Finish response walkthrough']){if(action==='Finish response walkthrough'){assert.equal(await page.locator('#exceptionActions button').filter({hasText:action}).isEnabled(),false);await page.locator('#exceptionActions input[type=checkbox]').check();}await page.locator('#exceptionActions button').filter({hasText:action}).click();}
   assert.match(await page.locator('#exceptionState').textContent(),/authorised human decision makers/i);
   assert.match(await page.locator('#monitorPanel').textContent(),/Re-verification recorded/);
   await page.locator('#resetException').click();assert.match(await page.locator('#monitorPanel').textContent(),/No exception selected/);

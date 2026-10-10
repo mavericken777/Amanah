@@ -1,57 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { createHash } from 'node:crypto';
-
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const site = path.join(root, 'ghscl-website');
-const data = JSON.parse(fs.readFileSync(path.join(site, 'ecosystem.en.json'), 'utf8'));
-const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const m = data.messages;
-function atomicWrite(file, content) {
-  const tmp = file + '.tmp-' + process.pid;
-  fs.writeFileSync(tmp, content);
-  fs.renameSync(tmp, file);
-}
-const sourceUrl = p => `https://github.com/mavericken777/GlobalHalalDigitalTrust/blob/${data.canonicalCommit}/${p}`;
-function protect(html) {
-  html=html.replace(/<meta http-equiv="Content-Security-Policy"[^>]*>/g,'');
-  const hashes=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].filter(m=>m[1].trim()).map(m=>`'sha256-${createHash('sha256').update(m[1]).digest('base64')}'`);
-  const policy=`default-src 'self'; script-src 'self' ${hashes.join(' ')}; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://lqvyyylrydcpjochknag.supabase.co; object-src 'none'; base-uri 'self'; form-action 'none'`;
-  return html.replace('</head>',`<meta http-equiv="Content-Security-Policy" content="${policy}"></head>`);
-}
-function nav(current) {
-  return `<header class="site-header"><a class="site-brand" href="index.html"><img src="media/company-logo.webp" width="40" height="40" alt=""><span>${esc(m.brand)}<small>${esc(m.operator)}</small></span></a><details class="site-menu"><summary>${esc(m.menu)}</summary><nav aria-label="Primary">${data.navigation.map(([url,label])=>`<a href="${url}"${current===url?' aria-current="page"':''}>${esc(label)}</a>`).join('')}</nav></details><a class="site-start" href="login/index.html">${esc(m.onboard)}</a></header>`;
-}
-function footer() {
-  return `<footer class="site-footer"><div><img src="media/company-logo.webp" width="40" height="54" alt="Global Halal Supply Chain Ltd company logo"><p>${esc(m.principle)}</p><p>Continuous monitoring connects certification decisions, product evidence and custody from origin to destination.</p></div><nav aria-label="Footer">${data.navigation.map(([u,l])=>`<a href="${u}">${esc(l)}</a>`).join('')}</nav></footer>`;
-}
-function meta(title,description,url) {
-  return `<title>${esc(title)} | Global Halal Digital Trust</title><meta name="description" content="${esc(description)}"><meta name="referrer" content="no-referrer"><meta name="ghdt-source-commit" content="${data.canonicalCommit}"><link rel="canonical" href="${data.baseUrl+url}"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${data.baseUrl+url}"><meta property="og:image" content="${data.baseUrl}media/architecture.webp"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',name:title,description,url:data.baseUrl+url,inLanguage:data.locale}).replace(/</g,'\\u003c')}</script>`;
-}
-function section(s) {
-  return `<section class="content-section" id="${esc(s.id)}"><div class="section-intro"><span class="site-kicker">${esc(s.id.replaceAll('-',' '))}</span><h2>${esc(s.title)}</h2></div><div class="section-body">${s.text?`<p class="section-lead">${esc(s.text)}</p>`:''}${s.flow?`<ol class="system-flow">${s.flow.map(v=>`<li>${esc(v)}</li>`).join('')}</ol>`:''}${s.cards?`<div class="entity-grid">${s.cards.map(([h,p])=>`<article class="entity-card"><h3>${esc(h)}</h3><p>${esc(p)}</p></article>`).join('')}</div>`:''}${s.detail?`<details class="technical"><summary>${esc(m.technical)}</summary><p>${esc(s.detail)}</p></details>`:''}${s.link?`<a class="text-link" href="${esc(s.link[0])}">${esc(s.link[1])} ↗</a>`:''}</div></section>`;
-}
-function interactive(kind) {
-  if(!kind) return '';
-  const graph = `<section class="interactive-panel" id="explorer"><div><span class="site-kicker">EXPLORE THE CONNECTED PLATFORM</span><h2>See how the whole journey connects.</h2><p>Explore the relationships between products, facilities, evidence and responsible teams across the operating lifecycle.</p></div><div class="graph-layout"><div class="graph-nodes" id="graphNodes"></div><article class="graph-detail" id="graphDetail" aria-live="polite"></article></div></section>`;
-  if(kind==='graph'||kind==='journey') return graph;
-  if(kind==='chains') return `<section class="interactive-panel" id="chainExplorer"><span class="site-kicker">FOUR SYNCHRONIZED CHAINS · ARCHITECTURE</span><h2>Follow the chain that answers your question.</h2><div class="chain-buttons" id="chainButtons"></div><div id="chainDetail" aria-live="polite"></div></section>`;
-  if(kind==='audit') return `<section class="interactive-panel" id="auditDemo"><span class="site-kicker">SMART AUDIT WALKTHROUGH</span><h2>From object scan to human assessment.</h2><p>Follow the evidence obligations from object scan through accountable human assessment.</p><div class="audit-layout"><div class="audit-scene"><img src="media/architecture.webp" width="1536" height="864" alt="Smart audit facility workflow" loading="lazy"><div class="audit-hud"><span>SMART-GLASS AUDIT VIEW</span><strong id="auditStage"></strong><p id="auditObservation"></p></div></div><article class="audit-evidence"><h3 id="auditTitle"></h3><p id="auditText" aria-live="polite"></p><dl><dt>Session</dt><dd>Auditor evidence session</dd><dt>Evidence / integrity</dt><dd id="auditProof"></dd><dt>Decision actor</dt><dd>Halal auditors, scholars and authorised certification reviewers</dd></dl><div class="button-row"><button type="button" id="auditPrevious">Previous</button><button type="button" id="auditNext">Next step</button><button type="button" id="auditReset">Restart</button></div></article></div><ol id="auditSteps" class="audit-steps"></ol></section>`;
-  if(kind==='onboarding') return `<section class="interactive-panel" id="onboarding"><span class="site-kicker">MANUFACTURER READINESS</span><h2>Start Manufacturer Onboarding</h2><p>Prepare the identity, facility, product, supplier, material and evidence information required for structured manufacturer onboarding.</p><div id="onboardingChecklist" class="readiness-grid"></div><p id="readinessSummary" role="status"></p><button type="button" id="downloadReadiness">Download preparation brief</button></section>`;
-  if(kind==='verify') return `<section class="interactive-panel" id="verification"><span class="site-kicker">ISSUER-AUTHORIZED DISCLOSURE</span><h2>Verify a product, batch or shipment disclosure</h2><form id="verificationForm"><label for="verificationToken">Verification token or authorized QR link</label><input id="verificationToken" name="token" type="text" required minlength="32" maxlength="2048" autocomplete="off" spellcheck="false" placeholder="Paste the issuer-provided token or link"><p class="form-help">Product, batch and shipment IDs require an issuer-authorized disclosure token. This form cannot search private factory records. The token is sent only to the existing AHTE verification service.</p><button type="submit" id="verifyButton">Verify disclosure</button></form><div id="verificationResult" role="status" aria-live="polite"><p>No record requested.</p></div><noscript><p>Enable JavaScript to request an authorized disclosure. The architecture and access boundaries above remain readable.</p></noscript></section>`;
-  if(kind==='contact') return `<section class="interactive-panel" id="enquiry"><span class="site-kicker">PARTNERSHIP ENQUIRY</span><h2>Prepare your next conversation</h2><form id="enquiryForm"><label for="enquiryRole">Your workstream</label><select id="enquiryRole"><option>Manufacturer onboarding</option><option>Laboratory integration</option><option>Sinotrans / logistics / warehouse</option><option>Port / customs integration</option><option>Institutional / direct JAKIM API</option><option>Shariah finance / Takaful</option></select><label for="enquiryScope">Scope and next step</label><textarea id="enquiryScope" rows="5" maxlength="4000" placeholder="Describe your product category, target market and requested next step. Exclude confidential records and credentials."></textarea><button type="submit">Download enquiry brief</button></form><p id="enquiryStatus" role="status">Build a concise partnership brief for the relevant workstream.</p></section>`;
-  return '';
-}
-for(const page of data.pages) {
-  const url=page.slug+'.html';
-  const html=`<!doctype html><html lang="${data.locale}" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08090b">${meta(page.label,page.description,url)}<link rel="icon" href="media/company-logo.webp"><link rel="stylesheet" href="ecosystem.css"><link rel="stylesheet" href="premium.css"></head><body data-page="${page.slug}"><a class="skip-link" href="#main">${esc(m.skip)}</a>${nav(url)}<main id="main"><section class="page-hero"><div><span class="site-kicker">${esc(page.label)}</span><h1>${esc(page.title)}</h1><p>${esc(page.description)}</p><div class="marketing-actions"><a class="marketing-primary" href="https://amanah-yq9x.vercel.app/login">Open Amanah ↗</a><a href="contact.html#enquiry">Plan your platform rollout ↗</a></div><span class="architecture-label">${esc(m.architecture)}</span></div><img src="media/${page.image}" width="1536" height="864" alt="Concept visualization of ${esc(page.label.toLowerCase())}" fetchpriority="high"></section><nav class="page-index" aria-label="On this page">${page.sections.map(s=>`<a href="#${s.id}">${esc(s.title)}</a>`).join('')}${page.interactive?'<a href="#'+({graph:'explorer',journey:'explorer',audit:'auditDemo',chains:'chainExplorer',onboarding:'onboarding',verify:'verification',contact:'enquiry'}[page.interactive])+'">Explore / prepare</a>':''}</nav>${page.sections.map(section).join('')}${interactive(page.interactive)}<aside class="source-panel public-framework"><h2>How this capability connects</h2><p>This workflow is linked to AMANAH standards, evidence, authority, custody and governance controls so viewers can understand the operating process without internal engineering metadata.</p></aside><section class="related"><span class="site-kicker">${esc(m.related)}</span>${page.related.map(slug=>{const p=data.pages.find(x=>x.slug===slug);return `<a href="${slug}.html">${esc(p.label)} ↗</a>`}).join('')}</section></main>${footer()}<script src="ecosystem.js" defer></script><script src="premium.js" defer></script></body></html>\n`;
-  atomicWrite(path.join(site,url),protect(html));
-}
-// The controlling brief owns the homepage; secondary pages retain their structured source.
-const urls=['index.html',...data.pages.map(p=>p.slug+'.html')];
-atomicWrite(path.join(site,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u=>`<url><loc>${data.baseUrl+u}</loc></url>`).join('')}</urlset>\n`);
-atomicWrite(path.join(site,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${data.baseUrl}sitemap.xml\n`);
-console.log(`Built ${data.pages.length} ecosystem pages and upgraded homepage to V7.`);
-
+const site='ghscl-website';
+const dist='platinum-site/dist';
+const data=JSON.parse(fs.readFileSync(`${site}/ecosystem.en.json`,'utf8'));
+if(!fs.existsSync(`${dist}/assets/process-scene.js`))throw new Error('Build the public application before publishing its routes.');
+for(const name of fs.readdirSync(dist).filter(name=>name.endsWith('.html')&&name!=='index.html'))fs.copyFileSync(path.join(dist,name),path.join(site,name));
+const urls=['index.html',...fs.readdirSync(dist).filter(name=>name.endsWith('.html')&&name!=='index.html'),'login/index.html'];
+fs.writeFileSync(`${site}/sitemap.xml`,'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(url=>`<url><loc>${data.baseUrl}${url}</loc></url>`).join('')+'</urlset>');
+fs.writeFileSync(`${site}/robots.txt`,`User-agent: *\nAllow: /\nSitemap: ${data.baseUrl}sitemap.xml\n`);
 await import('./build-trust-journey.mjs');
+console.log('Published one canonical journey and shared public route renderer.');
