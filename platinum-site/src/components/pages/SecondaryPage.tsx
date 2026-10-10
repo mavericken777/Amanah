@@ -45,7 +45,7 @@ export function SecondaryPage({ pathname = window.location.pathname }: { pathnam
           <div className="hero-actions"><a className="button-primary" href="https://amanah-yq9x.vercel.app/login">{words.open}</a><a className="button-secondary" href="contact.html">{words.plan}</a></div>
           <div className="secondary-topology">AHTE ⇄ Direct JAKIM API ⇄ JAKIM <span>·</span> {chinese?"中國 → GCC 直達":slug==="ar"?"الصين إلى الخليج مباشرة":"China → GCC direct"}</div>
         </div>
-        <div className="secondary-hero-scene"><ProcessScene3D mode={slug} stage={`${page.label} · China origin to GCC destination`} className="secondary-page-scene" overviewOnly /></div>
+        <div className="secondary-hero-scene"><ProcessScene3D mode={slug} stage={chinese?"中國來源至 GCC 目的地":slug==="ar"?"من الصين إلى أسواق الخليج":`${page.label} · China origin to GCC destination`} className="secondary-page-scene" overviewOnly /></div>
       </section>
       <nav className="secondary-index" aria-label={words.index}>{page.sections.map(section=><a key={section.id} href={"#"+section.id}>{section.title}</a>)}</nav>
       {page.sections.map((section,index)=><section className="secondary-section" id={section.id} key={section.id}>

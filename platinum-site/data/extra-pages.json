@@ -301,6 +301,16 @@
         ]
       },
       {
+        "id": "supplemental-instruments",
+        "title": "Supplemental instruments",
+        "cards": [
+          [
+            "MS 2683:2017",
+            "Kelulut (Stingless bee) honey — Specification — Supplemental product-quality/specification instrument when a Kelulut honey SKU is in scope"
+          ]
+        ]
+      },
+      {
         "id": "governance-instruments",
         "title": "Certification and governance instruments",
         "text": "MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination rules, laboratory methods. Scope and edition remain attached to the applicable product and process."

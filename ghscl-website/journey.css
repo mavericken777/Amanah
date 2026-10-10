@@ -49,3 +49,5 @@
 .hero-scene .scene-heading{right:130px}
 .incident-ledger{display:grid;gap:8px;margin:16px 0}.incident-ledger p{margin:0;padding:12px;border-inline-start:2px solid var(--gold);background:#17150f;font-size:14px}
 @media(max-width:767px){.hero-scene .process-scene-hero{height:330px}.hero-scene .scene-heading{right:110px}.hero-scene .scene-caption{padding:12px 16px;font-size:10px}}
+
+@media(max-width:900px){.journey-home .site-start{display:none}.journey-home .site-header{grid-template-columns:minmax(0,1fr) auto}.journey-home .journey-hero{padding-top:40px}.hero-copy h1{max-width:16ch}}
