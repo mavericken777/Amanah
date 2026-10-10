@@ -9,4 +9,5 @@ const urls=['index.html',...fs.readdirSync(dist).filter(name=>name.endsWith('.ht
 fs.writeFileSync(`${site}/sitemap.xml`,'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(url=>`<url><loc>${data.baseUrl}${url}</loc></url>`).join('')+'</urlset>');
 fs.writeFileSync(`${site}/robots.txt`,`User-agent: *\nAllow: /\nSitemap: ${data.baseUrl}sitemap.xml\n`);
 await import('./build-trust-journey.mjs');
+for(const [url] of data.navigation){const file=url.split('#')[0];if(!fs.existsSync(path.join(site,file)))throw new Error('Navigation route was not generated: '+url);}
 console.log('Published one canonical journey and shared public route renderer.');
