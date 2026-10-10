@@ -1192,6 +1192,9 @@
           "id": "flow",
           "title": "Importer receiving flow",
           "flow": [
+            "Importer registration / KYC / licences",
+            "Purchase order / product and destination scope",
+            "Pre-arrival dossier / certificate scope",
             "GCC port release reference",
             "Receiving appointment",
             "Container / seal reconciliation",
@@ -1330,7 +1333,7 @@
         {
           "id": "institution",
           "title": "Certified laboratory workflow",
-          "text": "The laboratory workflow is designed for laboratories certified by JAKIM for their applicable scope. The platform links each authorised laboratory, operator, method and signatory record to the product and premises assurance journey."
+          "text": "The laboratory workflow is designed for laboratories certified by JAKIM for their applicable scope. The platform links each authorised laboratory, operator, method and signatory record to the product and premises assurance journey. Named laboratory institution: National Food Safety (Hengqin) Innovation Center under Chinese Academy of Agricultural Sciences, China. Sample custody, applicable methods, technical review and signed reports stay bound to the exact product and batch."
         },
         {
           "id": "lifecycle",

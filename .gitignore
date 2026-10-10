@@ -33,3 +33,8 @@ platinum-site/lighthouse-results/
 .lighthouseci/
 ghscl-website/assets/
 ghscl-website/process-3d.css
+
+# Public HTML is rebuilt from canonical sources, never restored from an old artifact
+/ghscl-website/*.html
+!/ghscl-website/404.html
+/ghscl-website/sitemap.xml

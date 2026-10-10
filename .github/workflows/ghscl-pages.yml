@@ -51,24 +51,10 @@ jobs:
         run: npm run web:build
       - name: Validate ecosystem site
         run: npm run web:lint
-      - name: Build platinum homepage
+      - name: Validate public application budgets and promotion
         run: |
-          npm install --prefix platinum-site --package-lock=false --no-audit --no-fund
-          npm run build --prefix platinum-site
           npm run quality:budget --prefix platinum-site
           npm run quality:promotion --prefix platinum-site
-      - name: Promote platinum full site into website artifact
-        run: |
-          rm -rf ghscl-website/assets
-          cp -R platinum-site/dist/assets ghscl-website/assets
-          for page in platinum-site/dist/*.html; do
-            cp "$page" "ghscl-website/$(basename "$page")"
-          done
-          printf '%s\n' "PLATINUM_FULL_SITE=1" "RELEASE_HEAD=${{ github.event.workflow_run.head_sha || github.sha }}" > ghscl-website/platinum-release.txt
-      - name: Apply controlling website brief to published artifact
-        env:
-          RELEASE_HEAD: ${{ github.event.workflow_run.head_sha || github.sha }}
-        run: node scripts/build-trust-journey.mjs
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload website

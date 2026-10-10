@@ -138,6 +138,29 @@
         "id": "roles",
         "title": "各機構保留清晰職責",
         "text": "平台支援跨境協作與證據管理。稽核人員、實驗室、物流營運者、進出口機構及主管機關，依各自職責作出評估與決定。"
+      },
+      {
+        "id": "closed-loop",
+        "title": "從消費者回到來源的完整閉環",
+        "text": "溫度異常、封條損壞或證據缺失觸發營運暫停與隔離。責任團隊追查來源批次、運輸、進口商庫存、分銷與零售訂單，執行矯正措施、重新查驗及召回。",
+        "flow": [
+          "偵測異常",
+          "隔離受影響批次",
+          "追查原因",
+          "矯正措施",
+          "重新查驗",
+          "記錄負責人的放行決定"
+        ]
+      },
+      {
+        "id": "lab-partner",
+        "title": "實驗室與物流證據",
+        "text": "實驗室：National Food Safety (Hengqin) Innovation Center under Chinese Academy of Agricultural Sciences, China. 樣本識別、封條、保管鏈、檢測方法、品質控制與簽署報告連結至同一產品批次。Sinotrans 承接物流保管與交接。"
+      },
+      {
+        "id": "decision-levels",
+        "title": "D0–D6 決策責任",
+        "text": "D0 資料收集、D1 規則驗證、D2 AI 輔助核查、D3 建議、D4 設定的保護性暫停。D5 認證與 D6 主權放行由授權人員及主管機關決定。AI 提供協助，人員及主管機關作出決定。"
       }
     ]
   },
@@ -171,6 +194,144 @@
         "id": "roles",
         "title": "أدوار مؤسسية واضحة",
         "text": "تدعم المنصة التعاون وإدارة الأدلة عبر الحدود، مع احتفاظ المدققين والمختبرات ومشغلي الخدمات اللوجستية والجهات الحكومية كلٌّ بمسؤوليته وقراره."
+      },
+      {
+        "id": "closed-loop",
+        "title": "حلقة متكاملة من المستهلك إلى المصدر",
+        "text": "تؤدي مشكلة الحرارة أو الختم أو نقص الأدلة إلى إيقاف الحركة وعزل الدفعة. يتتبع الفريق المصدر والشحنة ومخزون المستورد وتسليمات الموزع وطلبات التجزئة، ثم يوثّق الإجراءات التصحيحية وإعادة التحقق والاستدعاء.",
+        "flow": [
+          "اكتشاف الاستثناء",
+          "عزل الدفعة المتأثرة",
+          "التحقيق في السبب",
+          "الإجراء التصحيحي",
+          "إعادة التحقق",
+          "تسجيل قرار الإفراج المسؤول"
+        ]
+      },
+      {
+        "id": "lab-partner",
+        "title": "أدلة المختبر والخدمات اللوجستية",
+        "text": "المختبر: National Food Safety (Hengqin) Innovation Center under Chinese Academy of Agricultural Sciences, China. ترتبط هوية العينة والختم وسلسلة الحيازة والطريقة وضبط الجودة والتقرير الموقّع بالدفعة نفسها. تتولى Sinotrans تسليمات النقل والحيازة."
+      },
+      {
+        "id": "decision-levels",
+        "title": "مسؤوليات القرار D0–D6",
+        "text": "D0 جمع البيانات، D1 التحقق بالقواعد، D2 مراجعة بمساعدة الذكاء الاصطناعي، D3 التوصية، D4 الإيقاف الوقائي المهيأ. قرارات التصديق D5 والإفراج السيادي D6 للجهات المختصة والبشر المخولين. الذكاء الاصطناعي يساعد والبشر والسلطات المختصة يقررون."
+      }
+    ]
+  },
+  {
+    "slug": "standards",
+    "label": "Standards",
+    "title": "Requirements become accountable operating controls.",
+    "description": "The complete Malaysian and JAKIM framework maps each product, process and destination to its applicable requirements, evidence and decision owner.",
+    "sections": [
+      {
+        "id": "standards-register",
+        "title": "Malaysian standards register",
+        "cards": [
+          [
+            "MS 1500:2019",
+            "Halal food — General requirements"
+          ],
+          [
+            "MS 2400-1:2019",
+            "Halal supply chain management system — Transportation"
+          ],
+          [
+            "MS 2400-2:2019",
+            "Halal supply chain management system — Warehousing"
+          ],
+          [
+            "MS 2400-3:2019",
+            "Halal supply chain management system — Retailing"
+          ],
+          [
+            "MS 2424:2019",
+            "Halal pharmaceuticals — General requirements"
+          ],
+          [
+            "MS 2634:2019",
+            "Halal cosmetics — General requirements"
+          ],
+          [
+            "MS 2636:2019",
+            "Halal medical device — General requirements"
+          ],
+          [
+            "MS 2738:2023",
+            "Halal consumable goods — General requirements"
+          ],
+          [
+            "MS 2803:2025",
+            "Usage of animal bone, skin and hair — General requirements for halal products"
+          ],
+          [
+            "MS 2393:2023",
+            "Islamic and halal terminologies — Definitions and interpretations"
+          ],
+          [
+            "MS 2627:2017",
+            "Detection of porcine DNA — Test method — Food and food products"
+          ],
+          [
+            "MS 2627-2:2025",
+            "Detection of porcine DNA — Test method — Part 2: Cosmetics"
+          ],
+          [
+            "MS 1900:2025",
+            "Shariah-based quality management system — Requirements"
+          ],
+          [
+            "MS 2691:2021",
+            "Halal profession — General requirements"
+          ],
+          [
+            "MS 2610:2015",
+            "Muslim-friendly hospitality services — Requirements"
+          ],
+          [
+            "MS 2809:2025",
+            "Authentication of products using chemometric techniques"
+          ],
+          [
+            "MS 2810:2025",
+            "Consumable goods — Test method — Identification of pig skin and hair"
+          ]
+        ]
+      },
+      {
+        "id": "supplemental-instruments",
+        "title": "Supplemental instruments",
+        "cards": [
+          [
+            "MS 2683:2017",
+            "Kelulut (Stingless bee) honey — Specification — Supplemental product-quality/specification instrument when a Kelulut honey SKU is in scope"
+          ]
+        ]
+      },
+      {
+        "id": "governance-instruments",
+        "title": "Certification and governance instruments",
+        "text": "MPPHM 2020, MHMS 2020, HAS, IHCS, protocols, circulars, authority instructions, destination rules, laboratory methods. Scope and edition remain attached to the applicable product and process."
+      },
+      {
+        "id": "applicability",
+        "title": "From requirement to re-verification",
+        "flow": [
+          "Product and destination scope",
+          "Standard and instrument",
+          "Applicable requirement",
+          "Control / HCP / SCCP",
+          "Evidence and audit test",
+          "Finding and corrective action",
+          "Re-verification and reviewed status"
+        ]
+      },
+      {
+        "id": "authority",
+        "title": "Accountable certification decisions",
+        "text": "Evidence before trust. Trust before operational release. Authority before certification. AI assists. Humans and competent authorities decide. AHTE ⇄ Direct JAKIM API ⇄ JAKIM."
       }
     ]
   }

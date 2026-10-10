@@ -26,6 +26,10 @@ const operations: Record<ProcessKind, readonly string[]> = {
 };
 
 function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
+  const locale=document.documentElement.lang;
+  const translatedSequence=locale==='zh-Hant'?['確認產品與批次','連結稽核與實驗室證據','追蹤物流及保管鏈','目的地查驗與持續保障']:locale==='ar'?['تحديد المنتج والدفعة','ربط أدلة التدقيق والمختبر','تتبع النقل وسلسلة الحيازة','التحقق والمراقبة المستمرة']:null;
+  const pauseLabel=locale==='zh-Hant'?'暫停動畫':locale==='ar'?'إيقاف الحركة':'Pause scene';
+  const playLabel=locale==='zh-Hant'?'播放動畫':locale==='ar'?'تشغيل الحركة':'Play scene';
   const existing = container.querySelector<HTMLImageElement>(".process-scene-photograph");
   const cinematic = existing || document.createElement("img");
   cinematic.className = "process-scene-photograph";
@@ -38,7 +42,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   container.setAttribute("role", "group");
   const eyebrow = document.createElement("span");
   eyebrow.className = "process-story-eyebrow";
-  eyebrow.textContent = "HOW THE PROCESS WORKS";
+  eyebrow.textContent = locale==='zh-Hant'?"運作流程":locale==='ar'?"كيف تعمل المنظومة":"HOW THE PROCESS WORKS";
   const title = document.createElement("strong");
   title.className = "process-story-action";
   const steps = document.createElement("ol");
@@ -46,7 +50,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   const playback = document.createElement("button");
   playback.className = "process-story-pause";
   playback.type = "button";
-  playback.textContent = "Pause scene";
+  playback.textContent = pauseLabel;
   playback.setAttribute("aria-label", "Pause this process explanation");
   container.append(playback);
   story.append(eyebrow, title, steps);
@@ -61,7 +65,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   let request = 0;
 
   const paintPhase = () => {
-    const sequence = operations[kind];
+    const sequence = translatedSequence||operations[kind];
     title.textContent = sequence[phase];
     steps.querySelectorAll("li").forEach((item, index) => {
       item.dataset.state = index === phase ? "active" : index < phase ? "complete" : "pending";
@@ -71,8 +75,8 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
   const schedule = () => {
     window.clearInterval(timer);
     container.dataset.scenePaused = String(paused || !visible);
-    playback.textContent = paused ? "Play scene" : "Pause scene";
-    playback.setAttribute("aria-label", paused ? "Play this process explanation" : "Pause this process explanation");
+    playback.textContent = paused ? playLabel : pauseLabel;
+    playback.setAttribute("aria-label", paused ? playLabel : pauseLabel);
     if (!paused && visible && !document.hidden) timer = window.setInterval(() => {
       phase = (phase + 1) % operations[kind].length;
       paintPhase();
@@ -88,7 +92,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
     kind = inferKind(container.dataset.overviewOnly === "true" ? container.dataset.scene || "corridor" : label);
     container.dataset.sceneKind = kind;
     phase = 0;
-    steps.replaceChildren(...operations[kind].map((operation, index) => {
+    steps.replaceChildren(...(translatedSequence||operations[kind]).map((operation, index) => {
       const item = document.createElement("li");
       const number = document.createElement("span");
       number.textContent = String(index + 1).padStart(2, "0");

@@ -10,7 +10,7 @@ const page = await browser.newPage({ viewport: { width: 1024, height: 900 } });
 
 const routes = [
   "ecosystem.html","how-it-works.html","digital-trust.html","command-center.html",
-  "traceability.html","smart-audit.html","china-gcc.html","partners.html",
+  "traceability.html","smart-audit.html","china-gcc.html","partners.html","hardware.html","standards.html",
   "manufacturers.html","finance-takaful.html","verify.html","contact.html"
 ];
 
@@ -43,6 +43,19 @@ await verificationViews.first().click();
 assert.equal(await page.locator(".passport-heading h3").textContent(), "Premium Halal food product", "guided product view must render the product journey");
 assert.doesNotMatch(await page.locator(".passport-heading").textContent() ?? "", /CN-DEMO|DEMO-SHIPMENT|GHSC-DEMO/i, "public verifier must not expose internal fixture identifiers");
 assert.equal(await page.locator(".passport-timeline li").count(), 4, "product view should expose the four lifecycle evidence groups");
+const verifierToken='test-verification-token-000000000000000000000';
+await page.route('**/functions/v1/public-verify?*',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({valid:true,not_certification:true,verification_scope:'disclosure_token_only',disclosure:{product:'Authorised product',origin:'China'}})}));
+await page.locator('#issuer-token').fill(verifierToken);
+await page.getByRole('button',{name:'Verify disclosure',exact:true}).click();
+await page.getByRole('status').filter({hasText:'Issuer-authorised disclosure retrieved.'}).waitFor();
+assert.match(await page.getByRole('status').textContent(),/Authorised product/);
+await page.unroute('**/functions/v1/public-verify?*');
+await page.route('**/functions/v1/public-verify?*',route=>route.fulfill({status:404,contentType:'application/json',body:JSON.stringify({valid:false})}));
+await page.getByRole('button',{name:'Verify disclosure',exact:true}).click();
+await page.getByRole('status').filter({hasText:'No current disclosure found.'}).waitFor();
+assert.doesNotMatch(await page.getByRole('status').textContent(),/Authorised product/,'a failed verification clears previously disclosed fields');
+await page.unroute('**/functions/v1/public-verify?*');
+
 const labJourneySource = await readFile("platinum-site/src/data/demoJourney.ts", "utf8");
 assert.ok(labJourneySource.includes("The workflow is designed for JAKIM-certified laboratories within their applicable scope."));
 
