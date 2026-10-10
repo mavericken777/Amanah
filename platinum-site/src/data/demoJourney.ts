@@ -1,6 +1,7 @@
 import scenario from '../../../ghscl-website/fixtures/operating-scenario.json';
 export const demoProduct = {
   name: scenario.product,
+  sku: scenario.sku,
   batch: scenario.batch,
   origin: scenario.origin,
   destination: scenario.destination,

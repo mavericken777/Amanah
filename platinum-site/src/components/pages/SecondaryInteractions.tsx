@@ -1,5 +1,5 @@
 import { lazy, Suspense, useMemo, useState } from "react";
-import { demoVerificationRecords } from "../../data/demoJourney";
+import { demoProduct, demoVerificationRecords } from "../../data/demoJourney";
 
 const examples = demoVerificationRecords;
 const OperatingPlatform=lazy(()=>import('../platform/OperatingPlatform'));
@@ -42,7 +42,7 @@ export function SecondaryInteractions({ slug }: { slug: string }) {
     </div>
     <input id="route-token" type="hidden" value={token} readOnly />
     <div className="passport-result" aria-live="polite">
-      <div className="passport-heading"><div><p className="eyebrow">{record.label}</p><h3>{record.product}</h3><p>{record.detail}</p></div><span>Product journey view</span></div>
+      <div className="passport-heading"><div><p className="eyebrow">{record.label}</p><h3>{record.product}</h3><p>{demoProduct.sku} · source batch {record.batch}</p><p>{record.detail}</p></div><span>Product journey view</span></div>
       <ol className="passport-timeline">{record.events.map(([title, detail], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><strong>{title}</strong><small>{detail}</small></li>)}</ol>
       <p className="passport-note">The live verifier accepts issuer-authorised QR/token values and returns only permitted disclosure fields.</p>
     </div>
