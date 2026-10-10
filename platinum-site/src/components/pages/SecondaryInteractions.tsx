@@ -1,9 +1,11 @@
-import { useMemo, useState } from "react";
-import { demoVerificationRecords } from "../../data/demoJourney";
+import { lazy, Suspense, useMemo, useState } from "react";
+import { demoProduct, demoVerificationRecords } from "../../data/demoJourney";
 
 const examples = demoVerificationRecords;
+const OperatingPlatform=lazy(()=>import('../platform/OperatingPlatform'));
 
 export function SecondaryInteractions({ slug }: { slug: string }) {
+  const [platformOpen,setPlatformOpen]=useState(false);
   const [token, setToken] = useState(examples[0]?.token ?? "");
   const [issuerToken,setIssuerToken]=useState('');
   const [verification,setVerification]=useState<{message:string;fields?:Record<string,unknown>}>({message:'Enter an issuer-provided QR link or disclosure token.'});
@@ -27,6 +29,8 @@ export function SecondaryInteractions({ slug }: { slug: string }) {
     [token],
   );
 
+  if(slug==='platform-tour')return <section id="interactive-platform" className="secondary-special"><p className="eyebrow">EXPLORE THE OPERATING PLATFORM</p><h2>Follow one SKU, batch and shipment through the complete loop.</h2><p>Twelve connected operating stages bring the product, digital twin, live readings, evidence ledger, D0–D6 decisions and downstream recall into one workspace.</p>{platformOpen?<Suspense fallback={<p role="status">Opening the connected operating platform…</p>}><OperatingPlatform/></Suspense>:<div className="platform-launch"><button className="button-primary" type="button" onClick={()=>setPlatformOpen(true)}>Open the operating platform</button><p>Inspect any handoff. Trigger a cold-chain, seal or laboratory exception. Trace the affected lots and complete investigation, corrective action and reviewed re-verification.</p></div>}</section>;
+
   if (slug === "verify") return <section className="secondary-special glass">
     <p className="eyebrow">VERIFICATION EXPERIENCE</p>
     <h2>See the right information for the right verification purpose.</h2>
@@ -38,7 +42,7 @@ export function SecondaryInteractions({ slug }: { slug: string }) {
     </div>
     <input id="route-token" type="hidden" value={token} readOnly />
     <div className="passport-result" aria-live="polite">
-      <div className="passport-heading"><div><p className="eyebrow">{record.label}</p><h3>{record.product}</h3><p>{record.detail}</p></div><span>Product journey view</span></div>
+      <div className="passport-heading"><div><p className="eyebrow">{record.label}</p><h3>{record.product}</h3><p>{demoProduct.sku} · source batch {record.batch}</p><p>{record.detail}</p></div><span>Product journey view</span></div>
       <ol className="passport-timeline">{record.events.map(([title, detail], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><strong>{title}</strong><small>{detail}</small></li>)}</ol>
       <p className="passport-note">The live verifier accepts issuer-authorised QR/token values and returns only permitted disclosure fields.</p>
     </div>

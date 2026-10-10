@@ -1,9 +1,11 @@
+import scenario from '../../../ghscl-website/fixtures/operating-scenario.json';
 export const demoProduct = {
-  name: "Premium Halal food product",
-  batch: "Current production batch",
-  origin: "China",
-  destination: "GCC",
-  shipment: "Current China → GCC shipment",
+  name: scenario.product,
+  sku: scenario.sku,
+  batch: scenario.batch,
+  origin: scenario.origin,
+  destination: scenario.destination,
+  shipment: scenario.shipment,
 };
 
 export type DemoJourneyStage = [string, string, string, string, string];
@@ -15,7 +17,7 @@ export const demoJourneyStages: DemoJourneyStage[] = [
   ["Product & SKU", "Create product, SKU, formulation, packaging, destination scope and controlled change relationships.", "Product owner", "Product identity, SKU, formulation/BOM, packaging and destination scope", "Supplier and material graph"],
   ["Supplier & materials", "Connect ingredients and raw materials to approved suppliers, origin, lots, certificates and supporting evidence.", "Procurement / assurance team", "Supplier graph, ingredient/raw-material links, lot provenance and current evidence", "Standards applicability and evidence readiness"],
   ["Standards & applicability", "Resolve the complete applicable Malaysian/JAKIM framework and destination requirements for the actual product, process and market.", "Assurance team", "Applicable instruments, controls, HCP/SCCP and evidence obligations", "Laboratory and audit requirements"],
-  ["Laboratory evidence", "The workflow is designed for JAKIM-certified laboratories within their applicable scope. Bind sample identity, seal, custody, method, QC, technical review and signed report to the product, premises and batch assurance record.", "Authorised laboratory operator and technical reviewer", "Sample identity, custody, method/QC context, reviewed result and signed report", "Smart audit and assurance review"],
+  ["Laboratory evidence", "The workflow is designed for JAKIM-certified laboratories within their applicable scope. Bind sample identity, seal, custody, method, QC, technical review and signed report to the product, premises and batch assurance record.", scenario.laboratory, "Sample identity, custody, method/QC context, reviewed result and signed report", "Smart audit and assurance review"],
   ["Smart audit & CAPA", "Guide the human auditor through scoped controls, capture attributable evidence, record findings and close corrective action through re-verification.", "Assigned human auditor", "Audit scope, observations, media, findings, CAPA, re-verification and signed session", "Authority workflow"],
   ["Authority workflow", "Present the complete evidence context through the authority-connectivity path while preserving the independently owned authority decision.", "Authorised competent authority", "Evidence dossier, submission reference and authority-owned status", "Controlled production"],
   ["Controlled production", "Bind approved inputs, line status, cleaning, operator competence, process events and batch genealogy during production.", "Manufacturer production / quality", "Material consumption, process events, cleaning evidence, line and batch links", "Origin warehouse"],

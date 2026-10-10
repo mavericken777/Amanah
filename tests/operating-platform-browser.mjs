@@ -1,0 +1,25 @@
+import assert from 'node:assert/strict';
+import {pathToFileURL} from 'node:url';
+const {chromium}=await import(pathToFileURL(process.env.PLAYWRIGHT_MODULE).href);
+const browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu'],...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{})});
+const base=(process.env.PREVIEW_URL||'http://127.0.0.1:4173').replace(/\/$/,'');
+try{
+ for(const width of [375,768,1024,1440]){
+ const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});const errors=[];page.on('pageerror',e=>errors.push(String(e)));
+ await page.goto(base+'/platform-tour.html#interactive-platform');await page.getByRole('button',{name:'Open the operating platform',exact:true}).click();const app=page.locator('.operating-platform');await app.waitFor();assert.equal(await app.getAttribute('data-playback'),'PAUSED');const steps=app.locator('.platform-stepper button');assert.equal(await steps.count(),12);
+ for(let i=0;i<12;i++){await steps.nth(i).click();assert.equal(await steps.nth(i).getAttribute('aria-current'),'step');assert.equal(await app.locator('.platform-metrics dd').count(),3);assert.ok((await app.locator('.platform-consumer').innerText()).includes('CN-GCC-2026-0891'));}
+ await app.getByText('Inspect event JSON',{exact:true}).click();await app.getByRole('button',{name:'Check ledger integrity',exact:true}).click();await app.locator('.platform-integrity-result').filter({hasText:'linked event digests verified'}).waitFor();const payload=JSON.parse(await app.locator('.platform-payload pre').innerText());assert.equal(payload.payload.sku,'SKU-HALAL-CONFECTIONERY-200G');assert.match(payload.hash,/^[a-f0-9]{64}$/);assert.equal(payload.payload.authorityActionExecuted,false);
+ for(const label of ['Cold-chain breach · 14.2 °C','Seal tamper','Porcine DNA non-conformance']){
+ await app.getByRole('button',{name:label,exact:true}).click();assert.equal(await app.getAttribute('data-playback'),'EXCEPTION_HOLD');
+ for(const step of await steps.all())assert.equal(await step.isDisabled(),true);
+ if(label.startsWith('Cold-chain')&&process.env.AXE_PATH){await page.addScriptTag({path:process.env.AXE_PATH});const heldViolations=await page.evaluate(async()=> (await window.axe.run(document.querySelector('.operating-platform'))).violations.map(v=>v.id));assert.deepEqual(heldViolations,[],'contained incident must remain accessible');}
+ const incident=app.getByRole('region',{name:'Affected lots and corrective action'});for(const id of ['CN-GCC-2026-0891-A','CN-GCC-2026-0891-B','UAE-LOT-0891-A','DIST-DXB-01','STORE-DXB-014','CN-GCC-2026-0902'])assert.ok((await incident.innerText()).includes(id),id);
+ await app.getByRole('button',{name:'Record downstream recall',exact:true}).click();assert.equal(await app.getByRole('button',{name:'Record downstream recall',exact:true}).isDisabled(),true);
+ for(const phase of ['Record investigation','Record corrective action','Record re-verification'])await app.getByRole('button',{name:phase,exact:true}).click();const close=app.getByRole('button',{name:'Close operating hold',exact:true});assert.equal(await close.isDisabled(),true);await app.getByRole('checkbox',{name:'Confirm corrective evidence, repeat checks and reviewer record'}).check();await close.click();assert.equal(await app.getAttribute('data-playback'),'PAUSED');assert.equal(await app.locator('.platform-incident').count(),0);
+ }
+ await app.getByRole('button',{name:'Restart operating journey',exact:true}).click();await steps.nth(1).click();await app.getByRole('button',{name:'4×',exact:true}).click();await app.getByRole('button',{name:'Play operating journey',exact:true}).click();await page.waitForFunction(()=>document.querySelector('.platform-stepper button:nth-child(3)').getAttribute('aria-current')==='step');await app.getByRole('button',{name:'Pause operating journey',exact:true}).click();const selected=await app.locator('.platform-stepper [aria-current]').innerText();await page.waitForTimeout(1400);assert.equal(await app.locator('.platform-stepper [aria-current]').innerText(),selected);
+ const dimensions=await page.evaluate(()=>({w:innerWidth,scroll:document.documentElement.scrollWidth}));assert.ok(dimensions.scroll<=dimensions.w+1,JSON.stringify(dimensions));assert.deepEqual(errors,[]);
+ if(process.env.AXE_PATH){await page.addScriptTag({path:process.env.AXE_PATH});const violations=await page.evaluate(async()=> (await window.axe.run(document.querySelector('.operating-platform'))).violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})));assert.deepEqual(violations,[],JSON.stringify(violations));}
+ console.log(`Operating platform: twelve stages, three incident loops, evidence hashes, playback and accessibility passed at ${width}px`);await page.close();
+ }
+}finally{await browser.close();}

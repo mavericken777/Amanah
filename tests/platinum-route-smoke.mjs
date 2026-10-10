@@ -42,6 +42,7 @@ assert.equal(await verificationViews.count(), 3, "public verifier must expose pr
 await verificationViews.first().click();
 assert.equal(await page.locator(".passport-heading h3").textContent(), "Premium Halal food product", "guided product view must render the product journey");
 assert.doesNotMatch(await page.locator(".passport-heading").textContent() ?? "", /CN-DEMO|DEMO-SHIPMENT|GHSC-DEMO/i, "public verifier must not expose internal fixture identifiers");
+assert.ok((await page.locator(".passport-heading").textContent()).includes("CN-GCC-2026-0891"), "guided verification shares the operating scenario batch");
 assert.equal(await page.locator(".passport-timeline li").count(), 4, "product view should expose the four lifecycle evidence groups");
 const verifierToken='test-verification-token-000000000000000000000';
 await page.route('**/functions/v1/public-verify?*',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({valid:true,not_certification:true,verification_scope:'disclosure_token_only',disclosure:{product:'Authorised product',origin:'China'}})}));
