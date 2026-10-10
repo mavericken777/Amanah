@@ -7,12 +7,15 @@ export function ProcessScene3D({
   index = 0,
   className = "",
   overviewOnly = false,
-}: { mode?: string; stage?: string; index?: number; className?: string; overviewOnly?: boolean }) {
+  controlled = false,
+  playing = false,
+  detail = "",
+}: { mode?: string; stage?: string; index?: number; className?: string; overviewOnly?: boolean; controlled?: boolean; playing?: boolean; detail?: string }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const host = ref.current;
-    if (!host) return;
+    if (!host || controlled) return;
     if (typeof IntersectionObserver === "undefined") {
       host.dataset.sceneFallback = "true";
       host.querySelector(".process-scene-loading")?.remove();
@@ -33,17 +36,18 @@ export function ProcessScene3D({
     observer.observe(host);
     return () => { disposed = true; observer.disconnect(); scene?.dispose(); };
 
-  }, []);
+  }, [controlled]);
 
   return <div
     ref={ref}
     className={`process-scene-3d ${className}`.trim()}
-    data-process-scene="true"
+    data-process-scene={controlled ? undefined : "true"}
+    data-scene-paused={controlled ? String(!playing) : undefined}
     data-scene={mode}
     data-overview-only={overviewOnly ? "true" : undefined}
     data-stage-label={`${mode} · ${stage}`}
     data-stage-index={index}
     role="group"
     aria-label={`Process explanation: ${stage}`}
-  ><img className="process-scene-photograph" src={`assets/${sceneImage(inferKind(overviewOnly ? mode : `${mode} · ${stage}`))}`} alt="" aria-hidden="true" decoding="async" fetchPriority={className.includes("hero") || className.includes("page-scene") ? "high" : "auto"} loading={className.includes("hero") || className.includes("page-scene") ? "eager" : "lazy"} /><span className="process-scene-loading" role="status">Loading animated operating scene…</span><span className="process-scene-caption" aria-hidden="true">{stage}</span><span className="process-scene-orbit" aria-hidden="true" /></div>;
+  ><img className="process-scene-photograph" src={`assets/${sceneImage(inferKind(overviewOnly ? mode : `${mode} · ${stage}`))}`} alt="" aria-hidden="true" decoding="async" fetchPriority={className.includes("hero") || className.includes("page-scene") ? "high" : "auto"} loading={className.includes("hero") || className.includes("page-scene") ? "eager" : "lazy"} />{controlled ? <div className="process-scene-story"><strong className="process-story-action">{stage}</strong>{detail ? <p className="process-story-detail">{detail}</p> : null}</div> : <span className="process-scene-loading" role="status">Loading animated operating scene…</span>}<span className="process-scene-caption" aria-hidden="true">{stage}</span><span className="process-scene-orbit" aria-hidden="true" /></div>;
 }

@@ -123,6 +123,7 @@ jobs:
           node tests/platinum-mobile-smoke.mjs
           node tests/platinum-route-smoke.mjs
           node tests/process-scene-browser.mjs
+          node tests/hardware-browser.mjs
       - name: Install pinned Lighthouse CI
         run: npm install --prefix /tmp/platinum-lhci --no-audit --no-fund @lhci/cli@0.14.0
       - name: Capture Lighthouse baseline and enforce thresholds

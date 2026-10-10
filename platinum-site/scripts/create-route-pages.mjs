@@ -1,5 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
+const websiteCommit = process.env.RELEASE_HEAD || process.env.GITHUB_SHA || execFileSync("git",["rev-parse","HEAD"],{encoding:"utf8"}).trim();
 import { createServer } from "vite";
 import { inferKind, sceneImage } from "../src/components/scene/sceneImages.ts";
 
@@ -13,18 +15,22 @@ function escapeHtml(value) {
   return String(value).replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 }
 
+const hardwarePages = ["hardware-zh-Hans", "hardware-zh-Hant", "hardware-ar"].map(slug => ({slug,label:slug.endsWith("ar")?"الأجهزة": "硬件",description:slug.endsWith("ar")?"رحلة أدلة الأجهزة من الصين إلى دول مجلس التعاون الخليجي":"從中國直達海灣市場的設備證據旅程"}));
+
 const renderer = await createServer({ server: { middlewareMode: true }, appType: "custom" });
 const { renderPage } = await renderer.ssrLoadModule("/src/prerender.tsx");
 
-for (const page of [...data.pages, ...extraPages]) {
+for (const page of [...data.pages, ...extraPages, ...hardwarePages]) {
   const title = `${page.label} | Global Halal Supply Chain Ltd`;
   let html = template
     .replace(/<title>.*?<\/title>/s, `<title>${escapeHtml(title)}</title>`)
     .replace(/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${escapeHtml(page.description)}" />`);
-  const locale = page.slug === "ar" ? "ar" : page.slug === "zh-Hant" ? "zh-Hant" : "en";
+  const locale = page.slug === "ar" || page.slug === "hardware-ar" ? "ar" : page.slug.includes("zh-Hans") ? "zh-Hans" : page.slug.includes("zh-Hant") ? "zh-Hant" : "en";
   html = html.replace("assets/journey-panorama.webp", "assets/" + sceneImage(inferKind(page.slug)));
   html = html.replace(/<html[^>]*>/, '<html lang="' + locale + '"' + (locale === "ar" ? ' dir="rtl"' : "") + '>');
-  html = html.replace('<div id="root"></div>', '<div id="root">' + renderPage(page.slug) + '</div>');
+  const languageAlternates = page.slug.startsWith("hardware") ? [["en","hardware"],["zh-Hans","hardware-zh-Hans"],["zh-Hant","hardware-zh-Hant"],["ar","hardware-ar"]].map(([lang,slug])=>`<link rel="alternate" hreflang="${lang}" href="${data.baseUrl}${slug}.html">`).join("") : "";
+  html = html.replace("</head>", `<meta name="amanah-website-commit" content="${websiteCommit}"><link rel="canonical" href="${data.baseUrl}${page.slug}.html">${languageAlternates}</head>`);
+  html = html.replace('<div id="root"></div>' , '<div id="root">' + renderPage(page.slug) + '</div>');
   fs.writeFileSync(path.join(root, "dist", `${page.slug}.html`), html);
 }
 
@@ -36,7 +42,7 @@ const traditionalChinese = path.join(root, "dist", "zh-Hant.html");
 if (fs.existsSync(traditionalChinese)) fs.copyFileSync(traditionalChinese, legacyChinese);
 const sitemapPath = path.join(repoRoot, "ghscl-website", "sitemap.xml");
 if (fs.existsSync(sitemapPath)) {
-  const urls = ["index.html", ...data.pages.map(page => `${page.slug}.html`), ...extraPages.map(page => `${page.slug}.html`), "zh-Hans.html", "login/index.html"];
+  const urls = ["index.html", ...data.pages.map(page => `${page.slug}.html`), ...extraPages.map(page => `${page.slug}.html`), ...hardwarePages.map(page => `${page.slug}.html`), "zh-Hans.html", "login/index.html"];
   const base = data.baseUrl.endsWith("/") ? data.baseUrl : `${data.baseUrl}/`;
   const rows = urls.map(url => '<url><loc>' + base + url + '</loc></url>').join("");
   fs.writeFileSync(sitemapPath, '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + urls.map(url => '<url><loc>' + base + url + '</loc></url>').join("") + '</urlset>\n');
