@@ -13,6 +13,7 @@
 
 .exception-actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
 .exception-blast-radius{margin:20px 0;padding:20px;border:1px solid var(--line);background:#15130f}
+.exception-blast-radius:empty{display:none}
 .exception-blast-radius h3{margin:0 0 10px;color:var(--gold)}
 .exception-blast-radius p:last-child{color:var(--muted);font-size:13px}
 .exception-response-path{display:flex;flex-wrap:wrap;gap:8px 24px;padding-left:22px;color:var(--muted)}
