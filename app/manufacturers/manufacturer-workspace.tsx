@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 const readinessAreas = [
   { id: "facility", number: "01", title: "Facility & scope", description: "Site identity, production lines, product scope and accountable contacts.", tasks: ["Confirm legal entity and site", "List production lines and SKUs", "Assign responsible owners"] },
@@ -59,7 +59,6 @@ export function ManufacturerWorkspace() {
   const totalTasks = readinessAreas.reduce((sum, area) => sum + area.tasks.length, 0);
   const completed = checked.length;
   const percent = Math.round((completed / totalTasks) * 100);
-  const currentArea = useMemo(() => readinessAreas.find((area) => area.id === openArea) ?? readinessAreas[0], [openArea]);
 
   const toggleTask = (taskId: string) => {
     setChecked((previous) => previous.includes(taskId) ? previous.filter((item) => item !== taskId) : [...previous, taskId]);
