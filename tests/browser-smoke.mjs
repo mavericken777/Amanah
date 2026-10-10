@@ -15,7 +15,7 @@ try {
   });
   const page=await context.newPage();
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  for(const name of ['index','corporate-profile','visuals','zh-Hans',...data.pages.map(p=>p.slug)]) {
+  for(const name of ['index','corporate-profile','visuals','zh-Hans','zh-Hant','ar','standards',...data.pages.map(p=>p.slug)]) {
    const response=await page.goto(`http://127.0.0.1:8080/${name}.html`);
    assert.equal(response.status(),200,name);
    await page.locator('h1').waitFor();
@@ -39,10 +39,12 @@ try {
     });
     assert.ok(contrast>=4.5,name+' source-panel contrast: '+contrast);
    }
-   await page.locator('.site-menu summary').click();
-   assert.ok(await page.locator('.site-menu').getAttribute('open')!==null,name+' menu');
+   const menu=await page.locator('.site-menu').count()?page.locator('.site-menu'):
+    await page.locator('.secondary-mobile-menu').isVisible()?page.locator('.secondary-mobile-menu'):page.locator('.secondary-route-menu');
+   await menu.locator('summary').click();
+   assert.ok(await menu.getAttribute('open')!==null,name+' menu');
    await page.keyboard.press('Escape');
-   assert.equal(await page.locator('.site-menu').getAttribute('open'),null,name+' escape');
+   assert.equal(await menu.getAttribute('open'),null,name+' escape');
    if(await page.locator('#graphNodes').count()) {
     await page.locator('#graphNodes button').first().waitFor();
     await page.locator('#graphNodes button').last().click();
@@ -67,9 +69,9 @@ try {
     assert.match(await page.locator('#stageTitle').textContent(),/Consumer/);
    }
    if(name==='verify') {
-    await page.locator('#verificationToken').fill('https://untrusted.example/?token=invalid');
-    await page.locator('#verifyButton').click();
-    assert.match(await page.locator('#verificationResult').textContent(),/known AHTE verification service/);
+    await page.locator('#issuer-token').fill('https://untrusted.example/?token=invalid');
+    await page.locator('.issuer-verification button').click();
+    assert.match(await page.getByRole('status').textContent(),/Amanah verification link/);
    }
    await page.screenshot({path:`browser-results/${name}-${viewport.width}.png`,fullPage:true});
    assert.deepEqual(errors,[],name+' JavaScript errors');
@@ -108,5 +110,5 @@ try {
   const response=await page.request.get('http://127.0.0.1:3000'+route);
   assert.equal(response.status(),401,route);
  }
- console.log(`Browser smoke passed: ${data.pages.length+3} public pages × 4 viewports; ${protectedPages.length} protected routes; anonymous API guards. No production transaction was performed.`);
+ console.log(`Browser smoke passed: ${data.pages.length+7} public pages × 4 viewports; ${protectedPages.length} protected routes; anonymous API guards. No production transaction was performed.`);
 } finally {await browser.close();}

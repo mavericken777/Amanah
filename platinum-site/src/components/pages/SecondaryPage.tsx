@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import source from "../../../../ghscl-website/ecosystem.en.json";
 import { SecondaryInteractions } from "./SecondaryInteractions";
 import extraPagesSource from "../../../data/extra-pages.json";
@@ -20,6 +21,10 @@ function slugFromLocation(pathname: string){
 }
 
 export function SecondaryPage({ pathname = window.location.pathname }: { pathname?: string }){
+  useEffect(()=>{
+    const closeMenus=(event:KeyboardEvent)=>{if(event.key!=="Escape")return;document.querySelectorAll<HTMLDetailsElement>(".secondary-header details[open]").forEach(menu=>{menu.open=false;menu.querySelector<HTMLElement>("summary")?.focus();});};
+    document.addEventListener("keydown",closeMenus);return ()=>document.removeEventListener("keydown",closeMenus);
+  },[]);
   const slug=slugFromLocation(pathname);
   const page=[...site.pages,...extraPages].find(item=>item.slug===slug);
   const localized=slug==='ar'||slug==='zh-Hant';
