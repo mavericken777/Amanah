@@ -56,6 +56,7 @@ export function ManufacturerHero() {
         <nav className="manufacturer-nav" aria-label="Main navigation">
           <a href="#journey">The journey</a>
           <a href="#readiness">Readiness</a>
+          <a href="#onboarding">20-step journey</a>
           <a className="manufacturer-nav-cta" href="/login">Open workspace <span aria-hidden="true">↗</span></a>
         </nav>
       </header>
