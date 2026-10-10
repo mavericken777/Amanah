@@ -2,7 +2,7 @@ import type { ExceptionKind, JourneyStage, LedgerEvent, LedgerProof, PlatformSta
 export type EngineAction = {type:'TICK';milliseconds:number}|{type:'PLAY'}|{type:'PAUSE'}|{type:'SPEED';speed:1|2|4}|{type:'SELECT';index:number}|{type:'RESTART'}|{type:'INJECT';kind:ExceptionKind}|{type:'NEXT_PHASE'}|{type:'CONFIRM';confirmed:boolean}|{type:'RESOLVE'}|{type:'RECALL'};
 export const canonicalJson = (value: unknown): string => {
   if(Array.isArray(value))return '['+value.map(canonicalJson).join(',')+']';
-  if(value&&typeof value==='object')return '{'+Object.entries(value).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>JSON.stringify(k)+':'+canonicalJson(v)).join(',')+'}';
+  if(value&&typeof value==='object')return '{'+Object.entries(value).filter(([,entry])=>entry!==undefined).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>JSON.stringify(k)+':'+canonicalJson(v)).join(',')+'}';
   return JSON.stringify(value) ?? 'null';
 };
 export async function buildLedger(events: LedgerEvent[]): Promise<LedgerProof[]> {
