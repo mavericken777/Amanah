@@ -21,5 +21,5 @@ export const initialStagesData: JourneyStage[] = definitions.map((stage,index)=>
   ...stage,id:`stage-${index+1}`,stageNumber:index+1,
   governanceType:stage.decisionLevel==='D6_SOVEREIGN_RELEASE'||stage.decisionLevel==='D5_HUMAN_CERT'?'HUMAN_SOVEREIGN':stage.decisionLevel==='D2_AI_CHECK'||stage.decisionLevel==='D3_AI_RECOMMEND'?'AI_ASSISTED':'AUTOMATED_IOT',
   operatorSignature:`Scenario operator record · ${stage.actor}`,
-  rawJsonLog:{environment:scenario.environment,scenarioId:scenario.id,stageId:`stage-${index+1}`,product:scenario.product,sku:scenario.sku,batch:scenario.batch,shipment:scenario.shipment,container:scenario.container,seal:scenario.seal,sourceOwner:stage.actor,decisionLevel:stage.decisionLevel,authorityActionExecuted:false}
+  rawJsonLog:{environment:scenario.environment,scenarioId:scenario.id,stageId:`stage-${index+1}`,product:scenario.product,sku:scenario.sku,batch:scenario.batch,shipment:scenario.shipment,container:scenario.container,seal:scenario.seal,sample:scenario.sample,audit:scenario.audit,receivingLot:scenario.importerLot,location:stage.location,telemetry:stage.telemetryData,standardsInScope:stage.standardsInScope,sourceOwner:stage.actor,decisionLevel:stage.decisionLevel,authorityActionExecuted:false}
 }));
