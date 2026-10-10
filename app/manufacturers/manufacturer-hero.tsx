@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { ManufacturerWorkspace } from "./manufacturer-workspace";
 
 const layers = [
   { number: "01", label: "ORIGIN", detail: "Supplier & material provenance" },
@@ -85,7 +86,7 @@ export function ManufacturerHero() {
         </div>
 
         <div className="manufacturer-visual" ref={sceneRef} aria-label="Illustration of connected manufacturer readiness layers">
-          <div className="manufacturer-visual-top"><span>AMANAH / READINESS SYSTEM</span><span>LIVE MODEL <b>●</b></span></div>
+          <div className="manufacturer-visual-top"><span>AMANAH / READINESS SYSTEM</span><span>MODEL OVERVIEW <b>●</b></span></div>
           <div className="manufacturer-geometry" aria-hidden="true">
             <div className="manufacturer-ring ring-a" />
             <div className="manufacturer-ring ring-b" />
@@ -127,10 +128,7 @@ export function ManufacturerHero() {
         </div>
       </section>
 
-      <section className="manufacturer-readiness" id="readiness">
-        <div><p className="manufacturer-eyebrow">START WITH WHAT YOU HAVE</p><h2>Readiness, made practical.</h2></div>
-        <p>Use your existing systems and records as the starting point. The next stage of this experience will help organize the five preparation areas into a clear, actionable view.</p>
-      </section>
+      <ManufacturerWorkspace />
       <footer className="manufacturer-footer"><a className="manufacturer-brand" href="/"><span className="manufacturer-brand-mark" aria-hidden="true">A</span><span><strong>AMANAH</strong><small>GLOBAL HALAL DIGITAL TRUST</small></span></a><span>Evidence before trust. Trust before operational release.</span><a href="/login">Enter workspace ↗</a></footer>
     </main>
   );
