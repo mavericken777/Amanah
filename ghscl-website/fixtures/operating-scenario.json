@@ -1,0 +1,29 @@
+{
+  "id": "AMANAH-CORRIDOR-0891",
+  "environment": "interactive_scenario",
+  "startedAt": "2026-10-08T08:30:00.000Z",
+  "product": "Premium Halal food product",
+  "sku": "SKU-HALAL-CONFECTIONERY-200G",
+  "batch": "CN-GCC-2026-0891",
+  "facility": "CN-FOSHAN-FAC-04",
+  "sample": "HQ-SAMPLE-0891",
+  "audit": "AUD-8821-GLASSES",
+  "shipment": "CN-GCC-SHIP-0891",
+  "container": "SINO-88201",
+  "seal": "SEAL-9912-X",
+  "importerLot": "UAE-LOT-0891",
+  "purchaseOrder": "PO-UAE-0891",
+  "asn": "ASN-UAE-0891",
+  "origin": "Foshan, China",
+  "exportPort": "Nansha Port",
+  "destinationPort": "Jebel Ali Port",
+  "destination": "Dubai, UAE",
+  "laboratory": "National Food Safety (Hengqin) Innovation Center under Chinese Academy of Agricultural Sciences, China.",
+  "allocations": [
+    { "batch": "CN-GCC-2026-0891-A", "lot": "UAE-LOT-0891-A", "distributor": "DIST-DXB-01", "store": "STORE-DXB-014", "order": "ORDER-0891-014", "cases": 720 },
+    { "batch": "CN-GCC-2026-0891-B", "lot": "UAE-LOT-0891-B", "distributor": "DIST-DXB-02", "store": "STORE-SHJ-008", "order": "ORDER-0891-008", "cases": 480 }
+  ],
+  "unaffectedBatch": "CN-GCC-2026-0902",
+  "temperatureBaseline": 4.2,
+  "temperatureLimit": 8.0
+}

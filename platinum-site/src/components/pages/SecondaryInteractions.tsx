@@ -1,9 +1,11 @@
-import { useMemo, useState } from "react";
+import { lazy, Suspense, useMemo, useState } from "react";
 import { demoVerificationRecords } from "../../data/demoJourney";
 
 const examples = demoVerificationRecords;
+const OperatingPlatform=lazy(()=>import('../platform/OperatingPlatform'));
 
 export function SecondaryInteractions({ slug }: { slug: string }) {
+  const [platformOpen,setPlatformOpen]=useState(false);
   const [token, setToken] = useState(examples[0]?.token ?? "");
   const [issuerToken,setIssuerToken]=useState('');
   const [verification,setVerification]=useState<{message:string;fields?:Record<string,unknown>}>({message:'Enter an issuer-provided QR link or disclosure token.'});
@@ -26,6 +28,8 @@ export function SecondaryInteractions({ slug }: { slug: string }) {
     () => examples.find((item) => item.token.toLowerCase() === token.trim().toLowerCase()) ?? examples[0],
     [token],
   );
+
+  if(slug==='platform-tour')return <section id="interactive-platform" className="secondary-special"><p className="eyebrow">EXPLORE THE OPERATING PLATFORM</p><h2>Follow one SKU, batch and shipment through the complete loop.</h2><p>Twelve connected operating stages bring the product, digital twin, live readings, evidence ledger, D0–D6 decisions and downstream recall into one workspace.</p>{platformOpen?<Suspense fallback={<p role="status">Opening the connected operating platform…</p>}><OperatingPlatform/></Suspense>:<div className="platform-launch"><button className="button-primary" type="button" onClick={()=>setPlatformOpen(true)}>Open the operating platform</button><p>Inspect any handoff. Trigger a cold-chain, seal or laboratory exception. Trace the affected lots and complete investigation, corrective action and reviewed re-verification.</p></div>}</section>;
 
   if (slug === "verify") return <section className="secondary-special glass">
     <p className="eyebrow">VERIFICATION EXPERIENCE</p>

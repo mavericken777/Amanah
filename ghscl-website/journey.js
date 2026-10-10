@@ -52,6 +52,8 @@ const journey = {
 
 if (typeof document !== 'undefined') {
   const $ = id => document.getElementById(id);
+  const scenario=JSON.parse($('operatingScenario').textContent);
+  journey.product=scenario.product;
   const incidentEvents=[];
   let incidentSequence=0;
   const logIncident=(action)=>{incidentEvents.push({action,time:new Date().toLocaleTimeString(),sequence:++incidentSequence});};
@@ -66,14 +68,14 @@ if (typeof document !== 'undefined') {
     const s = journey.stages[index];
     const views = {
       Overview: [['Product',journey.product],['Route','China → GCC direct'],['Current stage',s[0]],['Accountable owner',s[7]],['Connected stages',String(index+1)+' of '+journey.stages.length],['Incident events',String(incidentEvents.length)],['Exception state',exception?exception.phase:(lastExceptionResolution?'RE-VERIFIED':'CLEAR')],['Trust state',exception ? 'HOLD' : (lastExceptionResolution?'RE-VERIFIED':s[6])],['Authority state','Independently owned'],['Operational state',exception?'QUARANTINED · onward release blocked':'Managed by accountable operator']],
-      Identity: [['Product',journey.product],['Current object',s[0]],['Origin','China'],['Destination','GCC'],['Accountable owner',s[7]]],
-      Audit: [['Current checkpoint',journey.audit[auditStep]],['Actor','Human auditor'],['Outcome','Auditor assessment and signed evidence'],['Authority decision','Separate competent-authority workflow']],
-      Lab: [['Current step',journey.lab[labStep]],['Product link','Exact product and production batch'],['Method / QC','Applicable laboratory method and quality controls'],['Meaning','Reviewed scientific evidence supports assurance; it does not independently certify Halal']],
-      Custody: [['Current holder',s[7]],['Location',s[2]],['Transfer','Outgoing → incoming accountable actor'],['Evidence','Custody, condition and handoff record']],
+      Identity: [['Product',journey.product],['SKU',scenario.sku],['Source batch',scenario.batch],['Facility',scenario.facility],['Current object',s[0]],['Origin','China'],['Destination','GCC'],['Accountable owner',s[7]]],
+      Audit: [['Audit session',scenario.audit],['Source batch',scenario.batch],['Current checkpoint',journey.audit[auditStep]],['Actor','Human auditor'],['Outcome','Auditor assessment and signed evidence'],['Authority decision','Separate competent-authority workflow']],
+      Lab: [['Sample',scenario.sample],['Laboratory',scenario.laboratory],['Source batch',scenario.batch],['Current step',journey.lab[labStep]],['Product link','Exact product and production batch'],['Method / QC','Applicable laboratory method and quality controls'],['Meaning','Reviewed scientific evidence supports assurance; it does not independently certify Halal']],
+      Custody: [['Shipment',scenario.shipment],['Container',scenario.container],['Seal',scenario.seal],['Destination lot',scenario.importerLot],['Current holder',s[7]],['Location',s[2]],['Transfer','Outgoing → incoming accountable actor'],['Evidence','Custody, condition and handoff record']],
       Logistics: [['Route','China → GCC direct'],['Current location',s[2]],['Evidence','Container / seal / vehicle / route / condition as applicable'],['Exception handling','Scoped hold, investigation, CAPA and re-verification']],
       Policy: [['Framework','Complete applicable Malaysian/JAKIM framework'],['Destination','Applicable GCC market requirements'],['Control mapping','Requirement → control → HCP/SCCP → evidence → audit test']],
       Timeline: journey.stages.slice(0,index+1).map((v,i)=>['Stage '+(i+1),v[0]+' · '+v[1]]),
-      Provenance: [['Object','Exact product / batch / shipment object'],['Event','Attributable lifecycle event'],['Evidence','Source-bound evidence record'],['Actor','Authenticated accountable actor'],['Timestamp','Recorded event time'],['Integrity','Signature / hash / provenance proof where applicable']]
+      Provenance: [['Product',scenario.product],['SKU',scenario.sku],['Source batch',scenario.batch],['Shipment',scenario.shipment],['Object','Exact product / batch / shipment object'],['Event','Attributable lifecycle event'],['Evidence','Source-bound evidence record'],['Actor','Authenticated accountable actor'],['Timestamp','Recorded event time'],['Integrity','Signature / hash / provenance proof where applicable']]
     };
     fields($('passportBody'), views[recordTab]);
     [...$('passportTabs').children].forEach(b=>b.setAttribute('aria-pressed',String(b.textContent===recordTab)));
@@ -295,7 +297,7 @@ if (typeof document !== 'undefined') {
   $('resetException').addEventListener('click',()=>{if(exception)return;lastExceptionResolution='';renderExceptionState();render();});
   buttons($('actorButtons'),journey.actors.map(a=>a[0]),i=>fields($('actorDetail'),[['Role',journey.actors[i][0]],['Creates / consumes',journey.actors[i][1]],['Value and responsibility',journey.actors[i][2]]]));
   buttons($('architectureButtons'),journey.layers.map(a=>a[0]),i=>fields($('architectureDetail'),[['Layer',journey.layers[i][0]],['Purpose',journey.layers[i][1]],['Journey dependency',journey.layers[i][2]]]));
-  $('consumerScan').addEventListener('click',()=>{pause();select(19);fields($('consumerRecord'),[['Product',journey.product],['Origin','China'],['Journey','Manufacturer → assurance → logistics → GCC market'],['Authority information','Issuer-authorised status and validity'],['Disclosure','Approved provenance and custody summary']]);});
+  $('consumerScan').addEventListener('click',()=>{pause();select(19);fields($('consumerRecord'),[['Product',journey.product],['SKU',scenario.sku],['Source batch',scenario.batch],['Audit',scenario.audit],['Sample',scenario.sample],['Receiving lot',scenario.importerLot],['Origin','China'],['Journey','Manufacturer → assurance → logistics → GCC market'],['Authority information','Issuer-authorised status and validity'],['Disclosure','Approved provenance and custody summary']]);});
 
   for(const id of ['labSteps','warehouseZones','custodyRibbon','portNodes','monitorViews','viewModes','passportTabs','actorButtons','architectureButtons','exceptionButtons','routeNodes']) $(id)?.classList.add('journey-sequence');
 
