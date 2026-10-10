@@ -128,7 +128,7 @@ button:hover,.actions a:hover,.site-start:hover{transform:translateY(-2px);borde
 .site-footer{background:#090a09!important;border-top:1px solid var(--hairline)!important}
 .site-footer,.home-footer{color:#b6b2a5}
 .site-footer nav a,.home-footer nav a{color:#c5b880}
-.motion-ready .motion-reveal{opacity:0;transform:translateY(28px);transition:opacity .85s var(--motion-ease),transform .85s var(--motion-ease);transition-delay:calc(var(--motion-order,0)*70ms)}
+.motion-ready .motion-reveal{opacity:1;transform:none;transition:opacity .85s var(--motion-ease),transform .85s var(--motion-ease);transition-delay:calc(var(--motion-order,0)*70ms)}
 .motion-ready .motion-reveal.is-visible{opacity:1;transform:none}
 .motion-ready .motion-reveal.is-visible .scene-grid{animation:grid-breathe 8s ease-in-out infinite alternate}
 @keyframes route-flow{to{stroke-dashoffset:-34}}

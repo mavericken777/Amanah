@@ -15,3 +15,5 @@ import "./styles/process-3d.css";
 ReactDOM.hydrateRoot(document.getElementById("root")!,
   <React.StrictMode><SecondaryPage /></React.StrictMode>,
 );
+
+import "./styles/hardware.css";

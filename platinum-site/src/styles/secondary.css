@@ -73,3 +73,5 @@ linear-gradient(180deg,var(--obsidian-base),oklch(.08 .004 260));color:var(--tex
 
 .secondary-footer nav{gap:.45rem .7rem}
 .secondary-footer nav a{display:inline-flex;align-items:center;min-height:28px;padding:.35rem .3rem}
+
+.secondary-route-panel{grid-template-columns:repeat(3,minmax(0,1fr))!important;width:min(760px,90vw)!important;max-height:75vh;overflow:auto;background:#11100d!important}.secondary-navigation-group{display:flex;flex-direction:column;align-items:stretch;gap:.35rem;min-width:0}.secondary-navigation-group>strong{color:#e8cd92;margin:.5rem 0;font-size:.8rem}.secondary-navigation-group a{font-size:.8rem!important;padding:.55rem!important;min-height:44px}.secondary-footer nav[aria-label=Footer]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));text-align:start}.secondary-mobile-panel{max-height:70vh;overflow:auto;background:#11100d!important}.secondary-mobile-panel .secondary-navigation-group{margin-bottom:1rem}@media(max-width:720px){.secondary-footer nav[aria-label=Footer]{grid-template-columns:1fr 1fr}}

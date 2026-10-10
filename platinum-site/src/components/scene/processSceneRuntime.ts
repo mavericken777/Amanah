@@ -10,6 +10,7 @@ export type ProcessSceneHandle = {
 // Each environment explains an operation, its evidence and the next handoff.
 // These are explanatory sequences, never live certification or telemetry records.
 const operations: Record<ProcessKind, readonly string[]> = {
+  hardware: ["Identify and enrol the device", "Capture attributable evidence", "Preserve evidence offline", "Validate and acknowledge receipt"],
   corridor: ["Identify the product", "Connect assurance evidence", "Maintain custody", "Verify at destination"],
   onboarding: ["Register the organisation", "Verify premises and scope", "Link product and SKU", "Assign accountable teams"],
   materials: ["Identify each supplier", "Record ingredient origin", "Match formulation and scope", "Link evidence to the batch"],

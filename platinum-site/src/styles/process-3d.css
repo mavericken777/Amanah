@@ -87,3 +87,5 @@
 
 .process-story-pause:focus-visible{outline:2px solid #f0d88f;outline-offset:3px}
 .process-scene-caption{max-width:calc(100% - 8rem)}
+
+.process-story-detail{color:#eee2c8;max-width:55ch;font:400 1rem/1.65 Arial,Helvetica,sans-serif;margin:.8rem 0 0}.process-flow-current{display:none}

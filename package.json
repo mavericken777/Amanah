@@ -10,7 +10,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs",
-    "web:build": "node scripts/apply-website-policy.mjs && node scripts/build-ecosystem-site.mjs && node scripts/finalize-website-provenance.mjs",
+    "web:build": "node scripts/apply-website-policy.mjs && node scripts/build-ecosystem-site.mjs && node scripts/finalize-website-provenance.mjs && node scripts/promote-hardware-pages.mjs",
     "web:lint": "node scripts/check-ecosystem-site.mjs",
     "preweb:build": "npm ci --prefix platinum-site --include=dev --no-audit --no-fund && npm run build --prefix platinum-site && node scripts/promote-trust-assets.mjs"
   },

@@ -1,7 +1,8 @@
-export type ProcessKind = "corridor" | "onboarding" | "materials" | "facility" | "laboratory" | "audit" | "warehouse" | "transport" | "port" | "market" | "authority" | "verification" | "monitoring";
+export type ProcessKind = "hardware" | "corridor" | "onboarding" | "materials" | "facility" | "laboratory" | "audit" | "warehouse" | "transport" | "port" | "market" | "authority" | "verification" | "monitoring";
 
 export const inferKind = (label: string): ProcessKind => {
   const value = label.toLowerCase();
+  if (/hardware|device|firmware|encrypted local buffer|sequence validation|replay|acknowledge/.test(value)) return "hardware";
   if (/real product journey|full (?:china to gcc )?journey|complete corridor/.test(value)) return "corridor";
   if (/command.center|monitor|predict|exception|risk|incident|response/.test(value)) return "monitoring";
   if (/lab|sample|method|qc|science/.test(value)) return "laboratory";
@@ -19,6 +20,7 @@ export const inferKind = (label: string): ProcessKind => {
 };
 
 export const sceneImage = (kind: ProcessKind): string => ({
+  hardware: "scene-assurance.webp",
   corridor: "journey-panorama.webp",
   onboarding: "scene-onboarding.webp",
   materials: "scene-onboarding.webp",
