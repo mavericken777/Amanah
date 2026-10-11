@@ -1,10 +1,11 @@
+import { cinematicStageImages, inferKind, sceneImage, type ProcessKind } from '../scene/sceneImages';
 import { useEffect } from "react";
 import source from "../../../../ghscl-website/ecosystem.en.json";
 import { SecondaryInteractions } from "./SecondaryInteractions";
 import extraPagesSource from "../../../data/extra-pages.json";
 import { ProcessFlow3D } from "../scene/ProcessFlow3D";
 import { ProcessScene3D } from "../scene/ProcessScene3D";
-const companyLogo = "assets/company-logo.webp";
+const companyLogo = "assets/company-logo.webp?v=20261011";
 
 type Card=[string,string];
 type LinkPair=[string,string];
@@ -33,6 +34,10 @@ export function SecondaryPage({ pathname = window.location.pathname }: { pathnam
   const translated=chinese?['首頁','平台導覽','生態系統','公司簡介','視覺旅程','運作方式','標準框架','AHTE 數位信任','指揮中心','追溯','實驗室','智慧稽核','硬體','中國 → GCC','GCC 進口商','GCC 分銷商','零售與市場','中國合作計畫','合作夥伴','製造商','API 與互通性','資訊安全','金融與伊斯蘭保險','查驗','聯絡','繁體中文','安全工作區','العربية']:['الرئيسية','جولة المنصة','المنظومة','الشركة','الرحلة المرئية','كيف تعمل','المعايير','الثقة الرقمية AHTE','مركز القيادة','التتبع','المختبر','التدقيق الذكي','الأجهزة','الصين ← الخليج','المستورد','الموزع','التجزئة والسوق','التعاون في الصين','الشركاء','المصنّعون','التكامل وواجهات API','الأمن السيبراني','التمويل والتكافل','التحقق','التواصل','繁體中文','الدخول الآمن','العربية'];
   const navigation:LinkPair[]=site.navigation.map(([href,label],i)=>[href,localized?(translated[i]||label):label]);
   if(!page)return <main className="secondary-not-found"><p className="eyebrow">AMANAH / PUBLIC SITE</p><h1>Page not found.</h1><a className="button-primary" href="index.html">Return home</a></main>;
+  const heroImage=sceneImage(inferKind(slug));
+  const usedImages=new Set<string>([heroImage,...(slug==='platform-tour'?cinematicStageImages:[])]);
+  const photoKinds:ProcessKind[]=['onboarding','materials','facility','laboratory','audit','warehouse','transport','port','market','authority','verification','monitoring','corridor'];
+  const sectionImages=page.sections.map(section=>{if(!section.flow?.length)return undefined;const candidates=[sceneImage(inferKind(section.title)),...photoKinds.map(sceneImage),'scene-response.avif','scene-export.avif','scene-transit.avif'];const selected=candidates.find(image=>!usedImages.has(image));if(selected)usedImages.add(selected);return selected;});
   return <div className="secondary-shell" data-route={slug} lang={slug==="ar"?"ar":slug==="zh-Hant"?"zh-Hant":"en"} dir={slug==="ar"?"rtl":"ltr"}>
     <a className="skip-link" href="#secondary-main">{words.skip}</a>
     <header className="platinum-header glass secondary-header">
@@ -50,7 +55,7 @@ export function SecondaryPage({ pathname = window.location.pathname }: { pathnam
           <div className="hero-actions"><a className="button-primary" href="https://amanah-yq9x.vercel.app/login">{words.open}</a><a className="button-secondary" href="contact.html">{words.plan}</a></div>
           <div className="secondary-topology">AHTE ⇄ Direct JAKIM API ⇄ JAKIM <span>·</span> {chinese?"中國 → GCC 直達":slug==="ar"?"الصين إلى الخليج مباشرة":"China → GCC direct"}</div>
         </div>
-        <div className="secondary-hero-scene"><ProcessScene3D mode={slug} stage={chinese?"中國來源至 GCC 目的地":slug==="ar"?"من الصين إلى أسواق الخليج":`${page.label} · China origin to GCC destination`} className="secondary-page-scene" overviewOnly /></div>
+        <div className="secondary-hero-scene"><ProcessScene3D image={heroImage} mode={slug} stage={chinese?"中國來源至 GCC 目的地":slug==="ar"?"من الصين إلى أسواق الخليج":`${page.label} · China origin to GCC destination`} className="secondary-page-scene" overviewOnly /></div>
       </section>
       <nav className="secondary-index" aria-label={words.index}>{page.sections.map(section=><a key={section.id} href={"#"+section.id}>{section.title}</a>)}</nav>
       {page.sections.map((section,index)=><section className="secondary-section" id={section.id} key={section.id}>
@@ -58,7 +63,7 @@ export function SecondaryPage({ pathname = window.location.pathname }: { pathnam
         <div className="secondary-section-body">
           {section.text?<p className="secondary-lede">{section.text}</p>:null}
           {section.cards?<div className="secondary-card-grid">{section.cards.map(([title,text])=><article className="secondary-card glass" key={title}><h3>{title}</h3><p>{text}</p></article>)}</div>:null}
-          {section.flow?.length?<><ProcessFlow3D title={section.title} steps={section.flow} mode={slug} id={`${slug}-${section.id}-process`} /><ol className="secondary-flow">{section.flow.map((item,i)=><li key={item}><span>{String(i+1).padStart(2,"0")}</span><strong>{item}</strong></li>)}</ol></>:null}
+          {section.flow?.length?<><ProcessFlow3D image={sectionImages[index]} title={section.title} steps={section.flow} mode={slug} id={`${slug}-${section.id}-process`} /><ol className="secondary-flow">{section.flow.map((item,i)=><li key={item}><span>{String(i+1).padStart(2,"0")}</span><strong>{item}</strong></li>)}</ol></>:null}
           {section.detail?<details className="secondary-technical"><summary>{words.detail}</summary><p>{section.detail}</p></details>:null}
           {section.link?<a className="button-secondary" href={section.link[0]}>{section.link[1]} ↗</a>:null}
         </div>

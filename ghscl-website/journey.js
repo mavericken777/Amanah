@@ -175,10 +175,10 @@ if (typeof document !== 'undefined') {
   }
 
   const stageImages = [
-    'scene-origin.webp','scene-onboarding.webp','scene-origin.webp','scene-onboarding.webp','scene-onboarding.webp',
-    'scene-assurance.webp','scene-lab.webp','scene-assurance.webp','scene-assurance.webp','scene-origin.webp',
-    'scene-warehouse.webp','scene-logistics.webp','scene-logistics.webp','scene-logistics.webp','scene-logistics.webp',
-    'scene-market.webp','scene-warehouse.webp','scene-market.webp','scene-market.webp','scene-market.webp'
+    'scene-origin.avif','scene-onboarding.avif','scene-origin.avif','scene-onboarding.avif','scene-onboarding.avif',
+    'scene-assurance.avif','scene-lab.avif','scene-assurance.avif','scene-assurance.avif','scene-origin.avif',
+    'scene-warehouse.avif','scene-logistics.avif','scene-logistics.avif','scene-logistics.avif','scene-logistics.avif',
+    'scene-market.avif','scene-warehouse.avif','scene-market.avif','scene-market.avif','scene-market.avif'
   ];
 
   function render() {

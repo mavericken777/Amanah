@@ -4,3 +4,14 @@
 @media(max-width:1100px){.platform-dashboard{grid-template-columns:1fr}.platform-stepper{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:760px){.platform-heading{display:block}.platform-heading a{display:inline-block}.platform-identity{grid-template-columns:1fr;gap:16px}.platform-consumer{grid-template-columns:1fr}.platform-exception-triggers{grid-template-columns:1fr}.platform-stepper{grid-template-columns:repeat(3,minmax(0,1fr))}.platform-stepper button{font-size:10px;padding:10px;min-height:88px}.platform-metrics{grid-template-columns:1fr}.platform-metrics>div{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center}.platform-metrics dd{margin:0}.platform-metrics small{grid-column:1/-1}.platform-controls>button{flex:1}.platform-countdown{width:100%;padding:10px 0}.platform-panel{padding:16px}.platform-governance{grid-template-columns:repeat(3,minmax(0,1fr))}.platform-incident{padding:14px}}
 @media(prefers-reduced-motion:reduce){.operating-platform *{scroll-behavior:auto;animation:none!important;transition:none!important}}
+
+/* A responsive photographic camera window for every operating handoff. */
+.platform-cinematic-frame{position:relative;aspect-ratio:16/10;overflow:hidden;isolation:isolate;background:#090b09}
+.platform-cinematic-image{display:block;width:100%;height:100%;object-fit:cover;object-position:center;animation:operating-camera 18s ease-in-out infinite alternate;filter:saturate(.9) contrast(1.03)}
+.platform-cinematic-frame::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent 45%,#090b09eb)}
+.platform-cinematic-caption{position:absolute;z-index:2;inset:auto 18px 18px;display:grid;gap:8px;font:12px/1.5 Arial,Helvetica,sans-serif;color:#fff1cf;text-shadow:0 1px 4px #000}
+.platform-cinematic-caption strong{color:#ffdbb0;letter-spacing:.04em;font-size:10px}
+.operating-platform[data-playback=PAUSED] .platform-cinematic-image,.operating-platform[data-playback=EXCEPTION_HOLD] .platform-cinematic-image{animation-play-state:paused}
+@keyframes operating-camera{from{transform:scale(1.015) translateX(-.4%)}to{transform:scale(1.085) translateX(.4%)}}
+@media(max-width:760px){.platform-cinematic-frame{aspect-ratio:4/3}.platform-cinematic-caption{inset:auto 12px 12px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.platform-cinematic-image{animation:none!important;transform:none!important}}

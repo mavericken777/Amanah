@@ -7,7 +7,8 @@ export function ProcessScene3D({
   index = 0,
   className = "",
   overviewOnly = false,
-}: { mode?: string; stage?: string; index?: number; className?: string; overviewOnly?: boolean }) {
+  image,
+}: { mode?: string; stage?: string; index?: number; className?: string; overviewOnly?: boolean; image?: string }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,11 +40,12 @@ export function ProcessScene3D({
     ref={ref}
     className={`process-scene-3d ${className}`.trim()}
     data-process-scene="true"
+    data-scene-image={image ? `assets/${image}` : undefined}
     data-scene={mode}
     data-overview-only={overviewOnly ? "true" : undefined}
     data-stage-label={`${mode} · ${stage}`}
     data-stage-index={index}
     role="group"
     aria-label={`Process explanation: ${stage}`}
-  ><img className="process-scene-photograph" src={`assets/${sceneImage(inferKind(overviewOnly ? mode : `${mode} · ${stage}`))}`} alt="" aria-hidden="true" decoding="async" fetchPriority={className.includes("hero") || className.includes("page-scene") ? "high" : "auto"} loading={className.includes("hero") || className.includes("page-scene") ? "eager" : "lazy"} /><span className="process-scene-loading" role="status">{mode==='zh-Hant'?"正在載入營運流程…":mode==='ar'?"جارٍ تحميل مسار التشغيل…":"Loading animated operating scene…"}</span><span className="process-scene-caption" aria-hidden="true">{stage}</span><span className="process-scene-orbit" aria-hidden="true" /></div>;
+  ><img className="process-scene-photograph" src={`assets/${image || sceneImage(inferKind(overviewOnly ? mode : `${mode} · ${stage}`))}`} alt="" aria-hidden="true" decoding="async" fetchPriority={className.includes("hero") || className.includes("page-scene") ? "high" : "auto"} loading={className.includes("hero") || className.includes("page-scene") ? "eager" : "lazy"} /><span className="process-scene-loading" role="status">{mode==='zh-Hant'?"正在載入營運流程…":mode==='ar'?"جارٍ تحميل مسار التشغيل…":"Loading animated operating scene…"}</span><span className="process-scene-caption" aria-hidden="true">{stage}</span><span className="process-scene-orbit" aria-hidden="true" /></div>;
 }

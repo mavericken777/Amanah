@@ -8,7 +8,7 @@ test("public and React pages share the cinematic process renderer",()=>{
   assert.match(app,/<ProcessFlow3D title="Canonical trust path"/);
   assert.match(secondary,/section\.flow\?\.length[\s\S]*?<ProcessFlow3D/);
   const sceneMapping=fs.readFileSync("platinum-site/src/components/scene/sceneImages.ts","utf8");
-  for(const image of ["scene-origin.webp","scene-market.webp","journey-panorama.webp","scene-onboarding.webp","scene-assurance.webp","scene-lab.webp","scene-warehouse.webp","scene-logistics.webp","scene-command-center.webp"]){
+  for(const image of ["scene-origin.avif","scene-market.avif","journey-panorama.avif","scene-onboarding.avif","scene-assurance.avif","scene-lab.avif","scene-warehouse.avif","scene-logistics.avif","scene-command-center.avif"]){
     assert.ok(fs.existsSync(`platinum-site/public/assets/${image}`),`missing optimized scene image ${image}`);
     assert.ok(sceneMapping.includes(image),`missing scene mapping for ${image}`);
   }
@@ -18,8 +18,8 @@ test("static landing stages drive their 3D scenes and retain semantic process de
   const html=fs.readFileSync("ghscl-website/index.html","utf8");
   const script=fs.readFileSync("ghscl-website/journey.js","utf8");
   assert.ok(html.includes('id="journeyScene" data-process-scene="true"'),'missing the synchronized 3D product journey');
-  assert.match(html,/process-scene-photograph" src="assets\/scene-origin\.webp"/);
-  for(const image of ["scene-assurance.webp","scene-lab.webp","scene-warehouse.webp","scene-logistics.webp","scene-market.webp"]){
+  assert.match(html,/process-scene-photograph" src="assets\/scene-origin\.avif"/);
+  for(const image of ["scene-assurance.avif","scene-lab.avif","scene-warehouse.avif","scene-logistics.avif","scene-market.avif"]){
     assert.ok(html.includes(`src="assets/${image}"`),`static journey missing ${image}`);
   }
   assert.match(html,/class="process-scene-3d process-scene-hero"/);

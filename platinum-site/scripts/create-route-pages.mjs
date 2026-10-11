@@ -22,7 +22,7 @@ for (const page of [...data.pages, ...extraPages]) {
     .replace(/<title>.*?<\/title>/s, `<title>${escapeHtml(title)}</title>`)
     .replace(/<meta name="description" content="[^"]*"\s*\/>/, `<meta name="description" content="${escapeHtml(page.description)}" />`);
   const locale = page.slug === "ar" ? "ar" : page.slug === "zh-Hant" ? "zh-Hant" : "en";
-  html = html.replace("assets/journey-panorama.webp", "assets/" + sceneImage(inferKind(page.slug)));
+  html = html.replace("assets/journey-panorama.avif", "assets/" + sceneImage(inferKind(page.slug)));
   html = html.replace(/<html[^>]*>/, '<html lang="' + locale + '"' + (locale === "ar" ? ' dir="rtl"' : "") + '>');
   const canonical=data.baseUrl+page.slug+'.html';
   const metadata='<link rel="canonical" href="'+canonical+'"><meta property="og:title" content="'+escapeHtml(title)+'"><meta property="og:url" content="'+canonical+'"><script type="application/ld+json">'+JSON.stringify({'@context':'https://schema.org','@type':'WebPage',name:title,url:canonical,inLanguage:locale}).replaceAll('<','\\u003c')+'</script>';

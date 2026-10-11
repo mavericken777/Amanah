@@ -1,4 +1,4 @@
-import { inferKind, sceneAssetUrl, type ProcessKind } from "./sceneImages";
+import { inferKind, sceneAssetUrl, journeySceneImage, type ProcessKind } from "./sceneImages";
 
 export type ProcessSceneHandle = {
   setStage: (label: string, index?: number) => boolean;
@@ -102,7 +102,7 @@ function mountProcessScene(container: HTMLElement): ProcessSceneHandle {
       return item;
     }));
     paintPhase();
-    const nextImage = sceneAssetUrl(kind);
+    const nextImage = container.dataset.sceneLibrary === 'journey' ? sceneAssetUrl(kind).replace(/[^/]+$/,journeySceneImage(kind)) : container.dataset.sceneImage || sceneAssetUrl(kind);
     const version = ++request;
     if (!cinematic.src.endsWith(nextImage)) {
       const preload = new Image();

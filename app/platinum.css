@@ -249,3 +249,7 @@ pre{background:#080807;color:#d7c59d;border:1px solid var(--line);border-radius:
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .motion-entry{opacity:1;transform:none}
 }
+
+/* Integrate the company shield with every workspace background. */
+.brand-crest,.auth-brand-crest,.auth-crest{object-fit:contain;mix-blend-mode:screen;background:transparent;border:0;box-shadow:none}
+.brand-copy>span:not(.brand-micro),.auth-brand-copy strong{white-space:nowrap;letter-spacing:.02em}

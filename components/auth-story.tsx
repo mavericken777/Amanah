@@ -4,7 +4,7 @@ export function AuthStory() {
   return (
     <aside className="auth-story">
       <Link href="/login" className="brand" aria-label="Global Halal Supply Chain Ltd — Amanah">
-        <img className="auth-brand-crest" src="/company-logo.webp" alt="" />
+        <img className="auth-brand-crest" src="/company-logo.webp?v=20261011" alt="" />
         <span className="auth-brand-copy">
           <strong>GLOBAL HALAL SUPPLY CHAIN LTD</strong>
           <span>AMANAH · GLOBAL HALAL DIGITAL TRUST</span>

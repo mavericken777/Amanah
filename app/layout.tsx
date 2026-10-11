@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: { default: "Amanah | Global Halal Digital Trust", template: "%s | Amanah" },
   description: "Amanah is the operational workspace for the Global Halal Digital Trust ecosystem: evidence, standards, audit, laboratory, custody, monitoring and accountable human decisions across the China → GCC corridor.",
   applicationName: "Amanah",
+  icons: { icon: [{url: "/ghscl-favicon.png?v=20261011", type: "image/png", sizes: "64x64"}] },
 };
 
 export const viewport: Viewport = {
