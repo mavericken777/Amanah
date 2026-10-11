@@ -16,3 +16,5 @@ This is an explicitly identified interactive operating scenario. It does not exe
 ### Fitted branding and cinematic scenes
 
 The company shield has a transparent outer background and keeps its full proportions in the header and footer. The company name stays on one line; the 64 px favicon has an even transparent margin. Each homepage scene has a persistent image allocation, and secondary route scenes allocate distinct photographs per page. The 12-stage operating dashboard uses 12 distinct cinematic photographs, responsive camera windows, playback-linked camera motion and a reduced-motion fallback. New ingredient, port, dossier-review, consumer, ocean-transit and dedicated interactive-journey photographs were created with the built-in image-generation tool. Images illustrate the operating process; they are not a live camera feed. AVIF assets preserve their composition and keep the existing performance budget.
+
+The landing hero uses a single photorealistic factory-and-dispatch photograph instead of the previous composite, with the subject and product centred for responsive camera motion.
